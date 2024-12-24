@@ -1,0 +1,35 @@
+{
+  "name": "QYL-theme",
+  "author": "QYL",
+  "url": "https://github.com/QYLexpired/QYL-theme",
+  "version": "1.0.1",
+  "displayName": {
+    "default": "QYL",
+    "zh_CN": "QYL",
+    "en_US": "QYL"
+  },
+  "description": {
+    "default": "自用主题",
+    "zh_CN": "自用主题",
+    "en_US": "Self-use theme"
+  },
+  "readme": {
+    "default": "README_zh_CN.md",
+    "zh_CN": "README_zh_CN.md",
+    "en_US": "README.md"
+  },
+  "funding": {
+    "openCollective": "",
+    "patreon": "",
+    "github": "",
+    "custom": [
+      ""
+    ]
+  },
+  "modes": [
+    "light"
+  ],
+  "keywords": [
+    "QYL"
+  ]
+}
