@@ -1,6 +1,6 @@
 :root {
     /* 字体 */
-    --b3-font-family: "QYL fonts", "QYL fonts backup", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif","Twitter Emoji","Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
+    --b3-font-family: "QYL fonts times", "QYL fonts", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif","Twitter Emoji","Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
 
     /* 标题颜色 */
     --h1-: #881400 ;
@@ -24,15 +24,15 @@
     src: url("fonts/SourceHanSerifCN-Heavy.otf");
 }
 @font-face {
-    font-family: "QYL fonts backup";
+    font-family: "QYL fonts times";
     font-style: normal;
-    src: url("plugins\fonts/SourceHanSerifCN-SemiBold.otf");
+    src: url("fonts/times.ttf");
 }
 @font-face {
-    font-family: "QYL fonts backup";
+    font-family: "QYL fonts times";
     font-style: normal;
     font-weight: bold;
-    src: url("plugins\fonts/SourceHanSerifCN-Heavy.otf");
+    src: url("fonts/timesbd.ttf");
 }
 
 /* 斜杠菜单展开 */
