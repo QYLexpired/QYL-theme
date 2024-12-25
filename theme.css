@@ -71,7 +71,7 @@
 #barWorkspace {
     width: 65px;
     height: 25px;
-    border-radius: 12px ;
+    border-radius: 10px;
     background: linear-gradient(90deg, #FF6B6B, #FF7757, #FFAB3D, #6BF178, #6DD3FF, #D7B5FE, #FFB5E1, #FF6B6B);
     background-size: 1600% 100%;
     animation: rainbowButton 12s linear infinite;
@@ -82,15 +82,16 @@
     justify-content: center;
 }
 #barWorkspace span.toolbar__text {
-    font-size: 12px ;
-    font-weight: 600 ;
-    color: white ;
-    text-transform: none ;
+    font-family: "QYL fonts";
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    text-transform: none;
 }
 #barWorkspace svg.toolbar__svg {
-    color: white ;
-    opacity: 1 ;
-    margin-top: 2.5px ;
+    color: white;
+    opacity: 1;
+    margin-top: 2.5px;
     display: none;
 }
 #barWorkspace:hover { filter: brightness(0.8); }
