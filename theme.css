@@ -128,12 +128,12 @@
 .protyle-gutters { transition: all 0.2s ease-out; }
 
 /* 彩色多级标题 */
-.protyle-wysiwyg .h1 { color: var(--h1-); }
-.protyle-wysiwyg .h2 { color: var(--h2-); }
-.protyle-wysiwyg .h3 { color: var(--h3-); }
-.protyle-wysiwyg .h4 { color: var(--h4-); }
-.protyle-wysiwyg .h5 { color: var(--h5-); }
-.protyle-wysiwyg .h6 { color: var(--h6-); }
+.b3-typography .h1,.b3-typography h1,.protyle-wysiwyg .h1,.protyle-wysiwyg h1 { color: var(--h1-); }
+.b3-typography .h2,.b3-typography h2,.protyle-wysiwyg .h2,.protyle-wysiwyg h2 { color: var(--h2-); }
+.b3-typography .h3,.b3-typography h3,.protyle-wysiwyg .h3,.protyle-wysiwyg h3 { color: var(--h3-); }
+.b3-typography .h4,.b3-typography h4,.protyle-wysiwyg .h4,.protyle-wysiwyg h4 { color: var(--h4-); }
+.b3-typography .h5,.b3-typography h5,.protyle-wysiwyg .h5,.protyle-wysiwyg h5 { color: var(--h5-); }
+.b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 { color: var(--h6-); }
 
 /* 表格优化 */
 th, tr:nth-child(odd) td, tr:nth-child(even) td { border: 2px solid #515A5B !important; }
@@ -162,18 +162,33 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 /* 状态栏浮动到右侧 */
 #status {
     position: fixed;
-    right: 42px !important;
-    bottom: -8px;
+    right: 45px !important;
+    bottom: 3px;
     border-radius: 8px;
     height: 27px !important;
     padding: 0px 5px 0px !important;
-    margin: 0px 5px 15px;
     overflow: hidden;
     z-index: 3;
     border: none;
-    background-color: var(--b3-theme-surface);
+    background-color: rgba(233, 233, 233, 0.5);
     display: flex;
     align-items: center;
+    transition: 0.5s;
+}
+#status:hover {
+    position: fixed;
+    right: 45px !important;
+    bottom: 3px;
+    border-radius: 8px;
+    height: 27px !important;
+    padding: 0px 5px 0px !important;
+    overflow: hidden;
+    z-index: 3;
+    border: none;
+    background-color: rgba(211, 211, 211, 0.5);
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
 }
 #barDock {
     position: relative;
@@ -181,4 +196,60 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 }
 #statusHelp {
     position: relative;
+}
+
+/* 行级代码 */
+.b3-typography code:not(.hljs),.b3-typography span[data-type~=code],.protyle-wysiwyg code:not(.hljs),.protyle-wysiwyg span[data-type~=code] {
+    color: red;
+}
+
+/* 页签栏 */
+.layout-tab-bar .item {
+    min-height: 25px;
+    height: 35px;
+    margin: 5px;
+}
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
+    background-color: #efefef;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
+    background-color: #cecece;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+.item.item--focus {
+    background-color: #cecece;
+    border-radius: 12px;
+    transition: 0.5s;
+}
+.layout__wnd--active .layout-tab-bar .item:after, .layout-tab-bar .item--full.item--focus::after {
+    display:none;
+}
+.layout-tab-bar {
+    border-bottom: 10px solid rgba(0,0,0,0);
+}
+.layout-tab-bar .item__text {
+    padding-top: 2px;
+}
+.layout-tab-bar .item.item--focus .item__close svg {
+    background-color: rgba(241, 241, 241, 0);
+    color: black;
+    opacity: 1 !important;
+}
+.layout-tab-bar .item.item--focus .item__close svg:hover {
+    background-color: rgb(255, 53, 53);
+    color: rgb(255, 255, 255);
+    opacity: 1 !important;
+}
+.layout-tab-bar .item:hover .item__close svg {
+    background-color: rgba(241, 241, 241, 0);
+    color: black;
+    opacity: 1 !important;
+}
+.layout-tab-bar .item:hover .item__close svg:hover {
+    background-color: rgb(255, 53, 53);
+    color: rgb(255, 255, 255);
+    opacity: 1 !important;
 }
