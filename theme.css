@@ -170,7 +170,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     overflow: hidden;
     z-index: 3;
     border: none;
-    background-color: rgba(233, 233, 233, 0.5);
+    background-color: rgba(233, 233, 233, 0.8);
     display: flex;
     align-items: center;
     transition: 0.5s;
@@ -185,10 +185,11 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     overflow: hidden;
     z-index: 3;
     border: none;
-    background-color: rgba(211, 211, 211, 0.5);
+    background-color: rgba(211, 211, 211, 0.8);
     display: flex;
     align-items: center;
-    transition: 0.5s;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
 }
 #barDock {
     position: relative;
@@ -206,7 +207,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 /* 页签栏 */
 .layout-tab-bar .item {
     min-height: 25px;
-    height: 35px;
+    height: 30px;
     margin: 5px;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
@@ -215,20 +216,22 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     transition: 0.5s;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
-    background-color: #cecece;
+    background-color: #efefef;
     border-radius: 12px;
-    transition: 0.5s;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
 }
 .item.item--focus {
-    background-color: #cecece;
+    background-color: #efefef;
     border-radius: 12px;
-    transition: 0.5s;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
 }
 .layout__wnd--active .layout-tab-bar .item:after, .layout-tab-bar .item--full.item--focus::after {
     display:none;
 }
 .layout-tab-bar {
-    border-bottom: 10px solid rgba(0,0,0,0);
+    border-bottom: 0px solid rgba(0,0,0,0);
 }
 .layout-tab-bar .item__text {
     padding-top: 2px;
@@ -252,4 +255,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     background-color: rgb(255, 53, 53);
     color: rgb(255, 255, 255);
     opacity: 1 !important;
+}
+.config-bazaar__title {
+    padding: 8px;
 }
