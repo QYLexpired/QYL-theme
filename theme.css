@@ -67,17 +67,12 @@
     }
 }
 
-/* 主菜单按钮彩虹渐变 */
+/* 主菜单按钮 */
 #barWorkspace {
     width: 65px;
     height: 25px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #FF6B6B, #FF7757, #FFAB3D, #6BF178, #6DD3FF, #D7B5FE, #FFB5E1, #FF6B6B);
-    background-size: 1600% 100%;
-    animation: rainbowButton 12s linear infinite;
-    user-select: none;
-    transition: filter 0.3s ease;
-    display: flex;
+    background-color: #3375f0;
     align-items: center;
     justify-content: center;
 }
@@ -96,16 +91,12 @@
 }
 #barWorkspace:hover { filter: brightness(0.8); }
 #barWorkspace:active { filter: brightness(0.7); }
-@keyframes rainbowButton {
-    0% { background-position: 0% 0%; }
-    100% { background-position: -200% 0%; }
-}
 
-/* 分割线彩虹渐变 */
+/* 分割线 */
 .hr {
     border: none;
     position: relative;
-    height: 6px;
+    height: 2px;
     overflow: hidden;
 }
 .hr::before {
@@ -115,13 +106,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    background: linear-gradient(90deg, #FF6B6B, #FF7757, #FFAB3D, #6BF178, #6DD3FF, #D7B5FE, #FFB5E1, #FF6B6B);
-    background-size: 1200% 100%;
-    animation: rainbow 30s linear infinite;
-}
-@keyframes rainbow {
-    0% { background-position: 0% 0%; }
-    100% { background-position: -600% 0%; }
+    background: linear-gradient(90deg, rgba(51, 117, 240, 0.5), hsla(219, 86%, 57%, 0.6), rgba(51, 117, 240, 0.5));
 }
 
 /* 块标平滑切换 */
@@ -134,6 +119,12 @@
 .b3-typography .h4,.b3-typography h4,.protyle-wysiwyg .h4,.protyle-wysiwyg h4 { color: var(--h4-); }
 .b3-typography .h5,.b3-typography h5,.protyle-wysiwyg .h5,.protyle-wysiwyg h5 { color: var(--h5-); }
 .b3-typography .h6,.b3-typography h6,.protyle-wysiwyg .h6,.protyle-wysiwyg h6 { color: var(--h6-); }
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h1::before { background-color: rgba(136, 20, 0, 0.25);}
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h2::before { background-color: rgba(220, 160, 70, 0.25);}
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h3::before { background-color: rgba(58, 87, 121, 0.25);}
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h4::before { background-color: rgba(74, 109, 66, 0.25);}
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h5::before { background-color: rgba(129, 89, 137, 0.25);}
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h6::before { background-color: rgba(186, 70, 136, 0.25);}
 
 /* 表格优化 */
 th, tr:nth-child(odd) td, tr:nth-child(even) td { border: 2px solid #515A5B !important; }
@@ -212,20 +203,21 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: #efefef;
-    border-radius: 12px;
+    border-radius: 16px;
     transition: 0.5s;
+    border: 3px solid #3576f000 !important;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
     background-color: #efefef;
-    border-radius: 12px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    border: 3px solid #6a6a6a !important;
 }
 .item.item--focus {
     background-color: #efefef;
-    border-radius: 12px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    border: 3px solid #3575f0 !important;
 }
-.layout__wnd--active .layout-tab-bar .item:after, .layout-tab-bar .item--full.item--focus::after {
+.layout__wnd--active .layout-tab-bar .item:after, .layout-tab-bar .item--full.item--focus::after, .layout-tab-bar .item--focus::after {
     display:none;
 }
 .layout-tab-bar {
@@ -271,4 +263,23 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     background-color: #224fa3;
     color: white;
     transition: 0.5s;
+}
+
+/* 标签 */
+.protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+    border-radius: 12px;
+    border: 2px solid #3575f0;
+    padding: 5px;
+    color: #3575f0;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]::before {
+    content: "#";
+    color: #3575f0;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:hover {
+    background-color: #3576f040;
 }
