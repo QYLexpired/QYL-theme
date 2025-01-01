@@ -212,11 +212,9 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 
 /* 页签栏 */
 .layout-tab-bar .item {
-    min-height: 25px;
-    height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
+    min-height: 20px;
+    height: 25px;
+    margin: 6px;
     transition: 0.2s;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
@@ -315,4 +313,45 @@ li.item.item--readonly {
     border-radius: 6px;
     margin-left: 3px;
     margin-right: 3px;
+}
+
+/* 选中项效果（文档树、大纲、菜单） */
+.b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus:not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom) {
+    background-color: var(--b3-theme-primary-lightest);
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+.b3-list--background .b3-list-item {
+    border: 1.5px solid rgba(255, 0, 0, 0) !important;
+}
+.b3-menu__item--current:not(.b3-menu__item--readonly) {
+    background-color: var(--b3-theme-primary-lightest);
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+.b3-menu__item {
+    border: 1.5px solid rgba(255, 0, 0, 0) !important;
+}
+
+/* 任务列表 */
+.protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover {
+    color: var(--b3-theme-primary);
+}
+.protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover::after, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover::after, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover::after {
+    background-color: var(--b3-theme-primary-lightest);
+}
+
+/* 界面整体优化 */
+#toolbar {
+    border: none;
+}
+.dock#dockLeft {
+    border: none;
+}
+.dock#dockRight {
+    border: none;
+}
+.layout__resize::after {
+    background-color: var(--b3-theme-background-light);
+}
+.layout__resize--lr::after {
+    width: 2px;
 }
