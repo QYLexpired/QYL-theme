@@ -307,9 +307,9 @@ li.item.item--readonly {
 
 /* 键盘元素 */
 .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
-    background: linear-gradient(to bottom, #444, #222);
+    background: linear-gradient(to bottom, #5c94fc, #3575f0);
     color: white;
-    border: 2px solid #666;
+    border: 2px solid #4a89e6;
     border-radius: 6px;
     margin-left: 3px;
     margin-right: 3px;
