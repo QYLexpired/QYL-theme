@@ -38,6 +38,11 @@
     --b3-border-color: var(--b3-theme-surface-lighter);
     --b3-border-radius: 10px;
     --b3-border-radius-b: 16px;
+
+    /* 容器阴影 */
+    --b3-point-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
+    --b3-dialog-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
+    --b3-button-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
 }
 
 /* 设置全局字体 */
@@ -195,6 +200,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     display: flex;
     align-items: center;
     transition: 0.5s;
+    box-shadow: var(--b3-dialog-shadow);
 }
 #status:hover {
     background-color: var(--b3-theme-background-light);
@@ -404,7 +410,7 @@ li.item.item--readonly {
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
     background: linear-gradient(145deg, #ffffff, #f5f5f5);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    box-shadow: var(--b3-dialog-shadow);
     border: none;
 }
 
@@ -414,8 +420,17 @@ li.item.item--readonly {
     border-bottom: 2px dashed red;
 }
 
-.file-tree>.fn__flex-1 {
-    --indent-color-inactive: rgb(from var(--b3-theme-on-background) r g b / .15);
-    --indent-color-active: rgb(from var(--b3-theme-on-background) r g b / .3);
-    --indent-color: #0000
+/* 备注界面 */
+.tooltip--memo {
+    width: 300px;
+    min-height: fit-content;
+    line-height: 20px;
+    text-align: justify;
+    color: grey;
+    background-color: #fff9c4;
+    padding: 20px 10px;
+    border-top: 6px solid #fff000;
+    border-radius: var(--b3-border-radius);
+    margin-top: 5px;
+    box-shadow: var(--b3-point-shadow);
 }
