@@ -172,7 +172,25 @@ function createSettingsWindow() {
             closeSettingsWindow();
         }
     });
+    // 阻止点击事件冒泡
+    settingsWindow.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
 }
+
+ // 点击空白处关闭设置窗口
+document.addEventListener('click', function(event) {
+    var targetElement = event.target; // clicked element
+    var settingsWindow = document.getElementById('settingsWindow');
+    var qToolbar = document.getElementById('QToolbar');
+    do {
+        if (targetElement == settingsWindow || targetElement == qToolbar) {
+            return;
+        }
+        targetElement = targetElement.parentNode;
+    } while (targetElement);
+    closeSettingsWindow();
+});
 
 // 关闭设置窗口
 function closeSettingsWindow() {
