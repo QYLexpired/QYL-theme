@@ -318,23 +318,18 @@ li.item.item--readonly {
 /* 选中项效果（文档树、大纲、菜单） */
 .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus:not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom) {
     background-color: var(--b3-theme-background-light);
-    border: 1.5px solid var(--b3-theme-notfocus) !important;
 }
-.b3-list--background .b3-list-item, .b3-list-item {
-    border: 1.5px solid rgba(255, 0, 0, 0) !important;
+.b3-list--background .b3-list-item, li.b3-list-item  {
     border-radius: var(--b3-border-radius);
 }
 .b3-menu__item--current:not(.b3-menu__item--readonly) {
     background-color: var(--b3-theme-primary-lightest);
-    border: 1.5px solid var(--b3-theme-primary) !important;
 }
 .b3-menu__item {
-    border: 1.5px solid rgba(255, 0, 0, 0) !important;
     margin: 0px;
 }
 .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list-item:hover, .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus), .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
     background-color: var(--b3-theme-primary-lightest);
-    border: 1.5px solid var(--b3-theme-primary) !important;
 }
 
 /* 任务列表 */
