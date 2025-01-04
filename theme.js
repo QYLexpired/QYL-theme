@@ -64,6 +64,8 @@ function addThemeToolBar() {
 let isChecked = false;
 let isChecked2 = false;
 let isChecked3 = false;
+let isChecked4 = false;
+let isChecked5 = false;
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
     if (document.getElementById('settings-window')) return;
@@ -112,6 +114,26 @@ function createSettingsWindow() {
     label3.textContent = '隐藏顶栏';
     label3.style.fontSize = '14px';
 
+    const checkbox4 = document.createElement('input');
+    checkbox4.type = 'checkbox';
+    checkbox4.id = 'hoverblock-remind-checkbox';
+    checkbox4.checked = isChecked4;
+
+    const label4 = document.createElement('label');
+    label4.htmlFor = 'hoverblock-remind-checkbox';
+    label4.textContent = '鼠标所在块高亮提示';
+    label4.style.fontSize = '14px';
+
+    const checkbox5 = document.createElement('input');
+    checkbox5.type = 'checkbox';
+    checkbox5.id = 'sbblock-remind-checkbox';
+    checkbox5.checked = isChecked5;
+
+    const label5 = document.createElement('label');
+    label5.htmlFor = 'sbblock-remind-checkbox';
+    label5.textContent = '鼠标所在超级块范围提示';
+    label5.style.fontSize = '14px';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -128,10 +150,22 @@ function createSettingsWindow() {
     QYLfunctionpair3.appendChild(checkbox3);
     QYLfunctionpair3.appendChild(label3);
 
+    const QYLfunctionpair4 = document.createElement('div');
+    QYLfunctionpair4.className = 'checkbox-label-pair';
+    QYLfunctionpair4.appendChild(checkbox4);
+    QYLfunctionpair4.appendChild(label4);
+
+    const QYLfunctionpair5 = document.createElement('div');
+    QYLfunctionpair5.className = 'checkbox-label-pair';
+    QYLfunctionpair5.appendChild(checkbox5);
+    QYLfunctionpair5.appendChild(label5);
+    
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
     settingsWindow.appendChild(QYLfunctionpair3);
+    settingsWindow.appendChild(QYLfunctionpair4);
+    settingsWindow.appendChild(QYLfunctionpair5);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -163,6 +197,26 @@ function createSettingsWindow() {
             enabletoolbarhidden();
         } else {
             disabletoolbarhidden();
+        }
+    });
+
+    // 鼠标所在块高亮开关
+    checkbox4.addEventListener('change', function() {
+        isChecked4 = this.checked;
+        if (this.checked) {
+            enablehoverblockremind();
+        } else {
+            disablehoverblockremind();
+        }
+    });
+
+    // 超级块范围提示开关
+    checkbox5.addEventListener('change', function() {
+        isChecked5 = this.checked;
+        if (this.checked) {
+            enablesbremind();
+        } else {
+            disablesbremind();
         }
     });
 
@@ -305,6 +359,54 @@ function enabletoolbarhidden() {
 // 关闭隐藏顶栏功能
 function disabletoolbarhidden() {
     const styleSheet = document.getElementById("toolbarhidden-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启鼠标所在块高亮功能
+function enablehoverblockremind() {
+    let styleSheet = document.getElementById("hoverblock-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "hoverblock-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        .p:hover {
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+        transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
+        }
+    `;
+}
+
+// 关闭鼠标所在块高亮功能
+function disablehoverblockremind() {
+    const styleSheet = document.getElementById("hoverblock-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启超级块范围提示功能
+function enablesbremind() {
+    let styleSheet = document.getElementById("sbremind-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "sbremind-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        .sb:hover {
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+        transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
+        }
+    `;
+}
+
+// 关闭超级块范围提示功能
+function disablesbremind() {
+    const styleSheet = document.getElementById("sbremind-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }

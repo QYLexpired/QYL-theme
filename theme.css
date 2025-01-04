@@ -8,9 +8,9 @@
     --b3-theme-primary-lighter: rgba(53, 117, 240, .38);
     --b3-theme-primary-lightest: rgba(53, 117, 240, .12);
     --b3-theme-secondary: #f3a92f;
-    --b3-theme-background: #fff;
+    --b3-theme-background: #FFFFFF;/* 编辑器背景色 */
     --b3-theme-background-light: #dfe0e1;/* 悬浮背景色 */
-    --b3-theme-surface: rgb(246, 246, 246);/* 面板色 */
+    --b3-theme-surface: rgb(246, 246, 246);/* 文档树面板色 */
     --b3-theme-surface-light: rgba(243, 243, 243, .86);
     --b3-theme-surface-lighter: #e0e0e0;
     --b3-theme-error: #d23f31;
@@ -161,21 +161,13 @@
 .protyle-wysiwyg div[fold="1"][data-type=NodeHeading].h6::before { background-color: rgba(186, 70, 136, 0.25);}
 
 /* 表格优化 */
-th, tr:nth-child(odd) td, tr:nth-child(even) td { border: 2px solid #515A5B !important; }
-th { background-color: rgba(0, 0, 0, 0.2) ; }
+th, tr:nth-child(odd) td, tr:nth-child(even) td { border: 2px solid var(--b3-theme-notfocus) !important; }
+th { background-color: var(--b3-theme-primary-lighter) ; }
 tr:nth-child(odd) td { background-color: rgba(0, 0, 0, 0) ; }
 tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 
 
 /* 块提示 */
-.sb:hover {
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
-    transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
-}
-.p:hover {
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
-    transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
-}
 .p.highlight {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5), -2px -2px 6px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 0, 0, 0.2) !important;
     transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
@@ -189,7 +181,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 #status {
     position: fixed;
     right: 55px !important;
-    bottom: 3px;
+    bottom: 5px;
     border-radius: var(--b3-border-radius);
     height: 27px !important;
     padding: 0px 5px 0px !important;
@@ -226,7 +218,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     transition: 0.2s;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
-    background-color: var(--b3-theme-surface);
+    background-color: var(--b3-theme-background);
     border-radius: var(--b3-border-radius);
     transition: 0.5s;
     border: 1.5px solid var(--b3-theme-notfocus) !important;
@@ -235,7 +227,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     background-color: var(--b3-theme-background-light);
 }
 .item.item--focus {
-    background-color: var(--b3-theme-surface);
+    background-color: var(--b3-theme-background);
     border-radius: var(--b3-border-radius);
     border: 1.5px solid var(--b3-theme-primary) !important;
 }
@@ -325,11 +317,12 @@ li.item.item--readonly {
 
 /* 选中项效果（文档树、大纲、菜单） */
 .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus:not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom) {
-    background-color: var(--b3-theme-primary-lightest);
-    border: 1.5px solid var(--b3-theme-primary) !important;
+    background-color: var(--b3-theme-background-light);
+    border: 1.5px solid var(--b3-theme-notfocus) !important;
 }
-.b3-list--background .b3-list-item {
+.b3-list--background .b3-list-item, .b3-list-item {
     border: 1.5px solid rgba(255, 0, 0, 0) !important;
+    border-radius: var(--b3-border-radius);
 }
 .b3-menu__item--current:not(.b3-menu__item--readonly) {
     background-color: var(--b3-theme-primary-lightest);
@@ -338,6 +331,10 @@ li.item.item--readonly {
 .b3-menu__item {
     border: 1.5px solid rgba(255, 0, 0, 0) !important;
     margin: 0px;
+}
+.fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list-item:hover, .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus), .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
+    background-color: var(--b3-theme-primary-lightest);
+    border: 1.5px solid var(--b3-theme-primary) !important;
 }
 
 /* 任务列表 */
@@ -433,4 +430,26 @@ li.item.item--readonly {
     border-radius: var(--b3-border-radius);
     margin-top: 5px;
     box-shadow: var(--b3-point-shadow);
+}
+
+/* 列表折叠背景色 */
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
+    background-color: var(--b3-theme-primary-lighter);
+}
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+    color: var(--b3-theme-primary);
+}
+
+/* 引述块 */
+.b3-typography blockquote::before, .b3-typography .bq::before, .protyle-wysiwyg blockquote::before, .protyle-wysiwyg .bq::before {
+    background-color: var(--b3-theme-primary);
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    border-radius: 0px;
+    width: 8px;
+}
+.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+    background-color: var(--b3-theme-primary-lightest);
+    border-radius: 0px;
 }
