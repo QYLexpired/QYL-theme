@@ -469,9 +469,9 @@ li.item.item--readonly {
     position: absolute;
     top: 50%;
     right: 12px;
-    transform: translateY(-45%);
-    width: 9px;
-    height: 9px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
     background-color: var(--b3-theme-on-background);
     border-radius: 50%;
     box-shadow: 0 0 0 2px gray, 0 0 0 4px lightgray;
