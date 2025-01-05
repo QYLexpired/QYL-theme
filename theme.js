@@ -43,6 +43,7 @@ function addThemeToolBar() {
         QYLToolBar.style.width = "23.5px";
         QYLToolBar.style.height = "23.5px";
         QYLToolBar.textContent = "Q";
+        QYLToolBar.style.userSelect= 'none';
         var parentElement = toolbarVIP ? toolbarVIP.parentElement : (windowControls ? windowControls.parentElement : document.body);
         if (!parentElement) {
             document.body.classList.add("QYLmobile");
@@ -93,6 +94,7 @@ function createSettingsWindow() {
     label1.htmlFor = 'mark-empty-checkbox';
     label1.textContent = '标记挖空';
     label1.style.fontSize = '14px';
+    label1.style.userSelect= 'none';
 
     const checkbox2 = document.createElement('input');
     checkbox2.type = 'checkbox';
@@ -103,6 +105,7 @@ function createSettingsWindow() {
     label2.htmlFor = 'filetree-indent-checkbox';
     label2.textContent = '文档树缩进线';
     label2.style.fontSize = '14px';
+    label2.style.userSelect= 'none';
 
     const checkbox3 = document.createElement('input');
     checkbox3.type = 'checkbox';
@@ -113,6 +116,7 @@ function createSettingsWindow() {
     label3.htmlFor = 'toolbar-hidden-checkbox';
     label3.textContent = '隐藏顶栏';
     label3.style.fontSize = '14px';
+    label3.style.userSelect= 'none';
 
     const checkbox4 = document.createElement('input');
     checkbox4.type = 'checkbox';
@@ -123,6 +127,7 @@ function createSettingsWindow() {
     label4.htmlFor = 'hoverblock-remind-checkbox';
     label4.textContent = '鼠标所在块高亮提示';
     label4.style.fontSize = '14px';
+    label4.style.userSelect= 'none';
 
     const checkbox5 = document.createElement('input');
     checkbox5.type = 'checkbox';
@@ -133,6 +138,7 @@ function createSettingsWindow() {
     label5.htmlFor = 'sbblock-remind-checkbox';
     label5.textContent = '鼠标所在超级块范围提示';
     label5.style.fontSize = '14px';
+    label5.style.userSelect= 'none';
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -316,8 +322,8 @@ function enableIndentStyle() {
         .file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 108px, var(--indent-color) 108px 109.5px, rgba(0, 0, 0, 0) 109.5px 100%) }
         .file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 126px, var(--indent-color) 126px 127.5px, rgba(0, 0, 0, 0) 127.5px 100%) }
         .file-tree>.fn__flex-1>ul ul { transition-duration: .2s; transition-property: --indent-color,height }
-        .file-tree>.fn__flex-1:hover>ul ul,.file-tree>.fn__flex-1 li.b3-list-item--focus+ul,.file-tree>.fn__flex-1 ul.has-focus { --indent-color: var(--b3-theme-background-light) }
-        .file-tree>.fn__flex-1:hover li.b3-list-item--focus+ul,.file-tree>.fn__flex-1:hover ul.has-focus { --indent-color: var(--b3-theme-primary) }
+        .file-tree>.fn__flex-1>ul ul,.file-tree>.fn__flex-1 li.b3-list-item--focus+ul,.file-tree>.fn__flex-1 ul.has-focus { --indent-color: var(--b3-theme-background-light) }
+        .file-tree>.fn__flex-1 li.b3-list-item--focus+ul,.file-tree>.fn__flex-1:hover ul.has-focus { --indent-color: var(--b3-theme-primary) }
     `;
 }
 

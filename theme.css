@@ -162,7 +162,7 @@
 
 /* 表格优化 */
 th, tr:nth-child(odd) td, tr:nth-child(even) td { border: 2px solid var(--b3-theme-notfocus) !important; }
-th { background-color: var(--b3-theme-primary-lighter) ; }
+th { background-color: var(--b3-theme-primary-lightest) ; }
 tr:nth-child(odd) td { background-color: rgba(0, 0, 0, 0) ; }
 tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 
@@ -224,7 +224,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
     border: 1.5px solid var(--b3-theme-notfocus) !important;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
-    background-color: var(--b3-theme-background-light);
+    background-color: rgb(223, 224, 225, 0.7);
 }
 .item.item--focus {
     background-color: var(--b3-theme-background);
@@ -317,7 +317,7 @@ li.item.item--readonly {
 
 /* 选中项效果（文档树、大纲、菜单） */
 .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus:not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom) {
-    background-color: var(--b3-theme-background-light);
+    background-color: rgb(223, 224, 225, 0.7);
 }
 .b3-list--background .b3-list-item, li.b3-list-item  {
     border-radius: var(--b3-border-radius);
@@ -447,4 +447,25 @@ li.item.item--readonly {
 .b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
     background-color: var(--b3-theme-primary-lightest);
     border-radius: 0px;
+}
+
+/* 钉住 */
+.layout-tab-bar .item--pin .item__graphic, .layout-tab-bar .item--pin .item__icon {
+    padding: 4px 0 4px 8px;
+}
+.layout-tab-bar .item.item--pin .item__text {
+    padding-right: 35px;
+    display: flex !important;
+}
+.layout-tab-bar .item.item--pin .item__text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px gray, 0 0 0 4px lightgray;
 }
