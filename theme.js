@@ -62,7 +62,7 @@ function addThemeToolBar() {
 }
 
 // 设置窗口
-let isChecked = false;
+let isChecked1 = false;
 let isChecked2 = false;
 let isChecked3 = false;
 let isChecked4 = false;
@@ -88,7 +88,7 @@ function createSettingsWindow() {
     const checkbox1 = document.createElement('input');
     checkbox1.type = 'checkbox';
     checkbox1.id = 'mark-empty-checkbox';
-    checkbox1.checked = isChecked;
+    checkbox1.checked = isChecked1;
 
     const label1 = document.createElement('label');
     label1.htmlFor = 'mark-empty-checkbox';
@@ -178,7 +178,7 @@ function createSettingsWindow() {
 
     // 标记挖空开关
     checkbox1.addEventListener('change', function() {
-        isChecked = this.checked;
+        isChecked1 = this.checked;
         if (this.checked) {
             enableMarkStyles();
         } else {

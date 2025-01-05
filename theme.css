@@ -454,18 +454,25 @@ li.item.item--readonly {
     padding: 4px 0 4px 8px;
 }
 .layout-tab-bar .item.item--pin .item__text {
-    padding-right: 35px;
     display: flex !important;
 }
-.layout-tab-bar .item.item--pin .item__text::after {
+.layout-tab-bar .item--pin .item__close {
+    display: flex !important;
+    pointer-events: none;
+
+}
+.layout-tab-bar .item--pin .item__close svg {
+    color: rgba(255, 0, 0, 0) !important;
+}
+.layout-tab-bar .item--pin .item__close::after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    background-color: black;
+    right: 12px;
+    transform: translateY(-45%);
+    width: 9px;
+    height: 9px;
+    background-color: var(--b3-theme-on-background);
     border-radius: 50%;
     box-shadow: 0 0 0 2px gray, 0 0 0 4px lightgray;
 }
