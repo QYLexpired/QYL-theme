@@ -67,6 +67,7 @@ let isChecked2 = false;
 let isChecked3 = false;
 let isChecked4 = false;
 let isChecked5 = false;
+let isChecked6 = false;
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
     if (document.getElementById('settings-window')) return;
@@ -140,6 +141,17 @@ function createSettingsWindow() {
     label5.style.fontSize = '14px';
     label5.style.userSelect= 'none';
 
+    const checkbox6 = document.createElement('input');
+    checkbox6.type = 'checkbox';
+    checkbox6.id = 'fullwidthpage-checkbox';
+    checkbox6.checked = isChecked6;
+
+    const label6 = document.createElement('label');
+    label6.htmlFor = 'fullwidthpage-checkbox';
+    label6.textContent = '编辑器全宽显示';
+    label6.style.fontSize = '14px';
+    label6.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -166,12 +178,18 @@ function createSettingsWindow() {
     QYLfunctionpair5.appendChild(checkbox5);
     QYLfunctionpair5.appendChild(label5);
     
+    const QYLfunctionpair6 = document.createElement('div');
+    QYLfunctionpair6.className = 'checkbox-label-pair';
+    QYLfunctionpair6.appendChild(checkbox6);
+    QYLfunctionpair6.appendChild(label6);
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
     settingsWindow.appendChild(QYLfunctionpair3);
     settingsWindow.appendChild(QYLfunctionpair4);
     settingsWindow.appendChild(QYLfunctionpair5);
+    settingsWindow.appendChild(QYLfunctionpair6);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -223,6 +241,16 @@ function createSettingsWindow() {
             enablesbremind();
         } else {
             disablesbremind();
+        }
+    });
+
+    // 全宽显示开关
+    checkbox6.addEventListener('change', function() {
+        isChecked6 = this.checked;
+        if (this.checked) {
+            enablefullwidth();
+        } else {
+            disablefullwidth();
         }
     });
 
@@ -311,9 +339,10 @@ function enableIndentStyle() {
     }
     styleSheet.innerText = `
         .file-tree>.fn__flex-1 {
-        --indent-color-inactive: rgb(from var(--b3-theme-on-background) r g b / .15);
-        --indent-color-active: rgb(from var(--b3-theme-on-background) r g b / .3);
-        --indent-color: #0000 }
+            --indent-color-inactive: rgb(from var(--b3-theme-on-background) r g b / .15);
+            --indent-color-active: rgb(from var(--b3-theme-on-background) r g b / .3);
+            --indent-color: #0000
+        }
         .file-tree>.fn__flex-1>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 18px, var(--indent-color) 18px 19.5px, rgba(0, 0, 0, 0) 19.5px 100%) }
         .file-tree>.fn__flex-1>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 36px, var(--indent-color) 36px 37.5px, rgba(0, 0, 0, 0) 37.5px 100%) }
         .file-tree>.fn__flex-1>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 54px, var(--indent-color) 54px 55.5px, rgba(0, 0, 0, 0) 55.5px 100%) }
@@ -380,8 +409,8 @@ function enablehoverblockremind() {
     }
     styleSheet.innerText = `
         .p:hover {
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
-        transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
         }
     `;
 }
@@ -404,8 +433,8 @@ function enablesbremind() {
     }
     styleSheet.innerText = `
         .sb:hover {
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
-        transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
         }
     `;
 }
@@ -413,6 +442,38 @@ function enablesbremind() {
 // 关闭超级块范围提示功能
 function disablesbremind() {
     const styleSheet = document.getElementById("sbremind-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启全宽显示功能
+function enablefullwidth() {
+    let styleSheet = document.getElementById("fullwidth-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "fullwidth-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        .protyle-wysiwyg {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+        .protyle-title.protyle-wysiwyg--attr {
+            margin-left: 20px !important;
+            margin-right:20px !important;
+        }
+        .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
+            position: relative;
+            left: -76px;
+        }
+    `;
+}
+
+// 关闭全宽显示功能
+function disablefullwidth() {
+    const styleSheet = document.getElementById("fullwidth-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }

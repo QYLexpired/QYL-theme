@@ -43,6 +43,7 @@
     --b3-point-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
     --b3-dialog-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
     --b3-button-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
+    --b3-light-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 设置全局字体 */
@@ -282,22 +283,141 @@ li.item.item--readonly {
 }
 
 /* 标签 */
-.protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid var(--b3-theme-primary);
+    border: 2px solid #e2041b;
     padding: 3px 5px;
-    color: var(--b3-theme-primary);
+    color: #e2041b;
     margin-left: 3px;
     margin-right: 3px;
     font-size: smaller;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]::before {
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1)::before {
     content: "#";
-    color: var(--b3-theme-primary);
+    color: #e2041b;
     margin-right: 5px;
 }
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:hover {
-    background-color: var(--b3-theme-primary-lightest);
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1):hover {
+    background-color: rgba(226, 4, 26, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #007bbb;
+    padding: 3px 5px;
+    color: #007bbb;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2)::before {
+    content: "#";
+    color: #007bbb;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2):hover {
+    background-color: rgba(0, 121, 187, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #b44c97;
+    padding: 3px 5px;
+    color: #b44c97;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3)::before {
+    content: "#";
+    color: #b44c97;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3):hover {
+    background-color: rgba(180, 76, 151, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #028760;
+    padding: 3px 5px;
+    color: #028760;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4)::before {
+    content: "#";
+    color: #028760;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4):hover {
+    background-color: rgba(2, 135, 95, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #f8b500;
+    padding: 3px 5px;
+    color: #f8b500;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5)::before {
+    content: "#";
+    color: #f8b500;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5):hover {
+    background-color: rgba(248, 182, 0, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #3b2e7e;
+    padding: 3px 5px;
+    color: #3b2e7e;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6)::before {
+    content: "#";
+    color: #3b2e7e;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6):hover {
+    background-color: rgba(59, 46, 126, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #ff7500;
+    padding: 3px 5px;
+    color: #ff7500;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7)::before {
+    content: "#";
+    color: #ff7500;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7):hover {
+    background-color: rgba(255, 119, 0, 0.1);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n) {
+    border-radius: var(--b3-border-radius);
+    border: 2px solid #44cef6;
+    padding: 3px 5px;
+    color: #44cef6;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: smaller;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n)::before {
+    content: "#";
+    color: #44cef6;
+    margin-right: 5px;
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n):hover {
+    background-color: rgba(68, 207, 246, 0.1);
 }
 
 /* 圆形关闭键 */
@@ -321,15 +441,16 @@ li.item.item--readonly {
 }
 .b3-list--background .b3-list-item, li.b3-list-item  {
     border-radius: var(--b3-border-radius);
+    margin-bottom: 2px;
 }
 .b3-menu__item--current:not(.b3-menu__item--readonly) {
-    background-color: var(--b3-theme-primary-lightest);
+    background-color: rgb(223, 224, 225, 0.7);
 }
 .b3-menu__item {
     margin: 0px;
 }
 .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list-item:hover, .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus), .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
-    background-color: var(--b3-theme-primary-lightest);
+    background-color: rgb(223, 224, 225, 0.7);
 }
 
 /* 任务列表 */
