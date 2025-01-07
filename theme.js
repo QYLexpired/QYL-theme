@@ -68,6 +68,7 @@ let isChecked3 = false;
 let isChecked4 = false;
 let isChecked5 = false;
 let isChecked6 = false;
+let isChecked7 = false;
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
     if (document.getElementById('settings-window')) return;
@@ -152,6 +153,17 @@ function createSettingsWindow() {
     label6.style.fontSize = '14px';
     label6.style.userSelect= 'none';
 
+    const checkbox7 = document.createElement('input');
+    checkbox7.type = 'checkbox';
+    checkbox7.id = 'colorfulfiletree-checkbox';
+    checkbox7.checked = isChecked7;
+
+    const label7 = document.createElement('label');
+    label7.htmlFor = 'colorfulfiletree-checkbox';
+    label7.textContent = '多彩文档树';
+    label7.style.fontSize = '14px';
+    label7.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -183,6 +195,11 @@ function createSettingsWindow() {
     QYLfunctionpair6.appendChild(checkbox6);
     QYLfunctionpair6.appendChild(label6);
 
+    const QYLfunctionpair7 = document.createElement('div');
+    QYLfunctionpair7.className = 'checkbox-label-pair';
+    QYLfunctionpair7.appendChild(checkbox7);
+    QYLfunctionpair7.appendChild(label7);
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
@@ -190,6 +207,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair4);
     settingsWindow.appendChild(QYLfunctionpair5);
     settingsWindow.appendChild(QYLfunctionpair6);
+    settingsWindow.appendChild(QYLfunctionpair7);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -251,6 +269,16 @@ function createSettingsWindow() {
             enablefullwidth();
         } else {
             disablefullwidth();
+        }
+    });
+
+    // 多彩文档树开关
+    checkbox7.addEventListener('change', function() {
+        isChecked7 = this.checked;
+        if (this.checked) {
+            enablecolorfulfiletree();
+        } else {
+            disablecolorfulfiletree();
         }
     });
 
@@ -474,6 +502,151 @@ function enablefullwidth() {
 // 关闭全宽显示功能
 function disablefullwidth() {
     const styleSheet = document.getElementById("fullwidth-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启多彩文档树功能
+function enablecolorfulfiletree() {
+    let styleSheet = document.getElementById("colorfulfiletree-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "colorfulfiletree-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        [data-type="navigation-root"] {
+    margin-left: 25px;
+    margin-bottom: 8px !important;  
+}
+[data-type="navigation-file"] {
+    margin-left: 25px;
+    margin-bottom: 8px !important;
+}
+[data-type="navigation-root"]::before {
+    content: "";
+    width: 12px;
+    height: 28px;
+    position: absolute;
+    left: -20px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.b3-list:nth-of-type(6n+1)>[data-type="navigation-root"]::before {
+    background-color: var(--b3-theme-primary) !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+1) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+1)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--b3-theme-primary);
+}
+.b3-list:nth-of-type(6n+1)>[data-type="navigation-root"] {
+    background-color:rgba(53, 118, 240, 0.1) !important;
+}
+.b3-list:nth-of-type(6n+2)>[data-type="navigation-root"]::before {
+    background-color:var(--b3-theme-secondary) !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+2) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+2)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--b3-theme-secondary);
+}
+.b3-list:nth-of-type(6n+2)>[data-type="navigation-root"] {
+    background-color: rgba(243, 168, 47, 0.1) !important;
+}
+.b3-list:nth-of-type(6n+3)>[data-type="navigation-root"]::before {
+    background-color:var(--b3-theme-error) !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+3) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+3)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--b3-theme-error);
+}
+.b3-list:nth-of-type(6n+3)>[data-type="navigation-root"] {
+    background-color: rgba(210, 62, 49, 0.2) !important;
+}
+.b3-list:nth-of-type(6n+4)>[data-type="navigation-root"]::before {
+    background-color:var(--b3-theme-success) !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+4) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+4)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--b3-theme-success);
+}
+.b3-list:nth-of-type(6n+4)>[data-type="navigation-root"] {
+    background-color: rgba(100, 184, 77, 0.2) !important;
+}
+.b3-list:nth-of-type(6n+5)>[data-type="navigation-root"]::before {
+    background-color:#9c4db8 !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+5) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+5)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: #9c4db8;
+}
+.b3-list:nth-of-type(6n+5)>[data-type="navigation-root"] {
+    background-color: rgba(156, 77, 184, 0.2) !important;
+}
+.b3-list:nth-of-type(6n)>[data-type="navigation-root"]::before {
+    background-color:#00dacf !important;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n) {
+    position: relative;
+}
+div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17px;
+    height: 100%;
+    width: 3px;
+    background-color: #00dacf;
+}
+.b3-list:nth-of-type(6n)>[data-type="navigation-root"] {
+    background-color: rgba(0, 218, 207, 0.2) !important;
+}
+    `;
+}
+
+// 关闭多彩文档树功能
+function disablecolorfulfiletree() {
+    const styleSheet = document.getElementById("colorfulfiletree-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }

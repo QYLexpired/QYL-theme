@@ -424,6 +424,9 @@ li.item.item--readonly {
 .b3-dialog__close:hover {
     color: var(--b3-theme-error);
 }
+.b3-menu__action.b3-menu__action--close:hover {
+    color: var(--b3-theme-error);
+}
 
 /* 键盘元素 */
 .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
