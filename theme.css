@@ -1,7 +1,4 @@
 :root {
-    /* 字体 */
-    --b3-font-family: "QYL fonts times", "QYL fonts", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", "sans-serif","Twitter Emoji","Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols" !important;
-   
     /* 主色 */
     --b3-theme-primary: #3575f0;
     --b3-theme-primary-light: rgba(53, 117, 240, .54);
@@ -44,30 +41,6 @@
     --b3-dialog-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
     --b3-button-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
     --b3-light-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* 设置全局字体 */
-@font-face {
-    font-family: "QYL fonts";
-    font-style: normal;
-    src: url("fonts/SourceHanSerifCN-SemiBold.otf");
-}
-@font-face {
-    font-family: "QYL fonts";
-    font-style: normal;
-    font-weight: bold;
-    src: url("fonts/SourceHanSerifCN-Heavy.otf");
-}
-@font-face {
-    font-family: "QYL fonts times";
-    font-style: normal;
-    src: url("fonts/times.ttf");
-}
-@font-face {
-    font-family: "QYL fonts times";
-    font-style: normal;
-    font-weight: bold;
-    src: url("fonts/timesbd.ttf");
 }
 
 /* 斜杠菜单展开 */
@@ -179,31 +152,32 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 }
 
 /* 状态栏浮动到右侧 */
-#status {
-    position: fixed;
-    right: 55px !important;
-    bottom: 5px;
-    border-radius: var(--b3-border-radius);
-    height: 27px !important;
-    padding: 0px 5px 0px !important;
-    overflow: hidden;
-    z-index: 3;
-    border: none;
-    background-color: var(--b3-theme-surface);
-    display: flex;
-    align-items: center;
-    transition: 0.5s;
-    box-shadow: var(--b3-dialog-shadow);
-}
-#status:hover {
-    background-color: var(--b3-theme-background-light);
-}
-#barDock {
-    position: relative;
-    order: 1;
-}
-#statusHelp {
-    position: relative;
+@media (min-width: 768px) {
+    #status {
+        position: fixed;
+        right: 55px !important;
+        bottom: 5px;
+        border-radius: var(--b3-border-radius);
+        height: 27px !important;
+        overflow: hidden;
+        z-index: 3;
+        border: none;
+        background-color: var(--b3-theme-surface);
+        display: flex;
+        align-items: center;
+        transition: 0.5s;
+        box-shadow: var(--b3-dialog-shadow);
+        user-select: none;
+    }
+
+    #barDock {
+        position: relative;
+        order: 1;
+    }
+
+    #statusHelp {
+        position: relative;
+    }
 }
 
 /* 行级代码 */
@@ -214,14 +188,14 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 /* 页签栏 */
 .layout-tab-bar .item {
     min-height: 20px;
-    height: 25px;
+    height: 28px;
     margin: 6px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: var(--b3-theme-background);
     border-radius: var(--b3-border-radius);
-    transition: 0.5s;
+    transition: 0.3s;
     border: 1.5px solid var(--b3-theme-notfocus) !important;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
@@ -240,9 +214,6 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 }
 .layout-tab-bar {
     border-bottom: 0px solid rgba(0,0,0,0);
-}
-.layout-tab-bar .item__text {
-    padding-top: 2px;
 }
 .layout-tab-bar .item.item--focus .item__close svg {
     background-color: rgba(241, 241, 241, 0);
@@ -267,7 +238,7 @@ tr:nth-child(even) td { background-color: rgba(0, 0, 0, 0.05) !important; }
 }
 .av__header .layout-tab-bar .item__text {
     padding-left: 1px;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
 }
 li.item.item--readonly {
     border-top: 2px solid rgba(255, 0, 0, 0) !important;
@@ -544,7 +515,7 @@ li.item.item--readonly {
     text-align: justify;
     color: grey;
     background-color: #fff9c4;
-    padding: 20px 10px;
+    padding: 10px 10px;
     border-top: 6px solid #fff000;
     border-radius: var(--b3-border-radius);
     margin-top: 5px;

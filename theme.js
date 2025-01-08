@@ -518,11 +518,10 @@ function enablecolorfulfiletree() {
     styleSheet.innerText = `
         [data-type="navigation-root"] {
     margin-left: 25px;
-    margin-bottom: 8px !important;  
+    margin-top: 8px !important;  
 }
 [data-type="navigation-file"] {
     margin-left: 25px;
-    margin-bottom: 8px !important;
 }
 [data-type="navigation-root"]::before {
     content: "";
