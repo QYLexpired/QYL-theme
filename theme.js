@@ -69,6 +69,7 @@ let isChecked4 = false;
 let isChecked5 = false;
 let isChecked6 = false;
 let isChecked7 = false;
+let isChecked8 = false;
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
     if (document.getElementById('settings-window')) return;
@@ -164,6 +165,17 @@ function createSettingsWindow() {
     label7.style.fontSize = '14px';
     label7.style.userSelect= 'none';
 
+    const checkbox8 = document.createElement('input');
+    checkbox8.type = 'checkbox';
+    checkbox8.id = 'eyescare-checkbox';
+    checkbox8.checked = isChecked8;
+
+    const label8 = document.createElement('label');
+    label8.htmlFor = 'eyescare-checkbox';
+    label8.textContent = '护眼色';
+    label8.style.fontSize = '14px';
+    label8.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -200,6 +212,11 @@ function createSettingsWindow() {
     QYLfunctionpair7.appendChild(checkbox7);
     QYLfunctionpair7.appendChild(label7);
 
+    const QYLfunctionpair8 = document.createElement('div');
+    QYLfunctionpair8.className = 'checkbox-label-pair';
+    QYLfunctionpair8.appendChild(checkbox8);
+    QYLfunctionpair8.appendChild(label8);
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
@@ -208,6 +225,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair5);
     settingsWindow.appendChild(QYLfunctionpair6);
     settingsWindow.appendChild(QYLfunctionpair7);
+    settingsWindow.appendChild(QYLfunctionpair8);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -279,6 +297,16 @@ function createSettingsWindow() {
             enablecolorfulfiletree();
         } else {
             disablecolorfulfiletree();
+        }
+    });
+
+    // 护眼色开关
+    checkbox8.addEventListener('change', function() {
+        isChecked8 = this.checked;
+        if (this.checked) {
+            enableeyescare();
+        } else {
+            disableeyescare();
         }
     });
 
@@ -646,6 +674,30 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n)::befo
 // 关闭多彩文档树功能
 function disablecolorfulfiletree() {
     const styleSheet = document.getElementById("colorfulfiletree-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启护眼色
+function enableeyescare() {
+    let styleSheet = document.getElementById("eyescare-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "eyescare-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        :root {
+            --b3-theme-background: #DCE2F1;
+            --b3-theme-surface: #E9EBFE;
+        }
+    `;
+}
+
+// 关闭护眼色
+function disableeyescare() {
+    const styleSheet = document.getElementById("eyescare-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }

@@ -101,20 +101,9 @@
 #barWorkspace:active { filter: brightness(0.8); }
 
 /* 分割线 */
-.hr {
-    border: none;
-    position: relative;
-    height: 1px;
-    overflow: hidden;
-}
-.hr::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(51, 117, 240, 0.5), hsla(219, 86%, 57%, 0.6), rgba(51, 117, 240, 0.5));
+.protyle-wysiwyg [data-node-id].hr>div::after {
+    height: 3px;
+    background-color: var(--b3-theme-on-surface);
 }
 
 /* 块标平滑切换 */
@@ -459,19 +448,19 @@ li.item.item--readonly {
 .protyle-wysiwyg [data-node-id] span[data-type~=a]:hover {
     background-color: rgb(66, 133, 244, 0.2);
     transition: 0.25s;
-    padding-bottom: 1px;
-    border-bottom:1.5px solid var(--b3-protyle-inline-link-color);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-link-color);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext):hover, .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]:hover {
     background-color: rgb(137, 87, 229, 0.2);
     transition: 0.25s;
-    padding-bottom: 1px;
-    border-bottom:1.5px solid var(--b3-protyle-inline-blockref-color);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-blockref-color);
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     color: rgb(137, 87, 229);
-    padding-bottom: 1px;
-    border-bottom:1.5px solid var(--b3-protyle-inline-blockref-color);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-blockref-color);
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
     background-color: rgb(137, 87, 229, 0.2);
@@ -480,11 +469,11 @@ li.item.item--readonly {
 
 /* 链接下划线 */
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
-    padding-bottom: 1px;
-    border-bottom:1.5px solid var(--b3-protyle-inline-blockref-color);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-blockref-color);
 }.protyle-wysiwyg [data-node-id] span[data-type~=a] {
-    padding-bottom: 1px;
-    border-bottom:1.5px solid var(--b3-protyle-inline-link-color);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-link-color);
 }
 
 /* 块属性 */
