@@ -692,6 +692,9 @@ function enableeyescare() {
             --b3-theme-background: #DCE2F1;
             --b3-theme-surface: #E9EBFE;
         }
+        .pdf__outer .textLayer {
+            background-color: #C7EDCC;
+        }
     `;
 }
 
