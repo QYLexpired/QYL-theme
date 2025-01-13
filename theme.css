@@ -661,9 +661,115 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 }
 
 /* 自定义属性visibility */
-.protyle-wysiwyg [custom-visibility="1"] {
+.protyle-wysiwyg [custom-visibility="1"],
+.protyle-wysiwyg [data-node-id][custom-visibility="1"] {
     filter: blur(0px);
 }
-.protyle-wysiwyg [custom-visibility="0"] {
+.protyle-wysiwyg [custom-visibility="0"],
+.protyle-wysiwyg [data-node-id][custom-visibility="0"] {
     filter: blur(10px);
+}
+
+/* 自定义属性font-family */
+.protyle-wysiwyg [custom-font-family="宋体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="宋体"] {
+    font-family: "SimSun";
+}
+.protyle-wysiwyg [custom-font-family="幼圆"],
+.protyle-wysiwyg [data-node-id][custom-font-family="幼圆"] {
+    font-family: "YouYuan";
+}
+.protyle-wysiwyg [custom-font-family="黑体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="黑体"] {
+    font-family: "SimHei";
+}
+.protyle-wysiwyg [custom-font-family="微软雅黑"],
+.protyle-wysiwyg [data-node-id][custom-font-family="微软雅黑"] {
+    font-family: "Microsoft YaHei";
+}
+.protyle-wysiwyg [custom-font-family="新宋体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="新宋体"] {
+    font-family: "NSimSun";
+}
+.protyle-wysiwyg [custom-font-family="楷体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="楷体"] {
+    font-family: "KaiTi";
+}
+.protyle-wysiwyg [custom-font-family="隶书"],
+.protyle-wysiwyg [data-node-id][custom-font-family="隶书"] {
+    font-family: "LiSu";
+}
+.protyle-wysiwyg [custom-font-family="仿宋"],
+.protyle-wysiwyg [data-node-id][custom-font-family="仿宋"] {
+    font-family: "FangSong";
+}
+.protyle-wysiwyg [custom-font-family="华文宋体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文宋体"] {
+    font-family: "STSong";
+}
+.protyle-wysiwyg [custom-font-family="华文中宋"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文中宋"] {
+    font-family: "STZhongsong";
+}
+.protyle-wysiwyg [custom-font-family="华文仿宋"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文仿宋"] {
+    font-family: "STFangsong";
+}
+.protyle-wysiwyg [custom-font-family="华文彩云"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文彩云"] {
+    font-family: "STCaiyun";
+}
+.protyle-wysiwyg [custom-font-family="华文新魏"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文新魏"] {
+    font-family: "STXinwei";
+}
+.protyle-wysiwyg [custom-font-family="华文楷体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文楷体"] {
+    font-family: "STKaiti";
+}
+.protyle-wysiwyg [custom-font-family="华文琥珀"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文琥珀"] {
+    font-family: "STHupo";
+}
+.protyle-wysiwyg [custom-font-family="华文细黑"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文细黑"] {
+    font-family: "STXihei";
+}
+.protyle-wysiwyg [custom-font-family="华文行楷"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文行楷"] {
+    font-family: "STXingkai";
+}
+.protyle-wysiwyg [custom-font-family="华文隶书"],
+.protyle-wysiwyg [data-node-id][custom-font-family="华文隶书"] {
+    font-family: "STLiti";
+}
+.protyle-wysiwyg [custom-font-family="方正姚体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="方正姚体"] {
+    font-family: "FZYaoti";
+}
+.protyle-wysiwyg [custom-font-family="方正舒体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="方正舒体"] {
+    font-family: "FZShuTi";
+}
+.protyle-wysiwyg [custom-font-family="思源宋体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="思源宋体"] {
+    font-family: "Source Han Serif SC";
+}
+.protyle-wysiwyg [custom-font-family="思源黑体"],
+.protyle-wysiwyg [data-node-id][custom-font-family="思源黑体"] {
+    font-family: "Source Han Sans CN";
+}
+.protyle-wysiwyg [custom-font-family="苹方"],
+.protyle-wysiwyg [data-node-id][custom-font-family="苹方"] {
+    font-family: "PingFang SC";
+}
+.protyle-wysiwyg [custom-font-family="Times New Roman"],
+.protyle-wysiwyg [data-node-id][custom-font-family="Times New Roman"] {
+    font-family: "Times New Roman";
+}
+
+/* 空块提示 */
+.protyle-wysiwyg [data-node-id].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
+    content:"空空如也";
+    color:  #cacaca;
 }
