@@ -691,9 +691,17 @@ function enableeyescare() {
         :root {
             --b3-theme-background: #DCE2F1;
             --b3-theme-surface: #E9EBFE;
+            --b3-theme-on-surface: black;
+            --b3-theme-on-surface-light: black;
+            --b3-theme-background-light:rgba(255, 255, 255, 0.65);
+            --hovercurrent: rgba(255, 255, 255, 0.65);
+            --b3-list-icon-hover: rgba(255, 255, 255, 0.65);
+            --b3-list-hover: rgba(255, 255, 255, 0.65);
+            --b3-theme-surface-lighter: rgba(255, 255, 255, 0.65);
+            
         }
         .pdf__outer .textLayer {
-            background-color: #C7EDCC;
+            background-color:rgba(220, 226, 241, 0.8);
         }
     `;
 }

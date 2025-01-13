@@ -14,6 +14,7 @@
     --b3-theme-success: #65b84d;
     --b3-theme-notfocus: #6a6a6a;
     --b3-protyle-inline-mark-background: rgb(61, 189, 127, 0.3);/* 标记色 */
+    --hovercurrent: rgb(223, 224, 225, 0.7);
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -187,7 +188,7 @@ th,td {
     border: 1.5px solid var(--b3-theme-notfocus) !important;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
-    background-color: rgb(223, 224, 225, 0.7);
+    background-color: var(--hovercurrent);
 }
 .item.item--focus {
     background-color: var(--b3-theme-background);
@@ -397,20 +398,20 @@ li.item.item--readonly {
 
 /* 选中项效果（文档树、大纲、菜单） */
 .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus:not(.dragover):not(.protyle-wysiwyg--select):not(.protyle-wysiwyg--hl):not(.dragover__top):not(.dragover__bottom) {
-    background-color: rgb(223, 224, 225, 0.7);
+    background-color: var(--hovercurrent);
 }
 .b3-list--background .b3-list-item, li.b3-list-item  {
     border-radius: var(--b3-border-radius);
     margin-bottom: 2px;
 }
 .b3-menu__item--current:not(.b3-menu__item--readonly) {
-    background-color: rgb(223, 224, 225, 0.7);
+    background-color: var(--hovercurrent);
 }
 .b3-menu__item {
     margin: 0px;
 }
 .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list-item:hover, .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus), .fn__flex-1.fn__flex-column.file-tree.sy__file .b3-list--background .b3-list-item--focus:not(.dragover):not(.dragover__top):not(.dragover__bottom) {
-    background-color: rgb(223, 224, 225, 0.7);
+    background-color: var(--hovercurrent);
 }
 
 /* 任务列表 */
@@ -648,4 +649,21 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     border-bottom: 2px solid var(--h6);
     border-radius: 0px;
     background-color: rgba(212, 79, 154, 0.1);
+}
+
+/* 反链面板 */
+.sy__backlink .protyle {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: var(--b3-border-radius);
+}
+
+/* 自定义属性visibility */
+.protyle-wysiwyg [custom-visibility="1"] {
+    filter: blur(0px);
+}
+.protyle-wysiwyg [custom-visibility="0"] {
+    filter: blur(10px);
 }

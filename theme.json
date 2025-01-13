@@ -2,16 +2,16 @@
   "name": "QYL-theme",
   "author": "QYL",
   "url": "https://github.com/QYLexpired/QYL-theme",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "displayName": {
     "default": "QYL",
     "zh_CN": "QYL",
     "en_US": "QYL"
   },
   "description": {
-    "default": "基于原版的优化主题",
-    "zh_CN": "基于原版的优化主题",
-    "en_US": "Self-use theme"
+    "default": "QYL主题",
+    "zh_CN": "QYL主题",
+    "en_US": "QYL-theme"
   },
   "readme": {
     "default": "README_zh_CN.md",
