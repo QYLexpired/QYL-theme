@@ -452,11 +452,17 @@ li.item.item--readonly {
     padding-bottom: 1.5px;
     border-bottom: 0.5px dashed var(--b3-protyle-inline-link-color);
 }
-.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext):hover, .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]:hover {
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext):hover {
     background-color: rgb(137, 87, 229, 0.2);
     transition: 0.25s;
     padding-bottom: 1.5px;
     border-bottom: 0.5px dashed var(--b3-protyle-inline-blockref-color);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]:hover {
+    background-color: rgba(33, 134, 46, 0.2);
+    transition: 0.25s;
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-fileref-color);
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     color: rgb(137, 87, 229);
@@ -469,12 +475,16 @@ li.item.item--readonly {
 }
 
 /* 链接下划线 */
-.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext), .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext) {
     padding-bottom: 1.5px;
     border-bottom: 0.5px dashed var(--b3-protyle-inline-blockref-color);
 }.protyle-wysiwyg [data-node-id] span[data-type~=a] {
     padding-bottom: 1.5px;
     border-bottom: 0.5px dashed var(--b3-protyle-inline-link-color);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--b3-protyle-inline-fileref-color);
 }
 
 /* 块属性 */
@@ -772,4 +782,36 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .protyle-wysiwyg [data-node-id].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
     content:"空空如也";
     color:  #cacaca;
+}
+
+/* 数据库 */
+.av__cell--header .av__celltext {
+    font-weight: bold;
+    font-size: 105%;
+}
+.av__cell {
+    border-right: 1.5px solid var(--b3-theme-surface-lighter);
+}
+.av__row {
+    border-bottom: 1.5px solid var(--b3-theme-surface-lighter);
+}
+.av__views {
+    box-shadow: none;
+}
+.protyle-wysiwyg [data-node-id] [spellcheck] {
+    margin-top: 5px;
+    margin-bottom: 18px;
+    padding-left: 7px;
+    border-bottom: 1.5px solid var(--b3-theme-surface-lighter);
+}
+.av__cell .b3-chip {
+    border: 1.5px solid !important;
+}
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    background-color: rgba(255, 0, 0, 0);
+    color: #3e9db8;
+    border-bottom: 0.5px dashed #3e9db8;
+}
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
+    background-color: rgba(62, 158, 184, 0.2);
 }
