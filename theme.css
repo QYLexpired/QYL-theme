@@ -798,7 +798,7 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .av__views {
     box-shadow: none;
 }
-.protyle-wysiwyg [data-node-id] [spellcheck] {
+.av__title {
     margin-top: 5px;
     margin-bottom: 18px;
     padding-left: 7px;
