@@ -594,7 +594,7 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(6n+2)::be
     background-color: var(--b3-theme-secondary);
 }
 .b3-list:nth-of-type(6n+2)>[data-type="navigation-root"] {
-    background-color: rgba(243, 168, 47, 0.1) !important;
+    background-color: rgba(243, 168, 47, 0.15) !important;
 }
 .b3-list:nth-of-type(6n+3)>[data-type="navigation-root"]::before {
     background-color:var(--b3-theme-error) !important;
@@ -698,7 +698,7 @@ function enableeyescare() {
             --b3-list-icon-hover: rgba(255, 255, 255, 0.65);
             --b3-list-hover: rgba(255, 255, 255, 0.65);
             --b3-theme-surface-lighter: rgba(255, 255, 255, 0.65);
-            
+            --b3-theme-filetree: #E1E3FA
         }
         .pdf__outer .textLayer {
             background-color:rgba(220, 226, 241, 0.8);

@@ -15,6 +15,7 @@
     --b3-theme-notfocus: #6a6a6a;
     --b3-protyle-inline-mark-background: rgb(61, 189, 127, 0.3);/* 标记色 */
     --hovercurrent: rgb(223, 224, 225, 0.7);
+    --b3-theme-filetree: rgba(211, 211, 211, 0.2);
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -36,6 +37,7 @@
     --b3-border-color: var(--b3-theme-surface-lighter);
     --b3-border-radius: 10px;
     --b3-border-radius-b: 10px;
+    --b3-border-radius-q: 16px;
 
     /* 容器阴影 */
     --b3-point-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 12px 18px rgba(0, 0, 0, 0.1);
@@ -145,7 +147,7 @@ th,td {
     #status {
         position: fixed;
         right: 55px !important;
-        bottom: 5px;
+        bottom: 15px;
         border-radius: var(--b3-border-radius);
         height: 27px !important;
         overflow: hidden;
@@ -155,7 +157,7 @@ th,td {
         display: flex;
         align-items: center;
         transition: 0.5s;
-        box-shadow: var(--b3-dialog-shadow);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
         user-select: none;
     }
 
@@ -245,10 +247,11 @@ li.item.item--readonly {
 /* 标签 */
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #e2041b;
+    border: 1.5px solid #e2041b;
     padding: 3px 5px;
     color: #e2041b;
     font-size: smaller;
+    background-color: rgba(226, 4, 26, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1)::before {
     content: "#";
@@ -258,14 +261,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+1):hover {
-    background-color: rgba(226, 4, 26, 0.1);
+    background-color: rgba(226, 4, 26, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #007bbb;
+    border: 1.5px solid #007bbb;
     padding: 3px 5px;
     color: #007bbb;
     font-size: smaller;
+    background-color: rgba(0, 121, 187, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2)::before {
     content: "#";
@@ -275,14 +279,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+2):hover {
-    background-color: rgba(0, 121, 187, 0.1);
+    background-color: rgba(0, 121, 187, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #b44c97;
+    border: 1.5px solid #b44c97;
     padding: 3px 5px;
     color: #b44c97;
     font-size: smaller;
+    background-color: rgba(180, 76, 151, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3)::before {
     content: "#";
@@ -292,14 +297,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+3):hover {
-    background-color: rgba(180, 76, 151, 0.1);
+    background-color: rgba(180, 76, 151, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #028760;
+    border: 1.5px solid #028760;
     padding: 3px 5px;
     color: #028760;
     font-size: smaller;
+    background-color: rgba(2, 135, 95, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4)::before {
     content: "#";
@@ -309,14 +315,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+4):hover {
-    background-color: rgba(2, 135, 95, 0.1);
+    background-color: rgba(2, 135, 95, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #f8b500;
+    border: 1.5px solid #f8b500;
     padding: 3px 5px;
     color: #f8b500;
     font-size: smaller;
+    background-color: rgba(248, 182, 0, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5)::before {
     content: "#";
@@ -326,14 +333,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+5):hover {
-    background-color: rgba(248, 182, 0, 0.1);
+    background-color: rgba(248, 182, 0, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #3b2e7e;
+    border: 1.5px solid #3b2e7e;
     padding: 3px 5px;
     color: #3b2e7e;
     font-size: smaller;
+    background-color: rgba(59, 46, 126, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6)::before {
     content: "#";
@@ -343,14 +351,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+6):hover {
-    background-color: rgba(59, 46, 126, 0.1);
+    background-color: rgba(59, 46, 126, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #ff7500;
+    border: 1.5px solid #ff7500;
     padding: 3px 5px;
     color: #ff7500;
     font-size: smaller;
+    background-color: rgba(255, 119, 0, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7)::before {
     content: "#";
@@ -360,14 +369,15 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n+7):hover {
-    background-color: rgba(255, 119, 0, 0.1);
+    background-color: rgba(255, 119, 0, 0.3);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n) {
     border-radius: var(--b3-border-radius);
-    border: 2px solid #44cef6;
+    border: 1.5px solid #44cef6;
     padding: 3px 5px;
     color: #44cef6;
     font-size: smaller;
+    background-color: rgba(68, 207, 246, 0.1);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n)::before {
     content: "#";
@@ -377,7 +387,7 @@ li.item.item--readonly {
     top: 0.5px;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(8n):hover {
-    background-color: rgba(68, 207, 246, 0.1);
+    background-color: rgba(68, 207, 246, 0.3);
 }
 
 /* 圆形关闭键 */
@@ -426,6 +436,28 @@ li.item.item--readonly {
 }
 
 /* 界面整体优化 */
+body:not(.body--mobile,.body--window) #layouts {
+    background-color: var(--b3-theme-surface);
+    .layout__center .layout-tab-container {
+        border-bottom-left-radius: var(--b3-border-radius-q); 
+        border-bottom-right-radius: var(--b3-border-radius-q);
+        margin-bottom: 8px;
+    }
+}
+.layout__dockl,.layout__dockr,.layout__dockb {
+    .layout-tab-container { 
+        border-radius: var(--b3-border-radius-q); 
+        background-color: var(--b3-theme-filetree);
+        margin-bottom: 8px;
+        margin-right: 8px;
+    }
+}
+.layout-tab-bar.layout-tab-bar--readonly.fn__flex-1{
+    border-top-right-radius: var(--b3-border-radius-q);
+}
+.fn__flex.layout-tab-bar {  
+    border-top-left-radius: var(--b3-border-radius-q);
+}
 #toolbar {
     border: none;
 }
@@ -436,7 +468,7 @@ li.item.item--readonly {
     border: none;
 }
 .layout__resize::after {
-    background-color: var(--b3-theme-background-light);
+    background-color: rgba(255, 0, 0, 0);
 }
 .layout__resize--lr::after {
     width: 2px;
@@ -816,10 +848,10 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     font-size: 105%;
 }
 .av__cell {
-    border-right: 1.5px solid var(--b3-theme-surface-lighter);
+    border-right: 0.5px solid var(--b3-theme-surface-lighter);
 }
 .av__row {
-    border-bottom: 1.5px solid var(--b3-theme-surface-lighter);
+    border-bottom: 0.5px solid var(--b3-theme-surface-lighter);
 }
 .av__views {
     box-shadow: none;
@@ -828,10 +860,9 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     margin-top: 5px;
     margin-bottom: 18px;
     padding-left: 7px;
-    border-bottom: 1.5px solid var(--b3-theme-surface-lighter);
 }
 .av__cell .b3-chip {
-    border: 1.5px solid !important;
+    border: 0.5px solid !important;
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     background-color: rgba(38, 187, 170, 0.1);
