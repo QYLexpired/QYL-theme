@@ -439,24 +439,29 @@ li.item.item--readonly {
 body:not(.body--mobile,.body--window) #layouts {
     background-color: var(--b3-theme-surface);
     .layout__center .layout-tab-container {
-        border-bottom-left-radius: var(--b3-border-radius-q); 
-        border-bottom-right-radius: var(--b3-border-radius-q);
+        margin-top: 8px;
         margin-bottom: 8px;
+        border-radius: var(--b3-border-radius-q);
     }
 }
 .layout__dockl,.layout__dockr,.layout__dockb {
     .layout-tab-container { 
         border-radius: var(--b3-border-radius-q); 
         background-color: var(--b3-theme-filetree);
+        margin-top: 8px;
         margin-bottom: 8px;
         margin-right: 8px;
     }
 }
 .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1{
     border-top-right-radius: var(--b3-border-radius-q);
+    border-bottom-right-radius: var(--b3-border-radius-q);
+    margin-top: 8px;
 }
 .fn__flex.layout-tab-bar {  
     border-top-left-radius: var(--b3-border-radius-q);
+    border-bottom-left-radius: var(--b3-border-radius-q);
+    margin-top: 8px;
 }
 #toolbar {
     border: none;
