@@ -18,12 +18,29 @@
 * 给任意块添加自定义属性`font-family`，可以自定义该块的字体（本机存在的字体才生效），目前支持设置为`宋体` `幼圆` `黑体` `微软雅黑` `新宋体` `楷体` `隶书` `仿宋` `华文宋体` `华文中宋` `华文仿宋` `华文彩云` `华文新魏` `华文楷体` `华文琥珀` `华文细黑` `华文行楷` `华文隶书` `方正姚体` `方正舒体` `思源宋体` `思源黑体` `苹方` `Times New Roman`（:loudspeaker:**如需支持其他字体，或者其他中文西文字体组合，可以反馈给我**）
 * 其他样式改动
 
-* 如果想要保存Q按钮的配置，可以按需启用以下的JS代码片段：
+##### 如果想要保存Q按钮的配置，可按需启用以下JS代码片段，顶栏会出现刷新按钮，每次打开软件点一下刷新按钮就会自动应用设置
+（参考了<https://ld246.com/article/1728814976221>）
 ```
-if (!localStorage.getItem('hasVisited')) {
-    location.reload();
-    localStorage.setItem('hasVisited', 'true');
-}
+(function() {
+  function addBtnRefresh() {
+    let settingBtn = document.createElement("div");
+    settingBtn.id = "refreshBtn";
+    settingBtn.classList = "ariaLabel toolbar__item";
+    settingBtn.ariaLabel = "刷新页面";
+    settingBtn.innerHTML = `<svg><use xlink:href="#iconRefresh"></use></svg>`;
+
+    settingBtn.addEventListener(
+      "click",
+      function (e) {
+        location.reload();
+      }
+    );
+    return settingBtn;
+  }
+var vip = document.getElementById("toolbarVIP");
+vip.parentNode.insertBefore(addBtnRefresh(),vip);
+})();
+
 // 默认开启标记挖空
 isChecked1 = true;
 enableMarkStyles();
@@ -56,12 +73,28 @@ enablecolorfulfiletree();
 isChecked8 = true;
 enableeyescare();
 ```
-举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码：
+**举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码：**
 ```
-if (!localStorage.getItem('hasVisited')) {
-    location.reload();
-    localStorage.setItem('hasVisited', 'true');
-}
+(function() {
+  function addBtnRefresh() {
+    let settingBtn = document.createElement("div");
+    settingBtn.id = "refreshBtn";
+    settingBtn.classList = "ariaLabel toolbar__item";
+    settingBtn.ariaLabel = "刷新页面";
+    settingBtn.innerHTML = `<svg><use xlink:href="#iconRefresh"></use></svg>`;
+
+    settingBtn.addEventListener(
+      "click",
+      function (e) {
+        location.reload();
+      }
+    );
+    return settingBtn;
+  }
+var vip = document.getElementById("toolbarVIP");
+vip.parentNode.insertBefore(addBtnRefresh(),vip);
+})();
+
 // 默认开启标记挖空
 isChecked1 = true;
 enableMarkStyles();
