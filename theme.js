@@ -26,6 +26,112 @@ document.addEventListener('selectionchange', function() {
     }
 });
 
+// 状态栏拖动
+moveableStatus();
+function moveableStatus(status) {
+    let isDragging = false;
+    let isDragged = false;
+    let offsetX, offsetY;
+    let left='0px', top='0px';
+    let width = 0, height = 0;
+    const originStyle = {};
+
+    if(!status) status = document.querySelector('#status');
+
+    // 初始时计算宽高和位置
+    const calcStatusStyle = () => {
+        let style = getComputedStyle(status, null);
+        if(!isDragged) {
+            // 如果静态元素设置为固定元素
+            if(style.position === 'static') {
+                status.style.position = 'fixed';
+                status.style.setProperty('right', '42px', 'important');
+                status.style.bottom = '-8px';
+                style = getComputedStyle(status, null);
+            }
+            // 计算状态栏宽高
+            const marginWidth = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+            const marginHeight = parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+            width = parseFloat(style.width) + marginWidth;
+            height = parseFloat(style.height) + marginHeight;
+
+            // 记录状态栏初始样式
+            originStyle.position = style.position;
+            originStyle.right = style.right;
+            originStyle.bottom = style.bottom;
+
+            // 计算状态栏位置
+            left = window.innerWidth - (parseFloat(style.right) + width) + 'px';
+            top = window.innerHeight - (parseFloat(style.bottom) + height) + 'px';
+        }
+    };
+    
+    // 改变窗口大小事件
+    window.addEventListener("resize", (event)=>{
+        if (isDragged) {
+            if(parseFloat(status.style.left) > window.innerWidth) {
+                status.style.left = (window.innerWidth - width) + 'px';
+            }
+            if(parseFloat(status.style.top) > window.innerHeight) {
+                status.style.top = (window.innerHeight - height) + 'px';
+            }
+        }
+    });
+
+    // 双击恢复状态栏
+    status.addEventListener("dblclick", (event)=>{
+        isDragged = false;
+        status.style.position = originStyle.position;
+        status.style.setProperty('right', originStyle.right, 'important');
+        status.style.bottom = originStyle.bottom;
+        status.style.left = 'auto';
+        status.style.top = 'auto';
+    });
+
+    // 拖动事件
+    const dragHandler = (e) => {
+        if (e.type === 'mousedown') {
+            // 开始拖动
+            calcStatusStyle();
+            if(!isDragged) {
+                isDragged = true;
+                status.style.position = 'absolute';
+                status.style.setProperty('right', 'auto', 'important');
+                status.style.bottom = 'auto';
+                status.style.left = left;
+                status.style.top = top;
+            }
+            isDragging = true;
+            document.removeEventListener('mousemove', dragHandler);
+            document.removeEventListener('mouseup', dragHandler);
+            document.addEventListener('mousemove', dragHandler);
+            document.addEventListener('mouseup', dragHandler);
+            offsetX = e.clientX - status.offsetLeft;
+            offsetY = e.clientY - status.offsetTop;
+        } else if (e.type === 'mousemove' && isDragging) {
+            // 拖动中
+            let x = e.clientX - offsetX;
+            let y = e.clientY - offsetY;
+            //限制不超过窗口大小
+            if(x < 0) x = 0;
+            if(y < 0) y = 0;
+            if(x > window.innerWidth - width) x = window.innerWidth - width;
+            if(y > window.innerHeight - height) y = window.innerHeight - height;
+            // 设置状态栏坐标
+            status.style.left = x + 'px';
+            status.style.top = y + 'px';
+        } else if (e.type === 'mouseup') {
+            //结束拖动
+            isDragging = false;
+            document.removeEventListener('mousemove', dragHandler);
+            document.removeEventListener('mouseup', dragHandler);
+        }
+        e.preventDefault();
+    };
+    status.removeEventListener('mousedown', dragHandler);
+    status.addEventListener('mousedown', dragHandler);
+}
+
 // 添加Q按钮
 (function() {
     addThemeToolBar();
@@ -62,6 +168,7 @@ function addThemeToolBar() {
 }
 
 // 设置窗口
+
 let isChecked1 = false;
 let isChecked2 = false;
 let isChecked3 = false;
@@ -70,6 +177,7 @@ let isChecked5 = false;
 let isChecked6 = false;
 let isChecked7 = false;
 let isChecked8 = false;
+
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
     if (document.getElementById('settings-window')) return;
@@ -95,7 +203,7 @@ function createSettingsWindow() {
 
     const label1 = document.createElement('label');
     label1.htmlFor = 'mark-empty-checkbox';
-    label1.textContent = '标记挖空';
+    label1.textContent = ' 标记挖空';
     label1.style.fontSize = '14px';
     label1.style.userSelect= 'none';
 
@@ -106,7 +214,7 @@ function createSettingsWindow() {
 
     const label2 = document.createElement('label');
     label2.htmlFor = 'filetree-indent-checkbox';
-    label2.textContent = '文档树缩进线';
+    label2.textContent = ' 文档树缩进线';
     label2.style.fontSize = '14px';
     label2.style.userSelect= 'none';
 
@@ -117,7 +225,7 @@ function createSettingsWindow() {
 
     const label3 = document.createElement('label');
     label3.htmlFor = 'toolbar-hidden-checkbox';
-    label3.textContent = '隐藏顶栏';
+    label3.textContent = ' 隐藏顶栏';
     label3.style.fontSize = '14px';
     label3.style.userSelect= 'none';
 
@@ -128,7 +236,7 @@ function createSettingsWindow() {
 
     const label4 = document.createElement('label');
     label4.htmlFor = 'hoverblock-remind-checkbox';
-    label4.textContent = '鼠标所在块高亮提示';
+    label4.textContent = ' 鼠标所在块高亮提示';
     label4.style.fontSize = '14px';
     label4.style.userSelect= 'none';
 
@@ -139,7 +247,7 @@ function createSettingsWindow() {
 
     const label5 = document.createElement('label');
     label5.htmlFor = 'sbblock-remind-checkbox';
-    label5.textContent = '鼠标所在超级块范围提示';
+    label5.textContent = ' 鼠标所在超级块范围提示';
     label5.style.fontSize = '14px';
     label5.style.userSelect= 'none';
 
@@ -150,7 +258,7 @@ function createSettingsWindow() {
 
     const label6 = document.createElement('label');
     label6.htmlFor = 'fullwidthpage-checkbox';
-    label6.textContent = '编辑器全宽显示';
+    label6.textContent = ' 编辑器全宽显示';
     label6.style.fontSize = '14px';
     label6.style.userSelect= 'none';
 
@@ -161,7 +269,7 @@ function createSettingsWindow() {
 
     const label7 = document.createElement('label');
     label7.htmlFor = 'colorfulfiletree-checkbox';
-    label7.textContent = '多彩文档树';
+    label7.textContent = ' 多彩文档树';
     label7.style.fontSize = '14px';
     label7.style.userSelect= 'none';
 
@@ -172,7 +280,7 @@ function createSettingsWindow() {
 
     const label8 = document.createElement('label');
     label8.htmlFor = 'eyescare-checkbox';
-    label8.textContent = '护眼色';
+    label8.textContent = ' 护眼色';
     label8.style.fontSize = '14px';
     label8.style.userSelect= 'none';
 

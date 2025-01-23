@@ -12,9 +12,71 @@
 * 斜杠`/`菜单横铺，参考了<https://ld246.com/article/1724305128590>
 * 底部状态栏浮动到右侧，部分内容参考了<https://ld246.com/article/1724305128590>
 * 页签栏样式优化，部分内容参考了<https://ld246.com/article/1724305128590>
-* 给任意块添加自定义属性`visibility`，如果设置为`0`，此块的内容将被模糊化，设置为`1`或者删除此自定义属性，恢复原状
+* 给任意块添加自定义属性`visibility`，可设置为`默认` `模糊` `悬浮显示` `闪烁`
+* 给标题块添加自定义属性`h-style`，设置为`多彩`，可使标题具有多彩的动态渐变样式（仅对标题块纯文字生效）
+* 给任意块添加自定义属性`border`，可以显示该块的轮廓，目前支持设置为`默认` `立体` `黑色` `黑色虚线` `灰色` `灰色虚线` `红色` `红色虚线`（如果想要调整轮廓圆角矩形的弧度，可以再加上自定义属性`border-radius`，设置为`默认` `矩形` `圆润`）（:loudspeaker:**如需其他轮廓效果，可以反馈给我**）
 * 给任意块添加自定义属性`font-family`，可以自定义该块的字体（本机存在的字体才生效），目前支持设置为`宋体` `幼圆` `黑体` `微软雅黑` `新宋体` `楷体` `隶书` `仿宋` `华文宋体` `华文中宋` `华文仿宋` `华文彩云` `华文新魏` `华文楷体` `华文琥珀` `华文细黑` `华文行楷` `华文隶书` `方正姚体` `方正舒体` `思源宋体` `思源黑体` `苹方` `Times New Roman`（:loudspeaker:**如需支持其他字体，或者其他中文西文字体组合，可以反馈给我**）
-* 其他样式改动......
+* 其他样式改动
+
+* 如果想要保存Q按钮的配置，可以按需启用以下的JS代码片段：
+```
+if (!localStorage.getItem('hasVisited')) {
+    location.reload();
+    localStorage.setItem('hasVisited', 'true');
+}
+// 默认开启标记挖空
+isChecked1 = true;
+enableMarkStyles();
+
+// 默认开启文档树缩进线
+isChecked2 = true;
+enableIndentStyle();
+
+// 默认开启隐藏顶栏
+isChecked3 = true;
+enabletoolbarhidden();
+
+// 默认开启鼠标所在块高亮提示
+isChecked4 = true;
+enablehoverblockremind();
+
+//默认开启鼠标所在超级块高亮提示
+isChecked5 = true;
+enablesbremind();
+
+//默认开启编辑器全宽显示
+isChecked6 = true;
+enablefullwidth();
+
+//默认开启多彩文档树
+isChecked7 = true;
+enablecolorfulfiletree();
+
+// 默认开启护眼色
+isChecked8 = true;
+enableeyescare();
+```
+举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码：
+```
+if (!localStorage.getItem('hasVisited')) {
+    location.reload();
+    localStorage.setItem('hasVisited', 'true');
+}
+// 默认开启标记挖空
+isChecked1 = true;
+enableMarkStyles();
+
+// 默认开启护眼色
+isChecked8 = true;
+enableeyescare();
+```
+
+## v1.3.0
+* 使得右下角状态栏可拖动，以免发生影响操作的遮挡（双击后恢复为默认位置）
+* 优化反链面板和关系图面板
+* visibility自定义属性增加`闪烁` `悬浮显示`样式
+* 增加功能：给任意块添加自定义属性`border`，可以显示该块的轮廓（如果想要调整轮廓圆角矩形的弧度，可以再加上自定义属性`border-radius`来设置）
+* 增加功能：给标题块添加自定义属性`h-style`，设置为`多彩`，可使标题具有多彩的动态渐变样式（仅对标题块纯文字生效）
 
 ## v1.2.9
 * 主界面和数据库细节优化
@@ -27,7 +89,7 @@
 
 ## v1.2.6
 * 优化了标题折叠样式
-* 增加自定义属性'blankblock-remind'，可以设置为`0`来屏蔽"空空如也"的提示，设置为`1`或者删除此自定义属性，恢复提示
+* 增加自定义属性'blankblock-remind'，可以设置为`隐藏`来屏蔽"空空如也"的提示，设置为`默认`或者删除此自定义属性，恢复提示
 * 数据库样式细节优化
 
 ## v1.2.5
@@ -39,8 +101,7 @@
 * 如果一个块没有输入任何内容，将显示“空空如也”以作提示
 
 ## v1.2.3
-* 增加功能：给任意块添加自定义属性`visibility`，如果设置为`0`，此块的内容将被模糊化，设置为`1`或者删除此自定义属性，恢复原状
-* 优化开启护眼色后的诸多细节
+* 增加功能：给任意块添加自定义属性`visibility`，可设置为`模糊` `悬浮显示` `默认`
 * 优化反链面板
 
 ## v1.2.2
