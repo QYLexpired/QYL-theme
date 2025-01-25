@@ -12,97 +12,109 @@
 * 斜杠`/`菜单横铺，参考了<https://ld246.com/article/1724305128590>
 * 底部状态栏浮动到右侧，部分内容参考了<https://ld246.com/article/1724305128590>
 * 页签栏样式优化，部分内容参考了<https://ld246.com/article/1724305128590>
-* 给任意块添加自定义属性`visibility`，可设置为`默认` `模糊` `悬浮显示` `闪烁`
-* 给标题块添加自定义属性`h-style`，设置为`多彩`，可使标题具有多彩的动态渐变样式（仅对标题块纯文字生效）
-* 给任意块添加自定义属性`border`，可以显示该块的轮廓，目前支持设置为`默认` `立体` `黑色` `黑色虚线` `灰色` `灰色虚线` `红色` `红色虚线`（如果想要调整轮廓圆角矩形的弧度，可以再加上自定义属性`border-radius`，设置为`默认` `矩形` `圆润`）（:loudspeaker:**如需其他轮廓效果，可以反馈给我**）
-* 给任意块添加自定义属性`font-family`，可以自定义该块的字体（本机存在的字体才生效），目前支持设置为`宋体` `幼圆` `黑体` `微软雅黑` `新宋体` `楷体` `隶书` `仿宋` `华文宋体` `华文中宋` `华文仿宋` `华文彩云` `华文新魏` `华文楷体` `华文琥珀` `华文细黑` `华文行楷` `华文隶书` `方正姚体` `方正舒体` `思源宋体` `思源黑体` `苹方` `Times New Roman`（:loudspeaker:**如需支持其他字体，或者其他中文西文字体组合，可以反馈给我**）
 * 其他样式改动
+<details>
+  <summary>任意块自定义属性visibility（展开查看）</summary>
+  设置为“默认”，该块无任何变化；设置为“模糊”，该块将被模糊化；设置为“悬浮显示”，该块被模糊化，但鼠标悬浮时不再模糊；设置为“闪烁”，该块将持续闪烁
+</details>
+<details>
+  <summary>标题块自定义属性h-style（展开查看）</summary>
+  设置为“多彩”，可使标题具有多彩的动态渐变样式（仅对标题块纯文字生效）
+</details>
+<details>
+  <summary>任意块自定义属性border（展开查看）</summary>
+  可以显示该块的轮廓，目前支持设置为“默认”、“立体”、“黑色”、“黑色虚线”、“灰色”、“灰色虚线”、“红色”、“红色虚线”（如果想要调整轮廓圆角矩形的弧度，可以再加上自定义属性border-radius，设置为“默认”、“矩形”、“圆润”（如需其他轮廓效果，可以反馈给我）
+</details>
+<details>
+  <summary>任意块自定义属性font-family（展开查看）</summary>
+  可以自定义该块的字体（本机存在的字体才生效），目前支持设置为“宋体”、“幼圆”、“黑体”、“微软雅黑”、“新宋体”、“楷体”、“隶书”、“仿宋”、“华文宋体”、“华文中宋”、“华文仿宋”、“华文彩云”、“华文新魏”、“华文楷体”、“华文琥珀”、“华文细黑”、“华文行楷”、“华文隶书”、“方正姚体”、“方正舒体”、“思源宋体”、“思源黑体”、“苹方”、“Times New Roman”（如需支持其他字体，或者其他中文西文字体组合，可以反馈给我）
+</details>
+<details>
+  <summary>任意块自定义属性background（展开查看）</summary>
+  可以自定义该块的背景色，目前支持设置为“淡紫粉渐变”、“蓝绿色渐变”、“蓝色渐变”、“红橙色渐变”、“淡蓝粉渐变”、“灰色渐变”、“黑色渐变”、“绿色渐变”、“红色渐变”（如需其他背景色，可以反馈给我）
+</details>
 
-##### 如果想要保存Q按钮的配置，可按需启用以下JS代码片段，顶栏会出现刷新按钮，每次打开软件点一下刷新按钮就会自动应用设置
-（参考了<https://ld246.com/article/1728814976221>）
-```
-(function() {
-  function addBtnRefresh() {
-    let settingBtn = document.createElement("div");
-    settingBtn.id = "refreshBtn";
-    settingBtn.classList = "ariaLabel toolbar__item";
-    settingBtn.ariaLabel = "刷新页面";
-    settingBtn.innerHTML = `<svg><use xlink:href="#iconRefresh"></use></svg>`;
-
-    settingBtn.addEventListener(
+<details>
+  <summary>如果想要保存Q按钮的配置，可按需启用以下JS代码片段（展开查看），顶栏会出现刷新按钮，每次打开软件点一下刷新按钮就会自动应用设置
+  （参考了https://ld246.com/article/1728814976221）</summary>
+  <pre><blockcode> 
+  (function() {
+    function addBtnRefresh() {
+      let settingBtn = document.createElement("div");
+      settingBtn.id = "refreshBtn";
+      settingBtn.classList = "ariaLabel toolbar__item";
+      settingBtn.ariaLabel = "刷新页面";
+      settingBtn.innerHTML = `&ltsvg>&ltuse xlink:href="#iconRefresh">&lt/use>&lt/svg>`;
+      settingBtn.addEventListener(
       "click",
       function (e) {
         location.reload();
       }
-    );
+      );
     return settingBtn;
   }
-var vip = document.getElementById("toolbarVIP");
-vip.parentNode.insertBefore(addBtnRefresh(),vip);
-})();
-
-// 默认开启标记挖空
-isChecked1 = true;
-enableMarkStyles();
-
-// 默认开启文档树缩进线
-isChecked2 = true;
-enableIndentStyle();
-
-// 默认开启隐藏顶栏
-isChecked3 = true;
-enabletoolbarhidden();
-
-// 默认开启鼠标所在块高亮提示
-isChecked4 = true;
-enablehoverblockremind();
-
-//默认开启鼠标所在超级块高亮提示
-isChecked5 = true;
-enablesbremind();
-
-//默认开启编辑器全宽显示
-isChecked6 = true;
-enablefullwidth();
-
-//默认开启多彩文档树
-isChecked7 = true;
-enablecolorfulfiletree();
-
-// 默认开启护眼色
-isChecked8 = true;
-enableeyescare();
-```
-**举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码：**
-```
-(function() {
-  function addBtnRefresh() {
-    let settingBtn = document.createElement("div");
-    settingBtn.id = "refreshBtn";
-    settingBtn.classList = "ariaLabel toolbar__item";
-    settingBtn.ariaLabel = "刷新页面";
-    settingBtn.innerHTML = `<svg><use xlink:href="#iconRefresh"></use></svg>`;
-
-    settingBtn.addEventListener(
+  var vip = document.getElementById("toolbarVIP");
+  vip.parentNode.insertBefore(addBtnRefresh(),vip);
+  })();
+  // 默认开启标记挖空
+  isChecked1 = true;
+  enableMarkStyles();
+  // 默认开启文档树缩进线
+  isChecked2 = true;
+  enableIndentStyle();
+  // 默认开启隐藏顶栏
+  isChecked3 = true;
+  enabletoolbarhidden();
+  // 默认开启鼠标所在块高亮提示
+  isChecked4 = true;
+  enablehoverblockremind();
+  //默认开启鼠标所在超级块高亮提示
+  isChecked5 = true;
+  enablesbremind();
+  //默认开启编辑器全宽显示
+  isChecked6 = true;
+  enablefullwidth();
+  //默认开启多彩文档树
+  isChecked7 = true;
+  enablecolorfulfiletree();
+  // 默认开启护眼色
+  isChecked8 = true;
+  enableeyescare();
+<details>
+  <summary>举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码（展开查看）</summary>
+  <pre><blockcode> 
+  (function() {
+    function addBtnRefresh() {
+      let settingBtn = document.createElement("div");
+      settingBtn.id = "refreshBtn";
+      settingBtn.classList = "ariaLabel toolbar__item";
+      settingBtn.ariaLabel = "刷新页面";
+      settingBtn.innerHTML = `&ltsvg>&ltuse xlink:href="#iconRefresh">&lt/use>&lt/svg>`;
+      settingBtn.addEventListener(
       "click",
       function (e) {
         location.reload();
       }
-    );
+      );
     return settingBtn;
   }
-var vip = document.getElementById("toolbarVIP");
-vip.parentNode.insertBefore(addBtnRefresh(),vip);
-})();
+  var vip = document.getElementById("toolbarVIP");
+  vip.parentNode.insertBefore(addBtnRefresh(),vip);
+  })();
+  // 默认开启标记挖空
+  isChecked1 = true;
+  enableMarkStyles();
+  // 默认开启护眼色
+  isChecked8 = true;
+  enableeyescare();
+  </blockcode></pre>
+</details>
+  </blockcode></pre>
+</details>
 
-// 默认开启标记挖空
-isChecked1 = true;
-enableMarkStyles();
-
-// 默认开启护眼色
-isChecked8 = true;
-enableeyescare();
-```
+## v1.3.2
+* 优化多彩文档树的显示效果并增加两个文档树颜色
+* 增加功能：给任意块添加自定义属性`background`，可以设置该块的背景色
 
 ## v1.3.1
 * 重新上传
