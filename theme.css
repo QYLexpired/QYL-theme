@@ -746,99 +746,99 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 }
 
 /* 自定义属性font-family */
-.protyle-wysiwyg [custom-font-family="宋体"],
+[custom-font-family="宋体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="宋体"] {
     font-family: "SimSun";
 }
-.protyle-wysiwyg [custom-font-family="幼圆"],
+[custom-font-family="幼圆"],
 .protyle-wysiwyg [data-node-id][custom-font-family="幼圆"] {
     font-family: "YouYuan";
 }
-.protyle-wysiwyg [custom-font-family="黑体"],
+[custom-font-family="黑体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="黑体"] {
     font-family: "SimHei";
 }
-.protyle-wysiwyg [custom-font-family="微软雅黑"],
+[custom-font-family="微软雅黑"],
 .protyle-wysiwyg [data-node-id][custom-font-family="微软雅黑"] {
     font-family: "Microsoft YaHei";
 }
-.protyle-wysiwyg [custom-font-family="新宋体"],
+[custom-font-family="新宋体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="新宋体"] {
     font-family: "NSimSun";
 }
-.protyle-wysiwyg [custom-font-family="楷体"],
+[custom-font-family="楷体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="楷体"] {
     font-family: "KaiTi";
 }
-.protyle-wysiwyg [custom-font-family="隶书"],
+[custom-font-family="隶书"],
 .protyle-wysiwyg [data-node-id][custom-font-family="隶书"] {
     font-family: "LiSu";
 }
-.protyle-wysiwyg [custom-font-family="仿宋"],
+[custom-font-family="仿宋"],
 .protyle-wysiwyg [data-node-id][custom-font-family="仿宋"] {
     font-family: "FangSong";
 }
-.protyle-wysiwyg [custom-font-family="华文宋体"],
+[custom-font-family="华文宋体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文宋体"] {
     font-family: "STSong";
 }
-.protyle-wysiwyg [custom-font-family="华文中宋"],
+[custom-font-family="华文中宋"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文中宋"] {
     font-family: "STZhongsong";
 }
-.protyle-wysiwyg [custom-font-family="华文仿宋"],
+[custom-font-family="华文仿宋"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文仿宋"] {
     font-family: "STFangsong";
 }
-.protyle-wysiwyg [custom-font-family="华文彩云"],
+[custom-font-family="华文彩云"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文彩云"] {
     font-family: "STCaiyun";
 }
-.protyle-wysiwyg [custom-font-family="华文新魏"],
+[custom-font-family="华文新魏"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文新魏"] {
     font-family: "STXinwei";
 }
-.protyle-wysiwyg [custom-font-family="华文楷体"],
+[custom-font-family="华文楷体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文楷体"] {
     font-family: "STKaiti";
 }
-.protyle-wysiwyg [custom-font-family="华文琥珀"],
+[custom-font-family="华文琥珀"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文琥珀"] {
     font-family: "STHupo";
 }
-.protyle-wysiwyg [custom-font-family="华文细黑"],
+[custom-font-family="华文细黑"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文细黑"] {
     font-family: "STXihei";
 }
-.protyle-wysiwyg [custom-font-family="华文行楷"],
+[custom-font-family="华文行楷"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文行楷"] {
     font-family: "STXingkai";
 }
-.protyle-wysiwyg [custom-font-family="华文隶书"],
+[custom-font-family="华文隶书"],
 .protyle-wysiwyg [data-node-id][custom-font-family="华文隶书"] {
     font-family: "STLiti";
 }
-.protyle-wysiwyg [custom-font-family="方正姚体"],
+[custom-font-family="方正姚体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="方正姚体"] {
     font-family: "FZYaoti";
 }
-.protyle-wysiwyg [custom-font-family="方正舒体"],
+[custom-font-family="方正舒体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="方正舒体"] {
     font-family: "FZShuTi";
 }
-.protyle-wysiwyg [custom-font-family="思源宋体"],
+[custom-font-family="思源宋体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="思源宋体"] {
     font-family: "Source Han Serif SC";
 }
-.protyle-wysiwyg [custom-font-family="思源黑体"],
+[custom-font-family="思源黑体"],
 .protyle-wysiwyg [data-node-id][custom-font-family="思源黑体"] {
     font-family: "Source Han Sans CN";
 }
-.protyle-wysiwyg [custom-font-family="苹方"],
+[custom-font-family="苹方"],
 .protyle-wysiwyg [data-node-id][custom-font-family="苹方"] {
     font-family: "PingFang SC";
 }
-.protyle-wysiwyg [custom-font-family="Times New Roman"],
+[custom-font-family="Times New Roman"],
 .protyle-wysiwyg [data-node-id][custom-font-family="Times New Roman"] {
     font-family: "Times New Roman";
 }
@@ -917,6 +917,11 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .protyle-wysiwyg [data-node-id][custom-border="红色虚线"] {
     border: 0.5px dashed red;
 }
+/* 自定义块属性img-border */
+[custom-img-border="图片立体"] img,
+.protyle-wysiwyg [data-node-id][custom-img-border="图片立体"] img {
+    box-shadow: var(--b3-dialog-shadow);
+}
 
 /* 自定义块属性border-radius */
 .protyle-wysiwyg [custom-border-radius="默认"],
@@ -929,6 +934,15 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 }
 .protyle-wysiwyg [custom-border-radius="圆润"],
 .protyle-wysiwyg [data-node-id][custom-border-radius="圆润"] {
+    border-radius: 25px;
+}
+/* 自定义块属性img-border-radius */
+[custom-img-border-radius="图片圆角"] img,
+.protyle-wysiwyg [data-node-id][custom-border-radius="图片圆角"] img {
+    border-radius: var(--b3-border-radius);
+}
+[custom-img-border-radius="图片圆润"] img,
+.protyle-wysiwyg [data-node-id][custom-img-border-radius="图片圆润"] img {
     border-radius: 25px;
 }
 
@@ -962,6 +976,13 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 /* 自定义块属性h-style */
 .protyle-wysiwyg [custom-h-style="多彩"],
 .protyle-wysiwyg [data-node-id][custom-h-style="多彩"] {
+    background: -webkit-linear-gradient(135deg,#0eaf6d,#ff6ac6 25%,#147b96 50%,#e6d205 55%,#2cc4e0 60%,#8b2ce0 80%,#ff6384 95%,#08dfb4);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: hcolorful 8s infinite linear;
+}
+[custom-h-style="多彩"] [data-type="NodeHeading"] {
     background: -webkit-linear-gradient(135deg,#0eaf6d,#ff6ac6 25%,#147b96 50%,#e6d205 55%,#2cc4e0 60%,#8b2ce0 80%,#ff6384 95%,#08dfb4);
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1009,4 +1030,51 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .protyle-wysiwyg [custom-background="红色渐变"],
 .protyle-wysiwyg [data-node-id][custom-background="红色渐变"] {
     background-image: linear-gradient(to right bottom, #fa1f32, #fd214c, #fd2b64, #fa397a, #f4478e);
+}
+
+/* 自定义块属性style */
+.protyle-wysiwyg [custom-style="红色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="红色便签"] {
+    background-color: #ffe2e2;
+    border-top: 8px solid #ed4545;
+}
+.protyle-wysiwyg [custom-style="橙色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="橙色便签"] {
+    background-color: #ffedda;
+    border-top: 8px solid #ff8239;
+}
+.protyle-wysiwyg [custom-style="黄色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="黄色便签"] {
+    background-color: #fff9c4;
+    border-top: 8px solid #fff000;
+}
+.protyle-wysiwyg [custom-style="绿色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="绿色便签"] {
+    background-color: #e1ffdf;
+    border-top: 8px solid #2ee62e;
+}
+.protyle-wysiwyg [custom-style="青色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="青色便签"] {
+    background-color: #dffffc;
+    border-top: 8px solid #1cf5df;
+}
+.protyle-wysiwyg [custom-style="蓝色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="蓝色便签"] {
+    background-color: var(--b3-theme-primary-lightest);
+    border-top: 8px solid var(--b3-theme-primary);
+}
+.protyle-wysiwyg [custom-style="紫色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="紫色便签"] {
+    background-color: #f6e8ff;
+    border-top: 8px solid #a949e8;
+}
+.protyle-wysiwyg [custom-style="紫红便签"],
+.protyle-wysiwyg [data-node-id][custom-background="紫红便签"] {
+    background-color: #ffe8f7;
+    border-top: 8px solid #e849be;
+}
+.protyle-wysiwyg [custom-style="粉色便签"],
+.protyle-wysiwyg [data-node-id][custom-background="粉色便签"] {
+    background-color: #fff1f5;
+    border-top: 8px solid #ff81b5;
 }

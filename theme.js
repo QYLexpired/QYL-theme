@@ -464,19 +464,20 @@ function enableMarkStyles() {
         .b3-typography mark, .b3-typography span[data-type~=mark], 
         .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
             color: transparent !important; 
-            border-bottom: 3px solid #3DBD7F;
+            border-bottom: 1.5px solid #3DBD7F;
             background-color: transparent !important;
-            margin-left: 5px;
-            margin-right: 5px;
-            transition: 0.15s;
+            margin-left: 3px;
+            margin-right: 3px;
+            padding-bottom: 3px;
         }
         .b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
         .protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
             color: inherit !important;
-            border-bottom: 3px solid #3DBD7F;
+            border-bottom: 1.5px solid #3DBD7F;
             background-color: transparent !important;
-            margin-left: 5px;
-            margin-right: 5px;
+            margin-left: 3px;
+            margin-right: 3px;
+            padding-bottom: 3px;
         }
         .card__block--hidemark span[data-type~=mark]::before {
             content: "________";
