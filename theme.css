@@ -844,14 +844,14 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 }
 
 /* 空块提示blankblock-remind */
-.protyle-wysiwyg [data-node-id].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
-    content:"空空如也";
-    color:  #cacaca;
+.protyle-wysiwyg [data-node-id][custom-blankblock-remind="开启"].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
+    content:"空空如也" ;
+    color:  #cacaca ;
 }
-.protyle-wysiwyg [data-node-id][custom-blankblock-remind="隐藏"].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
-    display: none;
+[custom-blankblock-remind="开启"] .p > [contenteditable][spellcheck]:empty::before {
+    content:"空空如也" ;
+    color:  #cacaca ;
 }
-
 
 /* 数据库 */
 .av__cell--header .av__celltext {
@@ -1077,4 +1077,140 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .protyle-wysiwyg [data-node-id][custom-background="粉色便签"] {
     background-color: #fff1f5;
     border-top: 8px solid #ff81b5;
+}
+.protyle-wysiwyg [custom-style="警告"],
+.protyle-wysiwyg [data-node-id][custom-background="警告"] {
+    background-color: rgba(210, 62, 49, 0.2);
+    border: 3px solid var(--b3-theme-error);
+    border-top: 30px solid var(--b3-theme-error);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="警告"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="警告"]::before {
+    content: "Warning";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(255, 210, 205);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="重要"],
+.protyle-wysiwyg [data-node-id][custom-background="重要"] {
+    background-color: rgba(139, 76, 158, 0.2);
+    border: 3px solid rgb(139, 76, 158);
+    border-top: 30px solid rgb(139, 76, 158);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="重要"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="重要"]::before {
+    content: "Important";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(246, 215, 255);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="待办"],
+.protyle-wysiwyg [data-node-id][custom-background="待办"] {
+    background-color: rgba(61, 90, 169, 0.2);
+    border: 3px solid rgb(61, 90, 169);
+    border-top: 30px solid rgb(61, 90, 169);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="待办"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="待办"]::before {
+    content: "Todo";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(232, 238, 255);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="完成"],
+.protyle-wysiwyg [data-node-id][custom-background="完成"] {
+    background-color: rgba(61, 169, 95, 0.2);
+    border: 3px solid rgb(61, 169, 95);
+    border-top: 30px solid rgb(61, 169, 95);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="完成"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="完成"]::before {
+    content: "Done";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(230, 255, 239);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="引用"],
+.protyle-wysiwyg [data-node-id][custom-background="引用"] {
+    background-color: rgba(184, 184, 184, 0.2);
+    border: 3px solid rgb(184, 184, 184);
+    border-top: 30px solid rgb(184, 184, 184);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="引用"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="引用"]::before {
+    content: "Quote";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(247, 247, 247);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="信息"],
+.protyle-wysiwyg [data-node-id][custom-background="信息"] {
+    background-color: rgba(98, 190, 220, 0.2);
+    border: 3px solid rgb(98, 190, 220);
+    border-top: 30px solid rgb(98, 190, 220);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="信息"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="信息"]::before {
+    content: "Information";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(240, 251, 255);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="灵感"],
+.protyle-wysiwyg [data-node-id][custom-background="灵感"] {
+    background-color: rgba(237, 143, 67, 0.2);
+    border: 3px solid rgb(237, 143, 67);
+    border-top: 30px solid rgb(237, 143, 67);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="灵感"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="灵感"]::before {
+    content: "Tip";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(255, 240, 228);
+    font-size: 16px;
+    font-weight: bold;
+}
+.protyle-wysiwyg [custom-style="批注"],
+.protyle-wysiwyg [data-node-id][custom-background="批注"] {
+    background-color: rgba(57, 57, 57, 0.2);
+    border: 3px solid rgb(57, 57, 57);
+    border-top: 30px solid rgb(57, 57, 57);
+    padding: 5px 8px !important;
+}
+.protyle-wysiwyg [custom-style="批注"]::before,
+.protyle-wysiwyg [data-node-id][custom-background="批注"]::before {
+    content: "Comment";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: rgb(238, 238, 238);
+    font-size: 16px;
+    font-weight: bold;
 }
