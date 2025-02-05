@@ -461,10 +461,13 @@ function enableMarkStyles() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
+        span[data-type="mark"] {
+            background: transparent !important;
+        }
         .b3-typography mark, .b3-typography span[data-type~=mark], 
         .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
             color: transparent !important; 
-            border-bottom: 1.5px solid #3DBD7F;
+            border-bottom: 1.5px solid rgb(90, 186, 73);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
@@ -473,7 +476,7 @@ function enableMarkStyles() {
         .b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
         .protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
             color: inherit !important;
-            border-bottom: 1.5px solid #3DBD7F;
+            border-bottom: 1.5px solid rgb(90, 186, 73);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
