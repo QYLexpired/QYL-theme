@@ -176,7 +176,6 @@ let isChecked4 = false;
 let isChecked5 = false;
 let isChecked6 = false;
 let isChecked7 = false;
-let isChecked8 = false;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -188,9 +187,8 @@ function createSettingsWindow() {
     settingsWindow.style.position = 'fixed';
     settingsWindow.style.top = '32px'; 
     settingsWindow.style.right = '195px'; 
-    settingsWindow.style.backgroundColor = 'rgb(246, 246, 246)';
+    settingsWindow.style.backgroundColor = 'var(--b3-menu-background)';
     settingsWindow.style.padding = '12px';
-    settingsWindow.style.border = '1px solid #e0e0e0';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = '16px'; 
@@ -273,17 +271,6 @@ function createSettingsWindow() {
     label7.style.fontSize = '14px';
     label7.style.userSelect= 'none';
 
-    const checkbox8 = document.createElement('input');
-    checkbox8.type = 'checkbox';
-    checkbox8.id = 'eyescare-checkbox';
-    checkbox8.checked = isChecked8;
-
-    const label8 = document.createElement('label');
-    label8.htmlFor = 'eyescare-checkbox';
-    label8.textContent = ' 护眼色';
-    label8.style.fontSize = '14px';
-    label8.style.userSelect= 'none';
-
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -320,11 +307,6 @@ function createSettingsWindow() {
     QYLfunctionpair7.appendChild(checkbox7);
     QYLfunctionpair7.appendChild(label7);
 
-    const QYLfunctionpair8 = document.createElement('div');
-    QYLfunctionpair8.className = 'checkbox-label-pair';
-    QYLfunctionpair8.appendChild(checkbox8);
-    QYLfunctionpair8.appendChild(label8);
-
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
@@ -333,7 +315,6 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair5);
     settingsWindow.appendChild(QYLfunctionpair6);
     settingsWindow.appendChild(QYLfunctionpair7);
-    settingsWindow.appendChild(QYLfunctionpair8);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -408,16 +389,6 @@ function createSettingsWindow() {
         }
     });
 
-    // 护眼色开关
-    checkbox8.addEventListener('change', function() {
-        isChecked8 = this.checked;
-        if (this.checked) {
-            enableeyescare();
-        } else {
-            disableeyescare();
-        }
-    });
-
     // ESC键关闭
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
@@ -461,13 +432,12 @@ function enableMarkStyles() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        span[data-type="mark"] {
-            background: transparent !important;
-        }
+        span[data-type~=mark],mark {
+            background: transparent !important; }
         .b3-typography mark, .b3-typography span[data-type~=mark], 
         .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
             color: transparent !important; 
-            border-bottom: 1.5px solid rgb(90, 186, 73);
+            border-bottom: 1.5px solid rgba(60, 172, 78, 0.8);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
@@ -476,7 +446,7 @@ function enableMarkStyles() {
         .b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
         .protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
             color: inherit !important;
-            border-bottom: 1.5px solid rgb(90, 186, 73);
+            border-bottom: 1.5px solid rgba(60, 172, 78, 0.8);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
@@ -577,7 +547,7 @@ function enablehoverblockremind() {
     }
     styleSheet.innerText = `
         .p:hover {
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.15), -2px -2px 6px rgba(255, 255, 255, 0.15), 0 0 12px rgba(255, 255, 255, 0.1) !important;
             transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
         }
     `;
@@ -601,7 +571,7 @@ function enablesbremind() {
     }
     styleSheet.innerText = `
         .sb:hover {
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.15), -2px -2px 6px rgba(255, 255, 255, 0.15), 0 0 12px rgba(255, 255, 255, 0.1) !important;
             transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out !important;
         }
     `;
@@ -673,7 +643,7 @@ function enablecolorfulfiletree() {
     border-bottom-left-radius: 6px;
 }
 .b3-list:nth-of-type(8n+1)>[data-type="navigation-root"]::before {
-    background-color: var(--b3-theme-primary) !important;
+    background-color: rgb(101, 149, 238) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+1) {
     position: relative;
@@ -685,13 +655,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+1)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: var(--b3-theme-primary);
+    background-color: rgb(101, 149, 238);
 }
 .b3-list:nth-of-type(8n+1)>[data-type="navigation-root"] {
-    background-color:rgb(184, 209, 255) !important;
+    background-color:rgb(91, 113, 154) !important;
 }
 .b3-list:nth-of-type(8n+2)>[data-type="navigation-root"]::before {
-    background-color:var(--b3-theme-secondary) !important;
+    background-color:rgb(228, 184, 38) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+2) {
     position: relative;
@@ -703,13 +673,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+2)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: var(--b3-theme-secondary);
+    background-color: rgb(228, 184, 38);
 }
 .b3-list:nth-of-type(8n+2)>[data-type="navigation-root"] {
-    background-color: rgb(255, 224, 174) !important;
+    background-color: rgb(188, 162, 75) !important;
 }
 .b3-list:nth-of-type(8n+3)>[data-type="navigation-root"]::before {
-    background-color:var(--b3-theme-error) !important;
+    background-color:rgb(211, 70, 54) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+3) {
     position: relative;
@@ -721,13 +691,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+3)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: var(--b3-theme-error);
+    background-color: rgb(211, 70, 54);
 }
 .b3-list:nth-of-type(8n+3)>[data-type="navigation-root"] {
-    background-color: rgb(255, 187, 180) !important;
+    background-color: rgb(195, 114, 105) !important;
 }
 .b3-list:nth-of-type(8n+4)>[data-type="navigation-root"]::before {
-    background-color:var(--b3-theme-success) !important;
+    background-color:rgb(80, 159, 60) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+4) {
     position: relative;
@@ -739,13 +709,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+4)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: var(--b3-theme-success);
+    background-color: rgb(80, 159, 60);
 }
 .b3-list:nth-of-type(8n+4)>[data-type="navigation-root"] {
-    background-color: rgb(192, 234, 181) !important;
+    background-color: rgb(97, 145, 85) !important;
 }
 .b3-list:nth-of-type(8n+5)>[data-type="navigation-root"]::before {
-    background-color:#9c4db8 !important;
+    background-color:rgb(154, 75, 183) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+5) {
     position: relative;
@@ -757,13 +727,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+5)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: #9c4db8;
+    background-color:rgb(154, 75, 183);
 }
 .b3-list:nth-of-type(8n+5)>[data-type="navigation-root"] {
-    background-color: rgb(239, 195, 255) !important;
+    background-color: rgb(157, 103, 177) !important;
 }
 .b3-list:nth-of-type(8n+6)>[data-type="navigation-root"]::before {
-    background-color:#00dacf !important;
+    background-color:rgb(33, 152, 145) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+6) {
     position: relative;
@@ -775,13 +745,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+6)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: #00dacf;
+    background-color:rgb(33, 152, 145);
 }
 .b3-list:nth-of-type(8n+6)>[data-type="navigation-root"] {
-    background-color: rgb(170, 235, 232) !important;
+    background-color: rgb(75, 137, 133) !important;
 }
 .b3-list:nth-of-type(8n+7)>[data-type="navigation-root"]::before {
-    background-color:rgb(230, 0, 123) !important;
+    background-color:rgb(180, 42, 115) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+7) {
     position: relative;
@@ -793,13 +763,13 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+7)::be
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color: rgb(230, 0, 123);
+    background-color: rgb(180, 42, 115);
 }
 .b3-list:nth-of-type(8n+7)>[data-type="navigation-root"] {
-    background-color: rgb(255, 186, 223) !important;
+    background-color: rgb(141, 86, 115) !important;
 }
 .b3-list:nth-of-type(8n)>[data-type="navigation-root"]::before {
-    background-color:rgb(177, 80, 0) !important;
+    background-color:rgb(176, 95, 28) !important;
 }
 div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n) {
     position: relative;
@@ -811,10 +781,10 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n)::befo
     left: 17px;
     height: 100%;
     width: 3px;
-    background-color:rgb(177, 80, 0);
+    background-color:rgb(176, 95, 28);
 }
 .b3-list:nth-of-type(8n)>[data-type="navigation-root"] {
-    background-color:rgb(230, 184, 147) !important;
+    background-color:rgb(167, 117, 76) !important;
 }
     `;
 }
@@ -822,53 +792,6 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n)::befo
 // 关闭多彩文档树功能
 function disablecolorfulfiletree() {
     const styleSheet = document.getElementById("colorfulfiletree-style");
-    if (styleSheet) {
-        styleSheet.innerText = '';
-    }
-}
-
-// 开启护眼色
-function enableeyescare() {
-    let styleSheet = document.getElementById("eyescare-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "eyescare-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-        :root {
-            --b3-theme-background: #DCE2F1;
-            --b3-theme-surface: #E9EBFE;
-            --b3-theme-on-surface: black;
-            --b3-theme-on-surface-light: black;
-            --b3-theme-background-light:rgba(255, 255, 255, 0.65);
-            --hovercurrent: rgba(255, 255, 255, 0.65);
-            --b3-list-icon-hover: rgba(255, 255, 255, 0.65);
-            --b3-list-hover: rgba(255, 255, 255, 0.65);
-            --b3-theme-surface-lighter: rgba(255, 255, 255, 0.65);
-            --b3-theme-filetree: #E1E3FA
-        }
-        .pdf__outer .textLayer {
-            background-color:rgba(220, 226, 241, 0.8);
-        }
-        .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
-            background-color: var(--hovercurrent);
-        }
-        .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
-            background-color: rgba(243, 243, 243, 0.5);
-        }
-        .item.item--focus {
-            background-color:rgb(201, 205, 255);
-        }
-        .item.item--focus:hover {
-            background-color: rgb(185, 189, 255);
-        }
-    `;
-}
-
-// 关闭护眼色
-function disableeyescare() {
-    const styleSheet = document.getElementById("eyescare-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
