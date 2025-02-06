@@ -14,7 +14,7 @@
     --b3-theme-success: #65b84d;
     --b3-theme-notfocus: #6a6a6a;
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
-    --hovercurrent: rgb(223, 224, 225, 0.7);
+    --hovercurrent: rgba(183, 196, 255, 0.4);
     --b3-theme-filetree: rgba(211, 211, 211, 0.2);
 
     /* 文字颜色 */
