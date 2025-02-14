@@ -15,86 +15,52 @@
 * 自定义块属性效果
 * 其他样式改动
 
-<details>
-  <summary>如果想要保存Q按钮的配置，可按需启用以下JS代码片段（展开查看），顶栏会出现刷新按钮，每次打开软件点一下刷新按钮就会自动应用设置
-  （参考了https://ld246.com/article/1728814976221）</summary>
-  <pre><blockcode> 
-  (function() {
-    function addBtnRefresh() {
-      let settingBtn = document.createElement("div");
-      settingBtn.id = "refreshBtn";
-      settingBtn.classList = "ariaLabel toolbar__item";
-      settingBtn.ariaLabel = "刷新页面";
-      settingBtn.innerHTML = `&ltsvg>&ltuse xlink:href="#iconRefresh">&lt/use>&lt/svg>`;
-      settingBtn.addEventListener(
-      "click",
-      function (e) {
-        location.reload();
-      }
-      );
-    return settingBtn;
-  }
-  var vip = document.getElementById("toolbarVIP");
-  vip.parentNode.insertBefore(addBtnRefresh(),vip);
-  })();
-  // 默认开启标记挖空
-  isChecked1 = true;
-  enableMarkStyles();
-  // 默认开启文档树缩进线
-  isChecked2 = true;
-  enableIndentStyle();
-  // 默认开启隐藏顶栏
-  isChecked3 = true;
-  enabletoolbarhidden();
-  // 默认开启鼠标所在块高亮提示
-  isChecked4 = true;
-  enablehoverblockremind();
-  //默认开启鼠标所在超级块高亮提示
-  isChecked5 = true;
-  enablesbremind();
-  //默认开启编辑器全宽显示
-  isChecked6 = true;
-  enablefullwidth();
-  //默认开启多彩文档树
-  isChecked7 = true;
-  enablecolorfulfiletree();
-  // 默认开启护眼色
-  isChecked8 = true;
-  enableeyescare();
-<details>
-  <summary>举个例子，如果只想实现默认开启标记挖空和护眼色，则启用以下代码（展开查看）</summary>
-  <pre><blockcode> 
-  (function() {
-    function addBtnRefresh() {
-      let settingBtn = document.createElement("div");
-      settingBtn.id = "refreshBtn";
-      settingBtn.classList = "ariaLabel toolbar__item";
-      settingBtn.ariaLabel = "刷新页面";
-      settingBtn.innerHTML = `&ltsvg>&ltuse xlink:href="#iconRefresh">&lt/use>&lt/svg>`;
-      settingBtn.addEventListener(
-      "click",
-      function (e) {
-        location.reload();
-      }
-      );
-    return settingBtn;
-  }
-  var vip = document.getElementById("toolbarVIP");
-  vip.parentNode.insertBefore(addBtnRefresh(),vip);
-  })();
-  // 默认开启标记挖空
-  isChecked1 = true;
-  enableMarkStyles();
-  // 默认开启护眼色
-  isChecked8 = true;
-  enableeyescare();
-  </blockcode></pre>
-</details>
-  </blockcode></pre>
-</details>
+## 重要提醒
+#### 本主题默认不会保存Q按钮的设置，如果想要保存特定的设置，可按需启用以下JS代码片段(不需要的部分整体删除即可)
+```
+setTimeout(() => {
 
-<br>
-<br>
+//默认开启标记挖空
+isChecked1 = true;
+enableMarkStyles();
+
+//默认开启文档树缩进线
+isChecked2 = true;
+enableIndentStyle();
+
+//默认开启隐藏顶栏
+isChecked3 = true;
+enabletoolbarhidden();
+
+//默认开启鼠标所在块高亮提示
+isChecked4 = true;
+enablehoverblockremind();
+
+//默认开启鼠标所在超级块高亮提示
+isChecked5 = true;
+enablesbremind();
+
+//默认开启编辑器全宽显示
+isChecked6 = true;
+enablefullwidth();
+
+//默认开启多彩文档树
+isChecked7 = true;
+enablecolorfulfiletree();
+
+//默认开启护眼色
+isChecked8 = true;
+enableeyescare();
+
+}, 100);
+```
+###### 比如，如果不需要默认开启标记挖空，就在上述代码中删除以下内容
+```
+//默认开启标记挖空
+isChecked1 = true;
+enableMarkStyles();
+```
+
 
 ##### 以下列表为本主题的自定义属性，块标/文档处点击右键-属性-添加自定义属性，即可设置该块/该文档的效果<br>
 ###### （如果需要其他样式，可反馈给我）
@@ -111,6 +77,9 @@
 |​`font-family`​|任意块/文档|​`默认`​ `宋体`​ `幼圆`​ `黑体`​ `微软雅黑`​ `新宋体`​ `楷体`​ `隶书`​ `仿宋`​ `华文宋体`​ `华文中宋`​ `华文仿宋`​ `华文彩云`​ `华文新魏`​ `华文楷体`​ `华文琥珀`​ `华文细黑`​ `华文行楷`​ `华文隶书`​ `方正姚体`​ `方正舒体`​ `思源宋体`​ `思源黑体`​ `苹方`​ `Times New Roman`​|设置该块/文档的字体（本机存在的字体才生效）|
 |​`height`​|任意块|​`默认`​ `50`​ `100`​ `150`​ `200`​|设置该块的最大显示高度（超出部分通过滚动条查看）|
 |​`blankblock-remind`​|任意块/文档|​`默认`​ `开启`​|显示该块/该文档空块的“空空如也”提示|
+
+## v1.4.1
+* 主题介绍提供新的主题设置保存方案
 
 ## v1.4.0
 * 优化PDF标注颜色
