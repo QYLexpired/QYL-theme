@@ -779,6 +779,26 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     margin-bottom: 8px;
     border-radius: var(--b3-border-radius);
 }
+.layout--float .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__center .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__dockr .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty) {
+    background-color: rgba(53, 117, 240, .1);
+    transition: 0.2s;
+}
+.sy__backlink .protyle-wysiwyg {
+    padding: 0 12px !important;
+}
+.sy__backlink .protyle-breadcrumb__item svg {
+    width: 10px;
+    height: 10px;
+}
+.protyle-wysiwyg .protyle-breadcrumb__bar {
+    font-size: 75%;
+}
+.sy__backlink .protyle {
+    margin: 0px 8px 0px 8px !important;
+}
+.sy__backlink .protyle-breadcrumb__bar + div {
+    font-size: 90%;
+}
 
 /* 自定义属性font-family */
 [custom-font-family="宋体"],
@@ -1039,12 +1059,14 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     -webkit-background-clip: text;  
     background-clip: text;  
     color: transparent;  
+    background-size: contain;
 }
 [custom-h-style="金箔"] [data-type="NodeHeading"] {
     background-image: url('img/金箔.png');  
     -webkit-background-clip: text;  
     background-clip: text;  
-    color: transparent;  
+    color: transparent;
+    background-size: contain;
 }
 .protyle-wysiwyg [custom-h-style="下划线"],
 .protyle-wysiwyg [data-node-id][custom-h-style="下划线"] {
@@ -1516,21 +1538,41 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
 .protyle-wysiwyg [data-node-id][custom-height="50"] {
     max-height: 50px;
     overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: rgba(234, 234, 234, 0.5);
+        border-radius: var(--b3-border-radius);
+    }
 }
 .protyle-wysiwyg [custom-height="100"],
 .protyle-wysiwyg [data-node-id][custom-height="100"] {
     max-height: 100px;
     overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: rgba(243, 243, 243, 0.5);
+        border-radius: var(--b3-border-radius);
+    }
 }
 .protyle-wysiwyg [custom-height="150"],
 .protyle-wysiwyg [data-node-id][custom-height="150"] {
     max-height: 150px;
     overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: rgba(243, 243, 243, 0.5);
+        border-radius: var(--b3-border-radius);
+    }
 }
 .protyle-wysiwyg [custom-height="200"],
 .protyle-wysiwyg [data-node-id][custom-height="200"] {
     max-height: 200px;
     overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: rgba(243, 243, 243, 0.5);
+        border-radius: var(--b3-border-radius);
+    }
 }
 
 /* 编辑器工具栏 */
@@ -1672,4 +1714,53 @@ span[data-type~=mark],mark {
 .b3-menu__label .b3-chip[data-color="14"] {
     color: rgb(70, 67, 67) !important;
     background-color: rgb(198, 212, 255) !important;
+}
+
+/* 搜索列表多行展示 */
+#searchList > div.b3-list-item.b3-list-item--focus {
+    background-color: rgba(53, 117, 240, .2) !important;
+    margin-bottom: 5px;
+}
+#searchList > div.b3-list-item.b3-list-item--focus:hover {
+    background-color: rgba(53, 117, 240, .3) !important;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+#searchList > div.b3-list-item:not(.b3-list-item--focus) {
+    background-color: var(--b3-theme-filetree) !important;
+    margin-bottom: 5px;
+}
+#searchList > div.b3-list-item:not(.b3-list-item--focus):hover {
+    background-color: var(--hovercurrent) !important;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+.search__list .b3-list-item {
+    line-height: 22px;
+}
+.search__list .b3-list-item__text {
+    -webkit-line-clamp: 3 !important;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    margin-left: 25px;
+}
+#searchList > div.b3-list-item > svg {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+#searchList > div.b3-list-item > span.b3-list-item__meta.b3-list-item__meta--ellipsis.ariaLabel {
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    font-size: 85%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    line-height: 16px !important;
+}
+
+/* 搜索预览面板 */
+#searchPreview .protyle-wysiwyg {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 }
