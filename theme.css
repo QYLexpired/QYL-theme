@@ -46,10 +46,10 @@
     --b3-light-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     
     /* 动画效果 */
-    --b3-transition: all .1s cubic-bezier(0, 0, .1, 1) 0ms;
-    --b3-width-transition: width .1s cubic-bezier(0, 0, .1, 1) 0ms;
-    --b3-color-transition: color .1s cubic-bezier(0, 0, .1, 1) 0ms;
-    --b3-background-transition: background 10ms ease-in 0s;
+    --b3-transition: all 0.15s ease-in-out;
+    --b3-width-transition: width 0.2s cubic-bezier(0.56, -0.6, 0.78, 1.8);
+    --b3-color-transition: color 0.15s ease-in-out;
+    --b3-background-transition: background 0.15s ease-in-out;
 
     /* PDF */
     --b3-pdf-selection: #94ff71;
@@ -68,34 +68,35 @@
 /* 斜杠菜单展开 */
 @media screen and (min-width: 1292px) {
     .protyle-hint.hint--menu {
-        width: 75vw !important;
+        width:75vw;
         max-width: 84em;
-        max-height: 65vh;
-        border: none;
-        background-color: var(--b3-theme-background);
+        max-height: 65vh
     }
+
     .protyle-hint.hint--menu>div {
         -moz-column-width: 12em;
-        column-width: 12em!important;
+        column-width: 12em;
         -moz-column-gap: 4px;
         column-gap: 4px;
-        -moz-column-rule: 1px solid var(--b3-border-color);
-        column-rule: 1px solid var(--b3-border-color);
-        columns: 12em!important;
+        -moz-column-rule: 1px solid var(--b3-border-color-trans);
+        column-rule: 1px solid var(--b3-border-color-trans)
     }
-   .protyle-hint.hint--menu>div .b3-list-item .b3-list-item__text {
+
+    .protyle-hint.hint--menu>div .b3-list-item .b3-list-item__text {
         width: -moz-max-content;
         width: max-content;
         margin-right: 4px
     }
-    .protyle-hint.hint--menu>div .b3-menu__separator:not(:nth-of-type(2n + 4)) {
+
+    .protyle-hint.hint--menu>div button:nth-child(-n+3 of .b3-menu__separator),.protyle-hint.hint--menu>div button:nth-child(5 of .b3-menu__separator) {
         -moz-column-break-before: column;
         break-before: column;
         margin-bottom: -5px;
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0,0,0,0)
     }
+
     .protyle-hint.hint--menu>.emojis {
-        min-width: 50vw
+        min-width: 100%
     }
 }
 
@@ -130,8 +131,27 @@
     background-color: var(--b3-theme-on-surface);
 }
 
-/* 块标平滑切换 */
-.protyle-gutters { transition: all 0.2s ease-out; }
+/* 块标 */
+.protyle-gutters { 
+    transition: 0.15s; 
+}
+.protyle-gutters button:hover svg {
+    color: var(--b3-theme-primary); 
+    transition: 0.3s;
+}
+
+/* 表情面板 */
+.emojis__item {
+    font-size: 32px;
+    padding: 0px;
+    height: 40px;
+    width: 40px;
+}
+.emojis__type {
+    font-size: 24px;
+    margin-top: 10px;
+    border-radius: var(--b3-border-radius);
+}
 
 /* 彩色多级标题 */
 .b3-typography .h1,.b3-typography h1,.protyle-wysiwyg .h1,.protyle-wysiwyg h1 { color: var(--h1); }
@@ -426,6 +446,7 @@ li.item.item--readonly {
 }
 .b3-menu__action.b3-menu__action--close:hover {
     color: var(--b3-theme-error);
+
 }
 
 /* 键盘元素 */
@@ -620,6 +641,11 @@ body:not(.body--mobile,.body--window) #layouts {
 
 /* 列表折叠背景色 */
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
+    width: 22px;
+    height: 22px;
+    border-radius: 99px;
+    top: 40%;
+    left: 42%;
     background-color: rgb(202, 221, 255);
 }
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:hover::after {
@@ -1763,4 +1789,115 @@ span[data-type~=mark],mark {
 #searchPreview .protyle-wysiwyg {
     padding-left: 20px !important;
     padding-right: 20px !important;
+}
+
+/* 任务列表复选框样式 */
+.protyle-wysiwyg .li.protyle-task--done>.protyle-action--task svg {
+    display: none;
+}
+div.protyle-action.protyle-action--task svg {
+    display: none !important;
+}
+.av__cell-uncheck > svg {
+    display: none !important;
+}
+.av__cell-check > svg {
+    display: none !important;
+}
+.protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
+    content: "" !important;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(61, 90, 169);
+    mask-image: url('img/未勾选.svg');
+    mask-repeat: no-repeat;
+}
+.protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
+    content: "" !important;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(11, 173, 11, 0.5);
+    mask-image: url('img/勾选.svg');
+    mask-repeat: no-repeat;
+}
+.protyle-task--done>div[data-node-id].p {
+    color: rgba(11, 173, 11, 0.5) !important;
+}
+.protyle-action.protyle-action--task ~ .p {
+    color: rgb(61, 90, 169) !important;
+}
+
+/* 账户界面 */
+.config-account__center:not(.config-account__center--text) {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: linear-gradient(to top, #9498ff, #b2affe, #ccc7fd, #e4e0fc, #fafafa);
+}
+.config-account__center.config-account__center--text {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: linear-gradient(to top, #ffa764, #ffb0a6, #ffc8dc, #fae3f8, #fafafa);
+}
+
+/* 弹出动画 */
+@keyframes QYLpopout {
+    0%,10% {
+        opacity: 0;
+        transform: none
+    }
+
+    10% {
+        transform: scale(0.9)
+    }
+
+    90%,100% {
+        opacity: 1
+    }
+
+    100% {
+        transform: none
+    }
+}
+/* 斜杠菜单动画 */
+.protyle-hint.hint--menu {
+    animation: QYLpopout 0.2s forwards;
+
+}
+/* 编辑器工具栏动画 */
+.protyle-toolbar, .protyle-util, .protyle-hint {
+    animation: QYLpopout 0.2s forwards;
+    transition: none;
+}
+/* 菜单弹出动画 */
+.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
+    animation: QYLpopout 0.2s;
+}
+/* 设置面板动画 */
+.b3-dialog__body {
+    animation: QYLpopout 0.2s forwards;
+
+}
+/* 文档树、反链面板等动画 */
+#preview > img,
+#dockLeft, #dockRight,
+#layouts > div.fn__flex.fn__flex-1 > div.fn__flex-column.layout__dockr > div,
+#layouts > div.fn__flex.fn__flex-1 > div.fn__flex-column.fn__flex-shrink.layout__dockl > div {
+    animation: QYLpopout 0.2s forwards;
+}
+/* 任务列表动画 */
+.protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
+    animation: QYLpopout 0.2s forwards;
+}
+
+/* 斜杠菜单毛玻璃 */
+.protyle-hint.hint--menu {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+}
+/* 编辑器工具栏毛玻璃 */
+.protyle-toolbar, .protyle-util, .protyle-hint {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
 }
