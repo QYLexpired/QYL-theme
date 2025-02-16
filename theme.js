@@ -841,37 +841,11 @@ function enablecancleQYLanimation() {
             --b3-color-transition: color .2s cubic-bezier(0, 0, .2, 1) 0ms;
             --b3-background-transition: background 20ms ease-in 0s;
         }
-
-        /* 斜杠菜单动画 */
-        .protyle-hint.hint--menu {
-            animation: none !important;
-
-        }
-        /* 编辑器工具栏动画 */
-        .protyle-toolbar, .protyle-util, .protyle-hint {
-            animation: none !important;
-            transition: none;
-        }
-        /* 菜单弹出动画 */
-        .b3-menu, .b3-menu__item--show>.b3-menu__submenu {
-            animation: none !important;
-        }
-        /* 设置面板动画 */
-        .b3-dialog__body {
-            animation: none !important;
-
-        }
-        /* 文档树、反链面板等动画 */
-        #preview > img,
-        #dockLeft, #dockRight,
-        #layouts > div.fn__flex.fn__flex-1 > div.fn__flex-column.layout__dockr > div,
-        #layouts > div.fn__flex.fn__flex-1 > div.fn__flex-column.fn__flex-shrink.layout__dockl > div {
-            animation: none !important;
-        }
-        /* 任务列表动画 */
-        .protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
-            animation: none !important;
-        }
+        @keyframes QYLpopout {}
+        @keyframes QYLpopout2 {}
+        @keyframes QYLpopout3 {}
+        @keyframes QYLbounceRight {}
+        @keyframes QYLbounceRight2 {}
     `;
 }
 
