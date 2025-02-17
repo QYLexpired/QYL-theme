@@ -47,7 +47,7 @@
     
     /* 动画效果 */
     --b3-transition: 0.2s ease-in-out;
-    --b3-width-transition: width 0.2s cubic-bezier(0.56, -0.6, 0.78, 1.8);
+    --b3-width-transition: width 0.2s ease-in-out;
     --b3-color-transition: color 0.2s ease-in-out;
     --b3-background-transition: background 0.2s ease-in-out;
 
@@ -1976,11 +1976,6 @@ div.protyle-action.protyle-action--task svg {
 .b3-menu, .b3-menu__item--show>.b3-menu__submenu {
     animation: QYLpopout 0.2s;
 }
-/* 设置面板动画 */
-.b3-dialog__body {
-    animation: QYLpopout 0.2s forwards;
-
-}
 /* 任务列表动画 */
 .protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
     animation: QYLpopout 0.2s forwards;
@@ -2028,7 +2023,29 @@ div.protyle-action.protyle-action--task svg {
     animation: QYLbounceRight2 0.2s;
 }
 
-/* 文档树项目弹出动画 */
-.b3-list--background .b3-list-item {
-    animation: QYLbounceRight2 0.2s;
+/* 提示气泡毛玻璃 */
+#tooltip {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    color: var(--b3-theme-on-background);
+    box-shadow: var(--b3-light-shadow);
+}
+.b3-tooltips::before {
+    display: none !important;
+}
+.b3-tooltips::after {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    color: var(--b3-theme-on-background);
+    box-shadow: var(--b3-light-shadow);
+}
+
+/* 弹出文档动画 */
+body > div.block__popover.block__popover--open {
+    animation: QYLpopout 0.2s;
+}
+
+/* 退出聚焦按钮动画 */
+.protyle-breadcrumb button[data-type="exit-focus"] {
+    animation: QYLbounceRight 0.5s;
 }
