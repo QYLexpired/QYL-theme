@@ -661,9 +661,24 @@ function enablefullwidth() {
             margin-left: 20px !important;
             margin-right:20px !important;
         }
-        .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
+        @keyframes QYLbounceLeftspecial {
+            0% {
+                transform: translateX(100%);
+            }
+            30% {
+                transform: translateX(-10%);
+            }
+            70% {
+                transform: translateX(5%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .protyle-background__icon, .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
             position: relative;
             left: -76px;
+            animation: QYLbounceLeftspecial 0.3s forwards;
         }
     `;
 }
@@ -672,7 +687,25 @@ function enablefullwidth() {
 function disablefullwidth() {
     const styleSheet = document.getElementById("fullwidth-style");
     if (styleSheet) {
-        styleSheet.innerText = '';
+        styleSheet.innerText = `
+            @keyframes QYLbounceRightspecial {
+                    0% {
+                        transform: translateX(-100%);
+                    }
+                    30% {
+                        transform: translateX(10%);
+                    }
+                    70% {
+                        transform: translateX(-5%);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+            }
+            .protyle-background__icon, .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
+                animation: QYLbounceRightspecial 0.3s forwards;
+            }
+    `;
     }
 }
 
@@ -788,31 +821,48 @@ function enableeyescare() {
     }
     styleSheet.innerText = `
         :root {
-            --b3-theme-background: #DCE2F1;
-            --b3-theme-surface: #E9EBFE;
-            --b3-theme-on-surface: black;
-            --b3-theme-on-surface-light: black;
-            --b3-theme-background-light:rgba(255, 255, 255, 0.65);
-            --hovercurrent: rgba(255, 255, 255, 0.65);
-            --b3-list-icon-hover: rgba(255, 255, 255, 0.65);
-            --b3-list-hover: rgba(255, 255, 255, 0.65);
-            --b3-theme-surface-lighter: rgba(255, 255, 255, 0.65);
-            --b3-theme-filetree: #E1E3FA
-        }
-        .pdf__outer .textLayer {
-            background-color:rgba(220, 226, 241, 0.8);
+        --b3-theme-background: #e6e6e6;/* 编辑器背景色 */
+        --b3-theme-background-light: #e4e4e4;/* 悬浮背景色 */
+        --b3-theme-surface: rgb(207, 212, 218);/* 文档树面板色 */
+        --b3-theme-surface-light: rgba(243, 243, 243, .86);
+        --b3-theme-surface-lighter: rgba(207, 212, 218, 0.8);
+        --hovercurrent: rgba(170, 175, 199, 0.3);
+        --b3-theme-filetree: rgba(235, 235, 235, 0.5);
+
+        --b3-list-icon-hover: #c5c5c5;
+        --b3-menu-background: #f1f1f1;
         }
         .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
-            background-color: var(--hovercurrent);
+            background-color: rgb(220, 220, 220);
         }
         .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
-            background-color: rgba(243, 243, 243, 0.5);
+            background-color: rgb(198, 198, 198);
+        }
+        .protyle-breadcrumb__item {
+            background-color: rgb(220, 220, 220);
+        }
+        .protyle-breadcrumb__item:hover {
+            background-color: rgb(198, 198, 198);
         }
         .item.item--focus {
-            background-color:rgb(201, 205, 255);
+            background-color: rgb(191, 202, 220);
         }
         .item.item--focus:hover {
-            background-color: rgb(185, 189, 255);
+            background-color: rgb(167, 181, 202);
+        }
+        .b3-card {
+            background-color: rgb(230, 230, 230); 
+        }
+        .b3-typography kbd, .b3-typography span[data-type~="kbd"], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~="kbd"] {
+            background-color: rgb(242, 242, 242);
+        }
+        .b3-typography code:not(.hljs), .b3-typography span[data-type~=code], .protyle-wysiwyg code:not(.hljs), .protyle-wysiwyg span[data-type~=code] {
+            background-color: rgb(242, 242, 242);
+        }
+        .file-tree>.fn__flex-1>ul ul,.file-tree>.fn__flex-1 li.b3-list-item--focus+ul,.file-tree>.fn__flex-1 ul.has-focus { --indent-color: rgb(205, 205, 205) }
+        .file-tree>.fn__flex-1 li.b3-list-item--focus+ul,.file-tree>.fn__flex-1:hover ul.has-focus { --indent-color: rgb(125, 140, 240) }
+        .toolbarButton[disabled] svg {
+            color: rgb(236, 236, 236);
         }
     `;
 }

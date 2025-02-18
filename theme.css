@@ -145,6 +145,10 @@
     color: var(--b3-theme-primary); 
     transition: var(--b3-color-transition);
 }
+.protyle-title.protyle-wysiwyg--attr span.protyle-title__icon.ariaLabel:hover svg {
+    color: var(--b3-theme-primary); 
+    transition: var(--b3-color-transition);
+}
 
 /* 表情面板 */
 .emojis__item {
@@ -218,28 +222,28 @@ th,td {
 
 /* 行级代码 */
 .b3-typography code:not(.hljs):nth-of-type(8n+1),.b3-typography span[data-type~=code]:nth-of-type(8n+1),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+1),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+1) {
-    color: rgb(202, 23, 23);
+    color: rgb(210, 11, 11);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+2),.b3-typography span[data-type~=code]:nth-of-type(8n+2),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+2),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+2) {
-    color: rgb(212, 143, 14);
+    color: rgb(224, 148, 6);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+3),.b3-typography span[data-type~=code]:nth-of-type(8n+3),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+3),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+3) {
-    color: rgb(180, 180, 23);
+    color: rgb(185, 183, 19);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+4),.b3-typography span[data-type~=code]:nth-of-type(8n+4),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+4),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+4) {
-    color: rgb(23, 180, 36);
+    color: rgb(10, 162, 23);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+5),.b3-typography span[data-type~=code]:nth-of-type(8n+5),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+5),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+5) {
-    color: rgb(23, 180, 146);
+    color: rgb(10, 191, 152);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+6),.b3-typography span[data-type~=code]:nth-of-type(8n+6),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+6),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+6) {
-    color: rgb(23, 109, 180);
+    color: rgb(14, 106, 180);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+7),.b3-typography span[data-type~=code]:nth-of-type(8n+7),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+7),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+7) {
     color: rgb(88, 36, 201);
 }
 .b3-typography code:not(.hljs):nth-of-type(8n+8),.b3-typography span[data-type~=code]:nth-of-type(8n+8),.protyle-wysiwyg code:not(.hljs):nth-of-type(8n+8),.protyle-wysiwyg span[data-type~=code]:nth-of-type(8n+8) {
-    color: rgb(184, 36, 201);
+    color: rgb(176, 15, 194);
 }
 
 /* 页签栏 */
@@ -1852,7 +1856,7 @@ div.protyle-action.protyle-action--task svg {
     position: absolute;
     width: 25px;
     height: 25px;
-    background-color: rgb(61, 90, 169);
+    background-color: rgba(11, 173, 11, 0.5);
     mask-image: url('img/未勾选.svg');
     mask-repeat: no-repeat;
 }
@@ -1866,22 +1870,19 @@ div.protyle-action.protyle-action--task svg {
     mask-repeat: no-repeat;
 }
 .protyle-task--done>div[data-node-id].p {
-    color: rgba(11, 173, 11, 0.5) !important;
-}
-.protyle-action.protyle-action--task ~ .p {
-    color: rgb(61, 90, 169) !important;
+    color: rgb(197, 197, 197) !important;
 }
 
 /* 账户界面 */
 .config-account__center:not(.config-account__center--text) {
     margin: 200px 20px;
     border-radius: var(--b3-border-radius);
-    background-image: linear-gradient(to top, #9498ff, #b2affe, #ccc7fd, #e4e0fc, #fafafa);
+    background-image: linear-gradient(to bottom, #ffffff, #f1f0fe, #e0e1fe, #ccd4ff, #b5c7ff, #adc0ff, #a5b8ff, #9db1ff, #a8acff, #b6a7ff, #c4a0ff, #d499ff);
 }
 .config-account__center.config-account__center--text {
     margin: 200px 20px;
     border-radius: var(--b3-border-radius);
-    background-image: linear-gradient(to top, #ffa764, #ffb0a6, #ffc8dc, #fae3f8, #fafafa);
+    background-image: linear-gradient(to bottom, #ffffff, #fcf4fc, #ffe7ef, #ffdad9, #ffd2bd, #ffccae, #ffc69e, #ffc18d, #ffb68d, #ffac8f, #ffa293, #ff9999);
 }
 
 /* 弹出动画 */
@@ -2048,4 +2049,10 @@ body > div.block__popover.block__popover--open {
 /* 退出聚焦按钮动画 */
 .protyle-breadcrumb button[data-type="exit-focus"] {
     animation: QYLbounceRight 0.5s;
+}
+
+/* 文档标题动画 */
+.protyle-title__input {
+    animation: QYLbounceRight2 0.2s;
+    color: var(--b3-theme-primary);
 }
