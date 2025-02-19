@@ -965,7 +965,7 @@ function enableQYLAero() {
             --QYL-filter-background1: rgba(255, 255, 255, 0.3);
             --QYL-filter-background2: rgba(255, 255, 255, 0.5);
             --QYL-filter-background-forQsettings: rgba(255, 255, 255, 0.5);
-            --QYL-filter--forQsettings: blur(16px);
+            --QYL-filter-forQsettings: blur(16px);
         }
         /* 斜杠菜单毛玻璃 */
         .protyle-hint.hint--menu {

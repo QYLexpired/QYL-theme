@@ -73,57 +73,42 @@
 #### 本主题默认不会保存Q按钮的设置，如果想要保存特定的设置，可按需启用以下JS代码片段(不需要的部分整体删除即可)
 
 ```
-setTimeout(() => {
-
 //默认开启标记挖空
-isChecked1 = true;
-enableMarkStyles();
+setTimeout(() => {isChecked1 = true; enableMarkStyles();}, 100);
 
 //默认开启文档树缩进线
-isChecked2 = true;
-enableIndentStyle();
+setTimeout(() => {isChecked2 = true; enableIndentStyle();}, 100);
 
 //默认开启隐藏顶栏
-isChecked3 = true;
-enabletoolbarhidden();
+setTimeout(() => {isChecked3 = true; enabletoolbarhidden();}, 100);
 
 //默认开启鼠标所在块高亮提示
-isChecked4 = true;
-enablehoverblockremind();
+setTimeout(() => {isChecked4 = true; enablehoverblockremind();}, 100);
 
 //默认开启鼠标所在超级块高亮提示
-isChecked5 = true;
-enablesbremind();
+setTimeout(() => {isChecked5 = true; enablesbremind();}, 100);
 
 //默认开启编辑器全宽显示
-isChecked6 = true;
-enablefullwidth();
+setTimeout(() => {isChecked6 = true; enablefullwidth();}, 100);
 
 //默认开启多彩文档树
-isChecked7 = true;
-enablecolorfulfiletree();
+setTimeout(() => {isChecked7 = true; enablecolorfulfiletree();}, 100);
 
 //默认开启护眼色
-isChecked8 = true;
-enableeyescare();
+setTimeout(() => {isChecked8 = true; enableeyescare();}, 100);
 
 //默认关闭主题动画
-isChecked9 = true;
-enablecancleQYLanimation();
+setTimeout(() => {isChecked9 = true; enablecancleQYLanimation();}, 100);
 
 //默认开启毛玻璃效果
-isChecked10 = true;
-enableQYLAero();
-
-}, 100);
+setTimeout(() => {isChecked10 = true; enableQYLAero();}, 100);
 ```
 
 ###### 比如，如果不需要默认开启标记挖空，就在上述代码中删除以下内容
 
 ```
 //默认开启标记挖空
-isChecked1 = true;
-enableMarkStyles();
+setTimeout(() => {isChecked1 = true; enableMarkStyles();}, 100);
 ```
 
 ## 更新历史

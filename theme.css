@@ -2017,7 +2017,7 @@ span[data-type*="text"][style*="background-color: var(--b3-font-background"] {
 
 /* 资源图片预览动画 */
 #preview > * {
-    animation: QYLpopout 0.2s;
+    animation: QYLpopout2 0.2s;
 }
 #preview > * {
     border-radius: var(--b3-border-radius);
