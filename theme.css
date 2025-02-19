@@ -63,6 +63,9 @@
     --b3-pdf-background6: #a3d3ff;
     --b3-pdf-background7: #f3c5ff;
     --b3-pdf-dark: #292a2b;
+
+    /*  Q设置窗口底色 */
+    --QYL-filter-background-forQsettings: var(--b3-menu-background);
 }
 
 /* 斜杠菜单展开 */
@@ -648,22 +651,6 @@ body:not(.body--mobile,.body--window) #layouts {
     padding-bottom: 1.5px;
 }
 
-/* 备注界面 */
-.tooltip--memo {
-    width: 300px;
-    min-height: fit-content;
-    line-height: 20px;
-    text-align: justify;
-    color: grey;
-    background-color: #fff9c4;
-    padding: 10px 10px;
-    border-top: 6px solid #fff000;
-    border-radius: var(--b3-border-radius);
-    margin-top: 5px;
-    box-shadow: var(--b3-point-shadow);
-    animation: QYLpopout 0.3s;
-}
-
 /* 列表折叠背景色 */
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
     width: 22px;
@@ -702,31 +689,26 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 
 /* 钉住 */
-.layout-tab-bar .item--pin .item__graphic, .layout-tab-bar .item--pin .item__icon {
-    padding: 4px 0 4px 8px;
+.layout-tab-bar .item--pin {
+    background-color: rgb(247, 241, 255) !important;
+    max-width: 100px;
+    min-width: 20px;
+    animation: QYLbounceRight 0.3s;
 }
-.layout-tab-bar .item.item--pin .item__text {
-    display: flex !important;
+.layout-tab-bar .item--pin:hover {
+    background-color: rgb(239, 227, 255) !important;
 }
-.layout-tab-bar .item--pin .item__close {
-    display: flex !important;
-    pointer-events: none;
+.layout-tab-bar .item--pin.item--focus {
+    background-color: rgba(53, 117, 240, .2) !important;
+}
+.layout-tab-bar .item--pin.item--focus:hover {
+    background-color: rgba(53, 117, 240, .3) !important;
+}
+.layout-tab-bar .item--pin .item__icon {
+    padding-left: 7px;
+    padding-right: 7px;
+}
 
-}
-.layout-tab-bar .item--pin .item__close svg {
-    color: rgba(255, 0, 0, 0) !important;
-}
-.layout-tab-bar .item--pin .item__close::after {
-    content: '';
-    position: absolute;
-    top: 51%;
-    right: 12px;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background-color: rgba(97, 97, 97, 0.8);
-    border-radius: 50%;
-}
 
 /* 彩色大纲 */
 li.b3-list-item.b3-list-item--hide-action[data-subtype="h1"] span.b3-list-item__text.ariaLabel {
@@ -1640,9 +1622,14 @@ li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__grap
     border-radius: var(--b3-border-radius);
 }
 .protyle-toolbar__item {
-    margin: 2px;
+    margin: 6px 3px;
     border-radius: var(--b3-border-radius) !important;
 }
+.protyle-toolbar__item svg {
+    width: 16px;
+    height: 16px;
+}
+
 /* 集市阴影效果 */
 .config-bazaar__panel .b3-card {
     box-shadow: var(--b3-light-shadow);
@@ -1981,24 +1968,6 @@ div.protyle-action.protyle-action--task svg {
 .protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
     animation: QYLpopout 0.2s forwards;
 }
-
-/* 斜杠菜单毛玻璃 */
-.protyle-hint.hint--menu {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(12px) !important;
-}
-/* 编辑器工具栏毛玻璃 */
-.protyle-toolbar, .protyle-util, .protyle-hint {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px) !important;
-}
-/* 底部状态栏毛玻璃 */
-@media (min-width: 768px) {
-    #status {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        backdrop-filter: blur(8px) !important;
-    }
-}
 /* 侧栏图标动画 */
 .block__logo {
     animation: QYLbounceRight 0.5s;
@@ -2024,23 +1993,6 @@ div.protyle-action.protyle-action--task svg {
     animation: QYLbounceRight2 0.2s;
 }
 
-/* 提示气泡毛玻璃 */
-#tooltip {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(8px) !important;
-    color: var(--b3-theme-on-background);
-    box-shadow: var(--b3-light-shadow);
-}
-.b3-tooltips::before {
-    display: none !important;
-}
-.b3-tooltips::after {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(8px) !important;
-    color: var(--b3-theme-on-background);
-    box-shadow: var(--b3-light-shadow);
-}
-
 /* 弹出文档动画 */
 body > div.block__popover.block__popover--open {
     animation: QYLpopout 0.2s;
@@ -2055,4 +2007,18 @@ body > div.block__popover.block__popover--open {
 .protyle-title__input {
     animation: QYLbounceRight2 0.2s;
     color: var(--b3-theme-primary);
+}
+
+/* 行内文字背景色样式 */
+span[data-type*="text"][style*="background-color: var(--b3-font-background"] {
+    border-radius: 6px;
+    padding: 2px;
+}
+
+/* 资源图片预览动画 */
+#preview > * {
+    animation: QYLpopout 0.2s;
+}
+#preview > * {
+    border-radius: var(--b3-border-radius);
 }

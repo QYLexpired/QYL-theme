@@ -178,6 +178,7 @@ let isChecked6 = false;
 let isChecked7 = false;
 let isChecked8 = false;
 let isChecked9 = false;
+let isChecked10 = false;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -189,9 +190,10 @@ function createSettingsWindow() {
     settingsWindow.style.position = 'fixed';
     settingsWindow.style.top = '32px'; 
     settingsWindow.style.right = '195px'; 
-    settingsWindow.style.backgroundColor = 'rgb(246, 246, 246)';
+    settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
+    settingsWindow.style.backdropFilter = 'var(--QYL-filter-forQsettings)';
     settingsWindow.style.padding = '12px';
-    settingsWindow.style.border = '1px solid #e0e0e0';
+    settingsWindow.style.border = 'none';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = '16px'; 
@@ -297,6 +299,17 @@ function createSettingsWindow() {
     label9.style.fontSize = '14px';
     label9.style.userSelect= 'none';
 
+    const checkbox10 = document.createElement('input');
+    checkbox10.type = 'checkbox';
+    checkbox10.id = 'QYLAero-checkbox';
+    checkbox10.checked = isChecked10;
+
+    const label10 = document.createElement('label');
+    label10.htmlFor = 'QYLAero-checkbox';
+    label10.textContent = ' 毛玻璃效果';
+    label10.style.fontSize = '14px';
+    label10.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -343,6 +356,11 @@ function createSettingsWindow() {
     QYLfunctionpair9.appendChild(checkbox9);
     QYLfunctionpair9.appendChild(label9);
 
+    const QYLfunctionpair10 = document.createElement('div');
+    QYLfunctionpair10.className = 'checkbox-label-pair';
+    QYLfunctionpair10.appendChild(checkbox10);
+    QYLfunctionpair10.appendChild(label10);
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
@@ -353,6 +371,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair7);
     settingsWindow.appendChild(QYLfunctionpair8);
     settingsWindow.appendChild(QYLfunctionpair9);
+    settingsWindow.appendChild(QYLfunctionpair10);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -444,6 +463,16 @@ function createSettingsWindow() {
             enablecancleQYLanimation();
         } else {
             disablecancleQYLanimation();
+        }
+    });
+
+    // 毛玻璃效果开关
+    checkbox10.addEventListener('change', function() {
+        isChecked10 = this.checked;
+        if (this.checked) {
+            enableQYLAero();
+        } else {
+            disableQYLAreo();
         }
     });
 
@@ -864,6 +893,18 @@ function enableeyescare() {
         .toolbarButton[disabled] svg {
             color: rgb(236, 236, 236);
         }
+        .layout-tab-bar .item--pin {
+            background-color: rgb(220, 210, 224) !important;
+        }
+        .layout-tab-bar .item--pin:hover {
+            background-color: rgb(211, 198, 216) !important;
+        }
+        .layout-tab-bar .item--pin.item--focus {
+            background-color: rgb(191, 202, 220) !important;
+        }
+        .layout-tab-bar .item--pin.item--focus:hover {
+            background-color: rgb(167, 181, 202) !important;
+        }
     `;
 }
 
@@ -902,6 +943,140 @@ function enablecancleQYLanimation() {
 // 取消关闭主题动画
 function disablecancleQYLanimation() {
     const styleSheet = document.getElementById("QYLanimation-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启毛玻璃效果
+function enableQYLAero() {
+    let styleSheet = document.getElementById("QYLAero-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLAero-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        @keyframes QYLpopout {}
+        /* 毛玻璃效果 */
+        :root {
+            --QYL-filter1: blur(10px);
+            --QYL-filter2: blur(16px);
+            --QYL-filter-background1: rgba(255, 255, 255, 0.3);
+            --QYL-filter-background2: rgba(255, 255, 255, 0.5);
+            --QYL-filter-background-forQsettings: rgba(255, 255, 255, 0.5);
+            --QYL-filter--forQsettings: blur(16px);
+        }
+        /* 斜杠菜单毛玻璃 */
+        .protyle-hint.hint--menu {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+            border: none;
+        }
+        /* 编辑器工具栏毛玻璃 */
+        .protyle-toolbar, .protyle-util, .protyle-hint {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+            border: none;
+        }
+        /* 底部状态栏毛玻璃 */
+        @media (min-width: 768px) {
+            #status {
+                background-color: var(--QYL-filter-background1) !important;
+                backdrop-filter: var(--QYL-filter1) !important;
+                border: none;
+            }
+        }
+        /* 提示气泡毛玻璃 */
+        #tooltip {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+            color: var(--b3-theme-on-background);
+            box-shadow: var(--b3-light-shadow);
+        }
+        .b3-tooltips::before {
+            display: none !important;
+        }
+        .b3-tooltips::after {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+            color: var(--b3-theme-on-background);
+            box-shadow: var(--b3-light-shadow);
+        }
+        /* 行内备注输入框毛玻璃 */
+        .block__icons.block__icons--menu.fn__flex {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+        }
+        .block__icons.block__icons--menu.fn__flex + .b3-text-field.b3-text-field--text.fn__block {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+        }
+        /* 右上角消息框毛玻璃 */
+        .b3-snackbar__content {
+            background-color: var(--QYL-filter-background1) !important;
+            backdrop-filter: var(--QYL-filter1) !important;
+            color: var(--b3-theme-on-background)
+        }
+        /* 题头图设置毛玻璃 */
+        .protyle-background__img .protyle-icon {
+            background-color: var(--QYL-filter-background2) !important;
+            backdrop-filter: var(--QYL-filter2  ) !important;
+            color: var(--b3-theme-on-background);
+        }
+        /* 菜单毛玻璃 */
+        .b3-menu, .b3-menu__submenu {
+            background-color: var(--QYL-filter-background2) !important;
+            border: none !important;
+        }
+        .b3-menu::before {
+            border-radius: var(--b3-border-radius);
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            backdrop-filter: var(--QYL-filter2) !important;
+        }
+        .b3-menu .b3-menu__items, .b3-menu .b3-menu__items * {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        .b3-menu__submenu::before {
+            border-radius: var(--b3-border-radius);
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            backdrop-filter: var(--QYL-filter2  ) !important;
+        }
+        .b3-menu__item--current:not(.b3-menu__item--readonly):hover {
+            background-color: var(--hovercurrent);
+        }
+        /* 弹出框侧栏毛玻璃 */
+        .b3-dialog__container {
+            background-color: var(--QYL-filter-background2) !important;
+            border: none !important;
+        }
+        .b3-dialog__container::before {
+            border-radius: var(--b3-border-radius);
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            backdrop-filter: var(--QYL-filter2) !important;
+            z-index: -5;
+        }
+    `;
+}
+
+// 关闭毛玻璃效果
+function disableQYLAreo() {
+    const styleSheet = document.getElementById("QYLAero-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
