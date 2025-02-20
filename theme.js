@@ -893,18 +893,6 @@ function enableeyescare() {
         .toolbarButton[disabled] svg {
             color: rgb(236, 236, 236);
         }
-        .layout-tab-bar .item--pin {
-            background-color: rgb(220, 210, 224) !important;
-        }
-        .layout-tab-bar .item--pin:hover {
-            background-color: rgb(211, 198, 216) !important;
-        }
-        .layout-tab-bar .item--pin.item--focus {
-            background-color: rgb(191, 202, 220) !important;
-        }
-        .layout-tab-bar .item--pin.item--focus:hover {
-            background-color: rgb(167, 181, 202) !important;
-        }
     `;
 }
 
@@ -957,7 +945,9 @@ function enableQYLAero() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        @keyframes QYLpopout {}
+        .b3-menu, .b3-menu__item--show>.b3-menu__submenu {
+            animation: none;
+        }
         /* 毛玻璃效果 */
         :root {
             --QYL-filter1: blur(10px);
@@ -1070,6 +1060,130 @@ function enableQYLAero() {
             left: 0;
             backdrop-filter: var(--QYL-filter2) !important;
             z-index: -5;
+        }
+        /* 修复PDF搜索栏 */
+        #outerContainer #mainContainer .findbar.b3-menu.doorHanger.wrapContainers * {
+            z-index: 1 !important;
+        }
+        /* 修复PDF标注颜色栏不能显示 */
+        #outerContainer > div.pdf__util.b3-menu .fn__flex button {
+            z-index: 1 !important;
+        }
+        .pdf__outer.sidebarOpen .pdf__util.b3-menu > button {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        .pdf__outer.sidebarOpen .pdf__util.b3-menu > button:hover {
+            background-color: var(--hovercurrent);
+        }     
+        /* 修复PDF菜单没有悬浮色 */   
+        #secondaryToolbarButtonContainer button:hover {
+            background-color: var(--hovercurrent);
+        }
+        /* 设置页毛玻璃 */
+        :root {
+            --QYLAero-label-background: rgba(211, 211, 211, 0.2);
+            --QYLAero-label-background2: rgba(211, 211, 211, 0.4);
+            --QYLAero-input-background: rgba(156, 156, 156, 0.2);
+        }
+        div[data-key="dialog-setting"] .config__tab-wrap {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        div[data-key="dialog-setting"] .fn__flex.b3-label, div[data-key="dialog-setting"] .b3-label {
+            margin-bottom: 5px !important;
+            padding: 5px 10px !important;
+            border-radius: var(--b3-border-radius);
+            background-color: var(--QYLAero-label-background);
+            box-shadow: none !important;
+        }
+        div[data-key="dialog-setting"] .layout-tab-bar.fn__flex {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        div[data-key="dialog-setting"] .b3-text-field.fn__block.b3-form__icon-input {
+            background-color: rgba(255, 0, 0, 0);
+            box-shadow: none;
+            background-color: var(--QYLAero-label-background2);
+        }
+        div[data-key="dialog-setting"] :is(.b3-select, .b3-text-field) {
+            background-color: rgba(255, 0, 0, 0);
+            box-shadow: none;
+            background-color: var(--QYLAero-input-background);
+        }
+        div[data-key="dialog-setting"] span[style*="color:var(--b3-theme-background)"][style*="font-family: cursive"] {
+            color: rgba(255, 0, 0, 0) !important;
+        }
+        .config__panel>.b3-tab-bar .config__tab-hr {
+            margin: 8px 0px;
+            background: transparent;
+        }
+
+        /* 命令面板毛玻璃 */
+        div[data-key="dialog-commandpanel"] .b3-dialog__body {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        div[data-key="dialog-commandpanel"] .b3-list.b3-list--background.search__list {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        div[data-key="dialog-commandpanel"] .search__header .b3-text-field--text {
+            background-color: rgba(27, 152, 27, 0);
+        }
+        div[data-key="dialog-commandpanel"] .search__header {
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: var(--b3-border-radius);
+            background-color: var(--QYLAero-label-background2) !important;
+            border: none !important;
+        }
+
+        /* 搜索面板毛玻璃 */
+        .b3-dialog__body .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+            background-color: rgba(27, 152, 27, 0);
+        }
+        .b3-dialog__body .b3-form__icon.search__header {
+            background-color: rgba(27, 152, 27, 0);
+        }
+        .b3-dialog__body .search__header {
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 5px;
+            border-radius: var(--b3-border-radius);
+            background-color: var(--QYLAero-label-background) !important;
+            border: none;
+            background-color: rgba(27, 152, 27, 0);
+        }
+        .b3-dialog__body .fn__flex-1.search__list.b3-list.b3-list--background {
+            border: none;
+            margin: 5px 10px;
+            border-radius: var(--b3-border-radius);
+            padding: 5px;
+            background-color: var(--QYLAero-label-background);
+        }
+        .b3-dialog__body .search__preview.protyle .protyle-breadcrumb {
+            background-color: rgba(27, 152, 27, 0);
+        }
+        .b3-dialog__body .search__preview.protyle {
+            border: none;
+            margin: 5px 10px;
+            border-radius: var(--b3-border-radius);
+            padding: 5px;
+            background-color: var(--QYLAero-label-background);
+        }
+        .b3-dialog__body .fn__flex-1.search__preview.b3-typography {
+            border: none;
+            margin: 5px 10px;
+            border-radius: var(--b3-border-radius);
+            padding: 5px;
+            background-color: var(--QYLAero-label-background);
+        }
+        .b3-dialog__body .search__tip {
+            border: none;
+        }
+        .search__layout--row {
+            border: none;
+        }
+        /* 集市毛玻璃 */
+        .config-bazaar__readme--show {
+            background-color: var(--QYL-filter-background2) !important;
+            backdrop-filter: var(--QYL-filter2  ) !important;
         }
     `;
 }
