@@ -856,7 +856,7 @@ function enableeyescare() {
         --b3-theme-surface-light: rgba(243, 243, 243, .86);
         --b3-theme-surface-lighter: rgba(207, 212, 218, 0.8);
         --hovercurrent: rgba(170, 175, 199, 0.3);
-        --b3-theme-filetree: rgba(235, 235, 235, 0.5);
+        --b3-theme-filetree: var(--b3-theme-background);
 
         --b3-list-icon-hover: #c5c5c5;
         --b3-menu-background: #f1f1f1;
@@ -1115,6 +1115,9 @@ function enableQYLAero() {
             margin: 8px 0px;
             background: transparent;
         }
+        div[data-key="dialog-snippets"] .layout-tab-bar.fn__flex.fn__flex-shrink {
+            background-color: rgba(255, 0, 0, 0);
+        }
 
         /* 命令面板毛玻璃 */
         div[data-key="dialog-commandpanel"] .b3-dialog__body {
@@ -1184,6 +1187,38 @@ function enableQYLAero() {
         .config-bazaar__readme--show {
             background-color: var(--QYL-filter-background2) !important;
             backdrop-filter: var(--QYL-filter2  ) !important;
+        }
+        .config-bazaar__panel .b3-card {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        .config-bazaar__panel .b3-card:hover {
+            background-color: var(--hovercurrent);
+        }
+        /* 闪卡毛玻璃 */
+        div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
+            background-color: rgba(255, 0, 0, 0);
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 5px 20px;
+            border-radius: var(--b3-border-radius);
+            background-color: var(--QYLAero-label-background2) !important;
+        }
+        div[data-key="dialog-viewcards"] #cardPreview {
+            background-color: rgba(255, 0, 0, 0);
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 5px 20px;
+            border-radius: var(--b3-border-radius);
+            background-color: var(--QYLAero-label-background2) !important;
+        }
+        div[data-key="dialog-viewcards"] #cardPreview .protyle-breadcrumb {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        div[data-key="dialog-opencard"] .b3-dialog__scrim {
+            background-color: var(--QYL-filter-background2) !important;
+            backdrop-filter: var(--QYL-filter2) !important;
         }
     `;
 }
