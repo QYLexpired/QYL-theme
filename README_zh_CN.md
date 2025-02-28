@@ -2,46 +2,29 @@
 
 ## 更新内容
 
-### v2.0.8
+### v2.5.0
 
-* 新增配色：夕阳，可在顶栏Q按钮设置中开启（待优化）
-* 新增配色：森林，可在顶栏Q按钮设置中开启（待优化）
-* 增加自定义属性`table-style`，用以改变表格样式，可设置为`三线表`
-* 增加自定义属性`table-color`，用以改变表格颜色，可设置为`红色` `橙色` `绿色` `蓝色` `紫色` `粉色`
-* 增加功能：关闭多彩标签和多彩行级代码，点击顶栏Q按钮设置
-* 优化开启毛玻璃效果后下拉框背景色
-* 修复思源笔记不是焦点时顶栏颜色异常的问题
-* 修复设置页面当鼠标悬停在输入框、下拉菜单上无提示的问题
-* 修改Q按钮图标样式
+* 全面重构CSS，优化大量细节
+* 优化新增多个配色：夕阳、森林、海洋、糖果、薰衣草、云雾
+* 重构毛玻璃样式
 ‍
 ## 主要特性
 
 #### 💫灵动、活泼的动画表现
 
-![动画1.gif](https://www.helloimg.com/i/2025/02/18/67b4ab9a1f8cf.gif)
+#### 💫多种配色：夕阳、森林、海洋、糖果、薰衣草、云雾
 
 #### 🪞毛玻璃质感
-[![毛玻璃.png](https://www.helloimg.com/i/2025/02/19/67b55eb8186e3.png)](https://www.helloimg.com/i/2025/02/19/67b55eb8186e3.png)
 
 #### ⬆️隐藏顶部工具栏
 
-![隐藏顶栏.gif](https://www.helloimg.com/i/2025/02/18/67b4abd374842.gif)
-
 #### ✨高亮提示当前编辑块、鼠标悬浮块、超级块范围
-
-![块提示-.gif](https://www.helloimg.com/i/2025/02/18/67b4abfe188ce.gif)
 
 #### 💡标记挖空
 
-![标记挖空.gif](https://www.helloimg.com/i/2025/02/18/67b4abef181de.gif)
-
 #### 🖥️编辑器全宽显示
 
-![全宽显示.gif](https://www.helloimg.com/i/2025/02/18/67b4ac122d8bd.gif)
-
 #### 🎨多彩文档树
-
-#### 👁️护眼色
 
 #### 🌈彩色标题和彩色大纲
 
@@ -69,14 +52,9 @@
 |​`table-color`​|表格块/文档|​`红色` ​`橙色` ​`绿色` ​`蓝色` ​`紫色` ​`粉色`​|设置该表格块/文档表格的颜色|
 |​`blankblock-remind`​|任意块/文档|​`默认`​ `开启`​|显示该块/该文档空块的“空空如也”提示|
 
-###### 部分自定义属性样式
-![style1.png](https://img.picui.cn/free/2025/02/19/67b4af534886f.png)
-![style2.png](https://img.picui.cn/free/2025/02/19/67b4afa8232d2.png)
-![style3.gif](https://www.helloimg.com/i/2025/02/18/67b4ae6188392.gif)
-
 ## 重要提醒
 
-#### 本主题默认不会保存Q按钮的设置，如果想要保存特定的设置，可按需启用以下JS代码片段(与QYL-dark主题通用)
+#### 本主题默认不会保存Q按钮的设置，如果想要保存特定的设置，可按需启用以下JS代码片段
 
 ```
 //默认开启标记挖空
@@ -100,9 +78,6 @@ setTimeout(() => {isChecked6 = true; enablefullwidth();}, 100);
 //默认开启多彩文档树
 setTimeout(() => {isChecked7 = true; enablecolorfulfiletree();}, 100);
 
-//默认开启护眼色
-setTimeout(() => {isChecked8 = true; enableeyescare();}, 100);
-
 //默认关闭主题动画
 setTimeout(() => {isChecked9 = true; enablecancleQYLanimation();}, 100);
 
@@ -117,6 +92,18 @@ setTimeout(() => {isChecked12 = true; enableQYLsunset();}, 100);
 
 //默认使用森林配色
 setTimeout(() => {isChecked13 = true; enableQYLforest();}, 100);
+
+//默认使用海洋配色
+setTimeout(() => {isChecked13 = true; enableQYLocean();}, 100);
+
+//默认使用糖果配色
+setTimeout(() => {isChecked13 = true; enableQYLsugar();}, 100);
+
+//默认使用薰衣草配色
+setTimeout(() => {isChecked13 = true; enableQYLlavender();}, 100);
+
+//默认使用云雾配色
+setTimeout(() => {isChecked13 = true; enableQYLfog();}, 100);
 ```
 
 ###### 比如，如果不需要默认开启标记挖空，就在上述代码中删除以下内容
@@ -127,6 +114,12 @@ setTimeout(() => {isChecked1 = true; enableMarkStyles();}, 100);
 ```
 
 ## 更新历史
+
+### v2.5.0
+
+* 全面重构CSS，优化大量细节
+* 优化新增多个配色：夕阳、森林、海洋、糖果、薰衣草、云雾
+* 重构毛玻璃样式
 
 ### v2.0.8
 
