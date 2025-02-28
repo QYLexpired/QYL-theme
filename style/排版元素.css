@@ -1,6 +1,8 @@
 :root {
     --QYL-blockquote: rgb(110, 110, 110);
     --QYL-blockquote-background: rgb(247, 247, 247);
+    --QYL-blockquote-svg: rgb(210, 210, 210);
+    --QYL-blockquote-background: rgb(247, 247, 247);
     --QYL-task-block: rgb(53, 183, 53);
     --QYL-task-done: rgb(167, 167, 167);
     --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -24,14 +26,16 @@
     left: 5px;
     width: 100%;
     height: 100%;
-    background: url('../img/引用.svg');
-    background-repeat: no-repeat;
+    mask-image: url('../img/引用.svg');
+    -webkit-mask-image: url('../img/引用.svg');
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--QYL-blockquote-svg);
     background-size: 20px 20px;
 }
 .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
     background-color: var(--QYL-blockquote-background);
     color: var(--QYL-blockquote);
-    padding-top: 18px;
+    padding-top: 22px;
 }
 /* 分割线 */
 .protyle-wysiwyg [data-node-id].hr>div::after {
@@ -255,8 +259,8 @@ div.protyle-action.protyle-action--task svg {
     width: 25px;
     height: 25px;
     background-color: var(--QYL-task-block);
-    mask-image: url('../img/未勾选.svg');
-    mask-repeat: no-repeat;
+    -webkit-mask-image: url('../img/未勾选.svg');
+    -webkit-mask-repeat: no-repeat;
 }
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
     content: "" !important;
@@ -264,8 +268,8 @@ div.protyle-action.protyle-action--task svg {
     width: 25px;
     height: 25px;
     background-color: var(--QYL-task-block);
-    mask-image: url('../img/勾选.svg');
-    mask-repeat: no-repeat;
+    -webkit-mask-image: url('../img/勾选.svg');
+    -webkit-mask-repeat: no-repeat;
 }
 .protyle-task--done>div[data-node-id].p {
     color: var(--QYL-task-done) !important;

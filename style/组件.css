@@ -29,7 +29,7 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
     background-color: var(--QYL-switch-close);
 }
 /* 输入框 */
-.b3-text-field, .pcr-app .pcr-interaction .pcr-result {
+.b3-text-field:not([data-type="av-search"]), .pcr-app .pcr-interaction .pcr-result {
     box-shadow:  0 0 0 .6px var(--QYL-input-border);
 }
 .b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {

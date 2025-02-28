@@ -15,6 +15,7 @@
     --b3-theme-surface-light: rgba(255, 197, 142, 0.8); /* 面板色0.8透明度 */
     --b3-theme-surface-lighter: rgb(255, 219, 186);
     --b3-theme-background: #fff5e8;
+    --b3-theme-background-light:rgb(255, 224, 184); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: #fff2e8; /* 失焦颜色 */
     --b3-scroll-color: rgb(243, 210, 182); /* 滚动条颜色 */
     --b3-menu-background: var(--b3-theme-background);
@@ -37,6 +38,7 @@
 :root {
     --QYL-blockquote: rgb(179, 111, 75);
     --QYL-blockquote-background: rgb(255, 234, 210);
+    --QYL-blockquote-svg: rgb(239, 212, 182);
     --QYL-task-block: rgb(53, 183, 53);
     --QYL-task-done: rgb(167, 167, 167);
     --QYL-coloful-block-red: rgb(210, 11, 11);

@@ -13,8 +13,9 @@
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
     --b3-theme-surface: rgb(221, 221, 221);
     --b3-theme-surface-light: rgba(221, 221, 221, 0.8); /* 面板色0.8透明度 */
-    --b3-theme-surface-lighter: rgb(231, 231, 231);
+    --b3-theme-surface-lighter: rgba(200, 200, 200, 0.5);
     --b3-theme-background: #ebebeb;
+    --b3-theme-background-light:rgb(212, 212, 212); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(237, 237, 237); /* 失焦颜色 */
     --b3-scroll-color: rgb(223, 223, 223); /* 滚动条颜色 */
     --b3-menu-background: var(--b3-theme-background);
@@ -35,8 +36,9 @@
     --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
 }
 :root {
-    --QYL-blockquote: rgb(161, 161, 161);
-    --QYL-blockquote-background: rgb(225, 225, 225);
+    --QYL-blockquote: rgb(124, 124, 124);
+    --QYL-blockquote-background: rgb(219, 219, 219);
+    --QYL-blockquote-svg: rgb(183, 183, 183);
     --QYL-task-block: rgb(53, 183, 53);
     --QYL-task-done: rgb(167, 167, 167);
     --QYL-coloful-block-red: rgb(210, 11, 11);
