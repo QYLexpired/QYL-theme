@@ -94,16 +94,16 @@ setTimeout(() => {isChecked12 = true; enableQYLsunset();}, 100);
 setTimeout(() => {isChecked13 = true; enableQYLforest();}, 100);
 
 //默认使用海洋配色
-setTimeout(() => {isChecked13 = true; enableQYLocean();}, 100);
+setTimeout(() => {isChecked14 = true; enableQYLocean();}, 100);
 
 //默认使用糖果配色
-setTimeout(() => {isChecked13 = true; enableQYLsugar();}, 100);
+setTimeout(() => {isChecked15 = true; enableQYLsugar();}, 100);
 
 //默认使用薰衣草配色
-setTimeout(() => {isChecked13 = true; enableQYLlavender();}, 100);
+setTimeout(() => {isChecked16 = true; enableQYLlavender();}, 100);
 
 //默认使用云雾配色
-setTimeout(() => {isChecked13 = true; enableQYLfog();}, 100);
+setTimeout(() => {isChecked17 = true; enableQYLfog();}, 100);
 ```
 
 ###### 比如，如果不需要默认开启标记挖空，就在上述代码中删除以下内容
