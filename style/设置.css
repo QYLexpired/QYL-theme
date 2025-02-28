@@ -41,3 +41,19 @@ div[data-key="dialog-setting"] .b3-tab-bar {
 .config-bazaar__panel .b3-card:hover {
     background-color: var(--QYL-hover);
 }
+/* 修复集市毛玻璃 */
+div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复AI毛玻璃 */
+div[data-key="dialog-setting"] [data-name="AI"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复代码片段毛玻璃 */
+[data-key="dialog-snippets"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复资源毛玻璃 */
+div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
