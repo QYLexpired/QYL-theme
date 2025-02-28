@@ -1,0 +1,23 @@
+/* 命令面板 */
+div[data-key="dialog-commandpanel"] {
+    border: none !important;
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b3-list--background.search__list {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+}
+div[data-key="dialog-commandpanel"] .b3-tab-bar {
+    width: 180px;
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .search__tip {
+    border: none !important;
+}

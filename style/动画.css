@@ -1,0 +1,137 @@
+/* 弹出动画 */
+@keyframes QYLpopout {
+    0%,10% {
+        opacity: 0;
+        transform: none
+    }
+
+    10% {
+        transform: scale(0.9)
+    }
+
+    90%,100% {
+        opacity: 1
+    }
+
+    100% {
+        transform: none
+    }
+}
+@keyframes QYLpopout2 {
+    0%,10% {
+        opacity: 1;
+        transform: none
+    }
+
+    10% {
+        transform: scale(0.9)
+    }
+
+    90%,100% {
+        opacity: 1
+    }
+
+    100% {
+        transform: none
+    }
+}
+@keyframes QYLpopout3 {
+    0%,10% {
+        opacity: 1;
+        transform: none
+    }
+
+    10% {
+        transform: scale(0.85)
+    }
+
+    90%,100% {
+        opacity: 1
+    }
+
+    100% {
+        transform: none
+    }
+}
+/* 右弹动画 */
+@keyframes QYLbounceRight {
+    00% {
+        transform: translateX(-100%);
+    }
+    30% {
+        transform: translateX(10%);
+    }
+    70% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes QYLbounceRight2 {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/* 斜杠菜单动画 */
+.protyle-hint.hint--menu {
+    animation: QYLpopout 0.2s forwards;
+}
+/* 编辑器工具栏动画 */
+.protyle-toolbar, .protyle-util, .protyle-hint {
+    animation: QYLpopout 0.2s forwards;
+    transition: none;
+}
+/* 菜单弹出动画 */
+.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
+    animation: QYLpopout 0.2s;
+}
+/* 任务列表动画 */
+.protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
+    animation: QYLpopout 0.2s forwards;
+}
+/* 侧栏图标动画 */
+.block__logo {
+    animation: QYLbounceRight 0.5s;
+}
+/* 集市卡片动画 */
+.config-bazaar__panel .b3-card {
+    animation: QYLbounceRight2 0.2s;
+}
+.config-bazaar__panel .b3-card:hover {
+    transform: scale(1.02);
+}
+.config__tab-wrap > div {
+    animation: QYLbounceRight2 0.2s;
+}
+/* 自定义属性面板动画 */
+.b3-dialog__body .custom-attr {
+    animation: QYLbounceRight2 0.2s;
+}
+/* 搜索面板动画 */
+#searchList > div {
+    animation: QYLbounceRight2 0.2s;
+}
+/* 弹出文档动画 */
+body > div.block__popover.block__popover--open {
+    animation: QYLpopout 0.2s;
+}
+/* 退出聚焦按钮动画 */
+.protyle-breadcrumb button[data-type="exit-focus"] {
+    animation: QYLbounceRight 0.5s;
+}
+/* 文档标题动画 */
+.protyle-title__input {
+    animation: QYLbounceRight2 0.2s;
+    color: var(--b3-theme-primary);
+}
+/* 资源图片预览动画 */
+#preview > * {
+    animation: QYLpopout2 0.2s;
+}
+#preview > * {
+    border-radius: var(--b3-border-radius);
+}

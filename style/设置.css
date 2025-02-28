@@ -1,0 +1,43 @@
+/* 设置页面 */
+div[data-key="dialog-setting"] {
+    border: none;
+}
+div[data-key="dialog-setting"] .config__tab-wrap {
+    height: calc(100% - 40px);
+    margin: 20px 20px 0px 10px;
+    border-radius: var(--b3-border-radius);
+}
+div[data-key="dialog-setting"] .b3-tab-bar {
+    width: 180px;
+}
+/* 账户界面 */
+.config-account__center:not(.config-account__center--text) {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: linear-gradient(to bottom, #ffffff, #f1f0fe, #e0e1fe, #ccd4ff, #b5c7ff, #adc0ff, #a5b8ff, #9db1ff, #a8acff, #b6a7ff, #c4a0ff, #d499ff);
+}
+.config-account__center.config-account__center--text {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: linear-gradient(to bottom, #ffffff, #fcf4fc, #ffe7ef, #ffdad9, #ffd2bd, #ffccae, #ffc69e, #ffc18d, #ffb68d, #ffac8f, #ffa293, #ff9999);
+}
+.config-account__center .b3-text-field.fn__block.b3-form__icon-input {
+    padding: 7px 10px;
+}
+.config-account__center.config-account__center--text .b3-form__icon-icon {
+    top: 8px;
+}
+.config-account__center.config-account__center--text .b3-button.b3-button--text  {
+    top: 4.5px !important;
+    right: 3px !important;
+}
+/* 集市 */
+.config-bazaar__panel .b3-card {
+    box-shadow: var(--b3-light-shadow);
+}
+.config-bazaar__panel .b3-card {
+    background-color: rgba(255, 0, 0, 0);
+}
+.config-bazaar__panel .b3-card:hover {
+    background-color: var(--QYL-hover);
+}

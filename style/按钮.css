@@ -1,0 +1,550 @@
+/* 按钮优化 */
+.b3-button--cancel {
+    padding: 2px 10px;
+    color: var(--b3-theme-on-surface);
+    border: 1px solid var(--b3-theme-on-surface);
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 1em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-on-surface);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-on-surface);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+      }
+    }
+}
+div[data-key="dialog-opencard"] .b3-button--cancel[data-type="-3"] {
+  color: var(--b3-theme-on-surface);
+  border: 1px solid var(--b3-theme-on-surface);
+  transition: var(--b3-transition);
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    width: 1em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -5.5em;
+    transform: skewX(-25deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: var(--b3-theme-on-surface);
+    color: #fff;
+    &:before {
+      transform: skewX(-45deg) translateX(22em);
+      transition: var(--b3-transition);
+   }
+  }
+  &:focus {
+    background-color: var(--b3-theme-on-surface);
+    color: #fff;
+    &:before {
+      transform: skewX(-45deg) translateX(22em);
+      transition: var(--b3-transition);
+    }
+  }
+}
+.b3-button--text {
+    padding: 2px 10px;
+    color: var(--b3-theme-primary);
+    border: 1px solid var(--b3-theme-primary);
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 1em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+      }
+    }
+}
+.b3-button--remove {
+    padding: 2px 10px;
+    color: var(--b3-theme-error);
+    border: 1px solid var(--b3-theme-error);
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 1em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-error);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-error);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+      }
+    }
+}
+.b3-button[data-type="install"] {
+    padding: 2px 10px;
+    color: var(--b3-theme-primary);
+    border: 1px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+.b3-button.b3-button--success[data-type="feedback"] {
+    padding: 2px 10px;
+    color: var(--b3-theme-success);
+    border: 1px solid var(--b3-theme-success);
+    background-color: rgba(255, 0, 0, 0) !important;
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-success) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-success) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+.config-bazaar__panel .fn__flex.config-bazaar__title button:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]) {
+    padding: 2px 10px;
+    color: #fff;
+    border: 1px solid var(--b3-theme-primary);
+    background-color: var(--b3-theme-primary) !important;
+    transition: var(--b3-transition-slow);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 1em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow) !important;
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+      }
+    }
+}
+div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .b3-button.b3-button--outline {
+    padding: 2px 10px;
+    color: var(--b3-theme-primary);
+    border: 1px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(20em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(20em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-type="removeCriterion"]) {
+    padding: 2px 10px;
+    color: var(--b3-theme-primary);
+    border: 1px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+.fn__flex.config-account .b3-button.b3-button--big {
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -5.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(22em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(22em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+.fn__flex.config-account a[href="https://ld246.com/sponsor"] {
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -5.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(22em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(22em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+.protyle-font .b3-button.b3-button--remove.fn__block {
+    padding: 2px 10px;
+    color: var(--b3-theme-error);
+    border: 1px solid var(--b3-theme-error);
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-error);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(25em);
+        transition: var(--b3-transition);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-error);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(25em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+div[data-key="dialog-opencard"] .card__main .b3-button.b3-button--cancel[data-type="-2"] {
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -5.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-on-surface) !important;
+      &:before {
+        transform: skewX(-45deg) translateX(26em);
+        transition: 0.3s;
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-on-surface) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(26em);
+        transition: 0.3s;
+      }
+    }
+}
+div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
+  transition: var(--b3-transition);
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -5.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: var(--b3-theme-on-surface) !important;
+    &:before {
+      transform: skewX(-45deg) translateX(62em);
+      transition: 0.2s;
+   }
+  }
+  &:focus {
+    background-color: var(--b3-theme-on-surface) !important;
+    color: #fff;
+    &:before {
+      transform: skewX(-45deg) translateX(62em);
+      transition: 0.2s;
+    }
+  }
+}
+
+/* 主菜单按钮 */
+#barWorkspace {
+    align-items: center;
+    justify-content: center;
+    min-width: 65px;
+    height: 25px;
+    padding: 2px 10px;
+    color: var(--b3-theme-primary);
+    border: 1px solid var(--b3-theme-primary);
+    background-color: var(--b3-theme-primary) !important;
+    transition: var(--b3-transition);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: 0.8s;
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary) !important;
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(17em);
+        transition: var(--b3-transition);
+      }
+    }
+}
+#barWorkspace span.toolbar__text {
+    font-family: "QYL fonts";
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    text-transform: none;
+}
+#barWorkspace svg.toolbar__svg {
+    color: white;
+    opacity: 1;
+    margin-top: 2.5px;
+    display: none;
+}

@@ -1,0 +1,255 @@
+:root {
+    --QYL-custom-red: #ed4545;
+    --QYL-custom-red-background: #ffe2e2;
+    --QYL-custom-orange: #ff8239;
+    --QYL-custom-orange-background: #ffedda;
+    --QYL-custom-yellow: #fff000;
+    --QYL-custom-yellow-background: #fff9c4;
+    --QYL-custom-green: #26c326;
+    --QYL-custom-green-background: #dbffd8;
+    --QYL-custom-cyan: #33d2c2;
+    --QYL-custom-cyan-background: #dffffc;
+    --QYL-custom-blue: #3575f0;
+    --QYL-custom-blue-background: #d1e1ff;
+    --QYL-custom-purple: #8938c0;
+    --QYL-custom-purple-background: #f6e8ff;
+    --QYL-custom-pink: #ff81b5;
+    --QYL-custom-pink-background: #fff1f5;
+    --QYL-custom-black: #393939;
+    --QYL-custom-black-background: #d7d7d7;
+    --QYL-custom-gray: #b8b8b8;
+    --QYL-custom-gray-background: #eaeaea;
+}
+/* 自定义块属性style */
+[custom-style="红色便签"] {
+    background-color: var(--QYL-custom-red-background);
+    border-top: 8px solid var(--QYL-custom-red);
+    padding: 5px 8px !important;
+}
+[custom-style="红左边框"] {
+    background-color: var(--QYL-custom-red-background);
+    border-left: 10px solid var(--QYL-custom-red);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="警告"] {
+    background-color: var(--QYL-custom-red-background);
+    border: 3px solid var(--QYL-custom-red);
+    border-top: 30px solid var(--QYL-custom-red);
+    padding: 5px 10px !important;
+}
+[custom-style="警告"]::before {
+    content: "Warning";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="橙色便签"] {
+    background-color: var(--QYL-custom-orange-background);
+    border-top: 8px solid var(--QYL-custom-orange);
+    padding: 5px 8px !important;
+}
+[custom-style="橙左边框"] {
+    background-color: var(--QYL-custom-orange-background);
+    border-left: 10px solid var(--QYL-custom-orange);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="灵感"] {
+    background-color: var(--QYL-custom-orange-background);
+    border: 3px solid var(--QYL-custom-orange);
+    border-top: 30px solid var(--QYL-custom-orange);
+    padding: 5px 10px !important;
+}
+[custom-style="灵感"]::before {
+    content: "Tip";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="黄色便签"] {
+    background-color: var(--QYL-custom-yellow-background);
+    border-top: 8px solid var(--QYL-custom-yellow);
+    padding: 5px 8px !important;
+}
+[custom-style="黄左边框"] {
+    background-color: var(--QYL-custom-yellow-background);
+    border-left: 10px solid var(--QYL-custom-yellow);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="绿色便签"] {
+    background-color: var(--QYL-custom-green-background);
+    border-top: 8px solid var(--QYL-custom-green);
+    padding: 5px 8px !important;
+}
+[custom-style="绿左边框"] {
+    background-color: var(--QYL-custom-green-background);
+    border-left: 10px solid var(--QYL-custom-green);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="完成"] {
+    background-color: var(--QYL-custom-green-background);
+    border: 3px solid var(--QYL-custom-green);
+    border-top: 30px solid var(--QYL-custom-green);
+    padding: 5px 10px !important;
+}
+[custom-style="完成"]::before {
+    content: "Done";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="青色便签"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border-top: 8px solid var(--QYL-custom-cyan);
+    padding: 5px 8px !important;
+}
+[custom-style="青左边框"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border-left: 10px solid var(--QYL-custom-cyan);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="信息"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border: 3px solid var(--QYL-custom-cyan);
+    border-top: 30px solid var(--QYL-custom-cyan);
+    padding: 5px 10px !important;
+}
+[custom-style="信息"]::before {
+    content: "Information";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="蓝色便签"] {
+    background-color: var(--QYL-custom-blue-background);
+    border-top: 8px solid var(--QYL-custom-blue);
+    padding: 5px 8px !important;
+}
+[custom-style="蓝左边框"] {
+    background-color: var(--QYL-custom-blue-background);
+    border-left: 10px solid var(--QYL-custom-blue);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="待办"] {
+    background-color: var(--QYL-custom-blue-background);
+    border: 3px solid var(--QYL-custom-blue);
+    border-top: 30px solid var(--QYL-custom-blue);
+    padding: 5px 10px !important;
+}
+[custom-style="待办"]::before {
+    content: "Todo";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="紫色便签"] {
+    background-color: var(--QYL-custom-purple-background);
+    border-top: 8px solid var(--QYL-custom-purple);
+    padding: 5px 8px !important;
+}
+[custom-style="紫左边框"] {
+    background-color: var(--QYL-custom-purple-background);
+    border-left: 10px solid var(--QYL-custom-purple);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="重要"] {
+    background-color: var(--QYL-custom-purple-background);
+    border: 3px solid var(--QYL-custom-purple);
+    border-top: 30px solid var(--QYL-custom-purple);
+    padding: 5px 10px !important;
+}
+[custom-style="重要"]::before {
+    content: "Important";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="粉色便签"] {
+    background-color: var(--QYL-custom-pink-background);
+    border-top: 8px solid var(--QYL-custom-pink);
+    padding: 5px 8px !important;
+}
+[custom-style="粉左边框"] {
+    background-color: var(--QYL-custom-pink-background);
+    border-left: 10px solid var(--QYL-custom-pink);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="黑色便签"] {
+    background-color: var(--QYL-custom-black-background);
+    border-top: 8px solid var(--QYL-custom-black);
+    padding: 5px 8px !important;
+}
+[custom-style="黑左边框"] {
+    background-color: var(--QYL-custom-black-background);
+    border-left: 10px solid var(--QYL-custom-black);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="批注"] {
+    background-color: var(--QYL-custom-black-background);
+    border: 3px solid var(--QYL-custom-black);
+    border-top: 30px solid var(--QYL-custom-black);
+    padding: 5px 10px !important;
+}
+[custom-style="批注"]::before {
+    content: "Comment";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="灰色便签"] {
+    background-color: var(--QYL-custom-gray-background);
+    border-top: 8px solid var(--QYL-custom-gray);
+    padding: 5px 8px !important;
+}
+[custom-style="灰左边框"] {
+    background-color: var(--QYL-custom-gray-background);
+    border-left: 10px solid var(--QYL-custom-gray);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="引用"] {
+    background-color: var(--QYL-custom-gray-background);
+    border: 3px solid var(--QYL-custom-gray);
+    border-top: 30px solid var(--QYL-custom-gray);
+    padding: 5px 10px !important;
+}
+[custom-style="引用"]::before {
+    content: "Quote";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+

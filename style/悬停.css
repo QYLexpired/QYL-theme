@@ -1,0 +1,5 @@
+/* 侧栏选中但不聚焦背景色 */
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}

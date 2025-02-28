@@ -1,0 +1,187 @@
+:root {
+    --QYL-Aero-filter: blur(20px);
+    --QYL-filter-background: var(--QYL-filter-background-theme);
+    --QYL-filter-wrap-background: var(--QYL-filter-wrap-background-theme);
+    --QYL-filter-fix-background: var(--QYL-filter-fix-background-theme);
+    --QYL-filter-background-forQsettings: var(--QYL-filter-background);
+}
+/* 菜单毛玻璃 */
+.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
+    animation: none;
+}
+.b3-menu, .b3-menu__submenu {
+    background-color: var(--QYL-filter-background);
+    border: none;
+}
+.b3-menu__item, .b3-menu__items, .b3-menu__items * {
+    background-color: rgba(255, 0, 0, 0);
+}
+.b3-menu::before, .b3-menu__submenu::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: var(--QYL-Aero-filter);
+    z-index: -5;
+}
+/* b3窗口毛玻璃 */
+.b3-dialog__container {
+    background-color: var(--QYL-filter-background);
+    border: none;
+}
+.b3-dialog__container .config__tab-wrap {
+    background-color: var(--QYL-filter-wrap-background);
+}
+.b3-dialog__container::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: var(--QYL-Aero-filter);
+    z-index: -5;
+}
+.config__tab-container .b3-label:not(.b3-label--inner) {
+    box-shadow: none;
+}
+.b3-text-field, .pcr-app .pcr-interaction .pcr-result, .b3-select {
+    background-color: var(--QYL-filter-background) !important;
+}
+/* 命令面板毛玻璃 */
+div[data-key="dialog-commandpanel"] .b3-list.b3-list--background.search__list {
+    background-color: rgba(255, 0, 0, 0);
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
+    background-color: var(--QYL-filter-wrap-background);
+}
+/* 搜索面板毛玻璃 */
+div[data-key="dialog-globalsearch"] .b3-dialog__body .b3-form__icon.search__header {
+    background-color: var(--QYL-filter-wrap-background);
+}
+div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
+    background-color: var(--QYL-filter-wrap-background);
+}
+div[data-key="dialog-globalsearch"] .search__list {
+    background-color: var(--QYL-filter-wrap-background);
+}
+div[data-key="dialog-globalsearch"] .search__preview {
+    background-color: var(--QYL-filter-wrap-background);
+}
+div[data-key="dialog-globalsearch"] .search__preview .protyle-breadcrumb {
+    background-color: rgba(255, 0, 0, 0);
+}
+div[data-key="dialog-globalsearch"] .block__icons[style="overflow: auto"] {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 集市毛玻璃 */
+.config-bazaar__readme--show {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+}
+/* 闪卡毛玻璃 */
+div[data-key="dialog-opencard"] .b3-dialog__scrim {
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+}
+div[data-key="dialog-opencard"] .card__main {
+    background-color: rgba(255, 0, 0, 0);
+}
+div[data-key="dialog-opencard"] .card__main .protyle, div[data-key="dialog-opencard"] .card__main .protyle .protyle-breadcrumb {
+    background-color: rgba(255, 0, 0, 0);
+}
+div[data-key="dialog-viewcards"] #cardPreview, div[data-key="dialog-viewcards"] #cardPreview .protyle-breadcrumb {
+    background-color: rgba(255, 0, 0, 0);
+}
+div[data-key="dialog-viewcards"] .block__icons .counter {
+    background-color: var(--QYL-filter-background);
+}
+div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 文档树等取消钉住毛玻璃 */
+.layout--float .layout-tab-container {
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+    box-shadow: var(--b3-dialog-shadow);
+}
+.layout--float .fn__flex-1 {
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.layout--float .block__icons {
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+/* 编辑器工具栏毛玻璃 */
+.protyle-toolbar, .protyle-util, .protyle-hint, .protyle-util .block__icons {
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+    border: none;
+}
+/* 底部状态栏毛玻璃 */
+@media (min-width: 768px) {
+    #status {
+        background-color: var(--QYL-filter-background);
+        backdrop-filter: var(--QYL-Aero-filter);
+        border: none;
+    }
+}
+/* 斜杠菜单毛玻璃 */
+.protyle-hint.hint--menu {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+    border: none;
+}
+/* 行内备注输入框毛玻璃 */
+.block__icons.block__icons--menu.fn__flex {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+}
+/* 修复自定义属性面板毛玻璃 */
+div[data-key="dialog-attr"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复集市毛玻璃 */
+div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复AI毛玻璃 */
+div[data-key="dialog-setting"] [data-name="AI"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复代码片段毛玻璃 */
+[data-key="dialog-snippets"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复资源毛玻璃 */
+div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 提示气泡毛玻璃 */
+#tooltip {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+    color: var(--b3-theme-on-background);
+    box-shadow: var(--b3-light-shadow);
+}
+.b3-tooltips::before {
+    display: none !important;
+}
+.b3-tooltips::after {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+    color: var(--b3-theme-on-background);
+    box-shadow: var(--b3-light-shadow);
+}
+.protyle-toolbar .b3-tooltips::after {
+    background-color: var(--QYL-filter-fix-background) !important;
+}
+/* 右上角消息框毛玻璃 */
+.b3-snackbar__content {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+    color: var(--b3-theme-on-background)
+}

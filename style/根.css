@@ -1,0 +1,55 @@
+:root {
+    --QYL-hover: rgba(183, 196, 255, 0.6); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(183, 196, 255, 0.8);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(183, 196, 255, 0.2);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: #3575f0; 
+    --b3-theme-primary-light: rgba(53, 117, 240, .54); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(53, 117, 240, .38); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(53, 117, 240, .12); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --QYL-filter-background-forQsettings: var(--b3-theme-background);
+
+    /* 圆角矩形 */
+    --b3-border-radius: 10px;
+    --b3-border-radius-b: 10px;
+    --b3-border-radius-q: 16px;
+
+    /* 容器阴影 */
+    --b3-point-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    --b3-dialog-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    --b3-button-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    --b3-light-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* 动画效果 */
+    --b3-transition: 0.2s ease-in-out;
+    --b3-transition-slow: 0.4s ease-in-out;
+    --b3-width-transition: width 0.2s ease-in-out;
+    --b3-color-transition: color 0.2s ease-in-out;
+    --b3-background-transition: background 0.2s ease-in-out;
+
+    /* PDF */
+    --b3-pdf-selection: #94ff71;
+    --sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: rgb(255, 195, 195);
+    --b3-pdf-background2: #ffcba5;
+    --b3-pdf-background3: #ffda83;
+    --b3-pdf-background4: #b1eda2;
+    --b3-pdf-background5: #85efe6;
+    --b3-pdf-background6: #a3d3ff;
+    --b3-pdf-background7: #f3c5ff;
+    --b3-pdf-dark: #292a2b;
+}
+:root {
+    --QYL-filter-background-theme: rgba(246, 246, 246, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(255, 255, 255, 0.6);
+    --QYL-filter-fix-background-theme: rgba(255, 255, 255, 0.8);
+}

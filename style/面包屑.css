@@ -1,0 +1,5 @@
+/* 面包屑 */
+.protyle-breadcrumb__item:hover, .protyle-breadcrumb__item--active {
+    background: var(--QYL-hover);
+    transition: var(--b3-background-transition);
+}

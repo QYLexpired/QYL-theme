@@ -1,0 +1,48 @@
+:root {
+    --QYL-link: #4285f4;
+    --QYL-link-background: rgb(66, 133, 244, 0.2);
+    --QYL-ref: #8957e5;
+    --QYL-ref-background: rgb(137, 87, 229, 0.2);
+    --QYL-PDFmark: #21862e;
+    --QYL-PDFmark-background: rgba(33, 134, 46, 0.2);
+}
+/* 超链接 */
+.protyle-wysiwyg [data-node-id] span[data-type~=a]:hover {
+    color: var(--QYL-link);
+    background-color: var(--QYL-link-background);
+    transition: var(--b3-background-transition);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-link);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext):hover {
+    background-color: var(--QYL-ref-background);
+    transition: var(--b3-background-transition);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-ref);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref]:hover {
+    background-color: var(--QYL-PDFmark-background);
+    transition: var(--b3-background-transition);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-PDFmark);
+}
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    color: var(--QYL-ref);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-ref);
+}
+/* 链接下划线 */
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext) {
+    color: var(--QYL-ref);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-ref);
+}.protyle-wysiwyg [data-node-id] span[data-type~=a] {
+    color: var(--QYL-link);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-link);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    color: var(--QYL-PDFmark);
+    padding-bottom: 1.5px;
+    border-bottom: 0.5px dashed var(--QYL-PDFmark);
+}
