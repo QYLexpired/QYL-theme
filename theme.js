@@ -1471,6 +1471,7 @@ function enableQYLsunset() {
             --b3-theme-surface-light: rgba(255, 197, 142, 0.8); /* 面板色0.8透明度 */
             --b3-theme-surface-lighter: rgb(255, 219, 186);
             --b3-theme-background: #fff5e8;
+            --b3-theme-background-light:rgb(255, 224, 184); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: #fff2e8; /* 失焦颜色 */
             --b3-scroll-color: rgb(243, 210, 182); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1493,6 +1494,7 @@ function enableQYLsunset() {
         :root {
             --QYL-blockquote: rgb(179, 111, 75);
             --QYL-blockquote-background: rgb(255, 234, 210);
+            --QYL-blockquote-svg: rgb(239, 212, 182);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -1556,6 +1558,7 @@ function enableQYLforest() {
             --b3-theme-surface-light: rgba(207, 233, 196, 0.8); /* 面板色0.8透明度 */
             --b3-theme-surface-lighter: rgb(193, 228, 149);
             --b3-theme-background: #e8f5e3;
+            --b3-theme-background-light:rgb(204, 241, 190); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: rgb(222, 236, 216); /* 失焦颜色 */
             --b3-scroll-color: rgb(168, 209, 158); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1578,6 +1581,7 @@ function enableQYLforest() {
         :root {
             --QYL-blockquote: rgb(113, 178, 104);
             --QYL-blockquote-background: rgb(203, 240, 200);
+            --QYL-blockquote-svg: rgb(175, 228, 172);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -1641,6 +1645,7 @@ function enableQYLocean() {
             --b3-theme-surface-light: rgba(204, 224, 243, 0.8); /* 面板色0.8透明度 */
             --b3-theme-surface-lighter: rgb(195, 221, 230);
             --b3-theme-background: #e2f0ff;
+            --b3-theme-background-light:rgb(198, 223, 249); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: #edf6ff; /* 失焦颜色 */
             --b3-scroll-color: rgb(195, 214, 245); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1663,6 +1668,7 @@ function enableQYLocean() {
         :root {
             --QYL-blockquote: rgb(92, 146, 207);
             --QYL-blockquote-background: rgb(207, 233, 255);
+            --QYL-blockquote-svg: rgb(174, 213, 247);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -1726,6 +1732,7 @@ function enableQYLsugar() {
             --b3-theme-surface-light: rgba(250, 227, 235, 0.8); /* 面板色0.8透明度 */
             --b3-theme-surface-lighter: rgb(250, 220, 230);
             --b3-theme-background: #fff3f9;
+            --b3-theme-background-light:rgb(248, 210, 229); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: rgb(255, 244, 250); /* 失焦颜色 */
             --b3-scroll-color: rgb(244, 210, 223); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1748,6 +1755,7 @@ function enableQYLsugar() {
         :root {
             --QYL-blockquote: rgb(228, 154, 184);
             --QYL-blockquote-background: rgb(255, 230, 242);
+            --QYL-blockquote-svg: rgb(248, 197, 221);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -1809,8 +1817,9 @@ function enableQYLlavender() {
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(239, 228, 255);
             --b3-theme-surface-light: rgba(239, 228, 255, 0.8); /* 面板色0.8透明度 */
-            --b3-theme-surface-lighter: rgb(245, 238, 255);
+            --b3-theme-surface-lighter: rgba(201, 177, 241, 0.5);
             --b3-theme-background: #faf3ff;
+            --b3-theme-background-light:rgb(229, 207, 245); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: rgb(245, 239, 255); /* 失焦颜色 */
             --b3-scroll-color: rgb(230, 210, 244); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1833,6 +1842,7 @@ function enableQYLlavender() {
         :root {
             --QYL-blockquote: rgb(193, 149, 221);
             --QYL-blockquote-background: rgb(245, 230, 255);
+            --QYL-blockquote-svg: rgb(218, 191, 237);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
@@ -1894,8 +1904,9 @@ function enableQYLfog() {
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(221, 221, 221);
             --b3-theme-surface-light: rgba(221, 221, 221, 0.8); /* 面板色0.8透明度 */
-            --b3-theme-surface-lighter: rgb(231, 231, 231);
+            --b3-theme-surface-lighter: rgba(200, 200, 200, 0.5);
             --b3-theme-background: #ebebeb;
+            --b3-theme-background-light:rgb(212, 212, 212); /* 编辑器较多加深（不透明） */
             --b3-toolbar-blur-background: rgb(237, 237, 237); /* 失焦颜色 */
             --b3-scroll-color: rgb(223, 223, 223); /* 滚动条颜色 */
             --b3-menu-background: var(--b3-theme-background);
@@ -1916,8 +1927,9 @@ function enableQYLfog() {
             --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
         }
         :root {
-            --QYL-blockquote: rgb(161, 161, 161);
-            --QYL-blockquote-background: rgb(225, 225, 225);
+            --QYL-blockquote: rgb(124, 124, 124);
+            --QYL-blockquote-background: rgb(219, 219, 219);
+            --QYL-blockquote-svg: rgb(183, 183, 183);
             --QYL-task-block: rgb(53, 183, 53);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
