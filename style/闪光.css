@@ -1,5 +1,5 @@
 /* 页签悬浮闪光 */
-.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not([data-type="openai"]):not([data-type="remove"]):not([data-type="missing"]):not([data-type="css"]):not([data-type="js"]):not([data-type="attr"]):not([data-type="custom"]) {
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not([data-type="openai"]):not([data-type="remove"]):not([data-type="missing"]):not([data-type="css"]):not([data-type="js"]):not([data-type="attr"]):not([data-type="custom"]):not([data-type="doc"], [data-type="notebook"], [data-type="repo"]) {
     &:before {
         content: "";
         background-color: rgba(255,255,255,0.5);
@@ -19,7 +19,7 @@
         }
     }
 }
-.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):is([data-type="openai"], [data-type="remove"], [data-type="missing"], [data-type="css"], [data-type="js"], [data-type="attr"], [data-type="custom"]) {
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):is([data-type="openai"], [data-type="remove"], [data-type="missing"], [data-type="css"], [data-type="js"], [data-type="attr"], [data-type="custom"], [data-type="doc"], [data-type="notebook"], [data-type="repo"]) {
     &:before {
         content: "";
         background-color: rgba(255,255,255,0.5);

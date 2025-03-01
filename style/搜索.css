@@ -61,8 +61,9 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
     border: none !important;
 }
 div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+    box-shadow: none;
+    border: 0.6px solid var(--QYL-input-border);;
     border-radius: var(--b3-border-radius);
-    border: none !important;
 }
 div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
     margin: 5px 10px;
@@ -81,4 +82,17 @@ div[data-key="dialog-globalsearch"] .search__preview {
 }
 div[data-key="dialog-globalsearch"] .search__tip {
     border: none !important;
+}
+:is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}
+#searchAssetPreview mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+    box-shadow: none;
 }

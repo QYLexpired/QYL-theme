@@ -1,6 +1,6 @@
 :root {
     --QYL-switch-close: var(--QYL-white);
-    --QYL-switch-close-background: rgb(242, 242, 242);
+    --QYL-switch-close-background: rgb(222, 222, 222);
     --QYL-input-border: var(--QYL-gray);
     --QYL-input-border-hover: var(--b3-theme-primary);
 }
@@ -38,6 +38,9 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
 .b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
     box-shadow:  0 0 0 1px var(--QYL-input-border-hover);
 }
+.search__header .b3-form__icon-icon {
+    z-index: 10; /*临时修复毛玻璃部分输入框图标不可见 */
+}
 /* 下拉框 */
 .b3-select {
     box-shadow:  0 0 0 .6px var(--QYL-input-border);
@@ -48,10 +51,10 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
 }
 /* 块提示 */
 .p.highlight {
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
-    transition: var(--b3-transition) !important;
+    box-shadow: var(--b3-dialog-shadow) !important;
+    transition: var(--b3-dialog-shadow) !important;
 }
 .p.highlight:hover {
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: var(--b3-dialog-shadow) !important;
     transition: var(--b3-transition) !important;
 }

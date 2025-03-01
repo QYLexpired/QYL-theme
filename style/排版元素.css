@@ -3,7 +3,7 @@
     --QYL-blockquote-background: rgb(247, 247, 247);
     --QYL-blockquote-svg: rgb(210, 210, 210);
     --QYL-blockquote-background: rgb(247, 247, 247);
-    --QYL-task-block: rgb(53, 183, 53);
+    --QYL-task-block: var(--b3-theme-primary);
     --QYL-task-done: rgb(167, 167, 167);
     --QYL-coloful-block-red: rgb(210, 11, 11);
     --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -173,7 +173,7 @@
 .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
     border: var(--b3-border-radius);
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
     position: relative;
     bottom: 1px;
 }
@@ -237,26 +237,27 @@
     transition: var(--b3-color-transition);
 }
 /* 标记 */
-span[data-type~=mark],mark {
+span[data-type~=mark] {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0),var(--b3-protyle-inline-mark-background), var(--b3-protyle-inline-mark-background)) !important;
 }
 /* 任务列表复选框样式 */
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task svg {
-    display: none;
+    color: transparent;
 }
 div.protyle-action.protyle-action--task svg {
-    display: none !important;
+    color: transparent;
 }
 .av__cell-uncheck > svg {
-    display: none !important;
+    color: transparent;
 }
 .av__cell-check > svg {
-    display: none !important;
+    color: transparent;
 }
 .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
     content: "" !important;
     position: absolute;
-    width: 25px;
+    left: 6px;
+    width: 34px;
     height: 25px;
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/未勾选.svg');
@@ -265,11 +266,12 @@ div.protyle-action.protyle-action--task svg {
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
     content: "" !important;
     position: absolute;
-    width: 25px;
+    width: 34px;
     height: 25px;
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/勾选.svg');
     -webkit-mask-repeat: no-repeat;
+
 }
 .protyle-task--done>div[data-node-id].p {
     color: var(--QYL-task-done) !important;

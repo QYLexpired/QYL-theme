@@ -39,7 +39,7 @@
     --QYL-blockquote: rgb(179, 111, 75);
     --QYL-blockquote-background: rgb(255, 234, 210);
     --QYL-blockquote-svg: rgb(239, 212, 182);
-    --QYL-task-block: rgb(53, 183, 53);
+    --QYL-task-block: var(--b3-theme-primary);
     --QYL-task-done: rgb(167, 167, 167);
     --QYL-coloful-block-red: rgb(210, 11, 11);
     --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -56,7 +56,7 @@
 }
 :root {
     --QYL-switch-close: var(--QYL-white);
-    --QYL-switch-close-background: rgb(255, 227, 205);
+    --QYL-switch-close-background: rgb(255, 216, 186);
     --QYL-input-border: var(--b3-theme-primary);
     --QYL-input-border-hover: rgb(237, 111, 0);
 }
@@ -64,4 +64,8 @@
     --QYL-filter-background-theme: rgba(255, 242, 224, 0.5);
     --QYL-filter-wrap-background-theme: rgba(255, 242, 224, 0.6);
     --QYL-filter-fix-background-theme: rgba(255, 242, 224, 0.8);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
+    --QYL-account-background2: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
 }

@@ -1,8 +1,8 @@
 :root {
-    --QYL-av-cell: #12a08f;
-    --QYL-av-cell-background: rgb(182, 236, 230);
+    --QYL-av-cell: var(--b3-theme-primary);
+    --QYL-av-cell-background: var(--b3-theme-primary-lightest);
     --QYL-av-cell-hover: var(--QYL-white);
-    --QYL-av-cell-background-hover: #24cdb9;
+    --QYL-av-cell-background-hover: var(--b3-theme-primary);
     --QYL-av-chip-color: rgb(70, 67, 67);
     --QYL-av-chip-background1: rgb(255, 204, 204);
     --QYL-av-chip-background2: rgb(255, 210, 184);
