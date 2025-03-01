@@ -148,7 +148,7 @@ function addThemeToolBar() {
         QYLToolBar.className = "toolbar__item ariaLabel";
         QYLToolBar.style.width = "23.5px";
         QYLToolBar.style.height = "23.5px";
-        QYLToolBar.innerHTML = `<svg t="1740459352935" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13599" width="256" height="256"><path d="M612.6 947.5c33 0 60-27 60-60s-27-60-60-60-60 27-60 60 27 60 60 60z" fill="#515151" p-id="13600"></path><path d="M597.9 891.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13601"></path><path d="M583 894.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13602"></path><path d="M568 896.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13603"></path><path d="M552.9 898.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13604"></path><path d="M537.8 899.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13605"></path><path d="M522.6 900.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13606"></path><path d="M507.4 900.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13607"></path><path d="M492.2 900.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13608"></path><path d="M477 899.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13609"></path><path d="M461.9 897.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13610"></path><path d="M446.9 895.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13611"></path><path d="M432 892.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13612"></path><path d="M417.2 888.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13613"></path><path d="M402.5 884.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13614"></path><path d="M388 880.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13615"></path><path d="M373.7 875.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13616"></path><path d="M359.6 869.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13617"></path><path d="M345.7 863.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13618"></path><path d="M332.1 856.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13619"></path><path d="M318.8 849.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13620"></path><path d="M305.7 841.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13621"></path><path d="M293 833.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13622"></path><path d="M280.6 824.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13623"></path><path d="M268.6 815m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13624"></path><path d="M256.9 805.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13625"></path><path d="M245.7 795.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13626"></path><path d="M234.8 784.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13627"></path><path d="M224.4 773.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13628"></path><path d="M214.4 761.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13629"></path><path d="M204.9 750.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13630"></path><path d="M195.7 737.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13631"></path><path d="M187.1 725.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13632"></path><path d="M179 712.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13633"></path><path d="M171.5 699.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13634"></path><path d="M164.4 685.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13635"></path><path d="M157.8 672.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13636"></path><path d="M151.8 658.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13637"></path><path d="M146.4 644m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13638"></path><path d="M141.6 629.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13639"></path><path d="M137.3 615m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13640"></path><path d="M133.5 600.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13641"></path><path d="M130.3 585.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13642"></path><path d="M127.8 570.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13643"></path><path d="M125.8 555.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13644"></path><path d="M124.5 540.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13645"></path><path d="M123.6 525.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13646"></path><path d="M123.4 509.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13647"></path><path d="M123.7 494.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13648"></path><path d="M124.8 479.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13649"></path><path d="M126.3 464.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13650"></path><path d="M128.5 449.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13651"></path><path d="M131.2 434.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13652"></path><path d="M134.4 419.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13653"></path><path d="M138.4 404.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13654"></path><path d="M142.9 390.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13655"></path><path d="M147.9 376m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13656"></path><path d="M153.5 361.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13657"></path><path d="M159.5 347.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13658"></path><path d="M166.3 334.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13659"></path><path d="M173.5 321m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13660"></path><path d="M181.3 307.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13661"></path><path d="M189.5 295.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13662"></path><path d="M198.2 282.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13663"></path><path d="M207.5 270.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13664"></path><path d="M217.2 258.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13665"></path><path d="M227.3 247.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13666"></path><path d="M237.8 236.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13667"></path><path d="M248.8 226.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13668"></path><path d="M260.2 216m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13669"></path><path d="M272 206.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13670"></path><path d="M284.1 197.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13671"></path><path d="M296.5 188.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13672"></path><path d="M309.4 180.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13673"></path><path d="M322.5 172.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13674"></path><path d="M335.9 165.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13675"></path><path d="M349.5 158.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13676"></path><path d="M363.5 152.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13677"></path><path d="M377.7 147.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13678"></path><path d="M392 142.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13679"></path><path d="M406.6 137.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13680"></path><path d="M421.3 134m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13681"></path><path d="M436.1 130.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13682"></path><path d="M451.1 128.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13683"></path><path d="M466.2 126.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13684"></path><path d="M481.3 124.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13685"></path><path d="M496.4 123.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13686"></path><path d="M511.6 123.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13687"></path><path d="M526.8 123.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13688"></path><path d="M542 124.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13689"></path><path d="M557.1 126m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13690"></path><path d="M572.2 128m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13691"></path><path d="M587.2 130.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13692"></path><path d="M602 133.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13693"></path><path d="M616.7 137.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13694"></path><path d="M631.3 142.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13695"></path><path d="M645.7 147m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13696"></path><path d="M659.9 152.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13697"></path><path d="M673.8 158.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13698"></path><path d="M687.5 165.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13699"></path><path d="M700.9 172.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13700"></path><path d="M714 239.9c33 0 60-27 60-60s-27-60-60-60-60 27-60 60c0 33.1 27 60 60 60z" fill="#515151" p-id="13701"></path><path d="M723.6 185.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13702"></path><path d="M732.8 192.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13703"></path><path d="M742 198.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13704"></path><path d="M750.9 205.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13705"></path><path d="M759.7 212.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13706"></path><path d="M768.2 219.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13707"></path><path d="M776.5 227.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13708"></path><path d="M784.6 235m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13709"></path><path d="M792.5 243m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13710"></path><path d="M800.2 251.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13711"></path><path d="M807.6 259.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13712"></path><path d="M814.8 268.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13713"></path><path d="M821.7 277.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13714"></path><path d="M828.3 286.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13715"></path><path d="M834.7 295.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13716"></path><path d="M840.8 304.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13717"></path><path d="M846.8 314.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13718"></path><path d="M852.3 324m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13719"></path><path d="M857.6 333.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13720"></path><path d="M862.6 344m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13721"></path><path d="M867.3 354.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13722"></path><path d="M871.7 364.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13723"></path><path d="M875.8 374.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13724"></path><path d="M879.6 385.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13725"></path><path d="M883.1 396.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13726"></path><path d="M886.2 406.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13727"></path><path d="M889.2 417.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13728"></path><path d="M891.6 428.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13729"></path><path d="M894 439.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13730"></path><path d="M895.8 450.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13731"></path><path d="M897.4 461.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13732"></path><path d="M898.8 472.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13733"></path><path d="M899.6 484.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13734"></path><path d="M900.4 495.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13735"></path><path d="M900.6 506.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13736"></path><path d="M900.6 517.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13737"></path><path d="M900.4 529m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13738"></path><path d="M899.6 540.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13739"></path><path d="M898.7 551.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13740"></path><path d="M897.4 562.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13741"></path><path d="M895.8 573.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13742"></path><path d="M893.9 584.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13743"></path><path d="M891.6 595.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13744"></path><path d="M889.1 606.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13745"></path><path d="M886.2 617.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13746"></path><path d="M883 628.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13747"></path><path d="M879.6 638.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13748"></path><path d="M875.7 649.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13749"></path><path d="M871.6 659.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13750"></path><path d="M867.2 670.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13751"></path><path d="M862.5 680.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13752"></path><path d="M857.5 690.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13753"></path><path d="M852.2 700.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13754"></path><path d="M846.7 710m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13755"></path><path d="M840.7 719.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13756"></path><path d="M834.6 728.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13757"></path><path d="M828.2 738.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13758"></path><path d="M821.5 747.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13759"></path><path d="M814.7 756m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13760"></path><path d="M807.4 764.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13761"></path><path d="M800.1 773m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13762"></path><path d="M792.3 781.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13763"></path><path d="M784.5 784.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13764"></path><path d="M776.6 776.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13765"></path><path d="M768.7 768.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13766"></path><path d="M760.7 760.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13767"></path><path d="M752.8 752.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13768"></path><path d="M744.9 744.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13769"></path><path d="M736.9 736.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13770"></path><path d="M729 729m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13771"></path><path d="M721.1 721.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13772"></path><path d="M713.1 713.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13773"></path><path d="M705.2 705.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13774"></path><path d="M697.3 697.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13775"></path><path d="M689.3 694.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13776"></path><path d="M690.9 702m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13777"></path><path d="M698.8 709.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13778"></path><path d="M706.8 717.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13779"></path><path d="M714.7 725.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13780"></path><path d="M722.6 733.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13781"></path><path d="M730.6 741.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13782"></path><path d="M738.5 749.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13783"></path><path d="M746.4 757.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13784"></path><path d="M754.4 765.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13785"></path><path d="M762.3 773.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13786"></path><path d="M770.2 781.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13787"></path><path d="M778.2 789.3m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13788"></path><path d="M786.1 797.2m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13789"></path><path d="M794 805.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13790"></path><path d="M802 813.1m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13791"></path><path d="M809.9 821m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13792"></path><path d="M817.8 828.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13793"></path><path d="M825.8 836.9m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13794"></path><path d="M833.7 844.8m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13795"></path><path d="M841.6 852.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13796"></path><path d="M849.6 860.7m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13797"></path><path d="M857.5 868.6m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13798"></path><path d="M865.4 876.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13799"></path><path d="M873.4 884.5m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13800"></path><path d="M881.3 892.4m-60 0a60 60 0 1 0 120 0 60 60 0 1 0-120 0Z" fill="#515151" p-id="13801"></path><path d="M889.1 960.2c33 0 60-27 60-60s-27-60-60-60-60 27-60 60 26.9 60 60 60z" fill="#515151" p-id="13802"></path></svg>`;
+        QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" fill="var(--b3-toolbar-color)" opacity=".9" p-id="4701"></path></svg>`;
         QYLToolBar.ariaLabel = "QYL主题设置";
         QYLToolBar.style.userSelect= 'none';
         var parentElement = toolbarVIP ? toolbarVIP.parentElement : (windowControls ? windowControls.parentElement : document.body);
@@ -177,6 +177,7 @@ let isChecked4 = false;
 let isChecked5 = false;
 let isChecked6 = false;
 let isChecked7 = false;
+let isChecked8 = false;
 let isChecked9 = false;
 let isChecked10 = false;
 let isChecked11 = false;
@@ -283,6 +284,17 @@ function createSettingsWindow() {
     label7.textContent = ' 多彩文档树';
     label7.style.fontSize = '14px';
     label7.style.userSelect= 'none';
+
+    const checkbox8 = document.createElement('input');
+    checkbox8.type = 'checkbox';
+    checkbox8.id = 'focusblockremind-checkbox';
+    checkbox8.checked = isChecked8;
+
+    const label8 = document.createElement('label');
+    label8.htmlFor = 'focusblockremind-checkbox';
+    label8.textContent = ' 关闭聚焦块高亮提示';
+    label8.style.fontSize = '14px';
+    label8.style.userSelect= 'none';
 
     const checkbox9 = document.createElement('input');
     checkbox9.type = 'checkbox';
@@ -420,6 +432,11 @@ function createSettingsWindow() {
     QYLfunctionpair7.appendChild(checkbox7);
     QYLfunctionpair7.appendChild(label7);
 
+    const QYLfunctionpair8 = document.createElement('div');
+    QYLfunctionpair8.className = 'checkbox-label-pair';
+    QYLfunctionpair8.appendChild(checkbox8);
+    QYLfunctionpair8.appendChild(label8);
+
     const QYLfunctionpair9 = document.createElement('div');
     QYLfunctionpair9.className = 'checkbox-label-pair';
     QYLfunctionpair9.appendChild(checkbox9);
@@ -472,6 +489,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair3);
     settingsWindow.appendChild(QYLfunctionpair4);
     settingsWindow.appendChild(QYLfunctionpair5);
+    settingsWindow.appendChild(QYLfunctionpair8);
     settingsWindow.appendChild(QYLfunctionpair6);
     settingsWindow.appendChild(QYLfunctionpair7);
     settingsWindow.appendChild(QYLfunctionpair9);
@@ -534,6 +552,16 @@ function createSettingsWindow() {
             enablesbremind();
         } else {
             disablesbremind();
+        }
+    });
+
+    // 关闭聚焦块高亮开关
+    checkbox8.addEventListener('change', function() {
+        isChecked8 = this.checked;
+        if (this.checked) {
+            enablecanclefocusblockremind();
+        } else {
+            disablecanclefocusblockremind();
         }
     });
 
@@ -780,7 +808,7 @@ function enableMarkStyles() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        span[data-type~=mark],mark {
+        span[data-type~=mark] {
             background: transparent !important;
         }
         .b3-typography mark, .b3-typography span[data-type~=mark], 
@@ -929,6 +957,16 @@ function enabletoolbarhidden() {
     `;
 }
 
+// 防止窗口化时隐藏顶栏后无法呼出
+function QYLcheckFullscreen() {
+    if (!document.fullscreenElement) {
+        disabletoolbarhidden();
+        isChecked3 = false;
+    }
+}
+window.addEventListener("resize", QYLcheckFullscreen);
+QYLcheckFullscreen();
+
 // 关闭隐藏顶栏功能
 function disabletoolbarhidden() {
     const styleSheet = document.getElementById("toolbarhidden-style");
@@ -947,7 +985,7 @@ function enablehoverblockremind() {
     }
     styleSheet.innerText = `
         .p:hover {
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: var(--b3-dialog-shadow) !important;
             transition: 0.3s !important;
         }
     `;
@@ -971,7 +1009,7 @@ function enablesbremind() {
     }
     styleSheet.innerText = `
         .sb:hover {
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -2px -2px 6px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: var(--b3-dialog-shadow) !important;
             transition: 0.3s !important;
         }
     `;
@@ -980,6 +1018,35 @@ function enablesbremind() {
 // 关闭超级块范围提示功能
 function disablesbremind() {
     const styleSheet = document.getElementById("sbremind-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 关闭鼠标所在块高亮功能
+function disablehoverblockremind() {
+    const styleSheet = document.getElementById("hoverblock-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 关闭聚焦块高亮
+function enablecanclefocusblockremind() {
+    let styleSheet = document.getElementById("canclefocusblockremind-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "canclefocusblockremind-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        .p.highlight, .p.highlight:hover { box-shadow: none !important; transition: none !important; }
+    `;
+}
+
+// 取消关闭聚焦块高亮
+function disablecanclefocusblockremind() {
+    const styleSheet = document.getElementById("canclefocusblockremind-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
@@ -1254,8 +1321,9 @@ function enableQYLAero() {
         .config__tab-container .b3-label:not(.b3-label--inner) {
             box-shadow: none;
         }
-        .b3-text-field, .pcr-app .pcr-interaction .pcr-result, .b3-select {
+        .b3-text-field:not(#searchInput, .b3-form__icon-input), .pcr-app .pcr-interaction .pcr-result, .b3-select {
             background-color: var(--QYL-filter-background) !important;
+            backdrop-filter: var(--QYL-Aero-filter);
         }
         /* 命令面板毛玻璃 */
         div[data-key="dialog-commandpanel"] .b3-list.b3-list--background.search__list {
@@ -1264,9 +1332,15 @@ function enableQYLAero() {
         div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
             background-color: var(--QYL-filter-wrap-background);
         }
+        div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
         /* 搜索面板毛玻璃 */
         div[data-key="dialog-globalsearch"] .b3-dialog__body .b3-form__icon.search__header {
             background-color: var(--QYL-filter-wrap-background);
+        }
+        div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+            background-color: rgba(255, 0, 0, 0) !important;
         }
         div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
             background-color: var(--QYL-filter-wrap-background);
@@ -1390,6 +1464,17 @@ function enableQYLAero() {
             backdrop-filter: var(--QYL-Aero-filter);
             color: var(--b3-theme-on-background)
         }
+        /* 块引用预览毛玻璃 */
+        .block__popover.block__popover--open {
+            background-color: var(--QYL-filter-background);
+            backdrop-filter: var(--QYL-Aero-filter);
+        }
+        .block__popover.block__popover--open .block__icons {
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .block__popover.block__popover--open .block__edit.fn__flex-1.protyle, .block__popover.block__popover--open .block__edit.fn__flex-1.protyle .protyle-breadcrumb {
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
     `;
 }
 
@@ -1415,24 +1500,20 @@ function enablecancleQYLcolorfultag() {
             border: none;
             padding: 3px 5px;
             font-size: 80%;
-            color: #e2041b;
-            background-color: rgba(226, 4, 26, 0.1);
+            color: var(--b3-theme-primary);
+            background-color: var(--b3-theme-primary-lightest);
             transition: var(--b3-transition);
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n))::before {
             content: "#";
-            color: #e2041b;
+            color: var(--b3-theme-primary);
             margin-right: 5px;
             position: relative;
             top: 0.5px;
             transition: var(--b3-transition);
         }
-        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)):hover {
-            background-color: rgba(226, 4, 26, 0.3);
-            transition: var(--b3-background-transition);
-        }
         :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
-            color: rgb(210, 11, 11);
+            color: var(--b3-theme-on-background);
         }
     `;
 }
@@ -1495,7 +1576,7 @@ function enableQYLsunset() {
             --QYL-blockquote: rgb(179, 111, 75);
             --QYL-blockquote-background: rgb(255, 234, 210);
             --QYL-blockquote-svg: rgb(239, 212, 182);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1512,7 +1593,7 @@ function enableQYLsunset() {
         }
         :root {
             --QYL-switch-close: var(--QYL-white);
-            --QYL-switch-close-background: rgb(255, 227, 205);
+            --QYL-switch-close-background: rgb(255, 216, 186);
             --QYL-input-border: var(--b3-theme-primary);
             --QYL-input-border-hover: rgb(237, 111, 0);
         }
@@ -1520,6 +1601,10 @@ function enableQYLsunset() {
             --QYL-filter-background-theme: rgba(255, 242, 224, 0.5);
             --QYL-filter-wrap-background-theme: rgba(255, 242, 224, 0.6);
             --QYL-filter-fix-background-theme: rgba(255, 242, 224, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
+            --QYL-account-background2: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
         }
     `;
 }
@@ -1582,7 +1667,7 @@ function enableQYLforest() {
             --QYL-blockquote: rgb(113, 178, 104);
             --QYL-blockquote-background: rgb(203, 240, 200);
             --QYL-blockquote-svg: rgb(175, 228, 172);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1599,7 +1684,7 @@ function enableQYLforest() {
         }
         :root {
             --QYL-switch-close: var(--QYL-white);
-            --QYL-switch-close-background: rgb(208, 233, 202);
+            --QYL-switch-close-background: rgb(180, 218, 171);
             --QYL-input-border: var(--b3-theme-primary);
             --QYL-input-border-hover: rgb(69, 179, 57);
         }
@@ -1607,6 +1692,10 @@ function enableQYLforest() {
             --QYL-filter-background-theme: rgba(216, 235, 208, 0.5);
             --QYL-filter-wrap-background-theme: rgba(216, 235, 208, 0.6);
             --QYL-filter-fix-background-theme: rgba(216, 235, 208, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #bae3b9, #bbe3bc, #bce3bf, #bde2c2, #bfe2c5, #c2e3c9, #c5e5cc, #c8e6d0, #cdead5, #d2eedb, #d7f1e0, #dcf5e5);
+            --QYL-account-background2: linear-gradient(to top, #bae3b9, #bbe3bc, #bce3bf, #bde2c2, #bfe2c5, #c2e3c9, #c5e5cc, #c8e6d0, #cdead5, #d2eedb, #d7f1e0, #dcf5e5);
         }
     `;
 }
@@ -1669,7 +1758,7 @@ function enableQYLocean() {
             --QYL-blockquote: rgb(92, 146, 207);
             --QYL-blockquote-background: rgb(207, 233, 255);
             --QYL-blockquote-svg: rgb(174, 213, 247);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1686,7 +1775,7 @@ function enableQYLocean() {
         }
         :root {
             --QYL-switch-close: var(--QYL-white);
-            --QYL-switch-close-background: rgb(202, 227, 255);
+            --QYL-switch-close-background: rgb(177, 198, 220);
             --QYL-input-border: var(--b3-theme-primary);
             --QYL-input-border-hover: rgb(58, 114, 160);
         }
@@ -1694,6 +1783,10 @@ function enableQYLocean() {
             --QYL-filter-background-theme: rgba(211, 231, 247, 0.5);
             --QYL-filter-wrap-background-theme: rgba(226, 243, 255, 0.6);
             --QYL-filter-fix-background-theme: rgba(206, 225, 241, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
+            --QYL-account-background2: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
         }
     `;
 }
@@ -1756,7 +1849,7 @@ function enableQYLsugar() {
             --QYL-blockquote: rgb(228, 154, 184);
             --QYL-blockquote-background: rgb(255, 230, 242);
             --QYL-blockquote-svg: rgb(248, 197, 221);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1773,7 +1866,7 @@ function enableQYLsugar() {
         }
         :root {
             --QYL-switch-close: var(--QYL-white);
-            --QYL-switch-close-background: rgb(255, 222, 232);
+            --QYL-switch-close-background: rgb(241, 205, 215);
             --QYL-input-border: var(--b3-theme-primary);
             --QYL-input-border-hover: rgb(214, 103, 145);
         }
@@ -1781,6 +1874,10 @@ function enableQYLsugar() {
             --QYL-filter-background-theme: rgba(250, 227, 235, 0.5);
             --QYL-filter-wrap-background-theme: rgba(250, 227, 235, 0.6);
             --QYL-filter-fix-background-theme: rgba(250, 227, 235, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #f6c0cf, #f7c4d3, #f8c9d6, #f8cdda, #f9d1dd, #fad4df, #fbd7e2, #fcdae4, #fddde6, #fee1e8, #fee4ea, #ffe8ec);
+            --QYL-account-background2: linear-gradient(to top, #f6c0cf, #f7c4d3, #f8c9d6, #f8cdda, #f9d1dd, #fad4df, #fbd7e2, #fcdae4, #fddde6, #fee1e8, #fee4ea, #ffe8ec);
         }
     `;
 }
@@ -1843,7 +1940,7 @@ function enableQYLlavender() {
             --QYL-blockquote: rgb(193, 149, 221);
             --QYL-blockquote-background: rgb(245, 230, 255);
             --QYL-blockquote-svg: rgb(218, 191, 237);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1860,7 +1957,7 @@ function enableQYLlavender() {
         }
         :root {
             --QYL-switch-close: var(--QYL-white);
-            --QYL-switch-close-background: rgb(242, 222, 255);
+            --QYL-switch-close-background: rgb(222, 201, 237);
             --QYL-input-border: var(--b3-theme-primary);
             --QYL-input-border-hover: rgb(139, 75, 192);
         }
@@ -1868,6 +1965,10 @@ function enableQYLlavender() {
             --QYL-filter-background-theme: rgba(239, 228, 255, 0.5);
             --QYL-filter-wrap-background-theme: rgba(239, 228, 255, 0.6);
             --QYL-filter-fix-background-theme: rgba(239, 228, 255, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #f5d1f8, #f6d2f9, #f6d3f9, #f7d4fa, #f7d5fa, #f7d7fb, #f7d9fb, #f7dbfc, #f7defd, #f8e2fe, #f8e5fe, #f9e8ff);
+            --QYL-account-background2: linear-gradient(to top, #f5d1f8, #f6d2f9, #f6d3f9, #f7d4fa, #f7d5fa, #f7d7fb, #f7d9fb, #f7dbfc, #f7defd, #f8e2fe, #f8e5fe, #f9e8ff);
         }
     `;
 }
@@ -1930,7 +2031,7 @@ function enableQYLfog() {
             --QYL-blockquote: rgb(124, 124, 124);
             --QYL-blockquote-background: rgb(219, 219, 219);
             --QYL-blockquote-svg: rgb(183, 183, 183);
-            --QYL-task-block: rgb(53, 183, 53);
+            --QYL-task-block: var(--b3-theme-primary);
             --QYL-task-done: rgb(167, 167, 167);
             --QYL-coloful-block-red: rgb(210, 11, 11);
             --QYL-coloful-block-red-background: rgb(255, 219, 219);
@@ -1955,6 +2056,10 @@ function enableQYLfog() {
             --QYL-filter-background-theme: rgba(232, 232, 232, 0.5);
             --QYL-filter-wrap-background-theme: rgba(221, 221, 221, 0.6);
             --QYL-filter-fix-background-theme: rgba(221, 221, 221, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
+            --QYL-account-background2: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
         }
     `;
 }
