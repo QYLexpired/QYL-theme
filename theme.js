@@ -958,14 +958,28 @@ function enabletoolbarhidden() {
 }
 
 // 防止窗口化时隐藏顶栏后无法呼出
-function QYLcheckFullscreen() {
-    if (!document.fullscreenElement) {
+function QYLcheckMaximize() {
+    if (!isChecked3) {
         disabletoolbarhidden();
-        isChecked3 = false;
+        return;
+    }
+    const threshold = 3;
+    const isMaximized = 
+        Math.abs(window.outerWidth - screen.availWidth) <= threshold &&
+        Math.abs(window.outerHeight - screen.availHeight) <= threshold;
+    const isF11Fullscreen = 
+        (window.screenX === 0 && window.screenY === 0 && 
+         window.outerWidth === screen.width && 
+         window.outerHeight === screen.height) ||
+        (window.innerHeight >= screen.availHeight - threshold);
+
+    if (isMaximized || isF11Fullscreen) {
+        enabletoolbarhidden();
+    } else {
+        disabletoolbarhidden();
     }
 }
-window.addEventListener("resize", QYLcheckFullscreen);
-QYLcheckFullscreen();
+window.addEventListener('resize', QYLcheckMaximize);
 
 // 关闭隐藏顶栏功能
 function disabletoolbarhidden() {
@@ -1285,7 +1299,7 @@ function enableQYLAero() {
             background-color: var(--QYL-filter-background);
             border: none;
         }
-        .b3-menu__item, .b3-menu__items, .b3-menu__items * {
+        .b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch) {
             background-color: rgba(255, 0, 0, 0);
         }
         .b3-menu::before, .b3-menu__submenu::before {
@@ -1357,6 +1371,9 @@ function enableQYLAero() {
         div[data-key="dialog-globalsearch"] .block__icons[style="overflow: auto"] {
             background-color: rgba(255, 0, 0, 0);
         }
+        #searchPreview.search__preview.protyle.fullscreen {
+            backdrop-filter: var(--QYL-Aero-filter);
+        }
         /* 集市毛玻璃 */
         .config-bazaar__readme--show {
             background-color: var(--QYL-filter-background);
@@ -1381,6 +1398,12 @@ function enableQYLAero() {
         }
         div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
             background-color: rgba(255, 0, 0, 0);
+        }
+        .card__block.fn__flex-1.protyle.card__block--hidesb.card__block--hidemark.fullscreen {
+            backdrop-filter: var(--QYL-Aero-filter);
+        }
+        #cardPreview.fullscreen :is(.protyle-content, .protyle-breadcrumb) {
+            backdrop-filter: var(--QYL-Aero-filter);
         }
         /* 文档树等取消钉住毛玻璃 */
         .layout--float .layout-tab-container {
@@ -1513,7 +1536,7 @@ function enablecancleQYLcolorfultag() {
             transition: var(--b3-transition);
         }
         :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
-            color: var(--b3-theme-on-background);
+            color: var(--b3-theme-primary);
         }
     `;
 }
