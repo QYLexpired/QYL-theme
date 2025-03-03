@@ -96,3 +96,6 @@ div[data-key="dialog-globalsearch"] .search__tip {
     color: var(--QYL-white);
     box-shadow: none;
 }
+#searchPreview.search__preview.protyle.fullscreen .protyle-breadcrumb {
+    padding-right: 130px;
+}

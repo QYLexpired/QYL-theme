@@ -35,37 +35,22 @@
       }
     }
 }
-div[data-key="dialog-opencard"] .b3-button--cancel[data-type="-3"] {
-  color: var(--b3-theme-on-surface);
-  border: 1px solid var(--b3-theme-on-surface);
+div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
+  padding: 8px 0 !important;
+  color: var(--b3-theme-on-surface) !important;
+  border: none !important;
   transition: var(--b3-transition);
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
+  box-shadow: var(--b3-light-shadow);
   &:before {
-    content: "";
-    background-color: rgba(255,255,255,0.5);
-    width: 1em;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -5.5em;
-    transform: skewX(-25deg) translateX(0);
-    transition: none;
+    display: none !important;
   }
   &:hover {
-    background-color: var(--b3-theme-on-surface);
-    color: #fff;
+    background-color: var(--b3-theme-primary) !important;
+    color: #fff !important;
     &:before {
-      transform: skewX(-45deg) translateX(22em);
-      transition: var(--b3-transition);
-   }
-  }
-  &:focus {
-    background-color: var(--b3-theme-on-surface);
-    color: #fff;
-    &:before {
-      transform: skewX(-45deg) translateX(22em);
-      transition: var(--b3-transition);
+      display:none;
     }
   }
 }
@@ -431,33 +416,17 @@ div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-t
 div[data-key="dialog-opencard"] .card__main .b3-button.b3-button--cancel[data-type="-2"] {
     transition: var(--b3-transition);
     position: relative;
-    overflow: hidden;
+    color: var(--b3-theme-on-surface) !important;
+    box-shadow: none !important;
     &:before {
       content: "";
-      background-color: rgba(255,255,255,0.5);
-      height: 100%;
-      width: 3em;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: -5.5em;
-      transform: skewX(-45deg) translateX(0);
-      transition: none;
+      display: none !important;
     }
     &:hover {
-      background-color: var(--b3-theme-on-surface) !important;
+      background-color: rgba(255, 0, 0, 0) !important;
       &:before {
-        transform: skewX(-45deg) translateX(26em);
-        transition: 0.3s;
+        display: none !important;
      }
-    }
-    &:focus {
-      background-color: var(--b3-theme-on-surface) !important;
-      color: #fff;
-      &:before {
-        transform: skewX(-45deg) translateX(26em);
-        transition: 0.3s;
-      }
     }
 }
 div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
@@ -466,30 +435,15 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
   overflow: hidden;
   &:before {
     content: "";
-    background-color: rgba(255,255,255,0.5);
-    height: 100%;
-    width: 3em;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -5.5em;
-    transform: skewX(-45deg) translateX(0);
-    transition: none;
+    display: none !important;
   }
   &:hover {
-    background-color: var(--b3-theme-on-surface) !important;
+    background-color: var(--b3-theme-primary) !important;
+    filter: brightness(0.8);
     &:before {
       transform: skewX(-45deg) translateX(62em);
       transition: 0.2s;
    }
-  }
-  &:focus {
-    background-color: var(--b3-theme-on-surface) !important;
-    color: #fff;
-    &:before {
-      transform: skewX(-45deg) translateX(62em);
-      transition: 0.2s;
-    }
   }
 }
 
