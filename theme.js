@@ -205,7 +205,6 @@ function createSettingsWindow() {
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = '16px'; 
-    settingsWindow.style.animation = 'QYLpopout 0.2s forwards'; 
 
     // 创建复选框和标签
     const checkbox1 = document.createElement('input');
@@ -226,7 +225,7 @@ function createSettingsWindow() {
 
     const label2 = document.createElement('label');
     label2.htmlFor = 'filetree-indent-checkbox';
-    label2.textContent = ' 文档树缩进线';
+    label2.textContent = ' 文档树和大纲缩进线';
     label2.style.fontSize = '14px';
     label2.style.userSelect= 'none';
 
@@ -401,86 +400,103 @@ function createSettingsWindow() {
     QYLfunctionpair1.className = 'checkbox-label-pair';
     QYLfunctionpair1.appendChild(checkbox1);
     QYLfunctionpair1.appendChild(label1);
+    QYLfunctionpair1.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair2 = document.createElement('div');
     QYLfunctionpair2.className = 'checkbox-label-pair';
     QYLfunctionpair2.appendChild(checkbox2);
     QYLfunctionpair2.appendChild(label2);
+    QYLfunctionpair2.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair3 = document.createElement('div');
     QYLfunctionpair3.className = 'checkbox-label-pair';
     QYLfunctionpair3.appendChild(checkbox3);
     QYLfunctionpair3.appendChild(label3);
+    QYLfunctionpair3.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair4 = document.createElement('div');
     QYLfunctionpair4.className = 'checkbox-label-pair';
     QYLfunctionpair4.appendChild(checkbox4);
     QYLfunctionpair4.appendChild(label4);
+    QYLfunctionpair4.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair5 = document.createElement('div');
     QYLfunctionpair5.className = 'checkbox-label-pair';
     QYLfunctionpair5.appendChild(checkbox5);
     QYLfunctionpair5.appendChild(label5);
+    QYLfunctionpair5.style.animation = 'QYLbounceRight2 0.1s';
     
     const QYLfunctionpair6 = document.createElement('div');
     QYLfunctionpair6.className = 'checkbox-label-pair';
     QYLfunctionpair6.appendChild(checkbox6);
     QYLfunctionpair6.appendChild(label6);
+    QYLfunctionpair6.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair7 = document.createElement('div');
     QYLfunctionpair7.className = 'checkbox-label-pair';
     QYLfunctionpair7.appendChild(checkbox7);
     QYLfunctionpair7.appendChild(label7);
+    QYLfunctionpair7.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair8 = document.createElement('div');
     QYLfunctionpair8.className = 'checkbox-label-pair';
     QYLfunctionpair8.appendChild(checkbox8);
     QYLfunctionpair8.appendChild(label8);
+    QYLfunctionpair8.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair9 = document.createElement('div');
     QYLfunctionpair9.className = 'checkbox-label-pair';
     QYLfunctionpair9.appendChild(checkbox9);
     QYLfunctionpair9.appendChild(label9);
+    QYLfunctionpair9.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair10 = document.createElement('div');
     QYLfunctionpair10.className = 'checkbox-label-pair';
     QYLfunctionpair10.appendChild(checkbox10);
     QYLfunctionpair10.appendChild(label10);
+    QYLfunctionpair10.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair11 = document.createElement('div');
     QYLfunctionpair11.className = 'checkbox-label-pair';
     QYLfunctionpair11.appendChild(checkbox11);
     QYLfunctionpair11.appendChild(label11);
+    QYLfunctionpair11.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair12 = document.createElement('div');
     QYLfunctionpair12.className = 'checkbox-label-pair';
     QYLfunctionpair12.appendChild(checkbox12);
     QYLfunctionpair12.appendChild(label12);
+    QYLfunctionpair12.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair13 = document.createElement('div');
     QYLfunctionpair13.className = 'checkbox-label-pair';
     QYLfunctionpair13.appendChild(checkbox13);
     QYLfunctionpair13.appendChild(label13);
+    QYLfunctionpair13.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair14 = document.createElement('div');
     QYLfunctionpair14.className = 'checkbox-label-pair';
     QYLfunctionpair14.appendChild(checkbox14);
     QYLfunctionpair14.appendChild(label14);
+    QYLfunctionpair14.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair15 = document.createElement('div');
     QYLfunctionpair15.className = 'checkbox-label-pair';
     QYLfunctionpair15.appendChild(checkbox15);
     QYLfunctionpair15.appendChild(label15);
+    QYLfunctionpair15.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair16 = document.createElement('div');
     QYLfunctionpair16.className = 'checkbox-label-pair';
     QYLfunctionpair16.appendChild(checkbox16);
     QYLfunctionpair16.appendChild(label16);
+    QYLfunctionpair16.style.animation = 'QYLbounceRight2 0.1s';
 
     const QYLfunctionpair17 = document.createElement('div');
     QYLfunctionpair17.className = 'checkbox-label-pair';
     QYLfunctionpair17.appendChild(checkbox17);
     QYLfunctionpair17.appendChild(label17);
+    QYLfunctionpair17.style.animation = 'QYLbounceRight2 0.1s';
 
 
     // 将复选框和标签添加到设置窗口
@@ -854,15 +870,21 @@ function enableIndentStyle() {
     }
     styleSheet.innerText = `
 :root {
-    --filetree-line-1: rgb(227, 227, 227);
-    --filetree-line-2: rgb(227, 227, 227);
-    --filetree-line-3: rgb(227, 227, 227);
-    --filetree-line-4: rgb(227, 227, 227);
-    --filetree-line-5: rgb(227, 227, 227);
-    --filetree-line-6: rgb(227, 227, 227);
-    --filetree-line-7: rgb(227, 227, 227);
-    --filetree-line-8: rgb(227, 227, 227);
+    --filetree-line-1: var(--b3-theme-primary-lighter);
+    --filetree-line-2: var(--b3-theme-primary-lighter);
+    --filetree-line-3: var(--b3-theme-primary-lighter);
+    --filetree-line-4: var(--b3-theme-primary-lighter);
+    --filetree-line-5: var(--b3-theme-primary-lighter);
+    --filetree-line-6: var(--b3-theme-primary-lighter);
+    --filetree-line-7: var(--b3-theme-primary-lighter);
+    --filetree-line-8: var(--b3-theme-primary-lighter);
 }
+
+/* 大纲缩进线与主题色一致 */
+.file-tree.sy__outline>.fn__flex-1>ul>ul { 
+    --filetree-line-1: var(--b3-theme-primary-lighter) !important ;
+}
+
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-1) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-2) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-3) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
@@ -999,7 +1021,7 @@ function enablehoverblockremind() {
     }
     styleSheet.innerText = `
         .p:hover {
-            box-shadow: var(--b3-dialog-shadow) !important;
+            box-shadow: var(--QYL-shadow-highlight) !important;
             transition: 0.3s !important;
         }
     `;
@@ -1023,7 +1045,7 @@ function enablesbremind() {
     }
     styleSheet.innerText = `
         .sb:hover {
-            box-shadow: var(--b3-dialog-shadow) !important;
+            box-shadow: var(--QYL-shadow-highlight) !important;
             transition: 0.3s !important;
         }
     `;
@@ -1299,7 +1321,7 @@ function enableQYLAero() {
             background-color: var(--QYL-filter-background);
             border: none;
         }
-        .b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch) {
+        .b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus) {
             background-color: rgba(255, 0, 0, 0);
         }
         .b3-menu::before, .b3-menu__submenu::before {
@@ -1497,6 +1519,10 @@ function enableQYLAero() {
         }
         .block__popover.block__popover--open .block__edit.fn__flex-1.protyle, .block__popover.block__popover--open .block__edit.fn__flex-1.protyle .protyle-breadcrumb {
             background-color: rgba(255, 0, 0, 0) !important;
+        }
+        /* 修复PDF菜单毛玻璃 */
+        #secondaryToolbar button:hover {
+            background-color: var(--QYL-hover);
         }
     `;
 }
