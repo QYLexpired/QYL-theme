@@ -77,17 +77,12 @@
     }
 }
 /* 斜杠菜单动画 */
-.protyle-hint.hint--menu {
-    animation: QYLpopout 0.2s forwards;
+.protyle-hint.hint--menu .b3-list-item {
+    animation: QYLbounceRight2 0.15s;
 }
 /* 编辑器工具栏动画 */
-.protyle-toolbar, .protyle-util, .protyle-hint {
-    animation: QYLpopout 0.2s forwards;
-    transition: none;
-}
-/* 菜单弹出动画 */
-.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
-    animation: QYLpopout 0.2s;
+.protyle-toolbar button, .protyle-hint .b3-list-item{
+    animation: QYLbounceRight2 0.15s;
 }
 /* 任务列表动画 */
 .protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
@@ -112,7 +107,7 @@
     animation: QYLbounceRight2 0.2s;
 }
 /* 搜索面板动画 */
-#searchList > div {
+:is(#searchList, #searchAssetList, #searchUnRefList) .b3-list-item {
     animation: QYLbounceRight2 0.2s;
 }
 /* 弹出文档动画 */
@@ -134,4 +129,31 @@ body > div.block__popover.block__popover--open {
 }
 #preview > * {
     border-radius: var(--b3-border-radius);
+}
+/* 菜单内动画 */
+.b3-menu .b3-menu__item {
+    animation: QYLbounceRight2 0.1s;
+}
+#commonMenu .b3-list-item {
+    animation: QYLbounceRight2 0.1s;
+}
+/* 闪卡动画 */
+[data-key="dialog-viewcards"] .fn__flex-1.b3-list div[data-type="card-item"] {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 同步面板动画 */
+[data-key="dialog-syncchoosedirection"] .b3-dialog__content .fn__flex.b3-label {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 命令面板动画 */
+[data-key="dialog-commandpanel"] .search__list .b3-list-item {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 数据历史动画 */
+[data-key="dialog-history"] :is(.history__side, [data-type="notebook"], [data-type="repo"] ) .b3-list-item {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 最近的文档动画 */
+[data-key="dialog-recentdocs"] .b3-list.b3-list--background .b3-list-item {
+    animation: QYLbounceRight2 0.15s;
 }

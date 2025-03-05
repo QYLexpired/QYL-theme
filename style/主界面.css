@@ -69,6 +69,9 @@ body:not(.body--mobile,.body--window) #layouts {
 .block__logoicon {
     color: var(--b3-theme-primary);
 }
+.file-tree .block__logo, .file-tree .block__icons svg {
+    color: var(--b3-theme-primary);
+}
 .fn__flex-1 .graph.file-tree .block__icons {
     background-color: var(--b3-theme-background);
     border-top-left-radius: var(--b3-border-radius);

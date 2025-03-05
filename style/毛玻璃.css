@@ -13,7 +13,7 @@
     background-color: var(--QYL-filter-background);
     border: none;
 }
-.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch) {
+.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus) {
     background-color: rgba(255, 0, 0, 0);
 }
 .b3-menu::before, .b3-menu__submenu::before {
@@ -211,4 +211,8 @@ div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
 }
 .block__popover.block__popover--open .block__edit.fn__flex-1.protyle, .block__popover.block__popover--open .block__edit.fn__flex-1.protyle .protyle-breadcrumb {
     background-color: rgba(255, 0, 0, 0) !important;
+}
+/* 修复PDF菜单毛玻璃 */
+#secondaryToolbar button:hover {
+    background-color: var(--QYL-hover);
 }

@@ -3,21 +3,34 @@
     --QYL-av-cell-background: var(--b3-theme-primary-lightest);
     --QYL-av-cell-hover: var(--QYL-white);
     --QYL-av-cell-background-hover: var(--b3-theme-primary);
-    --QYL-av-chip-color: rgb(70, 67, 67);
-    --QYL-av-chip-background1: rgb(255, 204, 204);
-    --QYL-av-chip-background2: rgb(255, 210, 184);
-    --QYL-av-chip-background3: rgb(194, 224, 255);
+    --QYL-av-chip-color1: rgb(156, 21, 21);
+    --QYL-av-chip-color2: rgb(164, 83, 25);
+    --QYL-av-chip-color3: rgb(138, 132, 11);
+    --QYL-av-chip-color4: rgb(47, 131, 34);
+    --QYL-av-chip-color5: rgb(18, 120, 110);
+    --QYL-av-chip-color6: rgb(29, 95, 135);
+    --QYL-av-chip-color7: rgb(65, 38, 137);
+    --QYL-av-chip-color8: rgb(120, 36, 134);
+    --QYL-av-chip-color9: var(--QYL-white);
+    --QYL-av-chip-color10: var(--QYL-white);
+    --QYL-av-chip-color11: var(--QYL-white);
+    --QYL-av-chip-color12: var(--QYL-white);
+    --QYL-av-chip-color13: var(--QYL-white);
+    --QYL-av-chip-color14: var(--QYL-white);
+    --QYL-av-chip-background1: rgb(244, 183, 183);
+    --QYL-av-chip-background2: rgb(255, 218, 176);
+    --QYL-av-chip-background3: rgb(247, 247, 127);
     --QYL-av-chip-background4: rgb(195, 241, 198);
-    --QYL-av-chip-background5: rgb(224, 224, 224);
-    --QYL-av-chip-background6: rgb(219, 199, 255);
-    --QYL-av-chip-background7: rgb(255, 186, 253);
-    --QYL-av-chip-background8: rgb(241, 248, 146);
-    --QYL-av-chip-background9: rgb(186, 193, 255);
-    --QYL-av-chip-background10: rgb(194, 242, 255);
-    --QYL-av-chip-background11: rgb(255, 203, 227);
-    --QYL-av-chip-background12: rgb(206, 255, 158);
+    --QYL-av-chip-background5: rgb(150, 239, 230);
+    --QYL-av-chip-background6: rgb(181, 222, 255);
+    --QYL-av-chip-background7: rgb(208, 201, 255);
+    --QYL-av-chip-background8: rgb(246, 200, 255);
+    --QYL-av-chip-background9: rgb(247, 144, 144);
+    --QYL-av-chip-background10: rgb(241, 151, 115);
+    --QYL-av-chip-background11: rgb(136, 216, 120);
+    --QYL-av-chip-background12: rgb(120, 172, 228);
     --QYL-av-chip-background13: rgb(77, 77, 77);
-    --QYL-av-chip-background14: rgb(198, 212, 255);
+    --QYL-av-chip-background14: rgb(205, 146, 235);
 }
 /* 数据库 */
 .av__cell--header .av__celltext {
@@ -55,7 +68,7 @@
 .av__panel .b3-chip[style*="color1)"], 
 [data-name="av-col-option"] .color__square[style*="color1)"], 
 .b3-menu__label .b3-chip[data-color="1"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color1) !important;
     background-color: var(--QYL-av-chip-background1) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color2)"], 
@@ -63,7 +76,7 @@
 .av__panel .b3-chip[style*="color2)"], 
 [data-name="av-col-option"] .color__square[style*="color2)"], 
 .b3-menu__label .b3-chip[data-color="2"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color2) !important;
     background-color: var(--QYL-av-chip-background2) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color3)"], 
@@ -71,7 +84,7 @@
 .av__panel .b3-chip[style*="color3)"], 
 [data-name="av-col-option"] .color__square[style*="color3)"], 
 .b3-menu__label .b3-chip[data-color="3"] {
-    color: var(--QYL-av-chip-color)  !important;
+    color: var(--QYL-av-chip-color3)  !important;
     background-color: var(--QYL-av-chip-background3) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color4)"], 
@@ -79,7 +92,7 @@
 .av__panel .b3-chip[style*="color4)"], 
 [data-name="av-col-option"] .color__square[style*="color4)"], 
 .b3-menu__label .b3-chip[data-color="4"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color4) !important;
     background-color: var(--QYL-av-chip-background4) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color5)"], 
@@ -87,7 +100,7 @@
 .av__panel .b3-chip[style*="color5)"], 
 [data-name="av-col-option"] .color__square[style*="color5)"], 
 .b3-menu__label .b3-chip[data-color="5"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color5) !important;
     background-color: var(--QYL-av-chip-background5) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color6)"], 
@@ -95,7 +108,7 @@
 .av__panel .b3-chip[style*="color6)"], 
 [data-name="av-col-option"] .color__square[style*="color6)"], 
 .b3-menu__label .b3-chip[data-color="6"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color6) !important;
     background-color: var(--QYL-av-chip-background6) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color7)"], 
@@ -103,7 +116,7 @@
 .av__panel .b3-chip[style*="color7)"], 
 [data-name="av-col-option"] .color__square[style*="color7)"], 
 .b3-menu__label .b3-chip[data-color="7"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color7) !important;
     background-color: var(--QYL-av-chip-background7) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color8)"], 
@@ -111,7 +124,7 @@
 .av__panel .b3-chip[style*="color8)"], 
 [data-name="av-col-option"] .color__square[style*="color8)"], 
 .b3-menu__label .b3-chip[data-color="8"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color8) !important;
     background-color: var(--QYL-av-chip-background8) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color9)"], 
@@ -119,7 +132,7 @@
 .av__panel .b3-chip[style*="color9)"], 
 [data-name="av-col-option"] .color__square[style*="color9)"], 
 .b3-menu__label .b3-chip[data-color="9"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color9) !important;
     background-color: var(--QYL-av-chip-background9) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color10)"], 
@@ -127,7 +140,7 @@
 .av__panel .b3-chip[style*="color10)"], 
 [data-name="av-col-option"] .color__square[style*="color10)"], 
 .b3-menu__label .b3-chip[data-color="10"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color10) !important;
     background-color: var(--QYL-av-chip-background10) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color11)"], 
@@ -135,7 +148,7 @@
 .av__panel .b3-chip[style*="color11)"], 
 [data-name="av-col-option"] .color__square[style*="color11)"], 
 .b3-menu__label .b3-chip[data-color="11"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color11) !important;
     background-color: var(--QYL-av-chip-background11) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color12)"], 
@@ -143,7 +156,7 @@
 .av__panel .b3-chip[style*="color12)"], 
 [data-name="av-col-option"] .color__square[style*="color12)"], 
 .b3-menu__label .b3-chip[data-color="12"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color12) !important;
     background-color: var(--QYL-av-chip-background12) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color13)"], 
@@ -151,7 +164,7 @@
 .av__panel .b3-chip[style*="color13)"], 
 [data-name="av-col-option"] .color__square[style*="color13)"], 
 .b3-menu__label .b3-chip[data-color="13"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color13) !important;
     background-color: var(--QYL-av-chip-background13) !important;
 }
 .custom-attr__avvalue .b3-chip[style*="color14)"], 
@@ -159,6 +172,6 @@
 .av__panel .b3-chip[style*="color14)"], 
 [data-name="av-col-option"] .color__square[style*="color14)"], 
 .b3-menu__label .b3-chip[data-color="14"] {
-    color: var(--QYL-av-chip-color) !important;
+    color: var(--QYL-av-chip-color14) !important;
     background-color: var(--QYL-av-chip-background14) !important;
 }
