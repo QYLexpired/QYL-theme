@@ -1,0 +1,241 @@
+:root {
+    --QYL-hover: rgba(183, 196, 255, 0.6); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(183, 196, 255, 0.8);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(183, 196, 255, 0.2);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: #000000;
+    --b3-theme-primary-light: rgba(0, 0, 0, 0.54);
+    --b3-theme-primary-lighter: rgba(0, 0, 0, 0.38);
+    --b3-theme-primary-lightest: rgba(0, 0, 0, 0.12);
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-scroll-color: var(--b3-theme-primary); /* 滚动条颜色 */
+    --QYL-filter-background-forQsettings: var(--b3-theme-background);
+
+    --b3-theme-background: rgb(255, 255, 255) !important;
+    --b3-theme-background-light:rgb(255, 255, 255) !important; /* 编辑器较多变浅（不透明） */
+    --b3-theme-surface: rgb(255, 255, 255) !important;
+    --b3-theme-surface-light: rgb(255, 255, 255) !important;
+    --b3-theme-surface-lighter: var(--b3-theme-primary) !important; /* 线条色 */
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #ffffff;
+    --b3-theme-on-secondary: #ffffff;
+    --b3-theme-on-background: #000000;
+    --b3-theme-on-surface: #000000;
+    --b3-theme-on-surface-light: #000000;
+    --b3-theme-on-error: #ffffff;
+
+    /* 圆角矩形 */
+    --b3-border-radius: 8px;
+    --b3-border-radius-b: 8px;
+    --b3-border-radius-q: 8px;
+    
+    /* 动画效果 */
+    --b3-transition: none;
+    --b3-transition-slow: none;
+    --b3-width-transition: width 0.2s ease-in-out;
+    --b3-color-transition: none;
+    --b3-background-transition: none;
+}
+/* 主界面 */
+[data-type="wnd"] .layout-tab-container.fn__flex-1 {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 页签 */
+[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
+    border: 1.5px solid var(--b3-theme-primary);
+    border-right: none;
+}
+[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+    border: 1.5px solid var(--b3-theme-primary);
+    border-left: none;
+}
+.layout-tab-bar .item--focus:not(.item--readonly) {
+    height: 25px;
+    background-color: var(--b3-theme-background) !important;
+    border: 2px solid var(--b3-theme-primary);
+}
+.layout-tab-bar .item:not(.item--readonly, .item--focus) {
+    height: 25px;
+    background-color: var(--b3-theme-background) !important;
+    border: 1.5px solid var(--QYL-gray);
+}
+/* 菜单 */
+.b3-menu, .b3-menu__submenu {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 设置页 */
+div[data-key="dialog-setting"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+div[data-key="dialog-setting"] .config__tab-wrap {
+    border: 1.5px solid var(--b3-theme-primary);
+    padding-right: 5px;
+}
+.config__panel>.b3-tab-bar .config__tab-hr {
+    background: var(--b3-theme-background);
+}
+.b3-text-field, .pcr-app .pcr-interaction .pcr-result, .b3-select {
+    box-shadow:  none !important;
+    border: 1.5px solid var(--b3-theme-primary);
+}
+[data-key="dialog-setting"] .b3-tab-bar li[data-name] {
+    height: 30px;
+    margin-bottom: 10px;
+}
+.config-bazaar__panel .b3-card {
+    margin-top: 20px;
+    background-color: var(--b3-theme-background);
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.config-bazaar__panel .b3-card:hover {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 按钮 */
+.b3-button--outline {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+/* 提示气泡 */
+#tooltip {
+    background-color: var(--b3-theme-background);
+    border: 1.5px solid var(--b3-theme-primary);
+    color: var(--b3-theme-primary)
+}
+.b3-tooltips::before {
+    display: none !important;
+}
+.b3-tooltips::after {
+    background-color: var(--b3-theme-background);
+    border: 1.5px solid var(--b3-theme-primary);
+    color: var(--b3-theme-primary)
+}
+.protyle-toolbar .b3-tooltips::after {
+    background-color: var(--b3-theme-background);
+}
+/* 右上角消息框 */
+.b3-snackbar__content {
+    margin-top: 10px;
+    background-color: var(--b3-theme-background);
+    border: 1.5px solid var(--b3-theme-primary);
+    color: var(--b3-theme-primary)
+}
+/* 命令面板 */
+[data-key="dialog-commandpanel"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+/* 搜索面板 */
+[data-key="dialog-globalsearch"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 闪卡 */
+[data-key="dialog-opencard"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+[data-key="dialog-viewcards"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 数据历史 */
+[data-key="dialog-history"] .b3-dialog__container {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 斜杠菜单 */
+.protyle-hint.hint--menu {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* 编辑器工具栏 */
+.protyle-toolbar {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.protyle-toolbar__item:hover {
+    outline: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 悬停 */
+.b3-list--background .b3-list-item:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus {
+    border: 1.5px solid rgba(255, 0, 0, 0);
+}
+.b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus {
+    border: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0);
+}
+.b3-menu__item {
+    border: 1.5px solid rgba(255, 0, 0, 0);
+}
+.b3-menu__item--current:not(.b3-menu__item--readonly) {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.toolbar__item:not(.toolbar__item--win, .toolbar__item--close):hover {
+    outline: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.block__icon:hover:not([disabled]):not(.ft__primary):not(.block__icon--warning), .block__icon--active {
+    background-color: rgba(255, 0, 0, 0);
+    outline: 1.5px solid var(--b3-theme-primary);
+}
+.b3-list-item__toggle--hl:hover, .b3-list-item__action:hover, .b3-list-item__icon:hover, .b3-menu__avemoji:hover {
+    background-color: rgba(255, 0, 0, 0);
+    outline: 1.5px solid var(--b3-theme-primary);
+}
+.protyle-breadcrumb__item {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.protyle-breadcrumb__item:hover, .protyle-breadcrumb__item--active {
+    background-color: var(--b3-theme-background);
+    outline: 1.5px solid var(--b3-theme-primary);
+}
+.b3-menu__item--selected {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.secondaryToolbarButton {
+    border: 1.5px solid rgba(255, 0, 0, 0);
+}
+.secondaryToolbarButton:hover {
+    border: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.pdf__util .b3-menu__item {
+    border: 1.5px solid rgba(255, 0, 0, 0);
+}
+.pdf__util .b3-menu__item:hover {
+    border: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.b3-menu__item--current:not(.b3-menu__item--readonly) {
+    border: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.layout--float .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__center .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__dockr .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty) {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.counter:hover {
+    background-color: rgba(255, 0, 0, 0) !important;
+    outline: 1.5px solid var(--b3-theme-primary);
+}
+/* 底部状态栏 */
+#status {
+    background-color: var(--b3-theme-background);
+    border: 1.5px solid var(--b3-theme-primary);
+}
+/* QYL设置框 */
+#settings-window {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+/* 杂项 */
+.protyle-attr--refcount:hover {
+    color: var(--b3-theme-background);
+}

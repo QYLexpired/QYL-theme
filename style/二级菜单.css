@@ -46,3 +46,10 @@
 .b3-menu, .b3-menu__item, .b3-menu__submenu {
     background-color: var(--b3-theme-background);
 }
+/* 标记 */
+.b3-list mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}

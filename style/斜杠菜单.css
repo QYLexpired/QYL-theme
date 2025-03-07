@@ -22,11 +22,10 @@
         margin-right: 4px
     }
 
-    .protyle-hint.hint--menu>div button:nth-child(-n+3 of .b3-menu__separator),.protyle-hint.hint--menu>div button:nth-child(5 of .b3-menu__separator) {
+    .protyle-hint.hint--menu>div button.b3-menu__separator {
         -moz-column-break-before: column;
         break-before: column;
-        margin-bottom: -5px;
-        background-color: rgba(0,0,0,0)
+        background: rgba(255, 0, 0, 0);
     }
 
     .protyle-hint.hint--menu>.emojis {

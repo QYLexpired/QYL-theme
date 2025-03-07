@@ -157,3 +157,25 @@ body > div.block__popover.block__popover--open {
 [data-key="dialog-recentdocs"] .b3-list.b3-list--background .b3-list-item {
     animation: QYLbounceRight2 0.15s;
 }
+/* 闪卡内文档树动画 */
+[data-key="dialog-movepathto"] #foldTree li.b3-list-item {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 代码片段面板动画 */
+[data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__flex input[type="text"] {
+    animation: QYLbounceRight2 0.1s;
+}
+[data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__block.b3-text-field {
+    animation: QYLbounceRight2 0.1s;
+}
+/* 闪卡内文档树动画 */
+[data-key="dialog-movepathto"] #foldTree li.b3-list-item {
+    animation: QYLbounceRight2 0.15s;
+}
+/* 代码片段面板动画 */
+[data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__flex input[type="text"] {
+    animation: QYLbounceRight2 0.1s;
+}
+[data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__block.b3-text-field {
+    animation: QYLbounceRight2 0.1s;
+}
