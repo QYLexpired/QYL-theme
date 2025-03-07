@@ -185,6 +185,9 @@ let isChecked12 = false;
 let isChecked13 = false;
 let isChecked14 = false;
 let isChecked15 = false;
+let isChecked16 = false;
+let isChecked17 = false;
+let isChecked18 = false;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -199,6 +202,7 @@ function createSettingsWindow() {
     settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
     settingsWindow.style.backdropFilter = 'var(--QYL-Aero-filter)';
     settingsWindow.style.padding = '12px';
+    settingsWindow.style.border = 'none';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = '16px'; 
@@ -327,47 +331,81 @@ function createSettingsWindow() {
 
     const checkbox12 = document.createElement('input');
     checkbox12.type = 'checkbox';
-    checkbox12.id = 'QYLburgundy-checkbox';
+    checkbox12.id = 'QYLsunset-checkbox';
     checkbox12.checked = isChecked12;
 
     const label12 = document.createElement('label');
-    label12.htmlFor = 'QYLburgundy-checkbox';
-    label12.textContent = ' 配色：勃艮第';
+    label12.htmlFor = 'QYLsunset-checkbox';
+    label12.textContent = ' 配色：夕阳';
     label12.style.fontSize = '14px';
     label12.style.userSelect= 'none';
 
     const checkbox13 = document.createElement('input');
     checkbox13.type = 'checkbox';
-    checkbox13.id = 'QYLxuanqing-checkbox';
+    checkbox13.id = 'QYLforest-checkbox';
     checkbox13.checked = isChecked13;
 
     const label13 = document.createElement('label');
-    label13.htmlFor = 'QYLxuanqing-checkbox';
-    label13.textContent = ' 配色：玄青';
+    label13.htmlFor = 'QYLforest-checkbox';
+    label13.textContent = ' 配色：森林';
     label13.style.fontSize = '14px';
     label13.style.userSelect= 'none';
 
     const checkbox14 = document.createElement('input');
     checkbox14.type = 'checkbox';
-    checkbox14.id = 'QYLmocui-checkbox';
+    checkbox14.id = 'QYLocean-checkbox';
     checkbox14.checked = isChecked14;
 
     const label14 = document.createElement('label');
-    label14.htmlFor = 'QYLmocui-checkbox';
-    label14.textContent = ' 配色：墨翠';
+    label14.htmlFor = 'QYLocean-checkbox';
+    label14.textContent = ' 配色：海洋';
     label14.style.fontSize = '14px';
     label14.style.userSelect= 'none';
 
     const checkbox15 = document.createElement('input');
     checkbox15.type = 'checkbox';
-    checkbox15.id = 'QYLhuimu-checkbox';
+    checkbox15.id = 'QYLsugar-checkbox';
     checkbox15.checked = isChecked15;
 
     const label15 = document.createElement('label');
-    label15.htmlFor = 'QYLhuimu-checkbox';
-    label15.textContent = ' 配色：灰幕';
+    label15.htmlFor = 'QYLsugar-checkbox';
+    label15.textContent = ' 配色：糖果';
     label15.style.fontSize = '14px';
     label15.style.userSelect= 'none';
+
+    const checkbox16 = document.createElement('input');
+    checkbox16.type = 'checkbox';
+    checkbox16.id = 'QYLlavender-checkbox';
+    checkbox16.checked = isChecked16;
+
+    const label16 = document.createElement('label');
+    label16.htmlFor = 'QYLlavender-checkbox';
+    label16.textContent = ' 配色：薰衣草';
+    label16.style.fontSize = '14px';
+    label16.style.userSelect= 'none';
+
+    const checkbox17 = document.createElement('input');
+    checkbox17.type = 'checkbox';
+    checkbox17.id = 'QYLlfog-checkbox';
+    checkbox17.checked = isChecked17;
+
+    const label17 = document.createElement('label');
+    label17.htmlFor = 'QYLlfog-checkbox';
+    label17.textContent = ' 配色：云雾';
+    label17.style.fontSize = '14px';
+    label17.style.userSelect= 'none';
+
+    const checkbox18 = document.createElement('input');
+    checkbox18.type = 'checkbox';
+    checkbox18.id = 'QYLlinkmode-checkbox';
+    checkbox18.checked = isChecked18;
+
+    const label18 = document.createElement('label');
+    label18.htmlFor = 'QYLlinkmode-checkbox';
+    label18.textContent = ' 墨水屏模式';
+    label18.style.fontSize = '14px';
+    label18.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -460,6 +498,25 @@ function createSettingsWindow() {
     QYLfunctionpair15.appendChild(label15);
     QYLfunctionpair15.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair16 = document.createElement('div');
+    QYLfunctionpair16.className = 'checkbox-label-pair';
+    QYLfunctionpair16.appendChild(checkbox16);
+    QYLfunctionpair16.appendChild(label16);
+    QYLfunctionpair16.style.animation = 'QYLbounceRight2 0.1s';
+
+    const QYLfunctionpair17 = document.createElement('div');
+    QYLfunctionpair17.className = 'checkbox-label-pair';
+    QYLfunctionpair17.appendChild(checkbox17);
+    QYLfunctionpair17.appendChild(label17);
+    QYLfunctionpair17.style.animation = 'QYLbounceRight2 0.1s';
+
+    const QYLfunctionpair18 = document.createElement('div');
+    QYLfunctionpair18.className = 'checkbox-label-pair';
+    QYLfunctionpair18.appendChild(checkbox18);
+    QYLfunctionpair18.appendChild(label18);
+    QYLfunctionpair18.style.animation = 'QYLbounceRight2 0.1s';
+
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
@@ -472,10 +529,13 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair9);
     settingsWindow.appendChild(QYLfunctionpair10);
     settingsWindow.appendChild(QYLfunctionpair11);
+    settingsWindow.appendChild(QYLfunctionpair18);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
     settingsWindow.appendChild(QYLfunctionpair14);
     settingsWindow.appendChild(QYLfunctionpair15);
+    settingsWindow.appendChild(QYLfunctionpair16);
+    settingsWindow.appendChild(QYLfunctionpair17);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -573,12 +633,19 @@ function createSettingsWindow() {
     // 毛玻璃效果开关
     checkbox10.addEventListener('change', function() {
         isChecked10 = this.checked;
+        resetCheckAero();
+        disableQYLinkmode();
         if (this.checked) {
             enableQYLAero();
         } else {
             disableQYLAreo();
         }
     });
+
+    //毛玻璃互斥
+    function resetCheckAero() {
+        isChecked18 = false;
+    }
 
     // 关闭多彩标签和多彩行级代码开关
     checkbox11.addEventListener('change', function() {
@@ -590,88 +657,171 @@ function createSettingsWindow() {
         }
     });
 
-    // 勃艮第配色开关
+    // 夕阳配色开关
     checkbox12.addEventListener('change', function() {
         isChecked12 = this.checked;
-        resetCheckburgundy();
-        disableQYLxuanqing();
-        disableQYLmocui();
-        disableQYLhuimu();
+        resetChecksunset();
+        disableQYLforest();
+        disableQYLocean();
+        disableQYLsugar();
+        disableQYLlavender();
+        disableQYLfog();
         if (this.checked) {
-            enableQYLburgundy();
+            enableQYLsunset();
         } else {
-            disableQYLburgundy();
+            disableQYLsunset();
         }
     });
 
-    //主题互斥-勃艮第
-    function resetCheckburgundy() {
+    //主题互斥-夕阳
+    function resetChecksunset() {
         isChecked13 = false;
         isChecked14 = false;
         isChecked15 = false;
+        isChecked16 = false;
+        isChecked17 = false;
     }
 
-    // 玄青配色开关
+    // 森林配色开关
     checkbox13.addEventListener('change', function() {
         isChecked13 = this.checked;
-        resetCheckxuanqing();
-        disableQYLburgundy();
-        disableQYLmocui();
-        disableQYLhuimu();
+        resetCheckforest();
+        disableQYLsunset();
+        disableQYLocean();
+        disableQYLsugar();
+        disableQYLlavender();
+        disableQYLfog();
         if (this.checked) {
-            enableQYLxuanqing();
+            enableQYLforest();
         } else {
-            disableQYLxuanqing();
+            disableQYLforest();
         }
     });
 
-    //主题互斥-玄青
-    function resetCheckxuanqing() {
+    //主题互斥-森林
+    function resetCheckforest() {
         isChecked12 = false;
         isChecked14 = false;
         isChecked15 = false;
+        isChecked16 = false;
+        isChecked17 = false;
     }
 
-    // 墨翠配色开关
+    // 海洋配色开关
     checkbox14.addEventListener('change', function() {
         isChecked14 = this.checked;
-        resetCheckmocui();
-        disableQYLburgundy();
-        disableQYLxuanqing();
-        disableQYLhuimu();
+        resetCheckocean();
+        disableQYLsunset();
+        disableQYLforest();
+        disableQYLsugar();
+        disableQYLlavender();
+        disableQYLfog();
         if (this.checked) {
-            enableQYLmocui();
+            enableQYLocean();
         } else {
-            disableQYLmocui();
+            disableQYLocean();
         }
     });
 
-    //主题互斥-墨翠
-    function resetCheckmocui() {
+    //主题互斥-海洋
+    function resetCheckocean() {
         isChecked12 = false;
         isChecked13 = false;
         isChecked15 = false;
+        isChecked16 = false;
+        isChecked17 = false;
     }
 
-    // 灰幕配色开关
+    // 糖果配色开关
     checkbox15.addEventListener('change', function() {
         isChecked15 = this.checked;
-        resetCheckhuimu();
-        disableQYLburgundy();
-        disableQYLxuanqing();
-        disableQYLmocui();
+        resetChecksugar();
+        disableQYLsunset();
+        disableQYLforest();
+        disableQYLocean();
+        disableQYLlavender();
+        disableQYLfog();
         if (this.checked) {
-            enableQYLhuimu();
+            enableQYLsugar();
         } else {
-            disableQYLhuimu();
+            disableQYLsugar();
         }
     });
 
-    //主题互斥-灰幕
-    function resetCheckhuimu() {
+    //主题互斥-糖果
+    function resetChecksugar() {
         isChecked12 = false;
         isChecked13 = false;
         isChecked14 = false;
+        isChecked16 = false;
+        isChecked17 = false;
+    }
+
+    // 薰衣草配色开关
+    checkbox16.addEventListener('change', function() {
+        isChecked16 = this.checked;
+        resetChecklavender();
+        disableQYLsunset();
+        disableQYLforest();
+        disableQYLocean();
+        disableQYLsugar();
+        disableQYLfog();
+        if (this.checked) {
+            enableQYLlavender();
+        } else {
+            disableQYLlavender();
+        }
+    });
+
+    //主题互斥-薰衣草
+    function resetChecklavender() {
+        isChecked12 = false;
+        isChecked13 = false;
+        isChecked14 = false;
+        isChecked15 = false;
+        isChecked17 = false;
+    }
+
+    // 云雾配色开关
+    checkbox17.addEventListener('change', function() {
+        isChecked17 = this.checked;
+        resetCheckfog();
+        disableQYLsunset();
+        disableQYLforest();
+        disableQYLocean();
+        disableQYLsugar();
+        disableQYLlavender();
+        if (this.checked) {
+            enableQYLfog();
+        } else {
+            disableQYLfog();
+        }
+    });
+
+    //主题互斥-云雾
+    function resetCheckfog() {
+        isChecked12 = false;
+        isChecked13 = false;
+        isChecked14 = false;
+        isChecked15 = false;
+        isChecked16 = false;
+    }
+
+    // 墨水屏模式开关
+    checkbox18.addEventListener('change', function() {
+        isChecked18 = this.checked;
+        resetCheckinkmode();
+        disableQYLAreo();
+        if (this.checked) {
+            enableQYLinkmode();
+        } else {
+            disableQYLinkmode();
+        }
+    });
+
+    //墨水屏模式互斥
+    function resetCheckinkmode() {
+        isChecked10 = false;
     }
 
     // ESC键关闭
@@ -718,11 +868,12 @@ function enableMarkStyles() {
     }
     styleSheet.innerText = `
         span[data-type~=mark] {
-            background: transparent !important; }
+            background: transparent !important;
+        }
         .b3-typography mark, .b3-typography span[data-type~=mark], 
         .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
             color: transparent !important; 
-            border-bottom: 1.5px solid rgba(60, 172, 78, 0.8);
+            border-bottom: 1.5px solid rgb(90, 186, 73);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
@@ -731,7 +882,7 @@ function enableMarkStyles() {
         .b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
         .protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
             color: inherit !important;
-            border-bottom: 1.5px solid rgba(60, 172, 78, 0.8);
+            border-bottom: 1.5px solid rgb(90, 186, 73);
             background-color: transparent !important;
             margin-left: 3px;
             margin-right: 3px;
@@ -870,6 +1021,7 @@ function enabletoolbarhidden() {
         }
     `;
 }
+
 // 防止窗口化时隐藏顶栏后无法呼出
 function QYLcheckMaximize() {
     if (!isChecked3) {
@@ -945,6 +1097,14 @@ function enablesbremind() {
 // 关闭超级块范围提示功能
 function disablesbremind() {
     const styleSheet = document.getElementById("sbremind-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 关闭鼠标所在块高亮功能
+function disablehoverblockremind() {
+    const styleSheet = document.getElementById("hoverblock-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
@@ -1046,14 +1206,14 @@ function enablecolorfulfiletree() {
     }
     styleSheet.innerText = `
 :root {
-    --filetree-line-1: rgba(84, 115, 207, 0.5);
-    --filetree-line-2: rgba(190, 139, 57, 0.5);
-    --filetree-line-3: rgba(194, 75, 75, 0.5);
-    --filetree-line-4: rgba(64, 185, 76, 0.5);
-    --filetree-line-5: rgba(156, 76, 187, 0.5);
-    --filetree-line-6: rgba(49, 147, 131, 0.5);
-    --filetree-line-7: rgba(171, 64, 166, 0.5);
-    --filetree-line-8: rgba(169, 96, 65, 0.5);
+    --filetree-line-1: rgb(106, 156, 218);
+    --filetree-line-2: rgb(239, 205, 151);
+    --filetree-line-3: rgb(240, 198, 198);
+    --filetree-line-4: rgb(154, 235, 162);
+    --filetree-line-5: rgb(208, 139, 235);
+    --filetree-line-6: rgb(139, 235, 219);
+    --filetree-line-7: rgb(235, 139, 230);
+    --filetree-line-8: rgb(180, 131, 110);
 }
         .fn__flex-1.fn__flex-column.file-tree.sy__file ul.b3-list.b3-list--background { margin-left: 20px; }
         [data-type="navigation-root"]::before {
@@ -1066,76 +1226,76 @@ function enablecolorfulfiletree() {
             border-bottom-left-radius: 6px;
         }
         .b3-list:nth-of-type(8n+1)>[data-type="navigation-root"]::before {
-            background-color: #3573f0 !important;
+            background-color: #3575f0 !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+1) {
-            border-left: 3px solid #3573f0;
+            border-left: 3px solid #3575f0;
         }
         .b3-list:nth-of-type(8n+1)>[data-type="navigation-root"] {
-            background-color:rgba(53, 115, 240, 0.5) !important;
+            background-color:rgb(184, 209, 255) !important;
         }
         .b3-list:nth-of-type(8n+2)>[data-type="navigation-root"]::before {
-            background-color:rgb(220, 172, 14) !important;
+            background-color:var(--b3-theme-secondary) !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+2) {
-            border-left: 3px solid rgb(220, 172, 14);
+            border-left: 3px solid var(--b3-theme-secondary);
         }
         .b3-list:nth-of-type(8n+2)>[data-type="navigation-root"] {
-            background-color: rgba(220, 172, 14, 0.5) !important;
+            background-color: rgb(255, 224, 174) !important;
         }
         .b3-list:nth-of-type(8n+3)>[data-type="navigation-root"]::before {
-            background-color:rgb(211, 70, 54) !important;
+            background-color:var(--b3-theme-error) !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+3) {
-            border-left: 3px solid rgb(211, 70, 54);
+            border-left: 3px solid var(--b3-theme-error);
         }
         .b3-list:nth-of-type(8n+3)>[data-type="navigation-root"] {
-            background-color: rgba(211, 70, 54, 0.5) !important;
+            background-color: rgb(255, 187, 180) !important;
         }
         .b3-list:nth-of-type(8n+4)>[data-type="navigation-root"]::before {
-            background-color:rgb(80, 159, 60) !important;
+            background-color:var(--b3-theme-success) !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+4) {
-            border-left: 3px solid rgb(80, 159, 60);
+            border-left: 3px solid var(--b3-theme-success);
         }
         .b3-list:nth-of-type(8n+4)>[data-type="navigation-root"] {
-            background-color: rgba(80, 159, 60, 0.5) !important;
+            background-color: rgb(192, 234, 181) !important;
         }
         .b3-list:nth-of-type(8n+5)>[data-type="navigation-root"]::before {
-            background-color:rgb(154, 75, 183) !important;
+            background-color:#9c4db8 !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+5) {
-            border-left: 3px solid rgb(154, 75, 183);
+            border-left: 3px solid #9c4db8;
         }
         .b3-list:nth-of-type(8n+5)>[data-type="navigation-root"] {
-            background-color: rgba(157, 103, 177, 0.5)!important;
+            background-color: rgb(239, 195, 255) !important;
         }
         .b3-list:nth-of-type(8n+6)>[data-type="navigation-root"]::before {
-            background-color:rgb(33, 152, 145) !important;
+            background-color:#00dacf !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+6) {
-            border-left: 3px solid rgb(33, 152, 145);
+            border-left: 3px solid #00dacf;
         }
         .b3-list:nth-of-type(8n+6)>[data-type="navigation-root"] {
-            background-color: rgba(33, 152, 144, 0.5) !important;
+            background-color: rgb(170, 235, 232) !important;
         }
         .b3-list:nth-of-type(8n+7)>[data-type="navigation-root"]::before {
-            background-color:rgb(180, 42, 115) !important;
+            background-color:rgb(230, 0, 123) !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+7) {
-            border-left: 3px solid rgb(180, 42, 115);
+            border-left: 3px solid rgb(230, 0, 123);
         }
         .b3-list:nth-of-type(8n+7)>[data-type="navigation-root"] {
-            background-color: rgba(180, 42, 116, 0.5) !important;
+            background-color: rgb(255, 186, 223) !important;
         }
         .b3-list:nth-of-type(8n)>[data-type="navigation-root"]::before {
-            background-color:rgb(176, 95, 28) !important;
+            background-color:rgb(177, 80, 0) !important;
         }
         div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n) {
-            border-left: 3px solid rgb(176, 95, 28);
+            border-left: 3px solid rgb(177, 80, 0);
         }
         .b3-list:nth-of-type(8n)>[data-type="navigation-root"] {
-            background-color:rgba(176, 95, 28, 0.5) !important;
+            background-color:rgb(230, 184, 147) !important;
         }
     `;
 }
@@ -1157,6 +1317,7 @@ function enablecancleQYLanimation() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
+        /* 动画效果 */
         :root {
             --b3-transition: all .2s cubic-bezier(0, 0, .2, 1) 0ms;
             --b3-width-transition: width .2s cubic-bezier(0, 0, .2, 1) 0ms;
@@ -1240,7 +1401,7 @@ function enableQYLAero() {
             box-shadow: none;
         }
         .b3-text-field:not(#searchInput, .b3-form__icon-input), .pcr-app .pcr-interaction .pcr-result, .b3-select {
-            background-color: var(--QYL-filter-background);
+            background-color: var(--QYL-filter-background) !important;
             backdrop-filter: var(--QYL-Aero-filter);
         }
         /* 命令面板毛玻璃 */
@@ -1457,449 +1618,808 @@ function disablecancleQYLcolorfultag() {
     }
 }
 
-// 开启勃艮第配色
-function enableQYLburgundy() {
-    let styleSheet = document.getElementById("QYLburgundy-style");
+// 开启夕阳配色
+function enableQYLsunset() {
+    let styleSheet = document.getElementById("QYLsunset-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
-        styleSheet.id = "QYLburgundy-style";
+        styleSheet.id = "QYLsunset-style";
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
         :root {
-            /* 主色 */
-            --b3-theme-background: #201d1d;
-            --b3-theme-background-light:rgb(62, 58, 58); /* 编辑器较多变浅（不透明） */
-            --b3-theme-surface: #2c2525;
-            --b3-theme-surface-light: rgba(41, 42, 45, 0.86);
-            --b3-theme-surface-lighter: rgba(110, 91, 91, 0.5); /* 线条色 */
-
-            /* 文字颜色 */
-            --b3-theme-on-primary: #fff;
-            --b3-theme-on-secondary: #fff;
-            --b3-theme-on-background: #b5b5b5;
-            --b3-theme-on-surface: #9aa0a6;
-            --b3-theme-on-surface-light: #bababa;
-            --b3-theme-on-error: #fff;
-
-            /* 容器阴影 */
-            --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
-            --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
-        }
-        :root {
-            --QYL-hover: rgba(138, 63, 63, 0.6); /* 主要悬停色 */
-            --QYL-hover-hover: rgba(138, 63, 63, 0.7);/* 主要悬停色加深 */
-            --QYL-hover-light: rgba(138, 63, 63, 0.1);/* 主要悬停色变浅 */
+            --QYL-hover: rgba(255, 166, 111, 0.4); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(255, 166, 111, 0.5);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(255, 166, 111, 0.1);/* 主要悬停色变浅 */
             --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
             --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
             --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
             --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
-            --b3-theme-primary: #a34c4c; 
-            --b3-theme-primary-light: rgba(163, 76, 76, 0.5); /* 主色0.5透明度 */
-            --b3-theme-primary-lighter: rgba(163, 76, 76, 0.35); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(163, 76, 76, 0.12); /* 主色0.1透明度 */
-            --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
-            --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
-            --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
-            --b3-scroll-color: rgb(57, 41, 41); /* 滚动条颜色 */
+            --b3-theme-primary: rgb(240, 140, 58) !important; 
+            --b3-theme-primary-light: rgba(240, 140, 58, 0.5); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(240, 140, 58, 0.3); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(240, 140, 58, 0.1); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(255, 239, 215);
+            --b3-theme-surface-light: rgba(255, 197, 142, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgb(255, 219, 186);
+            --b3-theme-background: #fff5e8;
+            --b3-theme-background-light:rgb(255, 224, 184); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: #fff2e8; /* 失焦颜色 */
+            --b3-scroll-color: rgb(243, 210, 182); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
             --QYL-white: #fff; /* 通用白 */
             --QYL-black: #171717; /* 通用黑 */
             --QYL-gray: #bfbfbf; /* 通用灰 */
-            --b3-toolbar-blur-background: #302b2b; /* 失焦颜色 */
-            --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
-            
-            /* 动画效果 */
-            --b3-transition: 0.2s ease-in-out;
-            --b3-transition-slow: 0.4s ease-in-out;
-            --b3-width-transition: width 0.2s ease-in-out;
-            --b3-color-transition: color 0.2s ease-in-out;
-            --b3-background-transition: background 0.2s ease-in-out;
-
-            /* PDF */
-            --b3-pdf-selection: #94ff71;
-            --sidebar-width: 200px;
-            --b3-pdf-offset: 0;
-            --b3-pdf-background1: #ffc3c3;
-            --b3-pdf-background2: #ffcba5;
-            --b3-pdf-background3: #ffda83;
-            --b3-pdf-background4: #b1eda2;
-            --b3-pdf-background5: #85efe6;
-            --b3-pdf-background6: #a3d3ff;
-            --b3-pdf-background7: #f3c5ff;
-            --b3-pdf-dark: #292a2b;
         }
         :root {
-            --QYL-blockquote: rgb(168, 145, 145);
-            --QYL-blockquote-background: rgb(58, 47, 47);
-            --QYL-blockquote-svg: rgb(114, 95, 95);
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
         }
         :root {
-            --QYL-switch-close: var(--QYL-gray);
-            --QYL-switch-close-background: rgb(48, 41, 41);
-            --QYL-input-border: rgb(108, 79, 79);
-            --QYL-input-border-hover: var(--b3-theme-primary);
-            --b3-switch-checked-background: var(--b3-theme-primary);
-            --b3-switch-checked: var(--QYL-gray);
+            --QYL-blockquote: rgb(179, 111, 75);
+            --QYL-blockquote-background: rgb(255, 234, 210);
+            --QYL-blockquote-svg: rgb(239, 212, 182);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
         }
         :root {
-            --QYL-filter-background-theme: rgba(22, 15, 15, 0.5);
-            --QYL-filter-wrap-background-theme: rgba(22, 15, 15, 0.6);
-            --QYL-filter-fix-background-theme: rgba(22, 15, 15, 0.8);
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(255, 216, 186);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(237, 111, 0);
         }
         :root {
-            --QYL-account-background1: linear-gradient(to top, #300909, #2d070c, #2a060e, #270410, #240211, #240414, #240517, #240719, #280b1e, #2c0e23, #311028, #35132e);
-            --QYL-account-background2: linear-gradient(to top, #300909, #2d070c, #2a060e, #270410, #240211, #240414, #240517, #240719, #280b1e, #2c0e23, #311028, #35132e);
+            --QYL-filter-background-theme: rgba(255, 242, 224, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(255, 242, 224, 0.6);
+            --QYL-filter-fix-background-theme: rgba(255, 242, 224, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
+            --QYL-account-background2: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
         }
     `;
 }
 
-// 关闭勃艮第配色
-function disableQYLburgundy() {
-    const styleSheet = document.getElementById("QYLburgundy-style");
+// 关闭夕阳配色
+function disableQYLsunset() {
+    const styleSheet = document.getElementById("QYLsunset-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
 }
 
-// 开启玄青配色
-function enableQYLxuanqing() {
-    let styleSheet = document.getElementById("QYLxuanqing-style");
+// 开启森林配色
+function enableQYLforest() {
+    let styleSheet = document.getElementById("QYLforest-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
-        styleSheet.id = "QYLxuanqing-style";
+        styleSheet.id = "QYLforest-style";
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
         :root {
-            /* 主色 */
-            --b3-theme-background: rgb(29, 28, 37);
-            --b3-theme-background-light:rgb(54, 53, 66); /* 编辑器较多变浅（不透明） */
-            --b3-theme-surface: rgb(42, 41, 54);
-            --b3-theme-surface-light: rgba(42, 41, 54, 0.86); 
-            --b3-theme-surface-lighter: rgba(132, 129, 165, 0.5); /* 线条色 */
-
-            /* 文字颜色 */
-            --b3-theme-on-primary: #fff;
-            --b3-theme-on-secondary: #fff;
-            --b3-theme-on-background: #b5b5b5;
-            --b3-theme-on-surface: #9aa0a6;
-            --b3-theme-on-surface-light: #bababa;
-            --b3-theme-on-error: #fff;
-
-            /* 容器阴影 */
-            --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
-            --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
-        }
-        :root {
-            --QYL-hover: rgba(62, 67, 117, 0.65); /* 主要悬停色 */
-            --QYL-hover-hover: rgba(62, 67, 117, 0.75);/* 主要悬停色加深 */
-            --QYL-hover-light: rgba(62, 67, 117, 0.15);/* 主要悬停色变浅 */
+            --QYL-hover: rgba(120, 219, 111, 0.4); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(120, 219, 111, 0.5);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(120, 219, 111, 0.1);/* 主要悬停色变浅 */
             --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
             --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
             --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
             --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
-            --b3-theme-primary:rgb(101, 96, 210); 
-            --b3-theme-primary-light: rgba(87, 83, 173, 0.5); /* 主色0.5透明度 */
-            --b3-theme-primary-lighter: rgba(87, 83, 173, 0.35); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(87, 83, 173, 0.12); /* 主色0.1透明度 */
-            --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
-            --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
-            --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
-            --b3-scroll-color: rgb(50, 48, 65); /* 滚动条颜色 */
+            --b3-theme-primary: rgb(85, 183, 95)  !important; 
+            --b3-theme-primary-light: rgba(85, 183, 95, 0.5); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(85, 183, 95, 0.3); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(85, 183, 95, 0.1); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(207, 233, 196);
+            --b3-theme-surface-light: rgba(207, 233, 196, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgb(193, 228, 149);
+            --b3-theme-background: #e8f5e3;
+            --b3-theme-background-light:rgb(204, 241, 190); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: rgb(222, 236, 216); /* 失焦颜色 */
+            --b3-scroll-color: rgb(168, 209, 158); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
             --QYL-white: #fff; /* 通用白 */
             --QYL-black: #171717; /* 通用黑 */
             --QYL-gray: #bfbfbf; /* 通用灰 */
-            --b3-toolbar-blur-background: rgb(37, 36, 42); /* 失焦颜色 */
-            --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
-            
-            /* 动画效果 */
-            --b3-transition: 0.2s ease-in-out;
-            --b3-transition-slow: 0.4s ease-in-out;
-            --b3-width-transition: width 0.2s ease-in-out;
-            --b3-color-transition: color 0.2s ease-in-out;
-            --b3-background-transition: background 0.2s ease-in-out;
-
-            /* PDF */
-            --b3-pdf-selection: #94ff71;
-            --sidebar-width: 200px;
-            --b3-pdf-offset: 0;
-            --b3-pdf-background1: #ffc3c3;
-            --b3-pdf-background2: #ffcba5;
-            --b3-pdf-background3: #ffda83;
-            --b3-pdf-background4: #b1eda2;
-            --b3-pdf-background5: #85efe6;
-            --b3-pdf-background6: #a3d3ff;
-            --b3-pdf-background7: #f3c5ff;
-            --b3-pdf-dark: #292a2b;
         }
         :root {
-            --QYL-blockquote: rgb(131, 127, 148);
-            --QYL-blockquote-background: rgb(49, 47, 58);
-            --QYL-blockquote-svg: rgb(84, 81, 100);
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
         }
         :root {
-            --QYL-switch-close: var(--QYL-gray);
-            --QYL-switch-close-background: rgb(66, 67, 95);
-            --QYL-input-border: rgb(60, 57, 98);
-            --QYL-input-border-hover: var(--b3-theme-primary);
-            --b3-switch-checked-background: var(--b3-theme-primary);
-            --b3-switch-checked: var(--QYL-gray);
+            --QYL-blockquote: rgb(113, 178, 104);
+            --QYL-blockquote-background: rgb(203, 240, 200);
+            --QYL-blockquote-svg: rgb(175, 228, 172);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
         }
         :root {
-            --QYL-filter-background-theme: rgba(34, 35, 44, 0.5);
-            --QYL-filter-wrap-background-theme: rgba(34, 35, 44, 0.6);
-            --QYL-filter-fix-background-theme: rgba(34, 35, 44, 0.8);
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(180, 218, 171);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(69, 179, 57);
         }
         :root {
-            --QYL-account-background1: linear-gradient(to top, #151d32, #122033, #102233, #0f2433, #0f2632, #122833, #152934, #182b35, #1c2d37, #212e3a, #25303c, #29323e);
-            --QYL-account-background2: linear-gradient(to top, #151d32, #122033, #102233, #0f2433, #0f2632, #122833, #152934, #182b35, #1c2d37, #212e3a, #25303c, #29323e);
+            --QYL-filter-background-theme: rgba(216, 235, 208, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(216, 235, 208, 0.6);
+            --QYL-filter-fix-background-theme: rgba(216, 235, 208, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #bae3b9, #bbe3bc, #bce3bf, #bde2c2, #bfe2c5, #c2e3c9, #c5e5cc, #c8e6d0, #cdead5, #d2eedb, #d7f1e0, #dcf5e5);
+            --QYL-account-background2: linear-gradient(to top, #bae3b9, #bbe3bc, #bce3bf, #bde2c2, #bfe2c5, #c2e3c9, #c5e5cc, #c8e6d0, #cdead5, #d2eedb, #d7f1e0, #dcf5e5);
         }
     `;
 }
 
-// 关闭玄青配色
-function disableQYLxuanqing() {
-    const styleSheet = document.getElementById("QYLxuanqing-style");
+// 关闭森林配色
+function disableQYLforest() {
+    const styleSheet = document.getElementById("QYLforest-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
 }
 
-// 开启墨翠配色
-function enableQYLmocui() {
-    let styleSheet = document.getElementById("QYLmocui-style");
+// 开启海洋配色
+function enableQYLocean() {
+    let styleSheet = document.getElementById("QYLocean-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
-        styleSheet.id = "QYLmocui-style";
+        styleSheet.id = "QYLocean-style";
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
         :root {
-            /* 主色 */
-            --b3-theme-background: #282b27;
-            --b3-theme-background-light:#393d38; /* 编辑器较多变浅（不透明） */
-            --b3-theme-surface: #30342e;
-            --b3-theme-surface-light: rgba(48, 52, 46, 0.86);
-            --b3-theme-surface-lighter: rgba(64, 69, 61, 0.5);; /* 线条色 */
-
-            /* 文字颜色 */
-            --b3-theme-on-primary: #fff;
-            --b3-theme-on-secondary: #fff;
-            --b3-theme-on-background: #b5b5b5;
-            --b3-theme-on-surface: #9aa0a6;
-            --b3-theme-on-surface-light: #bababa;
-            --b3-theme-on-error: #fff;
-
-            /* 容器阴影 */
-            --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
-            --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
-        }
-        :root {
-            --QYL-hover: rgba(61, 99, 52, 0.6); /* 主要悬停色 */
-            --QYL-hover-hover: rgba(61, 99, 52, 0.7);/* 主要悬停色加深 */
-            --QYL-hover-light: rgba(61, 99, 52, 0.1);/* 主要悬停色变浅 */
+            --QYL-hover: rgba(147, 195, 244, 0.5); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(147, 195, 244, 0.4);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(147, 195, 244, 0.1);/* 主要悬停色变浅 */
             --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
             --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
             --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
             --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
-            --b3-theme-primary: #528450; 
-            --b3-theme-primary-light: rgba(82, 132, 80, 0.514);; /* 主色0.5透明度 */
-            --b3-theme-primary-lighter: rgba(82, 132, 80, 0.3); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(82, 132, 80, 0.12); /* 主色0.1透明度 */
-            --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
-            --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
-            --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
-            --b3-scroll-color: rgb(57, 66, 57); /* 滚动条颜色 */
+            --b3-theme-primary: rgb(115, 171, 224)  !important; 
+            --b3-theme-primary-light: rgba(115, 171, 224, 0.6); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(115, 171, 224, 0.4); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(115, 171, 224, 0.2); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(204, 224, 243);
+            --b3-theme-surface-light: rgba(204, 224, 243, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgb(195, 221, 230);
+            --b3-theme-background: #e2f0ff;
+            --b3-theme-background-light:rgb(198, 223, 249); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: #edf6ff; /* 失焦颜色 */
+            --b3-scroll-color: rgb(195, 214, 245); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
             --QYL-white: #fff; /* 通用白 */
             --QYL-black: #171717; /* 通用黑 */
             --QYL-gray: #bfbfbf; /* 通用灰 */
-            --b3-toolbar-blur-background: #41463f; /* 失焦颜色 */
-            --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
-            
-            /* 动画效果 */
-            --b3-transition: 0.2s ease-in-out;
-            --b3-transition-slow: 0.4s ease-in-out;
-            --b3-width-transition: width 0.2s ease-in-out;
-            --b3-color-transition: color 0.2s ease-in-out;
-            --b3-background-transition: background 0.2s ease-in-out;
-
-            /* PDF */
-            --b3-pdf-selection: #94ff71;
-            --sidebar-width: 200px;
-            --b3-pdf-offset: 0;
-            --b3-pdf-background1: #ffc3c3;
-            --b3-pdf-background2: #ffcba5;
-            --b3-pdf-background3: #ffda83;
-            --b3-pdf-background4: #b1eda2;
-            --b3-pdf-background5: #85efe6;
-            --b3-pdf-background6: #a3d3ff;
-            --b3-pdf-background7: #f3c5ff;
-            --b3-pdf-dark: #292a2b;
         }
         :root {
-            --QYL-blockquote: rgb(118, 122, 118);
-            --QYL-blockquote-background: rgb(49, 58, 49);
-            --QYL-blockquote-svg: rgb(88, 94, 88);
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
         }
         :root {
-            --QYL-switch-close: var(--QYL-gray);
-            --QYL-switch-close-background: rgb(67, 75, 68);
-            --QYL-input-border: rgb(79, 108, 83);
-            --QYL-input-border-hover: var(--b3-theme-primary);
-            --b3-switch-checked-background: var(--b3-theme-primary);
-            --b3-switch-checked: var(--QYL-gray);
+            --QYL-blockquote: rgb(92, 146, 207);
+            --QYL-blockquote-background: rgb(207, 233, 255);
+            --QYL-blockquote-svg: rgb(174, 213, 247);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
         }
         :root {
-            --QYL-filter-background-theme: rgba(31, 38, 31, 0.5);
-            --QYL-filter-wrap-background-theme: rgba(31, 38, 31, 0.6);
-            --QYL-filter-fix-background-theme: rgba(31, 38, 31, 0.8);
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(177, 198, 220);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(58, 114, 160);
         }
         :root {
-            --QYL-account-background1: linear-gradient(to top, #152013, #182415, #1b2817, #1e2d19, #22311b, #24331d, #26351f, #283721, #293723, #293726, #2a3628, #2b362a);
-            --QYL-account-background2: linear-gradient(to top, #152013, #182415, #1b2817, #1e2d19, #22311b, #24331d, #26351f, #283721, #293723, #293726, #2a3628, #2b362a);
+            --QYL-filter-background-theme: rgba(211, 231, 247, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(226, 243, 255, 0.6);
+            --QYL-filter-fix-background-theme: rgba(206, 225, 241, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
+            --QYL-account-background2: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
         }
     `;
 }
 
-// 关闭墨翠配色
-function disableQYLmocui() {
-    const styleSheet = document.getElementById("QYLmocui-style");
+// 关闭海洋配色
+function disableQYLocean() {
+    const styleSheet = document.getElementById("QYLocean-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
 }
 
-// 开启灰幕配色
-function enableQYLhuimu() {
-    let styleSheet = document.getElementById("QYLhuimu-style");
+// 开启糖果配色
+function enableQYLsugar() {
+    let styleSheet = document.getElementById("QYLsugar-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
-        styleSheet.id = "QYLhuimu-style";
+        styleSheet.id = "QYLsugar-style";
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
         :root {
-            /* 主色 */
-            --b3-theme-background: #2f2f2f;
-            --b3-theme-background-light:#444444; /* 编辑器较多变浅（不透明） */
-            --b3-theme-surface: #383838;
-            --b3-theme-surface-light: rgba(56, 56, 56, 0.86);
-            --b3-theme-surface-lighter: rgba(92, 92, 92, 0.5); /* 线条色 */
-
-            /* 文字颜色 */
-            --b3-theme-on-primary: #fff;
-            --b3-theme-on-secondary: #fff;
-            --b3-theme-on-background: #b5b5b5;
-            --b3-theme-on-surface: #9aa0a6;
-            --b3-theme-on-surface-light: #bababa;
-            --b3-theme-on-error: #fff;
-
-            /* 容器阴影 */
-            --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-            --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
-            --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
-        }
-        :root {
-            --QYL-hover: rgba(121, 116, 86, 0.6); /* 主要悬停色 */
-            --QYL-hover-hover: rgba(121, 116, 86, 0.8);/* 主要悬停色加深 */
-            --QYL-hover-light: rgba(121, 116, 86, 0.1);/* 主要悬停色变浅 */
+            --QYL-hover: rgba(255, 182, 211, 0.5); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(255, 182, 211, 0.6);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(255, 182, 211, 0.2);/* 主要悬停色变浅 */
             --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
             --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
             --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
             --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
-            --b3-theme-primary: #877b5d; 
-            --b3-theme-primary-light: rgba(135, 123, 93, 0.5); /* 主色0.5透明度 */
-            --b3-theme-primary-lighter: rgba(135, 123, 93, 0.35); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(135, 123, 93, 0.1); /* 主色0.1透明度 */
-            --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
-            --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
-            --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
-            --b3-scroll-color: rgb(90, 85, 79); /* 滚动条颜色 */
+            --b3-theme-primary: rgb(244, 139, 181)  !important; 
+            --b3-theme-primary-light: rgba(244, 139, 181, 0.6); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(244, 139, 181, 0.4); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(244, 139, 181, 0.15); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(250, 227, 235);
+            --b3-theme-surface-light: rgba(250, 227, 235, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgb(250, 220, 230);
+            --b3-theme-background: #fff3f9;
+            --b3-theme-background-light:rgb(248, 210, 229); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: rgb(255, 244, 250); /* 失焦颜色 */
+            --b3-scroll-color: rgb(244, 210, 223); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
             --QYL-white: #fff; /* 通用白 */
             --QYL-black: #171717; /* 通用黑 */
             --QYL-gray: #bfbfbf; /* 通用灰 */
-            --b3-toolbar-blur-background: #4e4e4e; /* 失焦颜色 */
-            --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
-            
-            /* 动画效果 */
-            --b3-transition: 0.2s ease-in-out;
-            --b3-transition-slow: 0.4s ease-in-out;
-            --b3-width-transition: width 0.2s ease-in-out;
-            --b3-color-transition: color 0.2s ease-in-out;
-            --b3-background-transition: background 0.2s ease-in-out;
-
-            /* PDF */
-            --b3-pdf-selection: #94ff71;
-            --sidebar-width: 200px;
-            --b3-pdf-offset: 0;
-            --b3-pdf-background1: #ffc3c3;
-            --b3-pdf-background2: #ffcba5;
-            --b3-pdf-background3: #ffda83;
-            --b3-pdf-background4: #b1eda2;
-            --b3-pdf-background5: #85efe6;
-            --b3-pdf-background6: #a3d3ff;
-            --b3-pdf-background7: #f3c5ff;
-            --b3-pdf-dark: #292a2b;
         }
         :root {
-            --QYL-blockquote: rgb(149, 141, 132);
-            --QYL-blockquote-background: rgb(63, 62, 59);
-            --QYL-blockquote-svg: rgb(88, 86, 82);
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
         }
         :root {
-            --QYL-switch-close: var(--QYL-gray);
-            --QYL-switch-close-background: rgb(75, 73, 67);
-            --QYL-input-border: rgb(108, 103, 79);
-            --QYL-input-border-hover: var(--b3-theme-primary);
-            --b3-switch-checked-background: var(--b3-theme-primary);
-            --b3-switch-checked: var(--QYL-gray);
+            --QYL-blockquote: rgb(228, 154, 184);
+            --QYL-blockquote-background: rgb(255, 230, 242);
+            --QYL-blockquote-svg: rgb(248, 197, 221);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
         }
         :root {
-            --QYL-filter-background-theme: rgba(59, 59, 59, 0.5);
-            --QYL-filter-wrap-background-theme: rgba(59, 59, 59, 0.6);
-            --QYL-filter-fix-background-theme: rgba(59, 59, 59, 0.8);
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(241, 205, 215);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(214, 103, 145);
         }
         :root {
-            --QYL-account-background1: linear-gradient(to top, #272721, #292923, #2c2b24, #2e2e26, #313028, #36322b, #3b352f, #3f3733, #433b3b, #454042, #474547, #4a4a4a);
-            --QYL-account-background2: linear-gradient(to top, #272721, #292923, #2c2b24, #2e2e26, #313028, #36322b, #3b352f, #3f3733, #433b3b, #454042, #474547, #4a4a4a);
+            --QYL-filter-background-theme: rgba(250, 227, 235, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(250, 227, 235, 0.6);
+            --QYL-filter-fix-background-theme: rgba(250, 227, 235, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #f6c0cf, #f7c4d3, #f8c9d6, #f8cdda, #f9d1dd, #fad4df, #fbd7e2, #fcdae4, #fddde6, #fee1e8, #fee4ea, #ffe8ec);
+            --QYL-account-background2: linear-gradient(to top, #f6c0cf, #f7c4d3, #f8c9d6, #f8cdda, #f9d1dd, #fad4df, #fbd7e2, #fcdae4, #fddde6, #fee1e8, #fee4ea, #ffe8ec);
         }
     `;
 }
 
-// 关闭灰幕配色
-function disableQYLhuimu() {
-    const styleSheet = document.getElementById("QYLhuimu-style");
+// 关闭糖果配色
+function disableQYLsugar() {
+    const styleSheet = document.getElementById("QYLsugar-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启薰衣草配色
+function enableQYLlavender() {
+    let styleSheet = document.getElementById("QYLlavender-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLlavender-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        :root {
+            --QYL-hover: rgba(224, 186, 255, 0.5); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(224, 186, 255, 0.6);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(224, 186, 255, 0.2);/* 主要悬停色变浅 */
+            --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+            --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+            --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+            --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+            --b3-theme-primary: rgb(211, 148, 236)  !important; 
+            --b3-theme-primary-light: rgba(211, 148, 236, 0.56); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(211, 148, 236, 0.3); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(211, 148, 236, 0.12); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(239, 228, 255);
+            --b3-theme-surface-light: rgba(239, 228, 255, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgba(201, 177, 241, 0.5);
+            --b3-theme-background: #faf3ff;
+            --b3-theme-background-light:rgb(229, 207, 245); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: rgb(245, 239, 255); /* 失焦颜色 */
+            --b3-scroll-color: rgb(230, 210, 244); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
+            --QYL-white: #fff; /* 通用白 */
+            --QYL-black: #171717; /* 通用黑 */
+            --QYL-gray: #bfbfbf; /* 通用灰 */
+        }
+        :root {
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
+        }
+        :root {
+            --QYL-blockquote: rgb(193, 149, 221);
+            --QYL-blockquote-background: rgb(245, 230, 255);
+            --QYL-blockquote-svg: rgb(218, 191, 237);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
+        }
+        :root {
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(222, 201, 237);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(139, 75, 192);
+        }
+        :root {
+            --QYL-filter-background-theme: rgba(239, 228, 255, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(239, 228, 255, 0.6);
+            --QYL-filter-fix-background-theme: rgba(239, 228, 255, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #f5d1f8, #f6d2f9, #f6d3f9, #f7d4fa, #f7d5fa, #f7d7fb, #f7d9fb, #f7dbfc, #f7defd, #f8e2fe, #f8e5fe, #f9e8ff);
+            --QYL-account-background2: linear-gradient(to top, #f5d1f8, #f6d2f9, #f6d3f9, #f7d4fa, #f7d5fa, #f7d7fb, #f7d9fb, #f7dbfc, #f7defd, #f8e2fe, #f8e5fe, #f9e8ff);
+        }
+    `;
+}
+
+// 关闭糖果配色
+function disableQYLlavender() {
+    const styleSheet = document.getElementById("QYLlavender-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 开启云雾配色
+function enableQYLfog() {
+    let styleSheet = document.getElementById("QYLfog-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLfog-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        :root {
+            --QYL-hover: rgba(197, 197, 197, 0.6); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(197, 197, 197, 0.7);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(197, 197, 197, 0.2);/* 主要悬停色变浅 */
+            --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+            --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+            --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+            --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+            --b3-theme-primary: rgb(66, 66, 66)  !important; 
+            --b3-theme-primary-light: rgba(107, 107, 107, 0.5); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(107, 107, 107, 0.3); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(107, 107, 107, 0.1); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: rgb(221, 221, 221);
+            --b3-theme-surface-light: rgba(221, 221, 221, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: rgba(200, 200, 200, 0.5);
+            --b3-theme-background: #ebebeb;
+            --b3-theme-background-light:rgb(212, 212, 212); /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: rgb(237, 237, 237); /* 失焦颜色 */
+            --b3-scroll-color: rgb(223, 223, 223); /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
+            --QYL-white: #fff; /* 通用白 */
+            --QYL-black: #171717; /* 通用黑 */
+            --QYL-gray: #bfbfbf; /* 通用灰 */
+        }
+        :root {
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
+        }
+        :root {
+            --QYL-blockquote: rgb(124, 124, 124);
+            --QYL-blockquote-background: rgb(219, 219, 219);
+            --QYL-blockquote-svg: rgb(183, 183, 183);
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
+        }
+        :root {
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: rgb(208, 208, 208);
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(66, 66, 66);
+        }
+        :root {
+            --QYL-filter-background-theme: rgba(232, 232, 232, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(221, 221, 221, 0.6);
+            --QYL-filter-fix-background-theme: rgba(221, 221, 221, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
+            --QYL-account-background2: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
+        }
+    `;
+}
+
+// 关闭云雾配色
+function disableQYLfog() {
+    const styleSheet = document.getElementById("QYLfog-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+//开启墨水屏模式
+function enableQYLinkmode() {
+    let styleSheet = document.getElementById("QYLinkmode-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLinkmode-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        :root {
+            --QYL-hover: rgba(183, 196, 255, 0.6); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(183, 196, 255, 0.8);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(183, 196, 255, 0.2);/* 主要悬停色变浅 */
+            --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+            --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+            --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+            --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+            --b3-theme-primary: #000000;
+            --b3-theme-primary-light: rgba(0, 0, 0, 0.54);
+            --b3-theme-primary-lighter: rgba(0, 0, 0, 0.38);
+            --b3-theme-primary-lightest: rgba(0, 0, 0, 0.12);
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+            --QYL-white: #fff; /* 通用白 */
+            --QYL-black: #171717; /* 通用黑 */
+            --QYL-gray: #bfbfbf; /* 通用灰 */
+            --b3-scroll-color: var(--b3-theme-primary); /* 滚动条颜色 */
+            --QYL-filter-background-forQsettings: var(--b3-theme-background);
+
+            --b3-theme-background: rgb(255, 255, 255) !important;
+            --b3-theme-background-light:rgb(255, 255, 255) !important; /* 编辑器较多变浅（不透明） */
+            --b3-theme-surface: rgb(255, 255, 255) !important;
+            --b3-theme-surface-light: rgb(255, 255, 255) !important;
+            --b3-theme-surface-lighter: var(--b3-theme-primary) !important; /* 线条色 */
+
+            /* 文字颜色 */
+            --b3-theme-on-primary: #ffffff;
+            --b3-theme-on-secondary: #ffffff;
+            --b3-theme-on-background: #000000;
+            --b3-theme-on-surface: #000000;
+            --b3-theme-on-surface-light: #000000;
+            --b3-theme-on-error: #ffffff;
+
+            /* 圆角矩形 */
+            --b3-border-radius: 8px;
+            --b3-border-radius-b: 8px;
+            --b3-border-radius-q: 8px;
+            
+            /* 动画效果 */
+            --b3-transition: none;
+            --b3-transition-slow: none;
+            --b3-width-transition: width 0.2s ease-in-out;
+            --b3-color-transition: none;
+            --b3-background-transition: none;
+        }
+        /* 主界面 */
+        [data-type="wnd"] .layout-tab-container.fn__flex-1 {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 页签 */
+        [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
+            border: 1.5px solid var(--b3-theme-primary);
+            border-right: none;
+        }
+        [data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+            border: 1.5px solid var(--b3-theme-primary);
+            border-left: none;
+        }
+        .layout-tab-bar .item--focus:not(.item--readonly) {
+            height: 25px;
+            background-color: var(--b3-theme-background) !important;
+            border: 2px solid var(--b3-theme-primary);
+        }
+        .layout-tab-bar .item:not(.item--readonly, .item--focus) {
+            height: 25px;
+            background-color: var(--b3-theme-background) !important;
+            border: 1.5px solid var(--QYL-gray);
+        }
+        /* 菜单 */
+        .b3-menu, .b3-menu__submenu {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 设置页 */
+        div[data-key="dialog-setting"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        div[data-key="dialog-setting"] .config__tab-wrap {
+            border: 1.5px solid var(--b3-theme-primary);
+            padding-right: 5px;
+        }
+        .config__panel>.b3-tab-bar .config__tab-hr {
+            background: var(--b3-theme-background);
+        }
+        .b3-text-field, .pcr-app .pcr-interaction .pcr-result, .b3-select {
+            box-shadow:  none !important;
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        [data-key="dialog-setting"] .b3-tab-bar li[data-name] {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        .config-bazaar__panel .b3-card {
+            margin-top: 20px;
+            background-color: var(--b3-theme-background);
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        .config-bazaar__panel .b3-card:hover {
+            background-color: rgba(255, 0, 0, 0);
+        }
+        /* 按钮 */
+        .b3-button--outline {
+            border: 1.5px solid var(--b3-theme-primary) !important;
+        }
+        /* 提示气泡 */
+        #tooltip {
+            background-color: var(--b3-theme-background);
+            border: 1.5px solid var(--b3-theme-primary);
+            color: var(--b3-theme-primary)
+        }
+        .b3-tooltips::before {
+            display: none !important;
+        }
+        .b3-tooltips::after {
+            background-color: var(--b3-theme-background);
+            border: 1.5px solid var(--b3-theme-primary);
+            color: var(--b3-theme-primary)
+        }
+        .protyle-toolbar .b3-tooltips::after {
+            background-color: var(--b3-theme-background);
+        }
+        /* 右上角消息框 */
+        .b3-snackbar__content {
+            margin-top: 10px;
+            background-color: var(--b3-theme-background);
+            border: 1.5px solid var(--b3-theme-primary);
+            color: var(--b3-theme-primary)
+        }
+        /* 命令面板 */
+        [data-key="dialog-commandpanel"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
+            border: 1.5px solid var(--b3-theme-primary) !important;
+        }
+        /* 搜索面板 */
+        [data-key="dialog-globalsearch"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 闪卡 */
+        [data-key="dialog-opencard"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        [data-key="dialog-viewcards"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 数据历史 */
+        [data-key="dialog-history"] .b3-dialog__container {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 斜杠菜单 */
+        .protyle-hint.hint--menu {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 编辑器工具栏 */
+        .protyle-toolbar {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        .protyle-toolbar__item:hover {
+            outline: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0);
+        }
+        /* 悬停 */
+        .b3-list--background .b3-list-item:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus {
+            border: 1.5px solid rgba(255, 0, 0, 0);
+        }
+        .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus {
+            border: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0);
+        }
+        .b3-menu__item {
+            border: 1.5px solid rgba(255, 0, 0, 0);
+        }
+        .b3-menu__item--current:not(.b3-menu__item--readonly) {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        .toolbar__item:not(.toolbar__item--win, .toolbar__item--close):hover {
+            outline: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .block__icon:hover:not([disabled]):not(.ft__primary):not(.block__icon--warning), .block__icon--active {
+            background-color: rgba(255, 0, 0, 0);
+            outline: 1.5px solid var(--b3-theme-primary);
+        }
+        .b3-list-item__toggle--hl:hover, .b3-list-item__action:hover, .b3-list-item__icon:hover, .b3-menu__avemoji:hover {
+            background-color: rgba(255, 0, 0, 0);
+            outline: 1.5px solid var(--b3-theme-primary);
+        }
+        .protyle-breadcrumb__item {
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+        .protyle-breadcrumb__item:hover, .protyle-breadcrumb__item--active {
+            background-color: var(--b3-theme-background);
+            outline: 1.5px solid var(--b3-theme-primary);
+        }
+        .b3-menu__item--selected {
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        .secondaryToolbarButton {
+            border: 1.5px solid rgba(255, 0, 0, 0);
+        }
+        .secondaryToolbarButton:hover {
+            border: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .pdf__util .b3-menu__item {
+            border: 1.5px solid rgba(255, 0, 0, 0);
+        }
+        .pdf__util .b3-menu__item:hover {
+            border: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .b3-menu__item--current:not(.b3-menu__item--readonly) {
+            border: 1.5px solid var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .layout--float .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__center .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__dockr .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty) {
+            border: 1.5px solid var(--b3-theme-primary) !important;
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        .counter:hover {
+            background-color: rgba(255, 0, 0, 0) !important;
+            outline: 1.5px solid var(--b3-theme-primary);
+        }
+        /* 底部状态栏 */
+        #status {
+            background-color: var(--b3-theme-background);
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        /* QYL设置框 */
+        #settings-window {
+            border: 1.5px solid var(--b3-theme-primary) !important;
+        }
+        /* 杂项 */
+        .protyle-attr--refcount:hover {
+            color: var(--b3-theme-background);
+        }
+    `;
+}
+
+// 关闭墨水屏模式
+function disableQYLinkmode() {
+    const styleSheet = document.getElementById("QYLinkmode-style");
     if (styleSheet) {
         styleSheet.innerText = '';
     }
