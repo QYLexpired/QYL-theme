@@ -1,3 +1,38 @@
+//思源API
+async function putFile(path, content = '', isDir = false) {
+    const formData = new FormData();
+    formData.append("path", path);
+    formData.append("isDir", isDir)
+    formData.append("file", new Blob([content]));
+    const result = await fetch("/api/file/putFile", { // 写入js到本地
+        method: "POST",
+        body: formData,
+    });
+    const json = await result.json();
+    return json;
+}
+async function getFile(path) {
+    return fetch("/api/file/getFile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            path,
+        }),
+    }).then((response) => {
+        if (response.ok) {
+            return response.text();
+        } else {
+            throw new Error("Failed to get file content");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}
+
+
+
 // 块提示
 document.addEventListener('selectionchange', function() {
     const selection = window.getSelection();
@@ -170,24 +205,25 @@ function addThemeToolBar() {
 
 // 设置窗口
 
-let isChecked1 = false;
-let isChecked2 = false;
-let isChecked3 = false;
-let isChecked4 = false;
-let isChecked5 = false;
-let isChecked6 = false;
-let isChecked7 = false;
-let isChecked8 = false;
-let isChecked9 = false;
-let isChecked10 = false;
-let isChecked11 = false;
-let isChecked12 = false;
-let isChecked13 = false;
-let isChecked14 = false;
-let isChecked15 = false;
-let isChecked16 = false;
-let isChecked17 = false;
-let isChecked18 = false;
+let isChecked1;
+let isChecked2;
+let isChecked3;
+let isChecked4;
+let isChecked5;
+let isChecked6;
+let isChecked7;
+let isChecked8;
+let isChecked9;
+let isChecked10;
+let isChecked11;
+let isChecked12;
+let isChecked13;
+let isChecked14;
+let isChecked15;
+let isChecked16;
+let isChecked17;
+let isChecked18;
+let isChecked19;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -406,6 +442,17 @@ function createSettingsWindow() {
     label18.style.fontSize = '14px';
     label18.style.userSelect= 'none';
 
+    const checkbox19 = document.createElement('input');
+    checkbox19.type = 'checkbox';
+    checkbox19.id = 'QYLlshuanghe-checkbox';
+    checkbox19.checked = isChecked19;
+
+    const label19 = document.createElement('label');
+    label19.htmlFor = 'QYLlshuanghe-checkbox';
+    label19.textContent = ' 配色：霜禾';
+    label19.style.fontSize = '14px';
+    label19.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -516,6 +563,12 @@ function createSettingsWindow() {
     QYLfunctionpair18.appendChild(label18);
     QYLfunctionpair18.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair19 = document.createElement('div');
+    QYLfunctionpair19.className = 'checkbox-label-pair';
+    QYLfunctionpair19.appendChild(checkbox19);
+    QYLfunctionpair19.appendChild(label19);
+    QYLfunctionpair19.style.animation = 'QYLbounceRight2 0.1s';
+
 
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
@@ -536,293 +589,315 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair15);
     settingsWindow.appendChild(QYLfunctionpair16);
     settingsWindow.appendChild(QYLfunctionpair17);
+    settingsWindow.appendChild(QYLfunctionpair19);
 
-    // 将设置窗口添加到body
-    document.body.appendChild(settingsWindow);
 
-    // 标记挖空开关
-    checkbox1.addEventListener('change', function() {
-        isChecked1 = this.checked;
-        if (this.checked) {
-            enableMarkStyles();
-        } else {
-            disableMarkStyles();
-        }
-    });
+// 将设置窗口添加到body
+document.body.appendChild(settingsWindow);
 
-    // 文档树缩进线开关
-    checkbox2.addEventListener('change', function() {
-        isChecked2 = this.checked;
-        if (this.checked) {
-            enableIndentStyle();
-        } else {
-            disableIndentStyle();
-        }
-    });
+// 保存配置到QYLconfig.json
+async function saveConfig() {
+    const formData = new FormData();
+    formData.append('path', '/data/snippets/QYLconfig.json');
+    formData.append('isDir', 'false');
+    formData.append('modTime', Math.floor(Date.now() / 1000));
+    formData.append('file', new Blob([JSON.stringify({
+        isChecked1: checkbox1.checked,
+        isChecked2: checkbox2.checked,
+        isChecked3: checkbox3.checked,
+        isChecked4: checkbox4.checked,
+        isChecked5: checkbox5.checked,
+        isChecked6: checkbox6.checked,
+        isChecked7: checkbox7.checked,
+        isChecked8: checkbox8.checked,
+        isChecked9: checkbox9.checked,
+        isChecked10: checkbox10.checked,
+        isChecked11: checkbox11.checked,
+        isChecked12: checkbox12.checked,
+        isChecked13: checkbox13.checked,
+        isChecked14: checkbox14.checked,
+        isChecked15: checkbox15.checked,
+        isChecked16: checkbox16.checked,
+        isChecked17: checkbox17.checked,
+        isChecked18: checkbox18.checked,
+        isChecked19: checkbox19.checked
+    })], { type: 'application/json' }), 'QYLconfig.json');
 
-    // 隐藏顶栏开关
-    checkbox3.addEventListener('change', function() {
-        isChecked3 = this.checked;
-        if (this.checked) {
-            enabletoolbarhidden();
-        } else {
-            disabletoolbarhidden();
-        }
-    });
+    return fetch('/api/file/putFile', { method: 'POST', body: formData });
+}
 
-    // 鼠标所在块高亮开关
-    checkbox4.addEventListener('change', function() {
-        isChecked4 = this.checked;
-        if (this.checked) {
-            enablehoverblockremind();
-        } else {
-            disablehoverblockremind();
-        }
-    });
-
-    // 超级块范围提示开关
-    checkbox5.addEventListener('change', function() {
-        isChecked5 = this.checked;
-        if (this.checked) {
-            enablesbremind();
-        } else {
-            disablesbremind();
-        }
-    });
-
-    // 关闭聚焦块高亮开关
-    checkbox8.addEventListener('change', function() {
-        isChecked8 = this.checked;
-        if (this.checked) {
-            enablecanclefocusblockremind();
-        } else {
-            disablecanclefocusblockremind();
-        }
-    });
-
-    // 全宽显示开关
-    checkbox6.addEventListener('change', function() {
-        isChecked6 = this.checked;
-        if (this.checked) {
-            enablefullwidth();
-        } else {
-            disablefullwidth();
-        }
-    });
-
-    // 多彩文档树开关
-    checkbox7.addEventListener('change', function() {
-        isChecked7 = this.checked;
-        if (this.checked) {
-            enablecolorfulfiletree();
-        } else {
-            disablecolorfulfiletree();
-        }
-    });
-
-    // 关闭主题动画开关
-    checkbox9.addEventListener('change', function() {
-        isChecked9 = this.checked;
-        if (this.checked) {
-            enablecancleQYLanimation();
-        } else {
-            disablecancleQYLanimation();
-        }
-    });
-
-    // 毛玻璃效果开关
-    checkbox10.addEventListener('change', function() {
-        isChecked10 = this.checked;
-        resetCheckAero();
-        disableQYLinkmode();
-        if (this.checked) {
-            enableQYLAero();
-        } else {
-            disableQYLAreo();
-        }
-    });
-
-    //毛玻璃互斥
-    function resetCheckAero() {
-        isChecked18 = false;
+// 标记挖空开关
+checkbox1.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableMarkStyles() : disableMarkStyles();
+    state ? isChecked1 = true : isChecked1 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 关闭多彩标签和多彩行级代码开关
-    checkbox11.addEventListener('change', function() {
-        isChecked11 = this.checked;
-        if (this.checked) {
-            enablecancleQYLcolorfultag();
-        } else {
-            disablecancleQYLcolorfultag();
-        }
-    });
-
-    // 夕阳配色开关
-    checkbox12.addEventListener('change', function() {
-        isChecked12 = this.checked;
-        resetChecksunset();
-        disableQYLforest();
-        disableQYLocean();
-        disableQYLsugar();
-        disableQYLlavender();
-        disableQYLfog();
-        if (this.checked) {
-            enableQYLsunset();
-        } else {
-            disableQYLsunset();
-        }
-    });
-
-    //主题互斥-夕阳
-    function resetChecksunset() {
-        isChecked13 = false;
-        isChecked14 = false;
-        isChecked15 = false;
-        isChecked16 = false;
-        isChecked17 = false;
+// 文档树缩进线开关
+checkbox2.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableIndentStyle() : disableIndentStyle();
+    state ? isChecked2 = true : isChecked2 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 森林配色开关
-    checkbox13.addEventListener('change', function() {
-        isChecked13 = this.checked;
-        resetCheckforest();
-        disableQYLsunset();
-        disableQYLocean();
-        disableQYLsugar();
-        disableQYLlavender();
-        disableQYLfog();
-        if (this.checked) {
-            enableQYLforest();
-        } else {
-            disableQYLforest();
-        }
-    });
-
-    //主题互斥-森林
-    function resetCheckforest() {
-        isChecked12 = false;
-        isChecked14 = false;
-        isChecked15 = false;
-        isChecked16 = false;
-        isChecked17 = false;
+// 隐藏顶栏开关
+checkbox3.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enabletoolbarhidden() : disabletoolbarhidden();
+    state ? isChecked3 = true : isChecked3 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 海洋配色开关
-    checkbox14.addEventListener('change', function() {
-        isChecked14 = this.checked;
-        resetCheckocean();
-        disableQYLsunset();
-        disableQYLforest();
-        disableQYLsugar();
-        disableQYLlavender();
-        disableQYLfog();
-        if (this.checked) {
-            enableQYLocean();
-        } else {
-            disableQYLocean();
-        }
-    });
-
-    //主题互斥-海洋
-    function resetCheckocean() {
-        isChecked12 = false;
-        isChecked13 = false;
-        isChecked15 = false;
-        isChecked16 = false;
-        isChecked17 = false;
+// 鼠标所在块高亮开关
+checkbox4.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablehoverblockremind() : disablehoverblockremind();
+    state ? isChecked4 = true : isChecked4 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 糖果配色开关
-    checkbox15.addEventListener('change', function() {
-        isChecked15 = this.checked;
-        resetChecksugar();
-        disableQYLsunset();
-        disableQYLforest();
-        disableQYLocean();
-        disableQYLlavender();
-        disableQYLfog();
-        if (this.checked) {
-            enableQYLsugar();
-        } else {
-            disableQYLsugar();
-        }
-    });
-
-    //主题互斥-糖果
-    function resetChecksugar() {
-        isChecked12 = false;
-        isChecked13 = false;
-        isChecked14 = false;
-        isChecked16 = false;
-        isChecked17 = false;
+// 超级块范围提示开关
+checkbox5.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablesbremind() : disablesbremind();
+    state ? isChecked5 = true : isChecked5 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 薰衣草配色开关
-    checkbox16.addEventListener('change', function() {
-        isChecked16 = this.checked;
-        resetChecklavender();
-        disableQYLsunset();
-        disableQYLforest();
-        disableQYLocean();
-        disableQYLsugar();
-        disableQYLfog();
-        if (this.checked) {
-            enableQYLlavender();
-        } else {
-            disableQYLlavender();
-        }
-    });
-
-    //主题互斥-薰衣草
-    function resetChecklavender() {
-        isChecked12 = false;
-        isChecked13 = false;
-        isChecked14 = false;
-        isChecked15 = false;
-        isChecked17 = false;
+// 关闭聚焦块高亮开关
+checkbox8.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablecanclefocusblockremind() : disablecanclefocusblockremind();
+    state ? isChecked8 = true : isChecked8 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 云雾配色开关
-    checkbox17.addEventListener('change', function() {
-        isChecked17 = this.checked;
-        resetCheckfog();
-        disableQYLsunset();
-        disableQYLforest();
-        disableQYLocean();
-        disableQYLsugar();
-        disableQYLlavender();
-        if (this.checked) {
-            enableQYLfog();
-        } else {
-            disableQYLfog();
-        }
-    });
-
-    //主题互斥-云雾
-    function resetCheckfog() {
-        isChecked12 = false;
-        isChecked13 = false;
-        isChecked14 = false;
-        isChecked15 = false;
-        isChecked16 = false;
+// 全宽显示开关
+checkbox6.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablefullwidth() : disablefullwidth();
+    state ? isChecked6 = true : isChecked6 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
 
-    // 墨水屏模式开关
-    checkbox18.addEventListener('change', function() {
-        isChecked18 = this.checked;
-        resetCheckinkmode();
-        disableQYLAreo();
-        if (this.checked) {
-            enableQYLinkmode();
-        } else {
-            disableQYLinkmode();
-        }
-    });
-
-    //墨水屏模式互斥
-    function resetCheckinkmode() {
-        isChecked10 = false;
+// 多彩文档树开关
+checkbox7.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablecolorfulfiletree() : disablecolorfulfiletree();
+    state ? isChecked7 = true : isChecked7 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
     }
+});
+
+// 关闭主题动画开关
+checkbox9.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablecancleQYLanimation() : disablecancleQYLanimation();
+    state ? isChecked9 = true : isChecked9 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 毛玻璃效果开关
+checkbox10.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLAero() : disableQYLAreo();
+    state ? isChecked10 = true : isChecked10 = false;
+    if (isChecked18 === true) { checkbox18.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+
+// 关闭多彩标签和多彩行级代码开关
+checkbox11.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enablecancleQYLcolorfultag() : disablecancleQYLcolorfultag();
+    state ? isChecked11 = true : isChecked11 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 夕阳配色开关
+checkbox12.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLsunset() : disableQYLsunset();
+    state ? isChecked12 = true : isChecked12 = false;
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 森林配色开关
+checkbox13.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLforest() : disableQYLforest();
+    state ? isChecked13 = true : isChecked13 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 海洋配色开关
+checkbox14.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLocean() : disableQYLocean();
+    state ? isChecked14 = true : isChecked14 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 糖果配色开关
+checkbox15.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLsugar() : disableQYLsugar();
+    state ? isChecked15 = true : isChecked15 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 薰衣草配色开关
+checkbox16.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLlavender() : disableQYLlavender();
+    state ? isChecked16 = true : isChecked16 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 云雾配色开关
+checkbox17.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfog() : disableQYLfog();
+    state ? isChecked17 = true : isChecked17 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 霜禾配色开关
+checkbox19.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLshuanghe() : disableQYLshuanghe();
+    state ? isChecked19 = true : isChecked19 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 墨水屏模式开关
+checkbox18.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLinkmode() : disableQYLinkmode();
+    state ? isChecked18 = true : isChecked18 = false;
+    if (isChecked10 === true) { checkbox10.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
 
     // ESC键关闭
     document.addEventListener('keydown', function(event) {
@@ -2252,7 +2327,6 @@ function enableQYLinkmode() {
         }
         div[data-key="dialog-setting"] .config__tab-wrap {
             border: 1.5px solid var(--b3-theme-primary);
-            padding-right: 5px;
         }
         .config__panel>.b3-tab-bar .config__tab-hr {
             background: var(--b3-theme-background);
@@ -2272,6 +2346,9 @@ function enableQYLinkmode() {
         }
         .config-bazaar__panel .b3-card:hover {
             background-color: rgba(255, 0, 0, 0);
+        }
+        .config-bazaar__readme .item__side {
+            padding-top: 2px;
         }
         /* 按钮 */
         .b3-button--outline {
@@ -2401,6 +2478,11 @@ function enableQYLinkmode() {
             background-color: rgba(255, 0, 0, 0) !important;
             outline: 1.5px solid var(--b3-theme-primary);
         }
+        .b3-list-item__toggle:hover {
+            color: var(--b3-theme-primary);
+            background-color: rgba(255, 0, 0, 0) !important;
+            outline: none !important;
+        }
         /* 底部状态栏 */
         #status {
             background-color: var(--b3-theme-background);
@@ -2414,6 +2496,40 @@ function enableQYLinkmode() {
         .protyle-attr--refcount:hover {
             color: var(--b3-theme-background);
         }
+        /* 多彩文档树修复 */
+        [data-type="navigation-root"]::before {
+            height: 32px !important;
+            left: -22px !important;
+        }
+        /* 排版元素 */
+        .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
+            border: 1.5px solid var(--b3-theme-surface-lighter);
+            box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+            border: 1.5px solid  !important;
+            background-color: rgba(255, 0, 0, 0) !important;
+        }
+        :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
+            background-color: rgba(255, 0, 0, 0);
+            border: 1.5px solid  !important;
+        }
+        .protyle-wysiwyg blockquote::before, .protyle-wysiwyg .bq::before {
+            background-color: var(--b3-theme-primary);
+        }
+        .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+            background-color: rgba(255, 0, 0, 0);
+            border: 1.5px solid;
+            color: var(--b3-theme-primary);
+        }
+        .b3-typography .code-block, .protyle-wysiwyg .code-block {
+            background-color: rgba(255, 0, 0, 0);
+            border: 1.5px solid var(--b3-theme-primary);
+        }
+        .protyle-linenumber__rows>span::before {
+            font-style: italic;
+            color: var(--b3-theme-primary);
+        }
     `;
 }
 
@@ -2424,3 +2540,260 @@ function disableQYLinkmode() {
         styleSheet.innerText = '';
     }
 }
+
+// 开启霜禾配色
+function enableQYLshuanghe() {
+    let styleSheet = document.getElementById("QYLshuanghe-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLshuanghe-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        :root {
+            --QYL-hover: rgba(127, 198, 186, 0.4); /* 主要悬停色 */
+            --QYL-hover-hover: rgba(127, 198, 186, 0.5);/* 主要悬停色加深 */
+            --QYL-hover-light: rgba(127, 198, 186, 0.15);/* 主要悬停色变浅 */
+            --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+            --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+            --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+            --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+            --b3-theme-primary: rgb(97, 190, 175) !important; 
+            --b3-theme-primary-light: rgba(90, 187, 171, 0.5); /* 主色0.5透明度 */
+            --b3-theme-primary-lighter: rgba(90, 187, 171, 0.3); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(90, 187, 171, 0.1); /* 主色0.1透明度 */
+            --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+            --b3-theme-surface: #DBEADD;
+            --b3-theme-surface-light: rgba(219, 234, 221, 0.8); /* 面板色0.8透明度 */
+            --b3-theme-surface-lighter: #e4ece5;
+            --b3-theme-background: #F7F9ED;
+            --b3-theme-background-light:#dadec7; /* 编辑器较多加深（不透明） */
+            --b3-toolbar-blur-background: #eff8f0; /* 失焦颜色 */
+            --b3-scroll-color: #e5e9d5; /* 滚动条颜色 */
+            --b3-menu-background: var(--b3-theme-background);
+            --QYL-white: #fff; /* 通用白 */
+            --QYL-black: #171717; /* 通用黑 */
+            --QYL-gray: #bfbfbf; /* 通用灰 */
+        }
+        :root {
+            --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+            --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+            --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+            --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+            --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+            --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+            --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+            --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+            --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
+        }
+        :root {
+            --QYL-blockquote: #939684;
+            --QYL-blockquote-background: #eceee4;
+            --QYL-blockquote-svg: #d5d8ca;
+            --QYL-task-block: var(--b3-theme-primary);
+            --QYL-task-done: rgb(167, 167, 167);
+            --QYL-coloful-block-red: rgb(210, 11, 11);
+            --QYL-coloful-block-red-background: rgb(255, 219, 219);
+            --QYL-coloful-block-orange: rgb(225, 155, 24);
+            --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+            --QYL-coloful-block-green: rgb(10, 162, 23);
+            --QYL-coloful-block-green-background: rgb(208, 242, 209);
+            --QYL-coloful-block-blue: rgb(14, 106, 180);
+            --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+            --QYL-coloful-block-purple: rgb(114, 14, 180);
+            --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+            --QYL-coloful-block-pink: rgb(212, 80, 153);
+            --QYL-coloful-block-pink-background: rgb(255, 226, 242);
+        }
+        :root {
+            --QYL-switch-close: var(--QYL-white);
+            --QYL-switch-close-background: #b4cbb9;
+            --QYL-input-border: var(--b3-theme-primary);
+            --QYL-input-border-hover: rgb(41, 126, 112);
+        }
+        :root {
+            --QYL-filter-background-theme: rgba(219, 234, 221, 0.5);
+            --QYL-filter-wrap-background-theme: rgba(219, 234, 221, 0.6);
+            --QYL-filter-fix-background-theme: rgba(219, 234, 221, 0.8);
+        }
+        :root {
+            --QYL-account-background1: linear-gradient(to bottom, #e7efe8, #e5eee6, #e3ede4, #e0ece2, #deebe0, #daeadd, #d7ead9, #d3e9d6, #cde8d0, #c6e7cb, #c0e6c5, #b9e5bf);
+            --QYL-account-background2: linear-gradient(to bottom, #e7efe8, #e5eee6, #e3ede4, #e0ece2, #deebe0, #daeadd, #d7ead9, #d3e9d6, #cde8d0, #c6e7cb, #c0e6c5, #b9e5bf);
+        }
+    `;
+}
+
+// 关闭霜禾配色
+function disableQYLshuanghe() {
+    const styleSheet = document.getElementById("QYLshuanghe-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
+// 读取QYLconfig.json
+async function loadAndCheckConfig() {
+    try {
+        const content = await getFile("/data/snippets/QYLconfig.json");
+        if (!content) return;
+        const config = JSON.parse(content);
+
+        if (config?.isChecked1 === true) {
+            enableMarkStyles();
+            isChecked1 = true;
+        } else if (config?.isChecked1 === false) {
+            disableMarkStyles();
+            isChecked1 = false;
+        }
+
+        if (config?.isChecked2 === true) {
+            enableIndentStyle();
+            isChecked2 = true;
+        } else if (config?.isChecked2 === false) {
+            disableIndentStyle();
+            isChecked2 = false;
+        }
+
+        if (config?.isChecked3 === true) {
+            enabletoolbarhidden();
+            isChecked3 = true;
+        } else if (config?.isChecked3 === false) {
+            disabletoolbarhidden();
+            isChecked3 = false;
+        }
+
+        if (config?.isChecked4 === true) {
+            enablehoverblockremind();
+            isChecked4 = true;
+        } else if (config?.isChecked4 === false) {
+            disablehoverblockremind();
+            isChecked4 = false;
+        }
+
+        if (config?.isChecked5 === true) {
+            enablesbremind();
+            isChecked5 = true;
+        } else if (config?.isChecked5 === false) {
+            disablesbremind();
+            isChecked5 = false;
+        }
+
+        if (config?.isChecked8 === true) {
+            enablecanclefocusblockremind();
+            isChecked8 = true;
+        } else if (config?.isChecked8 === false) {
+            disablecanclefocusblockremind();
+            isChecked8 = false;
+        }
+
+        if (config?.isChecked6 === true) {
+            enablefullwidth();
+            isChecked6 = true;
+        } else if (config?.isChecked6 === false) {
+            disablefullwidth();
+            isChecked6 = false;
+        }
+
+        if (config?.isChecked7 === true) {
+            enablecolorfulfiletree();
+            isChecked7 = true;
+        } else if (config?.isChecked7 === false) {
+            disablecolorfulfiletree();
+            isChecked7 = false;
+        }
+
+        if (config?.isChecked9 === true) {
+            setTimeout(enablecancleQYLanimation, 3000);
+            isChecked9 = true;
+        } else if (config?.isChecked9 === false) {
+            disablecancleQYLanimation();
+            isChecked9 = false;
+        }
+
+        if (config?.isChecked10 === true) {
+            enableQYLAero();
+            isChecked10 = true;
+        } else if (config?.isChecked10 === false) {
+            disableQYLAreo();
+            isChecked10 = false;
+        }
+
+        if (config?.isChecked11 === true) {
+            enablecancleQYLcolorfultag();
+            isChecked11 = true;
+        } else if (config?.isChecked11 === false) {
+            disablecancleQYLcolorfultag();
+            isChecked11 = false;
+        }
+
+        if (config?.isChecked12 === true) {
+            enableQYLsunset();
+            isChecked12 = true;
+        } else if (config?.isChecked12 === false) {
+            disableQYLsunset();
+            isChecked12 = false;
+        }
+
+        if (config?.isChecked13 === true) {
+            enableQYLforest();
+            isChecked13 = true;
+        } else if (config?.isChecked13 === false) {
+            disableQYLforest();
+            isChecked13 = false;
+        }
+
+        if (config?.isChecked14 === true) {
+            enableQYLocean();
+            isChecked14 = true;
+        } else if (config?.isChecked14 === false) {
+            disableQYLocean();
+            isChecked14 = false;
+        }
+
+        if (config?.isChecked15 === true) {
+            enableQYLsugar();
+            isChecked15 = true;
+        } else if (config?.isChecked15 === false) {
+            disableQYLsugar();
+            isChecked15 = false;
+        }
+
+        if (config?.isChecked16 === true) {
+            enableQYLlavender();
+            isChecked16 = true;
+        } else if (config?.isChecked16 === false) {
+            disableQYLlavender();
+            isChecked16 = false;
+        }
+
+        if (config?.isChecked17 === true) {
+            enableQYLfog();
+            isChecked17 = true;
+        } else if (config?.isChecked17 === false) {
+            disableQYLfog();
+            isChecked17 = false;
+        }
+
+        if (config?.isChecked19 === true) {
+            enableQYLshuanghe();
+            isChecked19 = true;
+        } else if (config?.isChecked19 === false) {
+            disableQYLshuanghe();
+            isChecked19 = false;
+        }
+
+        if (config?.isChecked18 === true) {
+            enableQYLinkmode();
+            isChecked18 = true;
+        } else if (config?.isChecked18 === false) {
+            disableQYLinkmode();
+            isChecked18 = false;
+        }
+
+    } catch (e) {
+        console.error("加载配置失败:", e);
+    }
+}
+loadAndCheckConfig();
+

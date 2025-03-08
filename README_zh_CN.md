@@ -2,17 +2,22 @@
 
 ## 更新内容
 
-### v2.5.5
+### v2.5.6
 
-* 增加功能：墨水屏模式，开启后界面将变为高对比度、边框化的墨水屏主题样式（不能与毛玻璃效果同时开启）
-* 增加部分动效
-* 微调斜杠菜单
+###### * 重要更新：现在Q按钮的设置将自动保存，无需再使用代码片段（若之前有使用，请删除） *
+* 增加配色：霜禾
+* 回调斜杠菜单
+* 优化PDF预览页面
+* 修复开启墨水屏模式后多彩文档树样式出现异常的问题
+* 优化开启墨水屏模式后部分排版元素的样式
 
 ## 主要特性
 
 #### 💫灵动、活泼的动画表现
 
 #### 💫多种配色：夕阳、森林、海洋、糖果、薰衣草、云雾
+
+#### 💫墨水屏模式
 
 #### 🪞毛玻璃质感
 
@@ -52,74 +57,16 @@
 |​`table-color`​|表格块/文档|​`红色` ​`橙色` ​`绿色` ​`蓝色` ​`紫色` ​`粉色`​|设置该表格块/文档表格的颜色|
 |​`blankblock-remind`​|任意块/文档|​`默认`​ `开启`​|显示该块/该文档空块的“空空如也”提示|
 
-## 重要提醒
-
-#### 本主题默认不会保存Q按钮的设置，如果想要保存特定的设置，可按需启用以下JS代码片段
-
-```
-//默认开启标记挖空
-setTimeout(() => {isChecked1 = true; enableMarkStyles();}, 100);
-
-//默认开启文档树缩进线
-setTimeout(() => {isChecked2 = true; enableIndentStyle();}, 100);
-
-//默认开启隐藏顶栏
-setTimeout(() => {isChecked3 = true; enabletoolbarhidden();}, 100);
-
-//默认开启鼠标所在块高亮提示
-setTimeout(() => {isChecked4 = true; enablehoverblockremind();}, 100);
-
-//默认开启鼠标所在超级块高亮提示
-setTimeout(() => {isChecked5 = true; enablesbremind();}, 100);
-
-//默认开启编辑器全宽显示
-setTimeout(() => {isChecked6 = true; enablefullwidth();}, 100);
-
-//默认关闭聚焦块高亮提示
-setTimeout(() => {isChecked8 = true; enablecanclefocusblockremind();}, 100);
-
-//默认开启多彩文档树
-setTimeout(() => {isChecked7 = true; enablecolorfulfiletree();}, 100);
-
-//默认关闭主题动画
-setTimeout(() => {isChecked9 = true; enablecancleQYLanimation();}, 2000);
-
-//默认开启毛玻璃效果
-setTimeout(() => {isChecked10 = true; enableQYLAero();}, 100);
-
-//默认关闭多彩标签和多彩行级代码
-setTimeout(() => {isChecked11 = true; enablecancleQYLcolorfultag();}, 100);
-
-//默认开启墨水屏模式
-setTimeout(() => {isChecked18 = true; enableQYLinkmode();}, 100);
-
-//默认使用夕阳配色
-setTimeout(() => {isChecked12 = true; enableQYLsunset();}, 100);
-
-//默认使用森林配色
-setTimeout(() => {isChecked13 = true; enableQYLforest();}, 100);
-
-//默认使用海洋配色
-setTimeout(() => {isChecked14 = true; enableQYLocean();}, 100);
-
-//默认使用糖果配色
-setTimeout(() => {isChecked15 = true; enableQYLsugar();}, 100);
-
-//默认使用薰衣草配色
-setTimeout(() => {isChecked16 = true; enableQYLlavender();}, 100);
-
-//默认使用云雾配色
-setTimeout(() => {isChecked17 = true; enableQYLfog();}, 100);
-```
-
-###### 比如，如果不需要默认开启标记挖空，就在上述代码中删除以下内容
-
-```
-//默认开启标记挖空
-setTimeout(() => {isChecked1 = true; enableMarkStyles();}, 100);
-```
-
 ## 更新历史
+
+### v2.5.6
+
+* 重要更新：现在Q按钮的设置将自动保存，无需再使用代码片段（若之前有使用，请删除）
+* 增加配色：霜禾
+* 回调斜杠菜单
+* 优化PDF预览页面
+* 修复开启墨水屏模式后多彩文档树样式出现异常的问题
+* 优化开启墨水屏模式后部分排版元素的样式
 
 ### v2.5.5
 
