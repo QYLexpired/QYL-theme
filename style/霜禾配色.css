@@ -1,0 +1,71 @@
+:root {
+    --QYL-hover: rgba(127, 198, 186, 0.4); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(127, 198, 186, 0.5);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(127, 198, 186, 0.15);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: rgb(97, 190, 175); 
+    --b3-theme-primary-light: rgba(90, 187, 171, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(90, 187, 171, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(90, 187, 171, 0.1); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-theme-surface: #DBEADD;
+    --b3-theme-surface-light: rgba(219, 234, 221, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter: #e4ece5;
+    --b3-theme-background: #F7F9ED;
+    --b3-theme-background-light:#dadec7; /* 编辑器较多加深（不透明） */
+    --b3-toolbar-blur-background: #eff8f0; /* 失焦颜色 */
+    --b3-scroll-color: #e5e9d5; /* 滚动条颜色 */
+    --b3-menu-background: var(--b3-theme-background);
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+}
+:root {
+    --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+    --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+    --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+    --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+    --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+    --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+    --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+    --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+    --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+    --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
+}
+:root {
+    --QYL-blockquote: #939684;
+    --QYL-blockquote-background: #eceee4;
+    --QYL-blockquote-svg: #d5d8ca;
+    --QYL-task-block: var(--b3-theme-primary);
+    --QYL-task-done: rgb(167, 167, 167);
+    --QYL-coloful-block-red: rgb(210, 11, 11);
+    --QYL-coloful-block-red-background: rgb(255, 219, 219);
+    --QYL-coloful-block-orange: rgb(225, 155, 24);
+    --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+    --QYL-coloful-block-green: rgb(10, 162, 23);
+    --QYL-coloful-block-green-background: rgb(208, 242, 209);
+    --QYL-coloful-block-blue: rgb(14, 106, 180);
+    --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+    --QYL-coloful-block-purple: rgb(114, 14, 180);
+    --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+    --QYL-coloful-block-pink: rgb(212, 80, 153);
+    --QYL-coloful-block-pink-background: rgb(255, 226, 242);
+}
+:root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: #b4cbb9;
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover: rgb(41, 126, 112);
+}
+:root {
+    --QYL-filter-background-theme: rgba(219, 234, 221, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(219, 234, 221, 0.6);
+    --QYL-filter-fix-background-theme: rgba(219, 234, 221, 0.8);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to bottom, #e7efe8, #e5eee6, #e3ede4, #e0ece2, #deebe0, #daeadd, #d7ead9, #d3e9d6, #cde8d0, #c6e7cb, #c0e6c5, #b9e5bf);
+    --QYL-account-background2: linear-gradient(to bottom, #e7efe8, #e5eee6, #e3ede4, #e0ece2, #deebe0, #daeadd, #d7ead9, #d3e9d6, #cde8d0, #c6e7cb, #c0e6c5, #b9e5bf);
+}

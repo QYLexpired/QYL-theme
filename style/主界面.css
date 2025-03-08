@@ -99,3 +99,10 @@ body:not(.body--mobile,.body--window) #layouts {
     box-shadow: none !important;
     border-radius: var(--b3-border-radius);
 }
+/* PDF界面 */
+.pdf__outer #mainContainer {
+    background-color: var(--b3-theme-background);
+}
+.pdf__outer #sidebarContainer {
+    background-color: var(--b3-theme-background);
+}
