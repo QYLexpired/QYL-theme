@@ -37,6 +37,9 @@
     color: var(--QYL-blockquote);
     padding-top: 22px;
 }
+:is(.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq) :is(.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq) {
+    box-shadow: var(--QYL-shadow-highlight);
+}
 /* 分割线 */
 .protyle-wysiwyg [data-node-id].hr>div::after {
     height: 3px;

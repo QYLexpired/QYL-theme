@@ -1,0 +1,39 @@
+/* 按钮 */
+.card__icon {
+    display: none;
+}
+.card__action .b3-button {
+    line-height: 30px;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
+    background-color: rgb(214, 81, 81);
+    color: var(--QYL-white) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
+    background-color: rgb(235, 155, 85);
+    color: var(--QYL-white) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
+    background-color: rgb(85, 158, 235);
+    color: var(--QYL-white) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
+    background-color: rgb(66, 200, 45);
+    color: var(--QYL-white) !important;
+}
+div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="1"]) > span {
+    color: rgb(214, 81, 81);
+    font-size: 13px;
+}
+div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="2"]) > span {
+    color: rgb(235, 155, 85);
+    font-size: 13px;
+}
+div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="3"]) > span {
+    color: rgb(85, 158, 235);
+    font-size: 13px;
+}
+div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"]) > span {
+    color: rgb(66, 200, 45);
+    font-size: 13px;
+}

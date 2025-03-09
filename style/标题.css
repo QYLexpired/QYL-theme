@@ -84,3 +84,6 @@
     margin-top: 10px;
     margin-bottom: 30px;
 }
+.protyle-title__input {
+    color: var(--b3-theme-primary);
+}

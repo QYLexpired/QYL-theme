@@ -70,6 +70,14 @@
 li.item.item--readonly {
     border-top: 2px solid rgba(255, 0, 0, 0) !important;
 }
+.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full) :is(.item__icon,.item__graphic, .item__text) {
+    transform: translateX(12px);
+    transition: var(--b3-transition);
+}
+.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full):hover :is(.item__icon,.item__graphic, .item__text) {
+    transform: translateX(0px);
+    transition: var(--b3-transition);
+}
 /* 钉住 */
 .layout-tab-bar .item--pin {
     min-width: 20px;

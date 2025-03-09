@@ -45,6 +45,24 @@ div[data-key="dialog-setting"] .b3-tab-bar {
 .config-bazaar__panel .b3-card:hover {
     background-color: var(--QYL-hover);
 }
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card {
+    display: grid;
+    grid-template-areas: "img info" "img buttons";
+    grid-template-columns: 90px 1fr;
+    margin: 16px 16px 8px 8px;
+}
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions {
+    grid-area: buttons;
+    padding: 0 16px 14px;
+    align-self: flex-end
+}
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting].fn__none~[data-type=uninstall],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=open]:first-child {
+    margin-left: auto
+}
 /* 修复集市毛玻璃 */
 div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {
     background-color: rgba(255, 0, 0, 0);

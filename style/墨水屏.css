@@ -36,13 +36,6 @@
     --b3-border-radius: 8px;
     --b3-border-radius-b: 8px;
     --b3-border-radius-q: 8px;
-    
-    /* 动画效果 */
-    --b3-transition: none;
-    --b3-transition-slow: none;
-    --b3-width-transition: width 0.2s ease-in-out;
-    --b3-color-transition: none;
-    --b3-background-transition: none;
 }
 /* 主界面 */
 [data-type="wnd"] .layout-tab-container.fn__flex-1 {
@@ -100,6 +93,13 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 .config-bazaar__readme .item__side {
     padding-top: 2px;
 }
+.b3-switch {
+    border: 1.5px solid var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0);
+}
+.b3-switch::after {
+    background-color: var(--b3-theme-primary);
+}
 /* 按钮 */
 .b3-button--outline {
     border: 1.5px solid var(--b3-theme-primary) !important;
@@ -108,7 +108,8 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 #tooltip {
     background-color: var(--b3-theme-background);
     border: 1.5px solid var(--b3-theme-primary);
-    color: var(--b3-theme-primary)
+    color: var(--b3-theme-primary);
+    padding: 2px 3px;
 }
 .b3-tooltips::before {
     display: none !important;
@@ -116,10 +117,12 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 .b3-tooltips::after {
     background-color: var(--b3-theme-background);
     border: 1.5px solid var(--b3-theme-primary);
-    color: var(--b3-theme-primary)
+    color: var(--b3-theme-primary);
+    padding: 2px 3px;
 }
 .protyle-toolbar .b3-tooltips::after {
     background-color: var(--b3-theme-background);
+    padding: 2px 3px;
 }
 /* 右上角消息框 */
 .b3-snackbar__content {
@@ -127,6 +130,9 @@ div[data-key="dialog-setting"] .config__tab-wrap {
     background-color: var(--b3-theme-background);
     border: 1.5px solid var(--b3-theme-primary);
     color: var(--b3-theme-primary)
+}
+.b3-snackbar--error .b3-snackbar__content::after {
+    margin-top: 10px;
 }
 /* 命令面板 */
 [data-key="dialog-commandpanel"] .b3-dialog__container {
@@ -259,10 +265,13 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
 .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
     border: 1.5px solid  !important;
     background-color: rgba(255, 0, 0, 0) !important;
+    padding: 1px 3px !important;
 }
 :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
     background-color: rgba(255, 0, 0, 0);
     border: 1.5px solid  !important;
+    padding: 1px 3px !important;
+    white-space: nowrap;
 }
 .protyle-wysiwyg blockquote::before, .protyle-wysiwyg .bq::before {
     background-color: var(--b3-theme-primary);
@@ -279,4 +288,5 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
 .protyle-linenumber__rows>span::before {
     font-style: italic;
     color: var(--b3-theme-primary);
+    padding-right: 2px;
 }
