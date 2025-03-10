@@ -87,12 +87,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-red);
-    background-color: var(--QYL-coloful-block-red-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-red);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1)::before {
     content: "#";
-    color: var(--QYL-coloful-block-red);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;
@@ -102,12 +102,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-orange);
-    background-color: var(--QYL-coloful-block-orange-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-orange);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2)::before {
     content: "#";
-    color: var(--QYL-coloful-block-orange);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;
@@ -117,12 +117,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-green);
-    background-color: var(--QYL-coloful-block-green-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-green);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3)::before {
     content: "#";
-    color: var(--QYL-coloful-block-green);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;
@@ -132,12 +132,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-blue);
-    background-color: var(--QYL-coloful-block-blue-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-blue);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4)::before {
     content: "#";
-    color: var(--QYL-coloful-block-blue);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;
@@ -147,12 +147,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-purple);
-    background-color: var(--QYL-coloful-block-purple-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-purple);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5)::before {
     content: "#";
-    color: var(--QYL-coloful-block-purple);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;
@@ -162,12 +162,12 @@
     border: none;
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--QYL-coloful-block-pink);
-    background-color: var(--QYL-coloful-block-pink-background);
+    color: var(--QYL-white);
+    background-color: var(--QYL-custom-pink);
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6)::before {
     content: "#";
-    color: var(--QYL-coloful-block-pink);
+    color: var(--QYL-white);
     margin-right: 5px;
     position: relative;
     top: 0.5px;

@@ -262,17 +262,6 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
     border: 1.5px solid var(--b3-theme-surface-lighter);
     box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
 }
-.protyle-wysiwyg [data-node-id] span[data-type~=tag] {
-    border: 1.5px solid  !important;
-    background-color: rgba(255, 0, 0, 0) !important;
-    padding: 1px 3px !important;
-}
-:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
-    background-color: rgba(255, 0, 0, 0);
-    border: 1.5px solid  !important;
-    padding: 1px 3px !important;
-    white-space: nowrap;
-}
 .protyle-wysiwyg blockquote::before, .protyle-wysiwyg .bq::before {
     background-color: var(--b3-theme-primary);
 }
