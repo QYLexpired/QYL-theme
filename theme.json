@@ -2,7 +2,7 @@
   "name": "QYL-theme",
   "author": "QYL",
   "url": "https://github.com/QYLexpired/QYL-theme",
-  "version": "2.5.7",
+  "version": "2.5.8",
   "displayName": {
     "default": "QYL",
     "zh_CN": "QYL",
@@ -19,7 +19,8 @@
     "en_US": "README.md"
   },
   "modes": [
-    "light"
+    "light",
+    "dark"
   ],
   "keywords": [
     "QYL"
