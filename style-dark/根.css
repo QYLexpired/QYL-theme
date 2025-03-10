@@ -1,0 +1,81 @@
+:root {
+    /* 主色 */
+    --b3-theme-primary-lightest: rgba(53, 115, 240, .24);
+    --b3-theme-background: #1e1e1e;
+    --b3-theme-background-light: rgba(255, 255, 255, .075);
+    --b3-theme-surface: #262626;
+    --b3-theme-surface-light: rgba(41, 42, 45, .86);
+    --b3-theme-surface-lighter: rgba(230, 230, 230, .06);
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #fff;
+    --b3-theme-on-secondary: #fff;
+    --b3-theme-on-background: #dadada;
+    --b3-theme-on-surface: #9aa0a6;
+    --b3-theme-on-surface-light: #bababa;
+    --b3-theme-on-error: #fff;
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
+}
+:root {
+    --QYL-hover: rgba(50, 75, 185, 0.5); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(50, 75, 185, 0.65);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(50, 75, 185, 0.2);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: #4674c9; 
+    --b3-theme-primary-light: rgba(70, 116, 201, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(70, 116, 201, 0.35); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(70, 116, 201, 0.12); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
+    --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
+    --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-blur-background: #292929; /* 失焦颜色 */
+    --QYL-filter-background-forQsettings: var(--b3-theme-background);
+    --b3-protyle-code-background: rgba(0, 0, 0, 0.3); /* 行内代码背景色 */
+
+    /* 圆角矩形 */
+    --b3-border-radius: 10px;
+    --b3-border-radius-b: 10px;
+    --b3-border-radius-q: 16px;
+    
+    /* 动画效果 */
+    --b3-transition: 0.2s ease-in-out;
+    --b3-transition-slow: 0.4s ease-in-out;
+    --b3-width-transition: width 0.2s ease-in-out;
+    --b3-color-transition: color 0.2s ease-in-out;
+    --b3-background-transition: background 0.2s ease-in-out;
+
+    /* PDF */
+    --b3-pdf-selection: #94ff71;
+    --sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: #ffc3c3;
+    --b3-pdf-background2: #ffcba5;
+    --b3-pdf-background3: #ffda83;
+    --b3-pdf-background4: #b1eda2;
+    --b3-pdf-background5: #85efe6;
+    --b3-pdf-background6: #a3d3ff;
+    --b3-pdf-background7: #f3c5ff;
+    --b3-pdf-dark: #292a2b;
+}
+:root {
+    --QYL-filter-background-theme: rgba(26, 26, 26, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(42, 42, 42, 0.6);
+    --QYL-filter-fix-background-theme: rgba(26, 26, 26, 0.8);
+}
+:root {
+    --b3-highlight-background: var(--b3-theme-primary) !important;
+    --b3-highlight-color: var(--QYL-white) !important;
+    --b3-highlight-current-background: var(--b3-theme-primary) !important;
+}

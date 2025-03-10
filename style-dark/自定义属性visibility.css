@@ -1,0 +1,21 @@
+/* 自定义块属性visibility */
+[custom-visibility="默认"] {
+    filter: blur(0px);
+}
+[custom-visibility="模糊"] {
+    filter: blur(10px);
+}
+[custom-visibility="悬浮显示"] {
+    filter: blur(10px);
+}
+[custom-visibility="悬浮显示"]:hover {
+    filter: blur(0px);
+}
+[custom-visibility="闪烁"] {
+    animation: visibilityfade 1.5s infinite;
+}
+@keyframes visibilityfade{
+    0%{ opacity: 1; }
+    50%{ opacity: 0.5; }
+    100%{ opacity: 1; }
+}

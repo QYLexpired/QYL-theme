@@ -1,0 +1,28 @@
+/* 自定义块属性background */
+[custom-background="淡紫粉渐变"] {
+    background-image: linear-gradient(to right bottom, #a18cd1, #bb98d7, #d2a5de, #e7b3e4, #fbc2eb);
+}
+[custom-background="蓝绿色渐变"] {
+    background-image: linear-gradient(to right bottom, #84fab0, #5cf4d2, #53ebeb, #6de0f6, #8fd3f4);
+}
+[custom-background="蓝色渐变"] {
+    background-image: linear-gradient(to right bottom, #4facfe, #0bbfff, #00d1ff, #00e2ff, #00f2fe);
+}
+[custom-background="红橙色渐变"] {
+    background-image: linear-gradient(to right bottom, #fa709a, #ff8080, #ff9c63, #ffbd49, #fee140);
+}
+[custom-background="淡蓝粉渐变"] {
+    background-image: linear-gradient(to right bottom, #a8edea, #b1e9ff, #d0e1ff, #eed9f8, #fed6e3);
+}
+[custom-background="灰色渐变"] {
+    background-image: linear-gradient(to left top, #f5f7fa, #e8edf4, #dce3ee, #cfd9e8, #c3cfe2);
+}
+[custom-background="黑色渐变"] {
+    background-image: linear-gradient(to left top, #434343, #333333, #242424, #161616, #000000);
+}
+[custom-background="绿色渐变"] {
+    background-image: linear-gradient(to right bottom, #00c9a7, #00d2a2, #00db9a, #00e390, #12eb83);
+}
+[custom-background="红色渐变"] {
+    background-image: linear-gradient(to right bottom, #fa1f32, #fd214c, #fd2b64, #fa397a, #f4478e);
+}

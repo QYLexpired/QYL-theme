@@ -1,0 +1,252 @@
+:root {
+    --custom-table-color-border: rgb(0, 0, 0);
+}
+/* 自定义属性table-color */
+:root {
+    --custom-table-color-border: var(--b3-theme-on-background);
+}
+[custom-table-color="红色"] table td {
+    --custom-table-color-border: rgba(169, 48, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="红色"] table th {
+    --custom-table-color-border: rgba(169, 48, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(156, 26, 26, 0.3);
+    color: rgb(214, 68, 68);
+}
+[custom-table-color="红色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(169, 48, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(198, 37, 37, 0.05);
+}
+[custom-table-color="红色"] table tr:last-child {
+    --custom-table-color-border: rgba(169, 48, 48, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="红色"] table th, [custom-table-style="三线表"][custom-table-color="红色"] table td, [custom-table-style="三线表"][custom-table-color="红色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="红色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(203, 35, 35, 0.5);
+}
+[custom-table-color="红色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(203, 35, 35, 0.5);
+    background-color: rgba(203, 35, 35, 0.6);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="红色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="红色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(203, 35, 35, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+[custom-table-color="橙色"] table td {
+    --custom-table-color-border: rgba(169, 94, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="橙色"] table th {
+    --custom-table-color-border: rgba(169, 94, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(156, 100, 26, 0.3);
+    color: rgb(233, 133, 62);
+}
+[custom-table-color="橙色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(169, 94, 48, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(198, 115, 37, 0.05);
+}
+[custom-table-color="橙色"] table tr:last-child {
+    --custom-table-color-border: rgba(169, 94, 48, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="橙色"] table th, [custom-table-style="三线表"][custom-table-color="橙色"] table td, [custom-table-style="三线表"][custom-table-color="橙色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="橙色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(178, 71, 0, 0.5);
+}
+[custom-table-color="橙色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(178, 71, 0, 0.5);
+    background-color: rgba(178, 71, 0, 0.6);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="橙色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="橙色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(178, 71, 0, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+[custom-table-color="绿色"] table td {
+    --custom-table-color-border: rgba(48, 169, 78, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="绿色"] table th {
+    --custom-table-color-border: rgba(48, 169, 78, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(26, 156, 67, 0.3);
+    color: rgb(67, 188, 61);
+}
+[custom-table-color="绿色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(48, 169, 78, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(37, 198, 58, 0.05);
+}
+[custom-table-color="绿色"] table tr:last-child {
+    --custom-table-color-border: rgba(48, 169, 78, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="绿色"] table th, [custom-table-style="三线表"][custom-table-color="绿色"] table td, [custom-table-style="三线表"][custom-table-color="绿色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="绿色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(5, 135, 0, 0.5);
+}
+[custom-table-color="绿色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(5, 135, 0, 0.5);
+    background-color: rgba(5, 135, 0, 0.6);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="绿色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="绿色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(5, 135, 0, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+[custom-table-color="蓝色"] table td {
+    --custom-table-color-border: rgba(48, 80, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="蓝色"] table th {
+    --custom-table-color-border: rgba(48, 80, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(26, 85, 156, 0.3);
+    color: rgb(72, 129, 236);
+}
+[custom-table-color="蓝色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(48, 80, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(37, 112, 198, 0.05);
+}
+[custom-table-color="蓝色"] table tr:last-child {
+    --custom-table-color-border: rgba(48, 80, 169, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="蓝色"] table th, [custom-table-style="三线表"][custom-table-color="蓝色"] table td, [custom-table-style="三线表"][custom-table-color="蓝色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="蓝色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(0, 63, 135, 0.5);
+}
+[custom-table-color="蓝色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(0, 63, 135, 0.5);
+    background-color: rgba(0, 63, 135, 0.6);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="蓝色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="蓝色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(0, 63, 135, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+[custom-table-color="紫色"] table td {
+    --custom-table-color-border: rgba(115, 48, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="紫色"] table th {
+    --custom-table-color-border: rgba(115, 48, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(115, 26, 156, 0.3);
+    color: rgb(165, 80, 214);
+}
+[custom-table-color="紫色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(115, 48, 169, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(147, 37, 198, 0.05);
+}
+[custom-table-color="紫色"] table tr:last-child {
+    --custom-table-color-border: rgba(115, 48, 169, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="紫色"] table th, [custom-table-style="三线表"][custom-table-color="紫色"] table td, [custom-table-style="三线表"][custom-table-color="紫色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="紫色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(132, 48, 158, 0.5);
+}
+[custom-table-color="紫色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(132, 48, 158, 0.5);
+    background-color: rgba(132, 48, 158, 0.6);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="紫色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="紫色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(132, 48, 158, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+[custom-table-color="粉色"] table td {
+    --custom-table-color-border: rgba(236, 98, 165, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-color="粉色"] table th {
+    --custom-table-color-border: rgba(236, 98, 165, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(185, 0, 129, 0.3);
+    color: rgb(255, 106, 176);
+}
+[custom-table-color="粉色"] table tr:nth-child(even) td {
+    --custom-table-color-border: rgba(236, 98, 165, 0.8);
+    border: 1.5px solid var(--custom-table-color-border);
+    background-color: rgba(198, 37, 150, 0.05);
+}
+[custom-table-color="粉色"] table tr:last-child {
+    --custom-table-color-border: rgba(236, 98, 165, 0.8);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+
+[custom-table-style="三线表"][custom-table-color="粉色"] table th, [custom-table-style="三线表"][custom-table-color="粉色"] table td, [custom-table-style="三线表"][custom-table-color="粉色"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-color="粉色"][custom-table-style="三线表"] table td {
+    --custom-table-color-border: rgba(180, 52, 99, 0.5);
+}
+[custom-table-color="粉色"][custom-table-style="三线表"] table th {
+    --custom-table-color-border: rgba(180, 52, 99, 0.5);
+    background-color: rgba(180, 52, 99, 0.5);
+    color: var(--b3-theme-on-background);
+}
+[custom-table-color="粉色"][custom-table-style="三线表"] table tr:nth-child(even) td {
+    background-color: rgba(255, 216, 216, 0);
+}
+[custom-table-color="粉色"][custom-table-style="三线表"] table tr:last-child {
+    --custom-table-color-border: rgba(180, 52, 99, 0.5);
+    border-bottom: 2px solid var(--custom-table-color-border);
+}
+
+/* 自定义属性table-style */
+[custom-table-style="三线表"] table th, [custom-table-style="三线表"] table td, [custom-table-style="三线表"] table tr:nth-child(even) td {
+    border: none;
+}
+[custom-table-style="三线表"] table th {
+    border-top: 1.5px solid var(--custom-table-color-border);
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}
+[custom-table-style="三线表"] table tr:last-child {
+    border-bottom: 1.5px solid var(--custom-table-color-border);
+}

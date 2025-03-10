@@ -1,0 +1,101 @@
+/* 搜索列表多行展示 */
+#searchList [data-type=search-item], 
+#searchUnRefList [data-type=search-item], 
+#searchAssetList [data-type=search-item] {
+    flex-wrap: wrap;
+    padding: 4px;
+    justify-content: flex-end;
+}
+#searchList, #searchUnRefList, #searchAssetList  {
+    .b3-list-item__graphic {
+        align-self: flex-start;
+        transform: translateY(20%);
+}
+}
+#searchList, #searchUnRefList, #searchAssetList {
+    .b3-list-item__text {
+        flex-basis: calc(100% - 44px);
+        -webkit-line-clamp: 3;
+        line-height: 1.5;
+    }
+}
+#searchList, #searchUnRefList, #searchAssetList {
+    .b3-list-item__meta--ellipsis {
+        max-width: calc(100% - 22px);
+}
+}
+#searchList, #searchUnRefList, #searchAssetList  {
+    > .b3-list-item:not([data-type=search-item]) {
+    position: sticky;
+    top: -8px;
+    z-index: 1;
+}
+}
+:is(#searchList,#searchAssetList)>.b3-list-item[data-type=search-item] .b3-list-item__meta {
+    line-height: 16px;
+}
+#searchAssetList .ft__on-surface {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+    font-size: 90%;
+}
+/* 搜索预览面板 */
+#searchPreview .protyle-wysiwyg {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+/* 修复搜索处于页签状态的背景色 */
+.fn__flex-1.fn__flex div[data-type="wnd"] .block__icons {
+    background-color: var(--b3-theme-background);
+}
+div[data-key="dialog-globalsearch"] .block__icons[style="overflow: auto"] {
+    background-color: var(--b3-theme-surface);
+}
+/* 界面 */
+div[data-key="dialog-globalsearch"], div[data-key="dialog-globalsearch"] .search__layout.search__layout--row {
+    border: none !important;
+}
+div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+    box-shadow: none;
+    border: 0.6px solid var(--QYL-input-border);;
+    border-radius: var(--b3-border-radius);
+}
+div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-globalsearch"] .search__list {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-globalsearch"] .search__preview {
+    margin: 5px 10px;
+    border-radius: var(--b3-border-radius);
+    border: none !important;
+}
+div[data-key="dialog-globalsearch"] .search__tip {
+    border: none !important;
+}
+:is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}
+#searchAssetPreview mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+    box-shadow: none;
+}
+#searchPreview.search__preview.protyle.fullscreen .protyle-breadcrumb {
+    padding-right: 130px;
+}

@@ -1,0 +1,91 @@
+:root {
+    --QYL-tab-nonactive: var(--QYL-hover-light); /* 非当前页签背景色 */
+    --QYL-tab-nonactive-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+    --QYL-tab-active: var(--QYL-hover); /* 当前页签背景色 */
+    --QYL-tab-active-hover: var(--QYL-hover); /* 当前页签悬停背景色 */
+    --QYL-tab-close-background: rgba(255, 0, 0, 0); /* 页签关闭按钮背景色 */
+    --QYL-tab-close-color: rgba(255, 0, 0, 0); /* 页签关闭按钮颜色 */
+    --QYL-tab-close-background-hover: rgba(255, 0, 0, 0); /* 页签关闭按钮悬停背景色(悬停在页签上） */
+    --QYL-tab-close-color-hover: var(--b3-theme-on-background); /* 页签关闭按钮悬停颜色(悬停在页签上） */
+    --QYL-tab-close-background-hover-close: var(--b3-theme-primary); /* 页签关闭按钮悬停背景色(悬停在关闭按钮上） */
+    --QYL-tab-close-color-hover-close: var(--QYL-white); /* 页签关闭按钮悬停颜色(悬停在关闭按钮上） */
+}
+/* 页签栏 */
+.layout-tab-bar .item {
+    min-height: 20px;
+    height: 28px;
+    margin: 3px;
+    transition: var(--b3-transition);
+}
+.layout-tab-bar .item {
+    animation: QYLbounceRight 0.5s;
+}
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
+    background-color: var(--QYL-tab-nonactive);
+    border-radius: var(--b3-border-radius);
+    transition: var(--b3-transition);
+}
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
+    background-color: var(--QYL-tab-nonactive-hover);
+}
+.item.item--focus {
+    background-color: var(--QYL-tab-active);
+    border-radius: var(--b3-border-radius);
+}
+.item.item--focus:hover {
+    background-color: var(--QYL-tab-active-hover);
+    transition: var(--b3-transition);
+}
+.layout__wnd--active .layout-tab-bar .item:after, .layout-tab-bar .item--full.item--focus::after, .layout-tab-bar .item--focus::after {
+    display:none;
+}
+.layout-tab-bar {
+    border-bottom: 0px solid rgba(0,0,0,0);
+}
+.layout-tab-bar .item.item--focus .item__close svg {
+    background-color: var(--QYL-tab-close-background);
+    color: var(--QYL-tab-close-color);
+    opacity: 1 !important;
+}
+.layout-tab-bar .item.item--focus .item__close svg:hover {
+    background-color: var(--b3-theme-error);
+    color: rgb(255, 255, 255);
+}
+.layout-tab-bar .item:hover .item__close svg {
+    background-color: var(--QYL-tab-close-background-hover);
+    color: var(--QYL-tab-close-color-hover);
+    opacity: 1 !important;
+}
+.layout-tab-bar .item:hover .item__close svg:hover {
+    background-color: var(--QYL-tab-close-background-hover-close);
+    color: var(--QYL-tab-close-color-hover-close);
+}
+.config-bazaar__title {
+    padding: 8px;
+}
+.av__header .layout-tab-bar .item__text {
+    padding-left: 1px;
+    padding-bottom: 1px;
+}
+li.item.item--readonly {
+    border-top: 2px solid rgba(255, 0, 0, 0) !important;
+}
+.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full) :is(.item__icon,.item__graphic, .item__text) {
+    transform: translateX(12px);
+    transition: var(--b3-transition);
+}
+.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full):hover :is(.item__icon,.item__graphic, .item__text) {
+    transform: translateX(0px);
+    transition: var(--b3-transition);
+}
+/* 钉住 */
+.layout-tab-bar .item--pin {
+    min-width: 20px;
+}
+.layout-tab-bar .item--pin .item__icon {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
+    margin-left: 25px;
+}

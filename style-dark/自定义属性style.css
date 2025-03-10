@@ -1,0 +1,255 @@
+:root {
+    --QYL-custom-red: rgba(196, 49, 49, 0.7);
+    --QYL-custom-red-background: rgba(196, 49, 49, 0.3);
+    --QYL-custom-orange: rgba(236, 125, 61, 0.7);
+    --QYL-custom-orange-background: rgba(213, 112, 54, 0.3);
+    --QYL-custom-yellow: rgba(255, 242, 59, 0.7);
+    --QYL-custom-yellow-background: rgba(255, 242, 59, 0.3);
+    --QYL-custom-green: rgba(46, 174, 46, 0.7);
+    --QYL-custom-green-background: rgba(38, 195, 38, 0.3);
+    --QYL-custom-cyan: rgba(34, 184, 169, 0.7);
+    --QYL-custom-cyan-background: rgba(34, 184, 169, 0.3);
+    --QYL-custom-blue: rgba(34, 85, 178, 0.7);
+    --QYL-custom-blue-background: rgba(34, 85, 178, 0.3);
+    --QYL-custom-purple: rgba(131, 75, 168, 0.7);
+    --QYL-custom-purple-background: rgba(117, 37, 171, 0.3);
+    --QYL-custom-pink: rgba(213, 64, 126, 0.7);
+    --QYL-custom-pink-background: rgba(186, 67, 117, 0.3);
+    --QYL-custom-black: rgba(75, 75, 75, 0.7);
+    --QYL-custom-black-background: rgba(94, 94, 94, 0.2);
+    --QYL-custom-gray: rgba(168, 168, 168, 0.7);
+    --QYL-custom-gray-background: rgba(202, 202, 202, 0.3);
+}
+/* 自定义块属性style */
+[custom-style="红色便签"] {
+    background-color: var(--QYL-custom-red-background);
+    border-top: 8px solid var(--QYL-custom-red);
+    padding: 5px 8px !important;
+}
+[custom-style="红左边框"] {
+    background-color: var(--QYL-custom-red-background);
+    border-left: 10px solid var(--QYL-custom-red);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="警告"] {
+    background-color: var(--QYL-custom-red-background);
+    border: 3px solid var(--QYL-custom-red);
+    border-top: 30px solid var(--QYL-custom-red);
+    padding: 5px 10px !important;
+}
+[custom-style="警告"]::before {
+    content: "Warning";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="橙色便签"] {
+    background-color: var(--QYL-custom-orange-background);
+    border-top: 8px solid var(--QYL-custom-orange);
+    padding: 5px 8px !important;
+}
+[custom-style="橙左边框"] {
+    background-color: var(--QYL-custom-orange-background);
+    border-left: 10px solid var(--QYL-custom-orange);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="灵感"] {
+    background-color: var(--QYL-custom-orange-background);
+    border: 3px solid var(--QYL-custom-orange);
+    border-top: 30px solid var(--QYL-custom-orange);
+    padding: 5px 10px !important;
+}
+[custom-style="灵感"]::before {
+    content: "Tip";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="黄色便签"] {
+    background-color: var(--QYL-custom-yellow-background);
+    border-top: 8px solid var(--QYL-custom-yellow);
+    padding: 5px 8px !important;
+}
+[custom-style="黄左边框"] {
+    background-color: var(--QYL-custom-yellow-background);
+    border-left: 10px solid var(--QYL-custom-yellow);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="绿色便签"] {
+    background-color: var(--QYL-custom-green-background);
+    border-top: 8px solid var(--QYL-custom-green);
+    padding: 5px 8px !important;
+}
+[custom-style="绿左边框"] {
+    background-color: var(--QYL-custom-green-background);
+    border-left: 10px solid var(--QYL-custom-green);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="完成"] {
+    background-color: var(--QYL-custom-green-background);
+    border: 3px solid var(--QYL-custom-green);
+    border-top: 30px solid var(--QYL-custom-green);
+    padding: 5px 10px !important;
+}
+[custom-style="完成"]::before {
+    content: "Done";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="青色便签"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border-top: 8px solid var(--QYL-custom-cyan);
+    padding: 5px 8px !important;
+}
+[custom-style="青左边框"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border-left: 10px solid var(--QYL-custom-cyan);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="信息"] {
+    background-color: var(--QYL-custom-cyan-background);
+    border: 3px solid var(--QYL-custom-cyan);
+    border-top: 30px solid var(--QYL-custom-cyan);
+    padding: 5px 10px !important;
+}
+[custom-style="信息"]::before {
+    content: "Information";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="蓝色便签"] {
+    background-color: var(--QYL-custom-blue-background);
+    border-top: 8px solid var(--QYL-custom-blue);
+    padding: 5px 8px !important;
+}
+[custom-style="蓝左边框"] {
+    background-color: var(--QYL-custom-blue-background);
+    border-left: 10px solid var(--QYL-custom-blue);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="待办"] {
+    background-color: var(--QYL-custom-blue-background);
+    border: 3px solid var(--QYL-custom-blue);
+    border-top: 30px solid var(--QYL-custom-blue);
+    padding: 5px 10px !important;
+}
+[custom-style="待办"]::before {
+    content: "Todo";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="紫色便签"] {
+    background-color: var(--QYL-custom-purple-background);
+    border-top: 8px solid var(--QYL-custom-purple);
+    padding: 5px 8px !important;
+}
+[custom-style="紫左边框"] {
+    background-color: var(--QYL-custom-purple-background);
+    border-left: 10px solid var(--QYL-custom-purple);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="重要"] {
+    background-color: var(--QYL-custom-purple-background);
+    border: 3px solid var(--QYL-custom-purple);
+    border-top: 30px solid var(--QYL-custom-purple);
+    padding: 5px 10px !important;
+}
+[custom-style="重要"]::before {
+    content: "Important";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="粉色便签"] {
+    background-color: var(--QYL-custom-pink-background);
+    border-top: 8px solid var(--QYL-custom-pink);
+    padding: 5px 8px !important;
+}
+[custom-style="粉左边框"] {
+    background-color: var(--QYL-custom-pink-background);
+    border-left: 10px solid var(--QYL-custom-pink);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="黑色便签"] {
+    background-color: var(--QYL-custom-black-background);
+    border-top: 8px solid var(--QYL-custom-black);
+    padding: 5px 8px !important;
+}
+[custom-style="黑左边框"] {
+    background-color: var(--QYL-custom-black-background);
+    border-left: 10px solid var(--QYL-custom-black);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="批注"] {
+    background-color: var(--QYL-custom-black-background);
+    border: 3px solid var(--QYL-custom-black);
+    border-top: 30px solid var(--QYL-custom-black);
+    padding: 5px 10px !important;
+}
+[custom-style="批注"]::before {
+    content: "Comment";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+[custom-style="灰色便签"] {
+    background-color: var(--QYL-custom-gray-background);
+    border-top: 8px solid var(--QYL-custom-gray);
+    padding: 5px 8px !important;
+}
+[custom-style="灰左边框"] {
+    background-color: var(--QYL-custom-gray-background);
+    border-left: 10px solid var(--QYL-custom-gray);
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
+[custom-style="引用"] {
+    background-color: var(--QYL-custom-gray-background);
+    border: 3px solid var(--QYL-custom-gray);
+    border-top: 30px solid var(--QYL-custom-gray);
+    padding: 5px 10px !important;
+}
+[custom-style="引用"]::before {
+    content: "Quote";
+    position: absolute;
+    top: -27px;
+    left: 10px;
+    color: var(--QYL-white);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+

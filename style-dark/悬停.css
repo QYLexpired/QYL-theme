@@ -1,0 +1,14 @@
+/* 侧栏选中但不聚焦背景色 */
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}
+/* 修复毛玻璃开启后菜单无悬停色 */
+.b3-menu__item--current:not(.b3-menu__item--readonly) {
+    background-color: var(--b3-list-hover) !important;
+}
+/* 文档下拉 */
+.b3-list-item__toggle:hover {
+    color: var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0) !important;
+}

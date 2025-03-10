@@ -1,0 +1,32 @@
+/* 反链面板 */
+.sy__backlink .protyle {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: var(--b3-border-radius);
+}
+.layout--float .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__center .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty), .layout__dockr .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty) {
+    background-color: var(--QYL-hover-light);
+    transition: 0.2s;
+}
+.layout--float .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty):hover, .layout__center .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty):hover, .layout__dockr .sy__backlink .block__icons+.fn__flex-1 li:not(.b3-list--empty):hover {
+    background-color: var(--QYL-hover);
+    transition: 0.2s;
+}
+.sy__backlink .protyle-wysiwyg {
+    padding: 0 20px !important;
+}
+.sy__backlink .protyle-breadcrumb__item svg {
+    width: 10px;
+    height: 10px;
+}
+.protyle-wysiwyg .protyle-breadcrumb__bar {
+    font-size: 75%;
+}
+.sy__backlink .protyle {
+    margin: 0px 8px 0px 8px !important;
+}
+.sy__backlink .protyle-breadcrumb__bar + div {
+    font-size: 90%;
+}

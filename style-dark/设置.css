@@ -1,0 +1,107 @@
+:root {
+    --QYL-account-background1: linear-gradient(to top, #00103b, #0c0d35, #130930, #18062a, #1a0325, #1b0220, #1b011b, #1a0017, #170011, #13000a, #0b0004, #000000);
+    --QYL-account-background2: linear-gradient(to top, #3f0000, #3a0a00, #331200, #2d1700, #271b00, #221b00, #1e1a00, #1a1900, #161500, #101000, #0a0a00, #020200);
+}
+/* 设置页面 */
+div[data-key="dialog-setting"] {
+    border: none;
+}
+div[data-key="dialog-setting"] .config__tab-wrap {
+    height: calc(100% - 40px);
+    margin: 20px 20px 0px 10px;
+    border-radius: var(--b3-border-radius);
+}
+div[data-key="dialog-setting"] .b3-tab-bar {
+    width: 180px;
+}
+/* 账户界面 */
+.config-account__center:not(.config-account__center--text) {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: var(--QYL-account-background1);
+}
+.config-account__center.config-account__center--text {
+    margin: 200px 20px;
+    border-radius: var(--b3-border-radius);
+    background-image: var(--QYL-account-background2);
+}
+.config-account__center .b3-text-field.fn__block.b3-form__icon-input {
+    padding: 7px 10px;
+}
+.config-account__center.config-account__center--text .b3-form__icon-icon {
+    top: 8px;
+}
+.config-account__center.config-account__center--text .b3-button.b3-button--text  {
+    top: 4.5px !important;
+    right: 3px !important;
+}
+/* 集市 */
+.config-bazaar__panel .b3-card {
+    box-shadow: var(--b3-light-shadow);
+}
+.config-bazaar__panel .b3-card {
+    background-color: rgba(255, 0, 0, 0);
+}
+.config-bazaar__panel .b3-card:hover {
+    background-color: var(--QYL-hover);
+}
+@media screen and (min-width: 1230px) {
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card {
+        display: grid;
+        grid-template-areas: "img info" "img buttons";
+        grid-template-columns: 90px 1fr;
+        margin: 16px 16px 8px 8px;
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions {
+        grid-area: buttons;
+        padding: 0 16px 14px;
+        align-self: flex-end
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting].fn__none~[data-type=uninstall],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=open]:first-child {
+        margin-left: auto
+    }
+}
+@media screen and (min-width: 950px) and (max-width: 1230px) {
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card {
+        display: grid;
+        grid-template-areas: "img info" "img buttons";
+        grid-template-columns: 90px 1fr;
+        margin: 16px 16px 8px 8px;
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions {
+        grid-area: buttons;
+        padding: 0 16px 14px;
+        align-self: flex-end
+    }
+    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=setting].fn__none~[data-type=uninstall],.config-bazaar__panel[data-type=downloaded] .config-bazaar__content .b3-card>.b3-card__actions>[data-type=open]:first-child {
+        margin-left: auto
+    }
+}
+/* 修复集市毛玻璃 */
+div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复AI毛玻璃 */
+div[data-key="dialog-setting"] [data-name="AI"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复代码片段毛玻璃 */
+[data-key="dialog-snippets"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复资源毛玻璃 */
+div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 修复数据历史毛玻璃 */
+[data-key="dialog-history"] .layout-tab-bar {
+    background-color: rgba(255, 0, 0, 0);
+}

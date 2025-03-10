@@ -1,0 +1,9 @@
+/* 空块提示blankblock-remind */
+.protyle-wysiwyg [data-node-id][custom-blankblock-remind="开启"].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
+    content:"空空如也" ;
+    color:  #cacaca ;
+}
+[custom-blankblock-remind="开启"] .p > [contenteditable][spellcheck]:empty::before {
+    content:"空空如也" ;
+    color:  #cacaca ;
+}

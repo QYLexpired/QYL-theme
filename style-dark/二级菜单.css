@@ -1,0 +1,55 @@
+/* 表情面板 */
+.emojis__item {
+    font-size: 32px;
+    padding: 0px;
+    height: 40px;
+    width: 40px;
+}
+.emojis__type {
+    font-size: 24px;
+    margin-top: 10px;
+    border-radius: var(--b3-border-radius);
+}
+/* 圆形关闭键 */
+.b3-dialog__close {
+    display: none;
+}
+.b3-menu__action.b3-menu__action--close:hover {
+    color: var(--b3-theme-primary);
+    transition: var(--b3-color-transition);
+}
+/* 编辑器工具栏 */
+.protyle-toolbar {
+    border-radius: var(--b3-border-radius);
+}
+.protyle-toolbar__item {
+    margin: 6px 3px;
+    border-radius: var(--b3-border-radius) !important;
+}
+.protyle-toolbar__item svg {
+    width: 16px;
+    height: 16px;
+}
+/* 窗口优化 */
+.b3-dialog__header {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: none;
+}
+.b3-label {
+    border-bottom: none;
+}
+.b3-dialog__action {
+    border-top: none;
+}
+/* 菜单背景色 */
+.b3-menu, .b3-menu__item, .b3-menu__submenu {
+    background-color: var(--b3-theme-background);
+}
+/* 标记 */
+.b3-list mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--b3-theme-primary);
+    color: var(--QYL-white);
+}
