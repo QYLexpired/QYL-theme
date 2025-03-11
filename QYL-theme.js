@@ -1842,12 +1842,16 @@ function enablecancleQYLcolorfultag() {
             transition: var(--b3-transition);
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n))::before {
-            content: "#";
-            color: var(--QYL-white);
-            margin-right: 5px;
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: var(--QYL-white);
+            margin-right: 0.4em;
             position: relative;
-            top: 0.5px;
-            transition: var(--b3-transition);
+            vertical-align: middle;
         }
         :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
             color: var(--b3-theme-primary);
@@ -2697,6 +2701,12 @@ function enableQYLinkmode() {
             font-style: italic;
             color: var(--b3-theme-primary);
             padding-right: 2px;
+        }
+        .b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code], .fn__code {
+            background-color: rgba(255, 0, 0, 0);
+            border: 1.5px solid;
+            padding: 1.5px 3.5px;
+            white-space: nowrap;
         }
     `;
 }
