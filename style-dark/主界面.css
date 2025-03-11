@@ -106,3 +106,17 @@ body:not(.body--mobile,.body--window) #layouts {
 .pdf__outer #sidebarContainer {
     background-color: var(--b3-theme-background);
 }
+/* 文档树 */
+.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    content: "";
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 99px;
+    background-color: var(--b3-theme-on-surface-light);
+    position: absolute;
+    visibility: visible;
+    margin-left: 3px;
+}
+.b3-list-item:hover.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    background-color: var(--b3-theme-primary);
+}

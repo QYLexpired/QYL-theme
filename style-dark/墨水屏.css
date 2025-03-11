@@ -253,3 +253,9 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
   color: var(--b3-theme-primary);
   padding-right: 2px;
 }
+.b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code], .fn__code {
+  background-color: rgba(255, 0, 0, 0);
+  border: 1.5px solid;
+  padding: 1.5px 3.5px;
+  white-space: nowrap;
+}

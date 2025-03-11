@@ -1,22 +1,22 @@
 :root {
-    --QYL-h1: #ce8080;
-    --QYL-h2: #c6a16a;
-    --QYL-h3: #8fc583;
-    --QYL-h4: #7394ba;
-    --QYL-h5: #9466a1;
-    --QYL-h6: #b0788e;
-    --QYL-h1-fold: rgba(206, 128, 128, 0.6);
-    --QYL-h1-fold-background: rgba(206, 128, 128, 0.2);
-    --QYL-h2-fold: rgba(198, 161, 106, 0.6);
-    --QYL-h2-fold-background: rgba(198, 161, 106, 0.2);
-    --QYL-h3-fold: rgba(143, 197, 131, 0.6);
-    --QYL-h3-fold-background: rgba(143, 197, 131, 0.2);
-    --QYL-h4-fold: rgba(115, 148, 186, 0.6);
-    --QYL-h4-fold-background: rgba(115, 148, 186, 0.2);
-    --QYL-h5-fold: rgba(148, 102, 161, 0.6);
-    --QYL-h5-fold-background: rgba(148, 102, 161, 0.2);
-    --QYL-h6-fold: rgba(176, 120, 142, 0.6);
-    --QYL-h6-fold-background: rgba(176, 120, 142, 0.2);
+    --QYL-h1: #d24e4e;
+    --QYL-h2: #eaa263;
+    --QYL-h3: #5fc070;
+    --QYL-h4: #589ecd;
+    --QYL-h5: #8c5fbc;
+    --QYL-h6: #b367b8;
+    --QYL-h1-fold: rgba(210, 78, 78, 0.4);
+    --QYL-h1-fold-background: rgba(210, 78, 78, 0.1);
+    --QYL-h2-fold: rgba(234, 162, 99, 0.4);
+    --QYL-h2-fold-background: rgba(234, 162, 99, 0.1);
+    --QYL-h3-fold: rgba(95, 192, 113, 0.4);
+    --QYL-h3-fold-background: rgba(95, 192, 113, 0.1);
+    --QYL-h4-fold: rgba(88, 158, 205, 0.4);
+    --QYL-h4-fold-background: rgba(88, 158, 205, 0.1);
+    --QYL-h5-fold: rgba(140, 95, 188, 0.4);
+    --QYL-h5-fold-background: rgba(140, 95, 188, 0.1);
+    --QYL-h6-fold: rgba(179, 103, 184, 0.4);
+    --QYL-h6-fold-background: rgba(179, 103, 184, 0.1);
 }
 /* 彩色多级标题 */
 .b3-typography .h1,.b3-typography h1,.protyle-wysiwyg .h1,.protyle-wysiwyg h1 { color: var(--QYL-h1); }
