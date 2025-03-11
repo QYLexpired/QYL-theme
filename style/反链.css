@@ -21,8 +21,9 @@
     width: 10px;
     height: 10px;
 }
-.protyle-wysiwyg .protyle-breadcrumb__bar {
+.sy__backlink .protyle-wysiwyg .protyle-breadcrumb__bar {
     font-size: 75%;
+    border-bottom: 1.5px solid var(--b3-theme-primary-lighter);
 }
 .sy__backlink .protyle {
     margin: 0px 8px 0px 8px !important;

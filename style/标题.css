@@ -1,22 +1,22 @@
 :root {
-    --QYL-h1: #881400;
-    --QYL-h2: #b8802e;
-    --QYL-h3: #4a6d42;
-    --QYL-h4: #3a5779;
-    --QYL-h5: #663570;
-    --QYL-h6: #d44f9b;
-    --QYL-h1-fold: rgba(136, 20, 0, 0.5);
-    --QYL-h1-fold-background: rgba(136, 20, 0, 0.1);
-    --QYL-h2-fold: rgba(184, 129, 46, 0.5);
-    --QYL-h2-fold-background: rgba(184, 129, 46, 0.1);
-    --QYL-h3-fold: rgba(74, 109, 66, 0.5);
-    --QYL-h3-fold-background: rgba(74, 109, 66, 0.1);
-    --QYL-h4-fold: rgba(58, 87, 121, 0.5);
-    --QYL-h4-fold-background: rgba(58, 87, 121, 0.1);
-    --QYL-h5-fold: rgba(102, 53, 112, 0.5);
-    --QYL-h5-fold-background: rgba(102, 53, 112, 0.1);
-    --QYL-h6-fold: rgba(212, 79, 154, 0.5);
-    --QYL-h6-fold-background: rgba(212, 79, 154, 0.1);
+    --QYL-h1: #dd5656;
+    --QYL-h2: #d88838;
+    --QYL-h3: #32ae4f;
+    --QYL-h4: #4573bc;
+    --QYL-h5: #8859ac;
+    --QYL-h6: #dc6897;
+    --QYL-h1-fold: rgba(221, 86, 86, 0.4);
+    --QYL-h1-fold-background: rgba(221, 86, 86, 0.1);
+    --QYL-h2-fold: rgba(216, 136, 56, 0.4);
+    --QYL-h2-fold-background: rgba(216, 136, 56, 0.1);
+    --QYL-h3-fold: rgba(50, 174, 79, 0.4);
+    --QYL-h3-fold-background: rgba(50, 174, 79, 0.1);
+    --QYL-h4-fold: rgba(69, 115, 188, 0.4);
+    --QYL-h4-fold-background: rgba(69, 115, 188, 0.1);
+    --QYL-h5-fold: rgba(136, 89, 172, 0.4);
+    --QYL-h5-fold-background: rgba(136, 89, 172, 0.1);
+    --QYL-h6-fold: rgba(220, 104, 150, 0.4);
+    --QYL-h6-fold-background: rgba(220, 104, 150, 0.1);
 }
 /* 彩色多级标题 */
 .b3-typography .h1,.b3-typography h1,.protyle-wysiwyg .h1,.protyle-wysiwyg h1 { color: var(--QYL-h1); }

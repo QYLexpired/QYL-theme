@@ -37,3 +37,12 @@ div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"
     color: rgb(66, 200, 45);
     font-size: 13px;
 }
+/* 界面 */
+#cardPreview {
+    margin: 0 10px 10px 0;
+    border-radius: var(--b3-border-radius);
+}
+[data-key="dialog-opencard"] .card__block {
+    margin: 0 10px 0px 10px;
+    border-radius: var(--b3-border-radius);
+}
