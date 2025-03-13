@@ -50,11 +50,11 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
     background-color: var(--b3-theme-background);
 }
 /* 块提示 */
-.p.highlight {
+[data-node-id].highlight {
     box-shadow: var(--QYL-shadow-highlight) !important;
     transition: var(--b3-transition) !important;
 }
-.p.highlight:hover {
+[data-node-id].highlight:hover {
     box-shadow: var(--QYL-shadow-highlight) !important;
     transition: var(--b3-transition) !important;
 }

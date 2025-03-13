@@ -221,6 +221,10 @@
     border-bottom: 2px dashed var(--b3-theme-primary);
     padding-bottom: 1.5px;
 }
+.tooltip.tooltip--memo {
+    font-size: 14px;
+    line-height: 20px;
+}
 /* 行内文字背景 */
 :is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-font-background"] {
     border-radius: 6px;

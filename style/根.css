@@ -18,9 +18,9 @@
     --QYL-filter-background-forQsettings: var(--b3-theme-background);
 
     /* 圆角矩形 */
-    --b3-border-radius: 10px;
+    --b3-border-radius: 6px;
     --b3-border-radius-b: 10px;
-    --b3-border-radius-q: 16px;
+    --b3-border-radius-q: 12px;
 
     /* 容器阴影 */
     --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;

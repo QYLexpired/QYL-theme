@@ -41,6 +41,9 @@
 [data-type="wnd"] .layout-tab-container.fn__flex-1 {
     border: 1.5px solid var(--b3-theme-primary);
 }
+.layout__dockb .layout-tab-container {
+    border: none !important;
+}
 /* 页签 */
 [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
     border: 1.5px solid var(--b3-theme-primary);
@@ -282,6 +285,6 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
 .b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code], .fn__code {
     background-color: rgba(255, 0, 0, 0);
     border: 1.5px solid;
-    padding: 1.5px 3.5px;
+    padding: 1x 3.5px;
     white-space: nowrap;
 }

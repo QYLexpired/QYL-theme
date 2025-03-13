@@ -17,6 +17,9 @@
     margin: 3px;
     transition: var(--b3-transition);
 }
+.layout-tab-bar .item + .item {
+    margin-left: 0px;
+}
 .layout-tab-bar .item {
     animation: QYLbounceRight 0.5s;
 }
