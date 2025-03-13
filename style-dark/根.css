@@ -45,9 +45,9 @@
     --b3-protyle-code-background: rgba(0, 0, 0, 0.3); /* 行内代码背景色 */
 
     /* 圆角矩形 */
-    --b3-border-radius: 10px;
+    --b3-border-radius: 6px;
     --b3-border-radius-b: 10px;
-    --b3-border-radius-q: 16px;
+    --b3-border-radius-q: 12px;
     
     /* 动画效果 */
     --b3-transition: 0.2s ease-in-out;

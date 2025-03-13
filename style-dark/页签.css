@@ -17,8 +17,8 @@
     margin: 3px;
     transition: var(--b3-transition);
 }
-.layout-tab-bar .item {
-    animation: QYLbounceRight 0.5s;
+.layout-tab-bar .item + .item {
+    margin-left: 0px;
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: var(--QYL-tab-nonactive);
