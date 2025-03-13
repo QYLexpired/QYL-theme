@@ -42,20 +42,22 @@ document.addEventListener('selectionchange', function() {
         const node = range.startContainer;
         let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
 
+        // 向上查找编辑器容器
         while (element && !element.classList.contains('protyle-wysiwyg')) {
             element = element.parentElement;
         }
 
         if (element && element.classList.contains('protyle-wysiwyg')) {
+            // 清除所有高亮
             const highlightedElements = element.querySelectorAll('.highlight');
             highlightedElements.forEach(el => el.classList.remove('highlight'));
 
+            // 定位最近的带有 data-node-id 的元素
             let targetElement = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-            while (targetElement && (!element.contains(targetElement) || !targetElement.classList.contains('p'))) {
-                targetElement = targetElement.parentElement;
-            }
+            targetElement = targetElement.closest('[data-node-id]');
 
-            if (targetElement && targetElement.classList.contains('p')) {
+            // 验证目标元素在容器内
+            if (targetElement && element.contains(targetElement)) {
                 targetElement.classList.add('highlight');
             }
         }
@@ -239,7 +241,7 @@ function createSettingsWindow() {
     settingsWindow.style.padding = '12px';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
-    settingsWindow.style.borderRadius = '16px'; 
+    settingsWindow.style.borderRadius = 'var(--b3-border-radius)'; 
 
     // 创建复选框和标签
     const checkbox1 = document.createElement('input');
@@ -921,54 +923,54 @@ function enableIndentStyle() {
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-6) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-7) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-8) 20px 21px, rgba(0, 0, 0, 0) 21px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-1) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-2) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-3) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-4) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-5) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-6) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-7) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 34px, var(--filetree-line-8) 34px 35px, rgba(0, 0, 0, 0) 35px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-1) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-2) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-3) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-4) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-5) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-6) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-7) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 52px, var(--filetree-line-8) 52px 53px, rgba(0, 0, 0, 0) 53px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-1) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-2) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-3) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-4) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-5) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-6) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-7) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 70px, var(--filetree-line-8) 70px 71px, rgba(0, 0, 0, 0) 71px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-1) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-2) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-3) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-4) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-5) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-6) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-7) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 88px, var(--filetree-line-8) 88px 89px, rgba(0, 0, 0, 0) 89px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-1) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-2) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-3) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-4) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-5) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-6) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-7) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 106px, var(--filetree-line-8) 106px 107px, rgba(0, 0, 0, 0) 107px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-1) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-2) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-3) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-4) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-5) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-6) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-7) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
-.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 124px, var(--filetree-line-8) 124px 125px, rgba(0, 0, 0, 0) 125px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-1) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-2) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-3) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-4) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-5) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-6) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-7) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-8) 38px 39px, rgba(0, 0, 0, 0) 39px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-1) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-2) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-3) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-4) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-5) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-6) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-7) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-8) 56px 57px, rgba(0, 0, 0, 0) 57px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-1) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-2) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-3) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-4) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-5) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-6) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-7) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-8) 74px 75px, rgba(0, 0, 0, 0) 75px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-1) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-2) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-3) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-4) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-5) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-6) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-7) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-8) 92px 93px, rgba(0, 0, 0, 0) 93px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-1) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-2) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-3) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-4) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-5) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-6) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-7) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-8) 110px 111px, rgba(0, 0, 0, 0) 111px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-1) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-2) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-3) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+4)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-4) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+5)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-5) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-6) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-7) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+.file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-8) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
     `;
 }
 
@@ -1047,7 +1049,7 @@ function enablehoverblockremind() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .p:hover {
+        .protyle-wysiwyg [data-node-id]:hover {
             box-shadow: var(--QYL-shadow-highlight) !important;
             transition: 0.3s !important;
         }
@@ -1798,11 +1800,6 @@ function enableQYLburgundy() {
             --QYL-gray: #bfbfbf; /* 通用灰 */
             --b3-toolbar-blur-background: #302b2b; /* 失焦颜色 */
             --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
             
             /* 动画效果 */
             --b3-transition: 0.2s ease-in-out;
@@ -1910,11 +1907,6 @@ function enableQYLxuanqing() {
             --QYL-gray: #bfbfbf; /* 通用灰 */
             --b3-toolbar-blur-background: rgb(37, 36, 42); /* 失焦颜色 */
             --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
             
             /* 动画效果 */
             --b3-transition: 0.2s ease-in-out;
@@ -2022,11 +2014,6 @@ function enableQYLmocui() {
             --QYL-gray: #bfbfbf; /* 通用灰 */
             --b3-toolbar-blur-background: #41463f; /* 失焦颜色 */
             --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
             
             /* 动画效果 */
             --b3-transition: 0.2s ease-in-out;
@@ -2135,11 +2122,6 @@ function enableQYLhuimu() {
             --b3-toolbar-blur-background: #4e4e4e; /* 失焦颜色 */
             --QYL-filter-background-forQsettings: var(--b3-theme-background);
 
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
-            
             /* 动画效果 */
             --b3-transition: 0.2s ease-in-out;
             --b3-transition-slow: 0.4s ease-in-out;
@@ -2219,13 +2201,18 @@ function enableQYLinkmode() {
         [data-type="wnd"] .layout-tab-container.fn__flex-1 {
         border: 1.5px solid var(--b3-theme-primary);
         }
+        .layout__dockb .layout-tab-container {
+            border: none !important;
+        }
         /* 页签 */
         [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
-        border: 1.5px solid var(--b3-theme-primary);
+        border: 2px solid var(--b3-theme-primary);
+        border-bottom: none;
         border-right: none;
         }
         [data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
-        border: 1.5px solid var(--b3-theme-primary);
+        border: 2px solid var(--b3-theme-primary);
+        border-bottom: none;
         border-left: none;
         }
         .layout-tab-bar .item--focus:not(.item--readonly) {
@@ -2460,7 +2447,7 @@ function enableQYLinkmode() {
         .b3-typography code:not(.hljs), .protyle-wysiwyg span[data-type~=code], .fn__code {
         background-color: rgba(255, 0, 0, 0);
         border: 1.5px solid;
-        padding: 1.5px 3.5px;
+        padding: 1px 3.5px;
         white-space: nowrap;
         }
     `;
@@ -2527,11 +2514,6 @@ function enableQYLchixia() {
             --QYL-gray: #bfbfbf; /* 通用灰 */
             --b3-toolbar-blur-background: #5f536b; /* 失焦颜色 */
             --QYL-filter-background-forQsettings: var(--b3-theme-background);
-
-            /* 圆角矩形 */
-            --b3-border-radius: 10px;
-            --b3-border-radius-b: 10px;
-            --b3-border-radius-q: 16px;
             
             /* 动画效果 */
             --b3-transition: 0.2s ease-in-out;
