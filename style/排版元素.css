@@ -43,7 +43,7 @@
 /* 分割线 */
 .protyle-wysiwyg [data-node-id].hr>div::after {
     height: 3px;
-    background-color: var(--QYL-gray);
+    background-color: var(--b3-theme-primary);
 }
 /* 块标 */
 .protyle-gutters { 
@@ -320,4 +320,8 @@ div.protyle-action.protyle-action--task svg {
 /* 下划线 */
 .b3-typography u, .b3-typography span[data-type~=u], .protyle-wysiwyg u, .protyle-wysiwyg span[data-type~=u] {
     border-bottom: 2px solid;
+}
+/* 代码块 */
+.protyle-linenumber__rows>span::before {
+    color: var(--b3-theme-primary);
 }

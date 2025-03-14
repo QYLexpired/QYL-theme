@@ -14,24 +14,34 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 div[data-key="dialog-setting"] .b3-tab-bar {
     width: 180px;
 }
+[data-key="dialog-setting"] .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child,& :where(.b3-label,.config__ite)::first-line{
+    font-weight: bold;
+    color: var(--b3-theme-primary);
+}
+[data-key="dialog-setting"] .config__tab-wrap .config-query .fn__flex-1, & .b3-label__text, & .b3-label :where(a,code,.ft__on-surface):not(.b3-button--outline) {
+    font-weight: normal !important;
+    color: var(--b3-theme-on-surface) !important;
+}
 /* 账户界面 */
-.config-account__center:not(.config-account__center--text) {
-    margin: 200px 20px;
+[data-name="account"].config__tab-container.config__tab-container--full {
+    margin: 50px 20px 50px 20px  !important;
+}
+[data-name="account"] .config-account__center:not(.config-account__center--text) {
     border-radius: var(--b3-border-radius);
     background-image: var(--QYL-account-background1);
+    margin-right: 20px;
 }
-.config-account__center.config-account__center--text {
-    margin: 200px 20px;
+[data-name="account"] .config-account__center.config-account__center--text {
     border-radius: var(--b3-border-radius);
     background-image: var(--QYL-account-background2);
 }
-.config-account__center .b3-text-field.fn__block.b3-form__icon-input {
+[data-name="account"] .config-account__center .b3-text-field.fn__block.b3-form__icon-input {
     padding: 7px 10px;
 }
-.config-account__center.config-account__center--text .b3-form__icon-icon {
+[data-name="account"] .config-account__center.config-account__center--text .b3-form__icon-icon {
     top: 8px;
 }
-.config-account__center.config-account__center--text .b3-button.b3-button--text  {
+[data-name="account"] .config-account__center.config-account__center--text .b3-button.b3-button--text  {
     top: 4.5px !important;
     right: 3px !important;
 }
@@ -85,6 +95,9 @@ div[data-key="dialog-setting"] .b3-tab-bar {
         margin-left: auto
     }
 }
+#configBazaarDownloaded .b3-list--empty {
+    margin-top: 20px;
+}
 /* 修复集市毛玻璃 */
 div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {
     background-color: rgba(255, 0, 0, 0);
@@ -104,4 +117,9 @@ div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
 /* 修复数据历史毛玻璃 */
 [data-key="dialog-history"] .layout-tab-bar {
     background-color: rgba(255, 0, 0, 0);
+}
+/* 同步 */
+[data-key="dialog-syncchoosedirection"] .b3-dialog__container .b3-dialog__body .b3-dialog__content .b3-label > div {
+    font-weight: bold;
+    color: var(--b3-theme-primary);
 }

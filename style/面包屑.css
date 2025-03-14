@@ -1,5 +1,25 @@
 /* 面包屑 */
-.protyle-breadcrumb__item:hover, .protyle-breadcrumb__item--active {
+.protyle-breadcrumb__item:hover {
     background: var(--QYL-hover);
     transition: var(--b3-background-transition);
+}
+.protyle-breadcrumb__item--active {
+    background: var(--b3-theme-primary);
+    transition: var(--b3-background-transition);
+}
+.protyle-breadcrumb__item--active:hover {
+    background: var(--b3-theme-primary);
+    transition: var(--b3-background-transition);
+}
+.protyle-breadcrumb__item--active :is(svg, .protyle-breadcrumb__text) {
+    color: var(--QYL-white);
+}
+.protyle-breadcrumb__item--active :is(svg, .protyle-breadcrumb__text):hover {
+    color: var(--QYL-white);
+}
+.protyle-breadcrumb__item {
+    height: 20px;
+}
+.protyle-breadcrumb__text {
+    margin-left: 0;
 }
