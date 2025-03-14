@@ -188,21 +188,38 @@ function addThemeToolBar() {
         QYLToolBar.style.height = "23.5px";
         QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" fill="var(--b3-toolbar-color)" opacity=".9" p-id="4701"></path></svg>`;
         QYLToolBar.ariaLabel = "QYL主题设置";
-        QYLToolBar.style.userSelect= 'none';
-        var parentElement = toolbarVIP ? toolbarVIP.parentElement : (windowControls ? windowControls.parentElement : document.body);
+        QYLToolBar.style.userSelect = 'none';
+        const handleToolbarClick = () => {
+            const settingsWindow = document.getElementById('settings-window');
+            settingsWindow ? closeSettingsWindow() : createSettingsWindow();
+        };
+
+        var parentElement = toolbarVIP ? toolbarVIP.parentElement : (windowControls ? windowControls.parentElement : null);
         if (!parentElement) {
             document.body.classList.add("QYLmobile");
+            QYLToolBar.className = "block__icon fn__flex-center ariaLabel";
+            QYLToolBar.style.height = "14px";
+            QYLToolBar.style.width = "14px";
+            var breadcrumbButtons = document.getElementsByClassName("block__icon fn__flex-center ariaLabel");
+            try {
+                var firstButton = breadcrumbButtons[0];
+                const container = firstButton.parentElement;
+                container.insertBefore(QYLToolBar, firstButton);
+                QYLToolBar.addEventListener("click", handleToolbarClick);
+            } catch (error) {
+                setTimeout(function() {
+                    var firstButton = document.getElementsByClassName("block__icon fn__flex-center ariaLabel")[0];
+                    if (firstButton) {
+                        const container = firstButton.parentElement;
+                        container.insertBefore(QYLToolBar, firstButton);
+                        QYLToolBar.addEventListener("click", handleToolbarClick);
+                    }
+                }, 1000);
+            }
             return;
         }
         parentElement.insertBefore(QYLToolBar, toolbarVIP || windowControls);
-        QYLToolBar.addEventListener("click", function() {
-            var settingsWindow = document.getElementById('settings-window');
-            if (settingsWindow) {
-                closeSettingsWindow();
-            } else {
-                createSettingsWindow();
-            }
-        });
+        QYLToolBar.addEventListener("click", handleToolbarClick);
     }
 }
 
@@ -235,13 +252,23 @@ function createSettingsWindow() {
     settingsWindow.id = 'settings-window';
     settingsWindow.style.position = 'fixed';
     settingsWindow.style.top = '32px'; 
-    settingsWindow.style.right = '195px'; 
     settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
     settingsWindow.style.backdropFilter = 'var(--QYL-Aero-filter)';
-    settingsWindow.style.padding = '12px';
+    settingsWindow.style.padding = '6px';
+    settingsWindow.style.border = 'none';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = 'var(--b3-border-radius)'; 
+
+    const toolbar = document.getElementById('QToolbar');
+    if (toolbar && settingsWindow) {
+    const rect = toolbar.getBoundingClientRect();
+    const distanceFromRight = window.innerWidth - rect.right;
+    settingsWindow.style.right = `${Math.max(distanceFromRight, 10)}px`;
+
+    } else {
+    console.error('错误');
+    }
 
     // 创建复选框和标签
     const checkbox1 = document.createElement('input');
@@ -534,19 +561,58 @@ function createSettingsWindow() {
     QYLfunctionpair17.appendChild(label17);
     QYLfunctionpair17.style.animation = 'QYLbounceRight2 0.1s';
 
+
+    //分割线
+    const QYLfunctionpairdivider1 = document.createElement('hr');
+    QYLfunctionpairdivider1.style.cssText = `
+        height: 1px;
+        margin: 5px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
+    const QYLfunctionpairdivider2 = document.createElement('hr');
+    QYLfunctionpairdivider2.style.cssText = `
+        height: 1px;
+        margin: 5px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
+    const QYLfunctionpairdivider3 = document.createElement('hr');
+    QYLfunctionpairdivider3.style.cssText = `
+        height: 1px;
+        margin: 5px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
+    const QYLfunctionpairdivider4 = document.createElement('hr');
+    QYLfunctionpairdivider4.style.cssText = `
+        height: 1px;
+        margin: 5px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
+
     // 将复选框和标签添加到设置窗口
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
     settingsWindow.appendChild(QYLfunctionpair3);
+    settingsWindow.appendChild(QYLfunctionpairdivider1);
     settingsWindow.appendChild(QYLfunctionpair4);
     settingsWindow.appendChild(QYLfunctionpair5);
     settingsWindow.appendChild(QYLfunctionpair8);
+    settingsWindow.appendChild(QYLfunctionpairdivider2);
     settingsWindow.appendChild(QYLfunctionpair6);
     settingsWindow.appendChild(QYLfunctionpair7);
     settingsWindow.appendChild(QYLfunctionpair9);
+    settingsWindow.appendChild(QYLfunctionpairdivider3);
     settingsWindow.appendChild(QYLfunctionpair10);
     settingsWindow.appendChild(QYLfunctionpair11);
     settingsWindow.appendChild(QYLfunctionpair16);
+    settingsWindow.appendChild(QYLfunctionpairdivider4);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
     settingsWindow.appendChild(QYLfunctionpair14);
@@ -2193,9 +2259,9 @@ function enableQYLinkmode() {
         --QYL-filter-background-forQsettings: var(--b3-theme-background);
 
         /* 圆角矩形 */
-        --b3-border-radius: 8px;
-        --b3-border-radius-b: 8px;
-        --b3-border-radius-q: 8px;
+        --b3-border-radius: 6px;
+        --b3-border-radius-b: 10px;
+        --b3-border-radius-q: 12px;
         }
         /* 主界面 */
         [data-type="wnd"] .layout-tab-container.fn__flex-1 {
@@ -2503,8 +2569,8 @@ function enableQYLchixia() {
             --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
             --b3-theme-primary: #7c6c92; 
             --b3-theme-primary-light: rgba(128, 99, 168, 0.56); /* 主色0.5透明度 */
-            --b3-theme-primary-lighter: rgba(128, 99, 168, 0.35); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(128, 99, 168, 0.1); /* 主色0.1透明度 */
+            --b3-theme-primary-lighter: rgba(177, 153, 212, 0.4); /* 主色0.3透明度 */
+            --b3-theme-primary-lightest: rgba(128, 99, 168, 0.12); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
             --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
             --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
@@ -2736,3 +2802,40 @@ async function init() {
 init().catch(error => {
     console.error('初始化过程中发生错误:', error);
 });
+
+// PWA模式更改meta主色
+(function() {
+    let lastSurfaceColor = null;
+    let isActive = true;
+    function updateThemeColorMeta() {
+        const root = document.documentElement;
+        const currentColor = getComputedStyle(root).getPropertyValue('--b3-theme-surface').trim();
+
+        if (currentColor === lastSurfaceColor) return;
+        lastSurfaceColor = currentColor;
+        let meta = document.querySelector('meta[name="theme-color"]');
+        if (currentColor) {
+            if (meta) {
+                meta.content = currentColor;
+            } else {
+                meta = document.createElement('meta');
+                meta.name = 'theme-color';
+                meta.content = currentColor;
+                document.head.prepend(meta);
+            }
+        } else if (meta) {
+            meta.remove();
+        }
+    }
+    function startSurfaceWatcher() {
+        if (!isActive) return;
+        updateThemeColorMeta();
+        setTimeout(startSurfaceWatcher, 100);
+    }
+    document.addEventListener('visibilitychange', () => {
+        isActive = !document.hidden;
+        if (isActive) startSurfaceWatcher();
+    });
+    updateThemeColorMeta();
+    startSurfaceWatcher();
+})();
