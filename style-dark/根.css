@@ -33,7 +33,7 @@
     --b3-theme-primary: #4674c9; 
     --b3-theme-primary-light: rgba(70, 116, 201, 0.5); /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(70, 116, 201, 0.35); /* 主色0.3透明度 */
-    --b3-theme-primary-lightest: rgba(70, 116, 201, 0.12); /* 主色0.1透明度 */
+    --b3-theme-primary-lightest: rgba(70, 116, 201, 0.25); /* 主色0.1透明度 */
     --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
     --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
     --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */

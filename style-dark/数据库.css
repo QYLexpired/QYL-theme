@@ -11,12 +11,12 @@
     --QYL-av-chip-color6: var(--b3-theme-on-background);
     --QYL-av-chip-color7: var(--b3-theme-on-background);
     --QYL-av-chip-color8: var(--b3-theme-on-background);
-    --QYL-av-chip-color9: var(--b3-theme-on-background);
-    --QYL-av-chip-color10: var(--b3-theme-on-background);
-    --QYL-av-chip-color11: var(--b3-theme-on-background);
-    --QYL-av-chip-color12: var(--b3-theme-on-background);
-    --QYL-av-chip-color13: var(--b3-theme-on-background);
-    --QYL-av-chip-color14: var(--b3-theme-on-background);
+    --QYL-av-chip-color9: rgb(180, 73, 73);
+    --QYL-av-chip-color10: rgb(218, 116, 73);
+    --QYL-av-chip-color11: rgb(79, 179, 79);
+    --QYL-av-chip-color12: rgb(93, 133, 218);
+    --QYL-av-chip-color13: rgb(35, 35, 35);
+    --QYL-av-chip-color14: rgb(142, 87, 174);
     --QYL-av-chip-background1: rgba(205, 63, 63, 0.5);
     --QYL-av-chip-background2: rgba(225, 137, 74, 0.5);
     --QYL-av-chip-background3: rgba(189, 189, 34, 0.55);
@@ -25,12 +25,12 @@
     --QYL-av-chip-background6: rgba(70, 140, 198, 0.5);
     --QYL-av-chip-background7: rgba(138, 101, 224, 0.5);
     --QYL-av-chip-background8: rgba(207, 108, 210, 0.5);
-    --QYL-av-chip-background9: rgba(255, 0, 0, 0.3);
-    --QYL-av-chip-background10: rgba(237, 67, 0, 0.3);
-    --QYL-av-chip-background11: rgba(0, 158, 0, 0.3);
-    --QYL-av-chip-background12: rgba(0, 41, 174, 0.3);
-    --QYL-av-chip-background13: rgba(25, 25, 25, 0.3);
-    --QYL-av-chip-background14: rgba(106, 0, 159, 0.3);
+    --QYL-av-chip-background9: rgba(210, 76, 76, 0.3);
+    --QYL-av-chip-background10: rgba(215, 101, 56, 0.3);
+    --QYL-av-chip-background11: rgba(53, 216, 53, 0.3);
+    --QYL-av-chip-background12: rgba(51, 87, 207, 0.3);
+    --QYL-av-chip-background13: rgba(255, 255, 255, 0.6);
+    --QYL-av-chip-background14: rgba(177, 96, 217, 0.3);
 }
 /* 数据库 */
 .av__cell--header .av__celltext {
@@ -53,6 +53,7 @@
     background-color: var(--QYL-av-cell-background);
     color: var(--QYL-av-cell);
     border-bottom: none;
+    padding: 2px 6px;
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
     background-color: var(--QYL-av-cell-background-hover);
