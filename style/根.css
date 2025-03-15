@@ -9,7 +9,7 @@
     --b3-theme-primary: #3575f0;
     --b3-theme-primary-light: rgba(53, 117, 240, .54);
     --b3-theme-primary-lighter: rgba(53, 117, 240, .38);
-    --b3-theme-primary-lightest: rgba(53, 117, 240, .12);
+    --b3-theme-primary-lightest: rgba(53, 117, 240, .22);
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
     --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
     --QYL-white: #fff; /* 通用白 */

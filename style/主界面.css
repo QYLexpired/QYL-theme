@@ -2,7 +2,9 @@
 @media (min-width: 768px) {
     #status {
         position: fixed;
-        right: 87px;
+        right: 0;
+        backface-visibility: hidden;
+        transition: var(--b3-transition);
         bottom: 15px;
         border-radius: var(--b3-border-radius);
         height: 27px !important;
@@ -14,7 +16,6 @@
         align-items: center;
         box-shadow: var(--b3-light-shadow);
         user-select: none;
-        cursor: grab;
     }
     #barDock {
         position: relative;
@@ -52,8 +53,7 @@ body {
     border-top-right-radius: var(--b3-border-radius);
 }
 #layouts .layout__center .layout-tab-container {
-    border-bottom-left-radius: var(--b3-border-radius);
-    border-bottom-right-radius: var(--b3-border-radius);
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius) !important;
 }   
 #layouts .layout__center .layout-tab-container:has(.layout__empty) {
     border-radius: var(--b3-border-radius);
@@ -96,6 +96,9 @@ body {
 #layouts .layout--float {
     border: 1.5px solid var(--b3-theme-primary-lighter) !important;
     box-shadow: var(--b3-dialog-shadow) !important;
+}
+.file-tree.sy__graph {
+    background-color: var(--b3-theme-background);
 }
 /* 取消钉住 */
 .layout--float {
