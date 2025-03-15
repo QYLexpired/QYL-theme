@@ -63,112 +63,6 @@ document.addEventListener('selectionchange', function() {
     }
 });
 
-// 状态栏拖动
-moveableStatus();
-function moveableStatus(status) {
-    let isDragging = false;
-    let isDragged = false;
-    let offsetX, offsetY;
-    let left='0px', top='0px';
-    let width = 0, height = 0;
-    const originStyle = {};
-
-    if(!status) status = document.querySelector('#status');
-
-    // 初始时计算宽高和位置
-    const calcStatusStyle = () => {
-        let style = getComputedStyle(status, null);
-        if(!isDragged) {
-            // 如果静态元素设置为固定元素
-            if(style.position === 'static') {
-                status.style.position = 'fixed';
-                status.style.setProperty('right', '42px', 'important');
-                status.style.bottom = '-8px';
-                style = getComputedStyle(status, null);
-            }
-            // 计算状态栏宽高
-            const marginWidth = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-            const marginHeight = parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            width = parseFloat(style.width) + marginWidth;
-            height = parseFloat(style.height) + marginHeight;
-
-            // 记录状态栏初始样式
-            originStyle.position = style.position;
-            originStyle.right = style.right;
-            originStyle.bottom = style.bottom;
-
-            // 计算状态栏位置
-            left = window.innerWidth - (parseFloat(style.right) + width) + 'px';
-            top = window.innerHeight - (parseFloat(style.bottom) + height) + 'px';
-        }
-    };
-    
-    // 改变窗口大小事件
-    window.addEventListener("resize", (event)=>{
-        if (isDragged) {
-            if(parseFloat(status.style.left) > window.innerWidth) {
-                status.style.left = (window.innerWidth - width) + 'px';
-            }
-            if(parseFloat(status.style.top) > window.innerHeight) {
-                status.style.top = (window.innerHeight - height) + 'px';
-            }
-        }
-    });
-
-    // 双击恢复状态栏
-    status.addEventListener("dblclick", (event)=>{
-        isDragged = false;
-        status.style.position = originStyle.position;
-        status.style.setProperty('right', originStyle.right, 'important');
-        status.style.bottom = originStyle.bottom;
-        status.style.left = 'auto';
-        status.style.top = 'auto';
-    });
-
-    // 拖动事件
-    const dragHandler = (e) => {
-        if (e.type === 'mousedown') {
-            // 开始拖动
-            calcStatusStyle();
-            if(!isDragged) {
-                isDragged = true;
-                status.style.position = 'absolute';
-                status.style.setProperty('right', 'auto', 'important');
-                status.style.bottom = 'auto';
-                status.style.left = left;
-                status.style.top = top;
-            }
-            isDragging = true;
-            document.removeEventListener('mousemove', dragHandler);
-            document.removeEventListener('mouseup', dragHandler);
-            document.addEventListener('mousemove', dragHandler);
-            document.addEventListener('mouseup', dragHandler);
-            offsetX = e.clientX - status.offsetLeft;
-            offsetY = e.clientY - status.offsetTop;
-        } else if (e.type === 'mousemove' && isDragging) {
-            // 拖动中
-            let x = e.clientX - offsetX;
-            let y = e.clientY - offsetY;
-            //限制不超过窗口大小
-            if(x < 0) x = 0;
-            if(y < 0) y = 0;
-            if(x > window.innerWidth - width) x = window.innerWidth - width;
-            if(y > window.innerHeight - height) y = window.innerHeight - height;
-            // 设置状态栏坐标
-            status.style.left = x + 'px';
-            status.style.top = y + 'px';
-        } else if (e.type === 'mouseup') {
-            //结束拖动
-            isDragging = false;
-            document.removeEventListener('mousemove', dragHandler);
-            document.removeEventListener('mouseup', dragHandler);
-        }
-        e.preventDefault();
-    };
-    status.removeEventListener('mousedown', dragHandler);
-    status.addEventListener('mousedown', dragHandler);
-}
-
 // 添加Q按钮
 (function() {
     addThemeToolBar();
@@ -222,6 +116,8 @@ function addThemeToolBar() {
     }
 }
 
+
+
 // 设置窗口
 
 let isChecked1;
@@ -243,6 +139,7 @@ let isChecked16;
 let isChecked17;
 let isChecked18;
 let isChecked19;
+let isChecked20;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -481,6 +378,17 @@ function createSettingsWindow() {
     label19.style.fontSize = '14px';
     label19.style.userSelect= 'none';
 
+    const checkbox20 = document.createElement('input');
+    checkbox20.type = 'checkbox';
+    checkbox20.id = 'QYLlverticaltab-checkbox';
+    checkbox20.checked = isChecked20;
+
+    const label20 = document.createElement('label');
+    label20.htmlFor = 'QYLlverticaltab-checkbox';
+    label20.textContent = ' 垂直页签';
+    label20.style.fontSize = '14px';
+    label20.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -597,6 +505,12 @@ function createSettingsWindow() {
     QYLfunctionpair19.appendChild(label19);
     QYLfunctionpair19.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair20 = document.createElement('div');
+    QYLfunctionpair20.className = 'checkbox-label-pair';
+    QYLfunctionpair20.appendChild(checkbox20);
+    QYLfunctionpair20.appendChild(label20);
+    QYLfunctionpair20.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -637,6 +551,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair1);
     settingsWindow.appendChild(QYLfunctionpair2);
     settingsWindow.appendChild(QYLfunctionpair3);
+    settingsWindow.appendChild(QYLfunctionpair20);
     settingsWindow.appendChild(QYLfunctionpairdivider1);
     settingsWindow.appendChild(QYLfunctionpair4);
     settingsWindow.appendChild(QYLfunctionpair5);
@@ -687,7 +602,8 @@ async function saveConfig() {
         isChecked16: checkbox16.checked,
         isChecked17: checkbox17.checked,
         isChecked18: checkbox18.checked,
-        isChecked19: checkbox19.checked
+        isChecked19: checkbox19.checked,
+        isChecked20: checkbox20.checked
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -966,6 +882,18 @@ checkbox18.addEventListener('change', async function() {
     }
 });
 
+// 垂直页签开关
+checkbox20.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLverticaltab() : disableQYLverticaltab();
+    state ? isChecked20 = true : isChecked20 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
     // ESC键关闭
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
@@ -1192,7 +1120,18 @@ window.addEventListener('resize', QYLcheckMaximize);
 function disabletoolbarhidden() {
     const styleSheet = document.getElementById("toolbarhidden-style");
     if (styleSheet) {
-        styleSheet.innerText = '';
+        styleSheet.innerText = `
+        .toolbar {
+            opacity: 1;
+            transition: all 200ms;
+            transform: translateY(0px);
+        }
+        .toolbar:hover {
+            opacity: 1;
+            transition: all 200ms;
+            transform: translateY(0px);
+        }
+    `;
     }
 }
 
@@ -1537,6 +1476,10 @@ function enableQYLanimation() {
             100% {
                 transform: translateX(0);
             }
+        }
+        /* 页签动画 */
+        .layout-tab-bar .item {
+            animation: QYLbounceRight 0.5s;
         }
         /* 斜杠菜单动画 */
         .protyle-hint.hint--menu .b3-list-item {
@@ -1954,7 +1897,7 @@ function enableQYLsunset() {
             --b3-theme-primary: rgb(240, 140, 58) !important; 
             --b3-theme-primary-light: rgba(240, 140, 58, 0.5); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(240, 140, 58, 0.3); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(240, 140, 58, 0.1); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(240, 140, 58, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(255, 239, 215);
             --b3-theme-surface-light: rgba(255, 197, 142, 0.8); /* 面板色0.8透明度 */
@@ -2045,7 +1988,7 @@ function enableQYLforest() {
             --b3-theme-primary: rgb(85, 183, 95)  !important; 
             --b3-theme-primary-light: rgba(85, 183, 95, 0.5); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(85, 183, 95, 0.3); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(85, 183, 95, 0.1); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(85, 183, 95, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(207, 233, 196);
             --b3-theme-surface-light: rgba(207, 233, 196, 0.8); /* 面板色0.8透明度 */
@@ -2136,7 +2079,7 @@ function enableQYLocean() {
             --b3-theme-primary: rgb(115, 171, 224)  !important; 
             --b3-theme-primary-light: rgba(115, 171, 224, 0.6); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(115, 171, 224, 0.4); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(115, 171, 224, 0.2); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(115, 171, 224, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(204, 224, 243);
             --b3-theme-surface-light: rgba(204, 224, 243, 0.8); /* 面板色0.8透明度 */
@@ -2227,7 +2170,7 @@ function enableQYLsugar() {
             --b3-theme-primary: rgb(244, 139, 181)  !important; 
             --b3-theme-primary-light: rgba(244, 139, 181, 0.6); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(244, 139, 181, 0.4); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(244, 139, 181, 0.15); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(244, 139, 181, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(250, 227, 235);
             --b3-theme-surface-light: rgba(250, 227, 235, 0.8); /* 面板色0.8透明度 */
@@ -2318,7 +2261,7 @@ function enableQYLlavender() {
             --b3-theme-primary: rgb(211, 148, 236)  !important; 
             --b3-theme-primary-light: rgba(211, 148, 236, 0.56); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(211, 148, 236, 0.3); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(211, 148, 236, 0.12); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(211, 148, 236, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(239, 228, 255);
             --b3-theme-surface-light: rgba(239, 228, 255, 0.8); /* 面板色0.8透明度 */
@@ -2409,7 +2352,7 @@ function enableQYLfog() {
             --b3-theme-primary: rgb(66, 66, 66)  !important; 
             --b3-theme-primary-light: rgba(107, 107, 107, 0.5); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(107, 107, 107, 0.3); /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(107, 107, 107, 0.1); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(107, 107, 107, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: rgb(221, 221, 221);
             --b3-theme-surface-light: rgba(221, 221, 221, 0.8); /* 面板色0.8透明度 */
@@ -2814,7 +2757,7 @@ function enableQYLshuanghe() {
             --b3-theme-primary: rgb(97, 190, 175) !important; 
             --b3-theme-primary-light: rgba(90, 187, 171, 0.5); /* 主色0.5透明度 */
             --b3-theme-primary-lighter: rgba(90, 187, 171, 0.3) !important; /* 主色0.3透明度 */
-            --b3-theme-primary-lightest: rgba(90, 187, 171, 0.1); /* 主色0.1透明度 */
+            --b3-theme-primary-lightest: rgba(90, 187, 171, 0.22); /* 主色0.1透明度 */
             --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
             --b3-theme-surface: #DBEADD;
             --b3-theme-surface-light: rgba(219, 234, 221, 0.8); /* 面板色0.8透明度 */
@@ -2884,6 +2827,180 @@ function disableQYLshuanghe() {
         styleSheet.innerText = '';
     }
 }
+
+// 开启垂直页签
+function enableQYLverticaltab() {
+    //寻找第一个wnd,添加#QYLverticalthe1并监听
+    function QYLFindFirstWndElement(selector) {
+        const directFind = document.querySelector(`${selector} [data-type="wnd"]`);
+        if (directFind) return directFind;
+        let el = document.querySelector(selector);
+        let depth = 0;
+        const MAX_DEPTH = 20;
+        
+        while (el && el.dataset.type !== 'wnd' && depth < MAX_DEPTH) {
+          el = el.firstElementChild;
+          depth++;
+        }
+        return el?.dataset.type === 'wnd' ? el : null;
+      }     
+      function QYLManageIdAssignment() {
+        let observer = null;
+        let reassignTimer = null;
+        let globalObserver = null;
+        const TARGET_ID = 'QYLverticalthe1';
+        const QYLAssignId = (() => {
+          let debounceTimer;
+          return () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+              const targetSelector = '#layouts .layout__center';
+              const el = QYLFindFirstWndElement(targetSelector);
+              if (observer) {
+                observer.disconnect();
+                observer = null;
+              }
+      
+              if (el) {
+                if (el.id !== TARGET_ID) {
+                  const oldEl = document.getElementById(TARGET_ID);
+                  if (oldEl && oldEl !== el) {
+                    oldEl.removeAttribute('id');
+                  }
+                  el.id = TARGET_ID;
+                }
+                const parent = el.parentElement;
+                if (parent) {
+                  observer = new MutationObserver((mutations) => {
+                    for (const mutation of mutations) {
+                      for (const node of mutation.removedNodes) {
+                        if (node === el) {
+                          clearTimeout(reassignTimer);
+                          reassignTimer = setTimeout(QYLAssignId, 50);
+                          return;
+                        }
+                      }
+                    }
+                  });
+                  observer.observe(parent, { childList: true });
+                }
+              }
+            }, 30);
+          };
+        })();
+        const initObserver = () => {
+          const container = document.querySelector('#layouts');
+          if (container) {
+            globalObserver = new MutationObserver(() => {
+              if (!document.getElementById(TARGET_ID)) {
+                QYLAssignId();
+              }
+            });      
+            globalObserver.observe(container, {
+              childList: true,
+              subtree: true,
+              attributes: false,
+              characterData: false
+            });
+          } else {
+            globalObserver = new MutationObserver(() => {
+              if (!document.getElementById(TARGET_ID)) {
+                QYLAssignId();
+              }
+            });
+            globalObserver.observe(document.body, {
+              childList: true,
+              subtree: true,
+              attributes: false,
+              characterData: false
+            });
+          }
+        };
+        QYLAssignId();
+        initObserver();
+        window.addEventListener('beforeunload', () => {
+          globalObserver?.disconnect();
+          observer?.disconnect();
+          clearTimeout(reassignTimer);
+        });
+      }
+      QYLManageIdAssignment();
+    
+    let styleSheet = document.getElementById("QYLverticaltab-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLverticaltab-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        /* 垂直页签 */
+        #layouts .layout__center #QYLverticalthe1 {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .fn__flex {
+            flex: 0 0 auto;
+            min-width: 125px;
+            max-width: 125px;
+            margin-right: 6px;
+            flex-direction: column;
+        }
+        #QYLverticalthe1 > .fn__flex .layout-tab-bar:not(.layout-tab-bar--readonly) {
+            flex: 1;
+            flex-direction: column;
+            border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .fn__flex .layout-tab-bar:not(.layout-tab-bar--readonly) .item {
+            width: 90%;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .fn__flex > .layout-tab-bar--readonly {
+            flex: none;
+            border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius) !important;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .layout-tab-container {
+            border-radius: var(--b3-border-radius) !important;
+        }
+        #layouts #QYLverticalthe1 .layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full) :is(.item__icon,.item__graphic, .item__text) {
+            transform: translateX(0px)  !important;
+            transition: var(--b3-transition);
+        }
+        #layouts #QYLverticalthe1 .layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full):hover :is(.item__icon,.item__graphic, .item__text) {
+            transform: translateX(0px);
+            transition: var(--b3-transition);
+        }
+        #layouts .layout__center #QYLverticalthe1 .layout-tab-bar .item__close {
+            margin-left: auto;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .fn__flex .layout-tab-bar:not(.layout-tab-bar--readonly) .item__close {
+        margin-left: auto;
+        display: none;
+        }
+        #layouts .layout__center #QYLverticalthe1 > .fn__flex .layout-tab-bar:not(.layout-tab-bar--readonly) .item:hover .item__close {
+        display: flex;
+        }
+        /* 垂直页签钉住 */
+        #layouts .layout__center #QYLverticalthe1 .layout-tab-bar .item--pin .item__text  {
+            display: unset !important;
+        }
+        #layouts .layout__center #QYLverticalthe1 .layout-tab-bar .item--pin .item__graphic, .layout-tab-bar .item--pin .item__icon {
+            padding: 4px 0px 4px 8px !important;
+        }
+        #layouts .layout__center #QYLverticalthe1    .layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
+            margin-top: 20px;
+            margin-left : 0 !important;
+        }
+    `;
+}
+
+// 关闭垂直页签
+function disableQYLverticaltab() {
+    const styleSheet = document.getElementById("QYLverticaltab-style");
+    if (styleSheet) {
+        styleSheet.innerText = '';
+    }
+}
+
 
 // 读取QYLconfig.json
 async function loadAndCheckConfig() {
@@ -3044,6 +3161,14 @@ async function loadAndCheckConfig() {
             isChecked18 = false;
         }
 
+        if (config?.isChecked20 === true) {
+            enableQYLverticaltab();
+            isChecked20 = true;
+        } else if (config?.isChecked20 === false) {
+            disableQYLverticaltab();
+            isChecked20 = false;
+        }
+
     } catch (e) {
         console.error("加载配置失败:", e);
     }
@@ -3103,3 +3228,185 @@ init().catch(error => {
     updateThemeColorMeta();
     startSurfaceWatcher();
 })();
+
+
+// 连点三次开启或关闭隐藏顶栏
+let qKeyPressTimes = [];
+document.addEventListener('keydown', function(event) {
+    if (event.key.toLowerCase() === 'q') {
+        const now = Date.now();
+        qKeyPressTimes.push(now);
+        if (qKeyPressTimes.length > 3) {
+            qKeyPressTimes.shift();
+        }
+        if (qKeyPressTimes.length === 3) {
+            const timeDiff = qKeyPressTimes[2] - qKeyPressTimes[0];
+            
+            if (timeDiff <= 500) {
+                if (isChecked3) {
+                    isChecked3 = false;
+                    disabletoolbarhidden();
+                } else {
+                    isChecked3 = true;
+                    enabletoolbarhidden();
+                }
+                qKeyPressTimes = [];
+            } else {
+                qKeyPressTimes.shift();
+            }
+        }
+    }
+});
+
+
+// 底部状态栏位置更新
+const QYLStatusPositionManager = (() => {
+    const QYL_MAX_RETRIES = 5;
+    const QYL_BASE_DELAY = 300;
+    let QYL_retryCount = 0;
+    class QYLCoreManager {
+        constructor() {
+            this.QYL_layout = null;
+            this.QYL_status = null;
+            this.QYL_windowWidth = window.innerWidth;
+            this.QYL_observer = null;
+            this.QYL_isActive = false;
+            this.QYL_init();
+        }
+        QYL_elementDetector() {
+            return new Promise((resolve, reject) => {
+                const QYL_check = () => {
+                    const layout = document.querySelector('#layouts .layout__center');
+                    const status = document.getElementById('status');
+                    return layout && status ? resolve({ layout, status }) : null;
+                };
+
+                const QYL_recursiveCheck = () => {
+                    if (QYL_retryCount >= QYL_MAX_RETRIES) {
+                        reject(new Error('QYL Elements not found'));
+                        return;
+                    }
+                    QYL_retryCount++;
+                    QYL_check() || setTimeout(QYL_recursiveCheck, QYL_BASE_DELAY * Math.pow(2, QYL_retryCount));
+                };
+
+                QYL_check() || QYL_recursiveCheck();
+            });
+        }
+        QYL_calculatePosition() {
+            if (!this.QYL_validateElements()) return;
+            
+            try {
+                const rect = this.QYL_layout.getBoundingClientRect();
+                const offset = window.innerWidth - rect.right + 15;
+                this.QYL_status.style.transform = `translateX(-${offset}px)`;
+            } catch (error) {
+                console.error('QYL Calculation Error:', error);
+                this.QYL_scheduleRecovery();
+            }
+        }
+        QYL_debounceWrapper(func, delay = 500, maxWait = 1000) {
+            let QYL_timeout, QYL_lastCall = 0;
+            return (...args) => {
+                const now = Date.now();
+                clearTimeout(QYL_timeout);
+                
+                if (now - QYL_lastCall >= maxWait) {
+                    QYL_lastCall = now;
+                    func.apply(this, args);
+                } else {
+                    QYL_timeout = setTimeout(() => {
+                        QYL_lastCall = now;
+                        func.apply(this, args);
+                    }, delay);
+                }
+            };
+        }
+        QYL_handleResize = () => {
+            this.QYL_windowWidth = window.innerWidth;
+            this.QYL_debouncedUpdate();
+        }
+        QYL_handleVisibility = () => {
+            if (document.visibilityState === 'visible') {
+                this.QYL_scheduleRecovery();
+            }
+        }
+        async QYL_init() {
+            try {
+                const { layout, status } = await this.QYL_elementDetector();
+                this.QYL_layout = layout;
+                this.QYL_status = status;               
+                this.QYL_debouncedUpdate = this.QYL_debounceWrapper(this.QYL_calculatePosition.bind(this));
+                window.addEventListener('resize', this.QYL_handleResize, { passive: true });
+                window.addEventListener('scroll', this.QYL_debouncedUpdate, { passive: true });
+                document.addEventListener('visibilitychange', this.QYL_handleVisibility);           
+                this.QYL_observer = new ResizeObserver(entries => {
+                    if (entries.some(entry => entry.target.isConnected)) {
+                        this.QYL_debouncedUpdate();
+                    }
+                });
+                this.QYL_observer.observe(this.QYL_layout);
+                requestAnimationFrame(() => this.QYL_calculatePosition());
+                this.QYL_isActive = true;
+            } catch (error) {
+                console.error('QYL Init Failed:', error);
+                this.QYL_scheduleRecovery();
+            }
+        }
+        QYL_validateElements() {
+            const isValid = [this.QYL_layout, this.QYL_status].every(
+                el => el?.isConnected
+            );
+            !isValid && console.warn('QYL Elements Missing');
+            return isValid;
+        }
+        QYL_scheduleRecovery() {
+            if (!this.QYL_isActive) return;
+            
+            console.log('QYL Attempting Recovery...');
+            QYL_retryCount = 0;
+            setTimeout(() => {
+                this.QYL_cleanup();
+                this.QYL_init();
+            }, 2000);
+        }
+        QYL_cleanup() {
+            window.removeEventListener('resize', this.QYL_handleResize);
+            window.removeEventListener('scroll', this.QYL_debouncedUpdate);
+            document.removeEventListener('visibilitychange', this.QYL_handleVisibility);
+            
+            this.QYL_observer?.disconnect();
+            this.QYL_isActive = false;
+        }
+    }
+    return {
+        QYL_getInstance: () => {
+            if (!this.QYL_instance) {
+                this.QYL_instance = new QYLCoreManager();
+            }
+            return this.QYL_instance;
+        },
+        QYL_destroy: () => {
+            this.QYL_instance?.QYL_cleanup();
+            this.QYL_instance = null;
+        }
+    };
+})();
+const QYLInitialize = () => {
+    const init = () => {
+        if (document.querySelector('#layouts') && document.getElementById('status')) {
+            QYLStatusPositionManager.QYL_getInstance();
+        } else {
+            console.warn('QYL Required Elements Missing');
+        }
+    };
+    if (document.readyState !== 'loading') {
+        init();
+    } else {
+        document.addEventListener('DOMContentLoaded', init);
+    }
+};
+QYLInitialize();
+window.addEventListener('beforeunload', () => {
+    QYLStatusPositionManager.QYL_destroy();
+});
