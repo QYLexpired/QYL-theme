@@ -31,38 +31,96 @@ async function getFile(path) {
     });
 }
 
-
+// 自定义属性css
+function applyCustomCSS() {
+    const elements = document.querySelectorAll('div[custom-css]');
+    const cssRules = [];
+    elements.forEach(element => {
+      const cssValue = element.getAttribute('custom-css');
+      const nodeId = element.getAttribute('data-node-id');
+      
+      if (nodeId && cssValue) {
+        cssRules.push(`div[data-node-id="${nodeId}"] { ${cssValue} }`);
+      }
+    });
+    const existingStyle = document.getElementById('dynamic-custom-css');
+    if (existingStyle) existingStyle.remove();
+    
+    const style = document.createElement('style');
+    style.id = 'dynamic-custom-css';
+    style.textContent = cssRules.join('\n');
+    document.head.appendChild(style);
+  }
+  const debouncedApplyCSS = debounce(applyCustomCSS, 100);
+  const observerConfig = {
+    attributes: true,
+    attributeFilter: ['custom-css', 'data-node-id'],
+    subtree: true
+  };
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+      if (
+        mutation.type === 'attributes' && 
+        (mutation.attributeName === 'custom-css' || mutation.attributeName === 'data-node-id')
+      ) {
+        debouncedApplyCSS();
+      }
+    });
+  });
+  observer.observe(document.body, observerConfig);
+  applyCustomCSS();
+  function debounce(fn, delay) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn.apply(this, args), delay);
+    };
+  }
 
 
 // 块提示
-document.addEventListener('selectionchange', function() {
+let cachedEditor = null;
+let lastHighlightedElement = null;
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments, context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+function handleSelection() {
     const selection = window.getSelection();
-    if (selection.rangeCount > 0) {
-        const range = selection.getRangeAt(0);
-        const node = range.startContainer;
-        let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-
-        // 向上查找编辑器容器
-        while (element && !element.classList.contains('protyle-wysiwyg')) {
-            element = element.parentElement;
-        }
-
-        if (element && element.classList.contains('protyle-wysiwyg')) {
-            // 清除所有高亮
-            const highlightedElements = element.querySelectorAll('.highlight');
-            highlightedElements.forEach(el => el.classList.remove('highlight'));
-
-            // 定位最近的带有 data-node-id 的元素
-            let targetElement = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-            targetElement = targetElement.closest('[data-node-id]');
-
-            // 验证目标元素在容器内
-            if (targetElement && element.contains(targetElement)) {
-                targetElement.classList.add('highlight');
-            }
-        }
+    if (selection.rangeCount === 0) return;
+    const range = selection.getRangeAt(0);
+    const node = range.startContainer;
+    const editor = getEditorContainer(node);
+    if (!editor) return;
+    if (lastHighlightedElement) {
+        lastHighlightedElement.classList.remove('highlight');
+        lastHighlightedElement = null;
     }
-});
+    const targetElement = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement)
+        .closest('[data-node-id]');
+
+    if (targetElement && editor.contains(targetElement)) {
+        targetElement.classList.add('highlight');
+        lastHighlightedElement = targetElement;
+    }
+}
+function getEditorContainer(node) {
+    if (cachedEditor && cachedEditor.contains(node)) return cachedEditor;
+    let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+    while (element && !element.classList.contains('protyle-wysiwyg')) {
+        element = element.parentElement;
+    }
+    cachedEditor = element || cachedEditor;
+    return cachedEditor;
+}
+document.addEventListener('selectionchange', throttle(handleSelection, 100));
 
 
 // 添加Q按钮
@@ -1101,7 +1159,7 @@ function enablecanclefocusblockremind() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .p.highlight, .p.highlight:hover { box-shadow: none !important; transition: none !important; }
+        [data-node-id].highlight, [data-node-id].highlight:hover { box-shadow: none !important; transition: none !important; }
     `;
 }
 
@@ -2458,6 +2516,15 @@ function enableQYLinkmode() {
         padding: 1px 3.5px;
         white-space: nowrap;
         }
+        /* 适配垂直页签 */
+        #QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
+            border: 2px solid var(--b3-theme-primary);
+            border-bottom: none;
+        }
+        #QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+            border: 2px solid var(--b3-theme-primary);
+            border-top: none;
+        }
     `;
 }
 
@@ -2585,18 +2652,28 @@ function enableQYLverticaltab() {
         let el = document.querySelector(selector);
         let depth = 0;
         const MAX_DEPTH = 20;
-        
         while (el && el.dataset.type !== 'wnd' && depth < MAX_DEPTH) {
           el = el.firstElementChild;
           depth++;
         }
         return el?.dataset.type === 'wnd' ? el : null;
-      }     
+      }  
       function QYLManageIdAssignment() {
         let observer = null;
         let reassignTimer = null;
         let globalObserver = null;
         const TARGET_ID = 'QYLverticalthe1';
+        const cleanup = () => {
+          globalObserver?.disconnect();
+          observer?.disconnect();
+          clearTimeout(reassignTimer);
+          const targetEl = document.getElementById(TARGET_ID);
+          if (targetEl) targetEl.removeAttribute('id');
+          window.removeEventListener('beforeunload', beforeUnloadHandler);
+        };
+        const beforeUnloadHandler = () => cleanup();
+        window.addEventListener('beforeunload', beforeUnloadHandler);
+      
         const QYLAssignId = (() => {
           let debounceTimer;
           return () => {
@@ -2607,14 +2684,11 @@ function enableQYLverticaltab() {
               if (observer) {
                 observer.disconnect();
                 observer = null;
-              }
-      
+              }     
               if (el) {
                 if (el.id !== TARGET_ID) {
                   const oldEl = document.getElementById(TARGET_ID);
-                  if (oldEl && oldEl !== el) {
-                    oldEl.removeAttribute('id');
-                  }
+                  if (oldEl && oldEl !== el) oldEl.removeAttribute('id');
                   el.id = TARGET_ID;
                 }
                 const parent = el.parentElement;
@@ -2635,45 +2709,27 @@ function enableQYLverticaltab() {
               }
             }, 30);
           };
-        })();
+        })();     
         const initObserver = () => {
-          const container = document.querySelector('#layouts');
-          if (container) {
-            globalObserver = new MutationObserver(() => {
-              if (!document.getElementById(TARGET_ID)) {
-                QYLAssignId();
-              }
-            });      
-            globalObserver.observe(container, {
-              childList: true,
-              subtree: true,
-              attributes: false,
-              characterData: false
-            });
-          } else {
-            globalObserver = new MutationObserver(() => {
-              if (!document.getElementById(TARGET_ID)) {
-                QYLAssignId();
-              }
-            });
-            globalObserver.observe(document.body, {
-              childList: true,
-              subtree: true,
-              attributes: false,
-              characterData: false
-            });
-          }
-        };
+          let container = document.querySelector('#layouts .layout__center')?.parentElement;
+          if (!container) container = document.querySelector('#layouts') || document.body;
+      
+          globalObserver = new MutationObserver(() => {
+            if (!document.getElementById(TARGET_ID)) QYLAssignId();
+          });
+          globalObserver.observe(container, {
+            childList: true,
+            subtree: true,
+            attributes: false,
+            characterData: false
+          });
+        };     
         QYLAssignId();
         initObserver();
-        window.addEventListener('beforeunload', () => {
-          globalObserver?.disconnect();
-          observer?.disconnect();
-          clearTimeout(reassignTimer);
-        });
+        window.QYL_CLEANUP = cleanup;
       }
       QYLManageIdAssignment();
-    
+
     let styleSheet = document.getElementById("QYLverticaltab-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
@@ -2743,6 +2799,10 @@ function enableQYLverticaltab() {
 
 // 关闭垂直页签
 function disableQYLverticaltab() {
+    //停止监听
+    window.QYL_CLEANUP?.();
+    window.QYL_CLEANUP = null;
+
     const styleSheet = document.getElementById("QYLverticaltab-style");
     if (styleSheet) {
         styleSheet.innerText = '';
