@@ -2,7 +2,7 @@
     --QYL-hover: rgba(255, 182, 211, 0.5); /* 主要悬停色 */
     --QYL-hover-hover: rgba(255, 182, 211, 0.6);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(255, 182, 211, 0.2);/* 主要悬停色变浅 */
-    --b3-theme-primary: rgb(244, 139, 181); 
+    --b3-theme-primary: rgb(244, 139, 181) !important; 
     --b3-theme-primary-light: rgba(244, 139, 181, 0.6); /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(244, 139, 181, 0.4); /* 主色0.3透明度 */
     --b3-theme-primary-lightest: rgba(244, 139, 181, 0.15); /* 主色0.1透明度 */
