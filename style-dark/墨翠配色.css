@@ -18,7 +18,7 @@
     --QYL-hover: rgba(61, 99, 52, 0.6); /* 主要悬停色 */
     --QYL-hover-hover: rgba(61, 99, 52, 0.7);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(61, 99, 52, 0.1);/* 主要悬停色变浅 */
-    --b3-theme-primary: #528450; 
+    --b3-theme-primary: #528450 !important; 
     --b3-theme-primary-light: rgba(82, 132, 80, 0.514);; /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(82, 132, 80, 0.3); /* 主色0.3透明度 */
     --b3-theme-primary-lightest: rgba(82, 132, 80, 0.12); /* 主色0.1透明度 */

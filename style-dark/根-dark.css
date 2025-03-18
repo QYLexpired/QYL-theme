@@ -46,16 +46,16 @@
     --QYL-markcloze-bottom: rgba(60, 172, 78, 0.8);
 
     /* 圆角矩形 */
-    --b3-border-radius: 6px;
+    --b3-border-radius: 8px;
     --b3-border-radius-b: 10px;
     --b3-border-radius-q: 12px;
     
     /* 动画效果 */
-    --b3-transition: 0.2s ease-in-out;
     --b3-transition-slow: 0.4s ease-in-out;
-    --b3-width-transition: width 0.2s ease-in-out;
-    --b3-color-transition: color 0.2s ease-in-out;
-    --b3-background-transition: background 0.2s ease-in-out;
+    --b3-transition: all .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-width-transition: width .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-color-transition: color .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-background-transition: background 20ms ease-in 0s;
 
     /* PDF */
     --b3-pdf-selection: #94ff71;
