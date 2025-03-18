@@ -1,0 +1,253 @@
+:root {
+    /* 主色 */
+    --b3-theme-primary-lightest: rgba(53, 115, 240, .24);
+    --b3-theme-background: #1e1e1e;
+    --b3-theme-background-light: rgba(255, 255, 255, .075);
+    --b3-theme-surface: #262626;
+    --b3-theme-surface-light: rgba(41, 42, 45, .86);
+    --b3-theme-surface-lighter: rgba(230, 230, 230, .06);
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #fff;
+    --b3-theme-on-secondary: #fff;
+    --b3-theme-on-background: #dadada;
+    --b3-theme-on-surface: #9aa0a6;
+    --b3-theme-on-surface-light: #bababa;
+    --b3-theme-on-error: #fff;
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
+}
+:root {
+    --QYL-hover: rgba(50, 75, 185, 0.5); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(50, 75, 185, 0.65);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(50, 75, 185, 0.2);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: #4674c9; 
+    --b3-theme-primary-light: rgba(70, 116, 201, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(70, 116, 201, 0.35); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(70, 116, 201, 0.25); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
+    --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
+    --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-blur-background: #292929; /* 失焦颜色 */
+    --QYL-filter-background-forQsettings: var(--b3-theme-background);
+    --b3-protyle-code-background: rgba(0, 0, 0, 0.3); /* 行内代码背景色 */
+    --QYL-markcloze-bottom: rgba(60, 172, 78, 0.8);
+
+    /* 圆角矩形 */
+    --b3-border-radius: 6px;
+    --b3-border-radius-b: 10px;
+    --b3-border-radius-q: 12px;
+    
+    /* 动画效果 */
+    --b3-transition: 0.2s ease-in-out;
+    --b3-transition-slow: 0.4s ease-in-out;
+    --b3-width-transition: width 0.2s ease-in-out;
+    --b3-color-transition: color 0.2s ease-in-out;
+    --b3-background-transition: background 0.2s ease-in-out;
+
+    /* PDF */
+    --b3-pdf-selection: #94ff71;
+    --sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: #ffc3c3;
+    --b3-pdf-background2: #ffcba5;
+    --b3-pdf-background3: #ffda83;
+    --b3-pdf-background4: #b1eda2;
+    --b3-pdf-background5: #85efe6;
+    --b3-pdf-background6: #a3d3ff;
+    --b3-pdf-background7: #f3c5ff;
+    --b3-pdf-dark: #292a2b;
+
+    /* 卡片背景 */
+    --b3-card-error-color: rgb(243, 153, 147);
+    --b3-card-error-background: #442724;
+    --b3-card-warning-color: rgb(255, 213, 153);
+    --b3-card-warning-background: #554636;
+    --b3-card-info-color: rgb(166, 213, 250);
+    --b3-card-info-background: #28405c;
+    --b3-card-success-color: rgb(183, 223, 185);
+    --b3-card-success-background: #425347;
+
+    /* 自定义文字 */
+    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color2: var(--b3-card-warning-color);
+    --b3-font-color3: var(--b3-card-info-color);
+    --b3-font-color4: var(--b3-card-success-color);
+    --b3-font-color5: #9aa0a6;
+    --b3-font-color6: #3573f0;
+    --b3-font-color7: #f3a92f;
+    --b3-font-color8: #d23f31;
+    --b3-font-color9: #f5539e;
+    --b3-font-color10: #00eeff;
+    --b3-font-color11: #74ff00;
+    --b3-font-color12: #fff200;
+    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: #4c5257;
+    --b3-font-background6: #08296c;
+    --b3-font-background7: #593905;
+    --b3-font-background8: #541812;
+    --b3-font-background9: #843473;
+    --b3-font-background10: #329096;
+    --b3-font-background11: #568b2a;
+    --b3-font-background12: #8d8829;
+    --b3-font-background13: var(--b3-theme-on-background);
+}
+:root {
+    --QYL-filter-background-theme: rgba(26, 26, 26, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(42, 42, 42, 0.6);
+    --QYL-filter-fix-background-theme: rgba(26, 26, 26, 0.8);
+}
+:root {
+    --b3-highlight-background: var(--b3-theme-primary) !important;
+    --b3-highlight-color: var(--QYL-white) !important;
+    --b3-highlight-current-background: var(--b3-theme-primary) !important;
+}
+:root {
+    --QYL-h1: #d24e4e;
+    --QYL-h2: #eaa263;
+    --QYL-h3: #5fc070;
+    --QYL-h4: #589ecd;
+    --QYL-h5: #8c5fbc;
+    --QYL-h6: #b367b8;
+    --QYL-h1-fold: rgba(210, 78, 78, 0.4);
+    --QYL-h1-fold-background: rgba(210, 78, 78, 0.1);
+    --QYL-h2-fold: rgba(234, 162, 99, 0.4);
+    --QYL-h2-fold-background: rgba(234, 162, 99, 0.1);
+    --QYL-h3-fold: rgba(95, 192, 113, 0.4);
+    --QYL-h3-fold-background: rgba(95, 192, 113, 0.1);
+    --QYL-h4-fold: rgba(88, 158, 205, 0.4);
+    --QYL-h4-fold-background: rgba(88, 158, 205, 0.1);
+    --QYL-h5-fold: rgba(140, 95, 188, 0.4);
+    --QYL-h5-fold-background: rgba(140, 95, 188, 0.1);
+    --QYL-h6-fold: rgba(179, 103, 184, 0.4);
+    --QYL-h6-fold-background: rgba(179, 103, 184, 0.1);
+}
+:root {
+    --QYL-link: rgb(88, 154, 229);
+    --QYL-link-background: rgba(124, 166, 215, 0.2);
+    --QYL-ref: rgb(170, 117, 197);
+    --QYL-ref-background: rgba(180, 149, 195, 0.2);
+    --QYL-PDFmark: rgb(98, 176, 98);
+    --QYL-PDFmark-background: rgba(64, 171, 64, 0.2);
+}
+:root {
+    --QYL-blockquote: rgb(173, 173, 173);
+    --QYL-blockquote-background: rgb(48, 48, 48);
+    --QYL-blockquote-svg: rgb(111, 111, 111);
+    --QYL-task-block: var(--b3-theme-primary);
+    --QYL-task-done: rgb(167, 167, 167);
+    --QYL-coloful-block-red: #cc4b58;
+    --QYL-coloful-block-red-background: rgba(217, 141, 149, 0.3);
+    --QYL-coloful-block-orange: #c78651;
+    --QYL-coloful-block-orange-background: rgba(202, 151, 131, 0.3);
+    --QYL-coloful-block-green: #6ec170;
+    --QYL-coloful-block-green-background: rgba(140, 210, 145, 0.3);
+    --QYL-coloful-block-blue: #52a6d3;
+    --QYL-coloful-block-blue-background: rgba(98, 177, 219, 0.3);
+    --QYL-coloful-block-purple: #b97dd3;
+    --QYL-coloful-block-purple-background: rgba(208, 170, 220, 0.3);
+    --QYL-coloful-block-pink: rgb(227, 140, 172);
+    --QYL-coloful-block-pink-background: rgba(220, 150, 175, 0.3);
+}
+:root {
+    --QYL-av-cell: var(--b3-theme-primary);
+    --QYL-av-cell-background: var(--b3-theme-primary-lightest);
+    --QYL-av-cell-hover: var(--QYL-white);
+    --QYL-av-cell-background-hover: var(--b3-theme-primary);
+    --QYL-av-chip-color1: var(--b3-theme-on-background);
+    --QYL-av-chip-color2: var(--b3-theme-on-background);
+    --QYL-av-chip-color3: var(--b3-theme-on-background);
+    --QYL-av-chip-color4: var(--b3-theme-on-background);
+    --QYL-av-chip-color5: var(--b3-theme-on-background);
+    --QYL-av-chip-color6: var(--b3-theme-on-background);
+    --QYL-av-chip-color7: var(--b3-theme-on-background);
+    --QYL-av-chip-color8: var(--b3-theme-on-background);
+    --QYL-av-chip-color9: rgb(180, 73, 73);
+    --QYL-av-chip-color10: rgb(218, 116, 73);
+    --QYL-av-chip-color11: rgb(79, 179, 79);
+    --QYL-av-chip-color12: rgb(93, 133, 218);
+    --QYL-av-chip-color13: rgb(35, 35, 35);
+    --QYL-av-chip-color14: rgb(142, 87, 174);
+    --QYL-av-chip-background1: rgba(205, 63, 63, 0.5);
+    --QYL-av-chip-background2: rgba(225, 137, 74, 0.5);
+    --QYL-av-chip-background3: rgba(189, 189, 34, 0.55);
+    --QYL-av-chip-background4: rgba(77, 227, 69, 0.5);
+    --QYL-av-chip-background5: rgba(69, 222, 207, 0.5);
+    --QYL-av-chip-background6: rgba(70, 140, 198, 0.5);
+    --QYL-av-chip-background7: rgba(138, 101, 224, 0.5);
+    --QYL-av-chip-background8: rgba(207, 108, 210, 0.5);
+    --QYL-av-chip-background9: rgba(210, 76, 76, 0.3);
+    --QYL-av-chip-background10: rgba(215, 101, 56, 0.3);
+    --QYL-av-chip-background11: rgba(53, 216, 53, 0.3);
+    --QYL-av-chip-background12: rgba(51, 87, 207, 0.3);
+    --QYL-av-chip-background13: rgba(255, 255, 255, 0.6);
+    --QYL-av-chip-background14: rgba(177, 96, 217, 0.3);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to top, #00103b, #0c0d35, #130930, #18062a, #1a0325, #1b0220, #1b011b, #1a0017, #170011, #13000a, #0b0004, #000000);
+    --QYL-account-background2: linear-gradient(to top, #3f0000, #3a0a00, #331200, #2d1700, #271b00, #221b00, #1e1a00, #1a1900, #161500, #101000, #0a0a00, #020200);
+}
+:root {
+    --QYL-switch-close: var(--QYL-gray);
+    --QYL-switch-close-background: rgb(130, 130, 130);
+    --QYL-input-border: var(--QYL-gray);
+    --QYL-input-border-hover: var(--b3-theme-primary);
+    --b3-switch-checked-background: var(--b3-theme-primary);
+    --b3-switch-checked: var(--QYL-gray);
+    --QYL-label-hover: var(--QYL-gray);
+    --QYL-select-background: var(--b3-theme-background);
+}
+:root {
+    --QYL-flashcard-type1-background: rgba(167, 45, 45, 0.6);
+    --QYL-flashcard-type2-background: rgba(191, 107, 33, 0.6);
+    --QYL-flashcard-type3-background: rgba(35, 120, 210, 0.6);
+    --QYL-flashcard-type4-background: rgba(47, 155, 31, 0.6);
+}
+:root {
+    --QYL-custom-red: rgba(196, 49, 49, 0.7);
+    --QYL-custom-red-background: rgba(196, 49, 49, 0.3);
+    --QYL-custom-orange: rgba(236, 125, 61, 0.7);
+    --QYL-custom-orange-background: rgba(213, 112, 54, 0.3);
+    --QYL-custom-yellow: rgba(255, 242, 59, 0.7);
+    --QYL-custom-yellow-background: rgba(255, 242, 59, 0.3);
+    --QYL-custom-green: rgba(46, 174, 46, 0.7);
+    --QYL-custom-green-background: rgba(38, 195, 38, 0.3);
+    --QYL-custom-cyan: rgba(34, 184, 169, 0.7);
+    --QYL-custom-cyan-background: rgba(34, 184, 169, 0.3);
+    --QYL-custom-blue: rgba(34, 85, 178, 0.7);
+    --QYL-custom-blue-background: rgba(34, 85, 178, 0.3);
+    --QYL-custom-purple: rgba(131, 75, 168, 0.7);
+    --QYL-custom-purple-background: rgba(117, 37, 171, 0.3);
+    --QYL-custom-pink: rgba(213, 64, 126, 0.7);
+    --QYL-custom-pink-background: rgba(186, 67, 117, 0.3);
+    --QYL-custom-black: rgba(75, 75, 75, 0.7);
+    --QYL-custom-black-background: rgba(94, 94, 94, 0.2);
+    --QYL-custom-gray: rgba(168, 168, 168, 0.7);
+    --QYL-custom-gray-background: rgba(202, 202, 202, 0.3);
+}
+:root {
+    --filetree-line-1: var(--b3-theme-primary-lighter);
+    --filetree-line-2: var(--b3-theme-primary-lighter);
+    --filetree-line-3: var(--b3-theme-primary-lighter);
+    --filetree-line-4: var(--b3-theme-primary-lighter);
+    --filetree-line-5: var(--b3-theme-primary-lighter);
+    --filetree-line-6: var(--b3-theme-primary-lighter);
+    --filetree-line-7: var(--b3-theme-primary-lighter);
+    --filetree-line-8: var(--b3-theme-primary-lighter);
+}
