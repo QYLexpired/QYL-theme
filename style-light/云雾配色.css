@@ -1,0 +1,37 @@
+:root {
+    --QYL-hover: rgba(197, 197, 197, 0.6); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(197, 197, 197, 0.7);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(197, 197, 197, 0.2);/* 主要悬停色变浅 */
+    --b3-theme-primary: rgb(66, 66, 66); 
+    --b3-theme-primary-light: rgba(107, 107, 107, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(107, 107, 107, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(107, 107, 107, 0.1); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-theme-surface: rgb(221, 221, 221);
+    --b3-theme-surface-light: rgba(221, 221, 221, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter: rgba(200, 200, 200, 0.5);
+    --b3-theme-background: #ebebeb;
+    --b3-theme-background-light:rgb(212, 212, 212); /* 编辑器较多加深（不透明） */
+    --b3-toolbar-blur-background: rgb(237, 237, 237); /* 失焦颜色 */
+    --b3-scroll-color: rgb(223, 223, 223); /* 滚动条颜色 */
+}
+:root {
+    --QYL-blockquote: rgb(124, 124, 124);
+    --QYL-blockquote-background: rgb(219, 219, 219);
+    --QYL-blockquote-svg: rgb(183, 183, 183);
+}
+:root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: rgb(208, 208, 208);
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover: rgb(66, 66, 66);
+}
+:root {
+    --QYL-filter-background-theme: rgba(232, 232, 232, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(246, 246, 246, 0.6);
+    --QYL-filter-fix-background-theme: rgba(221, 221, 221, 0.8);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
+    --QYL-account-background2: linear-gradient(to top, #c7c7c7, #cacaca, #cccccc, #cfcfcf, #d2d2d2, #d5d5d5, #d7d7d7, #dadada, #dddddd, #e0e0e0, #e3e3e3, #e6e6e6);
+}
