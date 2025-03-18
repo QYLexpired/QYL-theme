@@ -1,0 +1,89 @@
+/* 自定义块属性h-style */
+[custom-h-style="多彩"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="多彩"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    background: -webkit-linear-gradient(135deg,#0eaf6d,#ff6ac6 25%,#147b96 50%,#e6d205 55%,#2cc4e0 60%,#8b2ce0 80%,#ff6384 95%,#08dfb4);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    animation: hcolorful 8s infinite linear;
+}
+@keyframes hcolorful {
+    0% { background-position: 0 0; }
+    100% { background-position: -400% 0; }
+}
+[custom-h-style="金箔"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="金箔"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    background-image: url('../img/金箔.png') !important;  
+    -webkit-background-clip: text !important; 
+    color: transparent !important;
+    background-size: contain !important;
+}
+[custom-h-style="下划线"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="下划线"] :is(.h1, .h2, .h3, .h4, .h5, .h6){
+    border-radius: 0px;
+    border-bottom: 3px solid;
+}
+[custom-h-style="层级"].h1:before, [custom-h-style="层级"] .h1:before {
+    content: "";
+    position: absolute;
+    left: -13px;
+    top: 16px;
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    mask: url('../img/一级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/一级标题.svg') no-repeat center / contain;
+    pointer-events: none;
+}
+[custom-h-style="层级"].h2:before, [custom-h-style="层级"] .h2:before  {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 17px;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    mask: url('../img/二级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/二级标题.svg') no-repeat center / contain;
+}
+[custom-h-style="层级"].h3:before, [custom-h-style="层级"] .h3:before  {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    mask: url('../img/三级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/三级标题.svg') no-repeat center / contain;
+}
+[custom-h-style="层级"].h4:before, [custom-h-style="层级"] .h4:before  {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    mask: url('../img/四级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/四级标题.svg') no-repeat center / contain;
+}
+[custom-h-style="层级"].h5:before, [custom-h-style="层级"] .h5:before  {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 13px;
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    mask: url('../img/五级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/五级标题.svg') no-repeat center / contain;
+}
+[custom-h-style="层级"].h6:before, [custom-h-style="层级"] .h6:before  {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    background-color: currentColor;
+    mask: url('../img/六级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/六级标题.svg') no-repeat center / contain;
+}

@@ -1,0 +1,41 @@
+/* 退出聚焦 */
+.protyle-breadcrumb button[data-type="exit-focus"] {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+    height: 22px;
+    line-height: 0px;
+    padding: 0px 5px !important;
+    border: 1.5px solid var(--b3-theme-primary);
+    transition: var(--b3-transition);
+    background-color: rgba(255, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background-color: rgba(255,255,255,0.5);
+      height: 100%;
+      width: 1em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+    &:hover {
+      background-color: var(--b3-theme-primary);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+     }
+    }
+    &:focus {
+      background-color: var(--b3-theme-primary);
+      color: #fff;
+      &:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: var(--b3-transition-slow);
+      }
+    }
+}

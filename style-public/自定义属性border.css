@@ -1,0 +1,47 @@
+/* 自定义块属性border */
+[custom-border="默认"] {
+    border: none;
+}
+[custom-border="黑色"] {
+    border: 0.5px solid var(--QYL-black);
+}
+[custom-border="灰色"] {
+    border: 0.5px solid var(--QYL-gray);
+}
+[custom-border="灰色虚线"] {
+    border: 0.5px dashed var(--QYL-gray);
+}
+[custom-border="黑色虚线"] {
+    border: 0.5px dashed var(--QYL-black);
+}
+[custom-border="立体"] {
+    box-shadow: var(--b3-dialog-shadow);
+}
+[custom-border="红色"] {
+    border: 0.5px solid red;
+}
+[custom-border="红色虚线"] {
+    border: 0.5px dashed red;
+}
+/* 自定义块属性img-border */
+[custom-img-border="图片立体"] img {
+    box-shadow: var(--b3-dialog-shadow);
+}
+
+/* 自定义块属性border-radius */
+[custom-border-radius="默认"] {
+    border-radius: var(--b3-border-radius);
+}
+[custom-border-radius="矩形"] {
+    border-radius: 0px;
+}
+[custom-border-radius="圆润"] {
+    border-radius: 25px;
+}
+/* 自定义块属性img-border-radius */
+[custom-border-radius="图片圆角"] img {
+    border-radius: var(--b3-border-radius);
+}
+[custom-img-border-radius="图片圆润"] img {
+    border-radius: 25px;
+}

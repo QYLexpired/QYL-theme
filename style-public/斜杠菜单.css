@@ -1,0 +1,35 @@
+/* 斜杠菜单展开 */
+@media screen and (min-width: 1292px) {
+    .protyle-hint.hint--menu {
+        width:75vw;
+        max-width: 84em;
+        max-height: 65vh;
+        border: none;
+    }
+
+    .protyle-hint.hint--menu>div {
+        -moz-column-width: 12em;
+        column-width: 12em;
+        -moz-column-gap: 4px;
+        column-gap: 4px;
+        -moz-column-rule: 1px solid var(--b3-border-color-trans);
+        column-rule: 1px solid var(--b3-border-color-trans);
+    }
+
+    .protyle-hint.hint--menu>div .b3-list-item .b3-list-item__text {
+        width: -moz-max-content;
+        width: max-content;
+        margin-right: 4px
+    }
+
+    .protyle-hint.hint--menu>div button:nth-child(-n+3 of .b3-menu__separator),.protyle-hint.hint--menu>div button:nth-child(5 of .b3-menu__separator) {
+        -moz-column-break-before: column;
+        break-before: column;
+        background-color: rgba(0,0,0,0);
+        margin-bottom: -2px;
+    }
+
+    .protyle-hint.hint--menu>.emojis {
+        min-width: 100%
+    }
+}

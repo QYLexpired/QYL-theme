@@ -1,0 +1,24 @@
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
+    border-radius: var(--b3-border-radius);
+    border: none;
+    padding: 3px 5px;
+    font-size: 80%;
+    color: var(--QYL-white);
+    background-color: var(--b3-theme-primary);
+    transition: var(--b3-transition);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n))::before {
+    content: '';
+    display: inline-block;
+    width: 0.4em;
+    height: 0.4em;
+    top: -0.08em;
+    border-radius: 50%;
+    background-color: var(--QYL-white);
+    margin-right: 0.4em;
+    position: relative;
+    vertical-align: middle;
+}
+:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
+    color: var(--b3-theme-primary);
+}
