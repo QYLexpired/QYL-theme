@@ -6,37 +6,31 @@ window.theme.themeMode = (() => {
         default: return 'light';
     }
 })();
-window.theme.ID = {
-    CSS: 'QYL-theme-style',
-    JS: 'QYL-theme-script'
-};
 
-window.theme.loadThemeAssets = () => {
-    const isLight = window.theme.themeMode === 'light';
-    const basePath = "/appearance/themes/QYL-theme/";
-    const filePrefix = isLight ? "QYL-theme" : "QYL-dark";
+(function loadThemeResources() {
+    const themePath = '/appearance/themes/QYL-theme/';
+    const themeStyleID = 'themeStyle';
 
-    const cssLink = document.getElementById(window.theme.ID.CSS);
-    const cssPath = `${basePath}${filePrefix}.css`;
-    if (cssLink) {
-        cssLink.href = cssPath;
+    const existingScripts = document.querySelectorAll(`script[src^="${themePath}QYL-"]`);
+    existingScripts.forEach(script => script.remove());
+
+    if (window.theme.themeMode === 'dark') {
+        const oldStyle = document.getElementById(themeStyleID);
+        if (oldStyle) oldStyle.remove();
+
+        const darkJS = document.createElement('script');
+        darkJS.src = `${themePath}QYL-dark.js`;
+        document.head.appendChild(darkJS);
+
+        const darkCSS = document.createElement('link');
+        darkCSS.id = themeStyleID;
+        darkCSS.rel = 'stylesheet';
+        darkCSS.href = `${themePath}QYL-dark.css`;
+        document.head.appendChild(darkCSS);
     } else {
-        const newCss = document.createElement('link');
-        newCss.id = window.theme.ID.CSS;
-        newCss.rel = 'stylesheet';
-        newCss.href = cssPath;
-        document.head.appendChild(newCss);
-    }
 
-    const jsScript = document.getElementById(window.theme.ID.JS);
-    const jsPath = `${basePath}${filePrefix}.js`;
-    if (jsScript) {
-        jsScript.parentElement.removeChild(jsScript);
+        const lightJS = document.createElement('script');
+        lightJS.src = `${themePath}QYL-light.js`;
+        document.head.appendChild(lightJS);
     }
-    const newJs = document.createElement('script');
-    newJs.id = window.theme.ID.JS;
-    newJs.src = jsPath;
-    document.head.appendChild(newJs);
-};
-
-window.theme.loadThemeAssets();
+})();
