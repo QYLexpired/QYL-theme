@@ -82,51 +82,6 @@ function debounce(fn, delay) {
     };
 }
 
-
-// 块提示
-let cachedEditor = null;
-let lastHighlightedElement = null;
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments, context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-function handleSelection() {
-    const selection = window.getSelection();
-    if (selection.rangeCount === 0) return;
-    const range = selection.getRangeAt(0);
-    const node = range.startContainer;
-    const editor = getEditorContainer(node);
-    if (!editor) return;
-    if (lastHighlightedElement) {
-        lastHighlightedElement.classList.remove('highlight');
-        lastHighlightedElement = null;
-    }
-    const targetElement = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement)
-        .closest('[data-node-id]');
-
-    if (targetElement && editor.contains(targetElement)) {
-        targetElement.classList.add('highlight');
-        lastHighlightedElement = targetElement;
-    }
-}
-function getEditorContainer(node) {
-    if (cachedEditor && cachedEditor.contains(node)) return cachedEditor;
-    let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-    while (element && !element.classList.contains('protyle-wysiwyg')) {
-        element = element.parentElement;
-    }
-    cachedEditor = element || cachedEditor;
-    return cachedEditor;
-}
-document.addEventListener('selectionchange', throttle(handleSelection, 100));
-
 // 添加Q按钮
 (function() {
     addThemeToolBar();
@@ -204,6 +159,7 @@ let isChecked17;
 let isChecked18;
 let isChecked19;
 let isChecked20;
+let isChecked21;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -317,7 +273,7 @@ function createSettingsWindow() {
 
     const label8 = document.createElement('label');
     label8.htmlFor = 'focusblockremind-checkbox';
-    label8.textContent = ' 关闭聚焦块高亮提示';
+    label8.textContent = ' 聚焦块高亮提示';
     label8.style.fontSize = '14px';
     label8.style.userSelect= 'none';
 
@@ -350,7 +306,7 @@ function createSettingsWindow() {
 
     const label11 = document.createElement('label');
     label11.htmlFor = 'QYLbancolofultag-checkbox';
-    label11.textContent = ' 关闭多彩标签和多彩行级代码';
+    label11.textContent = ' 多彩标签和多彩行级代码';
     label11.style.fontSize = '14px';
     label11.style.userSelect= 'none';
 
@@ -452,6 +408,17 @@ function createSettingsWindow() {
     label20.textContent = ' 垂直页签';
     label20.style.fontSize = '14px';
     label20.style.userSelect= 'none';
+
+    const checkbox21 = document.createElement('input');
+    checkbox21.type = 'checkbox';
+    checkbox21.id = 'QYLlcolorfulh-checkbox';
+    checkbox21.checked = isChecked21;
+
+    const label21 = document.createElement('label');
+    label21.htmlFor = 'QYLlcolorfulh-checkbox';
+    label21.textContent = ' 多彩标题和多彩大纲';
+    label21.style.fontSize = '14px';
+    label21.style.userSelect= 'none';
 
 
     // 将复选框和标签组合
@@ -575,6 +542,12 @@ function createSettingsWindow() {
     QYLfunctionpair20.appendChild(label20);
     QYLfunctionpair20.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair21 = document.createElement('div');
+    QYLfunctionpair21.className = 'checkbox-label-pair';
+    QYLfunctionpair21.appendChild(checkbox21);
+    QYLfunctionpair21.appendChild(label21);
+    QYLfunctionpair21.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -612,22 +585,24 @@ function createSettingsWindow() {
 
 
     // 将复选框和标签添加到设置窗口
-    settingsWindow.appendChild(QYLfunctionpair1);
-    settingsWindow.appendChild(QYLfunctionpair2);
-    settingsWindow.appendChild(QYLfunctionpair3);
-    settingsWindow.appendChild(QYLfunctionpair20);
-    settingsWindow.appendChild(QYLfunctionpairdivider1);
-    settingsWindow.appendChild(QYLfunctionpair4);
-    settingsWindow.appendChild(QYLfunctionpair5);
-    settingsWindow.appendChild(QYLfunctionpair8);
-    settingsWindow.appendChild(QYLfunctionpairdivider2);
-    settingsWindow.appendChild(QYLfunctionpair6);
-    settingsWindow.appendChild(QYLfunctionpair7);
-    settingsWindow.appendChild(QYLfunctionpair9);
-    settingsWindow.appendChild(QYLfunctionpairdivider3);
-    settingsWindow.appendChild(QYLfunctionpair10);
-    settingsWindow.appendChild(QYLfunctionpair11);
-    settingsWindow.appendChild(QYLfunctionpair18);
+
+    settingsWindow.appendChild(QYLfunctionpair10); //毛玻璃
+    settingsWindow.appendChild(QYLfunctionpair18); //墨水屏
+    settingsWindow.appendChild(QYLfunctionpair9); //动画
+    settingsWindow.appendChild(QYLfunctionpairdivider1);  
+    settingsWindow.appendChild(QYLfunctionpair3); //隐藏顶栏
+    settingsWindow.appendChild(QYLfunctionpair20);  //垂直页签
+    settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
+    settingsWindow.appendChild(QYLfunctionpairdivider3); 
+    settingsWindow.appendChild(QYLfunctionpair1); //标记挖空
+    settingsWindow.appendChild(QYLfunctionpair4); //鼠标悬停高亮
+    settingsWindow.appendChild(QYLfunctionpair5); //超级块高亮
+    settingsWindow.appendChild(QYLfunctionpair8); //聚焦块高亮 
+    settingsWindow.appendChild(QYLfunctionpairdivider2); 
+    settingsWindow.appendChild(QYLfunctionpair2); //缩进线
+    settingsWindow.appendChild(QYLfunctionpair11); //多彩标签
+    settingsWindow.appendChild(QYLfunctionpair21); //多彩标题
+    settingsWindow.appendChild(QYLfunctionpair7); //多彩文档树
     settingsWindow.appendChild(QYLfunctionpairdivider4);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
@@ -667,7 +642,8 @@ async function saveConfig() {
         isChecked17: checkbox17.checked,
         isChecked18: checkbox18.checked,
         isChecked19: checkbox19.checked,
-        isChecked20: checkbox20.checked
+        isChecked20: checkbox20.checked,
+        isChecked21: checkbox21.checked
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -733,10 +709,10 @@ checkbox5.addEventListener('change', async function() {
     }
 });
 
-// 关闭聚焦块高亮开关
+// 聚焦块高亮开关
 checkbox8.addEventListener('change', async function() {
     const state = this.checked;
-    state ? enablecanclefocusblockremind() : disablecanclefocusblockremind();
+    state ? enablefocusblockremind() : disablefocusblockremind();
     state ? isChecked8 = true : isChecked8 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
@@ -795,10 +771,10 @@ checkbox10.addEventListener('change', async function() {
 });
 
 
-// 关闭多彩标签和多彩行级代码开关
+// 多彩标签和多彩行级代码开关
 checkbox11.addEventListener('change', async function() {
     const state = this.checked;
-    state ? enablecancleQYLcolorfultag() : disablecancleQYLcolorfultag();
+    state ? enableQYLcolorfultag() : disableQYLcolorfultag();
     state ? isChecked11 = true : isChecked11 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
@@ -951,6 +927,18 @@ checkbox20.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLverticaltab() : disableQYLverticaltab();
     state ? isChecked20 = true : isChecked20 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 多彩标题和多彩大纲开关
+checkbox21.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLcolorfulh() : disableQYLcolorfulh();
+    state ? isChecked21 = true : isChecked21 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1158,24 +1146,69 @@ function disablehoverblockremind() {
     }
 }
 
-// 关闭聚焦块高亮
-function enablecanclefocusblockremind() {
-    let styleSheet = document.getElementById("canclefocusblockremind-style");
+// 聚焦块高亮
+function enablefocusblockremind() {
+    // 块提示
+    let cachedEditor = null;
+    let lastHighlightedElement = null;
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments, context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+    function handleSelection() {
+        const selection = window.getSelection();
+        if (selection.rangeCount === 0) return;
+        const range = selection.getRangeAt(0);
+        const node = range.startContainer;
+        const editor = getEditorContainer(node);
+        if (!editor) return;
+        if (lastHighlightedElement) {
+            lastHighlightedElement.classList.remove('highlight');
+            lastHighlightedElement = null;
+        }
+        const targetElement = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement)
+            .closest('[data-node-id]');
+
+        if (targetElement && editor.contains(targetElement)) {
+            targetElement.classList.add('highlight');
+            lastHighlightedElement = targetElement;
+        }
+    }
+    function getEditorContainer(node) {
+        if (cachedEditor && cachedEditor.contains(node)) return cachedEditor;
+        let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+        while (element && !element.classList.contains('protyle-wysiwyg')) {
+            element = element.parentElement;
+        }
+        cachedEditor = element || cachedEditor;
+        return cachedEditor;
+    }
+    document.addEventListener('selectionchange', throttle(handleSelection, 100));
+
+    let styleSheet = document.getElementById("focusblockremind-style");
     if (!styleSheet) {
         styleSheet = document.createElement("style");
-        styleSheet.id = "canclefocusblockremind-style";
+        styleSheet.id = "focusblockremind-style";
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        [data-node-id].highlight, [data-node-id].highlight:hover { box-shadow: none !important; transition: none !important; }
     `;
 }
 
-// 取消关闭聚焦块高亮
-function disablecanclefocusblockremind() {
-    const styleSheet = document.getElementById("canclefocusblockremind-style");
+// 取消聚焦块高亮
+function disablefocusblockremind() {
+    const styleSheet = document.getElementById("focusblockremind-style");
     if (styleSheet) {
-        styleSheet.innerText = '';
+        styleSheet.innerText = `
+            [data-node-id].highlight, [data-node-id].highlight:hover { box-shadow: none !important; transition: none !important; }
+        `;
     }
 }
 
@@ -1307,20 +1340,20 @@ function disableQYLAreo() {
 }
 
 
-// 关闭多彩标签和多彩行级代码
-function enablecancleQYLcolorfultag() {
+// 多彩标签和多彩行级代码
+function enableQYLcolorfultag() {
     let linkElement = document.getElementById("QYLcolorfultag-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
         linkElement.id = "QYLcolorfultag-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/QYL-theme/style-public/关闭多彩标签和多彩代码.css";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/多彩标签和多彩代码.css";
         document.head.appendChild(linkElement);
     }
 }
 
-// 取消关闭多彩标签和多彩行级代码
-function disablecancleQYLcolorfultag() {
+// 多彩标签和多彩行级代码
+function disableQYLcolorfultag() {
     const linkElement = document.getElementById("QYLcolorfultag-style");
     if (linkElement) {
         linkElement.remove();
@@ -1500,6 +1533,26 @@ function disableQYLshuanghe() {
     }
 }
 
+// 开启多彩标题和多彩大纲
+function enableQYLcolorfulh() {
+    let linkElement = document.getElementById("QYLcolorfulh-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLcolorfulh-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/多彩标题-light.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭多彩标题和多彩大纲
+function disableQYLcolorfulh() {
+    const linkElement = document.getElementById("QYLcolorfulh-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
 // 开启垂直页签
 function enableQYLverticaltab() {
     //寻找第一个wnd,添加#QYLverticalthe1并监听
@@ -1658,10 +1711,10 @@ async function loadAndCheckConfig() {
         }
 
         if (config?.isChecked8 === true) {
-            enablecanclefocusblockremind();
+            enablefocusblockremind();
             isChecked8 = true;
         } else if (config?.isChecked8 === false) {
-            disablecanclefocusblockremind();
+            disablefocusblockremind();
             isChecked8 = false;
         }
 
@@ -1698,10 +1751,10 @@ async function loadAndCheckConfig() {
         }
 
         if (config?.isChecked11 === true) {
-            enablecancleQYLcolorfultag();
+            enableQYLcolorfultag();
             isChecked11 = true;
         } else if (config?.isChecked11 === false) {
-            disablecancleQYLcolorfultag();
+            disableQYLcolorfultag();
             isChecked11 = false;
         }
 
@@ -1775,6 +1828,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked20 === false) {
             disableQYLverticaltab();
             isChecked20 = false;
+        }
+
+        if (config?.isChecked21 === true) {
+            enableQYLcolorfulh();
+            isChecked21 = true;
+        } else if (config?.isChecked21 === false) {
+            disableQYLcolorfulh();
+            isChecked21 = false;
         }
 
     } catch (e) {
