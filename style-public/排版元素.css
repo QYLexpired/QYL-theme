@@ -43,23 +43,8 @@
     background-color: rgba(255, 0, 0, 0);
 }
 /* 行级代码 */
-.fn__code:nth-of-type(6n+1), .b3-typography code:not(.hljs):nth-of-type(6n+1),.b3-typography span[data-type~=code]:nth-of-type(6n+1),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+1),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+1) {
-    color: var(--QYL-coloful-block-red);
-}
-.fn__code:nth-of-type(6n+2), .b3-typography code:not(.hljs):nth-of-type(6n+2),.b3-typography span[data-type~=code]:nth-of-type(6n+2),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+2),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+2) {
-    color: var(--QYL-coloful-block-orange);
-}
-.fn__code:nth-of-type(6n+3), .b3-typography code:not(.hljs):nth-of-type(6n+3),.b3-typography span[data-type~=code]:nth-of-type(6n+3),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+3),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+3) {
-    color: var(--QYL-coloful-block-green);
-}
-.fn__code:nth-of-type(6n+4), .b3-typography code:not(.hljs):nth-of-type(6n+4),.b3-typography span[data-type~=code]:nth-of-type(6n+4),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+4),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+4) {
-    color: var(--QYL-coloful-block-blue);
-}
-.fn__code:nth-of-type(6n+5), .b3-typography code:not(.hljs):nth-of-type(6n+5),.b3-typography span[data-type~=code]:nth-of-type(6n+5),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+5),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+5) {
-    color: var(--QYL-coloful-block-purple);
-}
-.fn__code:nth-of-type(6n+6), .b3-typography code:not(.hljs):nth-of-type(6n+6),.b3-typography span[data-type~=code]:nth-of-type(6n+6),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+6),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+6) {
-    color: var(--QYL-coloful-block-pink);
+:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]):is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
+    color: var(--b3-theme-primary);
 }
 [data-theme-mode="light"] {
     --codeblock-background2: var(--b3-theme-background);
@@ -74,115 +59,16 @@
     filter: var(--codeblock-brightness2);
 }
 /* 标签 */
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n)) {
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
     font-size: 80%;
     color: var(--QYL-white);
-    background-color: var(--QYL-custom-red);
+    background-color: var(--b3-theme-primary);
+    transition: var(--b3-transition);
 }
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1)::before {
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    top: -0.08em;
-    border-radius: 50%;
-    background-color: var(--QYL-white);
-    margin-right: 0.4em;
-    position: relative;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
-    border-radius: var(--b3-border-radius);
-    border: none;
-    padding: 3px 5px;
-    font-size: 80%;
-    color: var(--QYL-white);
-    background-color: var(--QYL-custom-orange);
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2)::before {
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    top: -0.08em;
-    border-radius: 50%;
-    background-color: var(--QYL-white);
-    margin-right: 0.4em;
-    position: relative;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
-    border-radius: var(--b3-border-radius);
-    border: none;
-    padding: 3px 5px;
-    font-size: 80%;
-    color: var(--QYL-white);
-    background-color: var(--QYL-custom-green);
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3)::before {
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    top: -0.08em;
-    border-radius: 50%;
-    background-color: var(--QYL-white);
-    margin-right: 0.4em;
-    position: relative;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
-    border-radius: var(--b3-border-radius);
-    border: none;
-    padding: 3px 5px;
-    font-size: 80%;
-    color: var(--QYL-white);
-    background-color: var(--QYL-custom-blue);
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4)::before {
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    top: -0.08em;
-    border-radius: 50%;
-    background-color: var(--QYL-white);
-    margin-right: 0.4em;
-    position: relative;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
-    border-radius: var(--b3-border-radius);
-    border: none;
-    padding: 3px 5px;
-    font-size: 80%;
-    color: var(--QYL-white);
-    background-color: var(--QYL-custom-purple);
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5)::before {
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    top: -0.08em;
-    border-radius: 50%;
-    background-color: var(--QYL-white);
-    margin-right: 0.4em;
-    position: relative;
-    vertical-align: middle;
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
-    border-radius: var(--b3-border-radius);
-    border: none;
-    padding: 3px 5px;
-    font-size: 80%;
-    color: var(--QYL-white);
-    background-color: var(--QYL-custom-pink);
-}
-.protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6)::before {
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]:is(:nth-of-type(8n+1), :nth-of-type(8n+2), :nth-of-type(8n+3), :nth-of-type(8n+4), :nth-of-type(8n+5), :nth-of-type(8n+6), :nth-of-type(8n+7), :nth-of-type(8n))::before {
     content: '';
     display: inline-block;
     width: 0.4em;

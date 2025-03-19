@@ -29,22 +29,23 @@
     background-color: var(--QYL-hover) !important;
 }
 /* 整体优化 */
-body {
+.toolbar {
+    border: none;
+}
+body:not(.body--mobile,.body--window).fn__flex-column {
     background-color: var(--b3-theme-surface);
 }
-#toolbar {
+body:not(.body--mobile,.body--window) #layouts {
     border: none;
+    background-color: var(--b3-theme-surface);
+    padding: 6px 0 6px 0;
+    min-height: 50%;
 }
 .dock#dockLeft {
     border: none;
 }
 .dock#dockRight {
     border: none;
-}
-#layouts {
-    background-color: var(--b3-theme-surface);
-    padding: 6px 0 6px 0;
-    min-height: 50%;
 }
 #layouts .fn__flex.layout-tab-bar {  
     border-top-left-radius: var(--b3-border-radius);
@@ -63,6 +64,9 @@ body {
     background-color: var(--b3-theme-background);
 }
 .file-tree:is(.sy__graph, .sy__globalGraph) canvas {
+    background-color: var(--b3-theme-background);
+}
+.protyle-preview__action {
     background-color: var(--b3-theme-background);
 }
 .graph__panel {
