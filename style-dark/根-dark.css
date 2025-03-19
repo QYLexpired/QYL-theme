@@ -46,9 +46,10 @@
     --QYL-markcloze-bottom: rgba(60, 172, 78, 0.8);
 
     /* 圆角矩形 */
-    --b3-border-radius: 8px;
+    --b3-border-radius: 6px;
     --b3-border-radius-b: 10px;
     --b3-border-radius-q: 12px;
+    --b3-border-radius-s: 3px;
     
     /* 动画效果 */
     --b3-transition-slow: 0.4s ease-in-out;
@@ -119,24 +120,24 @@
     --b3-highlight-current-background: var(--b3-theme-primary) !important;
 }
 :root {
-    --QYL-h1: #d24e4e;
-    --QYL-h2: #eaa263;
-    --QYL-h3: #5fc070;
-    --QYL-h4: #589ecd;
-    --QYL-h5: #8c5fbc;
-    --QYL-h6: #b367b8;
-    --QYL-h1-fold: rgba(210, 78, 78, 0.4);
-    --QYL-h1-fold-background: rgba(210, 78, 78, 0.1);
-    --QYL-h2-fold: rgba(234, 162, 99, 0.4);
-    --QYL-h2-fold-background: rgba(234, 162, 99, 0.1);
-    --QYL-h3-fold: rgba(95, 192, 113, 0.4);
-    --QYL-h3-fold-background: rgba(95, 192, 113, 0.1);
-    --QYL-h4-fold: rgba(88, 158, 205, 0.4);
-    --QYL-h4-fold-background: rgba(88, 158, 205, 0.1);
-    --QYL-h5-fold: rgba(140, 95, 188, 0.4);
-    --QYL-h5-fold-background: rgba(140, 95, 188, 0.1);
-    --QYL-h6-fold: rgba(179, 103, 184, 0.4);
-    --QYL-h6-fold-background: rgba(179, 103, 184, 0.1);
+    --QYL-h1: var(--b3-theme-on-background);
+    --QYL-h2: var(--b3-theme-on-background);
+    --QYL-h3: var(--b3-theme-on-background);
+    --QYL-h4: var(--b3-theme-on-background);
+    --QYL-h5: var(--b3-theme-on-background);
+    --QYL-h6: var(--b3-theme-on-background);
+    --QYL-h1-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h1-fold-background: rgba(240, 240, 240, 0.1);
+    --QYL-h2-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h2-fold-background: rgba(240, 240, 240, 0.1);
+    --QYL-h3-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h3-fold-background: rgba(240, 240, 240, 0.1);
+    --QYL-h4-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h4-fold-background: rgba(240, 240, 240, 0.1);
+    --QYL-h5-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h5-fold-background: rgba(240, 240, 240, 0.1);
+    --QYL-h6-fold: rgba(240, 240, 240, 0.3);
+    --QYL-h6-fold-background: rgba(240, 240, 240, 0.1);
 }
 :root {
     --QYL-link: rgb(88, 154, 229);
