@@ -20,9 +20,10 @@
     --QYL-markcloze-bottom: rgb(90, 186, 73);
 
     /* 圆角矩形 */
-    --b3-border-radius: 8px;
+    --b3-border-radius: 6px;
     --b3-border-radius-b: 10px;
     --b3-border-radius-q: 12px;
+    --b3-border-radius-s: 3px;
 
     /* 容器阴影 */
     --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
@@ -100,24 +101,24 @@
     --b3-highlight-current-background: var(--b3-theme-primary) !important;
 }
 :root {
-    --QYL-h1: #dd5656;
-    --QYL-h2: #d88838;
-    --QYL-h3: #32ae4f;
-    --QYL-h4: #4573bc;
-    --QYL-h5: #8859ac;
-    --QYL-h6: #dc6897;
-    --QYL-h1-fold: rgba(221, 86, 86, 0.4);
-    --QYL-h1-fold-background: rgba(221, 86, 86, 0.1);
-    --QYL-h2-fold: rgba(216, 136, 56, 0.4);
-    --QYL-h2-fold-background: rgba(216, 136, 56, 0.1);
-    --QYL-h3-fold: rgba(50, 174, 79, 0.4);
-    --QYL-h3-fold-background: rgba(50, 174, 79, 0.1);
-    --QYL-h4-fold: rgba(69, 115, 188, 0.4);
-    --QYL-h4-fold-background: rgba(69, 115, 188, 0.1);
-    --QYL-h5-fold: rgba(136, 89, 172, 0.4);
-    --QYL-h5-fold-background: rgba(136, 89, 172, 0.1);
-    --QYL-h6-fold: rgba(220, 104, 150, 0.4);
-    --QYL-h6-fold-background: rgba(220, 104, 150, 0.1);
+    --QYL-h1: var(--b3-theme-on-background);
+    --QYL-h2: var(--b3-theme-on-background);
+    --QYL-h3: var(--b3-theme-on-background);
+    --QYL-h4: var(--b3-theme-on-background);
+    --QYL-h5: var(--b3-theme-on-background);
+    --QYL-h6: var(--b3-theme-on-background);
+    --QYL-h1-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h1-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h2-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h2-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h3-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h3-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h4-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h4-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h5-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h5-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h6-fold: rgba(44, 46, 48, 0.4);
+    --QYL-h6-fold-background: rgba(44, 46, 48, 0.2);
 }
 :root {
     --QYL-link: rgb(88, 154, 229);

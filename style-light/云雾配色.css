@@ -2,14 +2,14 @@
     --QYL-hover: rgba(212, 221, 233, 0.8); /* 主要悬停色 */
     --QYL-hover-hover: rgba(212, 221, 233, 0.95);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(212, 221, 233, 0.2);/* 主要悬停色变浅 */
-    --b3-theme-primary: #617691 !important; 
+    --b3-theme-primary: #6175de !important; 
     --b3-theme-primary-light: rgba(97, 118, 145, 0.55); /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(97, 118, 145, 0.32); /* 主色0.3透明度 */
     --b3-theme-primary-lightest: rgba(97, 118, 145, 0.15); /* 主色0.1透明度 */
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
     --b3-theme-surface: #edf1f5;
     --b3-theme-surface-light: rgba(237, 241, 245, 0.8); /* 面板色0.8透明度 */
-    --b3-theme-surface-lighter: rgba(237, 241, 245, 0.62);
+    --b3-theme-surface-lighter: rgba(219, 226, 234, 0.62);
     --b3-theme-background: #f5f7fa;
     --b3-theme-background-light:#dfe0e3; /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: #f3f6f8; /* 失焦颜色 */
@@ -17,6 +17,9 @@
     --QYL-white: #f5f7fa;
     --QYL-black: #11253e;
     --QYL-gray: #617691;
+    --b3-theme-error: #dc3030;
+    --b3-theme-success: #38c172;
+    --b3-theme-secondary: #f4ca64;
 
     /* 文字颜色 */
     --b3-theme-on-primary: #f5f7fa;
