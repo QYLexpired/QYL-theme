@@ -35,14 +35,29 @@ async function getFile(path) {
 function applyCustomCSS() {
     const elements = document.querySelectorAll('div[custom-css]');
     const cssRules = [];
+    const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
+    
     elements.forEach(element => {
         const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');
-        
-        if (nodeId && cssValue) {
-            cssRules.push(`:is(#layouts, #preview, [data-key="dialog-exportimage"]) div[data-node-id="${nodeId}"] { ${cssValue} }`);
+        const nodeId = element.getAttribute('data-node-id');        
+        if (cssValue) {
+            if (nodeId) {
+                cssRules.push(
+                    `${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`
+                );
+            }
+            else {
+                let uid = element.getAttribute('data-css-uid');
+                if (!uid) {
+                    uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
+                    element.setAttribute('data-css-uid', uid);
+                }
+                cssRules.push(
+                    `${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`
+                );
+            }
         }
-    });    
+    });
     const existingStyle = document.getElementById('snippet-dynamic-css');
     if (existingStyle) existingStyle.remove();
     
@@ -51,29 +66,6 @@ function applyCustomCSS() {
     style.textContent = cssRules.join('\n');
     document.head.appendChild(style);
 }
-
-const debouncedApplyCSS = debounce(applyCustomCSS, 100);
-
-const observerConfig = {
-    attributes: true,
-    attributeFilter: ['custom-css', 'data-node-id'],
-    subtree: true
-};
-
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-        if (
-            mutation.type === 'attributes' && 
-            (mutation.attributeName === 'custom-css' || mutation.attributeName === 'data-node-id')
-        ) {
-            debouncedApplyCSS();
-        }
-    });
-});
-
-observer.observe(document.body, observerConfig);
-applyCustomCSS();
-
 function debounce(fn, delay) {
     let timeout;
     return (...args) => {
@@ -81,6 +73,23 @@ function debounce(fn, delay) {
         timeout = setTimeout(() => fn.apply(this, args), delay);
     };
 }
+const observerConfig = {
+    attributes: true,
+    attributeFilter: ['custom-css', 'data-node-id'],
+    subtree: true
+};
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && 
+            (mutation.attributeName === 'custom-css' || 
+             mutation.attributeName === 'data-node-id')) {
+            debouncedApplyCSS();
+        }
+    });
+});
+const debouncedApplyCSS = debounce(applyCustomCSS, 100);
+observer.observe(document.body, observerConfig);
+applyCustomCSS();
 
 // 添加Q按钮
 (function() {
