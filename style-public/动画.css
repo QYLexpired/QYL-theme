@@ -216,6 +216,6 @@ body > div.block__popover.block__popover--open {
 }
 :is(.b3-button--cancel, .b3-button, .b3-button--text, .b3-button--remove, .config-bazaar__title button, div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-type="removeCriterion"]),
 .b3-button--big, .fn__flex.config-account a[href="https://ld246.com/sponsor"], #barWorkspace, .b3-button--small, #documentPropertiesClose,
-.b3-button--outline)::before {
+.b3-button--outline):not([data-type="-2"], [data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"] ,[data-type="4"])::before {
         display: block !important;
 }

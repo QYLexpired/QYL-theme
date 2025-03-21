@@ -201,8 +201,11 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
     }
 }
 .config-bazaar__panel .fn__flex.config-bazaar__title button:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]) {
-    padding: 2px 10px;
+    padding: 2px 5px !important;
     color: #fff;
+    height: 25px;
+    margin-top: 1.5px;
+    margin-right: 5px;
     border: 1px solid var(--b3-theme-primary);
     background-color: var(--b3-theme-primary) !important;
     transition: var(--b3-transition-slow);
