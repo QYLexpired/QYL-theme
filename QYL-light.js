@@ -169,6 +169,7 @@ let isChecked18;
 let isChecked19;
 let isChecked20;
 let isChecked21;
+let isChecked22;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -429,6 +430,17 @@ function createSettingsWindow() {
     label21.style.fontSize = '14px';
     label21.style.userSelect= 'none';
 
+    const checkbox22 = document.createElement('input');
+    checkbox22.type = 'checkbox';
+    checkbox22.id = 'QYLlfusion-checkbox';
+    checkbox22.checked = isChecked22;
+
+    const label22 = document.createElement('label');
+    label22.htmlFor = 'QYLlfusion-checkbox';
+    label22.textContent = ' 顶栏融合';
+    label22.style.fontSize = '14px';
+    label22.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -557,6 +569,12 @@ function createSettingsWindow() {
     QYLfunctionpair21.appendChild(label21);
     QYLfunctionpair21.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair22 = document.createElement('div');
+    QYLfunctionpair22.className = 'checkbox-label-pair';
+    QYLfunctionpair22.appendChild(checkbox22);
+    QYLfunctionpair22.appendChild(label22);
+    QYLfunctionpair22.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -600,6 +618,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair9); //动画
     settingsWindow.appendChild(QYLfunctionpairdivider1);  
     settingsWindow.appendChild(QYLfunctionpair3); //隐藏顶栏
+    settingsWindow.appendChild(QYLfunctionpair22); //顶栏融合
     settingsWindow.appendChild(QYLfunctionpair20);  //垂直页签
     settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
     settingsWindow.appendChild(QYLfunctionpairdivider3); 
@@ -652,7 +671,8 @@ async function saveConfig() {
         isChecked18: checkbox18.checked,
         isChecked19: checkbox19.checked,
         isChecked20: checkbox20.checked,
-        isChecked21: checkbox21.checked
+        isChecked21: checkbox21.checked,
+        isChecked22: checkbox22.checked
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -687,6 +707,7 @@ checkbox3.addEventListener('change', async function() {
     const state = this.checked;
     state ? enabletoolbarhidden() : disabletoolbarhidden();
     state ? isChecked3 = true : isChecked3 = false;
+    if (isChecked22 === true) { checkbox22.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -936,6 +957,7 @@ checkbox20.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLverticaltab() : disableQYLverticaltab();
     state ? isChecked20 = true : isChecked20 = false;
+    if (isChecked22 === true) { checkbox22.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -948,6 +970,20 @@ checkbox21.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLcolorfulh() : disableQYLcolorfulh();
     state ? isChecked21 = true : isChecked21 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 顶栏融合开关
+checkbox22.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfusion() : disableQYLfusion();
+    state ? isChecked22 = true : isChecked22 = false;
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked20 === true) { checkbox20.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1562,6 +1598,115 @@ function disableQYLcolorfulh() {
     }
 }
 
+// 开启顶栏融合
+function enableQYLfusion() {
+    function QYLFindFirstWndElement(selector) {
+        const directFind = document.querySelector(`${selector} [data-type="wnd"]`);
+        if (directFind) return directFind;
+        let el = document.querySelector(selector);
+        let depth = 0;
+        const MAX_DEPTH = 20;
+        while (el && el.dataset.type !== 'wnd' && depth < MAX_DEPTH) {
+          el = el.firstElementChild;
+          depth++;
+        }
+        return el?.dataset.type === 'wnd' ? el : null;
+      }  
+      function QYLManageIdAssignment() {
+        let observer = null;
+        let reassignTimer = null;
+        let globalObserver = null;
+        const TARGET_ID = 'QYLfusionthe1';
+        const cleanup = () => {
+          globalObserver?.disconnect();
+          observer?.disconnect();
+          clearTimeout(reassignTimer);
+          const targetEl = document.getElementById(TARGET_ID);
+          if (targetEl) targetEl.removeAttribute('id');
+          window.removeEventListener('beforeunload', beforeUnloadHandler);
+        };
+        const beforeUnloadHandler = () => cleanup();
+        window.addEventListener('beforeunload', beforeUnloadHandler);
+      
+        const QYLAssignId = (() => {
+          let debounceTimer;
+          return () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+              const targetSelector = '#layouts .layout__center';
+              const el = QYLFindFirstWndElement(targetSelector);
+              if (observer) {
+                observer.disconnect();
+                observer = null;
+              }     
+              if (el) {
+                if (el.id !== TARGET_ID) {
+                  const oldEl = document.getElementById(TARGET_ID);
+                  if (oldEl && oldEl !== el) oldEl.removeAttribute('id');
+                  el.id = TARGET_ID;
+                }
+                const parent = el.parentElement;
+                if (parent) {
+                  observer = new MutationObserver((mutations) => {
+                    for (const mutation of mutations) {
+                      for (const node of mutation.removedNodes) {
+                        if (node === el) {
+                          clearTimeout(reassignTimer);
+                          reassignTimer = setTimeout(QYLAssignId, 50);
+                          return;
+                        }
+                      }
+                    }
+                  });
+                  observer.observe(parent, { childList: true });
+                }
+              }
+            }, 30);
+          };
+        })();     
+        const initObserver = () => {
+          let container = document.querySelector('#layouts .layout__center')?.parentElement;
+          if (!container) container = document.querySelector('#layouts') || document.body;
+      
+          globalObserver = new MutationObserver(() => {
+            if (!document.getElementById(TARGET_ID)) QYLAssignId();
+          });
+          globalObserver.observe(container, {
+            childList: true,
+            subtree: true,
+            attributes: false,
+            characterData: false
+          });
+        };     
+        QYLAssignId();
+        initObserver();
+        window.QYL_CLEANUP = cleanup;
+      }
+    QYLManageIdAssignment();
+    QYLFusionLeftManager.start();
+    QYLfusionrightStart();
+    let linkElement = document.getElementById("QYLfusion-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLfusion-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/顶栏融合.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭顶栏融合
+function disableQYLfusion() {
+    QYLFusionLeftManager.stop();
+    QYLfusionrightStop();
+    window.QYL_CLEANUP?.();
+    window.QYL_CLEANUP = null;
+    const linkElement = document.getElementById("QYLfusion-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
 // 开启垂直页签
 function enableQYLverticaltab() {
     //寻找第一个wnd,添加#QYLverticalthe1并监听
@@ -1847,6 +1992,14 @@ async function loadAndCheckConfig() {
             isChecked21 = false;
         }
 
+        if (config?.isChecked22 === true) {
+            enableQYLfusion();
+            isChecked22 = true;
+        } else if (config?.isChecked22 === false) {
+            disableQYLfusion();
+            isChecked22 = false;
+        }
+
     } catch (e) {
         console.error("加载配置失败:", e);
     }
@@ -1983,7 +2136,7 @@ const QYLStatusPositionManager = (() => {
                 this.QYL_scheduleRecovery();
             }
         }
-        QYL_debounceWrapper(func, delay = 500, maxWait = 1000) {
+        QYL_debounceWrapper(func, delay = 800, maxWait = 1000) {
             let QYL_timeout, QYL_lastCall = 0;
             return (...args) => {
                 const now = Date.now();
@@ -2088,3 +2241,159 @@ QYLInitialize();
 window.addEventListener('beforeunload', () => {
     QYLStatusPositionManager.QYL_destroy();
 });
+
+// 顶栏融合
+// 更新页签左边距
+const QYLFusionLeftManager = (() => {
+    let centerEl, dragEl, lastValue = '', timeout = null, resizeObserver;
+    let retryInterval = null;   
+    const optimizedUpdate = () => {
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(update, 200);
+    };
+    const update = () => {
+        if (!centerEl || !dragEl) return;
+        const centerRect = centerEl.getBoundingClientRect();
+        const dragRect = dragEl.getBoundingClientRect();
+        const newValue = dragRect.left > centerRect.left 
+            ? `${dragRect.left - centerRect.left}px` 
+            : '0px';
+        if (newValue !== lastValue) {
+            document.documentElement.style.setProperty('--QYL-fusion-left', newValue);
+            lastValue = newValue;
+        }
+    };
+    const tryInitialize = () => {
+        centerEl = document.querySelector('#layouts .layout__center');
+        dragEl = document.querySelector('#drag');      
+        if (centerEl && dragEl) {
+            if (retryInterval) {
+                clearInterval(retryInterval);
+                retryInterval = null;
+            }
+            const passiveOpt = { passive: true };
+            resizeObserver = new ResizeObserver(optimizedUpdate);
+            resizeObserver.observe(centerEl);
+            resizeObserver.observe(dragEl);
+            window.addEventListener('resize', optimizedUpdate, passiveOpt);
+            window.addEventListener('scroll', optimizedUpdate, passiveOpt);
+            return true;
+        }
+        return false;
+    };
+    const start = () => {
+        if (!tryInitialize()) {
+            retryInterval = setInterval(tryInitialize, 250);
+        }
+    };
+    const stop = () => {
+        if (retryInterval) {
+            clearInterval(retryInterval);
+            retryInterval = null;
+        }
+        
+        if (resizeObserver) {
+            resizeObserver.disconnect();
+            resizeObserver = null;
+        }
+        window.removeEventListener('resize', optimizedUpdate);
+        window.removeEventListener('scroll', optimizedUpdate);
+        if (timeout) clearTimeout(timeout);
+        timeout = null;
+    };
+    return { start, stop };
+})();
+
+
+//更新页签右边距
+class QYLFusionRightManager {
+    constructor() {
+        this.element = null;
+        this.retryInterval = null;
+        this.observers = {
+            resizeObserver: null,
+            windowResizeHandler: null,
+            windowScrollHandler: null,
+        };
+        this.isRunning = false;
+        this.update = this.update.bind(this);
+    }
+    start() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+
+        const checkElement = () => {
+            this.element = document.getElementById('drag');
+            if (this.element) {
+                this.initializeObservers();
+                clearInterval(this.retryInterval);
+                this.retryInterval = null;
+            }
+        };
+        checkElement();
+        if (!this.element) {
+            this.retryInterval = setInterval(checkElement, 100);
+        }
+    }
+    initializeObservers() {
+        this.observers.resizeObserver = new ResizeObserver(this.update);
+        this.observers.resizeObserver.observe(this.element);
+
+        this.observers.windowResizeHandler = this.update;
+        window.addEventListener('resize', this.observers.windowResizeHandler);
+
+        this.observers.windowScrollHandler = () => requestAnimationFrame(this.update);
+        window.addEventListener('scroll', this.observers.windowScrollHandler, { passive: true });
+
+        this.update();
+    }
+    update() {
+        if (!this.element) return;
+        const rect = this.element.getBoundingClientRect();
+        const rightDistance = window.innerWidth - rect.right;
+        document.documentElement.style.setProperty(
+            '--QYL-drag-right',
+            `${rightDistance}px`
+        );
+    }
+    stop() {
+        if (!this.isRunning) return;
+        this.isRunning = false;
+
+        if (this.retryInterval) {
+            clearInterval(this.retryInterval);
+            this.retryInterval = null;
+        }
+
+        if (this.observers.resizeObserver) {
+            this.observers.resizeObserver.disconnect();
+            this.observers.resizeObserver = null;
+        }
+
+        if (this.observers.windowResizeHandler) {
+            window.removeEventListener('resize', this.observers.windowResizeHandler);
+            this.observers.windowResizeHandler = null;
+        }
+
+        if (this.observers.windowScrollHandler) {
+            window.removeEventListener('scroll', this.observers.windowScrollHandler);
+            this.observers.windowScrollHandler = null;
+        }
+
+        this.element = null;
+    }
+}
+let _managerInstance = null;
+
+const QYLfusionrightStart = () => {
+    if (!_managerInstance) {
+        _managerInstance = new QYLFusionRightManager();
+    }
+    _managerInstance.start();
+};
+const QYLfusionrightStop = () => {
+    if (_managerInstance) {
+        _managerInstance.stop();
+        _managerInstance = null;
+    }
+};
