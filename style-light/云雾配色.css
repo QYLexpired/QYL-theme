@@ -1,7 +1,7 @@
 :root {
     --QYL-hover: rgba(212, 221, 233, 0.8); /* 主要悬停色 */
     --QYL-hover-hover: rgba(212, 221, 233, 0.95);/* 主要悬停色加深 */
-    --QYL-hover-light: rgba(212, 221, 233, 0.2);/* 主要悬停色变浅 */
+    --QYL-hover-light: rgba(212, 221, 233, 0.25);/* 主要悬停色变浅 */
     --b3-theme-primary: #6175de !important; 
     --b3-theme-primary-light: rgba(97, 118, 145, 0.55); /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(97, 118, 145, 0.32); /* 主色0.3透明度 */
