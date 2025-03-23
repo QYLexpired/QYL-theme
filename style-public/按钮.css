@@ -150,7 +150,7 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
      }
     }
@@ -158,7 +158,7 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
       }
     }
@@ -187,7 +187,7 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
       background-color: var(--b3-theme-success) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
      }
     }
@@ -195,7 +195,7 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
       background-color: var(--b3-theme-success) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
       }
     }
@@ -301,7 +301,7 @@ div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-t
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
      }
     }
@@ -309,7 +309,7 @@ div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-t
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
       }
     }
@@ -479,7 +479,7 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: 0.8s;
      }
     }
@@ -487,7 +487,7 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
       background-color: var(--b3-theme-primary) !important;
       color: #fff;
       &:before {
-        transform: skewX(-45deg) translateX(17em);
+        transform: skewX(-45deg) translateX(18em);
         transition: var(--b3-transition);
       }
     }
@@ -675,7 +675,7 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
     background-color: var(--b3-theme-primary) !important;
     color: #fff;
     &:before {
-      transform: skewX(-45deg) translateX(17em);
+      transform: skewX(-45deg) translateX(18em);
       transition: var(--b3-transition);
    }
   }
@@ -683,7 +683,7 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
     background-color: var(--b3-theme-primary) !important;
     color: #fff;
     &:before {
-      transform: skewX(-45deg) translateX(17em);
+      transform: skewX(-45deg) translateX(18em);
       transition: var(--b3-transition);
     }
   }
