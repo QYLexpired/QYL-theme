@@ -12,27 +12,32 @@
 #drag {
     opacity: 0;
 }
-
 #layouts .layout-tab-bar {
     app-region: no-drag;
     background-color: rgba(255, 0, 0, 0);
 }
-#QYLfusionthe1 > .fn__flex:not(.layout-tab-container) {
-    padding-left: var(--QYL-fusion-left);
+
+
+#QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */
+    padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)));
     transition: var(--b3-transition);   
 }
-#layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
-    max-width: 80px;
-    padding-right: var(--QYL-drag-right);
+.body--mac #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
+    padding-left: calc(max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left))) + 100px);
+    transition: var(--b3-transition);   
 }
-.body--mac #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
+#layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
-    padding-right: calc(var(--QYL-drag-right) + 100px);
+    padding-right: var(--QYL-fusion-drag-right);
 }
-#QYLfusionthe1 > .fn__flex .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {
-    max-width: 80px;
+#QYLverticalthe1 > .fn__flex .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 左上角页签取消右边距 */
     padding-right: 0 !important;
 }
+#QYLverticalthe1 > .fn__flex  {/* 左上角页签设置最大宽度，防止取消右边距后与右侧按钮重合 */
+    max-width: calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right));
+}
+
+
 #layouts .layout__center .layout-tab-container {
     margin-top: 2px;
     border-radius: var(--b3-border-radius) !important;
@@ -41,18 +46,17 @@
     margin-top: 38px;
 }
 
+
 #dockLeft {
     padding-top: 38px;
 }
 #dockRight {
     padding-top: 38px;
 }
-
 :is(.layout__dockl, .layout__dockr)  {
     padding-top: 38px;
     min-height: 50%;
 }
-
 #layouts .layout__resize.layout__resize--lr {
     clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
 }
