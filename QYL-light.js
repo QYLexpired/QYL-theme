@@ -1616,7 +1616,7 @@ function enableQYLfusion() {
         let observer = null;
         let reassignTimer = null;
         let globalObserver = null;
-        const TARGET_ID = 'QYLfusionthe1';
+        const TARGET_ID = 'QYLverticalthe1';
         const cleanup = () => {
           globalObserver?.disconnect();
           observer?.disconnect();
@@ -1683,8 +1683,10 @@ function enableQYLfusion() {
         window.QYL_CLEANUP = cleanup;
       }
     QYLManageIdAssignment();
-    QYLFusionLeftManager.start();
-    QYLfusionrightStart();
+
+    fusion.start();
+    windowObserver.start();
+
     let linkElement = document.getElementById("QYLfusion-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -1697,8 +1699,10 @@ function enableQYLfusion() {
 
 // 关闭顶栏融合
 function disableQYLfusion() {
-    QYLFusionLeftManager.stop();
-    QYLfusionrightStop();
+
+    fusion.stop();
+    windowObserver.stop();
+
     window.QYL_CLEANUP?.();
     window.QYL_CLEANUP = null;
     const linkElement = document.getElementById("QYLfusion-style");
@@ -2243,157 +2247,118 @@ window.addEventListener('beforeunload', () => {
 });
 
 // 顶栏融合
-// 更新页签左边距
-const QYLFusionLeftManager = (() => {
-    let centerEl, dragEl, lastValue = '', timeout = null, resizeObserver;
-    let retryInterval = null;   
-    const optimizedUpdate = () => {
-        if (timeout) clearTimeout(timeout);
-        timeout = setTimeout(update, 200);
-    };
-    const update = () => {
-        if (!centerEl || !dragEl) return;
-        const centerRect = centerEl.getBoundingClientRect();
-        const dragRect = dragEl.getBoundingClientRect();
-        const newValue = dragRect.left > centerRect.left 
-            ? `${dragRect.left - centerRect.left}px` 
-            : '0px';
-        if (newValue !== lastValue) {
-            document.documentElement.style.setProperty('--QYL-fusion-left', newValue);
-            lastValue = newValue;
-        }
-    };
-    const tryInitialize = () => {
-        centerEl = document.querySelector('#layouts .layout__center');
-        dragEl = document.querySelector('#drag');      
-        if (centerEl && dragEl) {
-            if (retryInterval) {
-                clearInterval(retryInterval);
-                retryInterval = null;
-            }
-            const passiveOpt = { passive: true };
-            resizeObserver = new ResizeObserver(optimizedUpdate);
-            resizeObserver.observe(centerEl);
-            resizeObserver.observe(dragEl);
-            window.addEventListener('resize', optimizedUpdate, passiveOpt);
-            window.addEventListener('scroll', optimizedUpdate, passiveOpt);
-            return true;
-        }
-        return false;
-    };
-    const start = () => {
-        if (!tryInitialize()) {
-            retryInterval = setInterval(tryInitialize, 250);
-        }
-    };
-    const stop = () => {
-        if (retryInterval) {
-            clearInterval(retryInterval);
-            retryInterval = null;
-        }
+function QYLfusion() {
+    let isRunning = false;
+    let retryTimeout;
+    let updateTimeout;
+    function getElements() {
+        return {
+            centerElem: document.querySelector('#layouts .layout__center'),
+            dragElem: document.querySelector('#drag')
+        };
+    }
+    function updateCSSVariables(centerElem, dragElem) {
+        const centerLeft = centerElem.getBoundingClientRect().left;
+        const dragLeft = dragElem.getBoundingClientRect().left;
+        const dragRight = window.innerWidth - dragElem.getBoundingClientRect().right;
         
-        if (resizeObserver) {
-            resizeObserver.disconnect();
-            resizeObserver = null;
-        }
-        window.removeEventListener('resize', optimizedUpdate);
-        window.removeEventListener('scroll', optimizedUpdate);
-        if (timeout) clearTimeout(timeout);
-        timeout = null;
-    };
-    return { start, stop };
-})();
-
-
-//更新页签右边距
-class QYLFusionRightManager {
-    constructor() {
-        this.element = null;
-        this.retryInterval = null;
-        this.observers = {
-            resizeObserver: null,
-            windowResizeHandler: null,
-            windowScrollHandler: null,
-        };
-        this.isRunning = false;
-        this.update = this.update.bind(this);
+        document.documentElement.style.setProperty('--QYL-fusion-center-left', `${centerLeft}px`);
+        document.documentElement.style.setProperty('--QYL-fusion-drag-left', `${dragLeft}px`);
+        document.documentElement.style.setProperty('--QYL-fusion-drag-right', `${dragRight}px`);
     }
-    start() {
-        if (this.isRunning) return;
-        this.isRunning = true;
-
-        const checkElement = () => {
-            this.element = document.getElementById('drag');
-            if (this.element) {
-                this.initializeObservers();
-                clearInterval(this.retryInterval);
-                this.retryInterval = null;
+    function scheduleUpdate() {
+        if (!isRunning) return;
+        clearTimeout(updateTimeout);
+        updateTimeout = setTimeout(() => {
+            const { centerElem, dragElem } = getElements();
+            
+            if (centerElem && dragElem) {
+                updateCSSVariables(centerElem, dragElem);
+                scheduleUpdate();
+            } else {
+                startRetrying();
             }
-        };
-        checkElement();
-        if (!this.element) {
-            this.retryInterval = setInterval(checkElement, 100);
-        }
+        }, 200);
     }
-    initializeObservers() {
-        this.observers.resizeObserver = new ResizeObserver(this.update);
-        this.observers.resizeObserver.observe(this.element);
-
-        this.observers.windowResizeHandler = this.update;
-        window.addEventListener('resize', this.observers.windowResizeHandler);
-
-        this.observers.windowScrollHandler = () => requestAnimationFrame(this.update);
-        window.addEventListener('scroll', this.observers.windowScrollHandler, { passive: true });
-
-        this.update();
+    function startRetrying() {
+        if (!isRunning) return;
+        clearTimeout(retryTimeout);
+        
+        retryTimeout = setTimeout(() => {
+            const { centerElem, dragElem } = getElements();
+            if (centerElem && dragElem) {
+                scheduleUpdate();
+            } else {
+                startRetrying();
+            }
+        }, 500);
     }
-    update() {
-        if (!this.element) return;
-        const rect = this.element.getBoundingClientRect();
-        const rightDistance = window.innerWidth - rect.right;
-        document.documentElement.style.setProperty(
-            '--QYL-drag-right',
-            `${rightDistance}px`
-        );
+    function stopAll() {
+        clearTimeout(updateTimeout);
+        clearTimeout(retryTimeout);
     }
-    stop() {
-        if (!this.isRunning) return;
-        this.isRunning = false;
-
-        if (this.retryInterval) {
-            clearInterval(this.retryInterval);
-            this.retryInterval = null;
+    return {
+        start() {
+            if (isRunning) return;
+            isRunning = true;
+            scheduleUpdate();
+        },       
+        stop() {
+            isRunning = false;
+            stopAll();
         }
-
-        if (this.observers.resizeObserver) {
-            this.observers.resizeObserver.disconnect();
-            this.observers.resizeObserver = null;
-        }
-
-        if (this.observers.windowResizeHandler) {
-            window.removeEventListener('resize', this.observers.windowResizeHandler);
-            this.observers.windowResizeHandler = null;
-        }
-
-        if (this.observers.windowScrollHandler) {
-            window.removeEventListener('scroll', this.observers.windowScrollHandler);
-            this.observers.windowScrollHandler = null;
-        }
-
-        this.element = null;
-    }
+    };
 }
-let _managerInstance = null;
-
-const QYLfusionrightStart = () => {
-    if (!_managerInstance) {
-        _managerInstance = new QYLFusionRightManager();
+const fusion = QYLfusion();
+class QYLFusionWindowWidth {
+    constructor(options = {}) {
+      this.config = { debounceTime: 50, ...options };
+      this.cssVarName = '--QYL-fusion-window-width';
+      this.lastWidth = 0;
+      this.isActive = false;
+      this.rafId = null;
+      this.debouncedHandler = null;
+      this.handleResize = this.handleResize.bind(this);
     }
-    _managerInstance.start();
-};
-const QYLfusionrightStop = () => {
-    if (_managerInstance) {
-        _managerInstance.stop();
-        _managerInstance = null;
+  
+    #updateCSSVariable(width) {
+      document.documentElement.style.setProperty(this.cssVarName, `${width}px`);
     }
-};
+  
+    #debounce(func, wait) {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+  
+    handleResize() {
+      if (!this.isActive) return;
+      this.rafId && cancelAnimationFrame(this.rafId);
+      this.rafId = requestAnimationFrame(() => {
+        const currentWidth = window.innerWidth;
+        if (currentWidth !== this.lastWidth) {
+          this.#updateCSSVariable(currentWidth);
+          this.lastWidth = currentWidth;
+        }
+      });
+    }
+  
+    start() {
+      if (this.isActive) return;
+      this.debouncedHandler = this.#debounce(this.handleResize, this.config.debounceTime);
+      window.addEventListener('resize', this.debouncedHandler);
+      this.isActive = true;
+      this.handleResize();
+    }
+  
+    stop() {
+      if (!this.isActive) return;
+      window.removeEventListener('resize', this.debouncedHandler);
+      this.rafId && cancelAnimationFrame(this.rafId);
+      this.isActive = false;
+      this.debouncedHandler = null;
+    }
+  }
+  const windowObserver = new QYLFusionWindowWidth();
