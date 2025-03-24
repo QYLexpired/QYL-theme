@@ -20,11 +20,11 @@
 
 #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */
     padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)));
-    transition: var(--b3-transition);   
+    transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
 }
 .body--mac #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
     padding-left: calc(max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left))) + 100px);
-    transition: var(--b3-transition);   
+    transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
@@ -59,4 +59,9 @@
 }
 #layouts .layout__resize.layout__resize--lr {
     clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
+}
+
+/* 适配墨水屏模式 */
+#QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, #QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly, [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, [data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+    border: none !important;
 }

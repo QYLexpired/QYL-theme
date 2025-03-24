@@ -4,7 +4,7 @@
         position: fixed;
         right: 0;
         backface-visibility: hidden;
-        transition: var(--b3-transition);
+        transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
         bottom: 15px;
         border-radius: var(--b3-border-radius);
         height: 27px !important;
@@ -121,6 +121,9 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts:has(+ #dockRight.fn__none) {
     margin-right: 6px;
+}
+#layouts .block__icons {
+    border: none;
 }
 /* 取消钉住 */
 .layout--float {
