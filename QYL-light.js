@@ -2278,7 +2278,7 @@ function QYLfusion() {
             } else {
                 startRetrying();
             }
-        }, 200);
+        }, 800);
     }
     function startRetrying() {
         if (!isRunning) return;
