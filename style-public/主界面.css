@@ -125,6 +125,9 @@ body:not(.body--mobile,.body--window) #layouts {
 #layouts .block__icons {
     border: none;
 }
+.dock__item {
+    color: var(--b3-toolbar-color);
+}
 /* 取消钉住 */
 .layout--float {
     border: none !important;

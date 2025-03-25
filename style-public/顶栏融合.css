@@ -12,7 +12,7 @@
 #drag {
     opacity: 0;
 }
-#layouts .layout-tab-bar {
+#layouts .layout-tab-bar {/* 会影响数据库页签 */
     app-region: no-drag;
     background-color: rgba(255, 0, 0, 0);
 }
@@ -28,6 +28,7 @@
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
+    min-width: 80px;
     padding-right: var(--QYL-fusion-drag-right);
 }
 #QYLverticalthe1 > .fn__flex .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 左上角页签取消右边距 */
@@ -35,6 +36,7 @@
 }
 #QYLverticalthe1 > .fn__flex  {/* 左上角页签设置最大宽度，防止取消右边距后与右侧按钮重合 */
     max-width: calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right));
+    box-sizing: border-box;
 }
 
 
@@ -64,4 +66,9 @@
 /* 适配墨水屏模式 */
 #QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, #QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly, [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, [data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
     border: none !important;
+}
+
+/* 与顶栏按钮颜色一致 */
+#layouts .layout-tab-bar .item--readonly :is([data-type="new"], [data-type="more"]) {
+    color: var(--b3-toolbar-color);
 }
