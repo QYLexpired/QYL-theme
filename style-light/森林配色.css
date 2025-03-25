@@ -17,6 +17,7 @@
     --QYL-white: #fff; /* 通用白 */
     --QYL-black: #171717; /* 通用黑 */
     --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-color: rgb(66, 104, 71);/* 顶部按钮颜色 */
 }
 :root {
     --QYL-blockquote: rgb(113, 178, 104);

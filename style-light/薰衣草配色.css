@@ -14,6 +14,7 @@
     --b3-theme-background-light:rgb(229, 207, 245); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(245, 239, 255); /* 失焦颜色 */
     --b3-scroll-color: rgb(230, 210, 244); /* 滚动条颜色 */
+    --b3-toolbar-color: rgb(121, 85, 142);/* 顶部按钮颜色 */
 }
 :root {
     --QYL-blockquote: rgb(193, 149, 221);
