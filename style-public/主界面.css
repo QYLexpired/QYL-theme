@@ -1,4 +1,9 @@
 /* 底部栏浮动 */
+.status {
+    border: none;
+    height: 28px;
+    margin-top: -6px;
+}
 @media (min-width: 768px) {
     #status {
         position: fixed;

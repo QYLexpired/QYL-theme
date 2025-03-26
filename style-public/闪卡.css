@@ -46,3 +46,12 @@ div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"
     margin: 0 10px 0px 10px;
     border-radius: var(--b3-border-radius);
 }
+
+/* 兼容番茄工具箱 */
+#layouts .card__main {
+    padding-bottom: 35px;
+    background-color: var(--b3-theme-background);
+}
+#layouts [data-key="dialog-opencard"] .card__block {
+    margin: 0;
+}

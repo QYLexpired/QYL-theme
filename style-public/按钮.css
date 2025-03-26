@@ -769,3 +769,15 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
 .b3-button--outline)::before {
         display: none !important;
 }
+
+/* 兼容番茄工具箱 */
+.b3-button[tomatocardskipbtn="1"].b3-button--cancel:not(#findResultsCount, #findMsg)::before {
+  display: none !important;
+}
+[tomatocarddelbtn="1"] .b3-button.b3-button--cancel:not(#findResultsCount, #findMsg) {
+  line-height: 30px;
+  padding: 8px 0;
+  &::before {
+    display: none !important;
+  }
+}

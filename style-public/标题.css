@@ -16,8 +16,6 @@
     border-bottom: 2px solid var(--QYL-h1-fold);
     border-radius: 0px;
     background-color: var(--QYL-h1-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"].h2 {
     color: var(--QYL-h2-fold);
@@ -25,8 +23,6 @@
     border-bottom: 2px solid var(--QYL-h2-fold);
     border-radius: 0px;
     background-color: var(--QYL-h2-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"].h3 {
     color: var(--QYL-h3-fold);
@@ -34,8 +30,6 @@
     border-bottom: 2px solid var(--QYL-h3-fold);
     border-radius: 0px;
     background-color: var(--QYL-h3-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"].h4 {
     color: var(--QYL-h4-fold);
@@ -43,8 +37,6 @@
     border-bottom: 2px solid var(--QYL-h4-fold);
     border-radius: 0px;
     background-color: var(--QYL-h4-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"].h5 {
     color: var(--QYL-h5-fold);
@@ -52,8 +44,6 @@
     border-bottom: 2px solid var(--QYL-h5-fold);
     border-radius: 0px;
     background-color: var(--QYL-h5-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"].h6 {
     color: var(--QYL-h6-fold);
@@ -61,8 +51,6 @@
     border-bottom: 2px solid var(--QYL-h6-fold);
     border-radius: 0px;
     background-color: var(--QYL-h6-fold-background);
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 .protyle-title__input {
     color: var(--b3-theme-primary);

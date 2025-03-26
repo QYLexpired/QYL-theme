@@ -23,7 +23,7 @@
     transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
 }
 .body--mac #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
-    padding-left: calc(max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left))) + 100px);
+    padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)) + 100px);
     transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
