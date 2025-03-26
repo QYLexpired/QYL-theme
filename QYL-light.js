@@ -31,66 +31,6 @@ async function getFile(path) {
     });
 }
 
-// 自定义属性css
-function applyCustomCSS() {
-    const elements = document.querySelectorAll('div[custom-css]');
-    const cssRules = [];
-    const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
-    
-    elements.forEach(element => {
-        const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');        
-        if (cssValue) {
-            if (nodeId) {
-                cssRules.push(
-                    `${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`
-                );
-            }
-            else {
-                let uid = element.getAttribute('data-css-uid');
-                if (!uid) {
-                    uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-                    element.setAttribute('data-css-uid', uid);
-                }
-                cssRules.push(
-                    `${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`
-                );
-            }
-        }
-    });
-    const existingStyle = document.getElementById('snippet-dynamic-css');
-    if (existingStyle) existingStyle.remove();
-    
-    const style = document.createElement('style');
-    style.id = 'snippet-dynamic-css';
-    style.textContent = cssRules.join('\n');
-    document.head.appendChild(style);
-}
-function debounce(fn, delay) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn.apply(this, args), delay);
-    };
-}
-const observerConfig = {
-    attributes: true,
-    attributeFilter: ['custom-css', 'data-node-id'],
-    subtree: true
-};
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-        if (mutation.type === 'attributes' && 
-            (mutation.attributeName === 'custom-css' || 
-             mutation.attributeName === 'data-node-id')) {
-            debouncedApplyCSS();
-        }
-    });
-});
-const debouncedApplyCSS = debounce(applyCustomCSS, 100);
-observer.observe(document.body, observerConfig);
-applyCustomCSS();
-
 // 添加Q按钮
 (function() {
     addThemeToolBar();
@@ -2362,3 +2302,66 @@ class QYLFusionWindowWidth {
     }
   }
   const windowObserver = new QYLFusionWindowWidth();
+
+//css自定义属性
+function QYLcssApplyCustomCSS() {
+    const elements = document.querySelectorAll('div[custom-css]');
+    const cssRules = [];
+    const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
+    elements.forEach(element => {
+        const cssValue = element.getAttribute('custom-css');
+        const nodeId = element.getAttribute('data-node-id');       
+        if (cssValue) {
+            if (nodeId) {
+                cssRules.push(
+                    `${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`
+                );
+            } else {
+                let uid = element.getAttribute('data-css-uid');
+                if (!uid) {
+                    uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
+                    element.setAttribute('data-css-uid', uid);
+                }
+                // 处理兄弟元素
+                const prevSibling = element.previousElementSibling;
+                if (prevSibling && prevSibling.classList.contains('protyle-top')) {
+                    prevSibling.setAttribute('data-css-uid', uid);
+                }
+                cssRules.push(
+                    `${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`
+                );
+            }
+        }
+    });
+    const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
+    if (existingStyle) existingStyle.remove();    
+    const style = document.createElement('style');
+    style.id = 'snippet-QYLcss-dynamic-css';
+    style.textContent = cssRules.join('\n');
+    document.head.appendChild(style);
+}
+function QYLcssDebounce(fn, delay) {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn.apply(this, args), delay);
+    };
+}
+const QYLcssObserverConfig = {
+    attributes: true,
+    attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
+    subtree: true
+};
+const QYLcssObserver = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && 
+            (mutation.attributeName === 'custom-css' || 
+             mutation.attributeName === 'data-node-id' ||
+             mutation.attributeName === 'data-css-uid')) {
+            QYLcssDebouncedApplyCSS();
+        }
+    });
+});
+const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 100);
+QYLcssObserver.observe(document.body, QYLcssObserverConfig);
+QYLcssApplyCustomCSS();
