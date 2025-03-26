@@ -46,18 +46,6 @@
 :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
     color: var(--b3-theme-primary);
 }
-[data-theme-mode="light"] {
-    --codeblock-background2: var(--b3-theme-background);
-    --codeblock-brightness2: brightness(0.96);
-}
-[data-theme-mode="dark"] {
-    --codeblock-background2: var(--b3-theme-background);
-    --codeblock-brightness2: brightness(1.6);
-}
-.fn__code, .b3-typography code:not(.hljs), .b3-typography span[data-type~=code], .protyle-wysiwyg code:not(.hljs), .protyle-wysiwyg span[data-type~=code] {
-    background-color: var(--codeblock-background2);
-    filter: var(--codeblock-brightness2);
-}
 /* 标签 */
 .protyle-wysiwyg [data-node-id] span[data-type~=tag], .protyle-wysiwyg [data-node-id] span[data-type~=tag]:hover {
     border-radius: var(--b3-border-radius);

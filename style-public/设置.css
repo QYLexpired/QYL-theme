@@ -41,6 +41,9 @@ div[data-key="dialog-setting"] .b3-tab-bar {
     top: 4.5px !important;
     right: 3px !important;
 }
+.config__panel>.b3-tab-bar .config__tab-hr {
+    background: rgba(255, 0, 0, 0);
+}
 /* 集市 */
 .config-bazaar__panel .b3-card {
     box-shadow: var(--b3-light-shadow);
