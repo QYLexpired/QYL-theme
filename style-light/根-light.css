@@ -107,18 +107,18 @@
     --QYL-h4: var(--b3-theme-on-background);
     --QYL-h5: var(--b3-theme-on-background);
     --QYL-h6: var(--b3-theme-on-background);
-    --QYL-h1-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h1-fold-background: rgba(44, 46, 48, 0.2);
-    --QYL-h2-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h2-fold-background: rgba(44, 46, 48, 0.2);
-    --QYL-h3-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h3-fold-background: rgba(44, 46, 48, 0.2);
-    --QYL-h4-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h4-fold-background: rgba(44, 46, 48, 0.2);
-    --QYL-h5-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h5-fold-background: rgba(44, 46, 48, 0.2);
-    --QYL-h6-fold: rgba(44, 46, 48, 0.4);
-    --QYL-h6-fold-background: rgba(44, 46, 48, 0.2);
+    --QYL-h1-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h1-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h2-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h2-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h3-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h3-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h4-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h4-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h5-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h5-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h6-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h6-fold-background: rgba(44, 46, 48, 0.05);
 }
 :root {
     --QYL-link: rgb(88, 154, 229);
