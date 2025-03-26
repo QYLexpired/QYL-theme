@@ -80,7 +80,7 @@
 }
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
-    box-shadow: var(--b3-dialog-shadow);
+    box-shadow: var(--b3-theme-primary-lighter) 0px 1px 1px, var(--b3-theme-primary-lightest) 0px 0px 1px 1px;
     border: none;
 }
 /* 行级备注 */
