@@ -49,3 +49,14 @@
     --QYL-account-background1: linear-gradient(to bottom, #edf1f5, #e7eef5, #e1ebf5, #dbe7f5, #d5e4f5);
     --QYL-account-background2: linear-gradient(to bottom, #edf1f5, #e7eef5, #e1ebf5, #dbe7f5, #d5e4f5);
 }
+
+/* 细节调整 */
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
+    background-color: rgba(97, 118, 222, 0.25);
+}
+.protyle-gutters button:hover svg {
+    color: rgb(91, 129, 254); 
+}
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    background-color: rgba(97, 118, 222, 0.15);
+}
