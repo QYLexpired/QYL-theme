@@ -2038,13 +2038,14 @@ document.addEventListener('keydown', function(event) {
 const QYLStatusPositionManager = (() => {
     const QYL_MAX_RETRIES = 5;
     const QYL_BASE_DELAY = 300;
-    let QYL_retryCount = 0;
+    let QYL_retryCount = 0;    
     class QYLCoreManager {
         constructor() {
             this.QYL_layout = null;
             this.QYL_status = null;
             this.QYL_windowWidth = window.innerWidth;
             this.QYL_observer = null;
+            this.QYL_styleObserver = null;
             this.QYL_isActive = false;
             this.QYL_init();
         }
@@ -2080,26 +2081,21 @@ const QYLStatusPositionManager = (() => {
                 this.QYL_scheduleRecovery();
             }
         }
-        QYL_debounceWrapper(func, delay = 800, maxWait = 1000) {
-            let QYL_timeout, QYL_lastCall = 0;
+        QYL_animationFrameThrottle(func) {
+            let QYL_pending = false;
             return (...args) => {
-                const now = Date.now();
-                clearTimeout(QYL_timeout);
-                
-                if (now - QYL_lastCall >= maxWait) {
-                    QYL_lastCall = now;
-                    func.apply(this, args);
-                } else {
-                    QYL_timeout = setTimeout(() => {
-                        QYL_lastCall = now;
+                if (!QYL_pending) {
+                    QYL_pending = true;
+                    requestAnimationFrame(() => {
                         func.apply(this, args);
-                    }, delay);
+                        QYL_pending = false;
+                    });
                 }
             };
         }
         QYL_handleResize = () => {
             this.QYL_windowWidth = window.innerWidth;
-            this.QYL_debouncedUpdate();
+            this.QYL_rafUpdate();
         }
         QYL_handleVisibility = () => {
             if (document.visibilityState === 'visible') {
@@ -2110,17 +2106,24 @@ const QYLStatusPositionManager = (() => {
             try {
                 const { layout, status } = await this.QYL_elementDetector();
                 this.QYL_layout = layout;
-                this.QYL_status = status;               
-                this.QYL_debouncedUpdate = this.QYL_debounceWrapper(this.QYL_calculatePosition.bind(this));
+                this.QYL_status = status;
+                this.QYL_rafUpdate = this.QYL_animationFrameThrottle(
+                    this.QYL_calculatePosition.bind(this)
+                );
                 window.addEventListener('resize', this.QYL_handleResize, { passive: true });
-                window.addEventListener('scroll', this.QYL_debouncedUpdate, { passive: true });
-                document.addEventListener('visibilitychange', this.QYL_handleVisibility);           
-                this.QYL_observer = new ResizeObserver(entries => {
-                    if (entries.some(entry => entry.target.isConnected)) {
-                        this.QYL_debouncedUpdate();
+                window.addEventListener('scroll', this.QYL_rafUpdate, { passive: true });
+                document.addEventListener('visibilitychange', this.QYL_handleVisibility);
+                this.QYL_observer = new ResizeObserver(() => this.QYL_rafUpdate());
+                this.QYL_observer.observe(this.QYL_layout);
+                this.QYL_styleObserver = new MutationObserver(mutations => {
+                    if (mutations.some(m => m.attributeName === 'style')) {
+                        this.QYL_rafUpdate();
                     }
                 });
-                this.QYL_observer.observe(this.QYL_layout);
+                this.QYL_styleObserver.observe(this.QYL_status, {
+                    attributes: true,
+                    attributeFilter: ['style']
+                });
                 requestAnimationFrame(() => this.QYL_calculatePosition());
                 this.QYL_isActive = true;
             } catch (error) {
@@ -2135,6 +2138,7 @@ const QYLStatusPositionManager = (() => {
             !isValid && console.warn('QYL Elements Missing');
             return isValid;
         }
+
         QYL_scheduleRecovery() {
             if (!this.QYL_isActive) return;
             
@@ -2147,10 +2151,11 @@ const QYLStatusPositionManager = (() => {
         }
         QYL_cleanup() {
             window.removeEventListener('resize', this.QYL_handleResize);
-            window.removeEventListener('scroll', this.QYL_debouncedUpdate);
+            window.removeEventListener('scroll', this.QYL_rafUpdate);
             document.removeEventListener('visibilitychange', this.QYL_handleVisibility);
             
             this.QYL_observer?.disconnect();
+            this.QYL_styleObserver?.disconnect();
             this.QYL_isActive = false;
         }
     }
@@ -2167,7 +2172,7 @@ const QYLStatusPositionManager = (() => {
         }
     };
 })();
-const QYLInitialize = () => {
+const QYLStatusInitialize = () => {
     const init = () => {
         if (document.querySelector('#layouts') && document.getElementById('status')) {
             QYLStatusPositionManager.QYL_getInstance();
@@ -2175,16 +2180,14 @@ const QYLInitialize = () => {
             console.warn('QYL Required Elements Missing');
         }
     };
+    
     if (document.readyState !== 'loading') {
         init();
     } else {
         document.addEventListener('DOMContentLoaded', init);
     }
 };
-QYLInitialize();
-window.addEventListener('beforeunload', () => {
-    QYLStatusPositionManager.QYL_destroy();
-});
+QYLStatusInitialize();
 
 // 顶栏融合
 function QYLfusion() {
@@ -2218,7 +2221,7 @@ function QYLfusion() {
             } else {
                 startRetrying();
             }
-        }, 800);
+        }, 1200);
     }
     function startRetrying() {
         if (!isRunning) return;
@@ -2231,7 +2234,7 @@ function QYLfusion() {
             } else {
                 startRetrying();
             }
-        }, 500);
+        }, 1200);
     }
     function stopAll() {
         clearTimeout(updateTimeout);
