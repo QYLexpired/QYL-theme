@@ -230,7 +230,7 @@ function createSettingsWindow() {
 
     const label9 = document.createElement('label');
     label9.htmlFor = 'QYLanimation-checkbox';
-    label9.textContent = ' 开启主题动画';
+    label9.textContent = ' 主题动画';
     label9.style.fontSize = '14px';
     label9.style.userSelect= 'none';
 
