@@ -11,13 +11,20 @@
     --b3-theme-surface-light: rgba(207, 233, 196, 0.8); /* 面板色0.8透明度 */
     --b3-theme-surface-lighter: rgb(193, 228, 149);
     --b3-theme-background: #e8f5e3;
-    --b3-theme-background-light:rgb(204, 241, 190); /* 编辑器较多加深（不透明） */
+    --b3-theme-background-light:rgb(178, 215, 165); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(222, 236, 216); /* 失焦颜色 */
     --b3-scroll-color: rgb(183, 222, 173); /* 滚动条颜色 */
     --QYL-white: #fff; /* 通用白 */
     --QYL-black: #171717; /* 通用黑 */
     --QYL-gray: #bfbfbf; /* 通用灰 */
     --b3-toolbar-color: rgb(66, 104, 71);/* 顶部按钮颜色 */
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
 }
 :root {
     --QYL-blockquote: rgb(113, 178, 104);

@@ -15,6 +15,13 @@
     --b3-toolbar-blur-background: #fff2e8; /* 失焦颜色 */
     --b3-scroll-color:  rgb(255, 221, 193); /* 滚动条颜色 */
     --b3-toolbar-color: rgb(125, 106, 77);/* 顶部按钮颜色 */
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
 }
 :root {
     --QYL-blockquote: rgb(179, 111, 75);

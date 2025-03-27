@@ -18,6 +18,7 @@
     --QYL-filter-background-forQsettings: var(--b3-theme-background);
     --b3-menu-background: var(--b3-theme-background);
     --QYL-markcloze-bottom: rgb(90, 186, 73);
+    --b3-tooltips-color: #dfe0e1;/* 提示气泡颜色（保持不变）*/
 
     /* 圆角矩形 */
     --b3-border-radius: 6px;
@@ -26,11 +27,11 @@
     --b3-border-radius-s: 3px;
 
     /* 容器阴影 */
-    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
-    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
+    --b3-point-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-dialog-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-button-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-light-shadow: rgba(97, 118, 145, 0.15) 0px 1px 2px 0px, rgba(97, 118, 145, 0.15) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: rgba(97, 118, 145, 0.22) 0px 0px 8px;
     
     /* 动画效果 */
     --b3-transition-slow: 0.4s ease-in-out;
