@@ -13,6 +13,13 @@
     --b3-theme-on-surface: #d1d1d1;
     --b3-theme-on-surface-light: #d1d1d1;
     --b3-theme-on-error: #fff;
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
 }
 :root {
     --QYL-hover: rgba(119, 100, 132, 0.7); /* 主要悬停色 */
@@ -46,7 +53,7 @@
 }
 :root {
     --QYL-filter-background-theme: rgba(69, 54, 83, 0.5);
-    --QYL-filter-wrap-background-theme: rgba(68, 58, 77, 0.6);
+    --QYL-filter-wrap-background-theme: rgba(82, 65, 97, 0.6);
     --QYL-filter-fix-background-theme: rgba(69, 54, 83, 0.8);
 }
 :root {
