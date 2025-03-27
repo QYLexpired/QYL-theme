@@ -20,15 +20,15 @@
 
 #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */
     padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)));
-    transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);  
 }
 .body--mac #QYLverticalthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
     padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left) + 100px));
-    transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;   
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
-    min-width: 80px;
+    min-width: min(80px, calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right)));
     padding-right: var(--QYL-fusion-drag-right);
 }
 #QYLverticalthe1 > .fn__flex .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 左上角页签取消右边距 */

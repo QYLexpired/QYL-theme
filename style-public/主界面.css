@@ -1,10 +1,13 @@
 /* 底部栏浮动 */
-.status {
-    border: none;
-    height: 28px;
-    margin-top: -6px;
+@media (max-width: 630px) {
+    #status {
+        border: none;
+        height: 28px;
+        margin-top: -6px;
+        transform: none !important;
+    }
 }
-@media (min-width: 768px) {
+@media (min-width: 630px) {
     #status {
         position: fixed;
         right: 0;
@@ -118,6 +121,9 @@ body:not(.body--mobile,.body--window) #layouts {
 #layouts .layout--float {
     border: 1.5px solid var(--b3-theme-primary-lighter) !important;
     box-shadow: var(--b3-dialog-shadow) !important;
+    background-color: var(--b3-theme-background);
+    padding: 0;
+    border-radius: var(--b3-border-radius);
 }
 .file-tree.sy__graph {
     background-color: var(--b3-theme-background);
@@ -133,12 +139,6 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 .dock__item {
     color: var(--b3-toolbar-color);
-}
-/* 取消钉住 */
-.layout--float {
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: var(--b3-border-radius);
 }
 /* PDF界面 */
 .pdf__outer #mainContainer {

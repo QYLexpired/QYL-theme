@@ -50,7 +50,11 @@
     box-shadow: none;
 }
 .b3-text-field:not(#searchInput, .b3-form__icon-input), .pcr-app .pcr-interaction .pcr-result, .b3-select {
-    background-color: var(--QYL-filter-background);
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+}
+[data-theme-mode="dark"] .b3-text-field:not(#searchInput, .b3-form__icon-input), [data-theme-mode="dark"] .pcr-app .pcr-interaction .pcr-result, [data-theme-mode="dark"] .b3-select {
+    background-color: var(--b3-theme-background) !important;
     backdrop-filter: var(--QYL-Aero-filter);
 }
 /* 命令面板毛玻璃 */
@@ -120,6 +124,9 @@ div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
     backdrop-filter: var(--QYL-Aero-filter);
 }
 /* 文档树等取消钉住毛玻璃 */
+#layouts .layout--float {
+    background-color: rgba(255, 0, 0, 0);
+}
 .layout--float .layout-tab-container {
     background-color: var(--QYL-filter-background) !important;
     backdrop-filter: var(--QYL-Aero-filter);

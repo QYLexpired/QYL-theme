@@ -1,0 +1,42 @@
+:root {
+    --b3-menu-background: var(--b3-theme-surface);
+}
+/* 文档树 */
+.QYLmobile #sidebar .toolbar--dark {
+    color: var(--b3-theme-primary);
+    & .toolbar__icon {
+        color: var(--b3-theme-primary);
+    }
+}
+/* 菜单 */
+.QYLmobile .b3-menu__items {
+    padding: 6px 6px !important;
+    background-color: var(--b3-menu-background) !important;
+}
+.QYLmobile .b3-menu__item {
+    border-radius: var(--b3-border-radius) !important;
+    border: none !important;
+    background-color: var(--b3-menu-background) !important;
+}
+.QYLmobile .b3-menu__item:is(:hover, :active) {
+    background-color: var(--b3-theme-primary) !important;
+    color: var(--b3-theme-on-primary) !important;
+    & .b3-menu__icon {
+        color: var(--b3-theme-on-primary) !important;  
+    }
+}
+.QYLmobile .b3-menu__item:first-child {
+    border: none !important;
+}
+.QYLmobile .b3-menu__separator {
+    height: 10px !important;
+    border-bottom: 1.5px solid var(--b3-theme-primary) !important;
+}
+.QYLmobile .b3-menu__title {
+    border: none !important ;
+}
+/* 按钮 */
+.QYLmobile .b3-button--outline:hover, .QYLmobile .b3-button--outline:focus {
+    background-color: var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
+}

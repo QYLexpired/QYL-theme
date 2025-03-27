@@ -56,3 +56,16 @@
     background-color: var(--b3-theme-primary);
     color: var(--QYL-white);
 }
+.protyle-wysiwyg [data-node-id] .def--mark {
+    border-radius: 6px;
+    padding: 2px 4px;
+    background-color: var(--QYL-ref);
+    color: var(--QYL-white) !important;
+}
+.protyle-wysiwyg [data-node-id] .def--mark:hover {
+    border-radius: 6px !important;
+    padding: 2px 4px !important;
+    background-color: var(--QYL-ref) !important;
+    color: var(--QYL-white) !important;
+    border: none !important;
+}

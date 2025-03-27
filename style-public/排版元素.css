@@ -65,7 +65,7 @@
     height: 0.4em;
     top: -0.08em;
     border-radius: 50%;
-    background-color: var(--QYL-white);
+    background-color: currentColor;
     margin-right: 0.4em;
     position: relative;
     vertical-align: middle;
@@ -140,6 +140,13 @@
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
     color: var(--b3-theme-primary);
     transition: var(--b3-color-transition);
+}
+.protyle-wysiwyg [data-node-id].li::before {
+    border-left: 1.5px solid var(--b3-theme-background-light);
+    transition: var(--b3-transition);
+}
+.protyle-wysiwyg [data-node-id].li:hover::before {
+    border-left: 1.5px solid var(--b3-theme-primary);
 }
 /* 标记 */
 span[data-type~=mark] {
