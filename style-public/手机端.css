@@ -2,41 +2,165 @@
     --b3-menu-background: var(--b3-theme-surface);
 }
 /* 文档树 */
+.QYLmobile #sidebar > .toolbar--border {
+    margin: 0 6px 6px 6px;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary);
+      }
+}
 .QYLmobile #sidebar .toolbar--dark {
     color: var(--b3-theme-primary);
+    background-color: var(--b3-theme-background);
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
     & .toolbar__icon {
         color: var(--b3-theme-primary);
     }
 }
+.QYLmobile #sidebar .fn__flex-column:is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"], [data-type="sidebar-backlink"], [data-type="sidebar-inbox"], [data-type="sidebar-plugin"]) {
+    margin: 0 6px 0 6px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    background: var(--b3-theme-background);
+}
+.QYLmobile #sidebar [data-type="sidebar-backlink"] .backlinkList + .toolbar :is(.toolbar__text, .toolbar__icon) {
+    color: var(--b3-theme-primary);
+}
 /* 菜单 */
-.QYLmobile .b3-menu__items {
-    padding: 6px 6px !important;
-    background-color: var(--b3-menu-background) !important;
+.QYLmobile :is(#menu, #commonMenu) {
+    background-color: var(--b3-theme-surface);
 }
-.QYLmobile .b3-menu__item {
-    border-radius: var(--b3-border-radius) !important;
-    border: none !important;
-    background-color: var(--b3-menu-background) !important;
-}
-.QYLmobile .b3-menu__item:is(:hover, :active) {
-    background-color: var(--b3-theme-primary) !important;
-    color: var(--b3-theme-on-primary) !important;
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__title {
+    margin: 0 6px 6px 6px;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border: none;
+    color: var(--b3-theme-primary);
     & .b3-menu__icon {
-        color: var(--b3-theme-on-primary) !important;  
+        color: var(--b3-theme-primary);
     }
 }
-.QYLmobile .b3-menu__item:first-child {
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__items {
+    padding: 0 0;
+    margin: 0 6px 0 6px;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item {
+    margin: 0;
+    border: none;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:last-child {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:has(+ .b3-menu__separator) {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator {
+    height: 6px;
+    border: none;
+}
+
+/* 底栏 */
+@media (max-width: 630px) {
+    .QYLmobile #status {
+        margin: 0;
+    }
+}
+/* 面包屑 */
+.QYLmobile .protyle-breadcrumb__icon[data-type="mobile-menu"] {
+    color: var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0);
+    padding: 0 2px;
+    font-weight: bold;
+    border: 1.5px solid var(--b3-theme-primary);
+    line-height: 18px;
+}
+.QYLmobile #commonMenu[data-name="breadcrumb-mobile-path"] .b3-menu__item .b3-menu__icon  {
+    color: var(--b3-theme-primary);
+}
+
+/*  主要页面 */
+.QYLmobile #model > .toolbar--border {
+    margin: 0 6px 6px 6px;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary); 
+      }
+}
+.QYLmobile #model #modelMain {
+    margin: 0 6px 0 6px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    background: var(--b3-theme-background);
+}
+.QYLmobile .b3-dialog__container {
+    border: none;
+}
+
+/* 搜索 */
+.QYLmobile #searchPath ~ .fn__flex-column .toolbar:has(#searchAssetResult) {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile #searchAssetList {
+    margin-top: 6px;
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile #searchAssetList .b3-list-item {
+    margin: 0;
+    background-color: var(--b3-theme-background);
+}
+.QYLmobile #searchAssetPreview {
     border: none !important;
+    margin-top: 6px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
-.QYLmobile .b3-menu__separator {
-    height: 10px !important;
-    border-bottom: 1.5px solid var(--b3-theme-primary) !important;
+
+/* 同步 */
+.QYLmobile [data-key="dialog-syncchoosedirection"] .b3-dialog__container {
+    background-color: var(--b3-theme-background);
 }
-.QYLmobile .b3-menu__title {
-    border: none !important ;
+
+/* 闪卡 */
+.QYLmobile [data-key="dialog-opencard"] .card__main .toolbar--border {
+    margin: 0 6px 6px 6px;
+    color: var(--b3-theme-primary);
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    & .toolbar__icon {
+        color: var(--b3-theme-primary);
+    }
 }
+.QYLmobile [data-key="dialog-opencard"] .card__block {
+    margin: 0 6px 0 6px;
+}
+
+/* 编辑器 */
+.QYLmobile .toolbar--border:has(+ #editor ) {
+    margin: 0 6px 6px 6px;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary);
+      }
+      & .toolbar__title {
+        color: var(--b3-theme-primary);
+      }
+}
+.QYLmobile #editor {
+    margin: 0 6px 0 6px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+
 /* 按钮 */
-.QYLmobile .b3-button--outline:hover, .QYLmobile .b3-button--outline:focus {
-    background-color: var(--b3-theme-primary);
-    color: var(--b3-theme-on-primary);
+.QYLmobile .b3-button--text {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.QYLmobile .b3-button--cancel:not(#findResultsCount, #findMsg) {
+    border: 1.5px solid var(--b3-theme-on-surface);
+}
+.QYLmobile .b3-button--outline {
+    box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
 }

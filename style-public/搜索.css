@@ -6,30 +6,33 @@
     padding: 4px;
     justify-content: flex-end;
 }
-#searchList, #searchUnRefList, #searchAssetList  {
-    .b3-list-item__graphic {
+:is(#searchList, #searchUnRefList, #searchAssetList) {
+    & .b3-list-item__graphic {
         align-self: flex-start;
         transform: translateY(20%);
+          &:not(.b3-list-item__graphic ~ .b3-list-item__graphic) {
+            color: var(--b3-theme-primary);
+          }
+    }
 }
-}
-#searchList, #searchUnRefList, #searchAssetList {
-    .b3-list-item__text {
+:is(#searchList, #searchUnRefList, #searchAssetList) {
+    & .b3-list-item__text {
         flex-basis: calc(100% - 44px);
         -webkit-line-clamp: 3;
         line-height: 1.5;
     }
 }
-#searchList, #searchUnRefList, #searchAssetList {
-    .b3-list-item__meta--ellipsis {
+:is(#searchList, #searchUnRefList, #searchAssetList) {
+    & .b3-list-item__meta--ellipsis {
         max-width: calc(100% - 22px);
+    }
 }
-}
-#searchList, #searchUnRefList, #searchAssetList  {
-    > .b3-list-item:not([data-type=search-item]) {
-    position: sticky;
-    top: -8px;
-    z-index: 1;
-}
+:is(#searchList, #searchUnRefList, #searchAssetList) {
+    & > .b3-list-item:not([data-type=search-item]) {
+        position: sticky;
+        top: -8px;
+        z-index: 1;
+    }
 }
 :is(#searchList,#searchAssetList)>.b3-list-item[data-type=search-item] .b3-list-item__meta {
     line-height: 16px;
