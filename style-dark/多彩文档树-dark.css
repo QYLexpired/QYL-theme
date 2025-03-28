@@ -90,3 +90,64 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n) {
 .b3-list:nth-of-type(8n)>[data-type="navigation-root"] {
     background-color:rgba(176, 95, 28, 0.5) !important;
 }
+
+/* 手机端多彩文档树 */
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 .b3-list .b3-list-item { margin-top: 0; margin-bottom: 0;}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 .b3-list.b3-list--background { margin-left: 20px; }
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul > li[data-type="navigation-root"]::before {
+    content: "";
+    width: 14px;
+    height: 40px;
+    position: absolute;
+    left: -19.5px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+1) > li[data-type="navigation-root"]::before {
+    background-color: #3573f0 !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+1) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid #3575f0;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+2) > li[data-type="navigation-root"]::before {
+    background-color: rgb(220, 172, 14) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+2) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(220, 172, 14);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+3) > li[data-type="navigation-root"]::before {
+    background-color: rgb(211, 70, 54) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+3) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(211, 70, 54);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+4) > li[data-type="navigation-root"]::before {
+    background-color: rgb(80, 159, 60) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+4) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(80, 159, 60);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+5) > li[data-type="navigation-root"]::before {
+    background-color: rgb(154, 75, 183) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+5) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(154, 75, 183);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+6) > li[data-type="navigation-root"]::before {
+    background-color: rgb(33, 152, 145) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+6) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(33, 152, 145);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+7) > li[data-type="navigation-root"]::before {
+    background-color: rgb(180, 42, 115) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n+7) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(180, 42, 115);
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n) > li[data-type="navigation-root"]::before {
+    background-color: rgb(176, 95, 28) !important;
+}
+.QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:nth-of-type(8n) > li[data-type="navigation-root"] + ul {
+    border-left: 3px solid rgb(176, 95, 28);
+}
