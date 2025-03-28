@@ -1,0 +1,46 @@
+:root {
+    --QYL-hover: rgba(255, 166, 111, 0.4); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(255, 166, 111, 0.5);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(255, 166, 111, 0.1);/* 主要悬停色变浅 */
+    --b3-theme-primary: rgb(240, 140, 58) !important; 
+    --b3-theme-primary-light: rgba(240, 140, 58, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(240, 140, 58, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(240, 140, 58, 0.1); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-theme-surface: rgb(255, 239, 215);
+    --b3-theme-surface-light: rgba(255, 197, 142, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter: rgb(255, 219, 186);
+    --b3-theme-background: #fff5e8;
+    --b3-theme-background-light:rgb(255, 224, 184); /* 编辑器较多加深（不透明） */
+    --b3-toolbar-blur-background: #fff2e8; /* 失焦颜色 */
+    --b3-scroll-color:  rgb(255, 221, 193); /* 滚动条颜色 */
+    --b3-toolbar-color: rgb(125, 106, 77);/* 顶部按钮颜色 */
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
+}
+:root {
+    --QYL-blockquote: rgb(179, 111, 75);
+    --QYL-blockquote-background: rgb(255, 234, 210);
+    --QYL-blockquote-svg: rgb(239, 212, 182);
+
+}
+:root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: rgb(255, 216, 186);
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover: rgb(237, 111, 0);
+}
+:root {
+    --QYL-filter-background-theme: rgba(255, 242, 224, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(255, 249, 241, 0.6);
+    --QYL-filter-fix-background-theme: rgba(255, 242, 224, 0.8);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
+    --QYL-account-background2: linear-gradient(to top, #ffe5ab, #ffe8ad, #ffebb0, #ffedb2, #fff0b5, #fff1b9, #fff1be, #fff2c2, #fff1ca, #fff0d2, #fff0da, #fff0e2);
+}
