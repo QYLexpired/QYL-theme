@@ -1,0 +1,39 @@
+:root {
+    --QYL-h1: #dd5656;
+    --QYL-h2: #ec963f;
+    --QYL-h3: #32ae4f;
+    --QYL-h4: #4573bc;
+    --QYL-h5: #8859ac;
+    --QYL-h6: #dc6897;
+    --QYL-h1-fold: rgba(221, 86, 86, 0.4);
+    --QYL-h1-fold-background: rgba(221, 86, 86, 0.1);
+    --QYL-h2-fold: rgba(236, 149, 63, 0.4);
+    --QYL-h2-fold-background: rgba(236, 149, 63, 0.1);
+    --QYL-h3-fold: rgba(50, 174, 79, 0.4);
+    --QYL-h3-fold-background: rgba(50, 174, 79, 0.1);
+    --QYL-h4-fold: rgba(69, 115, 188, 0.4);
+    --QYL-h4-fold-background: rgba(69, 115, 188, 0.1);
+    --QYL-h5-fold: rgba(136, 89, 172, 0.4);
+    --QYL-h5-fold-background: rgba(136, 89, 172, 0.1);
+    --QYL-h6-fold: rgba(220, 104, 150, 0.4);
+    --QYL-h6-fold-background: rgba(220, 104, 150, 0.1);
+}
+/* 手机端彩色大纲 */
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h1"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h1);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h2"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h2);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h3"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h3);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h4"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h4);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h5"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h5);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h6"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h6);
+}

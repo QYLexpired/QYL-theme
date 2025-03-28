@@ -1,0 +1,245 @@
+:root {
+    --QYL-hover: rgba(183, 196, 255, 0.6); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(183, 196, 255, 0.8);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(183, 196, 255, 0.2);/* 主要悬停色变浅 */
+    --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
+    --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
+    --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
+    --b3-list-icon-hover: var(--QYL-hover-hover); /* 文档树按钮悬停色、面包屑栏按钮悬停色 */
+    --b3-theme-primary: #3575f0;
+    --b3-theme-primary-light: rgba(53, 117, 240, .54);
+    --b3-theme-primary-lighter: rgba(53, 117, 240, .38);
+    --b3-theme-primary-lightest: rgba(53, 117, 240, .22);
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --QYL-filter-background-forQsettings: var(--b3-theme-background);
+    --b3-menu-background: var(--b3-theme-background);
+    --QYL-markcloze-bottom: rgb(90, 186, 73);
+    --b3-tooltips-color: #dfe0e1;/* 提示气泡颜色（保持不变）*/
+
+    /* 圆角矩形 */
+    --b3-border-radius: 6px;
+    --b3-border-radius-b: 10px;
+    --b3-border-radius-q: 12px;
+    --b3-border-radius-s: 3px;
+
+    /* 容器阴影 */
+    --b3-point-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-dialog-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-button-shadow: rgba(97, 118, 145, 0.15) 0px 3px 6px, rgba(97, 118, 145, 0.15) 0px 3px 6px;
+    --b3-light-shadow: rgba(97, 118, 145, 0.15) 0px 1px 2px 0px, rgba(97, 118, 145, 0.15) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: rgba(97, 118, 145, 0.22) 0px 0px 8px;
+    
+    /* 动画效果 */
+    --b3-transition-slow: 0.4s ease-in-out;
+    --b3-transition: all .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-width-transition: width .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-color-transition: color .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-background-transition: background 20ms ease-in 0s;
+
+    /* PDF */
+    --b3-pdf-selection: #94ff71;
+    --sidebar-width: 200px;
+    --b3-pdf-offset: 0;
+    --b3-pdf-background1: rgb(255, 195, 195);
+    --b3-pdf-background2: #ffcba5;
+    --b3-pdf-background3: #ffda83;
+    --b3-pdf-background4: #b1eda2;
+    --b3-pdf-background5: #85efe6;
+    --b3-pdf-background6: #a3d3ff;
+    --b3-pdf-background7: #f3c5ff;
+    --b3-pdf-dark: #292a2b;
+
+    /* 卡片背景 */
+    --b3-card-error-color: #790600;
+    --b3-card-error-background: #f5d1cf;
+    --b3-card-warning-color: #b16700;
+    --b3-card-warning-background: #ffe8c8;
+    --b3-card-info-color: #005599;
+    --b3-card-info-background: #d6eaf9;
+    --b3-card-success-color: #008606;
+    --b3-card-success-background: #d7eed8;
+
+    /* 自定义文字 */
+    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color2: var(--b3-card-warning-color);
+    --b3-font-color3: var(--b3-card-info-color);
+    --b3-font-color4: var(--b3-card-success-color);
+    --b3-font-color5: #5f6368;
+    --b3-font-color6: #3575f0;
+    --b3-font-color7: #ff9200;
+    --b3-font-color8: #d23f31;
+    --b3-font-color9: #f5539e;
+    --b3-font-color10: #00cdcd;
+    --b3-font-color11: #00b853;
+    --b3-font-color12: #9e9700;
+    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: #e2e3e4;
+    --b3-font-background6: #acd0fc;
+    --b3-font-background7: #fddaab;
+    --b3-font-background8: #ffb0a9;
+    --b3-font-background9: #fdbfff;
+    --b3-font-background10: #b1ffff;
+    --b3-font-background11: #affad1;
+    --b3-font-background12: #fff88f;
+    --b3-font-background13: var(--b3-theme-on-background);
+}
+:root {
+    --QYL-filter-background-theme: rgba(246, 246, 246, 0.5);
+    --QYL-filter-wrap-background-theme: rgba(255, 255, 255, 0.6);
+    --QYL-filter-fix-background-theme: rgba(255, 255, 255, 0.8);
+}
+:root {
+    --b3-highlight-background: var(--b3-theme-primary) !important;
+    --b3-highlight-color: var(--QYL-white) !important;
+    --b3-highlight-current-background: var(--b3-theme-primary) !important;
+}
+:root {
+    --QYL-h1: var(--b3-theme-on-background);
+    --QYL-h2: var(--b3-theme-on-background);
+    --QYL-h3: var(--b3-theme-on-background);
+    --QYL-h4: var(--b3-theme-on-background);
+    --QYL-h5: var(--b3-theme-on-background);
+    --QYL-h6: var(--b3-theme-on-background);
+    --QYL-h1-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h1-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h2-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h2-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h3-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h3-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h4-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h4-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h5-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h5-fold-background: rgba(44, 46, 48, 0.05);
+    --QYL-h6-fold: rgba(44, 46, 48, 0.35);
+    --QYL-h6-fold-background: rgba(44, 46, 48, 0.05);
+}
+:root {
+    --QYL-link: rgb(88, 154, 229);
+    --QYL-link-background: rgba(124, 166, 215, 0.2);
+    --QYL-ref: rgb(170, 117, 197);
+    --QYL-ref-background: rgba(180, 149, 195, 0.2);
+    --QYL-PDFmark: rgb(98, 176, 98);
+    --QYL-PDFmark-background: rgba(64, 171, 64, 0.2);
+}
+:root {
+    --QYL-link: #4285f4;
+    --QYL-link-background: rgb(66, 133, 244, 0.2);
+    --QYL-ref: #8957e5;
+    --QYL-ref-background: rgb(137, 87, 229, 0.2);
+    --QYL-PDFmark: #21862e;
+    --QYL-PDFmark-background: rgba(33, 134, 46, 0.2);
+}
+:root {
+    --QYL-blockquote: rgb(110, 110, 110);
+    --QYL-blockquote-background: rgb(247, 247, 247);
+    --QYL-blockquote-svg: rgb(210, 210, 210);
+    --QYL-blockquote-background: rgb(247, 247, 247);
+    --QYL-task-block: var(--b3-theme-primary);
+    --QYL-task-done: rgb(167, 167, 167);
+    --QYL-coloful-block-red: rgb(210, 11, 11);
+    --QYL-coloful-block-red-background: rgb(255, 219, 219);
+    --QYL-coloful-block-orange: rgb(225, 155, 24);
+    --QYL-coloful-block-orange-background: rgb(255, 239, 210);
+    --QYL-coloful-block-green: rgb(10, 162, 23);
+    --QYL-coloful-block-green-background: rgb(208, 242, 209);
+    --QYL-coloful-block-blue: rgb(14, 106, 180);
+    --QYL-coloful-block-blue-background: rgb(212, 236, 255);
+    --QYL-coloful-block-purple: rgb(114, 14, 180);
+    --QYL-coloful-block-purple-background: rgb(238, 212, 255);
+    --QYL-coloful-block-pink: rgb(212, 80, 153);
+    --QYL-coloful-block-pink-background: rgb(255, 226, 242);
+}
+:root {
+    --QYL-av-cell: var(--b3-theme-primary);
+    --QYL-av-cell-background: var(--b3-theme-primary-lightest);
+    --QYL-av-cell-hover: var(--QYL-white);
+    --QYL-av-cell-background-hover: var(--b3-theme-primary);
+    --QYL-av-chip-color1: rgb(156, 21, 21);
+    --QYL-av-chip-color2: rgb(164, 83, 25);
+    --QYL-av-chip-color3: rgb(138, 132, 11);
+    --QYL-av-chip-color4: rgb(47, 131, 34);
+    --QYL-av-chip-color5: rgb(18, 120, 110);
+    --QYL-av-chip-color6: rgb(29, 95, 135);
+    --QYL-av-chip-color7: rgb(65, 38, 137);
+    --QYL-av-chip-color8: rgb(120, 36, 134);
+    --QYL-av-chip-color9: var(--QYL-white);
+    --QYL-av-chip-color10: var(--QYL-white);
+    --QYL-av-chip-color11: var(--QYL-white);
+    --QYL-av-chip-color12: var(--QYL-white);
+    --QYL-av-chip-color13: var(--QYL-white);
+    --QYL-av-chip-color14: var(--QYL-white);
+    --QYL-av-chip-background1: rgb(244, 183, 183);
+    --QYL-av-chip-background2: rgb(255, 218, 176);
+    --QYL-av-chip-background3: rgb(247, 247, 127);
+    --QYL-av-chip-background4: rgb(195, 241, 198);
+    --QYL-av-chip-background5: rgb(150, 239, 230);
+    --QYL-av-chip-background6: rgb(181, 222, 255);
+    --QYL-av-chip-background7: rgb(208, 201, 255);
+    --QYL-av-chip-background8: rgb(246, 200, 255);
+    --QYL-av-chip-background9: rgb(247, 144, 144);
+    --QYL-av-chip-background10: rgb(241, 151, 115);
+    --QYL-av-chip-background11: rgb(136, 216, 120);
+    --QYL-av-chip-background12: rgb(120, 172, 228);
+    --QYL-av-chip-background13: rgb(77, 77, 77);
+    --QYL-av-chip-background14: rgb(205, 146, 235);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to bottom, #ffffff, #f1f0fe, #e0e1fe, #ccd4ff, #b5c7ff, #adc0ff, #a5b8ff, #9db1ff, #a8acff, #b6a7ff, #c4a0ff, #d499ff);
+    --QYL-account-background2: linear-gradient(to bottom, #ffffff, #fcf4fc, #ffe7ef, #ffdad9, #ffd2bd, #ffccae, #ffc69e, #ffc18d, #ffb68d, #ffac8f, #ffa293, #ff9999);
+}
+:root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: rgb(222, 222, 222);
+    --QYL-input-border: var(--QYL-gray);
+    --QYL-input-border-hover: var(--b3-theme-primary);
+    --b3-switch-checked-background: var(--b3-theme-primary);
+    --b3-switch-checked: var(--QYL-white);
+    --QYL-label-hover: var(--QYL-switch-close);
+    --QYL-select-background: var(--b3-theme-background);
+}
+:root {
+    --QYL-flashcard-type1-background: rgb(214, 81, 81);
+    --QYL-flashcard-type2-background: rgb(235, 155, 85);
+    --QYL-flashcard-type3-background: rgb(85, 158, 235);
+    --QYL-flashcard-type4-background: rgb(66, 200, 45);
+}
+:root {
+    --QYL-custom-red: #ed4545;
+    --QYL-custom-red-background: #ffe2e2;
+    --QYL-custom-orange: #ff8239;
+    --QYL-custom-orange-background: #ffedda;
+    --QYL-custom-yellow: #fff000;
+    --QYL-custom-yellow-background: #fff9c4;
+    --QYL-custom-green: #26c326;
+    --QYL-custom-green-background: #dbffd8;
+    --QYL-custom-cyan: #33d2c2;
+    --QYL-custom-cyan-background: #dffffc;
+    --QYL-custom-blue: #3575f0;
+    --QYL-custom-blue-background: #d1e1ff;
+    --QYL-custom-purple: #8938c0;
+    --QYL-custom-purple-background: #f6e8ff;
+    --QYL-custom-pink: #ff81b5;
+    --QYL-custom-pink-background: #fff1f5;
+    --QYL-custom-black: #393939;
+    --QYL-custom-black-background: #d7d7d7;
+    --QYL-custom-gray: #b8b8b8;
+    --QYL-custom-gray-background: #eaeaea;
+}
+:root {
+    --filetree-line-1: var(--b3-theme-primary-lighter);
+    --filetree-line-2: var(--b3-theme-primary-lighter);
+    --filetree-line-3: var(--b3-theme-primary-lighter);
+    --filetree-line-4: var(--b3-theme-primary-lighter);
+    --filetree-line-5: var(--b3-theme-primary-lighter);
+    --filetree-line-6: var(--b3-theme-primary-lighter);
+    --filetree-line-7: var(--b3-theme-primary-lighter);
+    --filetree-line-8: var(--b3-theme-primary-lighter);
+}
