@@ -18,3 +18,22 @@
     --QYL-h6-fold: rgba(220, 104, 150, 0.4);
     --QYL-h6-fold-background: rgba(220, 104, 150, 0.1);
 }
+/* 手机端彩色大纲 */
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h1"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h1);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h2"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h2);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h3"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h3);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h4"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h4);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h5"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h5);
+}
+.QYLmobile [data-type="sidebar-outline"] [data-subtype="h6"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+    color: var(--QYL-h6);
+}
