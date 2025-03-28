@@ -58,3 +58,28 @@
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+6)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-6) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+7)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-7) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-8) 130px 131px, rgba(0, 0, 0, 0) 131px 100%) }
+
+/* 移动端缩进线 */
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul {
+    & > ul {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 20px, var(--filetree-line-1) 20px 21px, rgba(0, 0, 0, 0) 21px 100%);
+          & > ul {
+            background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 38px, var(--filetree-line-1) 38px 39px, rgba(0, 0, 0, 0) 39px 100%);
+              & > ul {
+                background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 56px, var(--filetree-line-1) 56px 57px, rgba(0, 0, 0, 0) 57px 100%);
+                  & > ul {
+                    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 74px, var(--filetree-line-1) 74px 75px, rgba(0, 0, 0, 0) 75px 100%);
+                      & > ul {
+                        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 92px, var(--filetree-line-1) 92px 93px, rgba(0, 0, 0, 0) 93px 100%);
+                          & > ul {
+                            background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 110px, var(--filetree-line-1) 110px 111px, rgba(0, 0, 0, 0) 111px 100%);
+                              & > ul {
+                                background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 130px, var(--filetree-line-8) 130px 131px, rgba(0, 0, 0, 0) 131px 100%);
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+    }
+}

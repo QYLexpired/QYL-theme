@@ -4,7 +4,7 @@
 /* 文档树 */
 .QYLmobile #sidebar > .toolbar--border {
     margin: 0 6px 6px 6px;
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
         color: var(--b3-theme-primary);
@@ -20,7 +20,7 @@
 }
 .QYLmobile #sidebar .fn__flex-column:is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"], [data-type="sidebar-backlink"], [data-type="sidebar-inbox"], [data-type="sidebar-plugin"]) {
     margin: 0 6px 0 6px;
-    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
 .QYLmobile #sidebar [data-type="sidebar-backlink"] .backlinkList + .toolbar :is(.toolbar__text, .toolbar__icon) {
@@ -32,7 +32,7 @@
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__title {
     margin: 0 6px 6px 6px;
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border-radius: var(--b3-border-radius);
     border: none;
     color: var(--b3-theme-primary);
     & .b3-menu__icon {
@@ -86,7 +86,7 @@
 /*  主要页面 */
 .QYLmobile #model > .toolbar--border {
     margin: 0 6px 6px 6px;
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
         color: var(--b3-theme-primary); 
@@ -94,7 +94,7 @@
 }
 .QYLmobile #model #modelMain {
     margin: 0 6px 0 6px;
-    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
 .QYLmobile .b3-dialog__container {
@@ -128,7 +128,7 @@
 .QYLmobile [data-key="dialog-opencard"] .card__main .toolbar--border {
     margin: 0 6px 6px 6px;
     color: var(--b3-theme-primary);
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border-radius: var(--b3-border-radius);
     & .toolbar__icon {
         color: var(--b3-theme-primary);
     }
@@ -140,7 +140,7 @@
 /* 编辑器 */
 .QYLmobile .toolbar--border:has(+ #editor ) {
     margin: 0 6px 6px 6px;
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
         color: var(--b3-theme-primary);
@@ -151,7 +151,7 @@
 }
 .QYLmobile #editor {
     margin: 0 6px 0 6px;
-    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    border-radius: var(--b3-border-radius);
 }
 
 /* 按钮 */
@@ -163,4 +163,46 @@
 }
 .QYLmobile .b3-button--outline {
     box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
+}
+
+/* 编辑器工具栏 */
+.QYLmobile #keyboardToolbar {
+    border-radius: var(--b3-border-radius);
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.QYLmobile .keyboard__slash-item {
+    box-shadow: inset 0 0 0 1px var(--b3-theme-primary);
+      & :is(.keyboard__slash-icon, .keyboard__slash-text) {
+        color:  var(--b3-theme-primary);
+      }
+}
+
+/* 手机端缩进线位置调整 */
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 22px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 40px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 58px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 76px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 94px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 112px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 130px !important
 }
