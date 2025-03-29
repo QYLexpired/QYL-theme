@@ -2144,6 +2144,7 @@ class QYLFusionWindowWidth {
 
 //css自定义属性
 function QYLcssApplyCustomCSS() {
+    QYLcssObserver.disconnect();
     const elements = document.querySelectorAll('div[custom-css]');
     const cssRules = [];
     const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
@@ -2161,7 +2162,6 @@ function QYLcssApplyCustomCSS() {
                     uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
                     element.setAttribute('data-css-uid', uid);
                 }
-                // 处理兄弟元素
                 const prevSibling = element.previousElementSibling;
                 if (prevSibling && prevSibling.classList.contains('protyle-top')) {
                     prevSibling.setAttribute('data-css-uid', uid);
@@ -2178,6 +2178,7 @@ function QYLcssApplyCustomCSS() {
     style.id = 'snippet-QYLcss-dynamic-css';
     style.textContent = cssRules.join('\n');
     document.head.appendChild(style);
+    QYLcssObserver.observe(document.body, QYLcssObserverConfig);
 }
 function QYLcssDebounce(fn, delay) {
     let timeout;
