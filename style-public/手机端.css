@@ -3,7 +3,7 @@
 }
 /* 文档树 */
 .QYLmobile #sidebar > .toolbar--border {
-    margin: 0 6px 6px 6px;
+    margin: 6px 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -19,7 +19,7 @@
     }
 }
 .QYLmobile #sidebar .fn__flex-column:is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"], [data-type="sidebar-backlink"], [data-type="sidebar-inbox"], [data-type="sidebar-plugin"]) {
-    margin: 0 6px 0 6px;
+    margin: 0 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
@@ -31,7 +31,7 @@
     background-color: var(--b3-theme-surface);
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__title {
-    margin: 0 6px 6px 6px;
+    margin: 6px 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     border: none;
     color: var(--b3-theme-primary);
@@ -41,7 +41,7 @@
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__items {
     padding: 0 0;
-    margin: 0 6px 0 6px;
+    margin: 0 6px 6px 6px;
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__item {
     margin: 0;
@@ -56,12 +56,26 @@
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__item:has(+ .b3-menu__separator) {
     border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
 }
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child:has(+ .b3-menu__separator) {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item:last-child {
+    border-radius: var(--b3-border-radius);
+}
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item {
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__separator {
     height: 6px;
     border: none;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child:last-child {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile .b3-menu--fullscreen .b3-menu__submenu {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    top: 60px;
+    background: rgba(255, 0, 0, 0);
 }
 
 /* 底栏 */
@@ -85,7 +99,7 @@
 
 /*  主要页面 */
 .QYLmobile #model > .toolbar--border {
-    margin: 0 6px 6px 6px;
+    margin: 6px 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -93,7 +107,7 @@
       }
 }
 .QYLmobile #model #modelMain {
-    margin: 0 6px 0 6px;
+    margin: 0 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
@@ -126,7 +140,7 @@
 
 /* 闪卡 */
 .QYLmobile [data-key="dialog-opencard"] .card__main .toolbar--border {
-    margin: 0 6px 6px 6px;
+    margin: 6px 6px 6px 6px;
     color: var(--b3-theme-primary);
     border-radius: var(--b3-border-radius);
     & .toolbar__icon {
@@ -139,7 +153,7 @@
 
 /* 编辑器 */
 .QYLmobile .toolbar--border:has(+ #editor ) {
-    margin: 0 6px 6px 6px;
+    margin: 6px 6px 6px 6px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -150,7 +164,7 @@
       }
 }
 .QYLmobile #editor {
-    margin: 0 6px 0 6px;
+    margin: 0 6px 6px 6px;
     border-radius: var(--b3-border-radius);
 }
 
