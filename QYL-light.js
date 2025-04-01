@@ -1540,90 +1540,7 @@ function disableQYLcolorfulh() {
 
 // 开启顶栏融合
 function enableQYLfusion() {
-    function QYLFindFirstWndElement(selector) {
-        const directFind = document.querySelector(`${selector} [data-type="wnd"]`);
-        if (directFind) return directFind;
-        let el = document.querySelector(selector);
-        let depth = 0;
-        const MAX_DEPTH = 20;
-        while (el && el.dataset.type !== 'wnd' && depth < MAX_DEPTH) {
-          el = el.firstElementChild;
-          depth++;
-        }
-        return el?.dataset.type === 'wnd' ? el : null;
-      }  
-      function QYLManageIdAssignment() {
-        let observer = null;
-        let reassignTimer = null;
-        let globalObserver = null;
-        const TARGET_ID = 'QYLverticalthe1';
-        const cleanup = () => {
-          globalObserver?.disconnect();
-          observer?.disconnect();
-          clearTimeout(reassignTimer);
-          const targetEl = document.getElementById(TARGET_ID);
-          if (targetEl) targetEl.removeAttribute('id');
-          window.removeEventListener('beforeunload', beforeUnloadHandler);
-        };
-        const beforeUnloadHandler = () => cleanup();
-        window.addEventListener('beforeunload', beforeUnloadHandler);
-      
-        const QYLAssignId = (() => {
-          let debounceTimer;
-          return () => {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-              const targetSelector = '#layouts .layout__center';
-              const el = QYLFindFirstWndElement(targetSelector);
-              if (observer) {
-                observer.disconnect();
-                observer = null;
-              }     
-              if (el) {
-                if (el.id !== TARGET_ID) {
-                  const oldEl = document.getElementById(TARGET_ID);
-                  if (oldEl && oldEl !== el) oldEl.removeAttribute('id');
-                  el.id = TARGET_ID;
-                }
-                const parent = el.parentElement;
-                if (parent) {
-                  observer = new MutationObserver((mutations) => {
-                    for (const mutation of mutations) {
-                      for (const node of mutation.removedNodes) {
-                        if (node === el) {
-                          clearTimeout(reassignTimer);
-                          reassignTimer = setTimeout(QYLAssignId, 50);
-                          return;
-                        }
-                      }
-                    }
-                  });
-                  observer.observe(parent, { childList: true });
-                }
-              }
-            }, 30);
-          };
-        })();     
-        const initObserver = () => {
-          let container = document.querySelector('#layouts .layout__center')?.parentElement;
-          if (!container) container = document.querySelector('#layouts') || document.body;
-      
-          globalObserver = new MutationObserver(() => {
-            if (!document.getElementById(TARGET_ID)) QYLAssignId();
-          });
-          globalObserver.observe(container, {
-            childList: true,
-            subtree: true,
-            attributes: false,
-            characterData: false
-          });
-        };     
-        QYLAssignId();
-        initObserver();
-        window.QYL_CLEANUP = cleanup;
-      }
-    QYLManageIdAssignment();
-
+    setTimeout(QYLwnd.start, 300);
     fusion.start();
     windowObserver.start();
 
@@ -1639,12 +1556,10 @@ function enableQYLfusion() {
 
 // 关闭顶栏融合
 function disableQYLfusion() {
-
+    QYLwnd.stop();
     fusion.stop();
     windowObserver.stop();
 
-    window.QYL_CLEANUP?.();
-    window.QYL_CLEANUP = null;
     const linkElement = document.getElementById("QYLfusion-style");
     if (linkElement) {
         linkElement.remove();
@@ -1653,90 +1568,7 @@ function disableQYLfusion() {
 
 // 开启垂直页签
 function enableQYLverticaltab() {
-    //寻找第一个wnd,添加#QYLverticalthe1并监听
-    function QYLFindFirstWndElement(selector) {
-        const directFind = document.querySelector(`${selector} [data-type="wnd"]`);
-        if (directFind) return directFind;
-        let el = document.querySelector(selector);
-        let depth = 0;
-        const MAX_DEPTH = 20;
-        while (el && el.dataset.type !== 'wnd' && depth < MAX_DEPTH) {
-          el = el.firstElementChild;
-          depth++;
-        }
-        return el?.dataset.type === 'wnd' ? el : null;
-      }  
-      function QYLManageIdAssignment() {
-        let observer = null;
-        let reassignTimer = null;
-        let globalObserver = null;
-        const TARGET_ID = 'QYLverticalthe1';
-        const cleanup = () => {
-          globalObserver?.disconnect();
-          observer?.disconnect();
-          clearTimeout(reassignTimer);
-          const targetEl = document.getElementById(TARGET_ID);
-          if (targetEl) targetEl.removeAttribute('id');
-          window.removeEventListener('beforeunload', beforeUnloadHandler);
-        };
-        const beforeUnloadHandler = () => cleanup();
-        window.addEventListener('beforeunload', beforeUnloadHandler);
-      
-        const QYLAssignId = (() => {
-          let debounceTimer;
-          return () => {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-              const targetSelector = '#layouts .layout__center';
-              const el = QYLFindFirstWndElement(targetSelector);
-              if (observer) {
-                observer.disconnect();
-                observer = null;
-              }     
-              if (el) {
-                if (el.id !== TARGET_ID) {
-                  const oldEl = document.getElementById(TARGET_ID);
-                  if (oldEl && oldEl !== el) oldEl.removeAttribute('id');
-                  el.id = TARGET_ID;
-                }
-                const parent = el.parentElement;
-                if (parent) {
-                  observer = new MutationObserver((mutations) => {
-                    for (const mutation of mutations) {
-                      for (const node of mutation.removedNodes) {
-                        if (node === el) {
-                          clearTimeout(reassignTimer);
-                          reassignTimer = setTimeout(QYLAssignId, 50);
-                          return;
-                        }
-                      }
-                    }
-                  });
-                  observer.observe(parent, { childList: true });
-                }
-              }
-            }, 30);
-          };
-        })();     
-        const initObserver = () => {
-          let container = document.querySelector('#layouts .layout__center')?.parentElement;
-          if (!container) container = document.querySelector('#layouts') || document.body;
-      
-          globalObserver = new MutationObserver(() => {
-            if (!document.getElementById(TARGET_ID)) QYLAssignId();
-          });
-          globalObserver.observe(container, {
-            childList: true,
-            subtree: true,
-            attributes: false,
-            characterData: false
-          });
-        };     
-        QYLAssignId();
-        initObserver();
-        window.QYL_CLEANUP = cleanup;
-      }
-      QYLManageIdAssignment();
+    setTimeout(QYLwnd.start, 300);
 
       let linkElement = document.getElementById("QYLverticaltab-style");
       if (!linkElement) {
@@ -1750,9 +1582,7 @@ function enableQYLverticaltab() {
 
 // 关闭垂直页签
 function disableQYLverticaltab() {
-    //停止监听
-    window.QYL_CLEANUP?.();
-    window.QYL_CLEANUP = null;
+    QYLwnd.stop();
 
     const linkElement = document.getElementById("QYLverticaltab-style");
     if (linkElement) {
@@ -2032,6 +1862,71 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+// 寻找第一个wnd
+const QYLwnd = (function() {
+    let observer = null;
+    let currentTarget = null;
+    function check() {
+        let current = document.querySelector('.layout__center');
+        let target = null;
+        while (current) {
+            const firstChild = current.firstElementChild;
+            if (!firstChild) break;
+
+            if (firstChild.getAttribute('data-type') === 'wnd') {
+                target = firstChild;
+                break;
+            } else {
+                current = firstChild;
+            }
+        }
+        if (currentTarget) {
+            currentTarget.classList.remove('QYLwndthe1');
+            currentTarget = null;
+        }
+        if (target) {
+            target.classList.add('QYLwndthe1');
+            currentTarget = target;
+        }
+    }
+    function start() {
+        if (observer) return;
+        check();
+        const container = document.querySelector('.layout__center');
+        if (!container) {
+            console.error('未找到.layout__center元素');
+            return;
+        }
+        observer = new MutationObserver(mutations => {
+            let needsCheck = false;
+            for (const mutation of mutations) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-type') {
+                    needsCheck = true;
+                } else if (mutation.type === 'childList') {
+                    needsCheck = true;
+                }
+            }
+            if (needsCheck) check();
+        });
+        observer.observe(container, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['data-type']
+        });
+    }
+    function stop() {
+        if (!observer) return;
+        observer.disconnect();
+        observer = null;
+        if (currentTarget) {
+            currentTarget.classList.remove('QYLwndthe1');
+            currentTarget = null;
+        }
+    }
+    return { start, stop };
+})();
 
 
 // 底部状态栏位置更新
