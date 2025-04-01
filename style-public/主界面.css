@@ -84,6 +84,7 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .file-tree .block__icons * {
     color: var(--b3-theme-primary);
+    font-weight: bold;
 }
 .file-tree.sy__outline .b3-list-item[title] {
     padding-left: 0;

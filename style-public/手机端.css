@@ -65,6 +65,9 @@
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item {
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
+.QYLmobile :is(#menu, #commonMenu) :is(.b3-menu__separator + .b3-menu__item):is(.b3-menu__item:has(+ .b3-menu__separator)) {
+    border-radius: var(--b3-border-radius);
+}
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__separator {
     height: 6px;
     border: none;
@@ -219,4 +222,17 @@
 .QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 130px !important
+}
+.b3-list-item .b3-list-item__toggle.fn__hidden::before {
+    content: "";
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 99px;
+    background-color: var(--b3-theme-on-surface-light);
+    position: absolute;
+    visibility: visible;
+    margin-left: 3px;
+}
+.b3-list-item:hover .b3-list-item__toggle.fn__hidden::before {
+    background-color: var(--b3-theme-primary);
 }
