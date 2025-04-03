@@ -14,6 +14,7 @@
     --b3-theme-background-light:#dfe0e3; /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: #f3f6f8; /* 失焦颜色 */
     --b3-scroll-color: #e6ecf4; /* 滚动条颜色 */
+    --QYL-filetree-arrow: var(--b3-theme-on-surface-light);/* 文档树箭头颜色 */
     --QYL-white: #f5f7fa;
     --QYL-black: #11253e;
     --QYL-gray: #617691;
@@ -58,12 +59,27 @@
 }
 
 /* 细节调整 */
+:root {
+    --QYL-fog-primary-fix: rgb(91, 129, 254);
+}
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
     background-color: rgba(97, 118, 222, 0.25);
 }
 .protyle-gutters button:hover svg {
-    color: rgb(91, 129, 254); 
+    color: var(--QYL-fog-primary-fix); 
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     background-color: rgba(97, 118, 222, 0.15);
+}
+.protyle-wysiwyg [data-node-id].li:hover::before {
+    border-left: 1.5px solid var(--QYL-fog-primary-fix);
+}
+.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
+    color: var(--QYL-fog-primary-fix);
+}
+.b3-list-item:hover.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    background-color: var(--QYL-fog-primary-fix);
+}
+.file-tree .b3-list-item .b3-list-item__toggle:hover .b3-list-item__arrow {
+    color: var(--QYL-fog-primary-fix);
 }
