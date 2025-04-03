@@ -148,6 +148,9 @@
 .protyle-wysiwyg [data-node-id].li:hover::before {
     border-left: 1.5px solid var(--b3-theme-primary);
 }
+.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
+    color: var(--b3-theme-primary);
+}
 /* 标记 */
 span[data-type~=mark] {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0),var(--b3-protyle-inline-mark-background), var(--b3-protyle-inline-mark-background)) !important;

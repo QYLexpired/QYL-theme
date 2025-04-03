@@ -496,11 +496,11 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
     font-family: "QYL fonts";
     font-size: 12px;
     font-weight: 600;
-    color: white;
+    color: var(--QYL-white);
     text-transform: none;
 }
 #barWorkspace svg.toolbar__svg {
-    color: white;
+    color: var(--QYL-white);
     opacity: 1;
     margin-top: 2.5px;
     display: none;
