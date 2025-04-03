@@ -25,6 +25,9 @@
         box-shadow: var(--b3-light-shadow);
         user-select: none;
     }
+    .dock#dockBottom:not(.fn__none) + #status {
+        bottom: 52px;
+    }
     #barDock {
         position: relative;
         order: 1;
@@ -138,8 +141,18 @@ body:not(.body--mobile,.body--window) #layouts {
 #layouts .block__icons {
     border: none;
 }
+.dock#dockBottom {
+    border: none;
+      &:not(.fn__none) {
+        margin-top: -6px;
+      }
+}
 .dock__item {
     color: var(--b3-toolbar-color);
+}
+#layouts .layout__dockb .fn__flex-1.fn__flex .layout-tab-container {
+    border-radius: var(--b3-border-radius);
+    background-color: var(--b3-theme-background);
 }
 /* PDF界面 */
 .pdf__outer #mainContainer {

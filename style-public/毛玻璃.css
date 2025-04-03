@@ -138,6 +138,9 @@ div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
 .layout--float .block__icons {
     background-color: rgba(255, 0, 0, 0) !important;
 }
+.file-tree:is(.sy__graph, .sy__globalGraph) canvas {
+    background-color: rgba(255, 0, 0, 0);
+}
 /* 编辑器工具栏毛玻璃 */
 .protyle-toolbar, .protyle-util, .protyle-hint, .protyle-util .block__icons {
     background-color: var(--QYL-filter-background) !important;

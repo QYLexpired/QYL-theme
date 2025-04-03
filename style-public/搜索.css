@@ -65,7 +65,6 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
 }
 div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     box-shadow: none;
-    border: 0.6px solid var(--QYL-input-border);;
     border-radius: var(--b3-border-radius);
 }
 div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {

@@ -11,8 +11,8 @@
 #layouts .layout-tab-container {
     border: 2px solid var(--b3-theme-primary);
 }
-.layout__dockb .layout-tab-container {
-    border: none !important;
+#layouts .layout__dockb .fn__flex-1.fn__flex .layout-tab-container {
+    border: 2px solid var(--b3-theme-primary);
 }
 /* 页签 */
 [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
@@ -263,11 +263,11 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
     white-space: nowrap;
 }
 /* 适配垂直页签 */
-#QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
+.QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
     border: 2px solid var(--b3-theme-primary);
     border-bottom: none;
 }
-#QYLverticalthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+.QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
     border: 2px solid var(--b3-theme-primary);
     border-top: none;
 }
