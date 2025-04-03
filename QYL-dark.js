@@ -103,6 +103,7 @@ let isChecked14;
 let isChecked15;
 let isChecked16;
 let isChecked17;
+let isChecked18;
 let isChecked20;
 let isChecked21;
 let isChecked22;
@@ -322,6 +323,17 @@ function createSettingsWindow() {
     label17.style.fontSize = '14px';
     label17.style.userSelect= 'none';
 
+    const checkbox18 = document.createElement('input');
+    checkbox18.type = 'checkbox';
+    checkbox18.id = 'QYLltaixue-checkbox';
+    checkbox18.checked = isChecked18;
+
+    const label18 = document.createElement('label');
+    label18.htmlFor = 'QYLltaixue-checkbox';
+    label18.textContent = ' 配色：苔雪';
+    label18.style.fontSize = '14px';
+    label18.style.userSelect= 'none';
+
     const checkbox20 = document.createElement('input');
     checkbox20.type = 'checkbox';
     checkbox20.id = 'QYLlverticaltab-checkbox';
@@ -458,6 +470,12 @@ function createSettingsWindow() {
     QYLfunctionpair17.appendChild(label17);
     QYLfunctionpair17.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair18 = document.createElement('div');
+    QYLfunctionpair18.className = 'checkbox-label-pair';
+    QYLfunctionpair18.appendChild(checkbox18);
+    QYLfunctionpair18.appendChild(label18);
+    QYLfunctionpair18.style.animation = 'QYLbounceRight2 0.1s';
+
     const QYLfunctionpair20 = document.createElement('div');
     QYLfunctionpair20.className = 'checkbox-label-pair';
     QYLfunctionpair20.appendChild(checkbox20);
@@ -536,6 +554,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair14);
     settingsWindow.appendChild(QYLfunctionpair15);
     settingsWindow.appendChild(QYLfunctionpair17);
+    settingsWindow.appendChild(QYLfunctionpair18);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -565,6 +584,7 @@ async function saveConfig() {
         isChecked15: checkbox15.checked,
         isChecked16: checkbox16.checked,
         isChecked17: checkbox17.checked,
+        isChecked18: checkbox18.checked,
         isChecked20: checkbox20.checked,
         isChecked21: checkbox21.checked,
         isChecked22: checkbox22.checked
@@ -716,6 +736,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -732,6 +753,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -748,6 +770,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked13 === true) { checkbox13.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -764,6 +787,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked13 === true) { checkbox13.click(); }
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -780,6 +804,24 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked13 === true) { checkbox13.click(); }
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 苔雪配色开关
+checkbox18.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLtaixue() : disableQYLtaixue();
+    state ? isChecked18 = true : isChecked18 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1372,6 +1414,28 @@ function disableQYLchixia() {
     }
 }
 
+// 开启苔雪配色
+function enableQYLtaixue() {
+    let linkElement = document.getElementById("QYLtaixue-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLtaixue-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/苔雪配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭苔雪配色
+function disableQYLtaixue() {
+    const linkElement = document.getElementById("QYLtaixue-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let linkElement = document.getElementById("QYLcolorfulh-style");
@@ -1586,6 +1650,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked17 === false) {
             disableQYLchixia();
             isChecked17 = false;
+        }
+
+        if (config?.isChecked18 === true) {
+            enableQYLtaixue();
+            isChecked18 = true;
+        } else if (config?.isChecked18 === false) {
+            disableQYLtaixue();
+            isChecked18 = false;
         }
 
         if (config?.isChecked20 === true) {
