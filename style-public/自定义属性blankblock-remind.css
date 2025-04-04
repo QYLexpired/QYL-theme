@@ -7,3 +7,11 @@
     content:"空空如也" ;
     color:  #cacaca ;
 }
+.protyle-wysiwyg [data-node-id][custom-blankblock-remind="turn on"].p > [contenteditable][spellcheck]:empty::before, .protyle-wysiwyg [data-node-id][data-type="NodeHeading"] > [contenteditable][spellcheck]:empty::before {
+    content:"There's nothing there" ;
+    color:  #cacaca ;
+}
+[custom-blankblock-remind="turn on"] .p > [contenteditable][spellcheck]:empty::before {
+    content:"There's nothing there" ;
+    color:  #cacaca ;
+}
