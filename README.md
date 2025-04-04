@@ -1,28 +1,28 @@
 # Pursuing Simplicity, Practicality, Compatibility
+
+# If you like this theme, please give it a ⭐ on GitHub.
+
 ## Theme Features
 
-#### 💫 Dynamic and Lively Animation Effects
-#### 💫 Light-Dark Dual Mode Integration
-#### 💫 Light Theme Color Schemes: Classic, Sunset, Forest, Ocean, Candy, Lavender, Mist, Frosted Rice
-#### 💫 Dark Theme Color Schemes: Classic, Burgundy, Mystic Black, Ink Jade, Ash Curtain, Crimson Glow
-#### 💫 E-Ink Mode
-#### 💫 Frosted Glass Effect
-#### 💫 Hide Top Toolbar
-#### 💫 Vertical Tabs
-#### 💫 Highlighting for Current Editing Block, Hovered Block, and Super Block Range
-#### 💫 Spoiler Masking
-#### 💫 Full-Width Editor Display
-#### 💫 Colorful Document Tree
-#### 💫 Colored Headings and Outline
-#### 💫 Document Tree Indentation Lines & Outline Indentation Lines
-#### 💫 Extensive Element Styling Optimizations and Detail Refinements
-#### 💫 Highly Customizable CSS Properties
+##### 💫 English supported
+##### 💫 Light & Dark Modes Combined, 16 Theme Color Schemes
+##### 💫 Light Themes: Classic, Sunset, Forest, Ocean, Sugar, Lavender, fog, Frostsheaf, Memory
+##### 💫 Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow
+##### 💫 E-Ink Mode, Frosted Glass Effect
+##### 💫 Dynamic and lively animations
+##### 💫 Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
+##### 💫 Block Highlight On Mouse Hover, Super Block Highlight On Mouse Hover, Highlight Block On Focus
+##### 💫 Hide Marked Text, Editor Layout With Reduced Side Padding
+##### 💫 Colorful Tags & Colorful Inline Code, Colorful Headings & Colorful Outlines, Colorful File Tree
+##### 💫 File Tree With Indentation Guides
+##### 💫 Extensive element styling optimizations and detail refinements
+##### 💫 Highly customizable property styles
 
 ## Instructions
 
-###### · Triple-press the ​**Q** key quickly to toggle top toolbar visibility (PC only)  
-###### · Vertical tabs are only applied to the top-left document panel for space efficiency  
-###### · ​**E-Ink Mode** and ​**Frosted Glass Effect** cannot be enabled simultaneously  
+###### · Triple-press the `Q` key quickly to toggle top toolbar visibility (PC only)  
+###### · To save space, vertical tabs are only applied to the first document panel, while the tabs in split-screen document panels remain horizontally arranged
+###### · `E-Ink Mode` and `Frosted Glass Effect` cannot be enabled simultaneously, ​`Tab-Integrated Top Bar` and `Hide The Topbar` or `Vertical Tabs` cannot be enabled simultaneously
 ###### · In custom `css` properties:  
 &emsp;✓ Separate styles with semicolons `;` (no `{ }` brackets)  
 &emsp;✓ Example: `color:red;font-size:16px;`  
@@ -31,10 +31,10 @@
 
 |Custom Attribute|Applicable To|Values|Function|
 |----------------|-------------|------|--------|
-|`css`|Any Block/Document|CSS code|Custom CSS styles (non-exportable for documents)|
-|`style`|Any Block|Chinese Only|Block styling presets|
-|`h-style`|Heading Block/Document|Chinese Only|Heading text effects|
+|`css`|Any Block/Document|`CSS code`|Custom CSS styles (non-exportable for documents)|
+|`style`|Any Block|`red note` `red left border` `warning` `orange note` `orange left border` `tip` `yellow note` `yellow left border` `green note` `green left border` `done` `cyan note` `cyan left border` `info` `blue note` `blue left border` `todo` `purple note` `purple left border` `important` `pink note` `pink left border` `black note` `black left border` `comment` `gray note` `gray left border` `quote`|Block styling presets|
+|`h-style`|Heading Block/Document|`colorful` `gold` `underline` `level`|Heading text effects|
 |`font-family`|Any Block/Document|Chinese Only|Font family (requires local install)|
 |`height`|Any Block|`Default`,`50`,`100`,`150`,`200`|Max display height (scrollable)|
-|`table-style`|Table Block/Document|`三线表`|Table styling|
-|`blankblock-remind`|Any Block/Document|Chinese Only|Show "Empty Content" reminder|
+|`table-style`|Table Block/Document|`three-line table`|Table styling|
+|`blankblock-remind`|Any Block/Document|`turn on`|Show a "There's nothing there" reminder when the block is empty|

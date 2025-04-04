@@ -31,6 +31,89 @@ async function getFile(path) {
     });
 }
 
+//i18n
+const I18N = {
+    zh_CN: {
+        QYLztsz: ' QYL主题设置',
+        QYLbjwk: ' 标记挖空',
+        QYLsjx: ' 文档树和大纲缩进线',
+        QYLycdl: ' 隐藏顶栏',
+        QYLdlrh: ' 顶栏融合',
+        QYLhoverhighlight: ' 鼠标所在块高亮提示',
+        QYLsbhoverhighlight: ' 鼠标所在超级块范围提示',
+        QYLfocushighlight: ' 聚焦块高亮提示',
+        QYLqkxs: ' 编辑器全宽显示',
+        QYLdcwds: ' 多彩文档树',
+        QYLztdh: ' 主题动画',
+        QYLmbl: ' 毛玻璃效果',
+        QYLdcbq: ' 多彩标签和多彩行级代码',
+        QYLdcbt: ' 多彩标题和多彩大纲',
+        QYLczyq: ' 垂直页签',
+        QYLmsp: ' 墨水屏模式',
+        QYLxyps: ' 配色：夕阳',
+        QYLslps: ' 配色：森林',
+        QYLhyps: ' 配色：海洋',
+        QYLtgps: ' 配色：糖果',
+        QYLxycps: ' 配色：薰衣草',
+        QYLywps: ' 配色：云雾',
+        QYLshps: ' 配色：霜禾',
+        QYLhyhyps: ' 配色：回忆',
+    },
+    en_US: {
+        QYLztsz: ' QYL-Theme Settings',
+        QYLbjwk: ' Hide Marked Text',
+        QYLsjx: ' File Tree With Indentation Guides',
+        QYLycdl: ' Hide The Topbar',
+        QYLdlrh: ' Tab-Integrated Top Bar',
+        QYLhoverhighlight: ' Block Highlight On Mouse Hover',
+        QYLsbhoverhighlight: ' Super Block Highlight On Mouse Hover',
+        QYLfocushighlight: ' Highlight Block On Focus',
+        QYLqkxs: ' Editor Layout With Reduced Side Padding',
+        QYLdcwds: ' Colorful File Tree',
+        QYLztdh: ' QYL-Theme-Based Animation Effects',
+        QYLmbl: ' Frosted Glass Effect',
+        QYLdcbq: ' Colorful Tags & Colorful Inline Code',
+        QYLdcbt: ' Colorful Headings & Colorful Outlines',
+        QYLczyq: ' Vertical Tabs',
+        QYLmsp: ' E-Ink Mode',
+        QYLxyps: ' Sunset Theme',
+        QYLslps: ' Forest Theme',
+        QYLhyps: ' Ocean Theme',
+        QYLtgps: ' Sugar Theme',
+        QYLxycps: ' Lavender Theme',
+        QYLywps: ' Fog Theme',
+        QYLshps: ' Frostsheaf Theme',
+        QYLhyhyps: ' Memory Theme',
+    },
+    zh_CHT: {
+        QYLztsz: ' QYL主題設定',
+        QYLbjwk: ' 標記挖空',
+        QYLsjx: ' 文件樹和大綱縮進線',
+        QYLycdl: ' 隱藏頂欄',
+        QYLdlrh: ' 頂欄融合',
+        QYLhoverhighlight: ' 滑鼠所在區塊高亮提示',
+        QYLsbhoverhighlight: ' 滑鼠所在超級區塊範圍提示',
+        QYLfocushighlight: ' 聚焦區塊高亮提示',
+        QYLqkxs: ' 編輯器全寬顯示',
+        QYLdcwds: ' 多彩文件樹',
+        QYLztdh: ' 主題動畫',
+        QYLmbl: ' 毛玻璃效果',
+        QYLdcbq: ' 多彩標籤和多彩行級代碼',
+        QYLdcbt: ' 多彩標題和多彩大綱',
+        QYLczyq: ' 垂直頁籤',
+        QYLmsp: ' 墨水屏模式',
+        QYLxyps: ' 配色：夕陽',
+        QYLslps: ' 配色：森林',
+        QYLhyps: ' 配色：海洋',
+        QYLtgps: ' 配色：糖果',
+        QYLxycps: ' 配色：薰衣草',
+        QYLywps: ' 配色：雲霧',
+        QYLshps: ' 配色：霜禾',
+        QYLhyhyps: ' 配色：回憶',
+    },
+};
+const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
+
 // 添加Q按钮
 (function() {
     addThemeToolBar();
@@ -48,7 +131,7 @@ function addThemeToolBar() {
         QYLToolBar.style.width = "23.5px";
         QYLToolBar.style.height = "23.5px";
         QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" fill="var(--b3-toolbar-color)" opacity=".9" p-id="4701"></path></svg>`;
-        QYLToolBar.ariaLabel = "QYL主题设置";
+        QYLToolBar.ariaLabel = i18n.QYLztsz;
         QYLToolBar.style.userSelect = 'none';
         const handleToolbarClick = () => {
             const settingsWindow = document.getElementById('settings-window');
@@ -147,7 +230,7 @@ function createSettingsWindow() {
 
     const label1 = document.createElement('label');
     label1.htmlFor = 'mark-empty-checkbox';
-    label1.textContent = ' 标记挖空';
+    label1.textContent = i18n.QYLbjwk;
     label1.style.fontSize = '14px';
     label1.style.userSelect= 'none';
 
@@ -158,7 +241,7 @@ function createSettingsWindow() {
 
     const label2 = document.createElement('label');
     label2.htmlFor = 'filetree-indent-checkbox';
-    label2.textContent = ' 文档树和大纲缩进线';
+    label2.textContent = i18n.QYLsjx;
     label2.style.fontSize = '14px';
     label2.style.userSelect= 'none';
 
@@ -169,7 +252,7 @@ function createSettingsWindow() {
 
     const label3 = document.createElement('label');
     label3.htmlFor = 'toolbar-hidden-checkbox';
-    label3.textContent = ' 隐藏顶栏';
+    label3.textContent = i18n.QYLycdl;
     label3.style.fontSize = '14px';
     label3.style.userSelect= 'none';
 
@@ -180,7 +263,7 @@ function createSettingsWindow() {
 
     const label4 = document.createElement('label');
     label4.htmlFor = 'hoverblock-remind-checkbox';
-    label4.textContent = ' 鼠标所在块高亮提示';
+    label4.textContent = i18n.QYLhoverhighlight;
     label4.style.fontSize = '14px';
     label4.style.userSelect= 'none';
 
@@ -191,7 +274,7 @@ function createSettingsWindow() {
 
     const label5 = document.createElement('label');
     label5.htmlFor = 'sbblock-remind-checkbox';
-    label5.textContent = ' 鼠标所在超级块范围提示';
+    label5.textContent = i18n.QYLsbhoverhighlight;
     label5.style.fontSize = '14px';
     label5.style.userSelect= 'none';
 
@@ -202,7 +285,7 @@ function createSettingsWindow() {
 
     const label6 = document.createElement('label');
     label6.htmlFor = 'fullwidthpage-checkbox';
-    label6.textContent = ' 编辑器全宽显示';
+    label6.textContent = i18n.QYLqkxs;
     label6.style.fontSize = '14px';
     label6.style.userSelect= 'none';
 
@@ -213,7 +296,7 @@ function createSettingsWindow() {
 
     const label7 = document.createElement('label');
     label7.htmlFor = 'colorfulfiletree-checkbox';
-    label7.textContent = ' 多彩文档树';
+    label7.textContent = i18n.QYLdcwds;
     label7.style.fontSize = '14px';
     label7.style.userSelect= 'none';
 
@@ -224,7 +307,7 @@ function createSettingsWindow() {
 
     const label8 = document.createElement('label');
     label8.htmlFor = 'focusblockremind-checkbox';
-    label8.textContent = ' 聚焦块高亮提示';
+    label8.textContent = i18n.QYLfocushighlight;
     label8.style.fontSize = '14px';
     label8.style.userSelect= 'none';
 
@@ -235,7 +318,7 @@ function createSettingsWindow() {
 
     const label9 = document.createElement('label');
     label9.htmlFor = 'QYLanimation-checkbox';
-    label9.textContent = ' 主题动画';
+    label9.textContent = i18n.QYLztdh;
     label9.style.fontSize = '14px';
     label9.style.userSelect= 'none';
 
@@ -246,7 +329,7 @@ function createSettingsWindow() {
 
     const label10 = document.createElement('label');
     label10.htmlFor = 'QYLAero-checkbox';
-    label10.textContent = ' 毛玻璃效果';
+    label10.textContent = i18n.QYLmbl;
     label10.style.fontSize = '14px';
     label10.style.userSelect= 'none';
 
@@ -257,7 +340,7 @@ function createSettingsWindow() {
 
     const label11 = document.createElement('label');
     label11.htmlFor = 'QYLbancolofultag-checkbox';
-    label11.textContent = ' 多彩标签和多彩行级代码';
+    label11.textContent = i18n.QYLdcbq;
     label11.style.fontSize = '14px';
     label11.style.userSelect= 'none';
 
@@ -268,7 +351,7 @@ function createSettingsWindow() {
 
     const label12 = document.createElement('label');
     label12.htmlFor = 'QYLsunset-checkbox';
-    label12.textContent = ' 配色：夕阳';
+    label12.textContent = i18n.QYLxyps;
     label12.style.fontSize = '14px';
     label12.style.userSelect= 'none';
 
@@ -279,7 +362,7 @@ function createSettingsWindow() {
 
     const label13 = document.createElement('label');
     label13.htmlFor = 'QYLforest-checkbox';
-    label13.textContent = ' 配色：森林';
+    label13.textContent = i18n.QYLslps;
     label13.style.fontSize = '14px';
     label13.style.userSelect= 'none';
 
@@ -290,7 +373,7 @@ function createSettingsWindow() {
 
     const label14 = document.createElement('label');
     label14.htmlFor = 'QYLocean-checkbox';
-    label14.textContent = ' 配色：海洋';
+    label14.textContent = i18n.QYLhyps;
     label14.style.fontSize = '14px';
     label14.style.userSelect= 'none';
 
@@ -301,7 +384,7 @@ function createSettingsWindow() {
 
     const label15 = document.createElement('label');
     label15.htmlFor = 'QYLsugar-checkbox';
-    label15.textContent = ' 配色：糖果';
+    label15.textContent = i18n.QYLtgps;
     label15.style.fontSize = '14px';
     label15.style.userSelect= 'none';
 
@@ -312,7 +395,7 @@ function createSettingsWindow() {
 
     const label16 = document.createElement('label');
     label16.htmlFor = 'QYLlavender-checkbox';
-    label16.textContent = ' 配色：薰衣草';
+    label16.textContent = i18n.QYLxycps;
     label16.style.fontSize = '14px';
     label16.style.userSelect= 'none';
 
@@ -323,7 +406,7 @@ function createSettingsWindow() {
 
     const label17 = document.createElement('label');
     label17.htmlFor = 'QYLlfog-checkbox';
-    label17.textContent = ' 配色：云雾';
+    label17.textContent = i18n.QYLywps;
     label17.style.fontSize = '14px';
     label17.style.userSelect= 'none';
 
@@ -334,7 +417,7 @@ function createSettingsWindow() {
 
     const label18 = document.createElement('label');
     label18.htmlFor = 'QYLlinkmode-checkbox';
-    label18.textContent = ' 墨水屏模式';
+    label18.textContent = i18n.QYLmsp;
     label18.style.fontSize = '14px';
     label18.style.userSelect= 'none';
 
@@ -345,7 +428,7 @@ function createSettingsWindow() {
 
     const label19 = document.createElement('label');
     label19.htmlFor = 'QYLlshuanghe-checkbox';
-    label19.textContent = ' 配色：霜禾';
+    label19.textContent = i18n.QYLshps;
     label19.style.fontSize = '14px';
     label19.style.userSelect= 'none';
 
@@ -356,7 +439,7 @@ function createSettingsWindow() {
 
     const label20 = document.createElement('label');
     label20.htmlFor = 'QYLlverticaltab-checkbox';
-    label20.textContent = ' 垂直页签';
+    label20.textContent = i18n.QYLczyq;
     label20.style.fontSize = '14px';
     label20.style.userSelect= 'none';
 
@@ -367,7 +450,7 @@ function createSettingsWindow() {
 
     const label21 = document.createElement('label');
     label21.htmlFor = 'QYLlcolorfulh-checkbox';
-    label21.textContent = ' 多彩标题和多彩大纲';
+    label21.textContent = i18n.QYLdcbt;
     label21.style.fontSize = '14px';
     label21.style.userSelect= 'none';
 
@@ -378,7 +461,7 @@ function createSettingsWindow() {
 
     const label22 = document.createElement('label');
     label22.htmlFor = 'QYLlfusion-checkbox';
-    label22.textContent = ' 顶栏融合';
+    label22.textContent = i18n.QYLdlrh;
     label22.style.fontSize = '14px';
     label22.style.userSelect= 'none';
 
@@ -389,7 +472,7 @@ function createSettingsWindow() {
 
     const label30 = document.createElement('label');
     label30.htmlFor = 'QYLlmemory-checkbox';
-    label30.textContent = ' 配色：回忆';
+    label30.textContent = i18n.QYLhyhyps;
     label30.style.fontSize = '14px';
     label30.style.userSelect= 'none';
 
