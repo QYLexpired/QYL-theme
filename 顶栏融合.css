@@ -1,0 +1,83 @@
+#toolbar {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    margin-bottom: -38px;
+    pointer-events: none;
+    z-index: 2;
+}
+.toolbar__item {
+    pointer-events: auto;
+    app-region: no-drag;
+}
+#drag {
+    opacity: 0;
+}
+#layouts .layout-tab-bar {/* 会影响数据库页签 */
+    app-region: no-drag;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+
+:root {
+    --QYL-fusion-right-fix: 52px;
+}
+:root:has(#dockRight.fn__none) {
+    --QYL-fusion-right-fix: 16px;
+}
+.QYLwndthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */
+    padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)));
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);  
+}
+.body--mac .QYLwndthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
+    padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left) + 100px));
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
+    max-width: 80px;
+    min-width: min(80px, calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right)));
+    padding-right: calc(var(--QYL-fusion-drag-right) - var(--QYL-fusion-right-fix, 0px));
+}
+.QYLwndthe1 > .fn__flex .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 左上角页签取消右边距 */
+    padding-right: 0 !important;
+}
+.QYLwndthe1 > .fn__flex  {/* 左上角页签设置最大宽度，防止取消右边距后与右侧按钮重合 */
+    max-width: calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right));
+    box-sizing: border-box;
+}
+.layout__center .layout__resize + .fn__flex-1 [data-type="wnd"] > .fn__flex > .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 { /* 取消分屏右边距 */
+    padding-right: 0 !important;
+}
+
+
+#layouts .layout__center .layout-tab-container {
+    margin-top: 2px;
+    border-radius: var(--b3-border-radius) !important;
+}
+#layouts .layout__center .layout-tab-container:has(.layout__empty) {
+    margin-top: 38px;
+}
+
+
+#dockLeft {
+    padding-top: 38px;
+}
+#dockRight {
+    padding-top: 38px;
+}
+:is(.layout__dockl, .layout__dockr)  {
+    padding-top: 38px;
+    min-height: 50%;
+}
+#layouts .layout__resize.layout__resize--lr {
+    clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
+}
+
+/* 适配墨水屏模式 */
+.QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, .QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly, [data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar, [data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
+    border: none !important;
+}
+
+/* 与顶栏按钮颜色一致 */
+#layouts .layout-tab-bar .item--readonly :is([data-type="new"], [data-type="more"]) {
+    color: var(--b3-toolbar-color);
+}
