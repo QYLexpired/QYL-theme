@@ -55,3 +55,30 @@
     --QYL-account-background1: linear-gradient(to right bottom, #f9f4eb, #f7f2e8, #f4efe5, #f2ede2, #efebdf);
     --QYL-account-background2: linear-gradient(to right bottom, #f9f4eb, #f7f2e8, #f4efe5, #f2ede2, #efebdf);
 }
+
+
+/* 细节调整 */
+:root {
+    --QYL-tab-active: rgba(234, 196, 167, 0.3);
+    --QYL-tab-active-hover: rgba(234, 196, 167, 0.3);
+    --QYL-tab-nonactive-hover: rgba(234, 196, 167, 0.3);
+    --QYL-fog-primary-fix: rgb(131, 93, 167);
+}
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
+    background-color: rgba(95, 68, 120, 0.25);
+}
+.protyle-gutters button:hover svg {
+    color: var(--QYL-fog-primary-fix); 
+}
+.protyle-wysiwyg [data-node-id].li:hover::before {
+    border-left: 1.5px solid var(--QYL-fog-primary-fix);
+}
+.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
+    color: var(--QYL-fog-primary-fix);
+}
+.b3-list-item:hover.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    background-color: var(--QYL-fog-primary-fix);
+}
+.file-tree .b3-list-item .b3-list-item__toggle:hover .b3-list-item__arrow {
+    color: var(--QYL-fog-primary-fix);
+}
