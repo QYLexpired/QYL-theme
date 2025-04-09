@@ -16,6 +16,9 @@
     --b3-scroll-color:  rgb(255, 221, 193); /* 滚动条颜色 */
     --b3-toolbar-color: rgb(125, 106, 77);/* 顶部按钮颜色 */
     --QYL-filetree-arrow: #e0c6a4;/* 文档树箭头颜色 */
+    --b3-theme-error: #dc3030;
+    --b3-theme-success: #38c172;
+    --b3-theme-secondary: #f4ca64;
 
     /* 容器阴影 */
     --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;

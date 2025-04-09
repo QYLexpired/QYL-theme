@@ -19,6 +19,9 @@
     --QYL-gray: #bfbfbf; /* 通用灰 */
     --b3-toolbar-color: rgb(66, 100, 123);/* 顶部按钮颜色 */
     --QYL-filetree-arrow: #afcff3;/* 文档树箭头颜色 */
+    --b3-theme-error: #dc3030;
+    --b3-theme-success: #38c172;
+    --b3-theme-secondary: #f4ca64;
 
     /* 容器阴影 */
     --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
