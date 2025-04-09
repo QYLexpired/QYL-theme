@@ -23,3 +23,10 @@
         color: var(--b3-theme-primary);
       }
 }
+.file-tree .b3-list--background .b3-list-item--focus {
+    background-color: var(--b3-list-hover);
+    & .b3-list-item__text {
+      font-weight: bold;
+      color: var(--b3-theme-primary);
+    }
+}

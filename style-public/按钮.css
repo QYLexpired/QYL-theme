@@ -458,8 +458,7 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
     height: 25px;
     padding: 2px 5px;
     color: var(--b3-theme-primary);
-    border: 1px solid var(--b3-theme-primary);
-    background-color: var(--b3-theme-primary) !important;
+    background-color: var(--b3-theme-primary);
     transition: var(--b3-transition);
     position: relative;
     overflow: hidden;
@@ -493,7 +492,6 @@ div[data-key="dialog-opencard"] .b3-button.fn__flex-1[data-type="-1"] {
     }
 }
 #barWorkspace span.toolbar__text {
-    font-family: "QYL fonts";
     font-size: 12px;
     font-weight: 600;
     color: var(--QYL-white);

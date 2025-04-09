@@ -85,7 +85,7 @@ body:not(.body--mobile,.body--window) #layouts {
     border: none;
     box-shadow: var(--b3-light-shadow);
 }
-#layouts .file-tree .block__icons * {
+#layouts .file-tree .block__icons :is(.block__logo, .block__logoicon, .block__icon) {
     color: var(--b3-theme-primary);
     font-weight: bold;
 }
@@ -106,7 +106,6 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .layout__resize.layout__resize--lr:hover::after {
     visibility: visible;
-    transition: background 0.3s;
 }
 #layouts .layout__resize {
     margin: 0;
@@ -120,7 +119,6 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .layout__resize:hover::after {
     visibility: visible;
-    transition: background 0.3s;
 }
 #layouts .layout--float {
     border: 1.5px solid var(--b3-theme-primary-lighter) !important;
@@ -156,6 +154,9 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 .block__icons--menu {
     background-color: var(--b3-theme-background);
+}
+.layout__dockb[style="height: 0px;"] {
+    display: none;
 }
 /* PDF界面 */
 .pdf__outer #mainContainer {

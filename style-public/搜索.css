@@ -73,14 +73,20 @@ div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
     border: none !important;
 }
 div[data-key="dialog-globalsearch"] .search__list {
-    margin: 5px 10px;
+    margin: 5px 10px 2.5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
 div[data-key="dialog-globalsearch"] .search__preview {
-    margin: 5px 10px;
+    margin: 2.5px 10px 5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
+}
+div[data-key="dialog-globalsearch"] .search__layout--row .search__list {
+    margin: 5px 2.5px 5px 10px;
+}
+div[data-key="dialog-globalsearch"] .search__layout--row .search__preview {
+    margin: 5px 10px 5px 2.5px;
 }
 div[data-key="dialog-globalsearch"] .search__tip {
     border: none !important;
