@@ -1,29 +1,29 @@
 # Pursuing Simplicity, Practicality, Compatibility
 
-# If you like this theme, please give it a ⭐ on GitHub.
+###### If you like this theme, please give it a ⭐ on GitHub.
 
 ## Theme Features
 
-##### 💫 English supported
-##### 💫 Light & Dark Modes Combined, 16 Theme Color Schemes
-##### 💫 Light Themes: Classic, Sunset, Forest, Ocean, Sugar, Lavender, fog, Frostsheaf, Memory
-##### 💫 Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow
-##### 💫 E-Ink Mode, Frosted Glass Effect
-##### 💫 Dynamic and lively animations
-##### 💫 Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
-##### 💫 Block Highlight On Mouse Hover, Super Block Highlight On Mouse Hover, Highlight Block On Focus
-##### 💫 Hide Marked Text, Editor Layout With Reduced Side Padding
-##### 💫 Colorful Tags & Colorful Inline Code, Colorful Headings & Colorful Outlines, Colorful File Tree
-##### 💫 File Tree With Indentation Guides
-##### 💫 Extensive element styling optimizations and detail refinements
-##### 💫 Highly customizable property styles
+* English supported
+* Light & Dark Modes Combined, 16 Theme Color Schemes
+* Light Themes: Classic, Sunset, Forest, Ocean, Sugar, Lavender, fog, Frostsheaf, Memory
+* Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow
+* E-Ink Mode, Frosted Glass Effect
+* Dynamic and lively animations
+* Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
+* Block Highlight On Mouse Hover, Super Block Highlight On Mouse Hover, Highlight Block On Focus
+* Hide Marked Text, Editor Layout With Reduced Side Padding
+* Colorful Tags & Colorful Inline Code, Colorful Headings & Colorful Outlines, Colorful File Tree
+* File Tree With Indentation Guides
+* Extensive element styling optimizations and detail refinements
+* Highly customizable property styles
 
 ## Instructions
 
-###### · Triple-press the `Q` key quickly to toggle top toolbar visibility (PC only)  
-###### · To save space, vertical tabs are only applied to the first document panel, while the tabs in split-screen document panels remain horizontally arranged
-###### · `E-Ink Mode` and `Frosted Glass Effect` cannot be enabled simultaneously, ​`Tab-Integrated Top Bar` and `Hide The Topbar` or `Vertical Tabs` cannot be enabled simultaneously
-###### · In custom `css` properties:  
+* Triple-press the `Q` key quickly to toggle top toolbar visibility (PC only)  
+* To save space, vertical tabs are only applied to the first document panel, while the tabs in split-screen document panels remain horizontally arranged
+* `E-Ink Mode` and `Frosted Glass Effect` cannot be enabled simultaneously, ​`Tab-Integrated Top Bar` and `Hide The Topbar` or `Vertical Tabs` cannot be enabled simultaneously
+* In custom `css` properties:  
 &emsp;✓ Separate styles with semicolons `;` (no `{ }` brackets)  
 &emsp;✓ Example: `color:red;font-size:16px;`  
 &emsp;✓ Learn CSS: [CSS Tutorial](https://www.runoob.com/css/css-tutorial.html)  

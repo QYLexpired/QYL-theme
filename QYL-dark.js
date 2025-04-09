@@ -50,6 +50,7 @@ const I18N = {
         QYLdcbt: ' 多彩标题和多彩大纲',
         QYLczyq: ' 垂直页签',
         QYLmsp: ' 墨水屏模式',
+        QYLbkhwds: ' 边框化文档树',
         QYLbgdps: ' 配色：勃艮第',
         QYLxqps: ' 配色：玄青',
         QYLmcps: ' 配色：墨翠',
@@ -74,6 +75,7 @@ const I18N = {
         QYLdcbt: ' Colorful Headings & Colorful Outlines',
         QYLczyq: ' Vertical Tabs',
         QYLmsp: ' E-Ink Mode',
+        QYLbkhwds: ' Add Borders To The File Tree',
         QYLbgdps: ' Burgundy Theme',
         QYLxqps: ' Xuanqing Theme',
         QYLmcps: ' Blackjadeite Theme',
@@ -98,6 +100,7 @@ const I18N = {
         QYLdcbt: ' 多彩標題和多彩大綱',
         QYLczyq: ' 垂直頁籤',
         QYLmsp: ' 墨水屏模式',
+        QYLbkhwds: ' 邊框化文檔樹​',
         QYLbgdps: ' 配色：勃艮第',
         QYLxqps: ' 配色：玄青',
         QYLmcps: ' 配色：墨翠',
@@ -112,8 +115,6 @@ const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
 (function() {
     addThemeToolBar();
 })();
-
-// Q按钮定义/Q按钮关闭设置窗口
 function addThemeToolBar() {
     var QYLToolBar = document.getElementById("QToolbar");
     if (!QYLToolBar) {
@@ -184,6 +185,7 @@ let isChecked18;
 let isChecked20;
 let isChecked21;
 let isChecked22;
+let isChecked23;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -444,6 +446,17 @@ function createSettingsWindow() {
     label22.style.fontSize = '14px';
     label22.style.userSelect= 'none';
 
+    const checkbox23 = document.createElement('input');
+    checkbox23.type = 'checkbox';
+    checkbox23.id = 'QYLlborderfile-checkbox';
+    checkbox23.checked = isChecked23;
+
+    const label23 = document.createElement('label');
+    label23.htmlFor = 'QYLlborderfile-checkbox';
+    label23.textContent = i18n.QYLbkhwds;
+    label23.style.fontSize = '14px';
+    label23.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -571,6 +584,11 @@ function createSettingsWindow() {
     QYLfunctionpair22.appendChild(label22);
     QYLfunctionpair22.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair23 = document.createElement('div');
+    QYLfunctionpair23.className = 'checkbox-label-pair';
+    QYLfunctionpair23.appendChild(checkbox23);
+    QYLfunctionpair23.appendChild(label23);
+    QYLfunctionpair23.style.animation = 'QYLbounceRight2 0.1s';
 
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
@@ -625,6 +643,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair11); //多彩标签
     settingsWindow.appendChild(QYLfunctionpair21); //多彩标题
     settingsWindow.appendChild(QYLfunctionpair7); //多彩文档树
+    settingsWindow.appendChild(QYLfunctionpair23); //边框化文档树
     settingsWindow.appendChild(QYLfunctionpairdivider4);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
@@ -664,7 +683,8 @@ async function saveConfig() {
         isChecked18: checkbox18.checked,
         isChecked20: checkbox20.checked,
         isChecked21: checkbox21.checked,
-        isChecked22: checkbox22.checked
+        isChecked22: checkbox22.checked,
+        isChecked23: checkbox23.checked
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -760,6 +780,18 @@ checkbox7.addEventListener('change', async function() {
     const state = this.checked;
     state ? enablecolorfulfiletree() : disablecolorfulfiletree();
     state ? isChecked7 = true : isChecked7 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 边框化文档树开关
+checkbox23.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableborderfiletree() : disableborderfiletree();
+    state ? isChecked23 = true : isChecked23 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1300,6 +1332,26 @@ function disablecolorfulfiletree() {
     }
 }
 
+// 开启边框化文档树
+function enableborderfiletree() {
+    let linkElement = document.getElementById("borderfiletree-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "borderfiletree-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/边框化文档树.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭边框化文档树
+function disableborderfiletree() {
+    const linkElement = document.getElementById("borderfiletree-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
 // 开启主题动画
 function enableQYLanimation() {
     let linkElement = document.getElementById("QYLanimation-style");
@@ -1759,6 +1811,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked22 === false) {
             disableQYLfusion();
             isChecked22 = false;
+        }
+
+        if (config?.isChecked23 === true) {
+            enableborderfiletree();
+            isChecked23 = true;
+        } else if (config?.isChecked23 === false) {
+            disableborderfiletree();
+            isChecked23 = false;
         }
 
     } catch (e) {
