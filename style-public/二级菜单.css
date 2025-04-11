@@ -20,7 +20,8 @@
 }
 /* 编辑器工具栏 */
 .protyle-toolbar {
-    border-radius: var(--b3-border-radius);
+    border-radius: var(--b3-border-radius-q);
+    border: 0.5px solid var(--b3-theme-surface-lighter);
 }
 .protyle-toolbar__item {
     margin: 6px 3px;
@@ -68,4 +69,13 @@
     background-color: var(--QYL-ref) !important;
     color: var(--QYL-white) !important;
     border: none !important;
+}
+/* 外观菜单 */
+.protyle-util .protyle-font .color__square {
+    font-size: 20px;
+    font-weight: bold;
+}
+.protyle-util .protyle-font div:has(+ .fn__hr--small), .protyle-util .protyle-font .fn__hr + .fn__flex {
+    font-weight: bold;
+    color: var(--b3-theme-primary);
 }

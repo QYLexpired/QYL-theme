@@ -79,6 +79,14 @@
     position: relative;
     bottom: 1px;
 }
+.fn__kbd {
+    border-radius: 6px;
+    background-color: var(--b3-theme-background);
+    border: solid 1px var(--b3-theme-surface-lighter);
+    box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
+    position: relative;
+    bottom: -1px;
+}
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
     box-shadow: var(--b3-theme-primary-lighter) 0px 1px 1px, var(--b3-theme-primary-lightest) 0px 0px 1px 1px;
