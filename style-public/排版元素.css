@@ -72,8 +72,9 @@
 }
 /* 键盘元素 */
 .b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
-    border: var(--b3-border-radius);
     border-radius: 6px;
+    background-color: var(--b3-theme-background);
+    border: solid 1px var(--b3-theme-surface-lighter);
     box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
     position: relative;
     bottom: 1px;
@@ -85,13 +86,17 @@
 }
 /* 行级备注 */
 .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
-    background-color: rgba(255, 0, 0, 0);
+    background-color: var(--QYL-hover);
     border-bottom: 2px dashed var(--b3-theme-primary);
     padding-bottom: 1.5px;
 }
 .tooltip.tooltip--memo {
     font-size: 14px;
     line-height: 20px;
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);
+    border: 0.5px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-light-shadow);
 }
 /* 行内文字背景 */
 :is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-font-background"] {

@@ -47,3 +47,85 @@
     color: var(--b3-theme-primary) !important;
     font-weight: 600 !important;
 }
+
+/* 日历面板插件 */
+.arco-tabs-tab-active, .arco-tabs-tab-active:hover {
+    color: var(--b3-theme-primary) !important;
+}
+.arco-tabs-nav-ink {
+    background-color: var(--b3-theme-primary) !important;
+}
+.arco-select-view-single {
+    border-radius: var(--b3-border-radius) !important;
+    border: 1px solid var(--b3-theme-primary) !important;
+    background-color: var(--b3-theme-background) !important;
+}
+.arco-select-view-single:focus-within, .arco-select-view-single.arco-select-view-focus, .arco-select-view-single:hover {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
+[data-v-app] .arco-picker-cell:not(.arco-picker-cell-selected).arco-picker-cell-in-view .exist {
+    color: var(--b3-theme-primary) !important;
+}
+.arco-picker-cell-today:after {
+    background-color: var(--b3-theme-primary) !important;
+}
+.arco-picker-cell-selected .arco-picker-date-value {
+    background-color: var(--b3-theme-primary) !important;
+}
+.arco-picker-cell:not(.arco-picker-cell-selected).arco-picker-cell-in-view .arco-picker-date-value:hover {
+    border-color: var(--b3-theme-primary) !important;
+}
+.arco-picker-header-title, .arco-picker-week-list-item {
+    font-weight: bold;
+    color: var(--b3-theme-primary) !important;
+}
+.arco-picker-header-icon {
+    color: var(--b3-theme-primary) !important;
+}
+.arco-btn-secondary, .arco-btn-secondary[type=button], .arco-btn-secondary[type=submit] {
+    border-radius: var(--b3-border-radius) !important;
+    color: var(--b3-theme-primary) !important;
+    background-color: rgba(255, 0, 0, 0) !important;
+    border: 1px solid var(--b3-theme-primary) !important;
+    padding: 2px 8px !important;
+    overflow: hidden !important;
+    &:before {
+        content: "";
+        background-color: rgba(255,255,255,0.5);
+        height: 100%;
+        width: 1em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
+      }
+      &:hover {
+        background-color: var(--b3-theme-primary) !important;
+        color: var(--QYL-white) !important;
+        &:before {
+          transform: skewX(-45deg) translateX(13.5em);
+          transition: var(--b3-transition-slow) !important;
+       }
+      }
+      &:focus {
+        background-color: var(--b3-theme-primary) !important;
+        color: var(--QYL-white);
+        &:before {
+          transform: skewX(-45deg) translateX(13.5em);
+          transition: var(--b3-transition-slow);
+        }
+      }
+}
+.b3-menu__item--current:not(.b3-menu__item--readonly):has(.arco-tabs) {
+    background-color: var(--b3-theme-background) !important;
+}
+
+/* 插入时间插件 */
+.protyle-hint .b3-list-item[data-value^="plugin"][data-value*="sy-insert-time"] {
+    font-size: 90%;
+    & b {
+        color: var(--b3-theme-primary);
+    }
+} 

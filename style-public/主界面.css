@@ -18,7 +18,7 @@
         height: 27px !important;
         overflow: hidden;
         z-index: 3;
-        border: none;
+        border: 0.5px solid var(--b3-theme-surface-lighter);
         background-color: var(--b3-theme-background);
         display: flex;
         align-items: center;
