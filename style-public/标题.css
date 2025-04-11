@@ -1,10 +1,10 @@
 /* 彩色多级标题 */
-:is(.b3-typography, .protyle-wysiwyg) :is(.h1, h1)>[spellcheck]:not(:empty) { color: var(--QYL-h1); }
-:is(.b3-typography, .protyle-wysiwyg) :is(.h2, h2)>[spellcheck]:not(:empty) { color: var(--QYL-h2); }
-:is(.b3-typography, .protyle-wysiwyg) :is(.h3, h3)>[spellcheck]:not(:empty) { color: var(--QYL-h3); }
-:is(.b3-typography, .protyle-wysiwyg) :is(.h4, h4)>[spellcheck]:not(:empty) { color: var(--QYL-h4); }
-:is(.b3-typography, .protyle-wysiwyg) :is(.h5, h5)>[spellcheck]:not(:empty) { color: var(--QYL-h5); }
-:is(.b3-typography, .protyle-wysiwyg) :is(.h6, h6)>[spellcheck]:not(:empty) { color: var(--QYL-h6); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h1, h1)>[spellcheck]:not(:empty), .b3-typography :is(.h1, h1) { color: var(--QYL-h1); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h2, h2)>[spellcheck]:not(:empty), .b3-typography :is(.h2, h2) { color: var(--QYL-h2); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h3, h3)>[spellcheck]:not(:empty), .b3-typography :is(.h3, h3) { color: var(--QYL-h3); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h4, h4)>[spellcheck]:not(:empty), .b3-typography :is(.h4, h4) { color: var(--QYL-h4); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h5, h5)>[spellcheck]:not(:empty), .b3-typography :is(.h5, h5) { color: var(--QYL-h5); }
+:is(.b3-typography, .protyle-wysiwyg) :is(.h6, h6)>[spellcheck]:not(:empty), .b3-typography :is(.h6, h6) { color: var(--QYL-h6); }
 
 /* 标题折叠 */
 .protyle-wysiwyg div[fold="1"][data-type=NodeHeading]::before {
