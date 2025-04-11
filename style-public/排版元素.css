@@ -47,7 +47,7 @@
     color: var(--b3-theme-primary);
 }
 /* 标签 */
-.protyle-wysiwyg [data-node-id] span[data-type~=tag], .protyle-wysiwyg [data-node-id] span[data-type~=tag]:hover {
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]{
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -57,6 +57,9 @@
     transition: var(--b3-transition);
     margin-left: 2px;
     margin-right: 2px;
+    &:hover {
+        background-color: var(--b3-theme-success);
+    }
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]::before, .protyle-wysiwyg [data-node-id] span[data-type~=tag]:hover::before {
     content: '';

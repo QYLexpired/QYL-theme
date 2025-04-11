@@ -79,3 +79,12 @@
     font-weight: bold;
     color: var(--b3-theme-primary);
 }
+/* 自定义属性 */
+[class="custom-attr"] span.fn__flex-1:has(+[data-action="bookmark"]) {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+}
+[data-type="custom"] span.fn__flex-1:has(+[data-action="remove"]) {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+}

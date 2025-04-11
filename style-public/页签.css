@@ -31,6 +31,9 @@
 .item.item--focus {
     background-color: var(--QYL-tab-active);
     border-radius: var(--b3-border-radius);
+    & .item__text {
+        font-weight: 600;
+    }
 }
 .item.item--focus:hover {
     background-color: var(--QYL-tab-active-hover);
