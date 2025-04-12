@@ -32,7 +32,7 @@
 |Custom Attribute|Applicable To|Values|Function|
 |----------------|-------------|------|--------|
 |`css`|Any Block/Document|`CSS code`|Custom CSS styles (non-exportable for documents)|
-|`style`|Any Block|`red note` `red left border` `warning` `orange note` `orange left border` `tip` `yellow note` `yellow left border` `green note` `green left border` `done` `cyan note` `cyan left border` `info` `blue note` `blue left border` `todo` `purple note` `purple left border` `important` `pink note` `pink left border` `black note` `black left border` `comment` `gray note` `gray left border` `quote`|Block styling presets|
+|`style`|Any Block|`red note` `red left border` `warning` `orange note` `orange left border` `tip` `yellow note` `yellow left border` `green note` `green left border` `done` `cyan note` `cyan left border` `info` `blue note` `blue left border` `todo` `purple note` `purple left border` `important` `pink note` `pink left border` `black note` `black left border` `comment` `gray note` `gray left border` `quote` `sajin paper` `grid`|Block styling presets|
 |`h-style`|Heading Block/Document|`colorful` `gold` `underline` `left border` `level`|Heading text effects|
 |`font-family`|Any Block/Document|Chinese Only|Font family (requires local install)|
 |`height`|Any Block|`Default`,`50`,`100`,`150`,`200`|Max display height (scrollable)|
