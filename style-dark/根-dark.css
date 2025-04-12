@@ -37,6 +37,7 @@
     --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
     --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
     --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
+    --b3-menu-background: var(--b3-theme-background);
     --QYL-white: #fff; /* 通用白 */
     --QYL-black: #171717; /* 通用黑 */
     --QYL-gray: #bfbfbf; /* 通用灰 */
