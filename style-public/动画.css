@@ -78,7 +78,7 @@
     }
 }
 /* 页签动画 */
-.layout-tab-bar .item {
+.layout__center :not(.av__views) > .layout-tab-bar .item {
     animation: QYLbounceRight 0.5s;
 }
 /* 斜杠菜单动画 */

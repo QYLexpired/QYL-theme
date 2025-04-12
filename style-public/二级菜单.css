@@ -10,6 +10,13 @@
     margin-top: 10px;
     border-radius: var(--b3-border-radius);
 }
+.emojis__title {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+}
+.b3-dialog__container:has(.emojis) {
+    background-color: var(--b3-theme-background);
+}
 /* 圆形关闭键 */
 .b3-dialog__close {
     display: none;

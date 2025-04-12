@@ -95,9 +95,6 @@ body:not(.body--mobile,.body--window) #layouts {
     color: var(--b3-theme-primary);
     font-weight: bold;
 }
-.file-tree.sy__outline .b3-list-item[title] {
-    padding-left: 0;
-}
 .file-tree.sy__outline .b3-list-item[title] .b3-list-item__text {
     color: var(--b3-theme-primary);
 }

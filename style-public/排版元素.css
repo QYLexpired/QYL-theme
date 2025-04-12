@@ -231,3 +231,6 @@ div.protyle-action.protyle-action--task svg {
     background-color: var(--codeblock-background) !important;
     filter: var(--codeblock-brightness);
 }
+.b3-typography .code-block:not(pre):hover .protyle-action__language, .protyle-wysiwyg .code-block:not(pre):hover .protyle-action__language {
+    color: var(--b3-theme-primary);
+}
