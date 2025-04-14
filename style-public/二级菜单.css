@@ -95,3 +95,7 @@
     color: var(--b3-theme-primary);
     font-weight: bold;
 }
+/* 同步菜单 */
+[data-key="dialog-syncchoosedirection"] .b3-dialog__container {
+    background-color: var(--b3-theme-background);
+}

@@ -81,3 +81,14 @@
 #layouts .layout-tab-bar .item--readonly :is([data-type="new"], [data-type="more"]) {
     color: var(--b3-toolbar-color);
 }
+
+/* 湖畔配色调整 */
+:root {
+    --QYL-lakeside-tag-1: #eef4f2 !important;
+    --QYL-lakeside-tag-2: #fffcf3 !important;
+}
+/* 香雪兰配色调整 */
+:root {
+    --QYL-freesia-tag-1: #e1ebd1 !important;
+    --QYL-freesia-tag-2: #eaf0e2 !important;
+}
