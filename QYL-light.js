@@ -59,6 +59,8 @@ const I18N = {
         QYLywps: ' 配色：云雾',
         QYLshps: ' 配色：霜禾',
         QYLhyhyps: ' 配色：回忆',
+        QYLhpps: ' 配色：湖畔',
+        QYLxxlps: ' 配色：香雪兰',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -86,6 +88,8 @@ const I18N = {
         QYLywps: ' Fog Theme',
         QYLshps: ' Frostsheaf Theme',
         QYLhyhyps: ' Memory Theme',
+        QYLhpps: ' Lakeside Theme',
+        QYLxxlps: ' Freesia Theme',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -113,6 +117,8 @@ const I18N = {
         QYLywps: ' 配色：雲霧',
         QYLshps: ' 配色：霜禾',
         QYLhyhyps: ' 配色：回憶',
+        QYLhpps: ' 配色：湖畔',
+        QYLxxlps: ' 配色：香雪蘭',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -196,7 +202,8 @@ let isChecked21;
 let isChecked22;
 let isChecked23;
 let isChecked30;
-
+let isChecked31;
+let isChecked32;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -490,6 +497,28 @@ function createSettingsWindow() {
     label30.style.fontSize = '14px';
     label30.style.userSelect= 'none';
 
+    const checkbox31 = document.createElement('input');
+    checkbox31.type = 'checkbox';
+    checkbox31.id = 'QYLllakeside-checkbox';
+    checkbox31.checked = isChecked31;
+
+    const label31 = document.createElement('label');
+    label31.htmlFor = 'QYLllakeside-checkbox';
+    label31.textContent = i18n.QYLhpps;
+    label31.style.fontSize = '14px';
+    label31.style.userSelect= 'none';
+
+    const checkbox32 = document.createElement('input');
+    checkbox32.type = 'checkbox';
+    checkbox32.id = 'QYLlfreesia-checkbox';
+    checkbox32.checked = isChecked32;
+
+    const label32 = document.createElement('label');
+    label32.htmlFor = 'QYLlfreesia-checkbox';
+    label32.textContent = i18n.QYLxxlps;
+    label32.style.fontSize = '14px';
+    label32.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -636,6 +665,18 @@ function createSettingsWindow() {
     QYLfunctionpair30.appendChild(label30);
     QYLfunctionpair30.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair31 = document.createElement('div');
+    QYLfunctionpair31.className = 'checkbox-label-pair';
+    QYLfunctionpair31.appendChild(checkbox31);
+    QYLfunctionpair31.appendChild(label31);
+    QYLfunctionpair31.style.animation = 'QYLbounceRight2 0.1s';
+
+    const QYLfunctionpair32 = document.createElement('div');
+    QYLfunctionpair32.className = 'checkbox-label-pair';
+    QYLfunctionpair32.appendChild(checkbox32);
+    QYLfunctionpair32.appendChild(label32);
+    QYLfunctionpair32.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -702,6 +743,8 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair17);
     settingsWindow.appendChild(QYLfunctionpair19);
     settingsWindow.appendChild(QYLfunctionpair30);
+    settingsWindow.appendChild(QYLfunctionpair31);
+    settingsWindow.appendChild(QYLfunctionpair32);
 
 
 // 将设置窗口添加到body
@@ -737,7 +780,9 @@ async function saveConfig() {
         isChecked21: checkbox21.checked,
         isChecked22: checkbox22.checked,
         isChecked23: checkbox23.checked,
-        isChecked30: checkbox30.checked
+        isChecked30: checkbox30.checked,
+        isChecked31: checkbox31.checked,
+        isChecked32: checkbox32.checked
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -902,6 +947,8 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -921,6 +968,8 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -940,6 +989,8 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -959,6 +1010,8 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -978,6 +1031,8 @@ checkbox16.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -997,6 +1052,8 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked16 === true) { checkbox16.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1016,6 +1073,8 @@ checkbox19.addEventListener('change', async function() {
     if (isChecked16 === true) { checkbox16.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1035,6 +1094,50 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked16 === true) { checkbox16.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 湖畔配色开关
+checkbox31.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLlakeside() : disableQYLlakeside();
+    state ? isChecked31 = true : isChecked31 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 香雪兰配色开关
+checkbox32.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfreesia() : disableQYLfreesia();
+    state ? isChecked32 = true : isChecked32 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1723,6 +1826,50 @@ function disableQYLmemory() {
     }
 }
 
+// 开启湖畔配色
+function enableQYLlakeside() {
+    let linkElement = document.getElementById("QYLlakeside-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLlakeside-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/湖畔配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭湖畔配色
+function disableQYLlakeside() {
+    const linkElement = document.getElementById("QYLlakeside-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启香雪兰配色
+function enableQYLfreesia() {
+    let linkElement = document.getElementById("QYLfreesia-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLfreesia-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/香雪兰配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭香雪兰配色
+function disableQYLfreesia() {
+    const linkElement = document.getElementById("QYLfreesia-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let linkElement = document.getElementById("QYLcolorfulh-style");
@@ -1993,6 +2140,22 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked30 === false) {
             disableQYLmemory();
             isChecked30 = false;
+        }
+
+        if (config?.isChecked31 === true) {
+            enableQYLlakeside();
+            isChecked31 = true;
+        } else if (config?.isChecked31 === false) {
+            disableQYLlakeside();
+            isChecked31 = false;
+        }
+
+        if (config?.isChecked32 === true) {
+            enableQYLfreesia();
+            isChecked32 = true;
+        } else if (config?.isChecked32 === false) {
+            disableQYLfreesia();
+            isChecked32 = false;
         }
 
     } catch (e) {
