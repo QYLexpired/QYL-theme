@@ -22,6 +22,7 @@
     --b3-theme-error: #dc3030;
     --b3-theme-success: #38c172;
     --b3-theme-secondary: #f4ca64;
+    --QYL-accent-color: rgb(27, 148, 128);
 
     /* 容器阴影 */
     --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
