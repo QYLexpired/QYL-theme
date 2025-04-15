@@ -83,3 +83,7 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
         color: var(--b3-theme-error);
     }
 }
+/* 复选框颜色 */
+#QYLsettings-window {
+    accent-color: var(--QYL-accent-color);
+}

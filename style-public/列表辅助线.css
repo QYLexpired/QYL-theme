@@ -1,0 +1,129 @@
+.protyle-wysiwyg [data-node-id].li:has(.block-focus) {
+    >.protyle-action {
+      color: var(--QYL-lihelp);
+      svg {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+      }
+    }
+  
+    >.list:has(.block-focus)>.li {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        width: 34px;
+        left: -18px;
+        top: -20px;
+        border-style: solid;
+        border-color: var(--QYL-lihelp);
+      }
+  
+      &:not(:has(.block-focus))::after {
+        bottom: -2px;
+        border-width: 0 0 0 2px;
+      }
+  
+      &:has(.block-focus) {
+        &::after {
+          height: 36.5px;
+          border-radius: 0 0 0 8px;
+          border-width: 0 0 2px 2px;
+        }
+  
+        ~.li:not(:has(.block-focus))::after {
+          border-color: rgba(0, 0, 0, 0);
+        }
+      }
+  
+      &[data-subtype=o]::after {
+        width: 24px;
+      }
+  
+      &[data-subtype=t]::after {
+        width: 26px;
+      }
+    }
+  
+    >[data-node-id] {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        width: 34px;
+        left: -18px;
+        border-style: solid;
+        border-color: var(--QYL-lihelp);
+        top: 25px;
+        height: calc(100% + 4px);
+        border-width: 0 0 0 2px;
+      }
+  
+      &:has(+.list)::after {
+        height: auto;
+        bottom: 0;
+      }
+  
+      &[data-type=NodeHeading]::after {
+        top: 0;
+        height: 185%;
+      }
+  
+      &.list:has(.block-focus),
+      &.bq:has(.block-focus),
+      &.sb:has(.block-focus) {
+        &::after,
+        ~[data-node-id]::after {
+          border-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  
+    &[fold="1"]>[data-node-id]::after,
+    &:has(>.block-focus)>[data-node-id]::after {
+      border-color: rgba(0, 0, 0, 0);
+    }
+  
+    &[data-subtype=o]:has(.block-focus) {
+      >.list:has(.block-focus)>.li {
+        &::after {
+          top: -10px;
+        }
+  
+        &:has(.block-focus)::after {
+          height: 26px;
+        }
+      }
+    }
+  
+    &[data-subtype=t]:has(.block-focus) {
+      >.protyle-action {
+        color: var(--QYL-lihelp);
+        
+        svg {
+          margin: 0;
+          width: 14px;
+          height: 14px;
+          padding: 0;
+        }
+      }
+  
+      >.list:has(.block-focus)>.li {
+        &::after {
+          top: -14px;
+        }
+  
+        &:has(.block-focus)::after {
+          height: 30px;
+        }
+      }
+    }
+}
+/* 列表缩进线颜色调整 */
+.protyle-wysiwyg [data-node-id].li:hover::before {
+  border-left: 1.5px solid var(--b3-theme-background-light);
+}
