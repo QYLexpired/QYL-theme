@@ -37,6 +37,7 @@
     --QYL-black: #171717; /* 通用黑 */
     --QYL-gray: #bfbfbf; /* 通用灰 */
     --b3-toolbar-blur-background: #4e4e4e; /* 失焦颜色 */
+    --QYL-accent-color: #936c09;
 }
 :root {
     --QYL-blockquote: rgb(149, 141, 132);

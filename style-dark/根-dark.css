@@ -46,6 +46,8 @@
     --b3-protyle-code-background: rgba(0, 0, 0, 0.3); /* 行内代码背景色 */
     --QYL-markcloze-bottom: rgba(60, 172, 78, 0.8);
     --QYL-filetree-arrow: var(--b3-theme-on-surface-light);/* 文档树箭头颜色 */
+    --QYL-accent-color: var(--b3-theme-primary);
+    --QYL-lihelp: var(--b3-theme-primary);
 
     /* 圆角矩形 */
     --b3-border-radius: 6px;
