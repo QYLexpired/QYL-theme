@@ -125,5 +125,5 @@
 }
 /* 列表缩进线颜色调整 */
 .protyle-wysiwyg [data-node-id].li:hover::before {
-  border-left: 1.5px solid var(--b3-theme-background-light);
+  border-left: 1.5px solid var(--b3-theme-background-light) !important;
 }
