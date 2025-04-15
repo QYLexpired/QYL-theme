@@ -51,6 +51,7 @@ const I18N = {
         QYLczyq: ' 垂直页签',
         QYLmsp: ' 墨水屏模式',
         QYLbkhwds: ' 边框化文档树',
+        QYLlbfzx: ' 列表辅助线',
         QYLbgdps: ' 配色：勃艮第',
         QYLxqps: ' 配色：玄青',
         QYLmcps: ' 配色：墨翠',
@@ -76,6 +77,7 @@ const I18N = {
         QYLczyq: ' Vertical Tabs',
         QYLmsp: ' E-Ink Mode',
         QYLbkhwds: ' Add Borders To The File Tree',
+        QYLlbfzx: ' List Bullet Line',
         QYLbgdps: ' Burgundy Theme',
         QYLxqps: ' Xuanqing Theme',
         QYLmcps: ' Blackjadeite Theme',
@@ -101,6 +103,7 @@ const I18N = {
         QYLczyq: ' 垂直頁籤',
         QYLmsp: ' 墨水屏模式',
         QYLbkhwds: ' 邊框化文檔樹​',
+        QYLlbfzx: ' 列表輔助線',
         QYLbgdps: ' 配色：勃艮第',
         QYLxqps: ' 配色：玄青',
         QYLmcps: ' 配色：墨翠',
@@ -129,7 +132,7 @@ function addThemeToolBar() {
         QYLToolBar.ariaLabel = i18n.QYLztsz;
         QYLToolBar.style.userSelect = 'none';
         const handleToolbarClick = () => {
-            const settingsWindow = document.getElementById('settings-window');
+            const settingsWindow = document.getElementById('QYLsettings-window');
             settingsWindow ? closeSettingsWindow() : createSettingsWindow();
         };
 
@@ -186,14 +189,15 @@ let isChecked20;
 let isChecked21;
 let isChecked22;
 let isChecked23;
+let isChecked24;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
-    if (document.getElementById('settings-window')) return;
+    if (document.getElementById('QYLsettings-window')) return;
 
     // 创建设置窗口
     const settingsWindow = document.createElement('div');
-    settingsWindow.id = 'settings-window';
+    settingsWindow.id = 'QYLsettings-window';
     settingsWindow.style.position = 'fixed';
     settingsWindow.style.top = '32px'; 
     settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
@@ -457,6 +461,17 @@ function createSettingsWindow() {
     label23.style.fontSize = '14px';
     label23.style.userSelect= 'none';
 
+    const checkbox24 = document.createElement('input');
+    checkbox24.type = 'checkbox';
+    checkbox24.id = 'QYLlihelp-checkbox';
+    checkbox24.checked = isChecked24;
+
+    const label24 = document.createElement('label');
+    label24.htmlFor = 'QYLlihelp-checkbox';
+    label24.textContent = i18n.QYLlbfzx;
+    label24.style.fontSize = '14px';
+    label24.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -590,6 +605,12 @@ function createSettingsWindow() {
     QYLfunctionpair23.appendChild(label23);
     QYLfunctionpair23.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair24 = document.createElement('div');
+    QYLfunctionpair24.className = 'checkbox-label-pair';
+    QYLfunctionpair24.appendChild(checkbox24);
+    QYLfunctionpair24.appendChild(label24);
+    QYLfunctionpair24.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -635,6 +656,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
     settingsWindow.appendChild(QYLfunctionpairdivider3); 
     settingsWindow.appendChild(QYLfunctionpair1); //标记挖空
+    settingsWindow.appendChild(QYLfunctionpair24); //列表辅助线
     settingsWindow.appendChild(QYLfunctionpair4); //鼠标悬停高亮
     settingsWindow.appendChild(QYLfunctionpair5); //超级块高亮
     settingsWindow.appendChild(QYLfunctionpair8); //聚焦块高亮 
@@ -684,7 +706,8 @@ async function saveConfig() {
         isChecked20: checkbox20.checked,
         isChecked21: checkbox21.checked,
         isChecked22: checkbox22.checked,
-        isChecked23: checkbox23.checked
+        isChecked23: checkbox23.checked,
+        isChecked24: checkbox24.checked
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -792,6 +815,18 @@ checkbox23.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableborderfiletree() : disableborderfiletree();
     state ? isChecked23 = true : isChecked23 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 列表辅助线开关
+checkbox24.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLlihelp() : disableQYLlihelp();
+    state ? isChecked24 = true : isChecked24 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1018,7 +1053,7 @@ document.addEventListener('click', function(event) {
 
 // 关闭设置窗口
 function closeSettingsWindow() {
-    const settingsWindow = document.getElementById('settings-window');
+    const settingsWindow = document.getElementById('QYLsettings-window');
     if (settingsWindow) {
         document.body.removeChild(settingsWindow);
     }
@@ -1347,6 +1382,30 @@ function enableborderfiletree() {
 // 关闭边框化文档树
 function disableborderfiletree() {
     const linkElement = document.getElementById("borderfiletree-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
+// 开启列表辅助线
+function enableQYLlihelp() {
+    QYLlihelp.start();
+
+    let linkElement = document.getElementById("QYLlihelp-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLlihelp-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/列表辅助线.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭列表辅助线
+function disableQYLlihelp() {
+    QYLlihelp.stop();
+
+    const linkElement = document.getElementById("QYLlihelp-style");
     if (linkElement) {
         linkElement.remove();
     }
@@ -1821,6 +1880,14 @@ async function loadAndCheckConfig() {
             isChecked23 = false;
         }
 
+        if (config?.isChecked24 === true) {
+            enableQYLlihelp();
+            isChecked24 = true;
+        } else if (config?.isChecked24 === false) {
+            disableQYLlihelp();
+            isChecked24 = false;
+        }
+
     } catch (e) {
         console.error("加载配置失败:", e);
     }
@@ -1833,9 +1900,7 @@ function isMobileDevice() {
 }
 async function init() {
     if (isMobileDevice()) {
-        // 等待配置加载完成
         await loadAndCheckConfig();       
-        // 执行目标操作
         disabletoolbarhidden();
         isChecked3 = false;
     }
@@ -2309,3 +2374,67 @@ const QYLcssObserver = new MutationObserver((mutations) => {
 const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 100);
 QYLcssObserver.observe(document.body, QYLcssObserverConfig);
 QYLcssApplyCustomCSS();
+
+//列表辅助线
+const QYLlihelp = (() => {
+    let focusedBlock = null;
+    let eventHandlers = new WeakMap();
+    const eventConfig = { capture: true, passive: true };
+    
+    const debounce = (func, wait = 100) => {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), wait);
+        };
+    };
+
+    const handleEvent = (e) => {
+        const getTarget = () => {
+            if (e.type === 'mouseup') return e.target.closest('[data-node-id]:not(.NodeAttributeView *)');
+            if (e.type === 'keyup') {
+                const editor = document.activeElement.closest('.protyle-wysiwyg:not(.NodeAttributeView)');
+                return editor && window.getSelection()?.focusNode?.parentElement?.closest('[data-node-id]');
+            }
+        };
+
+        const target = getTarget();
+        if (!target || target === focusedBlock) return;
+
+        focusedBlock?.classList.remove('block-focus');
+        focusedBlock = target;
+        target.classList.add('block-focus');
+    };
+
+    return {
+        start() {
+            this.stop();
+            const boundHandler = handleEvent.bind(this);
+            const debouncedKeyHandler = debounce(boundHandler);
+            
+            const handlers = new Map([
+                ['mouseup', boundHandler],
+                ['keyup', debouncedKeyHandler]
+            ]);
+            
+            handlers.forEach((handler, type) => 
+                document.addEventListener(type, handler, eventConfig)
+            );
+            eventHandlers.set(this, handlers);
+        },
+
+        stop() {
+            const handlers = eventHandlers.get(this);
+            if (handlers) {
+                handlers.forEach((handler, type) => 
+                    document.removeEventListener(type, handler, eventConfig)
+                );
+                eventHandlers.delete(this);
+            }
+            if (focusedBlock) {
+                focusedBlock.classList.remove('block-focus');
+                focusedBlock = null;
+            }
+        }
+    };
+})();

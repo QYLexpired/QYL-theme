@@ -12,7 +12,7 @@
 * Dynamic and lively animations
 * Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
 * Block Highlight On Mouse Hover, Super Block Highlight On Mouse Hover, Highlight Block On Focus
-* Hide Marked Text, Editor Layout With Reduced Side Padding
+* Hide Marked Text, Editor Layout With Reduced Side Padding, List Bullet Line
 * Colorful Tags & Colorful Inline Code 
 * File Tree With Indentation Guides, Colorful Headings & Colorful Outlines, Colorful File Tree, Add Borders To File Tree
 * Extensive element styling optimizations and detail refinements
