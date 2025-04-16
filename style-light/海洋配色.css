@@ -48,6 +48,6 @@
     --QYL-filter-fix-background-theme: rgba(206, 225, 241, 0.8);
 }
 :root {
-    --QYL-account-background1: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
-    --QYL-account-background2: linear-gradient(to top, #a4d5ee, #a9d6ee, #aed7ee, #b3d8ed, #b8d9ed, #bcdcee, #c1def0, #c5e1f1, #cbe6f4, #d0ebf8, #d6effb, #dcf4ff);
+    --QYL-account-background1: linear-gradient(to right bottom, #cce0f3, #d2e4f6, #d7e8f9, #ddecfc, #e2f0ff);
+    --QYL-account-background2: linear-gradient(to right bottom, #cce0f3, #d2e4f6, #d7e8f9, #ddecfc, #e2f0ff);
 }
