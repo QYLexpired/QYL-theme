@@ -58,6 +58,6 @@
     --QYL-filter-fix-background-theme: rgba(69, 86, 93, 0.8);
 }
 :root {
-    --QYL-account-background1: linear-gradient(to right bottom, #596c74, #5a6e77, #5b7079, #5d737c, #5e757f);
-    --QYL-account-background2: linear-gradient(to right bottom, #596c74, #5a6e77, #5b7079, #5d737c, #5e757f);
+    --QYL-account-background1: linear-gradient(to right bottom, #53666c, #4f6268, #4c5e64, #485a61, #45565d);
+    --QYL-account-background2: linear-gradient(to right bottom, #53666c, #4f6268, #4c5e64, #485a61, #45565d);
 }

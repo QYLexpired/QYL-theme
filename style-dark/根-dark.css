@@ -205,8 +205,8 @@
     --QYL-av-chip-background14: rgba(177, 96, 217, 0.3);
 }
 :root {
-    --QYL-account-background1: linear-gradient(to top, #00103b, #0c0d35, #130930, #18062a, #1a0325, #1b0220, #1b011b, #1a0017, #170011, #13000a, #0b0004, #000000);
-    --QYL-account-background2: linear-gradient(to top, #3f0000, #3a0a00, #331200, #2d1700, #271b00, #221b00, #1e1a00, #1a1900, #161500, #101000, #0a0a00, #020200);
+    --QYL-account-background1: linear-gradient(to right bottom, #262626, #242424, #222222, #202020, #1e1e1e);
+    --QYL-account-background2: linear-gradient(to right bottom, #262626, #242424, #222222, #202020, #1e1e1e);
 }
 :root {
     --QYL-switch-close: var(--QYL-gray);
