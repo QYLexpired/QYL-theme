@@ -11,17 +11,17 @@
 [data-subtype="u"] .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 33px;
   height: calc(var(--en-bullet-line-height) - 1px);
-  top: calc(var(--en-bullet-line-height) * -1 + 19px);
+  top: calc(var(--en-bullet-line-height) * -1 + 19px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="o"] .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 25px;
   height: calc(var(--en-bullet-line-height) - 9px);
-  top: calc(var(--en-bullet-line-height) * -1 + 27px);
+  top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="t"] .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 28px;
   height: calc(var(--en-bullet-line-height) - 6px);
-  top: calc(var(--en-bullet-line-height) * -1 + 23px);
+  top: calc(var(--en-bullet-line-height) * -1 + 23px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) .en_item_bullet_actived > :is(.protyle-action, .protyle-action::before, .protyle-action::after) {
   color: var(--b3-theme-primary) !important;
@@ -30,71 +30,71 @@
 [data-subtype="u"] > [data-subtype="o"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 24px;
   height: calc(var(--en-bullet-line-height) - 1px);
-  top: calc(var(--en-bullet-line-height) * -1 + 19px);
+  top: calc(var(--en-bullet-line-height) * -1 + 19px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 无序接任务 */
 [data-subtype="u"] > [data-subtype="t"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 28px;
   height: calc(var(--en-bullet-line-height) - 1px);
-  top: calc(var(--en-bullet-line-height) * -1 + 18px);
+  top: calc(var(--en-bullet-line-height) * -1 + 18px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 有序接无序 */
 [data-subtype="o"] > [data-subtype="u"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 32px;
   height: calc(var(--en-bullet-line-height) - 9px);
-  top: calc(var(--en-bullet-line-height) * -1 + 27px);
+  top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 有序接任务 */
 [data-subtype="o"] > [data-subtype="t"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 27px;
   height: calc(var(--en-bullet-line-height) - 9px);
-  top: calc(var(--en-bullet-line-height) * -1 + 27px);
+  top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 任务接无序 */
 [data-subtype="t"] > [data-subtype="u"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 32px;
   height: calc(var(--en-bullet-line-height) - 6px);
-  top: calc(var(--en-bullet-line-height) * -1 + 24px);
+  top: calc(var(--en-bullet-line-height) * -1 + 24px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 任务接有序 */
 [data-subtype="t"] > [data-subtype="o"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
   width: 24px;
   height: calc(var(--en-bullet-line-height) - 7px);
-  top: calc(var(--en-bullet-line-height) * -1 + 24px);
+  top: calc(var(--en-bullet-line-height) * -1 + 24px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 修复列表首行为空时嵌套其他列表的错误线条 */
 [data-subtype="u"] > .protyle-action + :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="o"] > .protyle-action + [data-subtype="o"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -7px;
   width: 13px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="o"] > .protyle-action + [data-subtype="u"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -7px;
   width: 22px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="o"] > .protyle-action + [data-subtype="t"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -7px;
   width: 17px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="t"] > .protyle-action + [data-subtype="t"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -9px;
   width: 18px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="t"] > .protyle-action + [data-subtype="o"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -9px;
   width: 16px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 [data-subtype="t"] > .protyle-action + [data-subtype="u"] > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
   left: -9px;
   width: 23px;
-  top: calc(var(--en-bullet-line-height) * -1 + 16px);
+  top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));
 }
 /* 其他调整 */
 .protyle-wysiwyg [data-node-id].li:hover::before {
