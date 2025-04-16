@@ -251,3 +251,6 @@ div[data-key="dialog-setting"] [data-name="image"] .layout-tab-bar {
 .protyle-wysiwyg [data-node-id].list {
     z-index: 1; 
 }
+
+/* 修复嵌入块按钮无法点击 */
+.protyle-icons { z-index:2 }

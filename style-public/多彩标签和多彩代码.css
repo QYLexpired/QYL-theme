@@ -20,6 +20,7 @@
 }
 /* 多彩标签 */
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -43,6 +44,7 @@
     vertical-align: middle;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -66,6 +68,7 @@
     vertical-align: middle;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -89,6 +92,7 @@
     vertical-align: middle;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -112,6 +116,7 @@
     vertical-align: middle;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;
@@ -135,6 +140,7 @@
     vertical-align: middle;
 }
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
+    opacity: 0.75;
     border-radius: var(--b3-border-radius);
     border: none;
     padding: 3px 5px;

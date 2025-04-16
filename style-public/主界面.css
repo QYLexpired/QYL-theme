@@ -161,6 +161,9 @@ body:not(.body--mobile,.body--window) #layouts {
 .layout__dockb[style="height: 0px;"] {
     display: none;
 }
+.layout__center .layout-tab-container:has( > :is(.sy__outline, .sy__backlink)) {
+    background-color: var(--b3-theme-background);
+}
 /* PDF界面 */
 .pdf__outer #mainContainer {
     background-color: var(--b3-theme-background);
