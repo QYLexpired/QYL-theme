@@ -58,13 +58,14 @@ const I18N = {
         QYLhmps: ' 配色：灰幕',
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
+        QYLmaps: ' 配色：暮霭',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
         QYLbjwk: ' Hide Marked Text',
         QYLsjx: ' File Tree With Indentation Guides',
         QYLycdl: ' Hide The Topbar',
-        QYLdlrh: ' Tab-Integrated Top Bar',
+        QYLdlrh: ' Tab-Integrated Topbar',
         QYLhoverhighlight: ' Block Highlight On Mouse Hover',
         QYLsbhoverhighlight: ' Super Block Highlight On Mouse Hover',
         QYLfocushighlight: ' Highlight Block On Focus',
@@ -84,6 +85,7 @@ const I18N = {
         QYLhmps: ' Grayscreen Theme',
         QYLcxps: ' Cabernet Sauvignon Theme',
         QYLtxps: ' Mossnow Theme',
+        QYLmaps: ' Dusk Mist Theme',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -110,6 +112,7 @@ const I18N = {
         QYLhmps: ' 配色：灰幕',
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
+        QYLmaps: ' 配色：暮靄',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -190,6 +193,7 @@ let isChecked21;
 let isChecked22;
 let isChecked23;
 let isChecked24;
+let isChecked30;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -472,6 +476,17 @@ function createSettingsWindow() {
     label24.style.fontSize = '14px';
     label24.style.userSelect= 'none';
 
+    const checkbox30 = document.createElement('input');
+    checkbox30.type = 'checkbox';
+    checkbox30.id = 'QYLduskmist-checkbox';
+    checkbox30.checked = isChecked30;
+
+    const label30 = document.createElement('label');
+    label30.htmlFor = 'QYLduskmist-checkbox';
+    label30.textContent = i18n.QYLmaps;
+    label30.style.fontSize = '14px';
+    label30.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -611,6 +626,12 @@ function createSettingsWindow() {
     QYLfunctionpair24.appendChild(label24);
     QYLfunctionpair24.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair30 = document.createElement('div');
+    QYLfunctionpair30.className = 'checkbox-label-pair';
+    QYLfunctionpair30.appendChild(checkbox30);
+    QYLfunctionpair30.appendChild(label30);
+    QYLfunctionpair30.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -673,6 +694,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair15);
     settingsWindow.appendChild(QYLfunctionpair17);
     settingsWindow.appendChild(QYLfunctionpair18);
+    settingsWindow.appendChild(QYLfunctionpair30);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -707,7 +729,8 @@ async function saveConfig() {
         isChecked21: checkbox21.checked,
         isChecked22: checkbox22.checked,
         isChecked23: checkbox23.checked,
-        isChecked24: checkbox24.checked
+        isChecked24: checkbox24.checked,
+        isChecked30: checkbox30.checked
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -881,6 +904,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -898,6 +922,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -915,6 +940,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -932,6 +958,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -949,6 +976,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -966,6 +994,25 @@ checkbox18.addEventListener('change', async function() {
     if (isChecked14 === true) { checkbox14.click(); }
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 暮霭配色开关
+checkbox30.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLduskmist() : disableQYLduskmist();
+    state ? isChecked30 = true : isChecked30 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1624,6 +1671,28 @@ function disableQYLtaixue() {
     }
 }
 
+// 开启暮霭配色
+function enableQYLduskmist() {
+    let linkElement = document.getElementById("QYLduskmist-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLduskmist-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/暮霭配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭暮霭配色
+function disableQYLduskmist() {
+    const linkElement = document.getElementById("QYLduskmist-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let linkElement = document.getElementById("QYLcolorfulh-style");
@@ -1886,6 +1955,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked24 === false) {
             disableQYLlihelp();
             isChecked24 = false;
+        }
+
+        if (config?.isChecked30 === true) {
+            enableQYLduskmist();
+            isChecked30 = true;
+        } else if (config?.isChecked30 === false) {
+            disableQYLduskmist();
+            isChecked30 = false;
         }
 
     } catch (e) {

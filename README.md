@@ -5,9 +5,9 @@
 ## Theme Features
 
 * English supported
-* Light & Dark Modes Combined, 18 Theme Color Schemes
+* Light & Dark Modes Combined, 19 Theme Color Schemes
 * Light Themes: Classic, Sunset, Forest, Ocean, Sugar, Lavender, fog, Frostsheaf, Memory, Lakeside, Freesia
-* Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow
+* Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow, Dusk Mist
 * E-Ink Mode, Frosted Glass Effect
 * Dynamic and lively animations
 * Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
