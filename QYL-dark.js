@@ -2376,64 +2376,61 @@ QYLcssObserver.observe(document.body, QYLcssObserverConfig);
 QYLcssApplyCustomCSS();
 
 //列表辅助线
-const QYLlihelp = (() => {
-    let focusedBlock = null;
-    let eventHandlers = new WeakMap();
-    const eventConfig = { capture: true, passive: true };
-    
-    const debounce = (func, wait = 100) => {
-        let timeout;
-        return (...args) => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func(...args), wait);
-        };
-    };
+const QYLlihelp = (function() {
+    let allListItemNode = [];
+    let isActive = false;
+    let selectionChangeHandler = null;
 
-    const handleEvent = (e) => {
-        const getTarget = () => {
-            if (e.type === 'mouseup') return e.target.closest('[data-node-id]:not(.NodeAttributeView *)');
-            if (e.type === 'keyup') {
-                const editor = document.activeElement.closest('.protyle-wysiwyg:not(.NodeAttributeView)');
-                return editor && window.getSelection()?.focusNode?.parentElement?.closest('[data-node-id]');
+    function handleSelectionChange() {
+        const selection = window.getSelection();
+        if (!selection.rangeCount) return;
+
+        const range = selection?.getRangeAt(0);
+        const startNode = range?.startContainer;
+        let currentNode = startNode;
+
+        allListItemNode.forEach(node => {
+            node.classList.remove('en_item_bullet_actived', 'en_item_bullet_line');
+        });
+        allListItemNode = [];
+
+        while (currentNode) {
+            if (currentNode?.dataset?.type === 'NodeListItem') {
+                allListItemNode.push(currentNode);
             }
-        };
+            currentNode = currentNode.parentElement;
+        }
 
-        const target = getTarget();
-        if (!target || target === focusedBlock) return;
+        for (let i = 0; i < allListItemNode.length - 1; i++) {
+            const currentNode = allListItemNode[i];
+            const nextNode = allListItemNode[i + 1];
+            const currentRect = currentNode.getBoundingClientRect();
+            const nextRect = nextNode.getBoundingClientRect();
+            
+            currentNode.style.setProperty('--en-bullet-line-height', `${currentRect.top - nextRect.top}px`);
+            currentNode.classList.add('en_item_bullet_line');
+        }
 
-        focusedBlock?.classList.remove('block-focus');
-        focusedBlock = target;
-        target.classList.add('block-focus');
-    };
+        allListItemNode.forEach(node => node.classList.add('en_item_bullet_actived'));
+    }
 
     return {
         start() {
-            this.stop();
-            const boundHandler = handleEvent.bind(this);
-            const debouncedKeyHandler = debounce(boundHandler);
-            
-            const handlers = new Map([
-                ['mouseup', boundHandler],
-                ['keyup', debouncedKeyHandler]
-            ]);
-            
-            handlers.forEach((handler, type) => 
-                document.addEventListener(type, handler, eventConfig)
-            );
-            eventHandlers.set(this, handlers);
-        },
-
-        stop() {
-            const handlers = eventHandlers.get(this);
-            if (handlers) {
-                handlers.forEach((handler, type) => 
-                    document.removeEventListener(type, handler, eventConfig)
-                );
-                eventHandlers.delete(this);
+            if (!isActive) {
+                selectionChangeHandler = handleSelectionChange.bind(this);
+                document.addEventListener('selectionchange', selectionChangeHandler);
+                isActive = true;
             }
-            if (focusedBlock) {
-                focusedBlock.classList.remove('block-focus');
-                focusedBlock = null;
+        },
+        
+        stop() {
+            if (isActive) {
+                document.removeEventListener('selectionchange', selectionChangeHandler);
+                allListItemNode.forEach(node => {
+                    node.classList.remove('en_item_bullet_actived', 'en_item_bullet_line');
+                });
+                allListItemNode = [];
+                isActive = false;
             }
         }
     };

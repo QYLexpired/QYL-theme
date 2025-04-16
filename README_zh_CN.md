@@ -3,9 +3,9 @@
 
 ## 主要更新
 
-##### v2.8.9
+##### v2.9.0
 
-* 增加功能：`列表辅助线`，可通过顶栏Q按钮开启（参考了Rem-Craft主题）
+* 重做`列表辅助线`，采用Savor主题的方案（感谢[Roy佬](https://github.com/royc01)和[Wetoria佬](https://github.com/Wetoria)）
 
 ## 主题特性
 
@@ -55,7 +55,20 @@
 |​`table-style`​|表格块/文档|​`三线表`​|设置该表格块/文档表格的样式|
 |​`blankblock-remind`​|任意块/文档|​`默认`​ `开启`​|显示该块/该文档空块的“空空如也”提示|
 
+## 致谢
+在制作QYL主题时，参考了很多优秀主题、内容创作者的灵感、代码、审美（有点像缝合怪），包括但不限于
+* [Savor主题](https://github.com/royc01/notion-theme): 列表子弹线的实现方案、顶栏融合的css方案、样式审美、斜杠菜单多列展示思路
+* [Asri主题](https://github.com/mustakshif/Asri)：文档树缩进线的实现方案、顶栏融合的css方案、样式审美、搜索列表多行展示方案
+* [OneNote主题](https://github.com/chenshinshi/OneNote)：多彩文档树样式
+* [pink-room主题](https://github.com/StarDustSheep/pink-room)：配色审美
+* [VSCode Lite Edit主题](https://github.com/emptylight370/siyuan-vscodelite-edit)：移动端判断方法
+* [wilsons](https://ld246.com/member/wilsons)：状态栏浮动方案
+
 ## 更新历史
+
+##### v2.9.0
+
+* 重做`列表辅助线`，采用Savor主题的方案（感谢Roy佬的支持）
 
 ##### v2.8.9
 
