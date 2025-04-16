@@ -68,7 +68,7 @@
 
 ##### v2.9.0
 
-* 重做`列表辅助线`，采用Savor主题的方案（感谢Roy佬的支持）
+* 重做`列表辅助线`，采用Savor主题的方案（感谢[Roy佬](https://github.com/royc01)和[Wetoria佬](https://github.com/Wetoria)）
 
 ##### v2.8.9
 
