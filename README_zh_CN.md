@@ -3,13 +3,9 @@
 
 ## 主要更新
 
-##### v2.9.3
+##### v2.9.4
 
-* 增加小彩蛋：当超链接、块引链接、pdf标注链接被设置成13号背景色（最后一个背景色）后，将变为按钮样式
-* 增加小彩蛋：给文档/块设置自定义属性`link-style`的值为`按钮`，这个文档的块/该块内的所有超链接、块引链接、pdf标注链接变为按钮样式
-* 修复部分复杂嵌套列表中子弹线细节错误
-* 优化搜索列表展示
-* 优化任务列表折叠样式，现在任务列表被折叠后，复选框会变为黑色(light)或白色(dark)
+* 增加功能：`快速隐藏/呼出侧栏`，可通过快捷键`Alt+Z`或者面包屑最右侧添加的按钮来使用，功能：立刻隐藏当前激活的侧栏/呼出上次被隐藏的侧栏，此功能基于[wilsons](https://ld246.com/member/wilsons)大佬的[链式操作](https://gitee.com/wish163/mysoft/blob/main/%E6%80%9D%E6%BA%90/%E6%A8%A1%E6%8B%9F%E8%BF%9E%E7%BB%AD%E7%82%B9%E5%87%BBopenAny.js)js实现
 
 ## 主题特性
 
@@ -23,7 +19,7 @@
 
 * 灵动、活泼的动画表现
 
-* 隐藏顶栏、顶栏融合、垂直页签
+* 隐藏顶栏、顶栏融合、垂直页签、快速隐藏/呼出侧栏
 
 * 高亮提示当前编辑块、鼠标悬浮块、超级块范围
 
@@ -69,9 +65,13 @@
 * [OneNote主题](https://github.com/chenshinshi/OneNote)：多彩文档树样式
 * [pink-room主题](https://github.com/StarDustSheep/pink-room)：配色审美
 * [VSCode Lite Edit主题](https://github.com/emptylight370/siyuan-vscodelite-edit)：移动端判断方法
-* [wilsons](https://ld246.com/member/wilsons)：状态栏浮动方案
+* [wilsons](https://ld246.com/member/wilsons)：状态栏浮动方案、链式操作js
 
 ## 更新历史
+
+##### v2.9.4
+
+* 增加功能：`快速隐藏/呼出侧栏`，可通过快捷键`Alt+Z`或者面包屑最右侧添加的按钮来使用，功能：立刻隐藏当前激活的侧栏/呼出上次被隐藏的侧栏，此功能基于[wilsons](https://ld246.com/member/wilsons)大佬的[链式操作](https://gitee.com/wish163/mysoft/blob/main/%E6%80%9D%E6%BA%90/%E6%A8%A1%E6%8B%9F%E8%BF%9E%E7%BB%AD%E7%82%B9%E5%87%BBopenAny.js)js实现
 
 ##### v2.9.3
 
