@@ -36,6 +36,13 @@
 }
 :is(#searchList,#searchAssetList)>.b3-list-item[data-type=search-item] .b3-list-item__meta {
     line-height: 16px;
+    margin-top: 5px;
+    background-color: var(--QYL-hover-light);
+    &::before {
+        content: "📄";
+        font-style: normal;
+        font-size: 105%;
+    }
 }
 #searchAssetList .ft__on-surface {
     color: var(--b3-theme-primary);
