@@ -75,6 +75,10 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
     border: 0.5px solid var(--b3-theme-surface-lighter);
     box-shadow: var(--b3-light-shadow); 
 }
+.b3-snackbar__content a {
+    color: var(--b3-theme-primary);
+    text-decoration: underline
+}
 #message .b3-snackbar__close {
     color: var(--b3-theme-primary);
     opacity: 1;

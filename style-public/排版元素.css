@@ -99,7 +99,7 @@
 /* 行级备注 */
 .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
     background-color: var(--QYL-hover);
-    border-bottom: 2px dashed var(--b3-theme-primary);
+    border-bottom: 2px solid var(--b3-theme-primary);
     padding-bottom: 1.5px;
 }
 .tooltip.tooltip--memo {
@@ -362,4 +362,163 @@ div.protyle-action.protyle-action--task svg {
 [data-theme-mode="dark"] .protyle-wysiwyg[custom-link-style="按钮"] [data-node-id] span[data-type~=file-annotation-ref],
 [data-theme-mode="dark"] .protyle-wysiwyg[custom-link-style="按钮"] [data-node-id] span[data-type~=file-annotation-ref] {
     --QYL-PDFmark: rgba(22, 147, 22, 0.5);
+}
+
+/* 投影、镂空改为金箔、荧光 */
+.protyle-font__style[data-type="style4"] {
+    position: relative;
+    color: rgba(255, 0, 0, 0);
+    text-shadow: none !important;
+    &:hover {
+        box-shadow: 0 0 0 1px var(--b3-border-color) inset,0 0 0 3px var(--b3-list-hover);
+    }
+    &::before {
+        content: "荧光";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: var(--b3-theme-primary);
+        filter: drop-shadow(0 0 0.1em currentColor);
+    }
+}
+span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(--b3-theme-surface-lighter), 3px 3px var(--b3-theme-surface-lighter), 4px 4px var(--b3-theme-surface-lighter)"] {
+    text-shadow: none !important;
+    filter: drop-shadow(0 0 0.1em currentColor);
+}
+.protyle-font__style[data-type="style2"] {
+    position: relative;
+    color: rgba(255, 0, 0, 0);
+    -webkit-text-stroke: 0 !important;
+    -webkit-text-fill-color: unset !important;
+    &:hover {
+        box-shadow: 0 0 0 1px var(--b3-border-color) inset,0 0 0 3px var(--b3-list-hover);
+    }
+    &::before {
+        content: "金箔";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-weight: bold;
+        background-image: url('../img/金箔.png') !important;  
+        -webkit-background-clip: text !important; 
+        color: transparent !important;
+        background-size: contain !important;
+        caret-color: gold;
+    }
+}
+span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"] {
+    -webkit-text-stroke: 0 !important;
+    -webkit-text-fill-color: unset !important;
+    background-image: url('../img/金箔.png') !important;  
+    -webkit-background-clip: text !important; 
+    color: transparent !important;
+    background-size: contain !important;
+    caret-color: gold;
+}
+/* 半高背景 */
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background1)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background1) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background2)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background2) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background3)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background3) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background4)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background4) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background5)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background5) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background6)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background6) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background7)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background7) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background8)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background8) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background9)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background9) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background10)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background10) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background11)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background11) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background12)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background12) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+[custom-background-style="半高"] span[style*="background-color: var(--b3-font-background13)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-font-background13) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+span[style*="background-color: var(--b3-card-error-background)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-card-error-background) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+span[style*="background-color: var(--b3-card-warning-background)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-card-warning-background) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+span[style*="background-color: var(--b3-card-info-background)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-card-info-background) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+span[style*="background-color: var(--b3-card-success-background)"] {
+    background-color: rgba(255, 0, 0, 0) !important;
+    background: linear-gradient(to bottom, transparent 50%, var(--b3-card-success-background) 50%);
+    border-radius: 0 !important;
+    padding: 0 !important;
 }
