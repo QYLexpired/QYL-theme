@@ -3269,7 +3269,6 @@ const QYLlihelp = (function() {
 (() => {
     const dockManager = new OpenAny();
     let lastDockTypes = [];
-    
     const toggleDockItems = async () => {
         const activeDocks = document.querySelectorAll('.dock__item--active');
         
@@ -3280,26 +3279,21 @@ const QYLlihelp = (function() {
             await new OpenAny().clicks(lastDockTypes);
         }
     };
-    
-    dockManager.setKeymap('alt+z', e => {
+    dockManager.setKeymap('alt+z', async e => {
         e.preventDefault();
-        document.querySelector('[data-type="toggle-dock"]')?.click();
+        await toggleDockItems();
     });
-    
     dockManager.invoke(({ onProtyleLoad }) => {
         onProtyleLoad(protyle => {
             const targetElement = protyle.querySelector('.protyle-breadcrumb');
             if (!targetElement || targetElement.querySelector('[data-type="toggle-dock"]')) return;
-    
+
             const btnHTML = `<button class="block__icon fn__flex-center ariaLabel" aria-label="快速隐藏/呼出侧栏" data-type="toggle-dock"><svg><use xlink:href="#iconDock"></use></svg></button>`;
             targetElement.insertAdjacentHTML('beforeend', btnHTML);
             
-            targetElement.querySelector('[data-type="toggle-dock"]').addEventListener('click', async () => {
-                try {
-                    await toggleDockItems();
-                } catch (e) {
-                }
+            targetElement.querySelector('[data-type="toggle-dock"]').addEventListener('click', () => {
+                toggleDockItems().catch(() => {});
             });
         });
     });
-    })();
+})();
