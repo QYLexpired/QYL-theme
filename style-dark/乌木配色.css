@@ -151,7 +151,6 @@
 }
 .layout__center :is(.fn__flex-1, .fn__flex) > [data-type="wnd"] > .layout-tab-container {
     border: 1px solid var(--b3-theme-surface-lighter);
-    border-top: none;
 }
 .layout__dockb :is(.fn__flex-1, .fn__flex) > [data-type="wnd"] > .layout-tab-container {
     border: 1px solid var(--b3-theme-surface-lighter);
