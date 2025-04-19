@@ -79,3 +79,7 @@
 .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus:hover {
     background-color: var(--QYL-duskmist-tag-2);
 }
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    color: var(--b3-theme-on-surface);
+    background-color: var(--b3-theme-primary-lighter);
+}
