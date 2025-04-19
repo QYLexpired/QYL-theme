@@ -59,6 +59,7 @@ const I18N = {
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮霭',
+        QYLwmps: ' 配色：乌木',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -86,6 +87,7 @@ const I18N = {
         QYLcxps: ' Cabernet Sauvignon Theme',
         QYLtxps: ' Mossnow Theme',
         QYLmaps: ' Dusk Mist Theme',
+        QYLwmps: ' Bogwood Theme',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -113,6 +115,7 @@ const I18N = {
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮靄',
+        QYLwmps: ' 配色：烏木',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -194,6 +197,7 @@ let isChecked22;
 let isChecked23;
 let isChecked24;
 let isChecked30;
+let isChecked31;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -487,6 +491,17 @@ function createSettingsWindow() {
     label30.style.fontSize = '14px';
     label30.style.userSelect= 'none';
 
+    const checkbox31 = document.createElement('input');
+    checkbox31.type = 'checkbox';
+    checkbox31.id = 'QYLbogwood-checkbox';
+    checkbox31.checked = isChecked31;
+
+    const label31 = document.createElement('label');
+    label31.htmlFor = 'QYLbogwood-checkbox';
+    label31.textContent = i18n.QYLwmps;
+    label31.style.fontSize = '14px';
+    label31.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -632,6 +647,12 @@ function createSettingsWindow() {
     QYLfunctionpair30.appendChild(label30);
     QYLfunctionpair30.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair31 = document.createElement('div');
+    QYLfunctionpair31.className = 'checkbox-label-pair';
+    QYLfunctionpair31.appendChild(checkbox31);
+    QYLfunctionpair31.appendChild(label31);
+    QYLfunctionpair31.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -695,6 +716,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair17);
     settingsWindow.appendChild(QYLfunctionpair18);
     settingsWindow.appendChild(QYLfunctionpair30);
+    settingsWindow.appendChild(QYLfunctionpair31);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -730,7 +752,8 @@ async function saveConfig() {
         isChecked22: checkbox22.checked,
         isChecked23: checkbox23.checked,
         isChecked24: checkbox24.checked,
-        isChecked30: checkbox30.checked
+        isChecked30: checkbox30.checked,
+        isChecked31: checkbox31.checked
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -875,6 +898,7 @@ checkbox10.addEventListener('change', async function() {
     state ? enableQYLAero() : disableQYLAreo();
     state ? isChecked10 = true : isChecked10 = false;
     if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }//不能与乌木配色同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -905,6 +929,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -923,6 +948,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -941,6 +967,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -959,6 +986,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -977,6 +1005,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -995,6 +1024,7 @@ checkbox18.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1013,6 +1043,28 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked15 === true) { checkbox15.click(); }
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 乌木配色开关
+checkbox31.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLbogwood() : disableQYLbogwood();
+    state ? isChecked31 = true : isChecked31 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }//不能与墨水屏模式同时开启
+    if (isChecked10 === true) { checkbox10.click(); }//不能与毛玻璃效果同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1026,6 +1078,7 @@ checkbox16.addEventListener('change', async function() {
     state ? enableQYLinkmode() : disableQYLinkmode();
     state ? isChecked16 = true : isChecked16 = false;
     if (isChecked10 === true) { checkbox10.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }//不能与乌木配色同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1693,6 +1746,28 @@ function disableQYLduskmist() {
     }
 }
 
+// 开启乌木配色
+function enableQYLbogwood() {
+    let linkElement = document.getElementById("QYLbogwood-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLbogwood-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/乌木配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭乌木配色
+function disableQYLbogwood() {
+    const linkElement = document.getElementById("QYLbogwood-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let linkElement = document.getElementById("QYLcolorfulh-style");
@@ -1963,6 +2038,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked30 === false) {
             disableQYLduskmist();
             isChecked30 = false;
+        }
+
+        if (config?.isChecked31 === true) {
+            enableQYLbogwood();
+            isChecked31 = true;
+        } else if (config?.isChecked31 === false) {
+            disableQYLbogwood();
+            isChecked31 = false;
         }
 
     } catch (e) {
@@ -3285,7 +3368,7 @@ const QYLlihelp = (function() {
     });
     dockManager.invoke(({ onProtyleLoad }) => {
         onProtyleLoad(protyle => {
-            const targetElement = protyle.querySelector('.protyle-breadcrumb');
+            const targetElement = protyle.querySelector('.layout__center .protyle-breadcrumb');
             if (!targetElement || targetElement.querySelector('[data-type="toggle-dock"]')) return;
 
             const btnHTML = `<button class="block__icon fn__flex-center ariaLabel" aria-label="快速隐藏/呼出侧栏" data-type="toggle-dock"><svg><use xlink:href="#iconDock"></use></svg></button>`;
