@@ -19,7 +19,6 @@
     background-color: var(--QYL-av-cell-background);
     color: var(--QYL-av-cell);
     border-bottom: none;
-    padding: 2px 6px;
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
     background-color: var(--QYL-av-cell-background-hover);

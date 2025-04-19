@@ -159,7 +159,7 @@ body:not(.body--mobile,.body--window) #layouts {
     background-color: var(--b3-theme-background);
 }
 .layout__dockb[style="height: 0px;"] {
-    display: none;
+    opacity: 0;
 }
 .layout__center .layout-tab-container:has( > :is(.sy__outline, .sy__backlink)) {
     background-color: var(--b3-theme-background);

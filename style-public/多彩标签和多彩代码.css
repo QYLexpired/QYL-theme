@@ -2,21 +2,27 @@
 /* 多彩行级代码 */
 .fn__code:nth-of-type(6n+1), .b3-typography code:not(.hljs):nth-of-type(6n+1),.b3-typography span[data-type~=code]:nth-of-type(6n+1),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+1),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+1) {
     color: var(--QYL-coloful-block-red);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-red);
 }
 .fn__code:nth-of-type(6n+2), .b3-typography code:not(.hljs):nth-of-type(6n+2),.b3-typography span[data-type~=code]:nth-of-type(6n+2),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+2),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+2) {
     color: var(--QYL-coloful-block-orange);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-orange);
 }
 .fn__code:nth-of-type(6n+3), .b3-typography code:not(.hljs):nth-of-type(6n+3),.b3-typography span[data-type~=code]:nth-of-type(6n+3),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+3),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+3) {
     color: var(--QYL-coloful-block-green);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-green);
 }
 .fn__code:nth-of-type(6n+4), .b3-typography code:not(.hljs):nth-of-type(6n+4),.b3-typography span[data-type~=code]:nth-of-type(6n+4),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+4),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+4) {
     color: var(--QYL-coloful-block-blue);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-blue);
 }
 .fn__code:nth-of-type(6n+5), .b3-typography code:not(.hljs):nth-of-type(6n+5),.b3-typography span[data-type~=code]:nth-of-type(6n+5),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+5),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+5) {
     color: var(--QYL-coloful-block-purple);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-purple);
 }
 .fn__code:nth-of-type(6n+6), .b3-typography code:not(.hljs):nth-of-type(6n+6),.b3-typography span[data-type~=code]:nth-of-type(6n+6),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+6),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+6) {
     color: var(--QYL-coloful-block-pink);
+    --QYL-fluorescence-code-fix: var(--QYL-coloful-block-pink);
 }
 /* 多彩标签 */
 .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
