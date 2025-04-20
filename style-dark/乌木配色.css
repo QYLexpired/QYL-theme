@@ -61,6 +61,9 @@
     --QYL-bogwood-primary: #6c4be3;
     --QYL-bogwood-second: #5781eb;
 }
+a {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
 /* 按钮 */
 .b3-button {
     --b3-theme-primary: var(--QYL-bogwood-primary);
