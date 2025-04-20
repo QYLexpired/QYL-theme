@@ -87,7 +87,7 @@ const I18N = {
         QYLcxps: ' Cabernet Sauvignon Theme',
         QYLtxps: ' Mossnow Theme',
         QYLmaps: ' Dusk Mist Theme',
-        QYLwmps: ' Bogwood Style (Dlat Design)',
+        QYLwmps: ' Bogwood Style (Flat Design)',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
