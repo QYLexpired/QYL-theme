@@ -120,6 +120,9 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
     & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
         color: var(--b3-theme-background) !important;
     }
+    &.b3-menu__item--warning {
+    background-color: var(--b3-theme-error) !important;
+    }
 }
 .file-tree .b3-list--background .b3-list-item--focus {
     background-color: rgba(255, 0, 0, 0);
@@ -135,6 +138,9 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
     background-color: var(--QYL-ivory-second);
     & .b3-menu__icon, .b3-menu__label, .b3-menu__accelerator {
         color: var(--b3-theme-background) !important;
+    }
+    &[data-type="remove"] {
+        background-color: var(--b3-theme-error);
     }
 }
 /* 主界面 */
@@ -406,6 +412,9 @@ div[data-key="dialog-globalsearch"] #searchList {
 :is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
     background-color: var(--QYL-ivory-primary);
 }
+#searchAssetPreview mark {
+    background-color: var(--QYL-ivory-primary);
+}
 /* 侧栏 */
 .graph__panel {
     box-shadow: none;
@@ -424,7 +433,50 @@ div[data-key="dialog-globalsearch"] #searchList {
 [data-key="dialog-syncchoosedirection"] .b3-dialog__container {
     background-color: var(--b3-theme-surface);
 }
-
+/* PDF */
+#dialogContainer>.dialog--open {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+.textLayer .highlight.selected {
+    background-color: rgb(from var(--QYL-ivory-primary) r g b / 35%);
+}
+#findbar .b3-button--small.b3-button--outline {
+    border: none;
+    box-shadow: none;
+    color: var(--b3-theme-on-background);
+    &:hover {
+        border: none;
+        box-shadow: none;
+        color: var(--QYL-ivory-primary);
+        background-color: rgba(255, 0, 0, 0);
+    }
+    &::before {
+        display: none !important;
+    }
+}
+#findbar .b3-button--small:not(.b3-button--outline) {
+    border: none;
+    box-shadow: none;
+    color: var(--QYL-ivory-primary);
+    background-color: rgba(255, 0, 0, 0);
+    &:hover {
+        border: none;
+        box-shadow: none;
+        color: var(--QYL-ivory-primary);
+        background-color: rgba(255, 0, 0, 0);
+    }
+    &::before {
+        display: none !important;
+    }
+}
+#findbar [data-status="notFound"] {
+    color: var(--b3-theme-error) !important;
+}
+/* 状态栏 */
+.status .toolbar__item:hover {
+    background-color: rgba(255, 0, 0, 0) !important;
+}
 
 
 /* 文档层级导航插件适配 */
