@@ -2,14 +2,14 @@
   content: '';
   display: block;
   box-sizing: border-box;
-  border-left: 2px solid var(--b3-theme-primary);
-  border-bottom: 2px solid var(--b3-theme-primary);
+  border-left: 2px solid var(--QYL-lihelp);
+  border-bottom: 2px solid var(--QYL-lihelp);
   border-bottom-left-radius: 8px;
   position: absolute;
   left: -18px;
 }
 :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) .en_item_bullet_actived > :is(.protyle-action, .protyle-action::before, .protyle-action::after) {
-  color: var(--b3-theme-primary) !important;
+  color: var(--QYL-lihelp) !important;
 }
 /* 无序接无序 */
 [data-subtype="u"] > [data-subtype="u"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {

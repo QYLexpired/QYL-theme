@@ -9,7 +9,7 @@
     margin-right: 0;
 }
 .file-tree.sy__file .fn__flex-1 > ul {
-    border: 1.2px solid var(--b3-theme-primary);
+    border: 1.2px solid var(--QYL-border-file);
     border-radius: var(--b3-border-radius);
     margin: 0 5px 5px 5px;
 }
@@ -51,14 +51,14 @@
 }
 /* 多彩文档树兼容 */
 :root {
-    --colorful-file-1: var(--b3-theme-primary);
-    --colorful-file-2: var(--b3-theme-primary);
-    --colorful-file-3: var(--b3-theme-primary);
-    --colorful-file-4: var(--b3-theme-primary);
-    --colorful-file-5: var(--b3-theme-primary);
-    --colorful-file-6: var(--b3-theme-primary);
-    --colorful-file-7: var(--b3-theme-primary);
-    --colorful-file-8: var(--b3-theme-primary);
+    --colorful-file-1: var(--QYL-border-file);
+    --colorful-file-2: var(--QYL-border-file);
+    --colorful-file-3: var(--QYL-border-file);
+    --colorful-file-4: var(--QYL-border-file);
+    --colorful-file-5: var(--QYL-border-file);
+    --colorful-file-6: var(--QYL-border-file);
+    --colorful-file-7: var(--QYL-border-file);
+    --colorful-file-8: var(--QYL-border-file);
 }
 .b3-list:nth-of-type(8n+1)>[data-type="navigation-root"]::before {
     display: none;
