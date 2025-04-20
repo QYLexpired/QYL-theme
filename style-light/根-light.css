@@ -22,6 +22,7 @@
     --QYL-filetree-arrow: var(--b3-theme-on-surface-light);/* 文档树箭头颜色 */
     --QYL-accent-color: var(--b3-theme-primary);
     --QYL-lihelp: var(--b3-theme-primary);
+    --QYL-border-file: var(--b3-theme-primary);
 
     /* 圆角矩形 */
     --b3-border-radius: 6px;
