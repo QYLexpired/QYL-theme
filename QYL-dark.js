@@ -59,7 +59,7 @@ const I18N = {
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮霭',
-        QYLwmps: ' 配色：乌木',
+        QYLwmps: ' 风格：乌木（扁平化）',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -87,7 +87,7 @@ const I18N = {
         QYLcxps: ' Cabernet Sauvignon Theme',
         QYLtxps: ' Mossnow Theme',
         QYLmaps: ' Dusk Mist Theme',
-        QYLwmps: ' Bogwood Theme',
+        QYLwmps: ' Bogwood Style (Dlat Design)',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -115,7 +115,7 @@ const I18N = {
         QYLcxps: ' 配色：赤霞',
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮靄',
-        QYLwmps: ' 配色：烏木',
+        QYLwmps: ' 風格：烏木（扁平化）',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
