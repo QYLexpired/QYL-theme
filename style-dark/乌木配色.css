@@ -23,6 +23,7 @@
     --b3-theme-secondary: #c79e3f;
     --QYL-accent-color: var(--QYL-bogwood-primary);  
     --b3-mask-background: rgba(26, 28, 31, 0.9);/* 弹出窗口后景色 */
+    --QYL-border-file: rgb(81, 89, 100);
 
     /* 文字颜色 */
     --b3-theme-on-primary: #c1cad6;
@@ -38,6 +39,11 @@
     --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
     --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
     --QYL-shadow-highlight: var(--b3-theme-primary-lightest) 0px 1px 1px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+}
+:root {
+    --QYL-blockquote: rgb(159, 164, 176);
+    --QYL-blockquote-background: rgb(66, 71, 82);
+    --QYL-blockquote-svg: rgb(89, 95, 108);
 }
 :root {
     --QYL-switch-close: var(--QYL-gray);
@@ -73,6 +79,12 @@
             color: var(--b3-theme-background);
         }
     }
+}
+.b3-button:hover, .b3-button:focus, .b3-button--progress {
+    box-shadow: none;
+}
+div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
+    box-shadow: none;
 }
 /* 悬停 */
 .b3-menu__item--selected {
@@ -130,6 +142,9 @@
         color: var(--b3-theme-background) !important;
     }
 }
+:is(#minWindow, #restoreWindow, #maxWindow):hover {
+    color: var(--b3-theme-background);
+}
 /* 主界面 */
 .dock--vertical {
     width: 40px;
@@ -171,6 +186,15 @@
 .item.item--focus:hover {
     background-color:var(--b3-theme-background);
     border: 1px solid var(--b3-theme-surface-lighter);
+}
+.layout-tab-bar .item {
+    --QYL-tab-close-background-hover-close: var(--QYL-bogwood-primary);
+}
+.b3-menu__action.b3-menu__action--close {
+    color: var(--b3-theme-background);
+    &:hover {
+        color: var(--b3-theme-error); 
+    }
 }
 /* 面包屑 */
 .protyle-breadcrumb__item--active {
@@ -223,7 +247,10 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
     background-color: var(--b3-theme-background);
 }
 div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
-    background-color: var(--b3-theme-background);
+    background-color: var(--b3-theme-surface-lighter);
+}
+.protyle-icon {
+    background-color: rgba(130, 134, 147, 0.662);
 }
 /* 阴影 */
 .b3-menu, .b3-dialog__container, .b3-menu__submenu, .secondaryToolbar {
@@ -241,14 +268,17 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 .tooltip {
     box-shadow: none;
     border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
 }  
 [class*="b3-tooltips"]::after {
     box-shadow: none;
     border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
 }
 #message .b3-snackbar__content {
     box-shadow: none;
     border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
 }
 /* 集市 */
 .config-bazaar__panel .b3-card {
@@ -299,3 +329,168 @@ div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .config-b
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task, .av__cell-check, .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task, .av__cell-uncheck {
     --QYL-task-block: var(--QYL-bogwood-primary);
 }
+:root {
+    --QYL-lihelp: var(--QYL-bogwood-primary);
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+    background-color: var(--QYL-bogwood-second);
+    &:hover {
+        background-color: var(--QYL-bogwood-primary) !important;
+    }
+}
+.b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
+    background-color:rgb(from var(--QYL-bogwood-second) r g b / 20%);
+    border-bottom: 2px solid var(--QYL-bogwood-second);
+}
+.tooltip.tooltip--memo {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+/* 编辑器工具栏 */
+.protyle-toolbar {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
+}
+.protyle-hint, .protyle-util {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
+}
+/* 斜杠菜单 */
+.protyle-hint.hint--menu {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
+}
+/* 菜单 */
+.b3-menu, .b3-menu__item, .b3-menu__submenu {
+    background-color: var(--b3-theme-surface);
+}
+/* 数据库 */
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
+    color: var(--b3-mask-background);
+}
+/* 块标 */
+.protyle-gutters button:hover svg {
+    color: var(--QYL-bogwood-primary); 
+}
+.protyle-title.protyle-wysiwyg--attr span.protyle-title__icon.ariaLabel:hover svg {
+    color: var(--QYL-bogwood-primary); 
+}
+/* 块引预览 */
+.block__popover {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
+    & .block__icons.block__icons--menu {
+        background-color: var(--b3-theme-surface);
+    }
+}
+/* 设置 */
+div[data-key="dialog-setting"] .config__tab-wrap {
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+/* 命令面板 */
+div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b3-list--background.search__list {
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+/* 搜索 */
+div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
+    border: 1px solid var(--b3-theme-surface-lighter) !important;
+}
+div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
+    border: 1px solid var(--b3-theme-surface-lighter) !important;
+}
+div[data-key="dialog-globalsearch"] .search__layout--row .search__preview {
+    border: 1px solid var(--b3-theme-surface-lighter) !important;
+}
+div[data-key="dialog-globalsearch"] #searchList {
+    border: 1px solid var(--b3-theme-surface-lighter) !important;
+}
+.layout__center .search__header .b3-text-field:not([data-type="av-search"]) {
+    background-color: var(--b3-theme-background);
+}
+:is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
+    background-color: var(--QYL-bogwood-primary);
+}
+/* 侧栏 */
+.graph__panel {
+    box-shadow: none;
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+/* 高亮 */
+:root {
+    --b3-highlight-background: var(--QYL-bogwood-primary) !important;
+    --b3-highlight-color: var(--QYL-white) !important;
+    --b3-highlight-current-background: var(--QYL-bogwood-primary) !important;
+}
+.b3-list mark {
+    background-color: var(--QYL-bogwood-primary);
+}
+/* 同步菜单 */
+[data-key="dialog-syncchoosedirection"] .b3-dialog__container {
+    background-color: var(--b3-theme-surface);
+}
+
+
+
+/* 文档层级导航插件适配 */
+[id^="og_plugintemplate"] .b3-text-field:not(.b3-text-field--text), [id^="og_plugintemplate"] .b3-text-field:not(.b3-text-field--text):focus, [id^="og_plugintemplate"] .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
+    outline: none;
+    background-color: var(--b3-theme-surface-lighter);
+}
+.og-hn-container-multiline .og-hierachy-navigate-doc-indicator, .og-hn-create-at-content, .og-hn-modify-at-content, .og-hn-child-word-count-content, .og-hn-child-doc-count-content {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+[data-theme-mode="dark"] .og-hierachy-navigate-doc-container span.docLinksWrapper.og-hn-docLinksWrapper-hl {
+    background-color: rgb(from var(--QYL-bogwood-second) r g b / 60%) !important;
+}
+.arco-tabs-nav-ink {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-select-view-single {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-select-view-single:focus-within, .arco-select-view-single.arco-select-view-focus, .arco-select-view-single:hover {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+[data-v-app] .arco-picker-cell:not(.arco-picker-cell-selected).arco-picker-cell-in-view .exist {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-picker-cell-today:after {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-picker-cell-selected .arco-picker-date-value {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-picker-cell:not(.arco-picker-cell-selected).arco-picker-cell-in-view .arco-picker-date-value:hover {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-picker-header-title, .arco-picker-week-list-item {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-picker-header-icon {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-btn-secondary, .arco-btn-secondary[type=button], .arco-btn-secondary[type=submit] {
+    --b3-theme-primary: var(--QYL-bogwood-second);
+}
+.arco-select-view-single {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: var(--b3-theme-surface-lighter) !important;
+    &:hover {
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
+.arco-select-view-single:focus-within, .arco-select-view-single.arco-select-view-focus, .arco-select-view-single:hover {
+    border: none !important;
+    box-shadow: none !important;
+}
+.protyle-hint .b3-list-item[data-value^="plugin"][data-value*="sy-insert-time"] {
+    & b {
+        color: var(--QYL-bogwood-second);
+    }
+} 
