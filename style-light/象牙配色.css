@@ -56,6 +56,9 @@
     --QYL-ivory-primary: #6641e9;
     --QYL-ivory-second: #3f6fe6;
 }
+a {
+    --b3-theme-primary: var(--QYL-ivory-second);
+}
 /* 按钮 */
 .b3-button {
     --b3-theme-primary: var(--QYL-ivory-primary);
