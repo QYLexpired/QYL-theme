@@ -122,14 +122,24 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
     & .b3-list-item__text {
         color: var(--QYL-bogwood-second);
     }
+    & .b3-list-item__meta {
+        color: var(--QYL-bogwood-primary);
+    }
 }
 .b3-menu__item--current:not(.b3-menu__item--readonly) {
     background-color: var(--QYL-bogwood-second) !important;
-    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
         color: var(--b3-theme-background) !important;
     }
     &.b3-menu__item--warning {
         background-color: var(--b3-theme-error) !important;
+    }
+    & .b3-text-field {
+        background-color: var(--QYL-bogwood-second);
+        color: var(--b3-theme-background);
+        &::placeholder {
+            color: var(--b3-theme-background);
+        }
     }
 }
 .file-tree .b3-list--background .b3-list-item--focus {
@@ -153,6 +163,19 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
 }
 :is(#minWindow, #restoreWindow, #maxWindow):hover {
     color: var(--b3-theme-background);
+}
+.av__panel .b3-menu__item:not([data-type=nobg]):hover, .av__panel .b3-menu__item--current:not([data-type=nobg]) {
+    background-color: var(--QYL-bogwood-second);
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
+        color: var(--b3-theme-background);
+    }
+    & .b3-text-field {
+        background-color: var(--QYL-bogwood-second);
+        color: var(--b3-theme-background);
+        &::placeholder {
+            color: var(--b3-theme-background);
+        }
+    }
 }
 /* 主界面 */
 .dock--vertical {
@@ -252,7 +275,7 @@ div[data-key="dialog-setting"] .b3-tab-bar [placeholder="搜索"] {
 [data-key="dialog-recentdocs"] [placeholder="搜索"] {
     background-color: var(--b3-theme-surface-lighter);
 }
-div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     background-color: var(--b3-theme-background);
 }
 div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
@@ -260,6 +283,23 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 }
 .protyle-icon {
     background-color: rgba(130, 134, 147, 0.662);
+}
+:is(.b3-menu, .b3-menu__submenu) .b3-text-field:not([data-type="av-search"]) {
+    background-color: var(--b3-theme-surface-lighter);
+}
+.b3-slider::-webkit-slider-thumb {
+    background-color: var(--QYL-bogwood-second);
+    box-shadow: none;
+}
+.b3-slider::-moz-range-thumb {
+    background-color: var(--QYL-bogwood-second);
+    box-shadow: none;
+}
+.b3-slider:focus::-webkit-slider-thumb,.b3-slider:hover::-webkit-slider-thumb {
+    transform: scale(1.2)
+}
+.b3-slider:focus::-moz-range-thumb,.b3-slider:hover::-moz-range-thumb {
+    transform: scale(1.2)
 }
 /* 阴影 */
 .b3-menu, .b3-dialog__container, .b3-menu__submenu, .secondaryToolbar {
@@ -405,17 +445,20 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 /* 搜索 */
-div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
+:is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header {
     border: 1px solid var(--b3-theme-surface-lighter) !important;
 }
-div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
+:is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__header[id="criteria"] {
     border: 1px solid var(--b3-theme-surface-lighter) !important;
 }
-div[data-key="dialog-globalsearch"] .search__layout--row .search__preview {
+:is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__preview {
     border: 1px solid var(--b3-theme-surface-lighter) !important;
 }
-div[data-key="dialog-globalsearch"] #searchList {
+:is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) #searchList {
     border: 1px solid var(--b3-theme-surface-lighter) !important;
+    & :is([data-type="search-item"]:hover, [data-type="search-item"].b3-list-item--focus) .b3-list-item__meta {
+        color: var(--QYL-bogwood-primary);
+    }
 }
 .layout__center .search__header .b3-text-field:not([data-type="av-search"]) {
     background-color: var(--b3-theme-background);
