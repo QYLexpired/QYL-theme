@@ -26,11 +26,11 @@
 }
 .QYLwndthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */
     padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left)));
-    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);  
+    transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);  
 }
 .body--mac .QYLwndthe1 > .fn__flex:not(.layout-tab-container) {/* MAC左边距修正 */
     padding-left: max(0px, calc(var(--QYL-fusion-drag-left) - var(--QYL-fusion-center-left) + 100px));
-    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
 }
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
@@ -50,13 +50,15 @@
 
 
 #layouts .layout__center .layout-tab-container {
-    margin-top: 2px;
+    margin-top: 1.75px;
     border-radius: var(--b3-border-radius) !important;
 }
 #layouts .layout__center .layout-tab-container:has(.layout__empty) {
     margin-top: 38px;
 }
-
+#layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    margin-bottom: -3px;
+}
 
 #dockLeft {
     padding-top: 38px;

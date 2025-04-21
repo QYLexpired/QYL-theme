@@ -58,44 +58,44 @@
 .fn__flex-1.fn__flex div[data-type="wnd"] .block__icons {
     background-color: var(--b3-theme-background);
 }
-div[data-key="dialog-globalsearch"] .block__icons[style="overflow: auto"] {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .block__icons[style="overflow: auto"] {
     background-color: var(--b3-theme-surface);
 }
 /* 界面 */
-div[data-key="dialog-globalsearch"], div[data-key="dialog-globalsearch"] .search__layout.search__layout--row {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]),  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout.search__layout--row {
     border: none !important;
 }
-div[data-key="dialog-globalsearch"] .b3-form__icon.search__header {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header {
     margin: 5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
-div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     box-shadow: none;
     border-radius: var(--b3-border-radius);
 }
-div[data-key="dialog-globalsearch"] .search__header[id="criteria"] {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__header[id="criteria"] {
     margin: 5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
-div[data-key="dialog-globalsearch"] .search__list {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__list {
     margin: 5px 10px 2.5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
-div[data-key="dialog-globalsearch"] .search__preview {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__preview {
     margin: 2.5px 10px 5px 10px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
-div[data-key="dialog-globalsearch"] .search__layout--row .search__list {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout--row .search__list {
     margin: 5px 2.5px 5px 10px;
 }
-div[data-key="dialog-globalsearch"] .search__layout--row .search__preview {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout--row .search__preview {
     margin: 5px 10px 5px 2.5px;
 }
-div[data-key="dialog-globalsearch"] .search__tip {
+ :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__tip {
     border: none !important;
 }
 :is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
