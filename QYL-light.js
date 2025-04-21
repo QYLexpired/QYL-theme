@@ -2637,9 +2637,9 @@ function QYLfusion() {
         const dragLeft = dragElem.getBoundingClientRect().left;
         const dragRight = window.innerWidth - dragElem.getBoundingClientRect().right;
         
-        document.documentElement.style.setProperty('--QYL-fusion-center-left', `${centerLeft}px`);
-        document.documentElement.style.setProperty('--QYL-fusion-drag-left', `${dragLeft}px`);
-        document.documentElement.style.setProperty('--QYL-fusion-drag-right', `${dragRight}px`);
+        centerElem.style.setProperty('--QYL-fusion-center-left', `${centerLeft}px`);
+        centerElem.style.setProperty('--QYL-fusion-drag-left', `${dragLeft}px`);
+        centerElem.style.setProperty('--QYL-fusion-drag-right', `${dragRight}px`);
     }
     function scheduleUpdate() {
         if (!isRunning) return;
@@ -2653,7 +2653,7 @@ function QYLfusion() {
             } else {
                 startRetrying();
             }
-        }, 1200);
+        }, 1000);
     }
     function startRetrying() {
         if (!isRunning) return;
@@ -2666,7 +2666,7 @@ function QYLfusion() {
             } else {
                 startRetrying();
             }
-        }, 1200);
+        }, 1000);
     }
     function stopAll() {
         clearTimeout(updateTimeout);

@@ -3,9 +3,10 @@
 
 ## 主要更新
 
-##### v2.9.9 & v2.9.8
+##### v2.9.10
 
-* 对`象牙`风格、`乌木`风格进行大量细节优化
+* 微调顶栏融合后页签的位置及位置更新时的动画表现
+* 其他细节优化
 
 ## 主题特性
 
@@ -67,9 +68,14 @@
 * [pink-room主题](https://github.com/StarDustSheep/pink-room)：配色审美
 * [VSCode Lite Edit主题](https://github.com/emptylight370/siyuan-vscodelite-edit)：移动端判断方法
 * [wilsons](https://ld246.com/member/wilsons)：状态栏浮动方案、链式操作js
-* [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色
+* [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色
 
 ## 更新历史
+
+##### v2.9.10
+
+* 微调顶栏融合后页签的位置及位置更新时的动画表现
+* 其他细节优化
 
 ##### v2.9.9 & v2.9.8
 
