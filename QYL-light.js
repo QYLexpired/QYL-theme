@@ -3648,3 +3648,1395 @@ const QYLlihelp = (function() {
         });
     });
 })();
+
+// 右键菜单QYL自定义属性
+{
+    setTimeout(() => ClickMonitor(), 1000)
+    function ClickMonitor() {
+        window.addEventListener('mouseup', function(e) {
+          initQYLattr(e);
+          initQYLattrforfile(e);
+        });
+      }
+    function MenuSeparator(className = 'b3-menu__separator') {
+        let node = document.createElement('button');
+        node.className = className;
+        return node;
+    }
+    function getBlockSelected() {//获取块属性
+        let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
+        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
+          id: node_list[0].dataset.nodeId,
+          type: node_list[0].dataset.type,
+          subtype: node_list[0].dataset.subtype,
+        };
+        return null;
+    }
+    function getFileBlockSelected() {//获取文档块属性
+        let node_list = document.querySelectorAll('.b3-list-item--focus[data-type="navigation-file"]');
+        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
+          id: node_list[0].dataset.nodeId,
+          type: node_list[0].dataset.type,
+          subtype: node_list[0].dataset.subtype,
+        };
+        return null;
+    }
+    function initQYLattr() {//准备创建QYL自定义属性菜单项(块)
+      setTimeout(() => {
+        let selectinfo = getBlockSelected()
+        if (selectinfo) {
+          let selecttype = selectinfo.type
+          let selectid = selectinfo.id
+            setTimeout(() => InsertQYLattr(selectid, selecttype), 300)
+            查询css自定义块属性的内容(selectid)
+        }
+      }, 0);
+    }
+    function initQYLattrforfile() {//准备创建QYL自定义属性菜单项(文档)
+        setTimeout(() => {
+          let selectinfo = getFileBlockSelected()
+          if (selectinfo) {
+            let selecttype = selectinfo.type
+            let selectid = selectinfo.id
+              setTimeout(() => InsertQYLattrforfile(selectid, selecttype), 300)
+              查询css自定义块属性的内容(selectid)
+          }
+        }, 0);
+      }
+    function InsertQYLattr(selectid, selecttype) {//创建QYL自定义属性菜单项（块）
+      let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
+      let readonly = commonMenu.querySelector('[data-id="updateAndCreatedAt"]')
+      let attritem = commonMenu.querySelector('[id="QYLattr"]')
+      if (readonly) {
+        if (!attritem) {
+          commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly)
+          commonMenu.insertBefore(MenuSeparator(), readonly)
+        }
+      }
+    }
+    function InsertQYLattrforfile(selectid, selecttype) {//创建QYL自定义属性菜单项（文档）
+        let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
+        let readonly = commonMenu.querySelector('[data-id="separator_3"]:has(~ [data-id="fileHistory"])')
+        let attritem = commonMenu.querySelector('[id="QYLattr"]')
+        if (readonly) {
+          if (!attritem) {
+            commonMenu.insertBefore(MenuSeparator(), readonly)
+            commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly)
+          }
+        }
+      }
+    function QYLattritem(selectid, selecttype) {//定义QYL自定义属性菜单项
+      let button = document.createElement("button")
+      button.id = "QYLattr"
+      button.className = "b3-menu__item"
+      button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">QYL自定义属性</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+      
+      if (selecttype === "NodeHeading") {//准备创建标题块的二级菜单
+        button.appendChild(QYLNodeHeadingsub(selectid))
+      }
+
+      else if (selecttype === "NodeTable") {//准备创建表格块的二级菜单
+        button.appendChild(QYLNodeTablesub(selectid))
+      }
+
+      else if (selecttype === "navigation-file") {//准备创建文档块的二级菜单
+        button.appendChild(QYLfilesub(selectid))
+      }
+
+      else if (selecttype === "NodeList") {//准备创建列表块的二级菜单
+        button.appendChild(QYLNodeListsub(selectid))
+      }
+      
+      else {//准备创建任意块的二级菜单（非标题、表格、列表、文档）
+        button.appendChild(QYLanyblocksub(selectid))
+      }
+
+      return button
+    }
+
+/* -----------------------------------------列表块------------------------------------- */
+function QYLNodeListsub(selectid) {//创建列表块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLNodeListsub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLNodeListsubitems(selectid))//准备创建列表块二级菜单的b3-menu__items
+    return div
+
+    function QYLNodeListsubitems(selectid) {//创建列表块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrlistviewitem(selectid))//准备创建列表视图选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+function QYLattrlistviewitem(selectid) {//创建列表视图选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconList"></use></svg><span class="b3-menu__label" style="">列表视图</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrlistviewsub(selectid))//准备创建列表视图选项的二级菜单
+    return button
+}
+function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrlistviewsubitems(selectid))//准备创建列表视图选项的b3-menu__items
+    return div
+
+    function QYLattrlistviewsubitems(selectid) {//创建列表视图选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrlistviewnaotu(selectid))//脑图
+        div.appendChild(QYLattrlistviewkanban(selectid))//看板
+        div.appendChild(QYLattrlistviewbiaoge(selectid))//表格
+        div.appendChild(QYLattrlistviewlist(selectid))//默认
+        return div
+
+        function QYLattrlistviewnaotu(selectid) {//脑图
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-view")
+            button.setAttribute("custom-attr-value", "脑图")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label">脑图</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlistviewkanban(selectid) {//看板
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-view")
+            button.setAttribute("custom-attr-value", "看板")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">看板</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlistviewbiaoge(selectid) {//表格
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-view")
+            button.setAttribute("custom-attr-value", "表格")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">表格</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlistviewlist(selectid) {//默认
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-view")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">默认</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------文档块------------------------------------- */
+function QYLfilesub(selectid) {//创建文档块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLfilesub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLfilesubitems(selectid))//准备创建文档块二级菜单的b3-menu__items
+    return div
+
+    function QYLfilesubitems(selectid) {//创建文档块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrhstyleitem(selectid))//准备创建标题样式选项
+        div.appendChild(QYLattrtablestyleitem(selectid))//准备创建表格样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrfullwidthitem(selectid))//准备创建全宽显示选项
+        div.appendChild(QYLattrblankblockreminditem(selectid))//准备创建空块提醒选项
+        return div
+    }
+}
+function QYLattrfullwidthitem(selectid) {//创建全宽显示选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconMax"></use></svg><span class="b3-menu__label" style="">全宽显示</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrfullwidthsub(selectid))//准备创建全宽显示选项的二级菜单
+    return button
+}
+function QYLattrfullwidthsub(selectid) {//创建全宽显示选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrfullwidthsubitems(selectid))//准备创建全宽显示选项的b3-menu__items
+    return div
+
+    function QYLattrfullwidthsubitems(selectid) {//创建全宽显示选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrfullwidthon(selectid))//启用
+        div.appendChild(QYLattrfullwidthoff(selectid))//禁用
+        return div
+
+        function QYLattrfullwidthon(selectid) {//启用全宽显示
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "fullwidth")
+            button.setAttribute("custom-attr-value", "启用")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrfullwidthoff(selectid) {//禁用全宽显示
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "fullwidth")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+function QYLattrblankblockreminditem(selectid) {//创建空块提醒选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label" style="">空块提醒</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrblankblockremindsub(selectid))//准备创建空块提醒选项的二级菜单
+    return button
+}
+function QYLattrblankblockremindsub(selectid) {//创建空块提醒选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrblankblockremindsubitems(selectid))//准备创建空块提醒选项的b3-menu__items
+    return div
+
+    function QYLattrblankblockremindsubitems(selectid) {//创建空块提醒选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrblankblockremindon(selectid))//启用
+        div.appendChild(QYLattrblankblockremindoff(selectid))//禁用
+        return div
+
+        function QYLattrblankblockremindon(selectid) {//启用空块提醒
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "blankblock-remind")
+            button.setAttribute("custom-attr-value", "开启")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrblankblockremindoff(selectid) {//禁用空块提醒
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "blankblock-remind")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------任意块------------------------------------- */
+function QYLanyblocksub(selectid) {//创建任意块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLanyblocksub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLanyblocksubitems(selectid))//准备创建任意块二级菜单的b3-menu__items
+    return div
+
+    function QYLanyblocksubitems(selectid) {//创建任意块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+
+/* -----------------------------------------表格块------------------------------------- */
+function QYLNodeTablesub(selectid) {//创建表格块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLNodeTablesub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLNodeTablesubitems(selectid))//准备创建表格块二级菜单的b3-menu__items
+    return div
+
+    function QYLNodeTablesubitems(selectid) {//创建表格块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrtablestyleitem(selectid))//准备创建表格样式选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+function QYLattrtablestyleitem(selectid) {//创建表格样式选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label" style="">表格样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrtablestylesub(selectid))//准备创建表格样式选项的二级菜单
+    return button
+}
+function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrtablestylesubitems(selectid))//准备创建表格样式选项的b3-menu__items
+    return div
+
+    function QYLattrtablestylesubitems(selectid) {//创建表格样式选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLtablestylethreeline(selectid))//三线表
+        div.appendChild(QYLtablestyledelete(selectid))//清除属性
+        return div
+
+        function QYLtablestylethreeline(selectid) {//三线表
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-style")
+            button.setAttribute("custom-attr-value", "三线表")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">三线表</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablestyledelete(selectid) {//清除属性
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-style")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------标题块------------------------------------- */
+    function QYLNodeHeadingsub(selectid) {//创建标题块二级菜单
+        let div = document.createElement("div")
+        div.id = "QYLNodeHeadingsub"
+        div.className = "b3-menu__submenu"
+        div.appendChild(QYLNodeHeadingsubitems(selectid))//准备创建标题块二级菜单的b3-menu__items
+        return div
+
+        function QYLNodeHeadingsubitems(selectid) {//创建标题块二级菜单的b3-menu__items
+            let div = document.createElement("div")
+            div.className = "b3-menu__items"
+            div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+            div.appendChild(QYLattrhstyleitem(selectid))//准备创建标题样式选项
+            div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+            div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+            div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+            return div
+        }
+    }
+    function QYLattrhstyleitem(selectid) {//创建标题样式选项
+        let button = document.createElement('button');
+        button.className = "b3-menu__item"
+        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label" style="">标题样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+        button.appendChild(QYLattrhstylesub(selectid))//准备创建标题样式选项的二级菜单
+        return button
+    }
+    function QYLattrhstylesub(selectid) {//创建标题样式选项的二级菜单
+        let div = document.createElement('div');
+        div.className = "b3-menu__submenu"
+        div.appendChild(QYLattrhstylesubitems(selectid))//准备创建标题样式选项的b3-menu__items
+        return div
+
+        function QYLattrhstylesubitems(selectid) {//创建标题样式选项的b3-menu__items
+            let div = document.createElement("div")
+            div.className = "b3-menu__items"
+            div.appendChild(QYLhstyleduocai(selectid))//多彩
+            div.appendChild(QYLhstylejinbo(selectid))//金箔
+            div.appendChild(QYLhstylexiahuaxian(selectid))//下划线
+            div.appendChild(QYLhstylezuobiankuang(selectid))//左边框
+            div.appendChild(QYLhstylecengji(selectid))//层级
+            div.appendChild(QYLhstyledelete(selectid))//清除属性
+            return div
+        }
+
+        function QYLhstyleduocai(selectid) {//多彩
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "多彩")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">多彩</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylejinbo(selectid) {//金箔
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "金箔")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">金箔</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylexiahuaxian(selectid) {//下划线
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "下划线")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">下划线</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylezuobiankuang(selectid) {//左边框
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "左边框")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">左边框</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylecengji(selectid) {//层级
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "层级")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">层级</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstyledelete(selectid) {//清除属性
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+
+/* -----------------------------------------css属性（通用）------------------------------------- */
+function QYLattrcssitem(selectid) {//创建css属性选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">css自定义属性</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrcsssub(selectid))//准备创建css属性选项的二级菜单
+    return button
+}
+function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrcsssubitems(selectid))//准备创建css属性选项的b3-menu__items
+    return div
+
+    function QYLattrcsssubitems(selectid) {//创建css属性选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.style.padding = "4px 8px"
+        div.appendChild(QYLattrcsstextarea(selectid))//输入区域
+        return div
+
+        function QYLattrcsstextarea(selectid) {
+            let textarea = document.createElement("textarea");
+            textarea.className = "b3-text-field QYLcssinput";
+            textarea.style.height = "60px";
+            textarea.style.width = "400px";
+            textarea.style.color = "var(--b3-theme-on-surface)";
+            textarea.setAttribute("spellcheck", "false");
+            textarea.setAttribute("data-node-id", selectid);
+            textarea.setAttribute("custom-attr-name", "css");
+            textarea.value = "";
+            textarea.placeholder = "在此输入css代码，注意首尾无需{ }包裹，可使用&嵌套选择器";
+        
+            // 异步查询并初始化值
+            查询css自定义块属性的内容(selectid)
+                .then(customcssvalue => {
+                    if (customcssvalue) {
+                        textarea.value = customcssvalue;
+                        // 设置初始值到 custom-attr-value
+                        textarea.setAttribute("custom-attr-value", customcssvalue);
+                    } else {
+                        // 确保没有值时属性为空
+                        textarea.setAttribute("custom-attr-value", "");
+                    }
+                })
+                .catch(err => {
+                    console.error("获取CSS值失败:", err);
+                });
+        
+            // 添加 blur 事件处理，更新属性
+            textarea.addEventListener('blur', function(e) {
+                const value = e.target.value;
+                e.target.setAttribute("custom-attr-value", value);
+                QYLcustomattrset(e); // 确保原有逻辑执行
+            });
+        
+            return textarea;
+        }
+    }
+}
+
+/* -----------------------------------------height属性（通用）------------------------------------- */
+function QYLattrheightitem(selectid) {//创建最大高度选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">最大高度</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrheightsub(selectid))//准备创建最大高度选项的二级菜单
+    return button
+}
+function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrheightsubitems(selectid))//准备创建最大高度选项的b3-menu__items
+    return div
+
+    function QYLattrheightsubitems(selectid) {//创建最大高度选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLheight50(selectid))//50
+        div.appendChild(QYLheight100(selectid))//100
+        div.appendChild(QYLheight150(selectid))//150
+        div.appendChild(QYLheight200(selectid))//200
+        div.appendChild(QYLheightdelete(selectid))//清除属性
+        return div
+
+            function QYLheight50(selectid) {//50
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "50")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">50px</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight100(selectid) {//100
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "100")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">100px</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight150(selectid) {//150
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "150")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">150px</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight200(selectid) {//200
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "200")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">200px</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheightdelete(selectid) {//清除属性
+                let button = document.createElement("button")
+                button.className = "b3-menu__item b3-menu__item--warning"
+                button.style.color = "var(--b3-theme-error)"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+        }
+}
+
+/* -----------------------------------------style属性（通用）------------------------------------- */
+    function QYLattrstyleitem(selectid) {//创建块样式选项
+        let button = document.createElement('button');
+        button.className = "b3-menu__item"
+        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">块样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+        button.appendChild(QYLattrstylesub(selectid))//准备创建块样式选项的二级菜单
+        return button
+    }
+    function QYLattrstylesub(selectid) {//创建块样式选项的二级菜单
+        let div = document.createElement('div');
+        div.className = "b3-menu__submenu"
+        div.appendChild(QYLattrstylesubitems(selectid))//准备创建块样式选项的b3-menu__items
+        return div
+
+        function QYLattrstylesubitems(selectid) {//创建块样式选项的b3-menu__items
+            let div = document.createElement("div")
+            div.className = "b3-menu__items"
+            div.appendChild(QYLstylewarning(selectid))//警告
+            div.appendChild(QYLstyletip(selectid))//灵感
+            div.appendChild(QYLstyleinfo(selectid))//信息
+            div.appendChild(QYLstyleimportant(selectid))//重要
+            div.appendChild(QYLstylecomment(selectid))//批注
+            div.appendChild(QYLstylequote(selectid))//引用
+            div.appendChild(QYLstyletodo(selectid))//待办
+            div.appendChild(QYLstyledone(selectid))//完成
+            div.appendChild(QYLstylesajinzhi(selectid))//洒金纸
+            div.appendChild(QYLstylewangge(selectid))//网格
+            div.appendChild(QYLstylenoteitem(selectid))//便签
+            div.appendChild(QYLstyleleftborderitem(selectid))//左边框
+            div.appendChild(QYLstyledelete(selectid))//清除属性
+            return div
+
+            function QYLstylewarning(selectid) {//警告
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "警告")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyletip(selectid) {//灵感
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "灵感")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyletip(selectid) {//灵感
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "灵感")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyleinfo(selectid) {//信息
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "信息")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyleimportant(selectid) {//重要
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "重要")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstylecomment(selectid) {//批注
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "批注")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstylequote(selectid) {//引用
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "引用")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyletodo(selectid) {//待办
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "待办")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyledone(selectid) {//完成
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "完成")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstylesajinzhi(selectid) {//洒金纸
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "洒金纸")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">洒金纸</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstylewangge(selectid) {//网格
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "网格")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">网格</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyledelete(selectid) {//清除属性
+                let button = document.createElement("button")
+                button.className = "b3-menu__item b3-menu__item--warning"
+                button.style.color = "var(--b3-theme-error)"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstylenoteitem(selectid) {//创建便签选项
+                let button = document.createElement('button');
+                button.className = "b3-menu__item"
+                button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">便签</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+                button.appendChild(QYLstylenotesub(selectid))//准备便签选项的二级菜单
+                return button
+                }
+                function QYLstylenotesub(selectid) {//创建便签选项的二级菜单
+                    let div = document.createElement('div');
+                    div.className = "b3-menu__submenu"
+                    div.appendChild(QYLstylenotesubitems(selectid))//准备便签选项的b3-menu__items
+                    return div
+
+                    function QYLstylenotesubitems(selectid) {//创建便签选项的b3-menu__items
+                        let div = document.createElement("div")
+                        div.className = "b3-menu__items"
+                        div.appendChild(QYLstylerednote(selectid))//红色便签
+                        div.appendChild(QYLstyleorangenote(selectid))//橙色便签
+                        div.appendChild(QYLstyleyellownote(selectid))//黄色便签
+                        div.appendChild(QYLstylegreennote(selectid))//绿色便签
+                        div.appendChild(QYLstylecyannote(selectid))//青色便签
+                        div.appendChild(QYLstylebluenote(selectid))//蓝色便签
+                        div.appendChild(QYLstylepurplenote(selectid))//紫色便签
+                        div.appendChild(QYLstylepinknote(selectid))//粉色便签
+                        div.appendChild(QYLstyleblacknote(selectid))//黑色便签
+                        div.appendChild(QYLstylegraynote(selectid))//灰色便签
+
+                        return div
+
+                        function QYLstylerednote(selectid) {//红色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "红色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstyleorangenote(selectid) {//橙色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "橙色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstyleyellownote(selectid) {//黄色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "黄色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylegreennote(selectid) {//绿色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "绿色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylecyannote(selectid) {//青色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "青色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylebluenote(selectid) {//蓝色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "蓝色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylepurplenote(selectid) {//紫色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "紫色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylepinknote(selectid) {//粉色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "粉色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstyleblacknote(selectid) {//黑色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "黑色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                        function QYLstylegraynote(selectid) {//灰色便签
+                            let button = document.createElement("button")
+                            button.className = "b3-menu__item"
+                            button.setAttribute("data-node-id", selectid)
+                            button.setAttribute("custom-attr-name", "style")
+                            button.setAttribute("custom-attr-value", "灰色便签")
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰色便签</span>`
+                            button.onclick = QYLcustomattrset
+                            return button
+                        }
+                    }
+                }
+                function QYLstyleleftborderitem(selectid) {//创建左边框选项
+                    let button = document.createElement('button');
+                    button.className = "b3-menu__item"
+                    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">左边框</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+                    button.appendChild(QYLstyleleftbordersub(selectid))//准备左边框选项的二级菜单
+                    return button
+                    }
+                    function QYLstyleleftbordersub(selectid) {//创建左边框选项的二级菜单
+                        let div = document.createElement('div');
+                        div.className = "b3-menu__submenu"
+                        div.appendChild(QYLstyleleftbordersubitems(selectid))//准备左边框选项的b3-menu__items
+                        return div
+    
+                        function QYLstyleleftbordersubitems(selectid) {//创建左边框选项的b3-menu__items
+                            let div = document.createElement("div")
+                            div.className = "b3-menu__items"
+                            div.appendChild(QYLstylerednote(selectid))//红左边框
+                            div.appendChild(QYLstyleorangenote(selectid))//橙左边框
+                            div.appendChild(QYLstyleyellownote(selectid))//黄左边框
+                            div.appendChild(QYLstylegreennote(selectid))//绿左边框
+                            div.appendChild(QYLstylecyannote(selectid))//青左边框
+                            div.appendChild(QYLstylebluenote(selectid))//蓝左边框
+                            div.appendChild(QYLstylepurplenote(selectid))//紫左边框
+                            div.appendChild(QYLstylepinknote(selectid))//粉左边框
+                            div.appendChild(QYLstyleblacknote(selectid))//黑左边框
+                            div.appendChild(QYLstylegraynote(selectid))//灰左边框
+    
+                            return div
+    
+                            function QYLstylerednote(selectid) {//红左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "红左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstyleorangenote(selectid) {//橙左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "橙左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstyleyellownote(selectid) {//黄左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "黄左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylegreennote(selectid) {//绿左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "绿左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylecyannote(selectid) {//青左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "青左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylebluenote(selectid) {//蓝左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "蓝左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylepurplenote(selectid) {//紫左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "紫左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylepinknote(selectid) {//粉左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "粉左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstyleblacknote(selectid) {//黑左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "黑左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                            function QYLstylegraynote(selectid) {//灰左边框
+                                let button = document.createElement("button")
+                                button.className = "b3-menu__item"
+                                button.setAttribute("data-node-id", selectid)
+                                button.setAttribute("custom-attr-name", "style")
+                                button.setAttribute("custom-attr-value", "灰左边框")
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰左边框</span>`
+                                button.onclick = QYLcustomattrset
+                                return button
+                            }
+                        }
+                    }
+        }
+    }
+
+
+/* -----------------------------------------font-family属性（通用）------------------------------------- */
+function QYLattrfontfamilyitem(selectid) {//创建字体选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label" style="">字体</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrfontfamilysub(selectid))//准备创建字体选项的二级菜单
+    return button
+}
+function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrfontfamilysubitems(selectid))//准备创建字体选项的b3-menu__items
+    return div
+    
+    function QYLattrfontfamilysubitems(selectid) {//创建字体选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLfontsongti(selectid))//宋体
+        div.appendChild(QYLfontyouyuan(selectid))//幼圆
+        div.appendChild(QYLfontheiti(selectid))//黑体
+        div.appendChild(QYLfontwryahei(selectid))//微软雅黑
+        div.appendChild(QYLfontxinsongti(selectid))//新宋体
+        div.appendChild(QYLfontkaiti(selectid))//楷体
+        div.appendChild(QYLfontlishu(selectid))//隶书
+        div.appendChild(QYLfontfangsong(selectid))//仿宋
+        div.appendChild(QYLfonthwsongti(selectid))//华文宋体
+        div.appendChild(QYLfonthwzhongsong(selectid))//华文中宋
+        div.appendChild(QYLfonthwfangsong(selectid))//华文仿宋
+        div.appendChild(QYLfonthwcaiyun(selectid))//华文彩云
+        div.appendChild(QYLfonthwxinwei(selectid))//华文新魏
+        div.appendChild(QYLfonthwkaiti(selectid))//华文楷体
+        div.appendChild(QYLfonthwhupo(selectid))//华文琥珀
+        div.appendChild(QYLfonthwxihei(selectid))//华文细黑
+        div.appendChild(QYLfonthwxingkai(selectid))//华文行楷
+        div.appendChild(QYLfonthwlishu(selectid))//华文隶书
+        div.appendChild(QYLfontfzyaoti(selectid))//方正姚体
+        div.appendChild(QYLfontfzshuti(selectid))//方正舒体
+        div.appendChild(QYLfonttnm(selectid))//Times New Roman
+        div.appendChild(QYLfontdelete(selectid))//清除属性
+        return div
+
+        function QYLfontsongti(selectid) {//宋体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "SimSun"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "宋体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">宋体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontyouyuan(selectid) {//幼圆
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "YouYuan"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "幼圆")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">幼圆</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontheiti(selectid) {//黑体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "SimHei"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "黑体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">黑体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontwryahei(selectid) {//微软雅黑
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "Microsoft YaHei"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "微软雅黑")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">微软雅黑</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontxinsongti(selectid) {//新宋体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "NSimSun"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "新宋体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">新宋体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontkaiti(selectid) {//楷体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "KaiTi"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "楷体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">楷体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontlishu(selectid) {//隶书
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "LiSu"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "隶书")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">隶书</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontfangsong(selectid) {//仿宋
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "FangSong"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "仿宋")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">仿宋</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwsongti(selectid) {//华文宋体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STSong"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文宋体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文宋体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwzhongsong(selectid) {//华文中宋
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STZhongsong"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文中宋")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文中宋</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwfangsong(selectid) {//华文仿宋
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STFangsong"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文仿宋")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文仿宋</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwcaiyun(selectid) {//华文彩云
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STCaiyun"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文彩云")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文彩云</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwxinwei(selectid) {//华文新魏
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STXinwei"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文新魏")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文新魏</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwkaiti(selectid) {//华文楷体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STKaiti"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文楷体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文楷体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwhupo(selectid) {//华文琥珀
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STHupo"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文琥珀")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文琥珀</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwxihei(selectid) {//华文细黑
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STXihei"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文细黑")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文细黑</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwxingkai(selectid) {//华文行楷
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STXingkai"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文行楷")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文行楷</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonthwlishu(selectid) {//华文隶书
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "STLiti"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "华文隶书")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文隶书</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontfzyaoti(selectid) {//方正姚体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "FZYaoti"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "方正姚体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正姚体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontfzshuti(selectid) {//方正舒体
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "FZShuTi"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "方正舒体")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正舒体</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfonttnm(selectid) {//Times New Roman
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.style.fontFamily = "Times New Roman"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "Times New Roman")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">Times New Roman</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLfontdelete(selectid) {//清除属性
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "font-family")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------块属性API------------------------------------- */
+    function QYLcustomattrset(event) {//设置自定义块属性
+      let id = event.currentTarget.getAttribute("data-node-id")
+      let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name")
+      let attrValue = event.currentTarget.getAttribute("custom-attr-value")
+      let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`)
+      if (blocks) {
+        blocks.forEach(block => block.setAttribute(attrName, attrValue))
+      }
+      let attrs = {}
+      attrs[attrName] = attrValue
+      设置思源块属性(id, attrs)
+    }
+    async function 查询css自定义块属性的内容(selectid) {
+        if (!selectid) return null;
+        try {
+            const 属性对象 = await 获取思源块属性(selectid, ["custom-css"]);
+            const customcssvalue = 属性对象?.['custom-css']?.trim(); 
+            return customcssvalue || null;
+        } catch (err) {
+            console.error("获取css自定义属性失败", err);
+            return null;
+        }
+    }
+
+    async function 向思源请求数据(url, data) {
+        try {
+            const response = await fetch(url, {
+                body: JSON.stringify(data),
+                method: 'POST',
+                headers: { Authorization: 'Token ' } 
+            });
+            return response.ok ? await response.json() : null;
+        } catch (error) {
+            console.error('[QYL] API 请求失败:', error); 
+            return null;
+        }
+    }
+    async function 解析响应体(response) {
+        try {
+            const result = await response;
+            if (!result) return null;
+            return result.code === 0 ? result.data : null;
+        } catch (error) {
+            console.error('[QYL] 响应解析失败:', error);
+            return null;
+        }
+    }
+    async function 设置思源块属性(内容块id, 属性对象) {
+        return 解析响应体(向思源请求数据('/api/attr/setBlockAttrs', {
+            id: 内容块id,
+            attrs: 属性对象,
+        }));
+    }
+    async function 获取思源块属性(内容块id, 属性对象) {
+        return 解析响应体(向思源请求数据('/api/attr/getBlockAttrs', {
+            id: 内容块id,
+            attrs: 属性对象,
+        }));
+    }
+}
