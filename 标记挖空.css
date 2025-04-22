@@ -1,0 +1,26 @@
+span[data-type~=mark] {
+    background: transparent !important;
+}
+.b3-typography mark, .b3-typography span[data-type~=mark], 
+.protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
+    color: transparent !important; 
+    border-bottom: 1.5px solid var(--QYL-markcloze-bottom);
+    background-color: transparent !important;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-bottom: 3px;
+}
+.b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
+.protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
+    color: inherit !important;
+    border-bottom: 1.5px solid var(--QYL-markcloze-bottom);
+    background-color: transparent !important;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-bottom: 3px;
+}
+.card__block--hidemark span[data-type~=mark]::before {
+    content: "________";
+    visibility: hidden;
+    white-space: nowrap;
+}

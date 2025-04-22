@@ -1,0 +1,14 @@
+.protyle-wysiwyg[custom-fullwidth="启用"] {
+    padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+.protyle-top:has( + .protyle-wysiwyg[custom-fullwidth="启用"]) {
+    & .protyle-title {
+		margin-left: 20px !important;
+		margin-right: 20px !important;
+	}
+	& :is(.protyle-background__icon, .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip) {
+		position: relative;
+		left: -76px;
+	}
+}

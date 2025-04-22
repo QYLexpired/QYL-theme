@@ -1,0 +1,316 @@
+.QYLmobile {
+    --b3-menu-background: var(--b3-theme-surface);
+}
+/* 文档树 */
+.QYLmobile #sidebar > .toolbar--border {
+    margin: 6px 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary);
+      }
+}
+.QYLmobile #sidebar .toolbar--dark {
+    color: var(--b3-theme-primary);
+    background-color: var(--b3-theme-background);
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    & .toolbar__icon {
+        color: var(--b3-theme-primary);
+    }
+}
+.QYLmobile #sidebar .fn__flex-column:is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"], [data-type="sidebar-backlink"], [data-type="sidebar-inbox"], [data-type="sidebar-plugin"]) {
+    margin: 0 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    background: var(--b3-theme-background);
+}
+.QYLmobile #sidebar [data-type="sidebar-backlink"] .backlinkList + .toolbar :is(.toolbar__text, .toolbar__icon) {
+    color: var(--b3-theme-primary);
+}
+/* 菜单 */
+.QYLmobile :is(#menu, #commonMenu) {
+    background-color: var(--b3-theme-surface);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__title {
+    margin: 6px 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    border: none;
+    color: var(--b3-theme-primary);
+    & .b3-menu__icon {
+        color: var(--b3-theme-primary);
+    }
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__items {
+    padding: 0 0;
+    margin: 0 6px 6px 6px;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item {
+    margin: 0;
+    border: none;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:last-child {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:has(+ .b3-menu__separator) {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child:has(+ .b3-menu__separator) {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item:last-child {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator + .b3-menu__item {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+.QYLmobile :is(#menu, #commonMenu) :is(.b3-menu__separator + .b3-menu__item):is(.b3-menu__item:has(+ .b3-menu__separator)) {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__separator {
+    height: 6px;
+    border: none;
+}
+.QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child:last-child {
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile .b3-menu--fullscreen .b3-menu__submenu {
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    top: 60px;
+    background: rgba(255, 0, 0, 0);
+}
+
+/* 底栏 */
+@media (max-width: 630px) {
+    .QYLmobile #status {
+        margin: 0;
+    }
+}
+/* 面包屑 */
+.QYLmobile .protyle-breadcrumb__icon[data-type="mobile-menu"] {
+    color: var(--b3-theme-primary);
+    background-color: rgba(255, 0, 0, 0);
+    padding: 0 2px;
+    font-weight: bold;
+    border: 1.5px solid var(--b3-theme-primary);
+    line-height: 18px;
+}
+.QYLmobile #commonMenu[data-name="breadcrumb-mobile-path"] .b3-menu__item .b3-menu__icon  {
+    color: var(--b3-theme-primary);
+}
+
+/*  主要页面 */
+.QYLmobile #model > .toolbar--border {
+    margin: 6px 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary); 
+      }
+}
+.QYLmobile #model #modelMain {
+    margin: 0 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    background: var(--b3-theme-background);
+}
+.QYLmobile .b3-dialog__container {
+    border: none;
+}
+
+/* 搜索 */
+.QYLmobile #searchPath ~ .fn__flex-column .toolbar:has(#searchAssetResult) {
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.QYLmobile #searchAssetList {
+    margin-top: 6px;
+    border-radius: var(--b3-border-radius);
+}
+.QYLmobile #searchAssetList .b3-list-item {
+    margin: 0;
+    background-color: var(--b3-theme-background);
+}
+.QYLmobile #searchAssetPreview {
+    border: none !important;
+    margin-top: 6px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+
+/* 同步 */
+.QYLmobile [data-key="dialog-syncchoosedirection"] .b3-dialog__container {
+    background-color: var(--b3-theme-background);
+}
+
+/* 闪卡 */
+.QYLmobile [data-key="dialog-opencard"] .card__main .toolbar--border {
+    margin: 6px 6px 6px 6px;
+    color: var(--b3-theme-primary);
+    border-radius: var(--b3-border-radius);
+    & .toolbar__icon {
+        color: var(--b3-theme-primary);
+    }
+}
+.QYLmobile [data-key="dialog-opencard"] .card__block {
+    margin: 0 6px 0 6px;
+}
+
+/* 编辑器 */
+.QYLmobile .toolbar--border:has(+ #editor ) {
+    margin: 6px 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+    color: var(--b3-theme-primary);
+      & .toolbar__icon {
+        color: var(--b3-theme-primary);
+      }
+      & .toolbar__title {
+        color: var(--b3-theme-primary);
+      }
+}
+.QYLmobile #editor {
+    margin: 0 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+}
+
+/* 按钮 */
+.QYLmobile .b3-button--text {
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.QYLmobile .b3-button--cancel:not(#findResultsCount, #findMsg) {
+    border: 1.5px solid var(--b3-theme-on-surface);
+}
+.QYLmobile .b3-button--outline {
+    box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
+}
+
+/* 编辑器工具栏 */
+.QYLmobile #keyboardToolbar {
+    border-radius: var(--b3-border-radius);
+    border: 1.5px solid var(--b3-theme-primary);
+}
+.QYLmobile .keyboard__slash-item {
+    box-shadow: inset 0 0 0 1px var(--b3-theme-primary);
+      & :is(.keyboard__slash-icon, .keyboard__slash-text) {
+        color:  var(--b3-theme-primary);
+      }
+}
+
+/* 手机端缩进线位置调整 */
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 22px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 40px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 58px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 76px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 94px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 112px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 130px !important
+}
+
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 148px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 148px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 166px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 184px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 202px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 220px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 238px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 256px !important
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 274px !important
+}
+
+.b3-list-item .b3-list-item__toggle.fn__hidden::before {
+    content: "";
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 99px;
+    background-color: var(--QYL-filetree-arrow);
+    position: absolute;
+    visibility: visible;
+    margin-left: 3px;
+}
+.b3-list-item:hover .b3-list-item__toggle.fn__hidden::before {
+    background-color: var(--b3-theme-primary);
+}
+.QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .b3-list-item .b3-list-item__arrow {
+    color: var(--QYL-filetree-arrow);
+}
+
+/* 修改文字外观菜单 */
+.QYLmobile .keyboard__slash-item[data-type="style4"] .keyboard__slash-text {
+    position: relative;
+    color: rgba(255, 0, 0, 0);
+    text-shadow: none !important;
+    &::before {
+        content: "荧光";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-shadow: 0px 0px 0.15em var(--b3-theme-primary), 0px 0px 0.25em var(--b3-theme-primary) !important;
+        color: var(--QYL-fluorescence-font) !important;
+    }
+}
+.QYLmobile .keyboard__slash-item[data-type="style2"] .keyboard__slash-text {
+    position: relative;
+    color: rgba(255, 0, 0, 0);
+    -webkit-text-stroke: 0 !important;
+    -webkit-text-fill-color: unset !important;
+    &::before {
+        content: "金箔";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-weight: bold;
+        background-image: url('../img/金箔.png') !important;  
+        -webkit-background-clip: text !important; 
+        color: transparent !important;
+        background-size: contain !important;
+        caret-color: gold;
+    }
+}

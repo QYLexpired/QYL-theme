@@ -1,0 +1,73 @@
+/* 自定义属性font-family */
+[custom-font-family="宋体"] {
+    font-family: "SimSun";
+}
+[custom-font-family="幼圆"] {
+    font-family: "YouYuan";
+}
+[custom-font-family="黑体"] {
+    font-family: "SimHei";
+}
+[custom-font-family="微软雅黑"] {
+    font-family: "Microsoft YaHei";
+}
+[custom-font-family="新宋体"] {
+    font-family: "NSimSun";
+}
+[custom-font-family="楷体"] {
+    font-family: "KaiTi";
+}
+[custom-font-family="隶书"] {
+    font-family: "LiSu";
+}
+[custom-font-family="仿宋"] {
+    font-family: "FangSong";
+}
+[custom-font-family="华文宋体"] {
+    font-family: "STSong";
+}
+[custom-font-family="华文中宋"] {
+    font-family: "STZhongsong";
+}
+[custom-font-family="华文仿宋"] {
+    font-family: "STFangsong";
+}
+[custom-font-family="华文彩云"] {
+    font-family: "STCaiyun";
+}
+[custom-font-family="华文新魏"] {
+    font-family: "STXinwei";
+}
+[custom-font-family="华文楷体"] {
+    font-family: "STKaiti";
+}
+[custom-font-family="华文琥珀"] {
+    font-family: "STHupo";
+}
+[custom-font-family="华文细黑"] {
+    font-family: "STXihei";
+}
+[custom-font-family="华文行楷"] {
+    font-family: "STXingkai";
+}
+[custom-font-family="华文隶书"] {
+    font-family: "STLiti";
+}
+[custom-font-family="方正姚体"] {
+    font-family: "FZYaoti";
+}
+[custom-font-family="方正舒体"] {
+    font-family: "FZShuTi";
+}
+[custom-font-family="思源宋体"] {
+    font-family: "Source Han Serif SC";
+}
+[custom-font-family="思源黑体"] {
+    font-family: "Source Han Sans CN";
+}
+[custom-font-family="苹方"] {
+    font-family: "PingFang SC";
+}
+[custom-font-family="Times New Roman"]{
+    font-family: "Times New Roman";
+}

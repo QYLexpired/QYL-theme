@@ -1,0 +1,37 @@
+/* 彩色大纲 */
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h1"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h1);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h2"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h2);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h3"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h3);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h4"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h4);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h5"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h5);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] span.b3-list-item__text.ariaLabel {
+    color: var(--QYL-h6);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h1"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h1);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h2"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h2);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h3"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h3);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h4"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h4);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h5"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h5);
+}
+li.b3-list-item.b3-list-item--hide-action[data-subtype="h6"] .b3-list-item__graphic.popover__block {
+    color: var(--QYL-h6);
+}

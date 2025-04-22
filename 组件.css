@@ -1,0 +1,101 @@
+/* 开关 */
+.b3-switch {
+    width: 32px;
+    height: 18px;
+    border: none;
+    background-color: var(--QYL-switch-close-background);
+
+}
+.b3-switch::after {
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--QYL-switch-close);
+
+}
+label:hover .b3-switch:not(:disabled)::before, .b3-switch:hover:not(:disabled)::before {
+    display: none;
+}
+.b3-switch:checked::after {
+    left: 23px;
+}
+label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:not(:disabled)::after {
+    background-color: var(--QYL-label-hover);
+}
+/* 输入框 */
+.b3-text-field:not([data-type="av-search"]), .pcr-app .pcr-interaction .pcr-result {
+    box-shadow:  0 0 0 .6px var(--QYL-input-border);
+}
+.b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {
+    box-shadow:  0 0 0 1px var(--QYL-input-border-hover);
+}
+.b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
+    box-shadow:  0 0 0 1px var(--QYL-input-border-hover);
+}
+.search__header .b3-form__icon-icon {
+    z-index: 10; /*临时修复毛玻璃部分输入框图标不可见 */
+}
+/* 下拉框 */
+.b3-select {
+    background-color: var(--b3-theme-background) !important;
+    box-shadow:  0 0 0 .6px var(--QYL-input-border);
+}
+.b3-select:hover {
+    box-shadow:  0 0 0 1px var(--QYL-input-border-hover);
+    background-color: var(--b3-theme-background);
+}
+/* 块提示 */
+[data-node-id].highlight {
+    box-shadow: var(--QYL-shadow-highlight) !important;
+    transition: var(--b3-transition) !important;
+}
+[data-node-id].highlight:hover {
+    box-shadow: var(--QYL-shadow-highlight) !important;
+    transition: var(--b3-transition) !important;
+}
+/* 提示气泡 */
+.tooltip {
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);
+    border: 0.5px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-light-shadow);
+}
+[class*="b3-tooltips"]::before {
+    display: none !important;
+}   
+[class*="b3-tooltips"]::after {
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);
+    border: 0.5px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-light-shadow); 
+}
+#message .b3-snackbar__content {
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);   
+    border: 0.5px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-light-shadow); 
+}
+.b3-snackbar__content a {
+    color: var(--b3-theme-primary);
+    text-decoration: underline
+}
+#message .b3-snackbar__close {
+    color: var(--b3-theme-primary);
+    opacity: 1;
+    transition: var(--b3-transition);
+    &:hover {
+        color: var(--b3-theme-error);
+    }
+}
+/* 复选框颜色 */
+#QYLsettings-window {
+    accent-color: var(--QYL-accent-color);
+}
+
+/* 块右上角按键栏 */
+.protyle-icon {
+    background-color: var(--b3-theme-primary);
+}
+.protyle-icon:hover {
+    background-color: color-mix(in srgb, var(--b3-theme-primary) 80%, black 20%);
+}

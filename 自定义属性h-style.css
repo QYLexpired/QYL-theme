@@ -1,0 +1,576 @@
+/* 自定义块属性h-style */
+[custom-h-style="多彩"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"]):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="多彩"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
+[custom-h-style="colorful"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="colorful"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty)    {
+    background: -webkit-linear-gradient(135deg,#0eaf6d,#ff6ac6 25%,#147b96 50%,#e6d205 55%,#2cc4e0 60%,#8b2ce0 80%,#ff6384 95%,#08dfb4);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    animation: hcolorful 8s infinite linear;
+}
+@keyframes hcolorful {
+    0% { background-position: 0 0; }
+    100% { background-position: -400% 0; }
+}
+[custom-h-style="金箔"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="金箔"] :is(.h1, .h2, .h3, .h4, .h5, .h6),
+[custom-h-style="gold"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="gold"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    --QYL-custom-h-style-fix: gold;
+    &>[spellcheck]:not(:empty) {
+    background-image: url('../img/金箔.png') !important;  
+    -webkit-background-clip: text !important; 
+    color: transparent !important;
+    background-size: contain !important;
+    caret-color: gold;
+    --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="下划线"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="下划线"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
+[custom-h-style="underline"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="underline"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+    border-bottom: 3px solid var(--QYL-custom-h-style-fix);
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h1>[spellcheck]:not(:empty), [custom-h-style="层级"] .h1>[spellcheck]:not(:empty),
+[custom-h-style="level"].h1>[spellcheck]:not(:empty), [custom-h-style="level"] .h1>[spellcheck]:not(:empty) {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 19px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/一级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/一级标题.svg') no-repeat center / contain;
+    pointer-events: none;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h2>[spellcheck]:not(:empty), [custom-h-style="层级"] .h2>[spellcheck]:not(:empty),
+[custom-h-style="level"].h2>[spellcheck]:not(:empty), [custom-h-style="level"] .h2>[spellcheck]:not(:empty)  {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/二级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/二级标题.svg') no-repeat center / contain;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h3>[spellcheck]:not(:empty), [custom-h-style="层级"] .h3>[spellcheck]:not(:empty),
+[custom-h-style="level"].h3>[spellcheck]:not(:empty), [custom-h-style="level"] .h3>[spellcheck]:not(:empty)  {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/三级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/三级标题.svg') no-repeat center / contain;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h4>[spellcheck]:not(:empty), [custom-h-style="层级"] .h4>[spellcheck]:not(:empty),
+[custom-h-style="level"].h4>[spellcheck]:not(:empty), [custom-h-style="level"] .h4>[spellcheck]:not(:empty)  {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/四级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/四级标题.svg') no-repeat center / contain;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h5>[spellcheck]:not(:empty), [custom-h-style="层级"] .h5>[spellcheck]:not(:empty),
+[custom-h-style="level"].h5>[spellcheck]:not(:empty), [custom-h-style="level"] .h5>[spellcheck]:not(:empty)  {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/五级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/五级标题.svg') no-repeat center / contain;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="层级"].h6>[spellcheck]:not(:empty), [custom-h-style="层级"] .h6>[spellcheck]:not(:empty),
+[custom-h-style="level"].h6>[spellcheck]:not(:empty), [custom-h-style="level"] .h6>[spellcheck]:not(:empty)  {
+    &::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--QYL-custom-h-style-fix);
+    mask: url('../img/六级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('../img/六级标题.svg') no-repeat center / contain;
+    opacity: 0.3;
+    }
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}
+[custom-h-style="左边框"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="左边框"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
+[custom-h-style="left border"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="left border"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+    border-radius: 0px;
+    padding-left: 8px;
+    border-left: 8px solid var(--QYL-custom-h-style-fix);
+    &:has([style*="color: var(--b3-font-color1)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color1);
+    }
+    &:has([style*="color: var(--b3-font-color2)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color2);
+    }  
+    &:has([style*="color: var(--b3-font-color3)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color3); 
+    } 
+    &:has([style*="color: var(--b3-font-color4)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color4); 
+    }  
+    &:has([style*="color: var(--b3-font-color5)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color5);
+    }  
+    &:has([style*="color: var(--b3-font-color6)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color6); 
+    }  
+    &:has([style*="color: var(--b3-font-color7)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color7); 
+    }  
+    &:has([style*="color: var(--b3-font-color8)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color8); 
+    }  
+    &:has([style*="color: var(--b3-font-color9)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color9); 
+    }  
+    &:has([style*="color: var(--b3-font-color10)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color10);  
+    }  
+    &:has([style*="color: var(--b3-font-color11)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color11); 
+    }  
+    &:has([style*="color: var(--b3-font-color12)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color12);  
+    }  
+    &:has([style*="color: var(--b3-font-color13)"]) {
+        --QYL-custom-h-style-fix: var(--b3-font-color13); 
+    }   
+    &:has([style*="color: var(--b3-card-error-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-error-color);  
+    }   
+    &:has([style*="color: var(--b3-card-warning-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-warning-color);  
+    }   
+    &:has([style*="color: var(--b3-card-info-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-info-color); 
+    }   
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }  
+    &:has([style*="color: var(--b3-card-success-color)"]) {
+        --QYL-custom-h-style-fix: var(--b3-card-success-color);
+    }
+    &:has(span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]) {
+        --QYL-custom-h-style-fix: gold;
+    }
+}

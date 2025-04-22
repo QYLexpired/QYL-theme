@@ -1,0 +1,40 @@
+:root {
+    --QYL-attr-height-fix: rgba(236, 236, 236, 0.9);
+}
+/* 自定义块属性height */
+[custom-height="50"] {
+    max-height: 50px;
+    overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: var(--QYL-attr-height-fix);
+        border-radius: var(--b3-border-radius);
+    }
+}
+[custom-height="100"] {
+    max-height: 100px;
+    overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: var(--QYL-attr-height-fix);
+        border-radius: var(--b3-border-radius);
+    }
+}
+[custom-height="150"] {
+    max-height: 150px;
+    overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: var(--QYL-attr-height-fix);
+        border-radius: var(--b3-border-radius);
+    }
+}
+[custom-height="200"] {
+    max-height: 200px;
+    overflow-y: auto;
+    div.protyle-attr {
+        top: 2px;
+        background-color: var(--QYL-attr-height-fix);
+        border-radius: var(--b3-border-radius);
+    }
+}
