@@ -286,6 +286,12 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 .b3-slider:focus::-moz-range-thumb,.b3-slider:hover::-moz-range-thumb {
     transform: scale(1.2)
 }
+[data-key="dialog-snippets"] .b3-text-field:not([data-type="av-search"]) {
+    background-color: var(--b3-theme-surface-lighter);
+}
+.b3-text-field.QYLcssinput::placeholder {
+    color: var(--b3-theme-on-surface-light) !important;
+}
 /* 阴影 */
 .b3-menu, .b3-dialog__container, .b3-menu__submenu, .secondaryToolbar {
     box-shadow: none;
