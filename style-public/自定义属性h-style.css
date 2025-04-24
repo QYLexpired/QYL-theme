@@ -23,8 +23,8 @@
     --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="下划线"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="下划线"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
-[custom-h-style="underline"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="underline"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+[custom-h-style-u="下划线"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="下划线"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
+[custom-h-style-u="underline"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="underline"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
     border-bottom: 3px solid var(--QYL-custom-h-style-fix);
     &:has([style*="color: var(--b3-font-color1)"]) {
         --QYL-custom-h-style-fix: var(--b3-font-color1);
@@ -84,8 +84,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h1>[spellcheck]:not(:empty), [custom-h-style="层级"] .h1>[spellcheck]:not(:empty),
-[custom-h-style="level"].h1>[spellcheck]:not(:empty), [custom-h-style="level"] .h1>[spellcheck]:not(:empty) {
+[custom-h-style-l="层级"].h1>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h1>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h1>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h1>[spellcheck]:not(:empty) {
     &::after {
     content: "";
     position: absolute;
@@ -156,8 +156,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h2>[spellcheck]:not(:empty), [custom-h-style="层级"] .h2>[spellcheck]:not(:empty),
-[custom-h-style="level"].h2>[spellcheck]:not(:empty), [custom-h-style="level"] .h2>[spellcheck]:not(:empty)  {
+[custom-h-style-l="层级"].h2>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h2>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h2>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h2>[spellcheck]:not(:empty)  {
     &::after {
     content: "";
     position: absolute;
@@ -227,8 +227,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h3>[spellcheck]:not(:empty), [custom-h-style="层级"] .h3>[spellcheck]:not(:empty),
-[custom-h-style="level"].h3>[spellcheck]:not(:empty), [custom-h-style="level"] .h3>[spellcheck]:not(:empty)  {
+[custom-h-style-l="层级"].h3>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h3>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h3>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h3>[spellcheck]:not(:empty)  {
     &::after {
     content: "";
     position: absolute;
@@ -298,8 +298,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h4>[spellcheck]:not(:empty), [custom-h-style="层级"] .h4>[spellcheck]:not(:empty),
-[custom-h-style="level"].h4>[spellcheck]:not(:empty), [custom-h-style="level"] .h4>[spellcheck]:not(:empty)  {
+[custom-h-style-l="层级"].h4>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h4>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h4>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h4>[spellcheck]:not(:empty)  {
     &::after {
     content: "";
     position: absolute;
@@ -369,8 +369,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h5>[spellcheck]:not(:empty), [custom-h-style="层级"] .h5>[spellcheck]:not(:empty),
-[custom-h-style="level"].h5>[spellcheck]:not(:empty), [custom-h-style="level"] .h5>[spellcheck]:not(:empty)  {
+[custom-h-style-l="层级"].h5>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h5>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h5>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h5>[spellcheck]:not(:empty)  {
     &::after {
     content: "";
     position: absolute;
@@ -440,8 +440,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="层级"].h6>[spellcheck]:not(:empty), [custom-h-style="层级"] .h6>[spellcheck]:not(:empty),
-[custom-h-style="level"].h6>[spellcheck]:not(:empty), [custom-h-style="level"] .h6>[spellcheck]:not(:empty)  {
+[custom-h-style-l="层级"].h6>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h6>[spellcheck]:not(:empty),
+[custom-h-style-l="level"].h6>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h6>[spellcheck]:not(:empty)  {
     &::after {
     content: "";
     position: absolute;
@@ -511,8 +511,8 @@
         --QYL-custom-h-style-fix: gold;
     }
 }
-[custom-h-style="左边框"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="左边框"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
-[custom-h-style="left border"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style="left border"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+[custom-h-style-u="左边框"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="左边框"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
+[custom-h-style-u="left border"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="left border"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
     border-radius: 0px;
     padding-left: 8px;
     border-left: 8px solid var(--QYL-custom-h-style-fix);

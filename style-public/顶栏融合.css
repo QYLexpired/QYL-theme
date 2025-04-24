@@ -58,6 +58,9 @@
 }
 #layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
     margin-bottom: -3px;
+    & >.item:first-child {
+        margin-left: 0px;
+    }
 }
 
 #dockLeft {
