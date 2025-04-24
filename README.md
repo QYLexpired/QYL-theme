@@ -1,6 +1,6 @@
 # Pursuing Simplicity, Practicality, Compatibility
 
-###### If you like this theme, please give it a ⭐ on GitHub.
+###### If you like this theme, please give it a ⭐ on [GitHub](https://github.com/QYLexpired/QYL-theme).
 
 ## Theme Features
 

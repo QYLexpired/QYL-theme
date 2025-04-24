@@ -4159,7 +4159,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
 function QYLattrcssitem(selectid) {//创建css属性选项
     let button = document.createElement('button');
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">css</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">CSS</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
     button.appendChild(QYLattrcsssub(selectid))//准备创建css属性选项的二级菜单
     return button
 }
@@ -4179,24 +4179,21 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
         function QYLattrcsstextarea(selectid) {
             let textarea = document.createElement("textarea");
             textarea.className = "b3-text-field QYLcssinput";
-            textarea.style.height = "60px";
-            textarea.style.width = "400px";
+            textarea.style.height = "150px";
+            textarea.style.width = "550px";
             textarea.style.color = "var(--b3-theme-on-surface)";
             textarea.setAttribute("spellcheck", "false");
             textarea.setAttribute("data-node-id", selectid);
             textarea.setAttribute("custom-attr-name", "css");
             textarea.value = "";
-            textarea.placeholder = "在此输入css代码，注意首尾无需{ }包裹，支持&嵌套选择器";
+            textarea.placeholder = "在此输入CSS代码，注意首尾无需{ }包裹，支持&嵌套选择器\n例1：输入color:red;border:1px solid red使得块内文字变为红色且块具有红色边框\n例2：输入& span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none }来取消块内所有块引用链接的下方虚线\n例3：输入&.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}}来调整文档自定义表情的大小";
         
-            // 异步查询并初始化值
             查询css自定义块属性的内容(selectid)
                 .then(customcssvalue => {
                     if (customcssvalue) {
                         textarea.value = customcssvalue;
-                        // 设置初始值到 custom-attr-value
                         textarea.setAttribute("custom-attr-value", customcssvalue);
                     } else {
-                        // 确保没有值时属性为空
                         textarea.setAttribute("custom-attr-value", "");
                     }
                 })
@@ -4204,11 +4201,10 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
                     console.error("获取CSS值失败:", err);
                 });
         
-            // 添加 blur 事件处理，更新属性
             textarea.addEventListener('blur', function(e) {
                 const value = e.target.value;
                 e.target.setAttribute("custom-attr-value", value);
-                QYLcustomattrset(e); // 确保原有逻辑执行
+                QYLcustomattrset(e);
             });
         
             return textarea;
