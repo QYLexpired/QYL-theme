@@ -62,7 +62,9 @@ const I18N = {
         QYLhyhyps: ' 配色：回忆',
         QYLhpps: ' 配色：湖畔',
         QYLxxlps: ' 配色：香雪兰',
-        QYLxyyps: ' 风格：象牙（扁平化）',
+        QYLxyyps: ' 配色：象牙',
+        QYLbphfg: ' 风格：扁平化',
+        QYLcjsdl: ' 沉浸式顶栏',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -93,7 +95,9 @@ const I18N = {
         QYLhyhyps: ' Memory Theme',
         QYLhpps: ' Lakeside Theme',
         QYLxxlps: ' Freesia Theme',
-        QYLxyyps: ' Ivory Style (Flat Design)',
+        QYLxyyps: ' Ivory Theme',
+        QYLbphfg: ' Flat Style',
+        QYLcjsdl: ' Immersive Topbar',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -124,7 +128,9 @@ const I18N = {
         QYLhyhyps: ' 配色：回憶',
         QYLhpps: ' 配色：湖畔',
         QYLxxlps: ' 配色：香雪蘭',
-        QYLxyyps: ' 風格：象牙（扁平化）',
+        QYLxyyps: ' 配色：象牙',
+        QYLbphfg: ' 風格：扁平化',
+        QYLcjsdl: ' 沉浸式頂欄',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -212,6 +218,8 @@ let isChecked30;
 let isChecked31;
 let isChecked32;
 let isChecked33;
+let isChecked34;
+let isChecked35;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -549,6 +557,28 @@ function createSettingsWindow() {
     label33.style.fontSize = '14px';
     label33.style.userSelect= 'none';
 
+    const checkbox34 = document.createElement('input');
+    checkbox34.type = 'checkbox';
+    checkbox34.id = 'QYLflatstyle-checkbox';
+    checkbox34.checked = isChecked34;
+
+    const label34 = document.createElement('label');
+    label34.htmlFor = 'QYLflatstyle-checkbox';
+    label34.textContent = i18n.QYLbphfg;
+    label34.style.fontSize = '14px';
+    label34.style.userSelect= 'none';
+
+    const checkbox35 = document.createElement('input');
+    checkbox35.type = 'checkbox';
+    checkbox35.id = 'QYLimmersivetopbar-checkbox';
+    checkbox35.checked = isChecked35;
+
+    const label35 = document.createElement('label');
+    label35.htmlFor = 'QYLimmersivetopbar-checkbox';
+    label35.textContent = i18n.QYLcjsdl;
+    label35.style.fontSize = '14px';
+    label35.style.userSelect= 'none';
+
 
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
@@ -719,6 +749,18 @@ function createSettingsWindow() {
     QYLfunctionpair33.appendChild(label33);
     QYLfunctionpair33.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair34 = document.createElement('div');
+    QYLfunctionpair34.className = 'checkbox-label-pair';
+    QYLfunctionpair34.appendChild(checkbox34);
+    QYLfunctionpair34.appendChild(label34);
+    QYLfunctionpair34.style.animation = 'QYLbounceRight2 0.1s';
+
+    const QYLfunctionpair35 = document.createElement('div');
+    QYLfunctionpair35.className = 'checkbox-label-pair';
+    QYLfunctionpair35.appendChild(checkbox35);
+    QYLfunctionpair35.appendChild(label35);
+    QYLfunctionpair35.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -752,6 +794,14 @@ function createSettingsWindow() {
         border: none;
         width: 100%;
     `;
+    const QYLfunctionpairdivider5 = document.createElement('hr');
+    QYLfunctionpairdivider5.style.cssText = `
+        height: 1px;
+        margin: 5px 0;
+        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
+        border: none;
+        width: 100%;
+    `;
 
 
 
@@ -778,6 +828,9 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair7); //多彩文档树
     settingsWindow.appendChild(QYLfunctionpair23); //边框化文档树
     settingsWindow.appendChild(QYLfunctionpairdivider4);
+    settingsWindow.appendChild(QYLfunctionpair34);
+    settingsWindow.appendChild(QYLfunctionpair35);
+    settingsWindow.appendChild(QYLfunctionpairdivider5);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
     settingsWindow.appendChild(QYLfunctionpair14);
@@ -828,7 +881,9 @@ async function saveConfig() {
         isChecked30: checkbox30.checked,
         isChecked31: checkbox31.checked,
         isChecked32: checkbox32.checked,
-        isChecked33: checkbox33.checked
+        isChecked33: checkbox33.checked,
+        isChecked34: checkbox34.checked,
+        isChecked35: checkbox35.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -973,7 +1028,7 @@ checkbox10.addEventListener('change', async function() {
     state ? enableQYLAero() : disableQYLAreo();
     state ? isChecked10 = true : isChecked10 = false;
     if (isChecked18 === true) { checkbox18.click(); }
-    if (isChecked33 === true) { checkbox33.click(); }//不能与象牙配色同时开启
+    if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1229,8 +1284,32 @@ checkbox33.addEventListener('change', async function() {
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
     if (isChecked32 === true) { checkbox32.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 扁平化风格开关
+checkbox34.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLflatstyle() : disableQYLflatstyle();
+    state ? isChecked34 = true : isChecked34 = false;
     if (isChecked18 === true) { checkbox18.click(); }//不能与墨水屏模式同时开启
     if (isChecked10 === true) { checkbox10.click(); }//不能与毛玻璃效果同时开启
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 沉浸式顶栏开关
+checkbox35.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLimmersivetopbar() : disableQYLimmersivetopbar();
+    state ? isChecked35 = true : isChecked35 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1244,7 +1323,7 @@ checkbox18.addEventListener('change', async function() {
     state ? enableQYLinkmode() : disableQYLinkmode();
     state ? isChecked18 = true : isChecked18 = false;
     if (isChecked10 === true) { checkbox10.click(); }
-    if (isChecked33 === true) { checkbox33.click(); }//不能与象牙配色同时开启
+    if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2009,6 +2088,50 @@ function disableQYLivory() {
     }
 }
 
+// 开启扁平化风格
+function enableQYLflatstyle() {
+    let linkElement = document.getElementById("QYLflatstyle-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLflatstyle-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/扁平化风格-light.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭扁平化风格
+function disableQYLflatstyle() {
+    const linkElement = document.getElementById("QYLflatstyle-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启沉浸式顶栏
+function enableQYLimmersivetopbar() {
+    let linkElement = document.getElementById("QYLimmersivetopbar-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLimmersivetopbar-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/沉浸式顶栏.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭沉浸式顶栏
+function disableQYLimmersivetopbar() {
+    const linkElement = document.getElementById("QYLimmersivetopbar-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let linkElement = document.getElementById("QYLcolorfulh-style");
@@ -2311,6 +2434,22 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked33 === false) {
             disableQYLivory();
             isChecked33 = false;
+        }
+
+        if (config?.isChecked34 === true) {
+            enableQYLflatstyle();
+            isChecked34 = true;
+        } else if (config?.isChecked34 === false) {
+            disableQYLflatstyle();
+            isChecked34 = false;
+        }
+
+        if (config?.isChecked35 === true) {
+            enableQYLimmersivetopbar();
+            isChecked35 = true;
+        } else if (config?.isChecked35 === false) {
+            disableQYLimmersivetopbar();
+            isChecked35 = false;
         }
 
     } catch (e) {
