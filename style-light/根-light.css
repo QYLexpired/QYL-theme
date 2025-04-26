@@ -247,3 +247,10 @@
     --filetree-line-7: var(--b3-theme-primary-lighter);
     --filetree-line-8: var(--b3-theme-primary-lighter);
 }
+:root {
+    --QYL-flat-primary: rgb(129, 40, 230);
+    --QYL-flat-second: var(--b3-theme-primary);
+}
+:root {
+    --QYL-immerse-toolbar: rgb(72, 72, 72);
+}
