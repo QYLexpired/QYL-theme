@@ -60,3 +60,10 @@
     --QYL-account-background1: linear-gradient(to right bottom, #30342e, #2e322c, #2c2f2a, #2a2d29, #282b27);
     --QYL-account-background2: linear-gradient(to right bottom, #30342e, #2e322c, #2c2f2a, #2a2d29, #282b27);
 }
+:root {
+    --QYL-flat-primary: #a3661c;
+    --QYL-flat-second: var(--b3-theme-primary);
+}
+:root {
+    --QYL-immerse-toolbar: rgb(55 78 54);
+}
