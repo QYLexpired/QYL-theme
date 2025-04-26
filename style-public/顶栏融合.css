@@ -102,3 +102,11 @@
     --QYL-duskmist-tag-1: #2b303d !important;
     --QYL-duskmist-tag-2: #393f4f !important;
 }
+/* 沉浸式顶栏适配 */
+:root {
+    --QYL-immerse-fusion-fix-1: var(--QYL-immerse-toolbar);
+    --QYL-immerse-fusion-fix-2: -2.5px;
+    --QYL-immerse-fusion-fix-3: var(--b3-theme-surface);
+    --QYL-immerse-fusion-fix-4: var(--b3-theme-on-primary);
+    --QYL-immerse-fusion-fix-5: none !important;
+}
