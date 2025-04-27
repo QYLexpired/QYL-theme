@@ -2,7 +2,7 @@
     --QYL-hover: rgba(66, 77, 105, 0.4);/* 主要悬停色 */
     --QYL-hover-hover: rgba(66, 77, 105, 0.7);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(66, 77, 105, 0.2);/* 主要悬停色变浅 */
-    --b3-theme-primary: #b6c1de !important; 
+    --b3-theme-primary: #414d70 !important; 
     --b3-theme-primary-light: rgba(182, 193, 222, 0.5); /* 主色0.5透明度 */
     --b3-theme-primary-lighter: rgba(182, 193, 222, 0.3); /* 主色0.3透明度 */
     --b3-theme-primary-lightest: rgba(182, 193, 222, 0.12); /* 主色0.1透明度 */
@@ -22,7 +22,6 @@
     --b3-theme-success: #0d823e;
     --b3-theme-secondary: #c79e3f;
     --QYL-accent-color: var(--QYL-flat-primary);  
-    --b3-mask-background: rgba(26, 28, 31, 0.9);/* 弹出窗口后景色 */
     --QYL-border-file: rgb(81, 89, 100);
 
     /* 文字颜色 */
@@ -50,6 +49,11 @@
     --QYL-switch-close-background: rgb(100, 105, 110);
     --QYL-input-border: var(--b3-theme-primary);
     --QYL-input-border-hover:rgb(from var(--QYL-flat-second) r g b / 60%);
+}
+:root {
+    --QYL-filter-background-theme: rgba(39, 39, 40, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(33, 33, 33, 0.7);
+    --QYL-filter-fix-background-theme: rgba(39, 39, 40, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #1e2227, #20242a, #23272d, #252931, #282c34);

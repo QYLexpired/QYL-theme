@@ -52,9 +52,9 @@
     --b3-switch-checked: var(--QYL-gray);
 }
 :root {
-    --QYL-filter-background-theme: rgba(31, 38, 31, 0.5);
-    --QYL-filter-wrap-background-theme: rgba(43, 49, 43, 0.6);
-    --QYL-filter-fix-background-theme: rgba(31, 38, 31, 0.8);
+    --QYL-filter-background-theme: rgba(30, 33, 30, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(30, 33, 30, 0.7);
+    --QYL-filter-fix-background-theme: rgba(30, 33, 30, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #30342e, #2e322c, #2c2f2a, #2a2d29, #282b27);

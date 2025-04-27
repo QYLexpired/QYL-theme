@@ -115,9 +115,9 @@
     --b3-font-background13: var(--b3-theme-on-background);
 }
 :root {
-    --QYL-filter-background-theme: rgba(26, 26, 26, 0.5);
-    --QYL-filter-wrap-background-theme: rgba(42, 42, 42, 0.6);
-    --QYL-filter-fix-background-theme: rgba(26, 26, 26, 0.8);
+    --QYL-filter-background-theme: rgba(26, 26, 26, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(26, 26, 26, 0.7);
+    --QYL-filter-fix-background-theme: rgba(26, 26, 26, 0.9);
 }
 :root {
     --b3-highlight-background: var(--b3-theme-primary) !important;
@@ -262,5 +262,5 @@
     --QYL-flat-second: var(--b3-theme-primary);
 }
 :root {
-    --QYL-immerse-toolbar: rgb(61, 61, 61);
+    --QYL-immerse-toolbar: rgb(48 59 93);
 }

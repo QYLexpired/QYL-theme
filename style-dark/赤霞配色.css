@@ -53,9 +53,9 @@
     --b3-switch-checked: var(--QYL-gray);
 }
 :root {
-    --QYL-filter-background-theme: rgba(69, 54, 83, 0.5);
-    --QYL-filter-wrap-background-theme: rgba(82, 65, 97, 0.6);
-    --QYL-filter-fix-background-theme: rgba(69, 54, 83, 0.8);
+    --QYL-filter-background-theme: rgba(41, 40, 43, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(67, 59, 80, 0.7);
+    --QYL-filter-fix-background-theme: rgba(41, 40, 43, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #534362, #4e3f5d, #4a3b58, #453854, #41344f);
