@@ -54,21 +54,11 @@
     --QYL-flat-primary: #6641e9;
     --QYL-flat-second: #3f6fe6;
 }
-
-
-/* 细节调整 */
-/* 编辑器工具栏 */
-.protyle-toolbar {
-    background-color: var(--b3-theme-surface);
+:root {
+    --QYL-filter-background-theme: rgba(255, 255, 255, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(255, 255, 255, 0.7);
+    --QYL-filter-fix-background-theme: rgba(255, 255, 255, 0.9);
 }
-.protyle-hint, .protyle-util {
-    background-color: var(--b3-theme-surface);
-}
-/* 斜杠菜单 */
-.protyle-hint.hint--menu {
-    background-color: var(--b3-theme-surface);
-}
-/* 菜单 */
-.b3-menu, .b3-menu__item, .b3-menu__submenu {
-    background-color: var(--b3-theme-surface);
+:root {
+    --QYL-immerse-toolbar: rgb(67, 67, 67);
 }

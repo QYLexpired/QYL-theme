@@ -43,9 +43,9 @@
     --QYL-input-border-hover: rgb(41, 126, 112);
 }
 :root {
-    --QYL-filter-background-theme: rgba(219, 234, 221, 0.4);
-    --QYL-filter-wrap-background-theme:rgba(247, 249, 237, 0.6);
-    --QYL-filter-fix-background-theme: rgba(247, 249, 237, 0.8);
+    --QYL-filter-background-theme: rgb(231, 236, 231, 0.7);
+    --QYL-filter-wrap-background-theme:rgb(231, 236, 231, 0.7);
+    --QYL-filter-fix-background-theme: rgb(231, 236, 231, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #dbeadd, #e2eee0, #eaf1e4, #f0f5e8, #f7f9ed);

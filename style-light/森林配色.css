@@ -9,7 +9,7 @@
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
     --b3-theme-surface: rgb(207, 233, 196);
     --b3-theme-surface-light: rgba(207, 233, 196, 0.8); /* 面板色0.8透明度 */
-    --b3-theme-surface-lighter: rgb(200, 227, 187);
+    --b3-theme-surface-lighter: rgb(191 222 176);
     --b3-theme-background: #e8f5e3;
     --b3-theme-background-light:rgb(178, 215, 165); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(222, 236, 216); /* 失焦颜色 */
@@ -43,9 +43,9 @@
     --QYL-input-border-hover: rgb(69, 179, 57);
 }
 :root {
-    --QYL-filter-background-theme: rgba(216, 235, 208, 0.5);
-    --QYL-filter-wrap-background-theme: rgba(238, 246, 234, 0.6);
-    --QYL-filter-fix-background-theme: rgba(216, 235, 208, 0.8);
+    --QYL-filter-background-theme: rgba(249, 255, 247, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(249, 255, 247, 0.7);
+    --QYL-filter-fix-background-theme: rgba(249, 255, 247, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #cfe9c4, #d5eccc, #dbefd4, #e2f2db, #e8f5e3);
