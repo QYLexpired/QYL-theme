@@ -39,7 +39,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px) brightness(0.85);
     z-index: -5;
 }
 .b3-dialog__container {
