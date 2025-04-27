@@ -1,5 +1,5 @@
 :root {
-    --QYL-Aero-filter: blur(20px);
+    --QYL-Aero-filter: blur(40px) saturate(2.8);
     --QYL-filter-background: var(--QYL-filter-background-theme);
     --QYL-filter-wrap-background: var(--QYL-filter-wrap-background-theme);
     --QYL-filter-fix-background: var(--QYL-filter-fix-background-theme);
@@ -13,7 +13,7 @@
     background-color: var(--QYL-filter-background);
     border: none;
 }
-.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus) {
+.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus, .b3-menu__submenu) {
     background-color: rgba(255, 0, 0, 0);
 }
 .b3-menu::before, .b3-menu__submenu::before {
@@ -24,10 +24,24 @@
     right: 0;
     bottom: 0;
     left: 0;
-    backdrop-filter: var(--QYL-Aero-filter);
+    backdrop-filter: blur(40px) saturate(2.8);
     z-index: -5;
 }
 /* b3窗口毛玻璃 */
+.b3-dialog__scrim {
+    background-color: var(--QYL-filter-background);
+}
+.b3-dialog__scrim::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    z-index: -5;
+}
 .b3-dialog__container {
     background-color: var(--QYL-filter-background);
     border: none;
@@ -133,7 +147,7 @@ div[data-key="dialog-viewcards"] .fn__flex-1.card__empty {
     box-shadow: var(--b3-dialog-shadow);
 }
 .layout--float .fn__flex-1 {
-    background-color: rgba(255, 0, 0, 0) !important;
+    background-color: rgba(255, 0, 0, 0);
 }
 .layout--float .block__icons {
     background-color: rgba(255, 0, 0, 0) !important;
