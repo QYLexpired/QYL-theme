@@ -227,7 +227,8 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
     background-color: rgba(130, 134, 147, 0.662);
 }
 :is(.b3-menu, .b3-menu__submenu) .b3-text-field:not([data-type="av-search"]) {
-    background-color: var(--b3-theme-surface-lighter);
+    background-color: rgba(255, 0, 0, 0);
+    outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 .b3-slider::-webkit-slider-thumb {
     background-color: var(--QYL-flat-second);
@@ -260,7 +261,6 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 }
 #QYLsettings-window {
     box-shadow: none !important;
-    border: 1px solid var(--b3-theme-surface-lighter) !important;
 }
 .tooltip {
     box-shadow: none;
@@ -540,3 +540,112 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
         color: var(--QYL-flat-second);
     }
 } 
+/* 菜单毛玻璃 */
+:root {
+    --QYL-Aero-filter: blur(40px) saturate(2.8);
+    --QYL-filter-background: var(--QYL-filter-background-theme);
+    --QYL-filter-wrap-background: var(--QYL-filter-wrap-background-theme);
+    --QYL-filter-fix-background: var(--QYL-filter-fix-background-theme);
+    --QYL-filter-background-forQsettings: var(--QYL-filter-background);
+}
+.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
+    animation: none;
+}
+.b3-menu, .b3-menu__submenu {
+    background-color: var(--QYL-filter-background);
+    border: none;
+}
+.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus, .b3-menu__submenu) {
+    background-color: rgba(255, 0, 0, 0);
+}
+.b3-menu::before, .b3-menu__submenu::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(40px) saturate(2.8);
+    z-index: -5;
+}
+/* 右上角消息框毛玻璃 */
+#message .b3-snackbar__content {
+    background-color: var(--QYL-filter-background);
+    color: var(--b3-theme-on-background)
+}   
+#message .b3-snackbar__content::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: var(--QYL-Aero-filter);
+    z-index: -5;
+}
+/* 编辑器工具栏毛玻璃 */
+.protyle-toolbar, .protyle-util, .protyle-hint, .protyle-util .block__icons {
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+    border: none;
+}
+/* 底部状态栏毛玻璃 */
+@media (min-width: 768px) {
+    #status {
+        background-color: var(--QYL-filter-background);
+        backdrop-filter: var(--QYL-Aero-filter);
+    }
+}
+/* 斜杠菜单毛玻璃 */
+.protyle-hint.hint--menu {
+    background-color: var(--QYL-filter-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+    border: none;
+}
+/* 提示气泡毛玻璃 */
+.tooltip {
+    background-color: var(--QYL-filter-background);
+    color: var(--b3-theme-on-background);
+    backdrop-filter: var(--QYL-Aero-filter);
+}
+[class*="b3-tooltips"]::before {
+    display: none !important;
+}   
+[class*="b3-tooltips"]::after {
+    background-color: var(--QYL-filter-fix-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+    color: var(--b3-theme-on-background);
+}
+.protyle-toolbar .b3-tooltips::after {
+    background-color: var(--QYL-filter-fix-background) !important;
+}
+/* 块引用预览毛玻璃 */
+.block__popover.block__popover--open {
+    background-color: var(--QYL-filter-background);
+    border: none;   
+}
+.block__popover.block__popover--open::before {
+    border-radius: var(--b3-border-radius);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: var(--QYL-Aero-filter);
+    z-index: -5;
+}
+.block__popover.block__popover--open .block__icons {
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+.block__popover.block__popover--open .block__edit.fn__flex-1.protyle, .block__popover.block__popover--open .block__edit.fn__flex-1.protyle .protyle-breadcrumb {
+    background-color: rgba(255, 0, 0, 0) !important;
+}
+/* 修复毛玻璃失效 */
+.protyle-wysiwyg [data-node-id].list {
+    z-index: 1; 
+}
+/* 修复嵌入块按钮无法点击 */
+.protyle-icons { z-index:2 }

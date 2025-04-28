@@ -66,3 +66,12 @@
 :root {
     --QYL-immerse-toolbar: #2c2f38;
 }
+
+/* 细节调整 */
+.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    background-color: rgb(72 108 203 / 12%);
+    color: #929fc3;
+}
+.av__celltext--ref {
+    color: rgb(84 124 173);
+}
