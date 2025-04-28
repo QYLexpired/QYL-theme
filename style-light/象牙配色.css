@@ -62,3 +62,8 @@
 :root {
     --QYL-immerse-toolbar: rgb(67, 67, 67);
 }
+
+/* 细节调整 */
+.av__celltext--ref {
+    color: rgb(0 176 240);
+}
