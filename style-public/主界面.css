@@ -100,6 +100,9 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .layout__resize.layout__resize--lr {
     margin: 0;
+    &:hover::after {
+        transition: none;
+    }
 }
 #layouts .layout__resize.layout__resize--lr::after {
     visibility: hidden;
@@ -112,6 +115,9 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .layout__resize {
     margin: 0;
+    &:hover::after {
+        transition: none;
+    }
 }
 #layouts .layout__resize::after {
     visibility: hidden;
@@ -134,10 +140,8 @@ body:not(.body--mobile,.body--window) #layouts {
     background-color: var(--b3-theme-background);
 }
 #dockLeft.fn__none + #layouts {
-    margin-left: 6px;
-}
-#layouts:has(+ #dockRight.fn__none) {
-    margin-right: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 #layouts .block__icons {
     border: none;

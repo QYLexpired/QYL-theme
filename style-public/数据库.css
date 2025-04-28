@@ -28,6 +28,55 @@
 .block__icon[data-type="av-add"] {
     margin-top: 8px;
 }
+/* 数据库页签 */
+#layouts .av__views .layout-tab-bar.fn__flex {
+    background-color: var(--b3-theme-primary-lighter);
+    border-radius: var(--b3-border-radius);
+    & .item.item--focus {
+        background-color: var(--b3-theme-background);
+        border: none;
+        margin: 2px;
+        &::before {
+            display: none !important;
+        }
+    }
+    & .item:not(.item--focus) {
+        background-color: rgba(255, 0, 0, 0);
+        border: none;
+        margin: 2px;
+        &::before {
+            display: none !important;
+        }
+    }
+}
+[data-theme-mode="dark"] #layouts .av__views .layout-tab-bar.fn__flex {
+    background-color: var(--b3-theme-surface);
+    border-radius: var(--b3-border-radius);
+    & .item.item--focus {
+        background-color: var(--b3-theme-primary-lighter);
+        border: none;
+        &::before {
+            display: none !important;
+        }
+    }
+    & .item:not(.item--focus) {
+        background-color: rgba(255, 0, 0, 0);
+        border: none;
+        &::before {
+            display: none !important;
+        }
+    }
+}
+/* 数据库被引主键 */
+.av__celltext--ref {
+    color: var(--b3-theme-primary);
+    border-bottom: none;
+    &:hover {
+        background-color: var(--b3-theme-primary-lighter);
+        color: var(--b3-theme-on-bakcground);
+        transition: var(--b3-transition);
+    }
+}
 /* 数据库chip颜色 */
 .custom-attr__avvalue .b3-chip[style*="color1)"], 
 .av__cell .b3-chip[style*="color1)"], 

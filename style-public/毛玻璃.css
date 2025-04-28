@@ -29,18 +29,7 @@
 }
 /* b3窗口毛玻璃 */
 .b3-dialog__scrim {
-    background-color: var(--QYL-filter-background);
-}
-.b3-dialog__scrim::before {
-    border-radius: var(--b3-border-radius);
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(2px) brightness(0.85);
-    z-index: -5;
+    backdrop-filter: blur(40px) saturate(2.8) brightness(0.85);
 }
 .b3-dialog__container {
     background-color: var(--QYL-filter-background);

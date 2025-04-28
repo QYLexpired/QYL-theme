@@ -125,7 +125,6 @@
 }
 .search__drag:hover::after {
     visibility: visible;
-    transition: background 0.3s;
 }
 .search__layout--row .search__drag {
     margin: 0;
@@ -138,5 +137,4 @@
 }
 .search__layout--row .search__drag:hover::after {
     visibility: visible;
-    transition: background 0.3s;
 }

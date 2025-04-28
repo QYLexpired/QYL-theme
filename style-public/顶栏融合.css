@@ -18,10 +18,10 @@
 }
 
 
-:root {
+#layouts {
     --QYL-fusion-right-fix: 52px;
 }
-:root:has(#dockRight.fn__none) {
+#layouts:has(+#dockRight.fn__none) {
     --QYL-fusion-right-fix: 16px;
 }
 .QYLwndthe1 > .fn__flex:not(.layout-tab-container) {/* 只有左上角页签需要左边距 */

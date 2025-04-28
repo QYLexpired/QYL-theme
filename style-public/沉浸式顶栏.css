@@ -40,6 +40,7 @@ body:not(.body--mobile,.body--window) #layouts {
 .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus {
     background-color: var(--QYL-immerse-fusion-fix-3, var(--QYL-immerse-flat-fix-1, var(--QYL-tab-active))) !important;
     border: var(--QYL-immerse-fusion-fix-5);
+    filter: brightness(1.1);
     & .item__text {
         color: var(--b3-theme-on-surface) !important;
     }

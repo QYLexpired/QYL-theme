@@ -1,7 +1,7 @@
 .file-tree.sy__file .fn__flex-1 [data-type="navigation-root"] {
     margin: 0;
 }
-.file-tree.sy__file .fn__flex-1 > ul:has(ul) > [data-type="navigation-root"] {
+.file-tree.sy__file .fn__flex-1 > ul:has(>ul) > [data-type="navigation-root"] {
     margin-bottom: 1px;
 }
 .file-tree.sy__file .fn__flex-1 [data-type="navigation-file"] {
@@ -13,7 +13,7 @@
     border-radius: var(--b3-border-radius);
     margin: 0 5px 5px 5px;
 }
-.file-tree.sy__file .fn__flex-1 > ul:has(ul) {
+.file-tree.sy__file .fn__flex-1 > ul:has(>ul) {
     padding-bottom: 1px;
 }
 /* 缩进线修复 */
