@@ -1,4 +1,4 @@
-# 追求简约、实用、兼容性
+# 带来更丰富的笔记体验
 ###### 如果喜欢这个主题，欢迎在[GitHub](https://github.com/QYLexpired/QYL-theme)点个⭐小星星
 
 ## 主要更新
