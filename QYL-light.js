@@ -1028,7 +1028,6 @@ checkbox10.addEventListener('change', async function() {
     state ? enableQYLAero() : disableQYLAreo();
     state ? isChecked10 = true : isChecked10 = false;
     if (isChecked18 === true) { checkbox18.click(); }
-    if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1297,7 +1296,6 @@ checkbox34.addEventListener('change', async function() {
     state ? enableQYLflatstyle() : disableQYLflatstyle();
     state ? isChecked34 = true : isChecked34 = false;
     if (isChecked18 === true) { checkbox18.click(); }//不能与墨水屏模式同时开启
-    if (isChecked10 === true) { checkbox10.click(); }//不能与毛玻璃效果同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1323,7 +1321,6 @@ checkbox18.addEventListener('change', async function() {
     state ? enableQYLinkmode() : disableQYLinkmode();
     state ? isChecked18 = true : isChecked18 = false;
     if (isChecked10 === true) { checkbox10.click(); }
-    if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
