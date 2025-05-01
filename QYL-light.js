@@ -2995,11 +2995,13 @@ const QYLlihelp = (function() {
 {
     setTimeout(() => ClickMonitor(), 1000)
     function ClickMonitor() {
-        window.addEventListener('mouseup', function(e) {
-          initQYLattr(e);
-          initQYLattrforfile(e);
-        });
-      }
+        const handleEvent = (e) => {
+            initQYLattr(e);
+            initQYLattrforfile(e);
+        };
+        window.addEventListener('mouseup', handleEvent);
+        window.addEventListener('keyup', handleEvent);
+    }
     function MenuSeparator(className = 'b3-menu__separator') {
         let node = document.createElement('button');
         node.className = className;
