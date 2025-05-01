@@ -54,7 +54,7 @@
 }
 :root {
     --QYL-filter-background-theme: rgba(57, 59, 66, 0.7);
-    --QYL-filter-wrap-background-theme: rgba(59, 64, 83, 0.7);
+    --QYL-filter-wrap-background-theme: rgb(45 50 69 / 70%);
     --QYL-filter-fix-background-theme: rgba(57, 59, 66, 0.9);
 }
 :root {

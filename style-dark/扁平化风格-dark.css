@@ -26,10 +26,10 @@ a {
     }
 }
 .b3-button:hover, .b3-button:focus, .b3-button--progress {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 /* 悬停 */
 .b3-menu__item--selected {
@@ -144,6 +144,12 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
 .layout__dockb :is(.fn__flex-1, .fn__flex) > [data-type="wnd"] > .layout-tab-container {
     border: 1px solid var(--b3-theme-surface-lighter);
 }
+#layouts .layout--float {
+    box-shadow: none !important;
+}
+#layouts .layout--float .layout-tab-container {
+    border: none !important;
+}
 /* 页签 */
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: var(--b3-theme-surface);
@@ -192,23 +198,25 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
     --b3-switch-checked-background: var(--QYL-flat-second);
 }
 .b3-select {
-    box-shadow: none;
-    background-color: var(--b3-theme-surface) !important;
+    outline: var(--QYL-flat-Areo-fix-2);
+    box-shadow: none !important;
+    background-color: var(--QYL-flat-Areo-fix-1, var(--b3-theme-surface)) !important;
 }
 .b3-select:hover, .b3-select:focus {
-    box-shadow: none;
-    background-color: var(--b3-theme-surface) !important;
+    box-shadow: none !important;
+    background-color: var(--QYL-flat-Areo-fix-1, var(--b3-theme-surface)) !important;
     outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 .b3-text-field:not([data-type="av-search"]), .pcr-app .pcr-interaction .pcr-result {
-    box-shadow: none;
-    background-color: var(--b3-theme-surface);
+    box-shadow: none !important;
+    background-color: var(--QYL-flat-Areo-fix-1, var(--b3-theme-surface)) !important;
+    outline: var(--QYL-flat-Areo-fix-2);
 }
 .b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 .b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
-    box-shadow: none;
+    box-shadow: none !important;
     outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);   
 }
 div[data-key="dialog-setting"] .b3-tab-bar [placeholder="搜索"] {
@@ -232,11 +240,11 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 }
 .b3-slider::-webkit-slider-thumb {
     background-color: var(--QYL-flat-second);
-    box-shadow: none;
+    box-shadow: none !important;
 }
 .b3-slider::-moz-range-thumb {
     background-color: var(--QYL-flat-second);
-    box-shadow: none;
+    box-shadow: none !important;
 }
 .b3-slider:focus::-webkit-slider-thumb,.b3-slider:hover::-webkit-slider-thumb {
     transform: scale(1.2)
@@ -252,65 +260,65 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 }
 /* 阴影 */
 .b3-menu, .b3-dialog__container, .b3-menu__submenu, .secondaryToolbar {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 #status {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 #QYLsettings-window {
     box-shadow: none !important;
 }
 .tooltip {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }  
 [class*="b3-tooltips"]::after {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }
 #message .b3-snackbar__content {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }
 /* 集市 */
 .config-bazaar__panel .b3-card {
-    box-shadow: none;
+    box-shadow: none !important;
     outline: 1px solid var(--b3-theme-surface-lighter);
 }
 div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .config-bazaar__panel .fn__flex.config-bazaar__title button:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]) {
     background-color: rgba(255, 0, 0, 0) !important;
     color: var(--b3-theme-on-surface);
     border: none;
-    box-shadow: none;
+    box-shadow: none !important;
     font-weight: bold;
     &:focus {
         background-color: rgba(255, 0, 0, 0) !important;
         color: var(--QYL-flat-second) !important;
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
     }
     &:not(.b3-button--outline) {
         background-color: rgba(255, 0, 0, 0) !important;
         color: var(--QYL-flat-second) !important;
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
     }
     &:hover {
         background-color: rgba(255, 0, 0, 0) !important;
         color: var(--QYL-flat-second);
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
     }
 }
 /* 垂直页签调整 */
@@ -340,23 +348,23 @@ div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .config-b
     border-bottom: 2px solid var(--QYL-flat-second);
 }
 .tooltip.tooltip--memo {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 /* 编辑器工具栏 */
 .protyle-toolbar {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }
 .protyle-hint, .protyle-util {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }
 /* 斜杠菜单 */
 .protyle-hint.hint--menu {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
 }
@@ -377,7 +385,7 @@ div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .config-b
 }
 /* 块引预览 */
 .block__popover {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
     & .block__icons.block__icons--menu {
@@ -419,7 +427,7 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 }
 /* 侧栏 */
 .graph__panel {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 /* 高亮 */
@@ -437,7 +445,7 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 }
 /* PDF */
 #dialogContainer>.dialog--open {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
 .textLayer .highlight.selected {
@@ -445,11 +453,11 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 }
 #findbar .b3-button--small.b3-button--outline {
     border: none;
-    box-shadow: none;
+    box-shadow: none !important;
     color: var(--b3-theme-on-background);
     &:hover {
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
         color: var(--QYL-flat-primary);
         background-color: rgba(255, 0, 0, 0);
     }
@@ -459,12 +467,12 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 }
 #findbar .b3-button--small:not(.b3-button--outline) {
     border: none;
-    box-shadow: none;
+    box-shadow: none !important;
     color: var(--QYL-flat-primary);
     background-color: rgba(255, 0, 0, 0);
     &:hover {
         border: none;
-        box-shadow: none;
+        box-shadow: none !important;
         color: var(--QYL-flat-primary);
         background-color: rgba(255, 0, 0, 0);
     }
@@ -539,113 +547,4 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
     & b {
         color: var(--QYL-flat-second);
     }
-} 
-/* 菜单毛玻璃 */
-:root {
-    --QYL-Aero-filter: blur(40px) saturate(2.8);
-    --QYL-filter-background: var(--QYL-filter-background-theme);
-    --QYL-filter-wrap-background: var(--QYL-filter-wrap-background-theme);
-    --QYL-filter-fix-background: var(--QYL-filter-fix-background-theme);
-    --QYL-filter-background-forQsettings: var(--QYL-filter-background);
 }
-.b3-menu, .b3-menu__item--show>.b3-menu__submenu {
-    animation: none;
-}
-.b3-menu, .b3-menu__submenu {
-    background-color: var(--QYL-filter-background);
-    border: none;
-}
-.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus, .b3-menu__submenu) {
-    background-color: rgba(255, 0, 0, 0);
-}
-.b3-menu::before, .b3-menu__submenu::before {
-    border-radius: var(--b3-border-radius);
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(40px) saturate(2.8);
-    z-index: -5;
-}
-/* 右上角消息框毛玻璃 */
-#message .b3-snackbar__content {
-    background-color: var(--QYL-filter-background);
-    color: var(--b3-theme-on-background)
-}   
-#message .b3-snackbar__content::before {
-    border-radius: var(--b3-border-radius);
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: var(--QYL-Aero-filter);
-    z-index: -5;
-}
-/* 编辑器工具栏毛玻璃 */
-.protyle-toolbar, .protyle-util, .protyle-hint, .protyle-util .block__icons {
-    background-color: var(--QYL-filter-background) !important;
-    backdrop-filter: var(--QYL-Aero-filter);
-    border: none;
-}
-/* 底部状态栏毛玻璃 */
-@media (min-width: 768px) {
-    #status {
-        background-color: var(--QYL-filter-background);
-        backdrop-filter: var(--QYL-Aero-filter);
-    }
-}
-/* 斜杠菜单毛玻璃 */
-.protyle-hint.hint--menu {
-    background-color: var(--QYL-filter-background);
-    backdrop-filter: var(--QYL-Aero-filter);
-    border: none;
-}
-/* 提示气泡毛玻璃 */
-.tooltip {
-    background-color: var(--QYL-filter-background);
-    color: var(--b3-theme-on-background);
-    backdrop-filter: var(--QYL-Aero-filter);
-}
-[class*="b3-tooltips"]::before {
-    display: none !important;
-}   
-[class*="b3-tooltips"]::after {
-    background-color: var(--QYL-filter-fix-background) !important;
-    backdrop-filter: var(--QYL-Aero-filter);
-    color: var(--b3-theme-on-background);
-}
-.protyle-toolbar .b3-tooltips::after {
-    background-color: var(--QYL-filter-fix-background) !important;
-}
-/* 块引用预览毛玻璃 */
-.block__popover.block__popover--open {
-    background-color: var(--QYL-filter-background);
-    border: none;   
-}
-.block__popover.block__popover--open::before {
-    border-radius: var(--b3-border-radius);
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: var(--QYL-Aero-filter);
-    z-index: -5;
-}
-.block__popover.block__popover--open .block__icons {
-    background-color: rgba(255, 0, 0, 0) !important;
-}
-.block__popover.block__popover--open .block__edit.fn__flex-1.protyle, .block__popover.block__popover--open .block__edit.fn__flex-1.protyle .protyle-breadcrumb {
-    background-color: rgba(255, 0, 0, 0) !important;
-}
-/* 修复毛玻璃失效 */
-.protyle-wysiwyg [data-node-id].list {
-    z-index: 1; 
-}
-/* 修复嵌入块按钮无法点击 */
-.protyle-icons { z-index:2 }
