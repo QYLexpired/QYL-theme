@@ -234,8 +234,8 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 .protyle-icon {
     background-color: rgba(130, 134, 147, 0.662);
 }
-:is(.b3-menu, .b3-menu__submenu) .b3-text-field:not([data-type="av-search"]) {
-    background-color: rgba(255, 0, 0, 0);
+#commonMenu:is(.b3-menu, .b3-menu__submenu) .b3-text-field:not([data-type="av-search"]) {
+    background-color: rgba(255, 0, 0, 0) !important;
     outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 .b3-slider::-webkit-slider-thumb {
