@@ -130,8 +130,8 @@ body:not(.body--mobile,.body--window) #layouts {
     visibility: visible;
 }
 #layouts .layout--float {
-    border: 1.5px solid var(--b3-theme-primary-lighter) !important;
-    box-shadow: var(--b3-dialog-shadow) !important;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-dialog-shadow);
     background-color: var(--b3-theme-background);
     padding: 0;
     border-radius: var(--b3-border-radius);

@@ -25,9 +25,6 @@
     color: var(--QYL-av-cell-hover);
     transition: 0.1s;
 }
-.block__icon[data-type="av-add"] {
-    margin-top: 8px;
-}
 /* 数据库页签 */
 #layouts .av__views .layout-tab-bar.fn__flex {
     background-color: var(--b3-theme-primary-lighter);
@@ -36,6 +33,7 @@
         background-color: var(--b3-theme-background);
         border: none;
         margin: 2px;
+        height: 25px;
         &::before {
             display: none !important;
         }
@@ -44,9 +42,13 @@
         background-color: rgba(255, 0, 0, 0);
         border: none;
         margin: 2px;
+        height: 25px;
         &::before {
             display: none !important;
         }
+    }
+    & .item.item--focus:only-child {
+        margin: 1.5px;
     }
 }
 [data-theme-mode="dark"] #layouts .av__views .layout-tab-bar.fn__flex {

@@ -62,7 +62,7 @@
     background-color: var(--b3-theme-surface);
 }
 /* 界面 */
- :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]),  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout.search__layout--row {
+:is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout.search__layout--row {
     border: none !important;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header {
