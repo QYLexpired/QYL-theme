@@ -13,7 +13,7 @@
     background-color: var(--QYL-filter-background) !important;
     border: none !important;
 }
-.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus, .b3-menu__submenu) {
+.b3-menu__item, .b3-menu__items, .b3-menu__items *:not(.b3-switch, .b3-list-item--focus, .b3-menu__submenu, .b3-menu__item--current, .b3-menu__separator) {
     background-color: rgba(255, 0, 0, 0) !important;
 }
 .b3-menu::before, .b3-menu__submenu::before {
@@ -34,7 +34,7 @@
 }
 [data-theme-mode="dark"] .b3-dialog__scrim {
     background-color: rgba(255, 0, 0, 0) !important;
-    backdrop-filter: blur(1px) brightness(1.15);
+    backdrop-filter: blur(1px) brightness(0.75);
 }
 .b3-dialog__container {
     background-color: var(--QYL-filter-background) !important;
