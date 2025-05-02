@@ -2993,82 +2993,122 @@ const QYLlihelp = (function() {
 
 // 右键菜单QYL自定义属性
 {
-    setTimeout(() => ClickMonitor(), 1000)
-    function ClickMonitor() {
-        const handleEvent = (e) => {
-            initQYLattr(e);
-            initQYLattrforfile(e);
+    function debounce(func, delay) {
+        let timeout;
+        return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
         };
+    }
+    const commonMenuCache = { elem: null, timestamp: 0 };
+    function getCommonMenu() {
+        const now = Date.now();
+        if (!commonMenuCache.elem || now - commonMenuCache.timestamp > 1000) {
+        commonMenuCache.elem = document.querySelector("#commonMenu .b3-menu__items");
+        commonMenuCache.timestamp = now;
+        }
+        return commonMenuCache.elem;
+    }
+    let isClickMonitorActive = false;
+    function ClickMonitor() {
+        if (isClickMonitorActive) return;
+        isClickMonitorActive = true;
+        const handleEvent = debounce((e) => {
+        initQYLattr(e);
+        initQYLattrforfile(e);
+        }, 100);
+    
         window.addEventListener('mouseup', handleEvent);
         window.addEventListener('keyup', handleEvent);
+    }
+    let initTimeout, insertTimeout, fileInitTimeout, fileInsertTimeout;
+    
+    function initQYLattr() {//准备创建QYL自定义属性菜单项(块)
+        clearTimeout(initTimeout);
+        clearTimeout(insertTimeout);
+    
+        initTimeout = setTimeout(() => {
+        const selectinfo = getBlockSelected();
+        if (selectinfo) {
+            insertTimeout = setTimeout(() => {
+            InsertQYLattr(selectinfo.id, selectinfo.type);
+            查询css自定义块属性的内容(selectinfo.id);
+            }, 300);
+        }
+        }, 0);
+    }
+    
+    function initQYLattrforfile() {//准备创建QYL自定义属性菜单项(文档)
+        clearTimeout(fileInitTimeout);
+        clearTimeout(fileInsertTimeout);
+    
+        fileInitTimeout = setTimeout(() => {
+        const selectinfo = getFileBlockSelected();
+        if (selectinfo) {
+            fileInsertTimeout = setTimeout(() => {
+            InsertQYLattrforfile(selectinfo.id, selectinfo.type);
+            查询css自定义块属性的内容(selectinfo.id);
+            }, 300);
+        }
+        }, 0);
     }
     function MenuSeparator(className = 'b3-menu__separator') {
         let node = document.createElement('button');
         node.className = className;
         return node;
     }
+    
     function getBlockSelected() {//获取块属性
-        let node_list = document.querySelectorAll('.protyle-wysiwyg--select');
-        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
-          id: node_list[0].dataset.nodeId,
-          type: node_list[0].dataset.type,
-          subtype: node_list[0].dataset.subtype,
+        const node_list = document.querySelectorAll('.protyle-wysiwyg--select');
+        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) {
+        return {
+            id: node_list[0].dataset.nodeId,
+            type: node_list[0].dataset.type,
+            subtype: node_list[0].dataset.subtype,
         };
-        return null;
-    }
-    function getFileBlockSelected() {//获取文档块属性
-        let node_list = document.querySelectorAll('.b3-list-item--focus[data-type="navigation-file"]');
-        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) return {
-          id: node_list[0].dataset.nodeId,
-          type: node_list[0].dataset.type,
-          subtype: node_list[0].dataset.subtype,
-        };
-        return null;
-    }
-    function initQYLattr() {//准备创建QYL自定义属性菜单项(块)
-      setTimeout(() => {
-        let selectinfo = getBlockSelected()
-        if (selectinfo) {
-          let selecttype = selectinfo.type
-          let selectid = selectinfo.id
-            setTimeout(() => InsertQYLattr(selectid, selecttype), 300)
-            查询css自定义块属性的内容(selectid)
         }
-      }, 0);
+        return null;
     }
-    function initQYLattrforfile() {//准备创建QYL自定义属性菜单项(文档)
-        setTimeout(() => {
-          let selectinfo = getFileBlockSelected()
-          if (selectinfo) {
-            let selecttype = selectinfo.type
-            let selectid = selectinfo.id
-              setTimeout(() => InsertQYLattrforfile(selectid, selecttype), 300)
-              查询css自定义块属性的内容(selectid)
-          }
-        }, 0);
-      }
+    
+    function getFileBlockSelected() {
+        const node_list = document.querySelectorAll('.b3-list-item--focus[data-type="navigation-file"]');
+        if (node_list.length === 1 && node_list[0].dataset.nodeId != null) {
+        return {
+            id: node_list[0].dataset.nodeId,
+            type: node_list[0].dataset.type,
+            subtype: node_list[0].dataset.subtype,
+        };
+        }
+        return null;
+    }
+    
     function InsertQYLattr(selectid, selecttype) {//创建QYL自定义属性菜单项（块）
-      let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
-      let readonly = commonMenu.querySelector('[data-id="updateAndCreatedAt"]')
-      let attritem = commonMenu.querySelector('[id="QYLattr"]')
-      if (readonly) {
-        if (!attritem) {
-          commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly)
-          commonMenu.insertBefore(MenuSeparator(), readonly)
+        const commonMenu = getCommonMenu();
+        if (!commonMenu) return;
+    
+        const readonly = commonMenu.querySelector('[data-id="updateAndCreatedAt"]');
+        const attritem = commonMenu.querySelector('#QYLattr');
+    
+        if (readonly && !attritem) {
+        commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly);
+        commonMenu.insertBefore(MenuSeparator(), readonly);
         }
-      }
     }
+    
     function InsertQYLattrforfile(selectid, selecttype) {//创建QYL自定义属性菜单项（文档）
-        let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
-        let readonly = commonMenu.querySelector('[data-id="separator_3"]:has(~ [data-id="fileHistory"])')
-        let attritem = commonMenu.querySelector('[id="QYLattr"]')
-        if (readonly) {
-          if (!attritem) {
-            commonMenu.insertBefore(MenuSeparator(), readonly)
-            commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly)
-          }
+        const commonMenu = getCommonMenu();
+        if (!commonMenu) return;
+    
+        const readonly = commonMenu.querySelector('[data-id="separator_3"]:has(~ [data-id="fileHistory"])');
+        const attritem = commonMenu.querySelector('#QYLattr');
+    
+        if (readonly && !attritem) {
+        commonMenu.insertBefore(MenuSeparator(), readonly);
+        commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly);
         }
-      }
+    }
+    setTimeout(ClickMonitor, 1000);
+
     function QYLattritem(selectid, selecttype) {//定义QYL自定义属性菜单项
       let button = document.createElement("button")
       button.id = "QYLattr"
@@ -3090,13 +3130,124 @@ const QYLlihelp = (function() {
       else if (selecttype === "NodeList") {//准备创建列表块的二级菜单
         button.appendChild(QYLNodeListsub(selectid))
       }
-      
+
+      else if (selecttype === "NodeSuperBlock") {//准备创建超级块的二级菜单
+        button.appendChild(QYLNodeSuperBlocksub(selectid))
+      }
+
       else {//准备创建任意块的二级菜单（非标题、表格、列表、文档）
         button.appendChild(QYLanyblocksub(selectid))
       }
 
       return button
     }
+
+/* -----------------------------------------超级块------------------------------------- */
+function QYLNodeSuperBlocksub(selectid) {//创建超级块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLNodeSuperBlocksub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLNodeSuperBlocksubitems(selectid))//准备创建超级块二级菜单的b3-menu__items
+    return div
+
+    function QYLNodeSuperBlocksubitems(selectid) {//创建超级块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrcolsbgapitem(selectid))//准备创建水平排列超级块间距选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+function QYLattrcolsbgapitem(selectid) {//创建水平排列超级块间距选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">水平排列超级块间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrcolsbgapsub(selectid))//准备创建水平排列超级块间距选项的二级菜单
+    return button
+}
+function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrcolsbgapsubitems(selectid))//准备创建水平排列超级块间距选项的b3-menu__items
+    return div
+
+    function QYLattrcolsbgapsubitems(selectid) {//创建水平排列超级块间距选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcolsbgaplianxu(selectid))//水平连续排列
+        div.appendChild(QYLattrcolsbgapjincou(selectid))//水平紧凑排列
+        div.appendChild(QYLattrcolsbgapjiaojincou(selectid))//水平较紧凑排列
+        div.appendChild(QYLattrcolsbgapjiaokuansong(selectid))//水平较宽松排列
+        div.appendChild(QYLattrcolsbgapkuansong(selectid))//水平宽松排列
+        div.appendChild(QYLattrcolsbgapdelete(selectid))//恢复默认
+        return div
+
+        function QYLattrcolsbgaplianxu(selectid) {//水平连续排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "水平连续排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平连续排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrcolsbgapjincou(selectid) {//水平紧凑排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "水平紧凑排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrcolsbgapjiaojincou(selectid) {//水平较紧凑排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "水平较紧凑排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrcolsbgapjiaokuansong(selectid) {//水平较宽松排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "水平较宽松排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrcolsbgapkuansong(selectid) {//水平宽松排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "水平宽松排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrcolsbgapdelete(selectid) {//默认
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
 
 /* -----------------------------------------列表块------------------------------------- */
 function QYLNodeListsub(selectid) {//创建列表块二级菜单
@@ -3196,6 +3347,7 @@ function QYLfilesub(selectid) {//创建文档块二级菜单
         div.className = "b3-menu__items"
         div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
         div.appendChild(QYLattrfilestyleitem(selectid))//准备创建文档样式选项
+        div.appendChild(QYLattrlineheightitem(selectid))//准备创建文字行间距选项
         div.appendChild(QYLattrhstyleitem(selectid))//准备创建标题样式选项
         div.appendChild(QYLattrtablestyleitem(selectid))//准备创建表格样式选项
         div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
@@ -3205,6 +3357,83 @@ function QYLfilesub(selectid) {//创建文档块二级菜单
         return div
     }
 }
+function QYLattrlineheightitem(selectid) {//创建文字行间距选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">文字行间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrlineheightsub(selectid))//准备创建文字行间距选项的二级菜单
+    return button
+}
+function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrlineheightsubitems(selectid))//准备创建文字行间距选项的b3-menu__items
+    return div
+
+    function QYLattrlineheightsubitems(selectid) {//创建文字行间距选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrlineheight1(selectid))//单倍行距
+        div.appendChild(QYLattrlineheight15(selectid))//1.5倍行距
+        div.appendChild(QYLattrlineheight18(selectid))//1.8倍行距
+        div.appendChild(QYLattrlineheight2(selectid))//双倍行距
+        div.appendChild(QYLattrlineheightdelete(selectid))//恢复默认
+        return div
+
+        function QYLattrlineheight1(selectid) {//单倍行距
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "line-height")
+            button.setAttribute("custom-attr-value", "单倍行距")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">单倍行距</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlineheight15(selectid) {//1.5倍行距
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "line-height")
+            button.setAttribute("custom-attr-value", "1.5倍行距")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.5倍行距</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlineheight18(selectid) {//1.8倍行距
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "line-height")
+            button.setAttribute("custom-attr-value", "1.8倍行距")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.8倍行距</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlineheight2(selectid) {//双倍行距
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "line-height")
+            button.setAttribute("custom-attr-value", "双倍行距")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">双倍行距</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrlineheightdelete(selectid) {//恢复默认
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "line-height")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
 function QYLattrfullwidthitem(selectid) {//创建全宽显示选项
     let button = document.createElement('button');
     button.className = "b3-menu__item"
