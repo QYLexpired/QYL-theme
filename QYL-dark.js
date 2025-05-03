@@ -3539,6 +3539,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
         div.appendChild(QYLimgcircle(selectid))//圆形
         div.appendChild(QYLimgshadow(selectid))//立体
         div.appendChild(QYLimginvert(selectid))//反色
+        div.appendChild(QYLimggrid(selectid))//九宫格排列
         div.appendChild(QYLimgdelete(selectid))//全部清除
         return div
 
@@ -3582,6 +3583,16 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.onclick = QYLcustomattrset
                 return button
             }
+            function QYLimggrid(selectid) {//九宫格排列
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "img-display")
+                button.setAttribute("custom-attr-value", "九宫格排列")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">九宫格排列</span><span class="b3-menu__accelerator">组别4</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
 
             function QYLimgdelete(selectid) {//全部清除
                 let button = document.createElement("button")
@@ -3599,6 +3610,10 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                     QYLcustomattrset.call(button, e);
 
                     button.setAttribute("custom-attr-name", "img-invert");
+                    button.setAttribute("custom-attr-value", "");
+                    QYLcustomattrset.call(button, e);
+
+                    button.setAttribute("custom-attr-name", "img-display");
                     button.setAttribute("custom-attr-value", "");
                     QYLcustomattrset.call(button, e);
                 };
