@@ -9,3 +9,7 @@
 :is([custom-table-style="三线表"], [custom-table-style="three-line table"]) table tr:last-child {
     border-bottom: 1px solid var(--b3-theme-on-background);
 }
+
+:is([custom-table-style="三线表"], [custom-table-style="three-line table"]) table:hover :is(th, td) {
+    outline: 0.5px dashed var(--b3-theme-surface-lighter);
+}
