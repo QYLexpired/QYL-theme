@@ -71,7 +71,7 @@ body:not(.body--mobile,.body--window) #layouts {
     border-top-right-radius: var(--b3-border-radius);
 }
 #layouts .layout__center .layout-tab-container {
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius) !important;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
 }   
 #layouts .layout__center .layout-tab-container:has(.layout__empty) {
     border-radius: var(--b3-border-radius) !important;

@@ -263,11 +263,6 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
     white-space: nowrap;
 }
 /* 适配垂直页签 */
-.QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
-    border: 2px solid var(--b3-theme-primary);
-    border-bottom: none;
-}
-.QYLwndthe1[data-type="wnd"] .fn__flex:not(.av__views) .layout-tab-bar--readonly {
-    border: 2px solid var(--b3-theme-primary);
-    border-top: none;
+:root { 
+    --QYL-vertical-fix-1: 2px solid var(--b3-theme-primary);
 }
