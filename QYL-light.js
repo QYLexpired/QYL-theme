@@ -2135,7 +2135,6 @@ function disableQYLcolorfulh() {
 
 // 开启顶栏融合
 function enableQYLfusion() {
-    setTimeout(QYLwnd.start, 300);
     fusion.start();
     windowObserver.start();
 
@@ -2151,7 +2150,6 @@ function enableQYLfusion() {
 
 // 关闭顶栏融合
 function disableQYLfusion() {
-    QYLwnd.stop();
     fusion.stop();
     windowObserver.stop();
 
@@ -2163,7 +2161,6 @@ function disableQYLfusion() {
 
 // 开启垂直页签
 function enableQYLverticaltab() {
-    setTimeout(QYLwnd.start, 300);
 
       let linkElement = document.getElementById("QYLverticaltab-style");
       if (!linkElement) {
@@ -2177,7 +2174,6 @@ function enableQYLverticaltab() {
 
 // 关闭垂直页签
 function disableQYLverticaltab() {
-    QYLwnd.stop();
 
     const linkElement = document.getElementById("QYLverticaltab-style");
     if (linkElement) {
@@ -2526,72 +2522,6 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
-
-// 寻找第一个wnd
-const QYLwnd = (function() {
-    let observer = null;
-    let currentTarget = null;
-    function check() {
-        let current = document.querySelector('.layout__center');
-        let target = null;
-        while (current) {
-            const firstChild = current.firstElementChild;
-            if (!firstChild) break;
-
-            if (firstChild.getAttribute('data-type') === 'wnd') {
-                target = firstChild;
-                break;
-            } else {
-                current = firstChild;
-            }
-        }
-        if (currentTarget) {
-            currentTarget.classList.remove('QYLwndthe1');
-            currentTarget = null;
-        }
-        if (target) {
-            target.classList.add('QYLwndthe1');
-            currentTarget = target;
-        }
-    }
-    function start() {
-        if (observer) return;
-        check();
-        const container = document.querySelector('.layout__center');
-        if (!container) {
-            console.error('未找到.layout__center元素');
-            return;
-        }
-        observer = new MutationObserver(mutations => {
-            let needsCheck = false;
-            for (const mutation of mutations) {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'data-type') {
-                    needsCheck = true;
-                } else if (mutation.type === 'childList') {
-                    needsCheck = true;
-                }
-            }
-            if (needsCheck) check();
-        });
-        observer.observe(container, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['data-type']
-        });
-    }
-    function stop() {
-        if (!observer) return;
-        observer.disconnect();
-        observer = null;
-        if (currentTarget) {
-            currentTarget.classList.remove('QYLwndthe1');
-            currentTarget = null;
-        }
-    }
-    return { start, stop };
-})();
-
 
 // 底部状态栏位置更新
 const QYLStatusPositionManager = (() => {
