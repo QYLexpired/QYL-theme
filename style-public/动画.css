@@ -174,48 +174,26 @@ body > div.block__popover.block__popover--open {
     animation: QYLbounceRight2 0.1s;
 }
 /* 页签悬浮闪光 */
-.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not([data-type="openai"]):not([data-type="remove"]):not([data-type="missing"]):not([data-type="css"]):not([data-type="js"]):not([data-type="attr"]):not([data-type="custom"]):not([data-type="doc"], [data-type="notebook"], [data-type="repo"]) {
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly) {
+    --translate-offset: 220%;
     &:before {
         content: "";
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255,255,255,0.8);
         height: 100%;
-        width: 3em;
+        width: 30%;
         display: block;
         position: absolute;
         top: 0;
-        left: -4.5em;
-        transform: skewX(-45deg) translateX(0);
-        transition: none;
+        left: 0;
+        transform: skewX(-45deg) translateX(calc(-1 * var(--translate-offset)));
     }
     &:hover {
-        &:before {
-          transform: skewX(-45deg) translateX(22em);
-          transition: 0.5s;
-        }
+      &::before {
+          transition: 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+          transform: skewX(-45deg) translateX(calc(var(--translate-offset) + 270%));
+      }
     }
 }
-.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):is([data-type="openai"], [data-type="remove"], [data-type="missing"], [data-type="css"], [data-type="js"], [data-type="attr"], [data-type="custom"], [data-type="doc"], [data-type="notebook"], [data-type="repo"]) {
-    &:before {
-        content: "";
-        background-color: rgba(255,255,255,0.5);
-        height: 100%;
-        width: 3em;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: -4.5em;
-        transform: skewX(-45deg) translateX(0);
-        transition: none;
-    }
-    &:hover {
-        &:before {
-          transform: skewX(-45deg) translateX(200em);
-          transition: 1s;
-        }
-    }
-}
-:is(.b3-button--cancel, .b3-button, .b3-button--text, .b3-button--remove, .config-bazaar__title button, div[data-key=dialog-globalsearch] button:is([data-type="saveCriterion"], [data-type="removeCriterion"]),
-.b3-button--big, .fn__flex.config-account a[href="https://ld246.com/sponsor"], #barWorkspace, .b3-button--small, #documentPropertiesClose,
-.b3-button--outline):not([data-type="-2"], [data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"] ,[data-type="4"])::before {
-        display: block !important;
+:is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
+    display: block !important;
 }
