@@ -75,3 +75,6 @@
 .av__celltext--ref {
     color: rgb(84 124 173);
 }
+:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
+    color: #647eca;
+}
