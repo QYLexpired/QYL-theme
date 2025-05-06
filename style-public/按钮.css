@@ -233,6 +233,19 @@
   width: 11px !important;
   height: 11px !important;
 }
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-1"] {
+  background-color: var(--b3-theme-primary);
+  color: var(--QYL-white);
+}
+div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
+  &::before {
+    display: none !important;
+  }
+  &:hover, :focus {
+    border-color: var(--b3-theme-primary);
+    background-color: var(--b3-theme-primary);
+  }
+}
 
 /* 兼容番茄工具箱 */
 .b3-button[tomatocardskipbtn="1"].b3-button--cancel:not(#findResultsCount, #findMsg)::before {

@@ -194,6 +194,9 @@ body > div.block__popover.block__popover--open {
       }
     }
 }
-:is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
+:is(.b3-button,.b3-chip--pink)::before {
+    display: block !important;
+}
+#barWorkspace::before {
     display: block !important;
 }

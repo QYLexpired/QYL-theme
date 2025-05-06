@@ -12,7 +12,6 @@
         position: fixed;
         right: 0;
         backface-visibility: hidden;
-        transition: all .1s cubic-bezier(0, 0, .2, 1) 0ms;
         bottom: 15px;
         border-radius: var(--b3-border-radius);
         height: 27px !important;
@@ -24,17 +23,65 @@
         align-items: center;
         box-shadow: var(--b3-light-shadow);
         user-select: none;
+        & #barDock {
+            position: relative;
+            order: 1;
+        }
+        &#statusHelp {
+            position: relative;
+        }
+        &.QYLstatushidden:not(:hover) {
+            border-radius: 10px;
+            height: 20px !important;
+            width: 35px;
+            background-color: rgb(from var(--b3-theme-primary) r g b / 50%);
+            backdrop-filter: blur(40px) saturate(3) brightness(1.1);
+            border: none !important;
+            container-type: inline-size;
+            right: -2px;
+            & * {
+                opacity: 0;
+            }
+            &::before {
+                content: "● ● ●";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                color: rgb(from var(--b3-theme-on-primary) r g b / 50%);
+                font-size: 40cqw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+            }
+        }
     }
     .dock#dockBottom:not(.fn__none) + #status {
         bottom: 52px;
     }
-    #barDock {
-        position: relative;
-        order: 1;
-    }
-    #statusHelp {
-        position: relative;
-    }
+}
+#status {
+    transition: 
+        width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#status.QYLstatushidden:not(:hover) {
+    transition: 
+        width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.3s 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#status.QYLstatushidden:not(:hover) * {
+    transition: 
+        opacity 0.2s ease-in,
+}
+#status:not(.QYLstatushidden) * {
+    transition: 
+        opacity 0.2s 0.1s ease-out,
 }
 .status .toolbar__item:hover {
     background-color: var(--QYL-hover) !important;
@@ -167,6 +214,11 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 .layout__center .layout-tab-container:has( > :is(.sy__outline, .sy__backlink)) {
     background-color: var(--b3-theme-background);
+}
+.layout__dockb.layout--float {
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: -25px;
 }
 /* PDF界面 */
 .pdf__outer #mainContainer {

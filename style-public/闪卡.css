@@ -6,18 +6,22 @@
     line-height: 30px;
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
+    border-color: var(--QYL-flashcard-type1-background);
     background-color: var(--QYL-flashcard-type1-background);
     color: var(--QYL-white) !important;
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
+    border-color: var(--QYL-flashcard-type2-background);
     background-color: var(--QYL-flashcard-type2-background);
     color: var(--QYL-white) !important;
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
+    border-color: var(--QYL-flashcard-type3-background);
     background-color: var(--QYL-flashcard-type3-background);
     color: var(--QYL-white) !important;
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
+    border-color: var(--QYL-flashcard-type4-background);
     background-color: var(--QYL-flashcard-type4-background);
     color: var(--QYL-white) !important;
 }
@@ -45,13 +49,4 @@ div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"
 [data-key="dialog-opencard"] .card__block {
     margin: 0 10px 0px 10px;
     border-radius: var(--b3-border-radius);
-}
-
-/* 兼容番茄工具箱 */
-#layouts .card__main {
-    padding-bottom: 35px;
-    background-color: var(--b3-theme-background);
-}
-#layouts [data-key="dialog-opencard"] .card__block {
-    margin: 0;
 }
