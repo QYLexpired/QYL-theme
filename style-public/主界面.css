@@ -31,6 +31,7 @@
             position: relative;
         }
         &.QYLstatushidden:not(:hover) {
+            --QYL-filter-background: rgb(from var(--b3-theme-primary) r g b / 50%) !important;
             border-radius: 10px;
             height: 20px !important;
             width: 35px;
@@ -50,7 +51,7 @@
                 left: 0;
                 right: 0;
                 width: 100%;
-                color: rgb(from var(--b3-theme-on-primary) r g b / 50%);
+                color: rgb(from var(--b3-theme-on-primary) r g b / 60%);
                 font-size: 40cqw;
                 display: flex;
                 justify-content: center;

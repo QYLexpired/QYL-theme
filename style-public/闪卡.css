@@ -50,3 +50,10 @@ div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"
     margin: 0 10px 0px 10px;
     border-radius: var(--b3-border-radius);
 }
+.layout__center div[data-key="dialog-opencard"] .card__main {
+    background-color: var(--b3-theme-background) !important;
+}
+.layout__center [data-key="dialog-opencard"] .card__block {
+    margin: 0 ;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
