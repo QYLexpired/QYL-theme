@@ -1154,7 +1154,8 @@ checkbox16.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLinkmode() : disableQYLinkmode();
     state ? isChecked16 = true : isChecked16 = false;
-    if (isChecked10 === true) { checkbox10.click(); }
+    if (isChecked10 === true) { checkbox10.click(); }//不能与毛玻璃同时开启
+    if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -4452,3 +4453,33 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
         }));
     }
 }
+
+// 状态栏防遮挡
+setTimeout(() => {
+    const statusElement = document.getElementById('status');
+    if (!statusElement) return;
+    const container = document.querySelector('.layout__center');
+    if (!container) return;
+    const targetSelector = '.layout__wnd--active > .layout-tab-container > .fn__flex-1:not(.fn__none):not(.protyle)';
+
+    function checkElement() {
+        const targetExists = document.querySelector(targetSelector) !== null;
+        statusElement.classList.toggle('QYLstatushidden', targetExists);
+    }
+    function debounce(func, delay) {
+        let timeoutId;
+        return function() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func(), delay);
+        };
+    }
+    const debouncedCheck = debounce(checkElement, 500);
+    const observer = new MutationObserver(debouncedCheck);
+    observer.observe(container, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    checkElement();
+}, 1000);
