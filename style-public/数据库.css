@@ -47,8 +47,13 @@
             display: none !important;
         }
     }
-    & .item.item--focus:only-child {
-        margin: 1.5px;
+    &:not(:has(.item + .item)) {
+        margin: 2px;
+        border: 1px solid var(--b3-theme-surface-lighter);
+        box-shadow: var(--b3-light-shadow);
+        & .item {
+            margin: 0;
+        }
     }
 }
 [data-theme-mode="dark"] #layouts .av__views .layout-tab-bar.fn__flex {
