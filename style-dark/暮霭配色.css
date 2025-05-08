@@ -74,6 +74,9 @@
     --QYL-duskmist-tag-1: #414758;
     --QYL-duskmist-tag-2: #2e3440;
 }
+:root {
+    --QYL-primary-fix: #7085bf;
+}
 .layout__center :not(.av__views) > .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: var(--QYL-duskmist-tag-1);
 }
@@ -89,4 +92,22 @@
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     color: var(--b3-theme-on-surface);
     background-color: var(--b3-theme-primary-lighter);
+}
+[data-key="dialog-setting"] .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child, & :where(.b3-label,.config__ite)::first-line {
+    color: var(--QYL-primary-fix);
+}
+#layouts .file-tree .block__icons :is(.block__logo, .block__logoicon, .block__icon) {
+    color: var(--QYL-primary-fix);
+}
+.protyle-breadcrumb__item--active {
+    color: var(--QYL-primary-fix);
+}
+.file-tree.sy__outline .b3-list-item[title] .b3-list-item__text {
+    color: var(--QYL-primary-fix);
+}
+.protyle-title__input, .av__title {
+    color: var(--QYL-primary-fix);
+}
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+    color: var(--QYL-primary-fix);
 }
