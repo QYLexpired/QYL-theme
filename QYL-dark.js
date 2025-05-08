@@ -223,6 +223,8 @@ function createSettingsWindow() {
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = 'var(--b3-border-radius)'; 
+    settingsWindow.style.maxHeight = '80vh';
+    settingsWindow.style.overflowY = 'auto';
 
     const toolbar = document.getElementById('QToolbar');
     if (toolbar && settingsWindow) {
