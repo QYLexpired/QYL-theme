@@ -17,3 +17,12 @@
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平宽松排列"] {
     column-gap: 2.5em;
 }
+/* 自定义属性sb-rowgap */
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout="row"][custom-sb-rowgap="垂直连续排列"] [data-node-id] {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout="row"][custom-sb-rowgap="垂直宽松排列"] > [data-node-id] {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

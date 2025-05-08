@@ -162,3 +162,6 @@
     --QYL-immerse-fusion-fix-4: var(--b3-theme-on-primary);
     --QYL-immerse-fusion-fix-5: none !important;
 }
+[data-theme-mode="dark"] .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus {
+    --QYL-immerse-fusion-fix-3: var(--b3-theme-primary-light);
+}

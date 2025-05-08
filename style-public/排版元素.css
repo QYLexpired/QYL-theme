@@ -1,5 +1,5 @@
 /* 引述块 */
-.protyle-wysiwyg blockquote::before, .protyle-wysiwyg .bq::before {
+.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote)))::before, .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote)))::before {
     content: "";
     position: absolute;
     top: 5px;
@@ -12,13 +12,31 @@
     background-color: var(--QYL-blockquote-svg);
     background-size: 20px 20px;
 }
-.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote))), .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote))) {
     background-color: var(--QYL-blockquote-background);
     color: var(--QYL-blockquote);
     padding-top: 22px;
 }
-:is(.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq) :is(.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq) {
-    box-shadow: var(--QYL-shadow-highlight);
+.protyle-wysiwyg blockquote:has(:is(.bq, blockquote)), .protyle-wysiwyg .bq:has(:is(.bq, blockquote)) {
+    background-color: var(--QYL-blockquote-background);
+    color: var(--QYL-blockquote);
+    padding: 4px;
+    border-radius: 0;
+    border-left: 5px solid var(--QYL-blockquote-svg); 
+    &::before {
+        display:none;
+    }
+}
+.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+    & :is(.bq, blockquote) {
+        padding: 4px;
+        border-radius: 0;
+        border-left: 5px solid var(--QYL-blockquote-svg); 
+        margin-left: 12px;
+        &::before {
+            display:none;
+        }
+    }
 }
 /* 分割线 */
 .protyle-wysiwyg [data-node-id].hr>div::after {

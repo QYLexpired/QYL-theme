@@ -3,6 +3,7 @@
 }
 .file-tree.sy__file .fn__flex-1 > ul:has(>ul) > [data-type="navigation-root"] {
     margin-bottom: 1px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
 .file-tree.sy__file .fn__flex-1 [data-type="navigation-file"] {
     margin-left: 0;
@@ -96,6 +97,7 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+8) {
 }
 .QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul:has(ul) > [data-type="navigation-root"] {
     margin-bottom: 1px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
 .QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 [data-type="navigation-file"] {
     margin-left: 0;

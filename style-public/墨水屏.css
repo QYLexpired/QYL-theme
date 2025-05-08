@@ -266,3 +266,8 @@ div[data-key="dialog-globalsearch"] .b3-form__icon.search__header .b3-text-field
 :root { 
     --QYL-vertical-fix-1: 2px solid var(--b3-theme-primary);
 }
+
+/* 细节修复 */
+.av__views > [data-type="av-search-icon"] + div > input:is([style*="width: 0"], [style*="width:0"]) {
+    opacity: 0;
+}
