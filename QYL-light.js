@@ -2797,68 +2797,71 @@ class QYLFusionWindowWidth {
   const windowObserver = new QYLFusionWindowWidth();
 
 //css自定义属性
-function QYLcssApplyCustomCSS() {
-    QYLcssObserver.disconnect();
-    const elements = document.querySelectorAll('div[custom-css]');
-    const cssRules = [];
-    const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
-    elements.forEach(element => {
+(function(){
+    function QYLcssApplyCustomCSS() {
+      QYLcssObserver.disconnect();
+      const elements = document.querySelectorAll('div[custom-css]');
+      const cssRules = [];
+      const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
+      elements.forEach(element => {
         const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');       
+        const nodeId = element.getAttribute('data-node-id');
         if (cssValue) {
-            if (nodeId) {
-                cssRules.push(
-                    `${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`
-                );
-            } else {
-                let uid = element.getAttribute('data-css-uid');
-                if (!uid) {
-                    uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-                    element.setAttribute('data-css-uid', uid);
-                }
-                const prevSibling = element.previousElementSibling;
-                if (prevSibling && prevSibling.classList.contains('protyle-top')) {
-                    prevSibling.setAttribute('data-css-uid', uid);
-                }
-                cssRules.push(
-                    `${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`
-                );
+          if (nodeId) {
+            cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
+          } else {
+            let uid = element.getAttribute('data-css-uid');
+            if (!uid) {
+              uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
+              element.setAttribute('data-css-uid', uid);
             }
+            const prevSibling = element.previousElementSibling;
+            if (prevSibling && prevSibling.classList.contains('protyle-top')) {
+              prevSibling.setAttribute('data-css-uid', uid);
+            }
+            cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
+          }
         }
-    });
-    const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
-    if (existingStyle) existingStyle.remove();    
-    const style = document.createElement('style');
-    style.id = 'snippet-QYLcss-dynamic-css';
-    style.textContent = cssRules.join('\n');
-    document.head.appendChild(style);
-    QYLcssObserver.observe(document.body, QYLcssObserverConfig);
-}
-function QYLcssDebounce(fn, delay) {
-    let timeout;
-    return (...args) => {
+      });
+      const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
+      if (existingStyle) existingStyle.remove();
+      const style = document.createElement('style');
+      style.id = 'snippet-QYLcss-dynamic-css';
+      style.textContent = cssRules.join('\n');
+      document.head.appendChild(style);
+      if (QYLcssContainer) {
+        QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
+      }
+    }
+    function QYLcssDebounce(fn, delay) {
+      let timeout;
+      return (...args) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+    const QYLcssObserverConfig = {
+      attributes: true,
+      attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
+      subtree: true
     };
-}
-const QYLcssObserverConfig = {
-    attributes: true,
-    attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
-    subtree: true
-};
-const QYLcssObserver = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
+    const QYLcssObserver = new MutationObserver((mutations) => {
+      mutations.forEach(mutation => {
         if (mutation.type === 'attributes' && 
             (mutation.attributeName === 'custom-css' || 
              mutation.attributeName === 'data-node-id' ||
              mutation.attributeName === 'data-css-uid')) {
-            QYLcssDebouncedApplyCSS();
+          QYLcssDebouncedApplyCSS();
         }
+      });
     });
-});
-const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 100);
-QYLcssObserver.observe(document.body, QYLcssObserverConfig);
-QYLcssApplyCustomCSS();
+    const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 500);
+    const QYLcssContainer = document.querySelector('.layout__center');
+    if (QYLcssContainer) {
+      QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
+      QYLcssApplyCustomCSS();
+    }
+})();
 
 //列表辅助线
 const QYLlihelp = (function() {
@@ -2962,7 +2965,7 @@ const QYLlihelp = (function() {
         const selectinfo = getBlockSelected();
         if (selectinfo) {
             insertTimeout = setTimeout(() => {
-            InsertQYLattr(selectinfo.id, selectinfo.type);
+            InsertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
             查询css自定义块属性的内容(selectinfo.id);
             }, 300);
         }
@@ -2996,6 +2999,7 @@ const QYLlihelp = (function() {
             id: node_list[0].dataset.nodeId,
             type: node_list[0].dataset.type,
             subtype: node_list[0].dataset.subtype,
+            sbLayout: node_list[0].dataset.sbLayout, //超级块布局
         };
         }
         return null;
@@ -3013,7 +3017,7 @@ const QYLlihelp = (function() {
         return null;
     }
     
-    function InsertQYLattr(selectid, selecttype) {//创建QYL自定义属性菜单项（块）
+    function InsertQYLattr(selectid, selecttype, selectsbLayout) {//创建QYL自定义属性菜单项（块）
         const commonMenu = getCommonMenu();
         if (!commonMenu) return;
     
@@ -3021,7 +3025,7 @@ const QYLlihelp = (function() {
         const attritem = commonMenu.querySelector('#QYLattr');
     
         if (readonly && !attritem) {
-        commonMenu.insertBefore(QYLattritem(selectid, selecttype), readonly);
+        commonMenu.insertBefore(QYLattritem(selectid, selecttype, selectsbLayout), readonly);
         commonMenu.insertBefore(MenuSeparator(), readonly);
         }
     }
@@ -3040,7 +3044,7 @@ const QYLlihelp = (function() {
     }
     setTimeout(ClickMonitor, 1000);
 
-    function QYLattritem(selectid, selecttype) {//定义QYL自定义属性菜单项
+    function QYLattritem(selectid, selecttype, selectsbLayout) {//定义QYL自定义属性菜单项
       let button = document.createElement("button")
       button.id = "QYLattr"
       button.className = "b3-menu__item"
@@ -3062,8 +3066,12 @@ const QYLlihelp = (function() {
         button.appendChild(QYLNodeListsub(selectid))
       }
 
-      else if (selecttype === "NodeSuperBlock") {//准备创建超级块的二级菜单
-        button.appendChild(QYLNodeSuperBlocksub(selectid))
+      else if (selecttype === "NodeSuperBlock" && selectsbLayout === "col") {//准备创建水平排列超级块的二级菜单
+        button.appendChild(QYLNodeSuperBlockcolsub(selectid))
+      }
+
+      else if (selecttype === "NodeSuperBlock" && selectsbLayout === "row") {//准备创建垂直排列超级块的二级菜单
+        button.appendChild(QYLNodeSuperBlockrowsub(selectid))
       }
 
       else {//准备创建任意块的二级菜单（非标题、表格、列表、文档）
@@ -3073,15 +3081,15 @@ const QYLlihelp = (function() {
       return button
     }
 
-/* -----------------------------------------超级块------------------------------------- */
-function QYLNodeSuperBlocksub(selectid) {//创建超级块二级菜单
+/* -----------------------------------------水平排列超级块------------------------------------- */
+function QYLNodeSuperBlockcolsub(selectid) {//创建水平排列超级块二级菜单
     let div = document.createElement("div")
     div.id = "QYLNodeSuperBlocksub"
     div.className = "b3-menu__submenu"
-    div.appendChild(QYLNodeSuperBlocksubitems(selectid))//准备创建超级块二级菜单的b3-menu__items
+    div.appendChild(QYLNodeSuperBlockcolsubitems(selectid))//准备创建水平排列超级块二级菜单的b3-menu__items
     return div
 
-    function QYLNodeSuperBlocksubitems(selectid) {//创建超级块二级菜单的b3-menu__items
+    function QYLNodeSuperBlockcolsubitems(selectid) {//创建水平排列超级块二级菜单的b3-menu__items
         let div = document.createElement("div")
         div.className = "b3-menu__items"
         div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
@@ -3172,6 +3180,80 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.className = "b3-menu__item b3-menu__item--warning"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------垂直排列超级块------------------------------------- */
+function QYLNodeSuperBlockrowsub(selectid) {//创建垂直排列超级块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLNodeSuperBlocksub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLNodeSuperBlockrowsubitems(selectid))//准备创建垂直排列超级块二级菜单的b3-menu__items
+    return div
+
+    function QYLNodeSuperBlockrowsubitems(selectid) {//创建垂直排列超级块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrrowsbgapitem(selectid))//准备创建垂直排列超级块间距选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+function QYLattrrowsbgapitem(selectid) {//创建垂直排列超级块间距选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">垂直排列超级块间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrrowsbgapsub(selectid))//准备创建垂直排列超级块间距选项的二级菜单
+    return button
+}
+function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrrowsbgapsubitems(selectid))//准备创建垂直排列超级块间距选项的b3-menu__items
+    return div
+
+    function QYLattrrowsbgapsubitems(selectid) {//创建垂直排列超级块间距选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrrowsbgaplianxu(selectid))//垂直连续排列
+        div.appendChild(QYLattrrowsbgapkuansong(selectid))//垂直宽松排列
+        div.appendChild(QYLattrrowsbgapdelete(selectid))//恢复默认
+        return div
+
+        function QYLattrrowsbgaplianxu(selectid) {//垂直连续排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-rowgap")
+            button.setAttribute("custom-attr-value", "垂直连续排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直连续排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrrowsbgapkuansong(selectid) {//垂直宽松排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-rowgap")
+            button.setAttribute("custom-attr-value", "垂直宽松排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrrowsbgapdelete(selectid) {//默认
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
             button.onclick = QYLcustomattrset
