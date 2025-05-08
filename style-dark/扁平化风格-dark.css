@@ -221,15 +221,18 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
 }
 div[data-key="dialog-setting"] .b3-tab-bar [placeholder="搜索"] {
     background-color: var(--b3-theme-surface-lighter);
+    outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 [data-key="dialog-recentdocs"] [placeholder="搜索"] {
     background-color: var(--b3-theme-surface-lighter);
+    outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     background-color: var(--b3-theme-background) !important;
 }
 div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     background-color: var(--b3-theme-surface-lighter) !important;
+    outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 .protyle-icon {
     background-color: rgba(130, 134, 147, 0.662);
@@ -254,6 +257,7 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
 }
 [data-key="dialog-snippets"] .b3-text-field:not([data-type="av-search"]) {
     background-color: var(--b3-theme-surface-lighter);
+    outline: 2px solid rgb(from var(--QYL-flat-second) r g b / 60%);
 }
 .b3-text-field.QYLcssinput::placeholder {
     color: var(--b3-theme-on-surface-light) !important;
