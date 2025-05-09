@@ -1620,23 +1620,192 @@ function disableQYLAreo() {
     }
 }
 
-// 多彩标签和多彩行级代码
+// 开启多彩标签和多彩行级代码
 function enableQYLcolorfultag() {
-    let linkElement = document.getElementById("QYLcolorfultag-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "QYLcolorfultag-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/QYL-theme/style-public/多彩标签和多彩代码.css";
-        document.head.appendChild(linkElement);
+    let styleElement = document.getElementById("snippet-QYLcolorfultag-style");
+    if (!styleElement) {
+        styleElement = document.createElement("style");
+        styleElement.id = "snippet-QYLcolorfultag-style";
+        styleElement.innerHTML = `
+        /* 多彩行级代码 */
+        .fn__code:nth-of-type(6n+1), .b3-typography code:not(.hljs):nth-of-type(6n+1),.b3-typography span[data-type~=code]:nth-of-type(6n+1),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+1),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+1) {
+            color: var(--QYL-coloful-block-red);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-red);
+        }
+        .fn__code:nth-of-type(6n+2), .b3-typography code:not(.hljs):nth-of-type(6n+2),.b3-typography span[data-type~=code]:nth-of-type(6n+2),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+2),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+2) {
+            color: var(--QYL-coloful-block-orange);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-orange);
+        }
+        .fn__code:nth-of-type(6n+3), .b3-typography code:not(.hljs):nth-of-type(6n+3),.b3-typography span[data-type~=code]:nth-of-type(6n+3),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+3),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+3) {
+            color: var(--QYL-coloful-block-green);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-green);
+        }
+        .fn__code:nth-of-type(6n+4), .b3-typography code:not(.hljs):nth-of-type(6n+4),.b3-typography span[data-type~=code]:nth-of-type(6n+4),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+4),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+4) {
+            color: var(--QYL-coloful-block-blue);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-blue);
+        }
+        .fn__code:nth-of-type(6n+5), .b3-typography code:not(.hljs):nth-of-type(6n+5),.b3-typography span[data-type~=code]:nth-of-type(6n+5),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+5),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+5) {
+            color: var(--QYL-coloful-block-purple);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-purple);
+        }
+        .fn__code:nth-of-type(6n+6), .b3-typography code:not(.hljs):nth-of-type(6n+6),.b3-typography span[data-type~=code]:nth-of-type(6n+6),.protyle-wysiwyg code:not(.hljs):nth-of-type(6n+6),.protyle-wysiwyg span[data-type~=code]:nth-of-type(6n+6) {
+            color: var(--QYL-coloful-block-pink);
+            --QYL-fluorescence-code-fix: var(--QYL-coloful-block-pink);
+        }
+        /* 多彩标签 */
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-red);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-orange);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-green);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-blue);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-purple);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
+            opacity: 0.75;
+            border-radius: var(--b3-border-radius);
+            border: none;
+            padding: 3px 5px;
+            font-size: 80%;
+            color: var(--QYL-white);
+            background-color: var(--QYL-custom-pink);
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+        }
+        .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6)::before {
+            content: '';
+            display: inline-block;
+            width: 0.4em;
+            height: 0.4em;
+            top: -0.08em;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin-right: 0.4em;
+            position: relative;
+            vertical-align: middle;
+        }`;
+        document.head.appendChild(styleElement);
     }
 }
 
-// 多彩标签和多彩行级代码
+// 关闭开启多彩标签和多彩行级代码
 function disableQYLcolorfultag() {
-    const linkElement = document.getElementById("QYLcolorfultag-style");
-    if (linkElement) {
-        linkElement.remove();
+    const styleElement = document.getElementById("snippet-QYLcolorfultag-style");
+    if (styleElement) {
+        styleElement.remove();
     }
 }
 
@@ -1895,21 +2064,59 @@ function disableQYLimmersivetopbar() {
 
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
-    let linkElement = document.getElementById("QYLcolorfulh-style");
-    if (!linkElement) {
-        linkElement = document.createElement("link");
-        linkElement.id = "QYLcolorfulh-style";
-        linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/QYL-theme/style-dark/多彩标题-dark.css";
-        document.head.appendChild(linkElement);
+    let styleElement = document.getElementById("snippet-QYLcolorfulh-style");
+    if (!styleElement) {
+        styleElement = document.createElement("style");
+        styleElement.id = "snippet-QYLcolorfulh-style";
+        styleElement.innerHTML = `
+        :root {
+            --QYL-h1: #d24e4e;
+            --QYL-h2: #eaa263;
+            --QYL-h3: #5fc070;
+            --QYL-h4: #589ecd;
+            --QYL-h5: #8c5fbc;
+            --QYL-h6: #b367b8;
+            --QYL-h1-fold: rgba(210, 78, 78, 0.4);
+            --QYL-h1-fold-background: rgba(210, 78, 78, 0.1);
+            --QYL-h2-fold: rgba(234, 162, 99, 0.4);
+            --QYL-h2-fold-background: rgba(234, 162, 99, 0.1);
+            --QYL-h3-fold: rgba(95, 192, 113, 0.4);
+            --QYL-h3-fold-background: rgba(95, 192, 113, 0.1);
+            --QYL-h4-fold: rgba(88, 158, 205, 0.4);
+            --QYL-h4-fold-background: rgba(88, 158, 205, 0.1);
+            --QYL-h5-fold: rgba(140, 95, 188, 0.4);
+            --QYL-h5-fold-background: rgba(140, 95, 188, 0.1);
+            --QYL-h6-fold: rgba(179, 103, 184, 0.4);
+            --QYL-h6-fold-background: rgba(179, 103, 184, 0.1);
+        }
+        /* 手机端彩色大纲 */
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h1"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h1);
+        }
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h2"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h2);
+        }
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h3"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h3);
+        }
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h4"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h4);
+        }
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h5"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h5);
+        }
+        .QYLmobile [data-type="sidebar-outline"] [data-subtype="h6"] :is(.b3-list-item__graphic, .b3-list-item__text) {
+            color: var(--QYL-h6);
+        }`;
+        document.head.appendChild(styleElement);
     }
 }
 
 // 关闭多彩标题和多彩大纲
 function disableQYLcolorfulh() {
-    const linkElement = document.getElementById("QYLcolorfulh-style");
-    if (linkElement) {
-        linkElement.remove();
+    const styleElement = document.getElementById("snippet-QYLcolorfulh-style");
+    if (styleElement) {
+        styleElement.remove();
     }
 }
 
