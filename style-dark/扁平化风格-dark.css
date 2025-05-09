@@ -2,6 +2,7 @@
     --QYL-immerse-fusion-fix-5: 1px solid var(--b3-theme-surface-lighter);
     --QYL-immerse-flat-fix-1: var(--b3-theme-background);
     --QYL-immerse-flat-fix-2: var(--b3-theme-surface);
+    --QYL-vertical-fix-1: 1px solid var(--b3-theme-surface-lighter);
 }
 a {
     --b3-theme-primary: var(--QYL-flat-second);
