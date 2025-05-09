@@ -1887,6 +1887,9 @@ function disableQYLanimation() {
 
 // 开启毛玻璃效果
 function enableQYLAero() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     let linkElement = document.getElementById("QYLAero-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -1899,6 +1902,9 @@ function enableQYLAero() {
 
 // 关闭毛玻璃效果
 function disableQYLAreo() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const linkElement = document.getElementById("QYLAero-style");
     if (linkElement) {
         linkElement.remove();
@@ -2059,6 +2065,9 @@ function disableQYLfog() {
 
 // 开启墨水屏模式
 function enableQYLinkmode() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     let linkElement = document.getElementById("QYLinkmode-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -2071,6 +2080,9 @@ function enableQYLinkmode() {
 
 // 关闭墨水屏模式
 function disableQYLinkmode() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const linkElement = document.getElementById("QYLinkmode-style");
     if (linkElement) {
         linkElement.remove();
@@ -2255,6 +2267,9 @@ function disableQYLflatstyle() {
 
 // 开启沉浸式顶栏
 function enableQYLimmersivetopbar() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     let linkElement = document.getElementById("QYLimmersivetopbar-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -2267,6 +2282,9 @@ function enableQYLimmersivetopbar() {
 
 // 关闭沉浸式顶栏
 function disableQYLimmersivetopbar() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const linkElement = document.getElementById("QYLimmersivetopbar-style");
     if (linkElement) {
         setTimeout(() => {
