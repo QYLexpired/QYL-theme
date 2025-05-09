@@ -20,7 +20,7 @@
 .protyle-breadcrumb__item {
     height: 20px;
 }
-.protyle-breadcrumb__text {
+.protyle-breadcrumb__text[title=""] {
     margin-left: 0;
 }
 /* 退出聚焦 */
