@@ -34,9 +34,9 @@
     --b3-theme-on-error: #feffff;
 
     /* 容器阴影 */
-    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-    --b3-dialog-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
-    --b3-button-shadow: var(--b3-theme-primary-lightest) 0px 3px 6px, var(--b3-theme-primary-lightest) 0px 3px 6px;
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 2px 1px, var(--b3-theme-primary-lightest) 0px 4px 2px, var(--b3-theme-primary-lightest) 0px 8px 4px, var(--b3-theme-primary-lightest) 0px 16px 8px;
+    --b3-dialog-shadow: var(--b3-point-shadow);
+    --b3-button-shadow: var(--b3-point-shadow);
     --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
     --QYL-shadow-highlight: var(--b3-theme-primary-lightest) 0px 1px 1px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
 }
