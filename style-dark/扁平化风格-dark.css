@@ -3,6 +3,9 @@
     --QYL-immerse-flat-fix-1: var(--b3-theme-background);
     --QYL-immerse-flat-fix-2: var(--b3-theme-surface);
     --QYL-vertical-fix-1: 1px solid var(--b3-theme-surface-lighter);
+    --QYL-midnight-resize-fix-1: 1px;
+    --QYL-midnight-resize-fix-2: 4.5px;
+    --QYL-midnight-resize-fix-3: 1.5px;
 }
 a {
     --b3-theme-primary: var(--QYL-flat-second);
@@ -497,6 +500,30 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 /* 状态栏 */
 .status .toolbar__item:hover {
     background-color: rgba(255, 0, 0, 0) !important;
+}
+/* 分割线 */
+#layouts .layout__resize.layout__resize--lr::after {
+    width: 1px;
+    background-color: var(--b3-theme-primary);
+    transform: translateX(2.5px);
+}
+#layouts .layout__resize::after {
+    height: 1px;
+    background-color: var(--b3-theme-primary);
+    transform: translateY(0);
+}
+.search__layout--row .search__drag::after {
+    width: 1px;
+    background-color: var(--b3-theme-primary);
+    transform: translateX(2.5px);
+}
+.search__drag::after {
+    height: 1px;
+    background-color: var(--b3-theme-primary);
+    transform: translateY(2.5px);
+}
+.search__drag:hover::after {
+    background-color: var(--b3-theme-primary);
 }
 
 

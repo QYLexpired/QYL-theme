@@ -16,16 +16,16 @@
     --b3-theme-on-error: #fff;
 
     /* 容器阴影 */
-    --b3-point-shadow: rgba(86, 86, 86, 0.2) 0px 3px 6px, rgba(86, 86, 86, 0.2) 0px 3px 6px;
-    --b3-dialog-shadow: rgba(86, 86, 86, 0.2) 0px 3px 6px, rgba(86, 86, 86, 0.2) 0px 3px 6px;
-    --b3-button-shadow: rgba(86, 86, 86, 0.2) 0px 3px 6px, rgba(86, 86, 86, 0.2) 0px 3px 6px;
+    --b3-point-shadow: rgba(86, 86, 86, 0.2) 0px 2px 1px, rgba(86, 86, 86, 0.2) 0px 4px 2px, rgba(86, 86, 86, 0.2) 0px 8px 4px, rgba(86, 86, 86, 0.2) 0px 16px 8px;
+    --b3-dialog-shadow: var(--b3-point-shadow);
+    --b3-button-shadow: var(--b3-point-shadow);
     --b3-light-shadow: rgba(86, 86, 86, 0.2) 0px 1px 2px 0px, rgba(86, 86, 86, 0.2) 0px 1px 3px 1px;
     --QYL-shadow-highlight: rgba(129, 129, 129, 0.4) 0px 0px 8px;
 }
 :root {
-    --QYL-hover: rgba(50, 75, 185, 0.5); /* 主要悬停色 */
-    --QYL-hover-hover: rgba(50, 75, 185, 0.65);/* 主要悬停色加深 */
-    --QYL-hover-light: rgba(50, 75, 185, 0.2);/* 主要悬停色变浅 */
+    --QYL-hover: rgba(75, 79, 93, 0.5); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(75, 79, 93, 0.7);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(75, 79, 93, 0.2);/* 主要悬停色变浅 */
     --QYL-filetree: var(--b3-theme-background); /* 文档树、反链等背景色 */
     --b3-list-hover: var(--QYL-hover); /* 大部分悬停背景色 */
     --b3-toolbar-hover: var(--QYL-hover); /*顶部工具栏悬停背景色 */
