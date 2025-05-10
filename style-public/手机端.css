@@ -170,6 +170,9 @@
     margin: 0 6px 6px 6px;
     border-radius: var(--b3-border-radius);
 }
+.QYLmobile .QYLcssinput {
+    width: 90vw !important;
+}
 
 /* 按钮 */
 .QYLmobile .b3-button--text {

@@ -1,7 +1,7 @@
 /* 斜杠菜单展开 */
 @media screen and (min-width: 1292px) {
     .protyle-hint.hint--menu {
-        width:75vw;
+        width:60vw;
         max-width: 84em;
         max-height: 65vh;
         border: none;
