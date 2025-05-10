@@ -2413,6 +2413,9 @@ function disableQYLmint() {
 
 // 开启扁平化风格
 function enableQYLflatstyle() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     let linkElement = document.getElementById("QYLflatstyle-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -2425,6 +2428,9 @@ function enableQYLflatstyle() {
 
 // 关闭扁平化风格
 function disableQYLflatstyle() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const linkElement = document.getElementById("QYLflatstyle-style");
     if (linkElement) {
         setTimeout(() => {
@@ -3198,71 +3204,75 @@ class QYLFusionWindowWidth {
   const windowObserver = new QYLFusionWindowWidth();
 
 //css自定义属性
-(function(){
-    function QYLcssApplyCustomCSS() {
-      QYLcssObserver.disconnect();
-      const elements = document.querySelectorAll('div[custom-css]');
-      const cssRules = [];
-      const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
-      elements.forEach(element => {
-        const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');
-        if (cssValue) {
-          if (nodeId) {
-            cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
-          } else {
-            let uid = element.getAttribute('data-css-uid');
-            if (!uid) {
-              uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-              element.setAttribute('data-css-uid', uid);
+setTimeout(function(){
+    (function(){
+        function QYLcssApplyCustomCSS() {
+            QYLcssObserver.disconnect();
+            const elements = document.querySelectorAll('div[custom-css]');
+            const cssRules = [];
+            const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"], #editor)';
+            elements.forEach(element => {
+                const cssValue = element.getAttribute('custom-css');
+                const nodeId = element.getAttribute('data-node-id');
+                if (cssValue) {
+                    if (nodeId) {
+                        cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
+                    } else {
+                        let uid = element.getAttribute('data-css-uid');
+                        if (!uid) {
+                            uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
+                            element.setAttribute('data-css-uid', uid);
+                        }
+                        const prevSibling = element.previousElementSibling;
+                        if (prevSibling && prevSibling.classList.contains('protyle-top')) {
+                            prevSibling.setAttribute('data-css-uid', uid);
+                        }
+                        cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
+                    }
+                }
+            });
+            const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
+            if (existingStyle) existingStyle.remove();
+            const style = document.createElement('style');
+            style.id = 'snippet-QYLcss-dynamic-css';
+            style.textContent = cssRules.join('\n');
+            document.head.appendChild(style);
+            if (QYLcssContainer) {
+                QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
             }
-            const prevSibling = element.previousElementSibling;
-            if (prevSibling && prevSibling.classList.contains('protyle-top')) {
-              prevSibling.setAttribute('data-css-uid', uid);
-            }
-            cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
-          }
         }
-      });
-      const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
-      if (existingStyle) existingStyle.remove();
-      const style = document.createElement('style');
-      style.id = 'snippet-QYLcss-dynamic-css';
-      style.textContent = cssRules.join('\n');
-      document.head.appendChild(style);
-      if (QYLcssContainer) {
-        QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
-      }
-    }
-    function QYLcssDebounce(fn, delay) {
-      let timeout;
-      return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn.apply(this, args), delay);
-      };
-    }
-    const QYLcssObserverConfig = {
-      attributes: true,
-      attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
-      subtree: true
-    };
-    const QYLcssObserver = new MutationObserver((mutations) => {
-      mutations.forEach(mutation => {
-        if (mutation.type === 'attributes' && 
-            (mutation.attributeName === 'custom-css' || 
-             mutation.attributeName === 'data-node-id' ||
-             mutation.attributeName === 'data-css-uid')) {
-          QYLcssDebouncedApplyCSS();
+        function QYLcssDebounce(fn, delay) {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => fn.apply(this, args), delay);
+            };
         }
-      });
-    });
-    const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 500);
-    const QYLcssContainer = document.querySelector('.layout__center');
-    if (QYLcssContainer) {
-      QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
-      QYLcssApplyCustomCSS();
-    }
-})();
+        const QYLcssObserverConfig = {
+            attributes: true,
+            attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
+            subtree: true
+        };
+        const QYLcssObserver = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+                if (mutation.type === 'attributes' && 
+                    (mutation.attributeName === 'custom-css' || 
+                     mutation.attributeName === 'data-node-id' ||
+                     mutation.attributeName === 'data-css-uid')) {
+                    QYLcssDebouncedApplyCSS();
+                }
+            });
+        });
+        const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 250);
+        const isMobile = document.body.classList.contains('QYLmobile');
+        let QYLcssContainer = isMobile ? document.querySelector('#editor') : document.querySelector('.layout__center');
+
+        if (QYLcssContainer) {
+            QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
+            QYLcssApplyCustomCSS();
+        }
+    })();
+}, 500);
 
 //列表辅助线
 const QYLlihelp = (function() {
@@ -4323,6 +4333,9 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
         div.appendChild(QYLheight100(selectid))//100
         div.appendChild(QYLheight150(selectid))//150
         div.appendChild(QYLheight200(selectid))//200
+        div.appendChild(QYLheight300(selectid))//300
+        div.appendChild(QYLheight400(selectid))//400
+        div.appendChild(QYLheight500(selectid))//500
         div.appendChild(QYLheightdelete(selectid))//清除属性
         return div
 
@@ -4363,6 +4376,36 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "200")
                 button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">200px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight300(selectid) {//300
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "300")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">300px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight400(selectid) {//400
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "400")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">400px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight500(selectid) {//500
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "500")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">500px</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4473,7 +4516,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "警告")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告（红）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4483,17 +4526,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = QYLcustomattrset
-                return button
-            }
-            function QYLstyletip(selectid) {//灵感
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感（橙）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4503,7 +4536,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "信息")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息（青）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4513,7 +4546,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "重要")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要（紫）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4523,7 +4556,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "批注")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注（黑）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4533,7 +4566,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "引用")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用（灰）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4543,7 +4576,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "待办")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办（蓝）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4553,7 +4586,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "完成")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成（绿）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }

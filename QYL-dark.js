@@ -60,6 +60,7 @@ const I18N = {
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮霭',
         QYLwmps: ' 配色：乌木',
+        QYLwyps: ' 配色：午夜',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
     },
@@ -90,6 +91,7 @@ const I18N = {
         QYLtxps: ' Mossnow Theme',
         QYLmaps: ' Dusk Mist Theme',
         QYLwmps: ' Bogwood Theme',
+        QYLwyps: ' Midnight Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
     },
@@ -120,6 +122,7 @@ const I18N = {
         QYLtxps: ' 配色：苔雪',
         QYLmaps: ' 配色：暮靄',
         QYLwmps: ' 配色：烏木',
+        QYLwyps: ' 配色：午夜',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
     },
@@ -202,6 +205,7 @@ let isChecked21;
 let isChecked22;
 let isChecked23;
 let isChecked24;
+let isChecked25;
 let isChecked30;
 let isChecked31;
 let isChecked34;
@@ -490,6 +494,17 @@ function createSettingsWindow() {
     label24.style.fontSize = '14px';
     label24.style.userSelect= 'none';
 
+    const checkbox25 = document.createElement('input');
+    checkbox25.type = 'checkbox';
+    checkbox25.id = 'QYLmidnight-checkbox';
+    checkbox25.checked = isChecked25;
+
+    const label25 = document.createElement('label');
+    label25.htmlFor = 'QYLmidnight-checkbox';
+    label25.textContent = i18n.QYLwyps;
+    label25.style.fontSize = '14px';
+    label25.style.userSelect= 'none';
+
     const checkbox30 = document.createElement('input');
     checkbox30.type = 'checkbox';
     checkbox30.id = 'QYLduskmist-checkbox';
@@ -673,6 +688,12 @@ function createSettingsWindow() {
     QYLfunctionpair24.appendChild(label24);
     QYLfunctionpair24.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair25 = document.createElement('div');
+    QYLfunctionpair25.className = 'checkbox-label-pair';
+    QYLfunctionpair25.appendChild(checkbox25);
+    QYLfunctionpair25.appendChild(label25);
+    QYLfunctionpair25.style.animation = 'QYLbounceRight2 0.1s';
+
     const QYLfunctionpair30 = document.createElement('div');
     QYLfunctionpair30.className = 'checkbox-label-pair';
     QYLfunctionpair30.appendChild(checkbox30);
@@ -772,6 +793,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair18);
     settingsWindow.appendChild(QYLfunctionpair30);
     settingsWindow.appendChild(QYLfunctionpair31);
+    settingsWindow.appendChild(QYLfunctionpair25);
 
     // 将设置窗口添加到body
     document.body.appendChild(settingsWindow);
@@ -807,6 +829,7 @@ async function saveConfig() {
         isChecked22: checkbox22.checked,
         isChecked23: checkbox23.checked,
         isChecked24: checkbox24.checked,
+        isChecked25: checkbox25.checked,
         isChecked30: checkbox30.checked,
         isChecked31: checkbox31.checked,
         isChecked34: checkbox34.checked,
@@ -986,6 +1009,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1005,6 +1029,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1024,6 +1049,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1043,6 +1069,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1062,6 +1089,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1081,6 +1109,7 @@ checkbox18.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1100,6 +1129,7 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1119,6 +1149,27 @@ checkbox31.addEventListener('change', async function() {
     if (isChecked17 === true) { checkbox17.click(); }
     if (isChecked18 === true) { checkbox18.click(); }
     if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 午夜配色开关
+checkbox25.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLmidnight() : disableQYLmidnight();
+    state ? isChecked25 = true : isChecked25 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2012,8 +2063,33 @@ function disableQYLbogwood() {
     }
 }
 
+// 开启午夜配色
+function enableQYLmidnight() {
+    let linkElement = document.getElementById("QYLmidnight-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLmidnight-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/午夜配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭午夜配色
+function disableQYLmidnight() {
+    const linkElement = document.getElementById("QYLmidnight-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启扁平化风格
 function enableQYLflatstyle() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     let linkElement = document.getElementById("QYLflatstyle-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -2026,6 +2102,9 @@ function enableQYLflatstyle() {
 
 // 关闭扁平化风格
 function disableQYLflatstyle() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const linkElement = document.getElementById("QYLflatstyle-style");
     if (linkElement) {
         setTimeout(() => {
@@ -2358,6 +2437,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked24 === false) {
             disableQYLlihelp();
             isChecked24 = false;
+        }
+
+        if (config?.isChecked25 === true) {
+            enableQYLmidnight();
+            isChecked25 = true;
+        } else if (config?.isChecked25 === false) {
+            disableQYLmidnight();
+            isChecked25 = false;
         }
 
         if (config?.isChecked30 === true) {
@@ -2758,71 +2845,75 @@ class QYLFusionWindowWidth {
   const windowObserver = new QYLFusionWindowWidth();
 
 //css自定义属性
-(function(){
-    function QYLcssApplyCustomCSS() {
-      QYLcssObserver.disconnect();
-      const elements = document.querySelectorAll('div[custom-css]');
-      const cssRules = [];
-      const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"])';
-      elements.forEach(element => {
-        const cssValue = element.getAttribute('custom-css');
-        const nodeId = element.getAttribute('data-node-id');
-        if (cssValue) {
-          if (nodeId) {
-            cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
-          } else {
-            let uid = element.getAttribute('data-css-uid');
-            if (!uid) {
-              uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-              element.setAttribute('data-css-uid', uid);
+setTimeout(function(){
+    (function(){
+        function QYLcssApplyCustomCSS() {
+            QYLcssObserver.disconnect();
+            const elements = document.querySelectorAll('div[custom-css]');
+            const cssRules = [];
+            const containerSelector = ':is(#layouts, #preview, [data-key="dialog-exportimage"], #editor)';
+            elements.forEach(element => {
+                const cssValue = element.getAttribute('custom-css');
+                const nodeId = element.getAttribute('data-node-id');
+                if (cssValue) {
+                    if (nodeId) {
+                        cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
+                    } else {
+                        let uid = element.getAttribute('data-css-uid');
+                        if (!uid) {
+                            uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
+                            element.setAttribute('data-css-uid', uid);
+                        }
+                        const prevSibling = element.previousElementSibling;
+                        if (prevSibling && prevSibling.classList.contains('protyle-top')) {
+                            prevSibling.setAttribute('data-css-uid', uid);
+                        }
+                        cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
+                    }
+                }
+            });
+            const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
+            if (existingStyle) existingStyle.remove();
+            const style = document.createElement('style');
+            style.id = 'snippet-QYLcss-dynamic-css';
+            style.textContent = cssRules.join('\n');
+            document.head.appendChild(style);
+            if (QYLcssContainer) {
+                QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
             }
-            const prevSibling = element.previousElementSibling;
-            if (prevSibling && prevSibling.classList.contains('protyle-top')) {
-              prevSibling.setAttribute('data-css-uid', uid);
-            }
-            cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
-          }
         }
-      });
-      const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
-      if (existingStyle) existingStyle.remove();
-      const style = document.createElement('style');
-      style.id = 'snippet-QYLcss-dynamic-css';
-      style.textContent = cssRules.join('\n');
-      document.head.appendChild(style);
-      if (QYLcssContainer) {
-        QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
-      }
-    }
-    function QYLcssDebounce(fn, delay) {
-      let timeout;
-      return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn.apply(this, args), delay);
-      };
-    }
-    const QYLcssObserverConfig = {
-      attributes: true,
-      attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
-      subtree: true
-    };
-    const QYLcssObserver = new MutationObserver((mutations) => {
-      mutations.forEach(mutation => {
-        if (mutation.type === 'attributes' && 
-            (mutation.attributeName === 'custom-css' || 
-             mutation.attributeName === 'data-node-id' ||
-             mutation.attributeName === 'data-css-uid')) {
-          QYLcssDebouncedApplyCSS();
+        function QYLcssDebounce(fn, delay) {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => fn.apply(this, args), delay);
+            };
         }
-      });
-    });
-    const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 500);
-    const QYLcssContainer = document.querySelector('.layout__center');
-    if (QYLcssContainer) {
-      QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
-      QYLcssApplyCustomCSS();
-    }
-})();
+        const QYLcssObserverConfig = {
+            attributes: true,
+            attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
+            subtree: true
+        };
+        const QYLcssObserver = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+                if (mutation.type === 'attributes' && 
+                    (mutation.attributeName === 'custom-css' || 
+                     mutation.attributeName === 'data-node-id' ||
+                     mutation.attributeName === 'data-css-uid')) {
+                    QYLcssDebouncedApplyCSS();
+                }
+            });
+        });
+        const QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 250);
+        const isMobile = document.body.classList.contains('QYLmobile');
+        let QYLcssContainer = isMobile ? document.querySelector('#editor') : document.querySelector('.layout__center');
+
+        if (QYLcssContainer) {
+            QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
+            QYLcssApplyCustomCSS();
+        }
+    })();
+}, 500);
 
 //列表辅助线
 const QYLlihelp = (function() {
@@ -3884,6 +3975,9 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
         div.appendChild(QYLheight100(selectid))//100
         div.appendChild(QYLheight150(selectid))//150
         div.appendChild(QYLheight200(selectid))//200
+        div.appendChild(QYLheight300(selectid))//300
+        div.appendChild(QYLheight400(selectid))//400
+        div.appendChild(QYLheight500(selectid))//500
         div.appendChild(QYLheightdelete(selectid))//清除属性
         return div
 
@@ -3924,6 +4018,36 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "200")
                 button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">200px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight300(selectid) {//300
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "300")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">300px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight400(selectid) {//400
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "400")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">400px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLheight500(selectid) {//500
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "height")
+                button.setAttribute("custom-attr-value", "500")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">500px</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4034,7 +4158,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "警告")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告（红）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4044,17 +4168,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
-                button.onclick = QYLcustomattrset
-                return button
-            }
-            function QYLstyletip(selectid) {//灵感
-                let button = document.createElement("button")
-                button.className = "b3-menu__item"
-                button.setAttribute("data-node-id", selectid)
-                button.setAttribute("custom-attr-name", "style")
-                button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感（橙）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4064,7 +4178,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "信息")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息（青）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4074,7 +4188,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "重要")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要（紫）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4084,7 +4198,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "批注")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注（黑）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4094,7 +4208,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "引用")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用（灰）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4104,7 +4218,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "待办")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办（蓝）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4114,7 +4228,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "完成")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成（绿）</span><span class="b3-menu__accelerator">组别1</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
