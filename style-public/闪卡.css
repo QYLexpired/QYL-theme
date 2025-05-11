@@ -5,6 +5,11 @@
 .card__action .b3-button {
     line-height: 30px;
 }
+.card__action {
+    & > div:first-child > .b3-button.b3-button--cancel:first-child {
+        border: none;
+    }
+}
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
     border-color: var(--QYL-flashcard-type1-background);
     background-color: var(--QYL-flashcard-type1-background);
@@ -43,12 +48,15 @@ div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"
 }
 /* 界面 */
 #cardPreview {
-    margin: 0 10px 10px 0;
+    margin: 6px 6px 6px 0;
     border-radius: var(--b3-border-radius);
 }
 [data-key="dialog-opencard"] .card__block {
-    margin: 0 10px 0px 10px;
+    margin: 6px 6px -1px 6px;
     border-radius: var(--b3-border-radius);
+}
+.card__action {
+    padding: 6px;
 }
 .layout__center div[data-key="dialog-opencard"] .card__main {
     background-color: var(--b3-theme-background) !important;

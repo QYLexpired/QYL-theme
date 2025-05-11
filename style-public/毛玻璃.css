@@ -358,3 +358,24 @@ div[data-key="dialog-commandpanel"] .b3-dialog .b3-dialog__body .fn__flex-column
     background-color: rgba(255, 0, 0, 0) !important;
     backdrop-filter: blur(1px) brightness(0.85);
 }
+.arco-modal-mask {
+    background-color: rgba(255, 0, 0, 0) !important;
+    backdrop-filter: blur(1px) brightness(0.85);
+}
+.EnLifeLogWeekGraphModal {
+    background-color: var(--QYL-filter-background) !important;
+    &::before {
+        border-radius: var(--b3-border-radius);
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        backdrop-filter: var(--QYL-Aero-filter);
+        z-index: -5;
+    }
+}
+.EnWeekGraph[data-v-843c3dc8], .EnWeekGraph .DateRow[data-v-843c3dc8], .EnWeekGraph .TimelineArea[data-v-843c3dc8], .EnWeekGraph .Cell[data-v-843c3dc8], .EnWeekGraph .TimelineArea .PromptColumn[data-v-843c3dc8], .EnWeekGraph .PromptArea .PromptItem .timeContainer[data-v-843c3dc8] {
+    background-color: rgba(255, 0, 0, 0) !important;
+}

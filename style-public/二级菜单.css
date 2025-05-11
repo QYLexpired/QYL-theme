@@ -38,6 +38,9 @@
     width: 16px;
     height: 16px;
 }
+.protyle-toolbar__item:hover {
+    background-color: var(--QYL-hover);
+}
 /* 窗口优化 */
 .b3-dialog__header {
     font-weight: bold;

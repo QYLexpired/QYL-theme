@@ -47,7 +47,18 @@
     color: var(--b3-theme-primary) !important;
     font-weight: 600 !important;
 }
-
+.arco-tooltip-content {
+    background-color: var(--b3-theme-background) !important;
+    color: var(--b3-theme-on-background) !important;
+    border: 0.5px solid var(--b3-theme-surface-lighter) !important;
+    box-shadow: var(--b3-light-shadow) !important;
+    --border-radius-small: var(--b3-border-radius);
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+}
+.arco-tooltip-popup-arrow {
+    display: none !important;
+}
 /* 日历面板插件 */
 .arco-tabs-tab-active, .arco-tabs-tab-active:hover {
     color: var(--b3-theme-primary) !important;
@@ -130,14 +141,14 @@
     }
 } 
 
-/* 叶归插件 */
+/**********************************************************叶归插件**********************************************************/
 .enSettingsModuleSelectorList[data-v-3534fc37] {
     background-color: var(--b3-theme-surface) !important;
 }
 .SyEnhancerDialogTitle[data-v-3534fc37] {
     color: var(--b3-theme-primary) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-btn-primary, .arco-btn-primary[type=button], .arco-btn-primary[type=submit] {
+.arco-btn-primary, .arco-btn-primary[type=button], .arco-btn-primary[type=submit] {
     border-radius: var(--b3-border-radius);
     background-color: var(--b3-theme-primary) !important;
     &:hover {
@@ -147,7 +158,7 @@
         transform: scale(0.95);
     }
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-btn-outline.arco-btn-status-danger {
+.arco-btn-outline.arco-btn-status-danger {
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-error) !important;
     border-color: var(--b3-theme-error) !important;
@@ -156,26 +167,26 @@
         color: var(--b3-theme-on-error) !important;
     }
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .settingItemOptionArea .arco-input-number, #enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .settingItemOptionArea .arco-select {
+.settingItemOptionArea .arco-input-number, .settingItemOptionArea .arco-select {
     background-color: var(--b3-theme-background) !important;
     outline:2px solid rgb(from var(--b3-theme-primary) r g b / 60%);
     box-shadow: none !important;
     border: none !important;
     border-radius: var(--b3-border-radius);
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-switch {
+.arco-switch {
     background-color: var(--QYL-switch-close-background) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-switch-checked {
+.arco-switch-checked {
     background-color: var(--b3-theme-primary) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-switch-handle {
+.arco-switch-handle {
     color: var(--QYL-switch-close) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-switch-checked .arco-switch-handle {
+.arco-switch-checked .arco-switch-handle {
     color: var(--b3-switch-checked) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-select-dropdown {
+.arco-select-dropdown {
     border-radius: var(--b3-border-radius) !important;
     background-color: var(--b3-theme-background) !important;
     & .arco-select-option {
@@ -186,41 +197,41 @@
         }
     }
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-input-wrapper {
+.arco-input-wrapper {
     background-color: var(--b3-theme-background) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-input-prepend, .arco-input-append {
+.arco-input-prepend, .arco-input-append {
     background-color: var(--b3-theme-background) !important;
     & .arco-btn {
         border: none !important;
     }
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-radio-checked .arco-radio-icon {
+.arco-radio-checked .arco-radio-icon {
     background-color: var(--b3-theme-primary) !important;
     border-color: var(--b3-theme-primary) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-textarea-wrapper {
+.arco-textarea-wrapper {
     border-radius: var(--b3-border-radius) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-textarea {
+.arco-textarea {
     background-color: var(--b3-theme-background) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-textarea-wrapper:focus-within, .arco-textarea-wrapper.arco-textarea-focus {
+.arco-textarea-wrapper:focus-within, .arco-textarea-wrapper.arco-textarea-focus {
     box-shadow: none !important;
     border-color: transparent !important;
     outline:2px solid rgb(from var(--b3-theme-primary) r g b / 60%);
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-slider-bar {
+.arco-slider-bar {
     background-color: var(--b3-theme-primary) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-slider-btn:after {
+.arco-slider-btn:after {
     border-color: var(--b3-theme-primary);
     background: var(--b3-theme-background) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-slider-track:before {
+.arco-slider-track:before {
     background-color: var(--b3-theme-background) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-drawer-header {
+.arco-drawer-header {
     border-bottom: none !important;
 }
 .enSettingsModuleSelectorList .moduleSelectorItem.moduleSelectorItem__Actived[data-v-3534fc37] {
@@ -229,13 +240,13 @@
 .enSettingsModuleSelectorList.isNotMobile .moduleSelectorItem[data-v-3534fc37]:hover {
     background-color: var(--QYL-hover) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-scrollbar-thumb-bar {
+.arco-scrollbar-thumb-bar {
     background-color: var(--b3-scroll-color) !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-input-wrapper:focus-within, .arco-input-wrapper.arco-input-focus {
+.arco-input-wrapper:focus-within, .arco-input-wrapper.arco-input-focus {
     border-color: transparent !important;
 }
-#enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-select-view-single {
+.arco-select-view-single {
     border: none !important;
     &:hover {
         outline:2px solid rgb(from var(--b3-theme-primary) r g b / 60%);
@@ -243,6 +254,16 @@
 }
 .arco-btn-text:hover, .arco-btn-text[type=button]:hover, .arco-btn-text[type=submit]:hover {
     background-color: var(--QYL-hover) !important;
+}
+.EnLifelogTypeItemInput[data-v-c1b37c58] {
+    border-radius: var(--b3-border-radius) !important;
+    padding-left: 0 !important;
+}
+.arco-color-picker {
+    border-radius: var(--b3-border-radius) !important;
+}
+.arco-color-picker-preview {
+    border-radius: var(--b3-border-radius);
 }
 /* 页签 */
 .layout__center [data-v-app] .fn__flex-1.en-leaf-panel--tab .en-dock {
@@ -283,6 +304,55 @@
 :is(.en-leaf-panel--dock, .en-leaf-panel--tab) .display-mode-switcher .switcher-title {
     font-weight: bold !important;
     color: var(--b3-theme-primary) !important;
+}
+.memo-timeline .timeline-container .timeline-item .timeline-meta .timeline-dot {
+    top: 2px !important;
+}
+.memo-timeline .timeline-container .timeline-item .timeline-meta .timeline-time {
+    font-weight: bold;
+    color: var(--b3-theme-primary) !important;
+}
+.memo-timeline .timeline-container .timeline-item .timeline-content .memo-card {
+    border: none !important;
+    box-shadow: var(--b3-light-shadow);
+}
+.memo-timeline .timeline-container:before {
+    width: 2px !important;
+    background-color: var(--b3-theme-primary-lighter) !important;
+}
+.card-content .memo-card-item .memo-card-header {
+    background-color: var(--b3-theme-surface);
+}
+.card-content .memo-card-item {
+    box-shadow: var(--b3-light-shadow) !important;
+    &:hover {
+        box-shadow: var(--b3-point-shadow) !important;
+    }
+}
+.gallery-content .gallery-item {
+    box-shadow: var(--b3-light-shadow) !important;
+    &:hover {
+        box-shadow: var(--b3-point-shadow) !important;
+    }
+}
+.waterfall-content .waterfall-item {
+    box-shadow: var(--b3-light-shadow) !important;
+    &:hover {
+        box-shadow: var(--b3-point-shadow) !important;
+    }
+}
+.gallery-content .gallery-item .gallery-item-footer .gallery-item-actions .action-icon:hover,
+.card-content .memo-card-item .memo-card-header .memo-card-actions .action-icon:hover,
+.memo-timeline .timeline-container .timeline-item .timeline-content .memo-card .card-actions .action-icon:hover,
+.waterfall-content .waterfall-item .waterfall-item-footer .waterfall-item-actions .action-icon:hover {
+    background-color: var(--QYL-hover) !important;
+}
+.year-month-picker .month-grid .month-item:hover {
+    background-color: var(--QYL-hover) !important;
+}
+.display-mode-switcher .switcher-options .switcher-option {
+    border: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-surface);
 }
 /* 手机端 */
 .QYLmobile .enToolbar {
@@ -357,4 +427,35 @@ body[arco-theme=dark] .arco-card-grid-hoverable:hover:before, body[arco-theme=da
 .arco-picker-container, .arco-picker-range-container {
     background-color: var(--b3-theme-background) !important;
     border-color: var(--b3-theme-surface-lighter);
+}
+.arco-input-number {
+    --border-radius-small: var(--b3-border-radius);
+}
+.EnProtyleContainer[data-v-566ac7f9] .protyle .protyle-wysiwyg:has(>[custom-lifelog-type]), .en-user-memo .EnProtyleContainer .protyle .protyle-wysiwyg:has(>[custom-lifelog-type]) {
+    padding-left: 20px !important;
+}
+.EnLifeLogDailyNoteGraph[data-v-bb9159db] {
+    border-radius: var(--b3-border-radius);
+    overflow: visible !important;
+    visibility: hidden;
+    &:hover {
+        visibility: visible;
+    }
+}
+.EnLifeLogDailyNoteGraph[data-v-bb9159db]::before {
+    visibility: visible;
+    content: "LifeLog";
+    font-size: 12px;
+    color: var(--b3-theme-on-primary);
+    padding: 2px 5px;
+    text-align: center;
+    line-height: 15px;  
+    border-radius: var(--b3-border-radius);
+    width: 40px;
+    height: 15px;
+    left: 8px;
+    top: 2px;
+    position: absolute;
+    background-color: var(--b3-theme-primary);
+    z-index: -1;
 }

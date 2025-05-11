@@ -3,8 +3,8 @@ div[data-key="dialog-setting"] {
     border: none;
 }
 div[data-key="dialog-setting"] .config__tab-wrap {
-    height: calc(100% - 20px);
-    margin: 10px 10px 0px 0px;
+    height: calc(100% - 12px);
+    margin: 6px 6px 0px 0px;
     border-radius: var(--b3-border-radius);
 }
 div[data-key="dialog-setting"] .b3-tab-bar {
@@ -96,6 +96,9 @@ div[data-key="dialog-setting"] .b3-tab-bar {
 }
 #configBazaarDownloaded .b3-list--empty {
     margin-top: 20px;
+}
+#configBazaarReadme .block__icons {
+    border-bottom: none;
 }
 /* 修复集市毛玻璃 */
 div[data-key="dialog-setting"] [data-name="bazaar"] .layout-tab-bar {

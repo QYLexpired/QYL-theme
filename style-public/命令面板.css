@@ -3,7 +3,7 @@ div[data-key="dialog-commandpanel"] {
     border: none !important;
 }
 div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__icon.search__header {
-    margin: 5px 10px;
+    margin: 3px 6px 3px 6px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
@@ -13,7 +13,7 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-form__
     box-shadow: none;
 }
 div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b3-list--background.search__list {
-    margin: 5px 10px;
+    margin: 3px 6px 0 6px;
     border-radius: var(--b3-border-radius);
 }
 div[data-key="dialog-commandpanel"] .b3-tab-bar {

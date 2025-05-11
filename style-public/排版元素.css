@@ -180,12 +180,6 @@
     border-left: 1.5px solid var(--b3-theme-background-light);
     transition: var(--b3-transition);
 }
-.protyle-wysiwyg [data-node-id].li:hover::before {
-    border-left: 1.5px solid var(--b3-theme-primary);
-}
-.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
-    color: var(--b3-theme-primary);
-}
 .li[data-subtype=t]>.protyle-action:hover::after {
     background-color: rgba(255, 0, 0, 0) !important;
 }

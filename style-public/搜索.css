@@ -66,34 +66,37 @@
     border: none !important;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header {
-    margin: 5px 10px;
+    margin: 6px 6px 3px 6px;
     border-radius: var(--b3-border-radius);
     border: none !important;
+    & .block__icons {
+        border-bottom: none;
+    }
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header .b3-text-field.b3-text-field--text {
     box-shadow: none;
     border-radius: var(--b3-border-radius);
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__header[id="criteria"] {
-    margin: 5px 10px;
+    margin: 3px 6px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__list {
-    margin: 5px 10px 2.5px 10px;
+    margin: 3px 6px 3px 6px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__preview {
-    margin: 2.5px 10px 5px 10px;
+    margin: 3px 6px 0 6px;
     border-radius: var(--b3-border-radius);
     border: none !important;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout--row .search__list {
-    margin: 5px 2.5px 5px 10px;
+    margin: 3px 0 0 6px;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__layout--row .search__preview {
-    margin: 5px 10px 5px 2.5px;
+    margin: 3px 6px 0 0;
 }
  :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .search__tip {
     border: none !important;
@@ -114,13 +117,10 @@
 #searchPreview.search__preview.protyle.fullscreen .protyle-breadcrumb {
     padding-right: 130px;
 }
-.search__drag {
-    margin: 0;
-}
 .search__drag::after {
     visibility: hidden;
     width: 100%;
-    height: 8px;
+    height: 6px;
     border-radius: var(--b3-border-radius-q);
 }
 .search__drag:hover::after {
@@ -132,7 +132,7 @@
 .search__layout--row .search__drag::after {
     visibility: hidden;
     height: 100%;
-    width: 8px;
+    width: 6px;
     border-radius: var(--b3-border-radius-q);
 }
 .search__layout--row .search__drag:hover::after {

@@ -35,6 +35,14 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
 .search__header .b3-form__icon-icon {
     z-index: 10; /*临时修复毛玻璃部分输入框图标不可见 */
 }
+.protyle-util {
+    & .block__icons {
+        background-color: var(--b3-theme-surface) !important;
+    }
+    & .b3-text-field:not([data-type="av-search"]), .pcr-app .pcr-interaction .pcr-result {
+        box-shadow: none;
+    }
+}
 /* 下拉框 */
 .b3-select {
     background-color: var(--b3-theme-background) !important;

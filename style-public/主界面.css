@@ -10,9 +10,9 @@
 @media (min-width: 630px) {
     #status {
         position: fixed;
-        right: 0;
+        right: -9px;
         backface-visibility: hidden;
-        bottom: 15px;
+        bottom: 12px;
         border-radius: var(--b3-border-radius);
         height: 27px !important;
         overflow: hidden;
@@ -39,7 +39,7 @@
             backdrop-filter: blur(40px) saturate(3) brightness(1.1);
             border: none !important;
             container-type: inline-size;
-            right: -2px;
+            right: -7px;
             & * {
                 opacity: 0;
             }
@@ -61,7 +61,7 @@
         }
     }
     .dock#dockBottom:not(.fn__none) + #status {
-        bottom: 52px;
+        bottom: 48px;
     }
 }
 #status {
