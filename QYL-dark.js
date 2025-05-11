@@ -143,7 +143,7 @@ function addThemeToolBar() {
         QYLToolBar.className = "toolbar__item ariaLabel";
         QYLToolBar.style.width = "23.5px";
         QYLToolBar.style.height = "23.5px";
-        QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" fill="var(--b3-toolbar-color)" opacity=".9" p-id="4701"></path></svg>`;
+        QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" opacity=".9" p-id="4701"></path></svg>`;
         QYLToolBar.ariaLabel = i18n.QYLztsz;
         QYLToolBar.style.userSelect = 'none';
         const handleToolbarClick = () => {
@@ -2920,40 +2920,42 @@ const QYLlihelp = (function() {
     let allListItemNode = [];
     let isActive = false;
     let selectionChangeHandler = null;
-
     function handleSelectionChange() {
         const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-
-        const range = selection?.getRangeAt(0);
-        const startNode = range?.startContainer;
+        if (!selection?.rangeCount) return;
+        const range = selection.getRangeAt(0);
+        const startNode = range.startContainer;
         let currentNode = startNode;
-
         allListItemNode.forEach(node => {
             node.classList.remove('en_item_bullet_actived', 'en_item_bullet_line');
         });
         allListItemNode = [];
-
         while (currentNode) {
-            if (currentNode?.dataset?.type === 'NodeListItem') {
-                allListItemNode.push(currentNode);
+            if (currentNode.nodeType === Node.ELEMENT_NODE) {
+                if (currentNode.hasAttribute('custom-list-view')) {
+                    allListItemNode = [];
+                    return;
+                }
+                if (currentNode.dataset?.type === 'NodeListItem') {
+                    allListItemNode.push(currentNode);
+                }
             }
             currentNode = currentNode.parentElement;
         }
-
         for (let i = 0; i < allListItemNode.length - 1; i++) {
             const currentNode = allListItemNode[i];
             const nextNode = allListItemNode[i + 1];
             const currentRect = currentNode.getBoundingClientRect();
             const nextRect = nextNode.getBoundingClientRect();
             
-            currentNode.style.setProperty('--en-bullet-line-height', `${currentRect.top - nextRect.top}px`);
+            currentNode.style.setProperty(
+                '--en-bullet-line-height',
+                `${currentRect.top - nextRect.top}px`
+            );
             currentNode.classList.add('en_item_bullet_line');
         }
-
         allListItemNode.forEach(node => node.classList.add('en_item_bullet_actived'));
     }
-
     return {
         start() {
             if (!isActive) {
@@ -2962,7 +2964,6 @@ const QYLlihelp = (function() {
                 isActive = true;
             }
         },
-        
         stop() {
             if (isActive) {
                 document.removeEventListener('selectionchange', selectionChangeHandler);
