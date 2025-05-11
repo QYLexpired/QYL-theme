@@ -22,7 +22,7 @@
     --b3-theme-success: #18b95b;
     --b3-theme-secondary: #b7721e;
     --QYL-accent-color: var(--QYL-flat-primary);  
-    --QYL-border-file: rgb(81, 89, 100);
+    --QYL-border-file: rgb(70 70 70);
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fbfdff;
@@ -33,11 +33,11 @@
     --b3-theme-on-error: #fbfdff;
 
     /* 容器阴影 */
-    --b3-point-shadow: rgba(111, 111, 111, 0.09) 0px 2px 1px, rgba(111, 111, 111, 0.09) 0px 4px 2px, rgba(111, 111, 111, 0.09) 0px 8px 4px, rgba(111, 111, 111, 0.09) 0px 16px 8px;
+    --b3-point-shadow: rgba(56, 56, 56, 0.2) 0px 2px 1px, rgba(56, 56, 56, 0.2) 0px 4px 2px, rgba(56, 56, 56, 0.2) 0px 8px 4px, rgba(56, 56, 56, 0.2) 0px 16px 8px;
     --b3-dialog-shadow: var(--b3-point-shadow);
     --b3-button-shadow: var(--b3-point-shadow);
-    --b3-light-shadow: rgba(157, 157, 157, 0.09) 0px 1px 2px 0px, rgba(157, 157, 157, 0.09) 0px 1px 3px 1px;
-    --QYL-shadow-highlight: rgba(157, 157, 157, 0.09) 0px 1px 1px 0px, rgba(157, 157, 157, 0.09) 0px 1px 3px 1px;
+    --b3-light-shadow: rgba(193, 193, 193, 0.2) 0px 1px 2px 0px, rgba(193, 193, 193, 0.2) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: rgba(193, 193, 193, 0.2) 0px 1px 1px 0px, rgba(193, 193, 193, 0.2) 0px 1px 3px 1px;
 }
 :root {
     --QYL-blockquote: #9194a0;
@@ -101,18 +101,4 @@
 }
 [data-theme-mode="dark"] .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus {
     --QYL-immerse-fusion-fix-3: var(--QYL-hover);
-}
-#layouts .layout__resize--lr {
-    width: 10px;
-}
-#layouts .layout__resize.layout__resize--lr::after {
-    width: var(--QYL-midnight-resize-fix-1, 10px) !important;
-    transform: translateX(var(--QYL-midnight-resize-fix-2, 0px)) !important;
-}
-#layouts .layout__resize:not(.layout__resize--lr) {
-    height: 10px;
-}
-#layouts .layout__resize:not(.layout__resize--lr)::after {
-    height: var(--QYL-midnight-resize-fix-1, 10px) !important;
-    transform: translateY(var(--QYL-midnight-resize-fix-3, 0px)) !important;
 }
