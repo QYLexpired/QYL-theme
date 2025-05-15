@@ -78,12 +78,6 @@
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     background-color: rgba(97, 118, 222, 0.15);
 }
-.protyle-wysiwyg [data-node-id].li:hover::before {
-    border-left: 1.5px solid var(--QYL-fog-primary-fix);
-}
-.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
-    color: var(--QYL-fog-primary-fix);
-}
 .b3-list-item:hover.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
     background-color: var(--QYL-fog-primary-fix);
 }
