@@ -242,7 +242,6 @@ div[data-key="dialog-setting"] .b3-dialog__container .config__tab-wrap .config-b
 .tooltip.tooltip--memo {
     box-shadow: none !important;
     border: 1px solid var(--b3-theme-surface-lighter);
-    background-color: rgb(244, 247, 255);
 }
 /* 编辑器工具栏 */
 .protyle-toolbar {

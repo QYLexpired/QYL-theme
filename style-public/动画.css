@@ -89,10 +89,6 @@
 .protyle-toolbar button, .protyle-hint .b3-list-item{
     animation: QYLbounceRight2 0.15s;
 }
-/* 任务列表动画 */
-.protyle-wysiwyg .li.protyle-task--done > .protyle-action--task::before, .av__cell-check::before {
-    animation: QYLpopout 0.2s forwards;
-}
 /* 侧栏图标动画 */
 .block__logo {
     animation: QYLbounceRight 0.5s;
@@ -199,4 +195,175 @@ body > div.block__popover.block__popover--open {
 }
 #barWorkspace::before {
     display: block !important;
+}
+/* 旋转动画 */
+@keyframes QYLspin {
+    0% { 
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(190deg) scale(1.2);
+      }
+      70% {
+        transform: rotate(340deg) scale(0.95);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+}
+.protyle-wysiwyg [data-node-id][data-subtype="o"].li:hover>.protyle-action {
+    animation: QYLspin 0.15s linear;
+}
+/* 超链接动效 */
+.protyle-wysiwyg [data-node-id] span[data-type~=a] {
+    background-image: linear-gradient(to right, var(--QYL-link) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        color: var(--QYL-white);
+        background-position: 0 0;
+        border-bottom: 0.5px solid;
+    }
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext) {
+    background-image: linear-gradient(to right, var(--QYL-ref) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        color: var(--QYL-white);
+        background-position: 0 0;
+        border-bottom: 0.5px solid;
+    }
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    background-image: linear-gradient(to right, var(--QYL-PDFmark) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        color: var(--QYL-white);
+        background-position: 0 0;
+        border-bottom: 0.5px solid;
+    }
+}
+.b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
+    background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-hover) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        color: var(--QYL-white);
+        background-position: 0 0;
+    }
+}
+/* 列表辅助线 */
+@keyframes QYLlihelpenter {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    85% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
+    animation: QYLlihelpenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+}
+/* 背景光效动画 */
+@keyframes QYLglow {
+    from {
+        background-position: 100% 0;
+      }
+      to {
+        background-position: -100% 0;
+      }
+}
+@keyframes QYLtaskenter1 {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    85% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+@keyframes QYLtaskenter2 {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    85% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
+    background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary-lighter) 40%,var(--b3-theme-primary-lighter) 60%,transparent 75%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    animation: QYLglow 1s cubic-bezier(0.9, 0, 0.5, 1) forwards;
+    & > .protyle-action--task {
+        animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    }
+}
+.protyle-wysiwyg [data-node-id][data-subtype="t"].li:not(.protyle-task--done) {
+    & > .protyle-action--task {
+        animation: QYLtaskenter2 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    }
+}
+/* 分割线动效 */
+@keyframes QYLhrenter {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+.protyle-wysiwyg [data-node-id].hr {
+    animation: QYLhrenter 0.3s cubic-bezier(0.9, 0, 0.5, 1);
+}
+/* 块标 */
+.protyle-gutters {
+    animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }

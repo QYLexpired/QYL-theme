@@ -1,4 +1,50 @@
 /* 状态栏 */
+@keyframes QYLstatusswitch1 {
+    0% {
+      transform: translateX(var(--QYL-status-transformX)) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(var(--QYL-status-transformX)) scale(0.95);
+    }
+    85% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1.02);
+    }
+    100% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1);
+    }
+}
+@keyframes QYLstatusswitch2 {
+    0% {
+      transform: translateX(var(--QYL-status-transformX)) scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(var(--QYL-status-transformX)) scale(0.95);
+    }
+    85% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1.02);
+    }
+    100% {
+      transform: translateX(var(--QYL-status-transformX)) scale(1);
+    }
+}
+@media (min-width: 630px) {
+    #status {
+        animation: QYLstatusswitch1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        &.QYLstatushidden {
+            animation: QYLstatusswitch2 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        }
+    }
+}
 @media (max-width: 630px) {
     #status {
         border: none;
@@ -11,6 +57,7 @@
     #status {
         position: fixed;
         right: -9px;
+        transform: translateX(var(--QYL-status-transformX));
         backface-visibility: hidden;
         bottom: 12px;
         border-radius: var(--b3-border-radius);
