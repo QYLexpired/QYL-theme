@@ -2576,7 +2576,7 @@ document.addEventListener('keydown', function(event) {
 const QYLStatusPositionManager = (() => {
     const QYL_MAX_RETRIES = 5;
     const QYL_BASE_DELAY = 300;
-    let QYL_retryCount = 0;    
+    let QYL_retryCount = 0; 
     class QYLCoreManager {
         constructor() {
             this.QYL_layout = null;
@@ -2594,16 +2594,14 @@ const QYLStatusPositionManager = (() => {
                     const status = document.getElementById('status');
                     return layout && status ? resolve({ layout, status }) : null;
                 };
-
                 const QYL_recursiveCheck = () => {
                     if (QYL_retryCount >= QYL_MAX_RETRIES) {
-                        reject(new Error('QYL Elements not found'));
+                        reject(new Error('Elements not found'));
                         return;
                     }
                     QYL_retryCount++;
                     QYL_check() || setTimeout(QYL_recursiveCheck, QYL_BASE_DELAY * Math.pow(2, QYL_retryCount));
                 };
-
                 QYL_check() || QYL_recursiveCheck();
             });
         }
@@ -2613,9 +2611,8 @@ const QYLStatusPositionManager = (() => {
             try {
                 const rect = this.QYL_layout.getBoundingClientRect();
                 const offset = window.innerWidth - rect.right + 15;
-                this.QYL_status.style.transform = `translateX(-${offset}px)`;
+                this.QYL_status.style.setProperty('--QYL-status-transformX', `-${offset}px`);
             } catch (error) {
-                console.error('QYL Calculation Error:', error);
                 this.QYL_scheduleRecovery();
             }
         }
@@ -2665,22 +2662,17 @@ const QYLStatusPositionManager = (() => {
                 requestAnimationFrame(() => this.QYL_calculatePosition());
                 this.QYL_isActive = true;
             } catch (error) {
-                console.error('QYL Init Failed:', error);
                 this.QYL_scheduleRecovery();
             }
         }
         QYL_validateElements() {
-            const isValid = [this.QYL_layout, this.QYL_status].every(
+            return [this.QYL_layout, this.QYL_status].every(
                 el => el?.isConnected
             );
-            !isValid && console.warn('QYL Elements Missing');
-            return isValid;
         }
-
         QYL_scheduleRecovery() {
             if (!this.QYL_isActive) return;
             
-            console.log('QYL Attempting Recovery...');
             QYL_retryCount = 0;
             setTimeout(() => {
                 this.QYL_cleanup();
@@ -2714,11 +2706,8 @@ const QYLStatusInitialize = () => {
     const init = () => {
         if (document.querySelector('#layouts') && document.getElementById('status')) {
             QYLStatusPositionManager.QYL_getInstance();
-        } else {
-            console.warn('QYL Required Elements Missing');
         }
     };
-    
     if (document.readyState !== 'loading') {
         init();
     } else {

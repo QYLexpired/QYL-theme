@@ -65,6 +65,7 @@ const I18N = {
         QYLxyyps: ' 配色：象牙',
         QYLshhps: ' 配色：珊瑚',
         QYLbhps: ' 配色：薄荷',
+        QYLqnps: ' 配色：青柠',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
     },
@@ -100,6 +101,7 @@ const I18N = {
         QYLxyyps: ' Ivory Theme',
         QYLshhps: ' Coral Theme',
         QYLbhps: ' Mint Theme',
+        QYLqnps: ' Lime Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
     },
@@ -135,6 +137,7 @@ const I18N = {
         QYLxyyps: ' 配色：象牙',
         QYLshhps: ' 配色：珊瑚',
         QYLbhps: ' 配色：薄荷',
+        QYLqnps: ' 配色：青柠',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
     },
@@ -220,6 +223,7 @@ let isChecked21;
 let isChecked22;
 let isChecked23;
 let isChecked24;
+let isChecked25;
 let isChecked30;
 let isChecked31;
 let isChecked32;
@@ -523,6 +527,17 @@ function createSettingsWindow() {
     label24.style.fontSize = '14px';
     label24.style.userSelect= 'none';
 
+    const checkbox25 = document.createElement('input');
+    checkbox25.type = 'checkbox';
+    checkbox25.id = 'QYLLime-checkbox';
+    checkbox25.checked = isChecked25;
+
+    const label25 = document.createElement('label');
+    label25.htmlFor = 'QYLLime-checkbox';
+    label25.textContent = i18n.QYLqnps;
+    label25.style.fontSize = '14px';
+    label25.style.userSelect= 'none';
+
     const checkbox30 = document.createElement('input');
     checkbox30.type = 'checkbox';
     checkbox30.id = 'QYLlmemory-checkbox';
@@ -756,6 +771,12 @@ function createSettingsWindow() {
     QYLfunctionpair24.appendChild(label24);
     QYLfunctionpair24.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair25 = document.createElement('div');
+    QYLfunctionpair25.className = 'checkbox-label-pair';
+    QYLfunctionpair25.appendChild(checkbox25);
+    QYLfunctionpair25.appendChild(label25);
+    QYLfunctionpair25.style.animation = 'QYLbounceRight2 0.1s';
+
     const QYLfunctionpair30 = document.createElement('div');
     QYLfunctionpair30.className = 'checkbox-label-pair';
     QYLfunctionpair30.appendChild(checkbox30);
@@ -887,6 +908,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair33);
     settingsWindow.appendChild(QYLfunctionpair36);
     settingsWindow.appendChild(QYLfunctionpair37);
+    settingsWindow.appendChild(QYLfunctionpair25);
 
 
 // 将设置窗口添加到body
@@ -923,6 +945,7 @@ async function saveConfig() {
         isChecked22: checkbox22.checked,
         isChecked23: checkbox23.checked,
         isChecked24: checkbox24.checked,
+        isChecked25: checkbox25.checked,
         isChecked30: checkbox30.checked,
         isChecked31: checkbox31.checked,
         isChecked32: checkbox32.checked,
@@ -1112,6 +1135,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1136,6 +1160,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1160,6 +1185,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1184,6 +1210,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1208,6 +1235,7 @@ checkbox16.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1232,6 +1260,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1256,6 +1285,7 @@ checkbox19.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1280,6 +1310,7 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1304,6 +1335,7 @@ checkbox31.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1328,6 +1360,7 @@ checkbox32.addEventListener('change', async function() {
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1352,6 +1385,7 @@ checkbox33.addEventListener('change', async function() {
     if (isChecked32 === true) { checkbox32.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1376,6 +1410,7 @@ checkbox36.addEventListener('change', async function() {
     if (isChecked32 === true) { checkbox32.click(); }
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1400,6 +1435,32 @@ checkbox37.addEventListener('change', async function() {
     if (isChecked32 === true) { checkbox32.click(); }
     if (isChecked33 === true) { checkbox33.click(); }
     if (isChecked36 === true) { checkbox36.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 青柠配色开关
+checkbox25.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLLime() : disableQYLLime();
+    state ? isChecked25 = true : isChecked25 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    if (isChecked33 === true) { checkbox33.click(); }
+    if (isChecked36 === true) { checkbox36.click(); }
+    if (isChecked37 === true) { checkbox37.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2411,6 +2472,28 @@ function disableQYLmint() {
     }
 }
 
+// 开启青柠配色
+function enableQYLLime() {
+    let linkElement = document.getElementById("QYLLime-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLLime-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/青柠配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭青柠配色
+function disableQYLLime() {
+    const linkElement = document.getElementById("QYLLime-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启扁平化风格
 function enableQYLflatstyle() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -2773,6 +2856,14 @@ async function loadAndCheckConfig() {
             isChecked24 = false;
         }
 
+        if (config?.isChecked25 === true) {
+            enableQYLLime();
+            isChecked25 = true;
+        } else if (config?.isChecked25 === false) {
+            disableQYLLime();
+            isChecked25 = false;
+        }
+
         if (config?.isChecked30 === true) {
             enableQYLmemory();
             isChecked30 = true;
@@ -2935,7 +3026,7 @@ document.addEventListener('keydown', function(event) {
 const QYLStatusPositionManager = (() => {
     const QYL_MAX_RETRIES = 5;
     const QYL_BASE_DELAY = 300;
-    let QYL_retryCount = 0;    
+    let QYL_retryCount = 0; 
     class QYLCoreManager {
         constructor() {
             this.QYL_layout = null;
@@ -2953,16 +3044,14 @@ const QYLStatusPositionManager = (() => {
                     const status = document.getElementById('status');
                     return layout && status ? resolve({ layout, status }) : null;
                 };
-
                 const QYL_recursiveCheck = () => {
                     if (QYL_retryCount >= QYL_MAX_RETRIES) {
-                        reject(new Error('QYL Elements not found'));
+                        reject(new Error('Elements not found'));
                         return;
                     }
                     QYL_retryCount++;
                     QYL_check() || setTimeout(QYL_recursiveCheck, QYL_BASE_DELAY * Math.pow(2, QYL_retryCount));
                 };
-
                 QYL_check() || QYL_recursiveCheck();
             });
         }
@@ -2972,9 +3061,8 @@ const QYLStatusPositionManager = (() => {
             try {
                 const rect = this.QYL_layout.getBoundingClientRect();
                 const offset = window.innerWidth - rect.right + 15;
-                this.QYL_status.style.transform = `translateX(-${offset}px)`;
+                this.QYL_status.style.setProperty('--QYL-status-transformX', `-${offset}px`);
             } catch (error) {
-                console.error('QYL Calculation Error:', error);
                 this.QYL_scheduleRecovery();
             }
         }
@@ -3024,22 +3112,17 @@ const QYLStatusPositionManager = (() => {
                 requestAnimationFrame(() => this.QYL_calculatePosition());
                 this.QYL_isActive = true;
             } catch (error) {
-                console.error('QYL Init Failed:', error);
                 this.QYL_scheduleRecovery();
             }
         }
         QYL_validateElements() {
-            const isValid = [this.QYL_layout, this.QYL_status].every(
+            return [this.QYL_layout, this.QYL_status].every(
                 el => el?.isConnected
             );
-            !isValid && console.warn('QYL Elements Missing');
-            return isValid;
         }
-
         QYL_scheduleRecovery() {
             if (!this.QYL_isActive) return;
             
-            console.log('QYL Attempting Recovery...');
             QYL_retryCount = 0;
             setTimeout(() => {
                 this.QYL_cleanup();
@@ -3073,11 +3156,8 @@ const QYLStatusInitialize = () => {
     const init = () => {
         if (document.querySelector('#layouts') && document.getElementById('status')) {
             QYLStatusPositionManager.QYL_getInstance();
-        } else {
-            console.warn('QYL Required Elements Missing');
         }
     };
-    
     if (document.readyState !== 'loading') {
         init();
     } else {
