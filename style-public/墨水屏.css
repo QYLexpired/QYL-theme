@@ -36,6 +36,9 @@
     border: 1.5px solid var(--b3-theme-primary-lighter);
 }
 /* 菜单 */
+#QYLsettings-window {
+    border: 1.5px solid var(--b3-theme-primary) !important;
+}
 .b3-menu, .b3-menu__submenu {
     border: 1.5px solid var(--b3-theme-primary);
 }

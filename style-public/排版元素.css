@@ -214,7 +214,6 @@ div.protyle-action.protyle-action--task svg {
 .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
     content: "" !important;
     position: absolute;
-    left: 6px;
     width: 34px;
     height: 25px;
     background-color: var(--QYL-task-block);
@@ -229,7 +228,9 @@ div.protyle-action.protyle-action--task svg {
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/勾选.svg');
     -webkit-mask-repeat: no-repeat;
-
+}
+.av__cell-check::before, .av__cell-uncheck::before {
+    animation: none !important;
 }
 .protyle-task--done>div[data-node-id].p {
     color: var(--QYL-task-done) !important;

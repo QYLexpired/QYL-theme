@@ -54,9 +54,6 @@
     border-top: none;
 }
 /* 菜单 */
-.b3-menu, .b3-menu__item, .b3-menu__submenu {
-    background-color: var(--b3-theme-background);
-}
 .b3-menu__item {
     line-height: 26px;
 }
@@ -100,7 +97,11 @@
 }
 /* 同步菜单 */
 [data-key="dialog-syncchoosedirection"] .b3-dialog__container {
-    background-color: var(--b3-theme-background);
+    --b3-theme-surface: var(--b3-theme-background);
+    & .b3-dialog__body .b3-dialog__content .b3-label > div {
+        font-weight: bold;
+        color: var(--b3-theme-primary);
+    }
 }
 
 /* 图片查看器 */

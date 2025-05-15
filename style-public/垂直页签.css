@@ -29,6 +29,10 @@
             border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
             & .item {
                 width: 90%;
+                margin: 3px 0;
+                &:first-child {
+                    margin-top: 6px;
+                }
             }
             & .item__close {
                 margin-left: auto;

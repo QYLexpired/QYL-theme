@@ -6,12 +6,12 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 .toolbar {
     background-color: var(--QYL-immerse-toolbar);
+    & > * {
+        transform: translateY(0px);
+    }
 }
 .toolbar__item, .toolbar #drag {
     color: var(--b3-theme-on-primary);
-}
-#QToolbar {
-    --b3-toolbar-color: var(--b3-theme-on-primary);
 }
 #barWorkspace {
     background-color: rgba(255, 0, 0, 0);
@@ -19,12 +19,7 @@ body:not(.body--mobile,.body--window) #layouts {
         color: var(--b3-theme-on-primary) !important;
     }
 }
-.toolbar #QToolbar:hover {
-    background-color: var(--b3-theme-surface) !important;
-    --b3-toolbar-color: var(--QYL-immerse-toolbar) !important;
-
-}
-.toolbar .toolbar__item:not(#closeWindow, #barWorkspace, #QToolbar):hover {
+.toolbar .toolbar__item:not(#closeWindow, #barWorkspace):hover {
     background-color: var(--b3-theme-surface) !important;
     color: var(--QYL-immerse-toolbar) !important;
 }
@@ -33,6 +28,9 @@ body:not(.body--mobile,.body--window) #layouts {
 }
 #layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
     transform: translateY(var(--QYL-immerse-fusion-fix-2));
+    & + .layout-tab-bar.layout-tab-bar--readonly {
+        transform: translateY(var(--QYL-immerse-fusion-fix-2));
+    }
 }
 #layouts .layout-tab-bar .item--readonly :is([data-type="new"], [data-type="more"]) {
     --b3-toolbar-color: var(--b3-theme-on-primary);
@@ -58,21 +56,13 @@ body:not(.body--mobile,.body--window) #layouts {
 [data-theme-mode="dark"] .toolbar__item, [data-theme-mode="dark"] .toolbar #drag {
     color: var(--b3-toolbar-color);
 }
-[data-theme-mode="dark"] #QToolbar {
-    --b3-toolbar-color: var(--b3-theme-on-surface);
-}
 [data-theme-mode="dark"] #barWorkspace {
     background-color: rgba(255, 0, 0, 0);
     & span.toolbar__text {
         color: var(--b3-toolbar-color) !important;
     }
 }
-[data-theme-mode="dark"] .toolbar #QToolbar:hover {
-    background-color: var(--b3-theme-on-surface) !important;
-    --b3-toolbar-color: var(--QYL-immerse-toolbar) !important;
-
-}
-[data-theme-mode="dark"] .toolbar .toolbar__item:not(#closeWindow, #barWorkspace, #QToolbar):hover {
+[data-theme-mode="dark"] .toolbar .toolbar__item:not(#closeWindow, #barWorkspace):hover {
     background-color: var(--b3-toolbar-color) !important;
     color: var(--QYL-immerse-toolbar) !important;
 }

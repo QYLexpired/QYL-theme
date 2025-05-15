@@ -315,6 +315,11 @@
 .memo-timeline .timeline-container .timeline-item .timeline-content .memo-card {
     border: none !important;
     box-shadow: var(--b3-light-shadow);
+    transition: transform .2s,box-shadow .2s;
+    &:hover {
+        box-shadow: var(--b3-point-shadow) !important;
+        transform: translateY(-2px);
+    }
 }
 .memo-timeline .timeline-container:before {
     width: 2px !important;
@@ -341,6 +346,13 @@
         box-shadow: var(--b3-point-shadow) !important;
     }
 }
+.enCommentListContainerContent .enCommentListContainerContentHistoryCommentList .historyCommentList[data-v-211a7abd] .arco-card {
+    border: none !important;
+    box-shadow: var(--b3-light-shadow) !important;
+    &:hover {
+        box-shadow: var(--b3-point-shadow) !important;
+    }
+}
 .gallery-content .gallery-item .gallery-item-footer .gallery-item-actions .action-icon:hover,
 .card-content .memo-card-item .memo-card-header .memo-card-actions .action-icon:hover,
 .memo-timeline .timeline-container .timeline-item .timeline-content .memo-card .card-actions .action-icon:hover,
@@ -353,6 +365,15 @@
 .display-mode-switcher .switcher-options .switcher-option {
     border: 1px solid var(--b3-theme-surface-lighter);
     background-color: var(--b3-theme-surface);
+}
+.EnDockHeader[data-v-d1ec325e] {
+    height: 42px;
+    padding: 0 8px !important;
+    border-bottom: none !important;
+    & .enSettingItemAreaHeading {
+        font-size: 14px !important;
+        margin-left: 8px;
+    }
 }
 /* 手机端 */
 .QYLmobile .enToolbar {

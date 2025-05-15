@@ -3,7 +3,7 @@
 }
 /* 文档树 */
 .QYLmobile #sidebar > .toolbar--border {
-    margin: 6px 6px 6px 6px;
+    margin: 4px 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -19,7 +19,7 @@
     }
 }
 .QYLmobile #sidebar .fn__flex-column:is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"], [data-type="sidebar-backlink"], [data-type="sidebar-inbox"], [data-type="sidebar-plugin"]) {
-    margin: 0 6px 6px 6px;
+    margin: 0 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
@@ -31,7 +31,7 @@
     background-color: var(--b3-theme-surface);
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__title {
-    margin: 6px 6px 6px 6px;
+    margin: 4px 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     border: none;
     color: var(--b3-theme-primary);
@@ -41,7 +41,7 @@
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__items {
     padding: 0 0;
-    margin: 0 6px 6px 6px;
+    margin: 0 4px 4px 4px;
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__item {
     margin: 0;
@@ -69,7 +69,7 @@
     border-radius: var(--b3-border-radius);
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__separator {
-    height: 6px;
+    height: 4px;
     border: none;
 }
 .QYLmobile :is(#menu, #commonMenu) .b3-menu__item:first-child:last-child {
@@ -102,7 +102,7 @@
 
 /*  主要页面 */
 .QYLmobile #model > .toolbar--border {
-    margin: 6px 6px 6px 6px;
+    margin: 4px 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -110,7 +110,7 @@
       }
 }
 .QYLmobile #model #modelMain {
-    margin: 0 6px 6px 6px;
+    margin: 0 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-background);
 }
@@ -123,7 +123,7 @@
     border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
 }
 .QYLmobile #searchAssetList {
-    margin-top: 6px;
+    margin-top: 4px;
     border-radius: var(--b3-border-radius);
 }
 .QYLmobile #searchAssetList .b3-list-item {
@@ -132,7 +132,7 @@
 }
 .QYLmobile #searchAssetPreview {
     border: none !important;
-    margin-top: 6px;
+    margin-top: 4px;
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
 
@@ -143,7 +143,7 @@
 
 /* 闪卡 */
 .QYLmobile [data-key="dialog-opencard"] .card__main .toolbar--border {
-    margin: 6px 6px 6px 6px;
+    margin: 4px 4px 4px 4px;
     color: var(--b3-theme-primary);
     border-radius: var(--b3-border-radius);
     & .toolbar__icon {
@@ -151,12 +151,12 @@
     }
 }
 .QYLmobile [data-key="dialog-opencard"] .card__block {
-    margin: 0 6px 0 6px;
+    margin: 0 4px 0 4px;
 }
 
 /* 编辑器 */
 .QYLmobile .toolbar--border:has(+ #editor ) {
-    margin: 6px 6px 6px 6px;
+    margin: 4px 4px 4px 4px;
     border-radius: var(--b3-border-radius);
     color: var(--b3-theme-primary);
       & .toolbar__icon {
@@ -167,7 +167,7 @@
       }
 }
 .QYLmobile #editor {
-    margin: 0 6px 6px 6px;
+    margin: 0 4px 4px 4px;
     border-radius: var(--b3-border-radius);
 }
 .QYLmobile .QYLcssinput {
@@ -315,5 +315,17 @@
         color: transparent !important;
         background-size: contain !important;
         caret-color: gold;
+    }
+}
+
+/* 隐藏不适配设置项 */
+.QYLmobile #QYLsettings-window {
+    & .checkbox-label-pair {
+        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLanimation-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox)) {
+            display: none;
+        }
+    }
+    & hr:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(5)) {
+        display: none;
     }
 }
