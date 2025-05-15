@@ -241,11 +241,11 @@ function createSettingsWindow() {
     settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
     settingsWindow.style.backdropFilter = 'var(--QYL-Aero-filter)';
     settingsWindow.style.padding = '6px';
-    settingsWindow.style.border = 'none';
+    settingsWindow.style.border = '1px solid var(--b3-theme-surface-lighter)';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
     settingsWindow.style.borderRadius = 'var(--b3-border-radius)';
-    settingsWindow.style.maxHeight = '80vh';
+    settingsWindow.style.maxHeight = '70vh';
     settingsWindow.style.overflowY = 'auto';
 
     const toolbar = document.getElementById('QToolbar');
@@ -1808,7 +1808,7 @@ function enablecolorfulfiletree() {
         linkElement = document.createElement("link");
         linkElement.id = "colorfulfiletree-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/QYL-theme/style-light/多彩文档树-light.css";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/多彩文档树.css";
         document.head.appendChild(linkElement);
     }
 }
@@ -2421,7 +2421,7 @@ function enableQYLflatstyle() {
         linkElement = document.createElement("link");
         linkElement.id = "QYLflatstyle-style";
         linkElement.rel = "stylesheet";
-        linkElement.href = "/appearance/themes/QYL-theme/style-light/扁平化风格-light.css";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/扁平化风格.css";
         document.head.appendChild(linkElement);
     }
 }
