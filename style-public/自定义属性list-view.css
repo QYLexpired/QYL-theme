@@ -236,8 +236,21 @@ div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{
 .protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="u"]>.protyle-action svg{
 	color:unset;
 }
-
-
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"]>.protyle-action--task svg {
+    color: var(--b3-theme-primary) !important;
+}
+/* 修复导出错误 */
+[data-key="dialog-exportimage"], #preview {
+    & .list[custom-list-view="脑图"][data-node-id] .li[data-subtype="u"]>.protyle-action {
+        left: -15.5px;
+    }
+    & .list[custom-list-view="脑图"][data-node-id] .li[data-subtype="o"]>.protyle-action {
+        left: 15.5px;
+    }
+    & .list[custom-list-view="脑图"][data-node-id] .li[data-subtype="t"]>.protyle-action {
+        left: 0px;
+    }
+}
 
 /*————————————————————列表转看板————————————————————*/
 .protyle-wysiwyg .list[custom-list-view="看板"][data-node-id][data-type="NodeList"] {

@@ -157,13 +157,8 @@
     color: var(--b3-theme-primary);
 }
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
-    width: 22px;
-    height: 22px;
-    border-radius: 99px;
-    top: 40%;
-    left: 42%;
+    border-radius: 50%;
     background-color: var(--b3-theme-primary-lighter);
-    transition: var(--b3-background-transition);
 }
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action:hover::after {
     background-color: var(--b3-theme-primary-lighter);
@@ -213,6 +208,7 @@ div.protyle-action.protyle-action--task svg {
     position: absolute;
     width: 34px;
     height: 25px;
+    left: 5px;
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/未勾选.svg');
     -webkit-mask-repeat: no-repeat;
@@ -222,6 +218,7 @@ div.protyle-action.protyle-action--task svg {
     position: absolute;
     width: 34px;
     height: 25px;
+    left: 5px;
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/勾选.svg');
     -webkit-mask-repeat: no-repeat;
