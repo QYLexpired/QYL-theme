@@ -3108,6 +3108,10 @@ const QYLlihelp = (function() {
         button.appendChild(QYLNodeListsub(selectid))
       }
 
+      else if (selecttype === "NodeBlockquote") {//准备创建引述块的二级菜单
+        button.appendChild(QYLNodeBlockquotesub(selectid))
+      }
+
       else if (selecttype === "NodeSuperBlock" && selectsbLayout === "col") {//准备创建水平排列超级块的二级菜单
         button.appendChild(QYLNodeSuperBlockcolsub(selectid))
       }
@@ -3383,6 +3387,168 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+    }
+}
+
+/* -----------------------------------------引述块------------------------------------- */
+function QYLNodeBlockquotesub(selectid) {//创建引述块二级菜单
+    let div = document.createElement("div")
+    div.id = "QYLNodeBlockquotesub"
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLNodeBlockquotesubitems(selectid))//准备创建引述块二级菜单的b3-menu__items
+    return div
+
+    function QYLNodeBlockquotesubitems(selectid) {//创建引述块二级菜单的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+        div.appendChild(QYLattrbqcalloutcoloritem(selectid))//准备创建CallOut颜色选项
+        div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+        div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
+        div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+        div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+        return div
+    }
+}
+function QYLattrbqcalloutcoloritem(selectid) {//创建CallOut颜色选项
+    let button = document.createElement('button');
+    button.className = "b3-menu__item"
+    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label" style="">CallOut颜色</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(QYLattrbqcalloutcolorsub(selectid))//准备创建CallOut颜色选项的二级菜单
+    return button
+}
+function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二级菜单
+    let div = document.createElement('div');
+    div.className = "b3-menu__submenu"
+    div.appendChild(QYLattrbqcalloutcolorsubitems(selectid))//准备创建CallOut颜色选项的b3-menu__items
+    return div
+
+    function QYLattrbqcalloutcolorsubitems(selectid) {//创建CallOut颜色选项的b3-menu__items
+        let div = document.createElement("div")
+        div.className = "b3-menu__items"
+        div.appendChild(QYLattrbqcalloutred(selectid))//红色
+        div.appendChild(QYLattrbqcalloutorange(selectid))//橙色
+        div.appendChild(QYLattrbqcalloutyellow(selectid))//黄色
+        div.appendChild(QYLattrbqcalloutgreen(selectid))//绿色
+        div.appendChild(QYLattrbqcalloutcyan(selectid))//青色
+        div.appendChild(QYLattrbqcalloutblue(selectid))//蓝色
+        div.appendChild(QYLattrbqcalloutpurple(selectid))//紫色
+        div.appendChild(QYLattrbqcalloutpink(selectid))//粉色
+        div.appendChild(QYLattrbqcalloutblack(selectid))//黑色
+        div.appendChild(QYLattrbqcalloutgray(selectid))//灰色
+        div.appendChild(QYLattrbqcalloutdelete(selectid))//默认
+        return div
+
+        function QYLattrbqcalloutred(selectid) {//红色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "红色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">红色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutorange(selectid) {//橙色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "橙色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">橙色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutyellow(selectid) {//黄色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "黄色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">黄色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutgreen(selectid) {//绿色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "绿色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">绿色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutcyan(selectid) {//青色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "青色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">青色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutblue(selectid) {//蓝色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "蓝色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">蓝色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutpurple(selectid) {//紫色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "紫色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">紫色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutpink(selectid) {//粉色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "粉色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">粉色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutblack(selectid) {//黑色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "黑色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">黑色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutgray(selectid) {//灰色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "灰色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">灰色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutdelete(selectid) {//默认
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout-color")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">默认</span><span class="b3-menu__accelerator">组别1</span>`
             button.onclick = QYLcustomattrset
             return button
         }
