@@ -197,3 +197,9 @@
     color: var(--QYL-av-chip-color14) !important;
     background-color: var(--QYL-av-chip-background14) !important;
 }
+
+
+/* 细节修复 */
+.av__views > [data-type="av-search-icon"] + div > input:is([style*="width: 0"], [style*="width:0"]) {
+    opacity: 0;
+}

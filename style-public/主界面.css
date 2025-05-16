@@ -164,10 +164,7 @@
         color: var(--b3-theme-primary);
     }
 }
-body.fn__flex-column {
-    background-color: var(--b3-theme-surface);
-}
-body #layouts {
+#layouts {
     border: none;
     background-color: var(--b3-theme-surface);
     padding: 6px 0 6px 0;
@@ -182,6 +179,9 @@ body #layouts {
     }
     & .block__icons {
         border-bottom: none;
+    }
+    & .graph {
+        background-color: var(--b3-theme-background);
     }
 }
 .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {

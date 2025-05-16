@@ -81,21 +81,23 @@
 .layout__center :not(.av__views) > .layout-tab-bar .item {
     animation: QYLbounceRight 0.5s;
 }
-/* 斜杠菜单动画 */
-.protyle-hint.hint--menu .b3-list-item {
-    animation: QYLbounceRight2 0.15s;
-}
-/* 编辑器工具栏动画 */
-.protyle-toolbar button, .protyle-hint .b3-list-item{
-    animation: QYLbounceRight2 0.15s;
+.layout__center :not(.av__views) > .layout-tab-bar:not(.layout-tab-bar--readonly) .item:active {
+    transform: scale(0.9);
 }
 /* 侧栏图标动画 */
-.block__logo {
-    animation: QYLbounceRight 0.5s;
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__icons .block__icon {
+    display: none;
+}
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__icons:hover .block__icon:not([disabled]) {
+    display: unset;
+    animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 集市卡片动画 */
 .config-bazaar__panel .b3-card {
-    animation: QYLbounceRight2 0.2s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 .config-bazaar__panel .b3-card:hover {
     transform: scale(1.02);
@@ -105,28 +107,24 @@
 }
 /* 自定义属性面板动画 */
 .b3-dialog__body .custom-attr {
-    animation: QYLbounceRight2 0.2s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 搜索面板动画 */
 :is(#searchList, #searchAssetList, #searchUnRefList) .b3-list-item {
-    animation: QYLbounceRight2 0.2s;
-}
-/* 弹出文档动画 */
-body > div.block__popover.block__popover--open {
-    animation: QYLpopout 0.2s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 退出聚焦按钮动画 */
 .protyle-breadcrumb button[data-type="exit-focus"] {
-    animation: QYLbounceRight 0.5s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 文档标题动画 */
 .protyle-title__input {
-    animation: QYLbounceRight2 0.2s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
     color: var(--b3-theme-primary);
 }
 /* 资源图片预览动画 */
 #preview > * {
-    animation: QYLpopout2 0.2s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 #preview > * {
     border-radius: var(--b3-border-radius);
@@ -142,32 +140,28 @@ body > div.block__popover.block__popover--open {
 [data-key="dialog-viewcards"] .fn__flex-1.b3-list div[data-type="card-item"] {
     animation: QYLbounceRight2 0.15s;
 }
-/* 同步面板动画 */
-[data-key="dialog-syncchoosedirection"] .b3-dialog__content .fn__flex.b3-label {
-    animation: QYLbounceRight2 0.15s;
-}
 /* 命令面板动画 */
 [data-key="dialog-commandpanel"] .search__list .b3-list-item {
-    animation: QYLbounceRight2 0.15s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 数据历史动画 */
 [data-key="dialog-history"] :is(.history__side, [data-type="notebook"], [data-type="repo"] ) .b3-list-item {
-    animation: QYLbounceRight2 0.15s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 最近的文档动画 */
 [data-key="dialog-recentdocs"] .b3-list.b3-list--background .b3-list-item {
-    animation: QYLbounceRight2 0.15s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 闪卡内文档树动画 */
 [data-key="dialog-movepathto"] #foldTree li.b3-list-item {
-    animation: QYLbounceRight2 0.15s;
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 代码片段面板动画 */
 [data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__flex input[type="text"] {
-    animation: QYLbounceRight2 0.1s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 [data-key="dialog-snippets"] :is([data-type="js"], [data-type="css"]) .fn__block.b3-text-field {
-    animation: QYLbounceRight2 0.1s;
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 页签悬浮闪光 */
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly) {
@@ -275,10 +269,10 @@ body > div.block__popover.block__popover--open {
 /* 背景光效动画 */
 @keyframes QYLglow {
     from {
-        background-position: 100% 0;
+        background-position: -100% 0;
       }
       to {
-        background-position: -100% 0;
+        background-position: 150% 0;
       }
 }
 @keyframes QYLtaskenter1 {
@@ -290,10 +284,10 @@ body > div.block__popover.block__popover--open {
       transform: scale(1.2);
       opacity: 1;
     }
-    70% {
+    60% {
       transform: scale(0.9);
     }
-    85% {
+    90% {
       transform: scale(1.05);
     }
     100% {
@@ -325,11 +319,11 @@ body > div.block__popover.block__popover--open {
 .protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
     background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary-lighter) 40%,var(--b3-theme-primary-lighter) 60%,transparent 75%);
     background-size: 200% 100%;
-    background-position: 100% 0;
+    background-position: 0 0;
     background-repeat: no-repeat;
     animation: QYLglow 1s cubic-bezier(0.9, 0, 0.5, 1) forwards;
     & > .protyle-action--task {
-        animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        animation: QYLtaskenter1 1.5s cubic-bezier(0.4, 0.3, 0.8, 0.6)
     }
 }
 .protyle-wysiwyg [data-node-id][data-subtype="t"].li:not(.protyle-task--done) {
@@ -343,13 +337,163 @@ body > div.block__popover.block__popover--open {
       transform: translateX(-100%);
     }
     to {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
-  }
+}
 .protyle-wysiwyg [data-node-id].hr {
     animation: QYLhrenter 0.3s cubic-bezier(0.9, 0, 0.5, 1);
 }
 /* 块标 */
 .protyle-gutters {
     animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+.protyle-gutters button[data-type="fold"] svg {
+    transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8); 
+}
+
+@keyframes QYLtoolbarenter {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.98);
+    }
+    85% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.protyle-toolbar {
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+@keyframes QYLhintmenuenter {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.01);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.99);
+    }
+    85% {
+        transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.protyle-hint.hint--menu {
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+
+@keyframes QYLtooltipenter {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.01);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.99);
+    }
+    85% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.tooltip {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+
+[class*="b3-tooltips"]::after {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+[data-key="dialog-syncchoosedirection"] .b3-dialog__container {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+#QYLsettings-window {
+    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+body > div.block__popover.block__popover--open {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+#QYLattr, .QYLcssinput {
+    animation: QYLhintmenuenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+}
+.protyle-breadcrumb__bar {
+    & .protyle-breadcrumb__item {
+        animation: QYLtooltipenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+    }
+    & .protyle-breadcrumb__arrow {
+        animation: QYLtooltipenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+    }
+}
+
+@keyframes QYLattrstyleenter {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.01);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.99);
+    }
+    85% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+:is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"],[custom-style*="便签"],[custom-style*="边框"]) {
+    animation: QYLattrstyleenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+}
+.viewer-canvas, .viewer-footer{
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
+}
+.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote)))::before, .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote)))::before {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
+}
+.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6)>[spellcheck]:not(:empty) {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
+}
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
+}
+.protyle-wysiwyg table {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
+}
+[data-key="dialog-confirm"] .b3-dialog__container {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+}
+/* 数据库 */
+.av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
+    background-image: linear-gradient(to right, var(--QYL-av-cell-background-hover) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1) !important;
+        color: var(--QYL-white);
+        background-position: 0 0;
+        border-bottom: 0.5px solid;
+    }
 }

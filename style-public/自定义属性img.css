@@ -43,6 +43,34 @@
 [custom-img-display="九宫格排列"] > div[contenteditable] > span.img:nth-of-type(n+10) {
     display: none;
 }
+@keyframes QYL9enter {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.98);
+    }
+    85% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+@keyframes QYL9in {
+    0% {
+      transform: scale(1.05);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+    }
+}
 [custom-img-display="九宫格排列"] > div[contenteditable]:has(> span.img:nth-of-type(n+10)) {
     & > span.img:nth-of-type(9) > span:has( > img)::after {
         position: absolute;
@@ -59,10 +87,12 @@
         align-items: center;
         aspect-ratio: 1 / 1;
         z-index: 1;
+        animation: QYL9in 0.3s cubic-bezier(0.8, 0, 0.9, 1);
     }
     &:hover {
         & > span.img:nth-of-type(n+10) {
             display: block;
+            animation: QYL9enter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
         }
         & > span.img:nth-of-type(9) > span:has( > img)::after {
             display: none;

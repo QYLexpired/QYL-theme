@@ -1,5 +1,6 @@
 .QYLmobile {
     --b3-menu-background: var(--b3-theme-surface);
+    background-color: var(--b3-theme-surface);
 }
 /* 文档树 */
 .QYLmobile #sidebar > .toolbar--border {
@@ -321,7 +322,7 @@
 /* 隐藏不适配设置项 */
 .QYLmobile #QYLsettings-window {
     & .checkbox-label-pair {
-        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLanimation-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox)) {
+        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox)) {
             display: none;
         }
     }

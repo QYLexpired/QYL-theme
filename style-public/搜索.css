@@ -64,6 +64,7 @@
     & .search__header {
         border-radius: var(--b3-border-radius);
         border: none;
+        margin: 3px 6px 3px 6px;
         & .block__icons {
             border-bottom: none;
         }
@@ -72,10 +73,10 @@
             background-color: rgba(255, 0, 0, 0);
             border-radius: var(--b3-border-radius);
         }
-        &:not(.fn__none) {
+        &:first-of-type {
             margin: 0 6px 3px 6px;
         }
-        &#criteria {
+        &:last-of-type {
             margin: 3px 6px 3px 6px;
         }
     }

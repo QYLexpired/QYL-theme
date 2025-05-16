@@ -85,7 +85,7 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 /* 提示气泡 */
 #tooltip {
     background-color: var(--b3-theme-background);
-    border: 1.5px solid var(--b3-theme-primary);
+    outline: 1.5px solid var(--b3-theme-primary);
     color: var(--b3-theme-primary);
     padding: 2px 3px;
 }
@@ -94,7 +94,7 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 }
 .b3-tooltips::after {
     background-color: var(--b3-theme-background);
-    border: 1.5px solid var(--b3-theme-primary);
+    outline: 1.5px solid var(--b3-theme-primary);
     color: var(--b3-theme-primary);
     padding: 2px 3px;
 }
@@ -105,7 +105,7 @@ div[data-key="dialog-setting"] .config__tab-wrap {
 .b3-snackbar__content {
     margin-top: 10px;
     background-color: var(--b3-theme-background);
-    border: 1.5px solid var(--b3-theme-primary);
+    outline: 1.5px solid var(--b3-theme-primary);
     color: var(--b3-theme-primary)
 }
 .b3-snackbar--error .b3-snackbar__content::after {

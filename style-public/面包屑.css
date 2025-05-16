@@ -56,3 +56,7 @@
       }
     }
 }
+/* 临时解锁 */
+.protyle-breadcrumb .block__icon[aria-label="取消临时解锁"] svg {
+    color: var(--b3-theme-primary);
+}
