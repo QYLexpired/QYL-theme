@@ -27,9 +27,9 @@
     /* 文字颜色 */
     --b3-theme-on-primary: #f6f6f6;
     --b3-theme-on-secondary: #f6f6f6;
-    --b3-theme-on-background: #222a27;
-    --b3-theme-on-surface: #404a46;
-    --b3-theme-on-surface-light: #505a56;
+    --b3-theme-on-background: #1b4846;
+    --b3-theme-on-surface: #275a4f;
+    --b3-theme-on-surface-light: #35645a;
     --b3-theme-on-error: #f6f6f6;
 
     /* 容器阴影 */
