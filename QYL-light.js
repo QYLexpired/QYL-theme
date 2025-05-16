@@ -1747,22 +1747,24 @@ function disablehoverblockremind() {
 }
 
 // 聚焦块高亮
-function enablefocusblockremind() {
-    // 块提示
+function QYLfocusblockhighlight() {
     let cachedEditor = null;
     let lastHighlightedElement = null;
-    function throttle(func, limit) {
+    let throttledHandler = null;
+    let isActive = false;
+    const throttle = (func, limit) => {
         let inThrottle;
         return function() {
-            const args = arguments, context = this;
+            const args = arguments;
+            const context = this;
             if (!inThrottle) {
                 func.apply(context, args);
                 inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+                setTimeout(() => (inThrottle = false), limit);
             }
         };
-    }
-    function handleSelection() {
+    };
+    const handleSelection = () => {
         const selection = window.getSelection();
         if (selection.rangeCount === 0) return;
         const range = selection.getRangeAt(0);
@@ -1770,46 +1772,57 @@ function enablefocusblockremind() {
         const editor = getEditorContainer(node);
         if (!editor) return;
         if (lastHighlightedElement) {
-            lastHighlightedElement.classList.remove('highlight');
+            lastHighlightedElement.classList.remove("QYLfocusblock");
             lastHighlightedElement = null;
         }
-        const targetElement = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement)
-            .closest('[data-node-id]');
-
+        const targetElement = (
+            node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement
+        ).closest("[data-node-id]");
         if (targetElement && editor.contains(targetElement)) {
-            targetElement.classList.add('highlight');
+            targetElement.classList.add("QYLfocusblock");
             lastHighlightedElement = targetElement;
         }
-    }
-    function getEditorContainer(node) {
+    };
+    const getEditorContainer = (node) => {
         if (cachedEditor && cachedEditor.contains(node)) return cachedEditor;
         let element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-        while (element && !element.classList.contains('protyle-wysiwyg')) {
+        while (element && !element.classList.contains("protyle-wysiwyg")) {
             element = element.parentElement;
         }
         cachedEditor = element || cachedEditor;
         return cachedEditor;
-    }
-    document.addEventListener('selectionchange', throttle(handleSelection, 100));
+    };
+    return {
+        start() {
+            if (!isActive) {
+                throttledHandler = throttle(handleSelection, 100);
+                document.addEventListener("selectionchange", throttledHandler);
+                isActive = true;
+            }
+        },
+        stop() {
+            if (isActive) {
+                document.removeEventListener("selectionchange", throttledHandler);
+                if (lastHighlightedElement) {
+                    lastHighlightedElement.classList.remove("QYLfocusblock");
+                    lastHighlightedElement = null;
+                }
+                cachedEditor = null;
+                isActive = false;
+            }
+        }
+    };
+}
+const QYLfocusblock = QYLfocusblockhighlight();
 
-    let styleSheet = document.getElementById("focusblockremind-style");
-    if (!styleSheet) {
-        styleSheet = document.createElement("style");
-        styleSheet.id = "focusblockremind-style";
-        document.head.appendChild(styleSheet);
-    }
-    styleSheet.innerText = `
-    `;
+// 开启聚焦块高亮
+function enablefocusblockremind() {
+    QYLfocusblock.start();
 }
 
-// 取消聚焦块高亮
+// 关闭聚焦块高亮
 function disablefocusblockremind() {
-    const styleSheet = document.getElementById("focusblockremind-style");
-    if (styleSheet) {
-        styleSheet.innerText = `
-            [data-node-id].highlight, [data-node-id].highlight:hover { box-shadow: none !important; transition: none !important; }
-        `;
-    }
+    QYLfocusblock.stop();
 }
 
 // 开启全宽显示功能
