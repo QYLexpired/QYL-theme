@@ -20,6 +20,7 @@
     color: transparent !important;
     background-size: contain !important;
     caret-color: gold;
+    filter: saturate(2.5);
     --QYL-custom-h-style-fix: gold;
     }
 }

@@ -398,11 +398,13 @@ div.protyle-action.protyle-action--task svg {
         bottom: 0;
         text-shadow: 0px 0px 0.15em var(--b3-theme-primary), 0px 0px 0.25em var(--b3-theme-primary) !important;
         color: var(--QYL-fluorescence-font) !important;
+        filter: saturate(3.5);
     }
 }
 span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(--b3-theme-surface-lighter), 3px 3px var(--b3-theme-surface-lighter), 4px 4px var(--b3-theme-surface-lighter)"] {
     text-shadow: 0px 0px 0.15em var(--b3-theme-on-background), 0px 0px 0.25em var(--b3-theme-on-background) !important;
     color: var(--QYL-fluorescence-font) !important;
+    filter: saturate(3.5);
     &[style*="color: var(--b3-font-color1)"] {
         text-shadow: 0px 0px 0.15em var(--b3-font-color1), 0px 0px 0.25em var(--b3-font-color1) !important;  
     }
@@ -458,6 +460,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
 .protyle-wysiwyg :is(.h1, .h2, .h3, .h4, .h5, .h6) > [spellcheck]:not(:empty) span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(--b3-theme-surface-lighter), 3px 3px var(--b3-theme-surface-lighter), 4px 4px var(--b3-theme-surface-lighter)"] {
     text-shadow: 0px 0px 0.15em var(--QYL-fluorescence-h-fix), 0px 0px 0.25em var(--QYL-fluorescence-h-fix) !important;
     color: var(--QYL-fluorescence-font) !important;
+    filter: saturate(3.5);
     &[style*="color: var(--b3-font-color1)"] {
         text-shadow: 0px 0px 0.15em var(--b3-font-color1), 0px 0px 0.25em var(--b3-font-color1) !important;  
     }
@@ -513,6 +516,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
 .protyle-wysiwyg span[data-type~=code][style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(--b3-theme-surface-lighter), 3px 3px var(--b3-theme-surface-lighter), 4px 4px var(--b3-theme-surface-lighter)"] {
     text-shadow: 0px 0px 0.15em var(--QYL-fluorescence-code-fix), 0px 0px 0.25em var(--QYL-fluorescence-code-fix) !important;
     color: var(--QYL-fluorescence-font) !important;
+    filter: saturate(3.5);
     &[style*="color: var(--b3-font-color1)"] {
         text-shadow: 0px 0px 0.15em var(--b3-font-color1), 0px 0px 0.25em var(--b3-font-color1) !important;  
     }
@@ -587,6 +591,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
         color: transparent !important;
         background-size: contain !important;
         caret-color: gold;
+        filter: saturate(2.5);
     }
 }
 span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]:not([data-type~=tag]) {
@@ -597,6 +602,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     color: transparent !important;
     background-size: contain !important;
     caret-color: gold;
+    filter: saturate(2.5);
 }
 .protyle-wysiwyg span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"][data-type~=tag] {
     -webkit-text-stroke: 0 !important;

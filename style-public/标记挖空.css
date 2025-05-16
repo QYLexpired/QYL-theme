@@ -1,26 +1,29 @@
-span[data-type~=mark] {
+.protyle-wysiwyg span[data-type~=mark] {
+    color: transparent !important;
+    border-bottom: 2px solid var(--b3-theme-primary);
     background: transparent !important;
-}
-.b3-typography mark, .b3-typography span[data-type~=mark], 
-.protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
-    color: transparent !important; 
-    border-bottom: 1.5px solid var(--QYL-markcloze-bottom);
-    background-color: transparent !important;
+    background-color: var(--QYL-hover) !important;
     margin-left: 3px;
     margin-right: 3px;
-    padding-bottom: 3px;
+    transition: var(--b3-transition);
+    &:hover {
+        color: unset !important;
+        background: unset !important;
+        background-color: unset!important;
+    }
 }
-.b3-typography mark:hover, .b3-typography span[data-type~=mark]:hover, 
-.protyle-wysiwyg mark:hover, .protyle-wysiwyg span[data-type~=mark]:hover {
-    color: inherit !important;
-    border-bottom: 1.5px solid var(--QYL-markcloze-bottom);
-    background-color: transparent !important;
-    margin-left: 3px;
-    margin-right: 3px;
-    padding-bottom: 3px;
-}
-.card__block--hidemark span[data-type~=mark]::before {
-    content: "________";
-    visibility: hidden;
-    white-space: nowrap;
+.card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark] {
+    display: inline-block;
+    font-size: unset !important;
+    transition: none !important;
+    width: 40px !important;
+    height: 1em !important;
+    &:hover {
+        color: transparent !important;
+        background: transparent !important;
+        background-color: var(--QYL-hover) !important;
+    }
+    &::before {
+        display: none;
+    }
 }

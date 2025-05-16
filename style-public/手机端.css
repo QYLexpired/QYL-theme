@@ -296,6 +296,7 @@
         bottom: 0;
         text-shadow: 0px 0px 0.15em var(--b3-theme-primary), 0px 0px 0.25em var(--b3-theme-primary) !important;
         color: var(--QYL-fluorescence-font) !important;
+        filter: saturate(3.5);
     }
 }
 .QYLmobile .keyboard__slash-item[data-type="style2"] .keyboard__slash-text {
@@ -316,6 +317,7 @@
         color: transparent !important;
         background-size: contain !important;
         caret-color: gold;
+        filter: saturate(2.5);
     }
 }
 

@@ -93,7 +93,7 @@
 }
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__icons:hover .block__icon:not([disabled]) {
     display: unset;
-    animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 /* 集市卡片动画 */
 .config-bazaar__panel .b3-card {
@@ -277,22 +277,19 @@
 }
 @keyframes QYLtaskenter1 {
     0% {
-      transform: scale(0);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 1;
-    }
-    60% {
-      transform: scale(0.9);
-    }
-    90% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+      70% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1);
+      }
 }
 @keyframes QYLtaskenter2 {
     0% {
@@ -307,14 +304,14 @@
       transform: scale(0.9);
     }
     85% {
-      transform: scale(1.05);
+      transform: scale(1);
     }
     100% {
       transform: scale(1);
     }
 }
 .protyle-wysiwyg [data-node-id].li > .protyle-action {
-    animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    animation: QYLtaskenter2 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 .protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
     background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary-lighter) 40%,var(--b3-theme-primary-lighter) 60%,transparent 75%);
@@ -323,7 +320,7 @@
     background-repeat: no-repeat;
     animation: QYLglow 1s cubic-bezier(0.9, 0, 0.5, 1) forwards;
     & > .protyle-action--task {
-        animation: QYLtaskenter1 1.5s cubic-bezier(0.4, 0.3, 0.8, 0.6)
+        animation: QYLtaskenter1 1.5s cubic-bezier(0.4, 0.3, 0.8, 0.6) forwards;
     }
 }
 .protyle-wysiwyg [data-node-id][data-subtype="t"].li:not(.protyle-task--done) {
@@ -345,10 +342,15 @@
 }
 /* 块标 */
 .protyle-gutters {
-    animation: QYLtaskenter1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    transition: 0.2s cubic-bezier(0.8, 0, 0.6, 1);
 }
 .protyle-gutters button[data-type="fold"] svg {
     transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8); 
+}
+
+.b3-list-item__arrow {
+    transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8) !important; 
 }
 
 @keyframes QYLtoolbarenter {
@@ -496,4 +498,11 @@ body > div.block__popover.block__popover--open {
         background-position: 0 0;
         border-bottom: 0.5px solid;
     }
+}
+
+.b3-dialog__container:has(.emojis) {
+    animation: QYLhintmenuenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+}
+.emojis__item {
+    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }

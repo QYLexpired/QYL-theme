@@ -57,11 +57,11 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
     box-shadow: none;
 }
 /* 块提示 */
-[data-node-id].highlight {
+[data-node-id].QYLfocusblock {
     box-shadow: var(--QYL-shadow-highlight) !important;
     transition: var(--b3-transition) !important;
 }
-[data-node-id].highlight:hover {
+[data-node-id].QYLfocusblock:hover {
     box-shadow: var(--QYL-shadow-highlight) !important;
     transition: var(--b3-transition) !important;
 }
@@ -113,4 +113,9 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
 }
 .protyle-icon:hover {
     background-color: color-mix(in srgb, var(--b3-theme-primary) 80%, black 20%);
+}
+
+
+#QYLattr .b3-menu__icon--arrow {
+    transform: translateX(6px);
 }
