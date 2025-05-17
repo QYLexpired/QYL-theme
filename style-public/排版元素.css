@@ -740,7 +740,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 
 
 /* 引述块callout */
-.b3-typography blockquote, .b3-typography .bq, .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+.protyle-wysiwyg blockquote:not([custom-bq-callout="关闭"],[custom-bq-callout="off"]), .protyle-wysiwyg .bq:not([custom-bq-callout="关闭"],[custom-bq-callout="off"]) {
     &:has(>[data-node-id]:first-child>[contenteditable]>span[data-type*="strong"]) {
         padding: 4px 6px;
         border: 3px solid  var(--b3-theme-primary);

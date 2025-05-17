@@ -79,6 +79,9 @@
 .layout__center .layout__resize + .fn__flex-1 [data-type="wnd"] > .fn__flex > .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 { /* 取消分屏右边距 */
     padding-right: 0 !important;
 }
+.layout__center .layout__resize + .fn__flex:not(:last-child) [data-type="wnd"] > .fn__flex > .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 { /* 取消分屏右边距 */
+    padding-right: 0 !important;
+}
 #layouts .layout__center .layout-tab-container {
     margin-top: 1.75px;
     border-radius: var(--b3-border-radius) !important;
@@ -87,7 +90,6 @@
     margin-top: 38px;
 }
 #layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
-    margin-bottom: -3px;
     & >.item:first-child {
         margin-left: 0px;
     }
@@ -157,7 +159,7 @@
 /* 沉浸式顶栏适配 */
 :root {
     --QYL-immerse-fusion-fix-1: var(--QYL-immerse-toolbar);
-    --QYL-immerse-fusion-fix-2: -2.5px;
+    --QYL-immerse-fusion-fix-2: -1px;
     --QYL-immerse-fusion-fix-3: var(--b3-theme-surface);
     --QYL-immerse-fusion-fix-4: var(--b3-theme-on-primary);
     --QYL-immerse-fusion-fix-5: none !important;
