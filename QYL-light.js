@@ -3735,6 +3735,7 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
         div.className = "b3-menu__items"
         div.appendChild(QYLattrrowsbgaplianxu(selectid))//垂直连续排列
         div.appendChild(QYLattrrowsbgapkuansong(selectid))//垂直宽松排列
+        div.appendChild(QYLattrrowsbgapruanhuanhang(selectid))//垂直软换行排列
         div.appendChild(QYLattrrowsbgapdelete(selectid))//恢复默认
         return div
 
@@ -3755,6 +3756,16 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
             button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "垂直宽松排列")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrrowsbgapruanhuanhang(selectid) {//垂直软换行排列
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "sb-rowgap")
+            button.setAttribute("custom-attr-value", "垂直软换行排列")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直软换行排列</span><span class="b3-menu__accelerator">组别1</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3902,7 +3913,9 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
         div.appendChild(QYLattrbqcalloutpink(selectid))//粉色
         div.appendChild(QYLattrbqcalloutblack(selectid))//黑色
         div.appendChild(QYLattrbqcalloutgray(selectid))//灰色
-        div.appendChild(QYLattrbqcalloutdelete(selectid))//默认
+        div.appendChild(QYLattrbqcalloutdelete(selectid))//默认颜色
+        div.appendChild(QYLattrbqcalloutcancel(selectid))//取消CallOut
+        div.appendChild(QYLattrbqcalloutrecover(selectid))//恢复CallOut
         return div
 
         function QYLattrbqcalloutred(selectid) {//红色
@@ -4005,13 +4018,33 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.onclick = QYLcustomattrset
             return button
         }
-        function QYLattrbqcalloutdelete(selectid) {//默认
+        function QYLattrbqcalloutdelete(selectid) {//默认颜色
             let button = document.createElement("button")
             button.className = "b3-menu__item"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">默认颜色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutcancel(selectid) {//取消CallOut样式
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout")
+            button.setAttribute("custom-attr-value", "关闭")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">取消CallOut样式</span><span class="b3-menu__accelerator">组别2</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutrecover(selectid) {//恢复CallOut样式
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">恢复CallOut样式</span><span class="b3-menu__accelerator">组别2</span>`
             button.onclick = QYLcustomattrset
             return button
         }
