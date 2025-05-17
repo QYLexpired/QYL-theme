@@ -4036,7 +4036,6 @@ function QYLfilesub(selectid) {//创建文档块二级菜单
         div.appendChild(QYLattrtablestyleitem(selectid))//准备创建表格样式选项
         div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
         div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
-        div.appendChild(QYLattrfullwidthitem(selectid))//准备创建全宽显示选项
         div.appendChild(QYLattrblankblockreminditem(selectid))//准备创建空块提醒选项
         return div
     }
@@ -4112,50 +4111,6 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span>`
-            button.onclick = QYLcustomattrset
-            return button
-        }
-    }
-}
-
-function QYLattrfullwidthitem(selectid) {//创建全宽显示选项
-    let button = document.createElement('button');
-    button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconMax"></use></svg><span class="b3-menu__label" style="">全宽显示</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
-    button.appendChild(QYLattrfullwidthsub(selectid))//准备创建全宽显示选项的二级菜单
-    return button
-}
-function QYLattrfullwidthsub(selectid) {//创建全宽显示选项的二级菜单
-    let div = document.createElement('div');
-    div.className = "b3-menu__submenu"
-    div.appendChild(QYLattrfullwidthsubitems(selectid))//准备创建全宽显示选项的b3-menu__items
-    return div
-
-    function QYLattrfullwidthsubitems(selectid) {//创建全宽显示选项的b3-menu__items
-        let div = document.createElement("div")
-        div.className = "b3-menu__items"
-        div.appendChild(QYLattrfullwidthon(selectid))//启用
-        div.appendChild(QYLattrfullwidthoff(selectid))//禁用
-        return div
-
-        function QYLattrfullwidthon(selectid) {//启用全宽显示
-            let button = document.createElement("button")
-            button.className = "b3-menu__item"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "fullwidth")
-            button.setAttribute("custom-attr-value", "启用")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
-            button.onclick = QYLcustomattrset
-            return button
-        }
-        function QYLattrfullwidthoff(selectid) {//禁用全宽显示
-            let button = document.createElement("button")
-            button.className = "b3-menu__item b3-menu__item--warning"
-            button.style.color = "var(--b3-theme-error)"
-            button.setAttribute("data-node-id", selectid)
-            button.setAttribute("custom-attr-name", "fullwidth")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
             button.onclick = QYLcustomattrset
             return button
         }
