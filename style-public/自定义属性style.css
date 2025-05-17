@@ -230,7 +230,7 @@
     font-weight: bold;
 }
 [custom-style="洒金纸"], [custom-style="sajin paper"] {
-    background-image: url("../img/洒金纸.png");
+    background-image: url("../img/洒金纸.webp");
 }
 [custom-style="网格"], [custom-style="grid"] {
     background-image: linear-gradient(90deg,var(--b3-theme-primary-lightest) 3%,transparent 0),linear-gradient(1turn,var(--b3-theme-primary-lightest) 3%,transparent 0);

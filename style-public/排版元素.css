@@ -586,7 +586,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
         right: 0;
         bottom: 0;
         font-weight: bold;
-        background-image: url('../img/金箔.png') !important;  
+        background-image: url('../img/金箔.webp') !important;  
         -webkit-background-clip: text !important; 
         color: transparent !important;
         background-size: contain !important;
@@ -597,7 +597,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
 span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-text-fill-color: transparent"]:not([data-type~=tag]) {
     -webkit-text-stroke: 0 !important;
     -webkit-text-fill-color: unset !important;
-    background-image: url('../img/金箔.png') !important;  
+    background-image: url('../img/金箔.webp') !important;  
     -webkit-background-clip: text !important; 
     color: transparent !important;
     background-size: contain !important;

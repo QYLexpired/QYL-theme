@@ -15,7 +15,7 @@
 [custom-h-style="gold"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="gold"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
     --QYL-custom-h-style-fix: gold;
     &>[spellcheck]:not(:empty) {
-    background-image: url('../img/金箔.png') !important;  
+    background-image: url('../img/金箔.webp') !important;  
     -webkit-background-clip: text !important; 
     color: transparent !important;
     background-size: contain !important;
