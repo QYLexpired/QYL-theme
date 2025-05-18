@@ -254,7 +254,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -269,7 +269,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -284,7 +284,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -299,7 +299,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -314,7 +314,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -329,7 +329,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -344,7 +344,7 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
@@ -359,42 +359,15 @@
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
 }
 
 /* 引述块适配 */
-.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote))):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]),
-.protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote))):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]) {
-    color: unset;
-    &::before {
-        position: absolute;
-        top: -27px;
-        left: 10px;
-        width: unset;
-        height: unset;
-        mask-image: unset;
-        -webkit-mask-image: unset;
-        -webkit-mask-repeat: unset;
-        background-color: unset;
-        background-size: unset;
-    }
-}
-.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote))):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"]:not(.li):not([data-type=NodeHeading]),
-.protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote))):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"]:not(.li):not([data-type=NodeHeading]) {
-    &::before {
-        top: 15px;
-        font-size: 18px;
-    }
-    & * {
-        visibility: visible !important;
-        opacity: 0;
-    }
-}
-.protyle-wysiwyg blockquote:has(:is(.bq, blockquote)):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]),
-.protyle-wysiwyg .bq:has(:is(.bq, blockquote)):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]) {
+.protyle-wysiwyg blockquote:is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]),
+.protyle-wysiwyg .bq:is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]) {
     background-color: unset;
     color: unset;
     border-radius: var(--b3-border-radius);
@@ -416,110 +389,54 @@
         font-weight: bold;
     }
 }
-.protyle-wysiwyg blockquote:has(:is(.bq, blockquote)):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"]:not(.li):not([data-type=NodeHeading]),
-.protyle-wysiwyg .bq:has(:is(.bq, blockquote)):is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"]:not(.li):not([data-type=NodeHeading]) {
+.protyle-wysiwyg blockquote:is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"],
+.protyle-wysiwyg .bq:is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"])[fold="1"] {
     &::before {
         top: 15px;
         font-size: 18px;
     }
-    & * {
+    & [data-node-id] {
         visibility: visible !important;
         opacity: 0;
     }
 }
 
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="警告"] {
-    background-color: var(--QYL-custom-red-background) !important;
-    border-color: var(--QYL-custom-red) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-red-background) !important;
-        border-color: var(--QYL-custom-red) !important; 
-        color: var(--QYL-custom-red) !important;
-    }
     &::before {
         content: "Warning";
     }
 }
-.protyle-wysiwyg :is(blockquote, .bq)[custom-style="灵感"] {
-    background-color: var(--QYL-custom-orange-background) !important;
-    border-color: var(--QYL-custom-orange) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-orange-background) !important;
-        border-color: var(--QYL-custom-orange) !important; 
-        color: var(--QYL-custom-orange) !important;
-    }
+.protyle-wysiwyg :is(blockquote, .bq)[custom-style="灵感"] { 
     &::before {
         content: "Tip";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="完成"] {
-    background-color: var(--QYL-custom-green-background) !important;
-    border-color: var(--QYL-custom-green) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-green-background) !important;
-        border-color: var(--QYL-custom-green) !important; 
-        color: var(--QYL-custom-green) !important;
-    }
     &::before {
         content: "Done";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="信息"] {
-    background-color: var(--QYL-custom-cyan-background) !important;
-    border-color: var(--QYL-custom-cyan) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-cyan-background) !important;
-        border-color: var(--QYL-custom-cyan) !important; 
-        color: var(--QYL-custom-cyan) !important;
-    }
     &::before {
         content: "Information";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="待办"] {
-    background-color: var(--QYL-custom-blue-background) !important;
-    border-color: var(--QYL-custom-blue) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-blue-background) !important;
-        border-color: var(--QYL-custom-blue) !important; 
-        color: var(--QYL-custom-blue) !important;
-    }
     &::before {
         content: "Todo";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="重要"] {
-    background-color: var(--QYL-custom-purple-background) !important;
-    border-color: var(--QYL-custom-purple) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-purple-background) !important;
-        border-color: var(--QYL-custom-purple) !important; 
-        color: var(--QYL-custom-purple) !important;
-    }
     &::before {
         content: "Important";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="批注"] {
-    background-color: var(--QYL-custom-black-background) !important;
-    border-color: var(--QYL-custom-black) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-black-background) !important;
-        border-color: var(--QYL-custom-black) !important; 
-        color: var(--QYL-custom-black) !important;
-    }
     &::before {
         content: "Comment";
     }
 }
 .protyle-wysiwyg :is(blockquote, .bq)[custom-style="引用"] {
-    background-color: var(--QYL-custom-gray-background) !important;
-    border-color: var(--QYL-custom-gray) !important;
-    & :is(blockquote, .bq) {
-        background-color: var(--QYL-custom-gray-background) !important;
-        border-color: var(--QYL-custom-gray) !important; 
-        color: var(--QYL-custom-gray) !important;
-    }
     &::before {
         content: "Quote";
     }

@@ -1,40 +1,26 @@
 /* 引述块 */
-.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote)))::before, .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote)))::before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 100%;
-    height: 100%;
-    mask-image: url('../img/引用.svg');
-    -webkit-mask-image: url('../img/引用.svg');
-    -webkit-mask-repeat: no-repeat;
-    background-color: var(--QYL-blockquote-svg);
-    background-size: 20px 20px;
-}
-.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote))), .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote))) {
+.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
     background-color: var(--QYL-blockquote-background);
     color: var(--QYL-blockquote);
     padding-top: 22px;
-}
-.protyle-wysiwyg blockquote:has(:is(.bq, blockquote)), .protyle-wysiwyg .bq:has(:is(.bq, blockquote)) {
-    background-color: var(--QYL-blockquote-background);
-    color: var(--QYL-blockquote);
-    padding: 4px;
-    border-radius: 0;
-    border-left: 5px solid var(--QYL-blockquote-svg); 
     &::before {
-        display:none;
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 100%;
+        height: 100%;
+        mask-image: url('../img/引用.svg');
+        -webkit-mask-image: url('../img/引用.svg');
+        -webkit-mask-repeat: no-repeat;
+        background-color: var(--QYL-blockquote-svg);
+        background-size: 20px 20px;
     }
-}
-.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
-    & :is(.bq, blockquote) {
-        padding: 4px;
+    & :is(blockquote, .bq) {
         border-radius: 0;
-        border-left: 5px solid var(--QYL-blockquote-svg); 
-        margin-left: 12px;
+        border-left: 5px solid var(--QYL-blockquote-svg);
         &::before {
-            display:none;
+            display: none;
         }
     }
 }
@@ -736,11 +722,8 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 }
 
 
-
-
-
 /* 引述块callout */
-.protyle-wysiwyg blockquote:not([custom-bq-callout="关闭"],[custom-bq-callout="off"]), .protyle-wysiwyg .bq:not([custom-bq-callout="关闭"],[custom-bq-callout="off"]) {
+.protyle-wysiwyg blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .bq[custom-bq-callout="启用"] {
     &:has(>[data-node-id]:first-child>[contenteditable]>span[data-type*="strong"]) {
         padding: 4px 6px;
         border: 3px solid  var(--b3-theme-primary);
