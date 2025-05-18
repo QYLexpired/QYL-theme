@@ -2980,6 +2980,335 @@ const QYLlihelp = (function() {
 })();
 
 
+//i18nattr
+const I18Nattr = {
+    zh_CN: {
+        QYLcustomattr: 'QYL自定义属性',
+        group1: '组别1',
+        group2: '组别2',
+        group3: '组别3',
+        group4: '组别4',
+
+        calloutcolor: '引述块Callout',
+        red: '红色',
+        orange: '橙色',
+        yellow: '黄色',
+        green: '绿色',
+        cyan: '青色',
+        blue: '蓝色',
+        purple: '紫色',
+        pink: '粉色',
+        black: '黑色',
+        gray: '灰色',
+        defaultcolor: '默认颜色',
+        removecallout: '取消CallOut样式',
+        recovercallout: '启用CallOut样式',
+
+        colsbgap: '水平排列超级块间距',
+        colsblianxu: '水平连续排列',
+        colsbjincou: '水平紧凑排列',
+        colsbjiaojincou: '水平较紧凑排列',
+        colsbjiaokuansong: '水平较宽松排列',
+        colsbkuansong: '水平宽松排列',
+        colsbdefault: '恢复默认',
+
+        rowsbgap: '垂直排列超级块间距',
+        rowsblianxu: '垂直连续排列',
+        rowsbkuansong: '垂直宽松排列',
+        rowsbruanhuanhang: '垂直软换行排列',
+        rowsbdefault: '恢复默认',
+
+        listview: '列表视图',
+        listviewmindmap: '脑图',
+        listviewkanban: '看板',
+        listviewtable: '表格',
+        listviewdefault: '默认',
+
+        lineheight: '文字行间距',
+        lineheight1: '单倍行距',
+        lineheight15: '1.5倍行距',
+        lineheight18: '1.8倍行距',
+        lineheight2: '双倍行距',
+        lineheightdefault: '默认',
+
+        blankblockremind: '空块提醒',
+        blankblockremindon: '启用',
+        blankblockremindoff: '禁用',
+
+        tablestyle: '表格样式',
+        threeline: '三线表',
+        tablestyledelete: '清除属性',
+
+        headingstyle: '标题样式',
+        headingstylecolorful: '多彩',
+        headingstylegold: '金箔',
+        headingstyleunderline: '下划线',
+        headingstyleleftborder: '左边框',
+        headingstylelevel: '层级',
+        headingstyledelete: '清除属性',
+
+        CSSplaceholder: '在此输入CSS代码，注意首尾无需{ }包裹，支持&嵌套选择器\n例1：输入color:red;border:1px solid red使得块内文字变为红色且块具有红色边框\n例2：输入& span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none }来取消块内所有块引用链接的下方虚线\n例3：输入&.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}}来调整文档自定义表情的大小',
+
+        imgstyle: '图片样式',
+        imgstyleroundedcorners: '圆角',
+        imgstylecircle: '圆形',
+        imgstyleshadow: '立体',
+        imgstyleinvert: '反色',
+        imgstyle33grid: '九宫格排列',
+        imgstyledelete: '全部清除',
+
+        maxheight: '最大高度',
+        maxheight50: '50px',
+        maxheight100: '100px',
+        maxheight150: '150px',
+        maxheight200: '200px',
+        maxheight300: '300px',
+        maxheight400: '400px',
+        maxheight500: '500px',
+        maxheightdelete: '恢复',
+
+        fileblockstyle: '文档样式',
+        fileblockstylesajinzhi: '洒金纸',
+        fileblockstylegrid: '网格',
+        fileblockstyledelete: '清除属性',
+
+        blockstyle: '块样式',
+        blockstylewarning: '警告（红）',
+        blockstyletip: '灵感（橙）',
+        blockstyleinfo: '信息（青）',
+        blockstyleimportant: '重要（紫）',
+        blockstylecomment: '批注（黑）',
+        blockstylequote: '引用（灰）',
+        blockstyletodo: '待办（蓝）',
+        blockstyledone: '完成（绿）',
+        blockstylesajinzhi: '洒金纸',
+        blockstylegrid: '网格',
+        blockstyledelete: '清除属性',
+        blockstylenote: '便签',
+        blockstyleleftborder: '左边框',
+
+        fontfamily: '字体',
+        fontfamilydelete: '清除属性',
+    },
+    en_US: {
+        QYLcustomattr: 'QYL-theme block settings',
+        group1: 'Group 1',
+        group2: 'Group 2',
+        group3: 'Group 3',
+        group4: 'Group 4',
+
+        calloutcolor: 'Quote block callout',
+        red: 'Red',
+        orange: 'Orange',
+        yellow: 'Yellow',
+        green: 'Green',
+        cyan: 'Cyan',
+        blue: 'Blue',
+        purple: 'Purple',
+        pink: 'Pink',
+        black: 'Black',
+        gray: 'Gray',
+        defaultcolor: 'Default color',
+        removecallout: 'Remove callout',
+        recovercallout: 'Enable callout',
+
+        colsbgap: 'Column super block gap',
+        colsblianxu: '0',
+        colsbjincou: '0.5em',
+        colsbjiaojincou: '1em',
+        colsbjiaokuansong: '2em',
+        colsbkuansong: '2.5em',
+        colsbdefault: 'Default(1em)',
+
+        rowsbgap: 'Row super block gap',
+        rowsblianxu: '0',
+        rowsbkuansong: '1em',
+        rowsbruanhuanhang: 'Soft wrap​',
+        rowsbdefault: 'Default(2px)',
+
+        listview: 'List view',
+        listviewmindmap: 'Mind map',
+        listviewkanban: 'Kanban',
+        listviewtable: 'Table',
+        listviewdefault: 'Default(List)',
+
+        lineheight: 'Line height',
+        lineheight1: '1',
+        lineheight15: '1.5',
+        lineheight18: '1.8',
+        lineheight2: '2',
+        lineheightdefault: 'Default',
+
+        blankblockremind: 'Empty block reminder',
+        blankblockremindon: 'on',
+        blankblockremindoff: 'off',
+
+        tablestyle: 'Table style',
+        threeline: 'Three line table',
+        tablestyledelete: 'Recover all',
+
+        headingstyle: 'Heading style',
+        headingstylecolorful: 'Colorful',
+        headingstylegold: 'Gold',
+        headingstyleunderline: 'Underline',
+        headingstyleleftborder: 'Left border',
+        headingstylelevel: 'Level',
+        headingstyledelete: 'Recover all',
+
+        CSSplaceholder: 'Input CSS code here, no need to wrap with { } at the beginning and end, supports & nested selectors\nExample 1: Input color: red; border: 1px solid red makes the text inside the block turn red and the block have a red border.\nExample 2: Inputting span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none } to remove the dotted underline from all block reference links within blocks.\nExample 3: Input &.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}} to adjust the size of custom emojis in your document.',
+
+        imgstyle: 'Image style',
+        imgstyleroundedcorners: 'Rounded corners',
+        imgstylecircle: 'Circle',
+        imgstyleshadow: 'Shadow',
+        imgstyleinvert: 'Invert',
+        imgstyle33grid: '3x3 grid',
+        imgstyledelete: 'Recover all',
+
+        maxheight: 'Max height',
+        maxheight50: '50px',
+        maxheight100: '100px',
+        maxheight150: '150px',
+        maxheight200: '200px',
+        maxheight300: '300px',
+        maxheight400: '400px',
+        maxheight500: '500px',
+        maxheightdelete: 'Recover all',
+
+        fileblockstyle: 'File block style',
+        fileblockstylesajinzhi: 'Sajin paper',
+        fileblockstylegrid: 'Grid',
+        fileblockstyledelete: 'Recover all',
+
+        blockstyle: 'Block style',
+        blockstylewarning: 'Warning',
+        blockstyletip: 'Tip',
+        blockstyleinfo: 'Information',
+        blockstyleimportant: 'Important',
+        blockstylecomment: 'Comment',
+        blockstylequote: 'Quote',
+        blockstyletodo: 'Todo',
+        blockstyledone: 'Done',
+        blockstylesajinzhi: 'Sajin paper',
+        blockstylegrid: 'Grid',
+        blockstyledelete: 'Recover all',
+        blockstylenote: 'Note',
+        blockstyleleftborder: 'Left border',
+
+        fontfamily: 'Font',
+        fontfamilydelete: 'Recover all',
+    },
+    zh_CHT: {
+        QYLcustomattr: 'QYL自定義屬性',
+        group1: '組別1',
+        group2: '組別2',
+        group3: '組別3',
+        group4: '組別4',
+    
+        calloutcolor: '引述塊Callout',
+        red: '紅色',
+        orange: '橙色',
+        yellow: '黃色',
+        green: '綠色',
+        cyan: '青色',
+        blue: '藍色',
+        purple: '紫色',
+        pink: '粉色',
+        black: '黑色',
+        gray: '灰色',
+        defaultcolor: '預設顏色',
+        removecallout: '取消CallOut樣式',
+        recovercallout: '啟用CallOut樣式',
+    
+        colsbgap: '水平排列超級塊間距',
+        colsblianxu: '水平連續排列',
+        colsbjincou: '水平緊湊排列',
+        colsbjiaojincou: '水平較緊湊排列',
+        colsbjiaokuansong: '水平較寬鬆排列',
+        colsbkuansong: '水平寬鬆排列',
+        colsbdefault: '恢復預設',
+    
+        rowsbgap: '垂直排列超級塊間距',
+        rowsblianxu: '垂直連續排列',
+        rowsbkuansong: '垂直寬鬆排列',
+        rowsbruanhuanhang: '垂直軟換行排列',
+        rowsbdefault: '恢復預設',
+    
+        listview: '列表視圖',
+        listviewmindmap: '腦圖',
+        listviewkanban: '看板',
+        listviewtable: '表格',
+        listviewdefault: '預設',
+    
+        lineheight: '文字行間距',
+        lineheight1: '單倍行距',
+        lineheight15: '1.5倍行距',
+        lineheight18: '1.8倍行距',
+        lineheight2: '雙倍行距',
+        lineheightdefault: '預設',
+    
+        blankblockremind: '空塊提醒',
+        blankblockremindon: '啟用',
+        blankblockremindoff: '禁用',
+    
+        tablestyle: '表格樣式',
+        threeline: '三線表',
+        tablestyledelete: '清除屬性',
+    
+        headingstyle: '標題樣式',
+        headingstylecolorful: '多彩',
+        headingstylegold: '金箔',
+        headingstyleunderline: '下劃線',
+        headingstyleleftborder: '左邊框',
+        headingstylelevel: '層級',
+        headingstyledelete: '清除屬性',
+    
+        CSSplaceholder: '在此輸入CSS代碼，注意首尾無需{ }包裹，支援&嵌套選擇器\n例1：輸入color:red;border:1px solid red使得塊內文字變為紅色且塊具有紅色邊框\n例2：輸入& span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none }來取消塊內所有塊引用連結的下方虛線\n例3：輸入&.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}}來調整文檔自定義表情的大小',
+    
+        imgstyle: '圖片樣式',
+        imgstyleroundedcorners: '圓角',
+        imgstylecircle: '圓形',
+        imgstyleshadow: '立體',
+        imgstyleinvert: '反色',
+        imgstyle33grid: '九宮格排列',
+        imgstyledelete: '全部清除',
+    
+        maxheight: '最大高度',
+        maxheight50: '50px',
+        maxheight100: '100px',
+        maxheight150: '150px',
+        maxheight200: '200px',
+        maxheight300: '300px',
+        maxheight400: '400px',
+        maxheight500: '500px',
+        maxheightdelete: '恢復',
+    
+        fileblockstyle: '文檔樣式',
+        fileblockstylesajinzhi: '灑金紙',
+        fileblockstylegrid: '網格',
+        fileblockstyledelete: '清除屬性',
+    
+        blockstyle: '塊樣式',
+        blockstylewarning: '警告（紅）',
+        blockstyletip: '靈感（橙）',
+        blockstyleinfo: '資訊（青）',
+        blockstyleimportant: '重要（紫）',
+        blockstylecomment: '批註（黑）',
+        blockstylequote: '引用（灰）',
+        blockstyletodo: '待辦（藍）',
+        blockstyledone: '完成（綠）',
+        blockstylesajinzhi: '灑金紙',
+        blockstylegrid: '網格',
+        blockstyledelete: '清除屬性',
+        blockstylenote: '便籤',
+        blockstyleleftborder: '左邊框',
+    
+        fontfamily: '字體',
+        fontfamilydelete: '清除屬性',
+    },
+};
+const i18nattr = I18Nattr[window.siyuan.config.lang] || I18Nattr.en_US;
+
 // 右键菜单QYL自定义属性
 {
     function debounce(func, delay) {
@@ -3007,8 +3336,8 @@ const QYLlihelp = (function() {
         initQYLattrforfile(e);
         }, 100);
     
-        window.addEventListener('mouseup', handleEvent);
-        window.addEventListener('keyup', handleEvent);
+        window.addEventListener(`mouseup`, handleEvent);
+        window.addEventListener(`keyup`, handleEvent);
     }
     let initTimeout, insertTimeout, fileInitTimeout, fileInsertTimeout;
     
@@ -3041,14 +3370,14 @@ const QYLlihelp = (function() {
         }
         }, 0);
     }
-    function MenuSeparator(className = 'b3-menu__separator') {
-        let node = document.createElement('button');
+    function MenuSeparator(className = `b3-menu__separator`) {
+        let node = document.createElement(`button`);
         node.className = className;
         return node;
     }
     
     function getBlockSelected() {//获取块属性
-        const node_list = document.querySelectorAll('.protyle-wysiwyg--select');
+        const node_list = document.querySelectorAll(`.protyle-wysiwyg--select`);
         if (node_list.length === 1 && node_list[0].dataset.nodeId != null) {
         return {
             id: node_list[0].dataset.nodeId,
@@ -3061,7 +3390,7 @@ const QYLlihelp = (function() {
     }
     
     function getFileBlockSelected() {
-        const node_list = document.querySelectorAll('.b3-list-item--focus[data-type="navigation-file"]');
+        const node_list = document.querySelectorAll(`.b3-list-item--focus[data-type="navigation-file"]`);
         if (node_list.length === 1 && node_list[0].dataset.nodeId != null) {
         return {
             id: node_list[0].dataset.nodeId,
@@ -3076,8 +3405,8 @@ const QYLlihelp = (function() {
         const commonMenu = getCommonMenu();
         if (!commonMenu) return;
     
-        const readonly = commonMenu.querySelector('[data-id="updateAndCreatedAt"]');
-        const attritem = commonMenu.querySelector('#QYLattr');
+        const readonly = commonMenu.querySelector(`[data-id="updateAndCreatedAt"]`);
+        const attritem = commonMenu.querySelector(`#QYLattr`);
     
         if (readonly && !attritem) {
         commonMenu.insertBefore(QYLattritem(selectid, selecttype, selectsbLayout), readonly);
@@ -3089,8 +3418,8 @@ const QYLlihelp = (function() {
         const commonMenu = getCommonMenu();
         if (!commonMenu) return;
     
-        const readonly = commonMenu.querySelector('[data-id="separator_3"]:has(~ [data-id="fileHistory"])');
-        const attritem = commonMenu.querySelector('#QYLattr');
+        const readonly = commonMenu.querySelector(`[data-id="separator_3"]:has(~ [data-id="fileHistory"])`);
+        const attritem = commonMenu.querySelector(`#QYLattr`);
     
         if (readonly && !attritem) {
         commonMenu.insertBefore(MenuSeparator(), readonly);
@@ -3098,12 +3427,12 @@ const QYLlihelp = (function() {
         }
     }
     setTimeout(ClickMonitor, 1000);
-    
+
     function QYLattritem(selectid, selecttype, selectsbLayout) {//定义QYL自定义属性菜单项
       let button = document.createElement("button")
       button.id = "QYLattr"
       button.className = "b3-menu__item"
-      button.innerHTML = '<svg t="1740797651161" class="b3-menu__icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" p-id="4701"></path></svg><span class="b3-menu__label" style="">QYL自定义属性</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+      button.innerHTML = `<svg t="1740797651161" class="b3-menu__icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" p-id="4701"></path></svg><span class="b3-menu__label" style="">${i18nattr.QYLcustomattr}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
       
       if (selecttype === "NodeHeading") {//准备创建标题块的二级菜单
         button.appendChild(QYLNodeHeadingsub(selectid))
@@ -3132,7 +3461,7 @@ const QYLlihelp = (function() {
       else if (selecttype === "NodeSuperBlock" && selectsbLayout === "row") {//准备创建垂直排列超级块的二级菜单
         button.appendChild(QYLNodeSuperBlockrowsub(selectid))
       }
-      
+
       else {//准备创建任意块的二级菜单（非标题、表格、列表、文档）
         button.appendChild(QYLanyblocksub(selectid))
       }
@@ -3161,14 +3490,14 @@ function QYLNodeSuperBlockcolsub(selectid) {//创建水平排列超级块二级�
     }
 }
 function QYLattrcolsbgapitem(selectid) {//创建水平排列超级块间距选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">水平排列超级块间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">${i18nattr.colsbgap}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrcolsbgapsub(selectid))//准备创建水平排列超级块间距选项的二级菜单
     return button
 }
 function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrcolsbgapsubitems(selectid))//准备创建水平排列超级块间距选项的b3-menu__items
     return div
@@ -3190,7 +3519,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "水平连续排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平连续排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.colsblianxu}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3200,7 +3529,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "水平紧凑排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.colsbjincou}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3210,7 +3539,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "水平较紧凑排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较紧凑排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.colsbjiaojincou}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3220,7 +3549,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "水平较宽松排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平较宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.colsbjiaokuansong}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3230,7 +3559,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "水平宽松排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">水平宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.colsbkuansong}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3240,7 +3569,7 @@ function QYLattrcolsbgapsub(selectid) {//创建水平排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-colgap")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.colsbdefault}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3268,14 +3597,14 @@ function QYLNodeSuperBlockrowsub(selectid) {//创建垂直排列超级块二级�
     }
 }
 function QYLattrrowsbgapitem(selectid) {//创建垂直排列超级块间距选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">垂直排列超级块间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label" style="">${i18nattr.rowsbgap}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrrowsbgapsub(selectid))//准备创建垂直排列超级块间距选项的二级菜单
     return button
 }
 function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrrowsbgapsubitems(selectid))//准备创建垂直排列超级块间距选项的b3-menu__items
     return div
@@ -3295,7 +3624,7 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "垂直连续排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直连续排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.rowsblianxu}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3305,7 +3634,7 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "垂直宽松排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直宽松排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.rowsbkuansong}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3315,7 +3644,7 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "垂直软换行排列")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">垂直软换行排列</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">${i18nattr.rowsbruanhuanhang}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3325,7 +3654,7 @@ function QYLattrrowsbgapsub(selectid) {//创建垂直排列超级块间距选项
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "sb-rowgap")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.rowsbdefault}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3353,14 +3682,14 @@ function QYLNodeListsub(selectid) {//创建列表块二级菜单
     }
 }
 function QYLattrlistviewitem(selectid) {//创建列表视图选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconList"></use></svg><span class="b3-menu__label" style="">列表视图</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconList"></use></svg><span class="b3-menu__label" style="">${i18nattr.listview}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrlistviewsub(selectid))//准备创建列表视图选项的二级菜单
     return button
 }
 function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrlistviewsubitems(selectid))//准备创建列表视图选项的b3-menu__items
     return div
@@ -3380,7 +3709,7 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "脑图")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label">脑图</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label">${i18nattr.listviewmindmap}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3390,7 +3719,7 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "看板")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">看板</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">${i18nattr.listviewkanban}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3400,7 +3729,7 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "表格")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">表格</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.listviewtable}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3410,7 +3739,7 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">默认</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${i18nattr.listviewdefault}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3438,14 +3767,14 @@ function QYLNodeBlockquotesub(selectid) {//创建引述块二级菜单
     }
 }
 function QYLattrbqcalloutcoloritem(selectid) {//创建CallOut颜色选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label" style="">CallOut颜色</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label" style="">${i18nattr.calloutcolor}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrbqcalloutcolorsub(selectid))//准备创建CallOut颜色选项的二级菜单
     return button
 }
 function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrbqcalloutcolorsubitems(selectid))//准备创建CallOut颜色选项的b3-menu__items
     return div
@@ -3465,7 +3794,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
         div.appendChild(QYLattrbqcalloutgray(selectid))//灰色
         div.appendChild(QYLattrbqcalloutdelete(selectid))//默认颜色
         div.appendChild(QYLattrbqcalloutcancel(selectid))//取消CallOut
-        div.appendChild(QYLattrbqcalloutrecover(selectid))//恢复CallOut
+        div.appendChild(QYLattrbqcalloutrecover(selectid))//启用CallOut
         return div
 
         function QYLattrbqcalloutred(selectid) {//红色
@@ -3474,7 +3803,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "红色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">红色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.red}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3484,7 +3813,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "橙色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">橙色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.orange}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3494,7 +3823,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "黄色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">黄色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.yellow}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3504,7 +3833,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "绿色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">绿色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.green}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3514,7 +3843,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "青色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">青色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.cyan}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3524,7 +3853,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "蓝色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">蓝色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.blue}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3534,7 +3863,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "紫色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">紫色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.purple}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3544,7 +3873,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "粉色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">粉色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.pink}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3554,7 +3883,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "黑色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">黑色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.black}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3564,17 +3893,17 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "灰色")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">灰色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.gray}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
-        function QYLattrbqcalloutdelete(selectid) {//默认
+        function QYLattrbqcalloutdelete(selectid) {//默认颜色
             let button = document.createElement("button")
             button.className = "b3-menu__item"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout-color")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">默认颜色</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.defaultcolor}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3583,18 +3912,18 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.className = "b3-menu__item b3-menu__item--warning"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout")
-            button.setAttribute("custom-attr-value", "关闭")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">取消CallOut样式</span><span class="b3-menu__accelerator">组别2</span>`
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.removecallout}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
-        function QYLattrbqcalloutrecover(selectid) {//恢复CallOut样式
+        function QYLattrbqcalloutrecover(selectid) {//启用CallOut样式
             let button = document.createElement("button")
             button.className = "b3-menu__item"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "bq-callout")
-            button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">恢复CallOut样式</span><span class="b3-menu__accelerator">组别2</span>`
+            button.setAttribute("custom-attr-value", "启用")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.recovercallout}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3623,16 +3952,15 @@ function QYLfilesub(selectid) {//创建文档块二级菜单
         return div
     }
 }
-
 function QYLattrlineheightitem(selectid) {//创建文字行间距选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">文字行间距</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">${i18nattr.lineheight}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrlineheightsub(selectid))//准备创建文字行间距选项的二级菜单
     return button
 }
 function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrlineheightsubitems(selectid))//准备创建文字行间距选项的b3-menu__items
     return div
@@ -3653,7 +3981,7 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "单倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">单倍行距</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.lineheight1}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3663,7 +3991,7 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "1.5倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.5倍行距</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.lineheight15}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3673,7 +4001,7 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "1.8倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">1.8倍行距</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.lineheight18}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3683,7 +4011,7 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "双倍行距")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">双倍行距</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.lineheight2}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3694,7 +4022,7 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "line-height")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">恢复默认</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.lineheightdefault}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3702,14 +4030,14 @@ function QYLattrlineheightsub(selectid) {//创建文字行间距选项的二级�
 }
 
 function QYLattrblankblockreminditem(selectid) {//创建空块提醒选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label" style="">空块提醒</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconInfo"></use></svg><span class="b3-menu__label" style="">${i18nattr.blankblockremind}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrblankblockremindsub(selectid))//准备创建空块提醒选项的二级菜单
     return button
 }
 function QYLattrblankblockremindsub(selectid) {//创建空块提醒选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrblankblockremindsubitems(selectid))//准备创建空块提醒选项的b3-menu__items
     return div
@@ -3727,7 +4055,7 @@ function QYLattrblankblockremindsub(selectid) {//创建空块提醒选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "blankblock-remind")
             button.setAttribute("custom-attr-value", "开启")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">启用</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconSelect"></use></svg><span class="b3-menu__label">${i18nattr.blankblockremindon}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3738,7 +4066,7 @@ function QYLattrblankblockremindsub(selectid) {//创建空块提醒选项的二�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "blankblock-remind")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">禁用</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.blankblockremindoff}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3786,14 +4114,14 @@ function QYLNodeTablesub(selectid) {//创建表格块二级菜单
     }
 }
 function QYLattrtablestyleitem(selectid) {//创建表格样式选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label" style="">表格样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label" style="">${i18nattr.tablestyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrtablestylesub(selectid))//准备创建表格样式选项的二级菜单
     return button
 }
 function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrtablestylesubitems(selectid))//准备创建表格样式选项的b3-menu__items
     return div
@@ -3811,7 +4139,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "table-style")
             button.setAttribute("custom-attr-value", "三线表")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">三线表</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.threeline}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3822,7 +4150,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "table-style")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.tablestyledelete}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3850,14 +4178,14 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
         }
     }
     function QYLattrhstyleitem(selectid) {//创建标题样式选项
-        let button = document.createElement('button');
+        let button = document.createElement(`button`);
         button.className = "b3-menu__item"
-        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label" style="">标题样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+        button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label" style="">${i18nattr.headingstyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
         button.appendChild(QYLattrhstylesub(selectid))//准备创建标题样式选项的二级菜单
         return button
     }
     function QYLattrhstylesub(selectid) {//创建标题样式选项的二级菜单
-        let div = document.createElement('div');
+        let div = document.createElement(`div`);
         div.className = "b3-menu__submenu"
         div.appendChild(QYLattrhstylesubitems(selectid))//准备创建标题样式选项的b3-menu__items
         return div
@@ -3880,7 +4208,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "h-style")
             button.setAttribute("custom-attr-value", "多彩")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">多彩</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylecolorful}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3890,7 +4218,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "h-style")
             button.setAttribute("custom-attr-value", "金箔")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">金箔</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylegold}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3900,7 +4228,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "h-style-u")
             button.setAttribute("custom-attr-value", "下划线")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">下划线</span><span class="b3-menu__accelerator">组别2</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleunderline}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3910,7 +4238,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "h-style-u")
             button.setAttribute("custom-attr-value", "左边框")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">左边框</span><span class="b3-menu__accelerator">组别2</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleleftborder}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3920,7 +4248,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "h-style-l")
             button.setAttribute("custom-attr-value", "层级")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">层级</span><span class="b3-menu__accelerator">组别3</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylelevel}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -3929,7 +4257,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.className = "b3-menu__item b3-menu__item--warning"
             button.style.color = "var(--b3-theme-error)"
             button.setAttribute("data-node-id", selectid)
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">全部清除</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.headingstyledelete}</span>`
             button.onclick = function(e) {
                 button.setAttribute("custom-attr-name", "h-style");
                 button.setAttribute("custom-attr-value", "");
@@ -3952,14 +4280,14 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
 
 /* -----------------------------------------css属性（通用）------------------------------------- */
 function QYLattrcssitem(selectid) {//创建css属性选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">CSS</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconSettings"></use></svg><span class="b3-menu__label" style="">CSS</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrcsssub(selectid))//准备创建css属性选项的二级菜单
     return button
 }
 function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrcsssubitems(selectid))//准备创建css属性选项的b3-menu__items
     return div
@@ -3981,7 +4309,7 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
             textarea.setAttribute("data-node-id", selectid);
             textarea.setAttribute("custom-attr-name", "css");
             textarea.value = "";
-            textarea.placeholder = "在此输入CSS代码，注意首尾无需{ }包裹，支持&嵌套选择器\n例1：输入color:red;border:1px solid red使得块内文字变为红色且块具有红色边框\n例2：输入& span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none }来取消块内所有块引用链接的下方虚线\n例3：输入&.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}}来调整文档自定义表情的大小";
+            textarea.placeholder = `${i18nattr.CSSplaceholder}`;
         
             查询css自定义块属性的内容(selectid)
                 .then(customcssvalue => {
@@ -3996,7 +4324,7 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
                     console.error("获取CSS值失败:", err);
                 });
         
-            textarea.addEventListener('blur', function(e) {
+            textarea.addEventListener(`blur`, function(e) {
                 const value = e.target.value;
                 e.target.setAttribute("custom-attr-value", value);
                 QYLcustomattrset(e);
@@ -4009,14 +4337,14 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
 
 /* -----------------------------------------img属性（通用）------------------------------------- */
 function QYLattrimgitem(selectid) {//创建图片样式选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label" style="">图片样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label" style="">${i18nattr.imgstyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrimgsub(selectid))//准备创建图片样式选项的二级菜单
     return button
 }
 function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrimgsubitems(selectid))//准备创建图片样式选项的b3-menu__items
     return div
@@ -4038,7 +4366,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "img-border")
                 button.setAttribute("custom-attr-value", "圆角")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">圆角</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">${i18nattr.imgstyleroundedcorners}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4048,7 +4376,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "img-border")
                 button.setAttribute("custom-attr-value", "圆形")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">圆形</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">${i18nattr.imgstylecircle}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4058,7 +4386,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "img-shadow")
                 button.setAttribute("custom-attr-value", "立体")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">立体</span><span class="b3-menu__accelerator">组别2</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">${i18nattr.imgstyleshadow}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4068,7 +4396,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "img-invert")
                 button.setAttribute("custom-attr-value", "反色")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">反色</span><span class="b3-menu__accelerator">组别3</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">${i18nattr.imgstyleinvert}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4078,7 +4406,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "img-display")
                 button.setAttribute("custom-attr-value", "九宫格排列")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">九宫格排列</span><span class="b3-menu__accelerator">组别4</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconImage"></use></svg><span class="b3-menu__label">${i18nattr.imgstyle33grid}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4088,7 +4416,7 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
                 button.className = "b3-menu__item b3-menu__item--warning"
                 button.style.color = "var(--b3-theme-error)"
                 button.setAttribute("data-node-id", selectid)
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">全部清除</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.imgstyledelete}</span>`
                 button.onclick = function(e) {
                     button.setAttribute("custom-attr-name", "img-border");
                     button.setAttribute("custom-attr-value", "");
@@ -4113,14 +4441,14 @@ function QYLattrimgsub(selectid) {//创建图片样式选项的二级菜单
 
 /* -----------------------------------------height属性（通用）------------------------------------- */
 function QYLattrheightitem(selectid) {//创建最大高度选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">最大高度</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label" style="">${i18nattr.maxheight}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrheightsub(selectid))//准备创建最大高度选项的二级菜单
     return button
 }
 function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrheightsubitems(selectid))//准备创建最大高度选项的b3-menu__items
     return div
@@ -4144,7 +4472,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "50")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">50px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight50}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4154,7 +4482,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "100")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">100px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight100}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4164,7 +4492,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "150")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">150px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight150}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4174,7 +4502,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "200")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">200px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight200}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4184,7 +4512,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "300")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">300px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight300}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4194,7 +4522,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "400")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">400px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight400}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4204,7 +4532,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "500")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">500px</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconContract"></use></svg><span class="b3-menu__label">${i18nattr.maxheight500}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4215,7 +4543,7 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "height")
                 button.setAttribute("custom-attr-value", "")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.maxheightdelete}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4224,14 +4552,14 @@ function QYLattrheightsub(selectid) {//创建最大高度选项的二级菜单
 
 /* -----------------------------------------文档style属性（通用）------------------------------------- */
 function QYLattrfilestyleitem(selectid) {//创建文档样式选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">文档样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">${i18nattr.fileblockstyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrfilestylesub(selectid))//准备创建文档样式选项的二级菜单
     return button
 }
 function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrfilestylesubitems(selectid))//准备创建文档样式选项的b3-menu__items
     return div
@@ -4249,7 +4577,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "style")
             button.setAttribute("custom-attr-value", "洒金纸")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">洒金纸</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.fileblockstylesajinzhi}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4259,7 +4587,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "style")
             button.setAttribute("custom-attr-value", "网格")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">网格</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.fileblockstylegrid}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4270,7 +4598,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "style")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.fileblockstyledelete}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4279,14 +4607,14 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
 
 /* -----------------------------------------style属性（通用）------------------------------------- */
     function QYLattrstyleitem(selectid) {//创建块样式选项
-        let button = document.createElement('button');
+        let button = document.createElement(`button`);
         button.className = "b3-menu__item"
-        button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">块样式</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+        button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">${i18nattr.blockstyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
         button.appendChild(QYLattrstylesub(selectid))//准备创建块样式选项的二级菜单
         return button
     }
     function QYLattrstylesub(selectid) {//创建块样式选项的二级菜单
-        let div = document.createElement('div');
+        let div = document.createElement(`div`);
         div.className = "b3-menu__submenu"
         div.appendChild(QYLattrstylesubitems(selectid))//准备创建块样式选项的b3-menu__items
         return div
@@ -4315,7 +4643,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "警告")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">警告（红）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylewarning}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4325,7 +4653,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "灵感")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灵感（橙）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyletip}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4335,7 +4663,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "信息")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">信息（青）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyleinfo}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4345,7 +4673,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "重要")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">重要（紫）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyleimportant}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4355,7 +4683,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "批注")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">批注（黑）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylecomment}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4365,7 +4693,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "引用")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">引用（灰）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylequote}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4375,7 +4703,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "待办")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">待办（蓝）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyletodo}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4385,7 +4713,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "完成")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">完成（绿）</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyledone}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4395,7 +4723,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "洒金纸")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">洒金纸</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylesajinzhi}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4405,7 +4733,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "网格")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">网格</span><span class="b3-menu__accelerator">组别1</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylegrid}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
@@ -4416,19 +4744,19 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("data-node-id", selectid)
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "")
-                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.blockstyledelete}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
             function QYLstylenoteitem(selectid) {//创建便签选项
-                let button = document.createElement('button');
+                let button = document.createElement(`button`);
                 button.className = "b3-menu__item"
-                button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">便签</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">组别1</span>'
+                button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">${i18nattr.blockstylenote}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.appendChild(QYLstylenotesub(selectid))//准备便签选项的二级菜单
                 return button
                 }
                 function QYLstylenotesub(selectid) {//创建便签选项的二级菜单
-                    let div = document.createElement('div');
+                    let div = document.createElement(`div`);
                     div.className = "b3-menu__submenu"
                     div.appendChild(QYLstylenotesubitems(selectid))//准备便签选项的b3-menu__items
                     return div
@@ -4455,7 +4783,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "红色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.red}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4465,7 +4793,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "橙色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.orange}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4475,7 +4803,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "黄色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.yellow}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4485,7 +4813,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "绿色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.green}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4495,7 +4823,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "青色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.cyan}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4505,7 +4833,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "蓝色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blue}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4515,7 +4843,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "紫色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.purple}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4525,7 +4853,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "粉色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.pink}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4535,7 +4863,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "黑色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.black}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
@@ -4545,21 +4873,21 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                             button.setAttribute("data-node-id", selectid)
                             button.setAttribute("custom-attr-name", "style")
                             button.setAttribute("custom-attr-value", "灰色便签")
-                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰色便签</span><span class="b3-menu__accelerator">组别1</span>`
+                            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.gray}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                             button.onclick = QYLcustomattrset
                             return button
                         }
                     }
                 }
                 function QYLstyleleftborderitem(selectid) {//创建左边框选项
-                    let button = document.createElement('button');
+                    let button = document.createElement(`button`);
                     button.className = "b3-menu__item"
-                    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">左边框</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">组别1</span>'
+                    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label" style="">${i18nattr.blockstyleleftborder}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                     button.appendChild(QYLstyleleftbordersub(selectid))//准备左边框选项的二级菜单
                     return button
                     }
                     function QYLstyleleftbordersub(selectid) {//创建左边框选项的二级菜单
-                        let div = document.createElement('div');
+                        let div = document.createElement(`div`);
                         div.className = "b3-menu__submenu"
                         div.appendChild(QYLstyleleftbordersubitems(selectid))//准备左边框选项的b3-menu__items
                         return div
@@ -4586,7 +4914,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "红左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">红左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.red}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4596,7 +4924,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "橙左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">橙左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.orange}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4606,7 +4934,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "黄左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黄左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.yellow}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4616,7 +4944,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "绿左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">绿左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.green}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4626,7 +4954,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "青左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">青左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.cyan}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4636,7 +4964,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "蓝左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">蓝左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blue}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4646,7 +4974,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "紫左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">紫左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.purple}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4656,7 +4984,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "粉左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">粉左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.pink}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4666,7 +4994,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "黑左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">黑左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.black}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4676,7 +5004,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                                 button.setAttribute("data-node-id", selectid)
                                 button.setAttribute("custom-attr-name", "style")
                                 button.setAttribute("custom-attr-value", "灰左边框")
-                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">灰左边框</span><span class="b3-menu__accelerator">组别1</span>`
+                                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.gray}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                                 button.onclick = QYLcustomattrset
                                 return button
                             }
@@ -4688,14 +5016,14 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
 
 /* -----------------------------------------font-family属性（通用）------------------------------------- */
 function QYLattrfontfamilyitem(selectid) {//创建字体选项
-    let button = document.createElement('button');
+    let button = document.createElement(`button`);
     button.className = "b3-menu__item"
-    button.innerHTML = '<svg class="b3-menu__icon" style="null"><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label" style="">字体</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>'
+    button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label" style="">${i18nattr.fontfamily}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
     button.appendChild(QYLattrfontfamilysub(selectid))//准备创建字体选项的二级菜单
     return button
 }
 function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
-    let div = document.createElement('div');
+    let div = document.createElement(`div`);
     div.className = "b3-menu__submenu"
     div.appendChild(QYLattrfontfamilysubitems(selectid))//准备创建字体选项的b3-menu__items
     return div
@@ -4734,7 +5062,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">宋体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">宋体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4745,7 +5073,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "幼圆")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">幼圆</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">幼圆</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4756,7 +5084,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "黑体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">黑体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">黑体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4767,7 +5095,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "微软雅黑")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">微软雅黑</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">微软雅黑</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4778,7 +5106,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "新宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">新宋体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">新宋体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4789,7 +5117,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "楷体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">楷体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">楷体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4800,7 +5128,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "隶书")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">隶书</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">隶书</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4811,7 +5139,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "仿宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">仿宋</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">仿宋</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4822,7 +5150,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文宋体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文宋体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文宋体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4833,7 +5161,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文中宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文中宋</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文中宋</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4844,7 +5172,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文仿宋")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文仿宋</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文仿宋</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4855,7 +5183,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文彩云")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文彩云</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文彩云</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4866,7 +5194,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文新魏")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文新魏</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文新魏</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4877,7 +5205,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文楷体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文楷体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文楷体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4888,7 +5216,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文琥珀")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文琥珀</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文琥珀</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4899,7 +5227,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文细黑")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文细黑</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文细黑</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4910,7 +5238,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文行楷")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文行楷</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文行楷</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4921,7 +5249,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "华文隶书")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文隶书</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">华文隶书</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4932,7 +5260,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "方正姚体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正姚体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正姚体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4943,7 +5271,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "方正舒体")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正舒体</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">方正舒体</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4954,7 +5282,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "Times New Roman")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">Times New Roman</span><span class="b3-menu__accelerator">组别1</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconFont"></use></svg><span class="b3-menu__label">Times New Roman</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4965,7 +5293,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "font-family")
             button.setAttribute("custom-attr-value", "")
-            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">清除属性</span>`
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.fontfamilydelete}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
