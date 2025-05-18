@@ -724,7 +724,6 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 
 /* 引述块callout */
 .protyle-wysiwyg blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .bq[custom-bq-callout="启用"] {
-    &:has(>[data-node-id]:first-child>[contenteditable]>span[data-type*="strong"]) {
         padding: 4px 6px;
         border: 3px solid  var(--b3-theme-primary);
         border-radius: var(--b3-border-radius);
@@ -845,7 +844,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
             &[custom-bq-callout-color="灰色"] {
                 background-color: var(--QYL-custom-gray);
             }
-            & >*:not(:first-child) {
+            & >[data-node-id]:not(:first-child) {
                 display: none;
             }
             & >[data-node-id]:first-child {
@@ -860,6 +859,5 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
                     filter: brightness(1.5);
                 }
             }
-        }
     }
 }   
