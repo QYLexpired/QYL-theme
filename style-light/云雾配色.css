@@ -84,3 +84,9 @@
 .file-tree .b3-list-item .b3-list-item__toggle:hover .b3-list-item__arrow {
     color: var(--QYL-fog-primary-fix);
 }
+#barWorkspace {
+    --b3-theme-primary-light: rgba(97, 118, 222, 0.7) !important;
+}
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+    --b3-theme-primary-light: rgba(97, 118, 222, 0.7);
+}

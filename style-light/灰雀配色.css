@@ -60,9 +60,45 @@
     --QYL-account-background2: linear-gradient(to right bottom, #d7dce6, #dbdfe8, #dee2eb, #e2e5ed, #e5e8f0);
 }
 :root {
-    --QYL-flat-primary: rgb(22, 86, 168);
-    --QYL-flat-second: var(--b3-theme-primary);
+    --QYL-flat-primary: rgb(183, 65, 54);
+    --QYL-flat-second: rgb(25, 164, 198);
 }
 :root {
     --QYL-immerse-toolbar: #5c6884;
+}
+
+
+/* 细节调整 */
+.b3-button {
+    --b3-theme-primary: var(--QYL-flat-primary);
+}
+.config-bazaar__title .b3-button {
+    --b3-theme-primary: #66748f;
+}
+a {
+    --b3-theme-primary: var(--QYL-flat-primary);
+}
+.en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
+    --QYL-lihelp: var(--QYL-flat-primary);
+}
+.protyle-wysiwyg [data-node-id].li > .protyle-action {
+    --QYL-lihelp: var(--QYL-flat-primary);
+}
+.protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before, .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
+    --QYL-task-block: var(--QYL-flat-primary);
+}
+.b3-list-item mark, #searchAssetPreview mark {
+    --b3-theme-primary: var(--QYL-flat-primary);
+}
+:root {
+    --b3-highlight-background: var(--QYL-flat-primary) !important;
+    --b3-highlight-current-background: var(--QYL-flat-primary) !important;
+}
+.layout__tab--active .b3-list--background .b3-list-item--focus {
+      & .b3-list-item__text {
+        color: var(--QYL-flat-primary);
+      }
+}
+.protyle-gutters {
+    --b3-theme-primary: var(--QYL-flat-primary);
 }
