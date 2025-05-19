@@ -231,6 +231,19 @@
         border-bottom: 0.5px solid;
     }
 }
+.protyle-wysiwyg [data-node-id] span[data-type=virtual-block-ref] {
+    background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+    &:hover {
+        transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        color: var(--QYL-white);
+        background-position: 0 0;
+        border-bottom: 0.5px solid;
+    }
+}
 .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
     background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-hover) 50%);
     background-size: 200% 100%;
@@ -347,9 +360,27 @@
     animation: QYLhrenter 0.3s cubic-bezier(0.9, 0, 0.5, 1);
 }
 /* 块标 */
-.protyle-gutters {
-    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
-    transition: 0.2s cubic-bezier(0.8, 0, 0.6, 1);
+@keyframes QYLguttersenter {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.98);
+    }
+    85% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.protyle-gutters svg {
+    animation: QYLguttersenter 0.5s cubic-bezier(0.8, 0, 0.9, 1);
 }
 .protyle-gutters button[data-type="fold"] svg {
     transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8); 
@@ -502,11 +533,10 @@ body > div.block__popover.block__popover--open {
         transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1) !important;
         color: var(--QYL-white);
         background-position: 0 0;
-        border-bottom: 0.5px solid;
     }
 }
 
-.b3-dialog__container:has(.emojis) {
+[data-key="dialog-emojis"] .b3-dialog__container {
     animation: QYLhintmenuenter 0.4s cubic-bezier(0.8, 0, 0.9, 1);
 }
 .emojis__item {

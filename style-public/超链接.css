@@ -38,3 +38,11 @@
     padding-bottom: 1.5px;
     border-bottom: 0.5px dashed var(--QYL-PDFmark);
 }
+
+/* 虚拟引用 */
+.protyle-wysiwyg [data-node-id] span[data-type=virtual-block-ref] {
+    border-bottom: 0.5px dashed var(--b3-theme-primary);
+    &:hover {
+        background-color: var(--b3-theme-primary-lighter);
+    }
+}

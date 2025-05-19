@@ -165,8 +165,7 @@
   min-width: 55px;
   height: 25px;
   padding: 2px 5px;
-  color: var(--b3-theme-primary);
-  background-color: var(--b3-theme-primary);
+  background-color: var(--b3-theme-primary-light);
   transition: var(--b3-transition);
   position: relative;
   overflow: hidden;
