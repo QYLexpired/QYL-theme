@@ -69,6 +69,7 @@ const I18N = {
         QYLhqqps: ' 配色：灰雀',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
+        QYLzzbj: ' 专注编辑模式',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -106,6 +107,7 @@ const I18N = {
         QYLhqqps: ' Bullfinch Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
+        QYLzzbj: ' Focus Editing Mode',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -143,6 +145,7 @@ const I18N = {
         QYLhqqps: ' 配色：灰雀',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
+        QYLzzbj: ' 專注編輯模式',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -236,6 +239,7 @@ let isChecked34;
 let isChecked35;
 let isChecked36;
 let isChecked37;
+let isChecked38;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -641,6 +645,17 @@ function createSettingsWindow() {
     label37.style.fontSize = '14px';
     label37.style.userSelect= 'none';
 
+    const checkbox38 = document.createElement('input');
+    checkbox38.type = 'checkbox';
+    checkbox38.id = 'QYLfocuseditingmode-checkbox';
+    checkbox38.checked = isChecked38;
+
+    const label38 = document.createElement('label');
+    label38.htmlFor = 'QYLfocuseditingmode-checkbox';
+    label38.textContent = i18n.QYLzzbj;
+    label38.style.fontSize = '14px';
+    label38.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -846,6 +861,12 @@ function createSettingsWindow() {
     QYLfunctionpair37.appendChild(label37);
     QYLfunctionpair37.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair38 = document.createElement('div');
+    QYLfunctionpair38.className = 'checkbox-label-pair';
+    QYLfunctionpair38.appendChild(checkbox38);
+    QYLfunctionpair38.appendChild(label38);
+    QYLfunctionpair38.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -900,6 +921,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair22); //顶栏融合
     settingsWindow.appendChild(QYLfunctionpair20);  //垂直页签
     settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
+    settingsWindow.appendChild(QYLfunctionpair38);//专注编辑模式
     settingsWindow.appendChild(QYLfunctionpairdivider3); 
     settingsWindow.appendChild(QYLfunctionpair1); //标记挖空
     settingsWindow.appendChild(QYLfunctionpair24); //列表辅助线
@@ -977,6 +999,7 @@ async function saveConfig() {
         isChecked35: checkbox35.checked,
         isChecked36: checkbox36.checked,
         isChecked37: checkbox37.checked,
+        isChecked38: checkbox38.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -1048,6 +1071,7 @@ checkbox8.addEventListener('change', async function() {
     const state = this.checked;
     state ? enablefocusblockremind() : disablefocusblockremind();
     state ? isChecked8 = true : isChecked8 = false;
+    if (isChecked38 === true) { checkbox38.click(); }//不能与专注编辑同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1060,6 +1084,19 @@ checkbox6.addEventListener('change', async function() {
     const state = this.checked;
     state ? enablefullwidth() : disablefullwidth();
     state ? isChecked6 = true : isChecked6 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 专注编辑开关
+checkbox38.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfocuseditingmode() : disableQYLfocuseditingmode();
+    state ? isChecked38 = true : isChecked38 = false;
+    if (isChecked8 === true) { checkbox8.click(); }//不能与聚焦块高亮同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1877,6 +1914,7 @@ function QYLfocusblockhighlight() {
     };
 }
 const QYLfocusblock = QYLfocusblockhighlight();
+const QYLfocusblockforfocuseditingmode = QYLfocusblockhighlight();
 
 // 开启聚焦块高亮
 function enablefocusblockremind() {
@@ -1937,6 +1975,70 @@ function disablefullwidth() {
     }
 }
 
+// 开启专注编辑
+function enableQYLfocuseditingmode() {
+    QYLfocusblockforfocuseditingmode.start();
+    setTimeout(() => {
+        typewriter.start();
+    }, 500);
+
+    let styleSheet = document.getElementById("QYLfocuseditingmode-style");
+    if (!styleSheet) {
+        styleSheet = document.createElement("style");
+        styleSheet.id = "QYLfocuseditingmode-style";
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.innerText = `
+        .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
+            opacity: 0.3;
+            filter: blur(0.5px);
+        }
+        .protyle-wysiwyg [data-node-id].QYLfocusblock {
+            opacity: 1 !important;
+            filter: blur(0px) !important;
+            & [data-node-id] {
+                opacity: 1 !important;
+                filter: blur(0px) !important;
+            }
+        }
+        [data-node-id].QYLfocusblock {
+            box-shadow: none !important;
+        }
+        [data-node-id].QYLfocusblock:hover {
+            box-shadow: none !important;
+        }
+        [data-node-id].QYLfocusblock::before {
+            content: "";
+            position: absolute;
+            border-radius: 99px;
+            top: 9px;
+            height: calc(100% - 18px);
+            width: 3px;
+            left: -7px;
+            background-color: var(--b3-theme-primary);
+            animation: QYLfocusediting 0.5s cubic-bezier(0.8, 0, 0.9, 1);
+        }
+        @keyframes QYLfocusediting {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    `;
+}
+
+// 关闭专注编辑
+function disableQYLfocuseditingmode() {
+    QYLfocusblockforfocuseditingmode.stop();
+    typewriter.stop();
+
+    const styleSheet = document.getElementById("QYLfocuseditingmode-style");
+    if (styleSheet) {
+        styleSheet.innerText = ``;
+    }
+}
 
 // 开启多彩文档树功能
 function enablecolorfulfiletree() {
@@ -3034,6 +3136,14 @@ async function loadAndCheckConfig() {
             isChecked37 = false;
         }
 
+        if (config?.isChecked38 === true) {
+            enableQYLfocuseditingmode();
+            isChecked38 = true;
+        } else if (config?.isChecked38 === false) {
+            disableQYLfocuseditingmode();
+            isChecked38 = false;
+        }
+
     } catch (e) {
         console.error("加载配置失败:", e);
     }
@@ -3459,6 +3569,113 @@ setTimeout(function(){
         }
     })();
 }, 500);
+
+//专注编辑
+function QYLtypewriter() {
+    let observerMap = new WeakMap();
+    let protyleContentObserver = null;
+    function setupProtyleContent(container) {
+        let userScrolled = false;
+        let currentFocusBlock = null;
+        const innerObserver = new MutationObserver(mutations => {
+            let focusChanged = false;
+            mutations.forEach(mutation => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const wasFocus = mutation.oldValue?.includes('QYLfocusblock') || false;
+                    const isFocus = mutation.target.classList.contains('QYLfocusblock');
+                    if (wasFocus !== isFocus) focusChanged = true;
+                }
+            });
+            if (focusChanged) {
+                const newFocus = container.querySelector('.QYLfocusblock');
+                if (newFocus !== currentFocusBlock) {
+                    currentFocusBlock = newFocus;
+                    userScrolled = false;
+                    if (currentFocusBlock) {
+                        smartScroll(container, currentFocusBlock);
+                    }
+                }
+            }
+        });
+        observerMap.set(container, {
+            innerObserver,
+            scrollHandler: () => userScrolled = true
+        });
+        innerObserver.observe(container, {
+            attributes: true,
+            attributeOldValue: true,
+            subtree: true,
+            attributeFilter: ['class']
+        });
+        container.addEventListener('scroll', observerMap.get(container).scrollHandler);
+        currentFocusBlock = container.querySelector('.QYLfocusblock');
+        if (currentFocusBlock) smartScroll(container, currentFocusBlock);
+    }
+    function cleanupProtyleContent(container) {
+        const data = observerMap.get(container);
+        if (data) {
+            data.innerObserver.disconnect();
+            container.removeEventListener('scroll', data.scrollHandler);
+            observerMap.delete(container);
+        }
+    }
+    function smartScroll(container, element) {
+        const containerRect = container.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        const relativeTop = elementRect.top - containerRect.top;
+        const visiblePosition = relativeTop + container.scrollTop;
+        const targetScroll = visiblePosition - 
+            container.clientHeight / 2 + 
+            elementRect.height / 2;
+        container.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+        });
+    }
+    return {
+        start() {
+            if (!protyleContentObserver) {
+                protyleContentObserver = new MutationObserver(mutations => {
+                    mutations.forEach(mutation => {
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                if (node.matches('.protyle-content')) {
+                                    setupProtyleContent(node);
+                                }
+                                node.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
+                            }
+                        });
+                        mutation.removedNodes.forEach(node => {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                if (node.matches('.protyle-content')) {
+                                    cleanupProtyleContent(node);
+                                }
+                                node.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
+                            }
+                        });
+                    });
+                });
+                const targetNode = document.querySelector('.layout__center');
+                if (targetNode) {
+                    protyleContentObserver.observe(targetNode, {
+                        childList: true,
+                        subtree: true
+                    });
+                    targetNode.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
+                }
+            }
+        },
+        stop() {
+            if (protyleContentObserver) {
+                document.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
+                observerMap = new WeakMap();
+                protyleContentObserver.disconnect();
+                protyleContentObserver = null;
+            }
+        }
+    };
+}
+const typewriter = QYLtypewriter();
 
 //列表辅助线
 const QYLlihelp = (function() {
