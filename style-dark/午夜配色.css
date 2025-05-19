@@ -102,3 +102,9 @@
 [data-theme-mode="dark"] .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus {
     --QYL-immerse-fusion-fix-3: var(--QYL-hover);
 }
+#barWorkspace {
+    --b3-theme-primary-light: var(--QYL-midnight-primary-fix-1) !important;
+}
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+    --b3-theme-primary-light: var(--QYL-midnight-primary-fix-1);
+}
