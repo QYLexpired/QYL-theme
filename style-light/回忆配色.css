@@ -79,12 +79,6 @@
 .protyle-gutters button:hover svg {
     color: var(--QYL-fog-primary-fix); 
 }
-.protyle-wysiwyg [data-node-id].li:hover::before {
-    border-left: 1.5px solid var(--QYL-fog-primary-fix);
-}
-.protyle-wysiwyg [data-node-id].li:hover>.protyle-action {
-    color: var(--QYL-fog-primary-fix);
-}
 .b3-list-item:hover.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
     background-color: var(--QYL-fog-primary-fix);
 }
