@@ -1946,6 +1946,9 @@ function enablefullwidth() {
         .protyle-background__ia {
             margin-left: 20px !important;
         }
+        .protyle-scroll {
+            right: 6px;
+        }
     `;
 }
 
@@ -1953,25 +1956,7 @@ function enablefullwidth() {
 function disablefullwidth() {
     const styleSheet = document.getElementById("fullwidth-style");
     if (styleSheet) {
-        styleSheet.innerText = `
-            @keyframes QYLbounceRightspecial {
-                    0% {
-                        transform: translateX(-100%);
-                    }
-                    30% {
-                        transform: translateX(10%);
-                    }
-                    70% {
-                        transform: translateX(-5%);
-                    }
-                    100% {
-                        transform: translateX(0);
-                    }
-            }
-            .protyle-background__icon, .protyle-background__icon img, .protyle-background__icon svg, .b3-chips__doctag .b3-chip {
-                animation: QYLbounceRightspecial 0.3s forwards;
-            }
-    `;
+        styleSheet.innerText = ` `;
     }
 }
 
@@ -1989,17 +1974,21 @@ function enableQYLfocuseditingmode() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
+        .layout__center .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
             opacity: 0.3;
             filter: blur(0.5px);
         }
-        .protyle-wysiwyg [data-node-id].QYLfocusblock {
+        .layout__center .protyle-wysiwyg [data-node-id].QYLfocusblock {
             opacity: 1 !important;
             filter: blur(0px) !important;
             & [data-node-id] {
                 opacity: 1 !important;
                 filter: blur(0px) !important;
             }
+        }
+        .card__main .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
+            opacity: 1 !important;
+            filter: blur(0px) !important;
         }
         [data-node-id].QYLfocusblock {
             box-shadow: none !important;
@@ -3759,6 +3748,7 @@ const I18Nattr = {
         pink: '粉色',
         black: '黑色',
         gray: '灰色',
+        themecolor: '主题色',
         defaultcolor: '默认颜色',
         removecallout: '取消CallOut样式',
         recovercallout: '启用CallOut样式',
@@ -3782,6 +3772,8 @@ const I18Nattr = {
         listviewkanban: '看板',
         listviewtable: '表格',
         listviewdefault: '默认',
+        liststylehide: '隐藏序标',
+        liststylerecover: '恢复序标',
 
         lineheight: '文字行间距',
         lineheight1: '单倍行距',
@@ -3796,7 +3788,9 @@ const I18Nattr = {
 
         tablestyle: '表格样式',
         threeline: '三线表',
-        tablestyledelete: '清除属性',
+        theadhl: '强化表头',
+        tablewidth100: '全宽表格',
+        tablestyledelete: '全部清除',
 
         headingstyle: '标题样式',
         headingstylecolorful: '多彩',
@@ -3867,6 +3861,7 @@ const I18Nattr = {
         pink: 'Pink',
         black: 'Black',
         gray: 'Gray',
+        themecolor: 'Theme color',
         defaultcolor: 'Default color',
         removecallout: 'Remove callout',
         recovercallout: 'Enable callout',
@@ -3890,6 +3885,8 @@ const I18Nattr = {
         listviewkanban: 'Kanban',
         listviewtable: 'Table',
         listviewdefault: 'Default(List)',
+        liststylehide: 'Hide the order',
+        liststylerecover: 'Display the order',
 
         lineheight: 'Line height',
         lineheight1: '1',
@@ -3904,6 +3901,8 @@ const I18Nattr = {
 
         tablestyle: 'Table style',
         threeline: 'Three line table',
+        theadhl: 'Enhance Headers',
+        tablewidth100: 'Full width table',
         tablestyledelete: 'Recover all',
 
         headingstyle: 'Heading style',
@@ -3975,6 +3974,7 @@ const I18Nattr = {
         pink: '粉色',
         black: '黑色',
         gray: '灰色',
+        themecolor: '主题色',
         defaultcolor: '預設顏色',
         removecallout: '取消CallOut樣式',
         recovercallout: '啟用CallOut樣式',
@@ -4012,7 +4012,11 @@ const I18Nattr = {
     
         tablestyle: '表格樣式',
         threeline: '三線表',
+        theadhl: '強化表頭',
+        tablewidth100: '全宽表格',
         tablestyledelete: '清除屬性',
+        liststylehide: '隐藏序标',
+        liststylerecover: '恢复序标',
     
         headingstyle: '標題樣式',
         headingstylecolorful: '多彩',
@@ -4460,6 +4464,8 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
         div.appendChild(QYLattrlistviewkanban(selectid))//看板
         div.appendChild(QYLattrlistviewbiaoge(selectid))//表格
         div.appendChild(QYLattrlistviewlist(selectid))//默认
+        div.appendChild(QYLattrliststylehide(selectid))//隐藏序标
+        div.appendChild(QYLattrliststylerecover(selectid))//恢复序标
         return div
 
         function QYLattrlistviewnaotu(selectid) {//脑图
@@ -4499,6 +4505,26 @@ function QYLattrlistviewsub(selectid) {//创建列表视图选项的二级菜单
             button.setAttribute("custom-attr-name", "list-view")
             button.setAttribute("custom-attr-value", "")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${i18nattr.listviewdefault}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrliststylehide(selectid) {//隐藏序标
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-style")
+            button.setAttribute("custom-attr-value", "隐藏序标")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${i18nattr.liststylehide}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrliststylerecover(selectid) {//恢复序标
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "list-style")
+            button.setAttribute("custom-attr-value", "")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">${i18nattr.liststylerecover}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -4889,6 +4915,17 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
         let div = document.createElement("div")
         div.className = "b3-menu__items"
         div.appendChild(QYLtablestylethreeline(selectid))//三线表
+        div.appendChild(QYLtablestyletheadhl(selectid))//强化表头
+        div.appendChild(QYLtablecolortheme(selectid))//主题色
+        div.appendChild(QYLtablecolorred(selectid))//红色
+        div.appendChild(QYLtablecolororange(selectid))//橙色
+        div.appendChild(QYLtablecoloryellow(selectid))//黄色
+        div.appendChild(QYLtablecolorgreen(selectid))//绿色
+        div.appendChild(QYLtablecolorcyan(selectid))//青色
+        div.appendChild(QYLtablecolorblue(selectid))//蓝色
+        div.appendChild(QYLtablecolorpurple(selectid))//紫色
+        div.appendChild(QYLtablecolorpink(selectid))//粉色
+        div.appendChild(QYLtablewidth100(selectid))//全宽表格
         div.appendChild(QYLtablestyledelete(selectid))//清除属性
         return div
 
@@ -4902,7 +4939,117 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.onclick = QYLcustomattrset
             return button
         }
-        function QYLtablestyledelete(selectid) {//清除属性
+        function QYLtablestyletheadhl(selectid) {//强化表头
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-style-thead")
+            button.setAttribute("custom-attr-value", "强化表头")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.theadhl}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolortheme(selectid) {//主题色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "主题色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.themecolor}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorred(selectid) {//红色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "红色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.red}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolororange(selectid) {//橙色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "橙色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.orange}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecoloryellow(selectid) {//黄色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "黄色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.yellow}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorgreen(selectid) {//绿色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "绿色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.green}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorcyan(selectid) {//青色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "红色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.cyan}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorblue(selectid) {//蓝色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "蓝色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.blue}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorpurple(selectid) {//紫色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "紫色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.purple}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablecolorpink(selectid) {//粉色
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-color")
+            button.setAttribute("custom-attr-value", "粉色")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.pink}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablewidth100(selectid) {//全宽表格
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "table-width")
+            button.setAttribute("custom-attr-value", "全宽表格")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.tablewidth100}</span><span class="b3-menu__accelerator">${i18nattr.group4}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLtablestyledelete(selectid) {//全部清除
             let button = document.createElement("button")
             button.className = "b3-menu__item b3-menu__item--warning"
             button.style.color = "var(--b3-theme-error)"
@@ -4910,7 +5057,23 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("custom-attr-name", "table-style")
             button.setAttribute("custom-attr-value", "")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.tablestyledelete}</span>`
-            button.onclick = QYLcustomattrset
+            button.onclick = function(e) {
+                button.setAttribute("custom-attr-name", "table-style");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+        
+                button.setAttribute("custom-attr-name", "table-style-thead");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+
+                button.setAttribute("custom-attr-name", "table-color");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+
+                button.setAttribute("custom-attr-name", "table-width");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+            };
             return button
         }
     }
