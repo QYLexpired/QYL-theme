@@ -76,6 +76,10 @@
         & .protyle-breadcrumb {
             background-color: rgba(255, 0, 0, 0);
         }
+        &.fullscreen {
+            background-color: var(--QYL-filter-background);
+            backdrop-filter: var(--QYL-Aero-filter);
+        }
     }
 }
 [data-key="dialog-opencard"] {
@@ -228,7 +232,11 @@ div[data-key="dialog-commandpanel"] {
         background-color: var(--QYL-filter-wrap-background);
     }
 }
-
+/* 全屏修复 */
+.fullscreen {
+    background-color: var(--QYL-filter-background) !important;
+    backdrop-filter: var(--QYL-Aero-filter);
+}
 
 /* 叶归插件 */
 #enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-drawer {

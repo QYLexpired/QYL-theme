@@ -516,9 +516,6 @@ body > div.block__popover.block__popover--open {
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {
     animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
 }
-.protyle-wysiwyg table {
-    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
-}
 [data-key="dialog-confirm"] .b3-dialog__container {
     animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }

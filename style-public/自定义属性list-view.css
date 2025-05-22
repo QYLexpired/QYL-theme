@@ -363,3 +363,24 @@ div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{
     line-height: 14px;
 	text-align: center;
 }
+
+/* 隐藏序标 */
+.protyle-wysiwyg [data-node-id][custom-list-style="隐藏序标"] {
+    & .li > .protyle-action {
+        opacity: 0;
+        animation: none !important;
+    }
+    & .li > div:nth-child(2) {
+        margin-left: 0;
+    }
+    & .li[fold="1"] {
+        background-color: var(--QYL-hover);
+    }
+    & .li::before {
+        display: none;
+    }
+    & .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
+        opacity: 0;
+        animation: none !important;
+    }
+}

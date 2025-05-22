@@ -721,6 +721,21 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     animation: QYLlienter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
 }
 
+/* 题头图渐变 */
+.protyle-background__img {
+    & img {
+        height: 32vh;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 32vh;
+        background: linear-gradient(to top, var(--b3-theme-background) 100px,rgba(255, 0, 0, 0) 100%);
+    }
+}
 
 /* 引述块callout */
 .protyle-wysiwyg blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .bq[custom-bq-callout="启用"] {

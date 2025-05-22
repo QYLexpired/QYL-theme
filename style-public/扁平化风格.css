@@ -55,6 +55,23 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
 .file-tree .b3-list-item .b3-list-item__toggle:hover .b3-list-item__arrow {
     color: var(--QYL-flat-second);
 }
+[data-theme-mode="light"] {
+    & .dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+        color: var(--QYL-flat-primary);
+    }
+    & .toolbar__item:not(.toolbar__item--disabled):not(.toolbar__item--close):hover, .toolbar__item--active {
+        color: var(--QYL-flat-primary);
+    }
+    & .block__icon:hover:not([disabled]):not(.ft__primary):not(.block__icon--warning), .block__icon--active {
+        color: var(--QYL-flat-primary) !important;
+    }
+    & .b3-list-item__action:hover {
+        color: var(--QYL-flat-primary);
+    }
+    & .file-tree .b3-list-item .b3-list-item__toggle:hover .b3-list-item__arrow {
+        color: var(--QYL-flat-primary);
+    }
+}
 .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), .b3-list--background .b3-list-item--focus {
     background-color: rgba(255, 0, 0, 0);
     color: var(--QYL-flat-second);
