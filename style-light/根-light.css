@@ -254,3 +254,42 @@
 :root {
     --QYL-immerse-toolbar: rgb(67, 81, 143);
 }
+:root {
+    /* 卡片背景 */
+    --b3-card-error-color: #eb281e;
+    --b3-card-error-background: #ffc1c1;
+    --b3-card-warning-color: #ff701e;
+    --b3-card-warning-background: #ffd5b5;
+    --b3-card-info-color: #1e8cf3;
+    --b3-card-info-background: #b3ddff;
+    --b3-card-success-color: #14ab1b;
+    --b3-card-success-background: #a6f8ab;
+
+    /* 自定义文字 */
+    --b3-font-color1: var(--b3-card-error-color);
+    --b3-font-color2: var(--b3-card-warning-color);
+    --b3-font-color3: var(--b3-card-info-color);
+    --b3-font-color4: var(--b3-card-success-color);
+    --b3-font-color5: var(--b3-theme-on-surface);
+    --b3-font-color6: rgb(135, 68, 237);
+    --b3-font-color7: rgb(47, 93, 243);
+    --b3-font-color8: rgb(244, 63, 93);
+    --b3-font-color9: #f135a9;
+    --b3-font-color10: #1bc4c4;
+    --b3-font-color11: #b6e818;
+    --b3-font-color12: #eeff00;
+    --b3-font-color13: var(--b3-theme-background);
+    --b3-font-background1: var(--b3-card-error-background);
+    --b3-font-background2: var(--b3-card-warning-background);
+    --b3-font-background3: var(--b3-card-info-background);
+    --b3-font-background4: var(--b3-card-success-background);
+    --b3-font-background5: #e2e3e4;
+    --b3-font-background6: #d8c2ff;
+    --b3-font-background7: #9dbcff;
+    --b3-font-background8: #ffb2c4;
+    --b3-font-background9: #feabff;
+    --b3-font-background10: #a5eaea;
+    --b3-font-background11: #e1ffac;
+    --b3-font-background12: #ebff79;
+    --b3-font-background13: var(--b3-theme-on-background);
+}
