@@ -409,8 +409,27 @@
       transform: scale(1);
     }
 }
+@keyframes QYLtoolbarenterfix {
+    0% {
+      transform: scale(0.99);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.98);
+    }
+    85% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
 .protyle-toolbar {
-    animation: QYLtoolbarenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    animation: QYLtoolbarenterfix 0.6s cubic-bezier(0.8, 0, 0.9, 1);
 }
 @keyframes QYLhintmenuenter {
     0% {
@@ -431,8 +450,28 @@
       transform: scale(1);
     }
 }
+@keyframes QYLhintmenuenterfix {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.01);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.99);
+    }
+    85% {
+        transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
 .protyle-hint.hint--menu {
-    animation: QYLhintmenuenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    animation: QYLhintmenuenterfix 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+    transform-origin: right bottom;
 }
 
 @keyframes QYLtooltipenter {

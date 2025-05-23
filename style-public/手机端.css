@@ -79,7 +79,7 @@
 .QYLmobile .b3-menu--fullscreen .b3-menu__submenu {
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
     top: 60px;
-    background: rgba(255, 0, 0, 0);
+    background: var(--b3-theme-surface);
 }
 
 /* 底栏 */

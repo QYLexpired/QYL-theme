@@ -203,3 +203,18 @@
 .av__views > [data-type="av-search-icon"] + div > input:is([style*="width: 0"], [style*="width:0"]) {
     opacity: 0;
 }
+.av__mask .b3-text-field, .av__mask select.b3-select {
+    background-color: var(--b3-theme-surface);
+    &:is(:hover, :focus) {
+        background-color: var(--b3-theme-surface)
+    }
+}
+.b3-chip--info {
+    outline: 1px solid var(--b3-theme-surface-lighter);
+    background-color: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--QYL-white);
+    }
+}

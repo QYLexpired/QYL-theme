@@ -33,6 +33,10 @@
     border: 1.5px solid var(--b3-theme-primary);
     transition: var(--b3-transition);
     background-color: rgba(255, 0, 0, 0);
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--QYL-white);
+    }
 }
 /* 临时解锁 */
 .protyle-breadcrumb .block__icon[aria-label="取消临时解锁"] svg {

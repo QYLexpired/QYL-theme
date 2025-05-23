@@ -3,6 +3,10 @@
     background-color: var(--b3-theme-primary-light);
     color: var(--QYL-white);
 }
+.dock__item--activefocus {
+  background-color: var(--b3-theme-primary-light);
+  color: var(--QYL-white);
+}
 /* 文档下拉 */
 .file-tree .b3-list-item .b3-list-item__toggle:hover {
     background-color: rgba(255, 0, 0, 0) !important;

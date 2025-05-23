@@ -724,7 +724,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 /* 题头图渐变 */
 .protyle-background__img {
     & img {
-        height: 32vh;
+        height: 35vh;
     }
     &::after {
         content: '';
@@ -733,7 +733,8 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
         left: 0;
         width: 100%;
         height: 32vh;
-        background: linear-gradient(to top, var(--b3-theme-background) 100px,rgba(255, 0, 0, 0) 100%);
+        background: linear-gradient(to top, var(--b3-theme-background) 120px,rgba(255, 0, 0, 0) 100%);
+        pointer-events: none;
     }
 }
 

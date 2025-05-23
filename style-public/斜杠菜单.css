@@ -1,10 +1,10 @@
 /* 斜杠菜单展开 */
-@media screen and (min-width: 1292px) {
+@media screen and (min-width: 1100px) {
     .protyle-hint.hint--menu {
-        width:60vw;
-        max-width: 84em;
-        max-height: 65vh;
-        border: none;
+        width: 980px;
+        min-width: 980px;
+        height: 440px;
+        min-height: min(80vh, 440px);
     }
 
     .protyle-hint.hint--menu>div {

@@ -49,19 +49,19 @@
 }
 /* 编辑器工具栏 */
 .protyle-toolbar {
-    border-radius: var(--b3-border-radius-q);
-    border: 0.5px solid var(--b3-theme-surface-lighter);
-}
-.protyle-toolbar__item {
-    margin: 6px 3px;
-    border-radius: var(--b3-border-radius) !important;
-}
-.protyle-toolbar__item svg {
-    width: 16px;
-    height: 16px;
-}
-.protyle-toolbar__item:hover {
-    background-color: var(--QYL-hover);
+    border-radius: 20px;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    & .protyle-toolbar__item {
+        margin: 6px 3px;
+        border-radius: 20px;
+        &:hover {
+            background-color: var(--QYL-hover);
+        }
+        & svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
 }
 /* 窗口优化 */
 .b3-dialog__header {
