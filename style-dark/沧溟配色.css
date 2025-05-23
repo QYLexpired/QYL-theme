@@ -59,7 +59,7 @@
     --QYL-input-border-hover: #272568;
 }
 :root {
-    --QYL-filter-background-theme: rgba(28, 28, 46, 0.7);
+    --QYL-filter-background-theme: rgba(46, 46, 54, 0.7);
     --QYL-filter-wrap-background-theme: rgba(58, 58, 99, 0.7);
     --QYL-filter-fix-background-theme: rgba(28, 28, 46, 0.9);
 }
