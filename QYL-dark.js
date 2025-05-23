@@ -4627,7 +4627,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.className = "b3-menu__item"
             button.setAttribute("data-node-id", selectid)
             button.setAttribute("custom-attr-name", "table-color")
-            button.setAttribute("custom-attr-value", "红色")
+            button.setAttribute("custom-attr-value", "青色")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">${i18nattr.cyan}</span><span class="b3-menu__accelerator">${i18nattr.group3}</span>`
             button.onclick = QYLcustomattrset
             return button
