@@ -24,6 +24,7 @@
 }
 
 /* 自定义属性img-display */
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 [custom-img-display="九宫格排列"] > div[contenteditable] {
     display: flex;
     flex-wrap: wrap;

@@ -1,4 +1,5 @@
 /* 垂直页签 */
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
@@ -73,6 +74,7 @@
     }
 }
 /* 适配墨水屏 */
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],

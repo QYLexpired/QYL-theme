@@ -726,16 +726,25 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     & img {
         height: 35vh;
     }
-    &::after {
+    &::after {/* ref Asri */
         content: '';
         position: absolute;
-        bottom: 0;
+        top: 32px;
         left: 0;
         width: 100%;
         height: 32vh;
-        background: linear-gradient(to top, var(--b3-theme-background) 120px,rgba(255, 0, 0, 0) 100%);
+        background: linear-gradient(to top, var(--b3-theme-background) 2%, rgba(from var(--b3-theme-background) r g b/0.97) 9%, rgba(from var(--b3-theme-background) r g b/0.9) 18%, rgba(from var(--b3-theme-background) r g b/0.75) 33%, rgba(from var(--b3-theme-background) r g b/0.05) 92%, transparent 99%);
         pointer-events: none;
     }
+}
+.protyle-background__icon {
+    transform: scale(1.5);
+    &[style*="margin-top"] {
+        margin-top: 38px !important;
+    }
+}
+.protyle-background__action {
+    transform: translateY(20px);
 }
 
 /* 引述块callout */

@@ -34,6 +34,7 @@
   --QYL-indent-15-1: 272px;
   --QYL-indent-15-2: 273px;
 }
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+1)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--QYL-indent-1-1), var(--filetree-line-1) var(--QYL-indent-1-1) var(--QYL-indent-1-2), rgba(0, 0, 0, 0) var(--QYL-indent-1-2) 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+2)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--QYL-indent-1-1), var(--filetree-line-2) var(--QYL-indent-1-1) var(--QYL-indent-1-2), rgba(0, 0, 0, 0) var(--QYL-indent-1-2) 100%) }
 .file-tree>.fn__flex-1>ul:nth-of-type(8n+3)>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--QYL-indent-1-1), var(--filetree-line-3) var(--QYL-indent-1-1) var(--QYL-indent-1-2), rgba(0, 0, 0, 0) var(--QYL-indent-1-2) 100%) }
@@ -165,6 +166,7 @@
 .file-tree>.fn__flex-1>ul:nth-of-type(8n)>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul { background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--QYL-indent-15-1), var(--filetree-line-8) var(--QYL-indent-15-1) var(--QYL-indent-15-2), rgba(0, 0, 0, 0) var(--QYL-indent-15-2) 100%) }
 
 /* 移动端缩进线 */
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .QYLmobile #sidebar :is([data-type="sidebar-file"], [data-type="sidebar-outline"], [data-type="sidebar-bookmark"], [data-type="sidebar-tag"]) .fn__flex-1 ul {
     & > ul {
         background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 var(--QYL-indent-1-1), var(--filetree-line-1)  var(--QYL-indent-1-1)  var(--QYL-indent-1-2), rgba(0, 0, 0, 0)  var(--QYL-indent-1-2) 100%);

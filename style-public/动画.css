@@ -379,11 +379,11 @@
       transform: scale(1);
     }
 }
-.protyle-gutters svg {
+.protyle-gutters button {
     animation: QYLguttersenter 0.5s cubic-bezier(0.8, 0, 0.9, 1);
 }
 .protyle-gutters button[data-type="fold"] svg {
-    transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8); 
+    transition: transform 0.4s cubic-bezier(0.68, -1.2, 0.32, 1.8);
 }
 
 .b3-list-item__arrow {

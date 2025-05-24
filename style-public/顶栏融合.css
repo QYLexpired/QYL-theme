@@ -1,4 +1,4 @@
-#toolbar {
+#toolbar {/* ref Savor */
     background-color: transparent;
     border-bottom-color: transparent;
     margin-bottom: -38px;
@@ -24,6 +24,7 @@
 #layouts:has(+#dockRight.fn__none) {
     --QYL-fusion-right-fix: 16px;
 }
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
@@ -51,6 +52,7 @@
         box-sizing: border-box;
     }
 }
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .body--mac .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .body--mac .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .body--mac .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
@@ -71,6 +73,7 @@
         transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
     }
 }
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 #layouts .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/* 防止新建文档和切换页签距离太大，设置所有页签栏右边距 */
     max-width: 80px;
     min-width: min(80px, calc(var(--QYL-fusion-window-width) - var(--QYL-fusion-center-left) - var(--QYL-fusion-drag-right)));
@@ -109,6 +112,7 @@
     clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
 }
 
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 /* 适配墨水屏模式 */
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
