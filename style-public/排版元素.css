@@ -753,7 +753,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     }
 }
 .QYLmobile .protyle-background__img::after {
-    top: -40px;
+    top: -20px;
 }
 
 /* 引述块callout */
