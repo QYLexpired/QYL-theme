@@ -2821,7 +2821,8 @@ init().catch(error => {
     startSurfaceWatcher();
 })();
 
-// 连点三次开启或关闭隐藏顶栏
+// 连点三次Q开启或关闭隐藏顶栏
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 let qKeyPressTimes = [];
 document.addEventListener('keydown', function(event) {
     if (event.key.toLowerCase() === 'q') {
@@ -2850,6 +2851,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 // 底部状态栏位置更新
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 const QYLStatusPositionManager = (() => {
     const QYL_MAX_RETRIES = 5;
     const QYL_BASE_DELAY = 300;
@@ -2994,6 +2996,7 @@ const QYLStatusInitialize = () => {
 QYLStatusInitialize();
 
 // 顶栏融合
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 function QYLfusion() {
     let isRunning = false;
     let retryTimeout;
@@ -3111,6 +3114,7 @@ class QYLFusionWindowWidth {
   const windowObserver = new QYLFusionWindowWidth();
 
 //css自定义属性
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 setTimeout(function(){
     (function(){
         function QYLcssApplyCustomCSS() {
@@ -5790,6 +5794,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
 }
 
 // 状态栏防遮挡
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 setTimeout(() => {
     const statusElement = document.getElementById('status');
     if (!statusElement) return;

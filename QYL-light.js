@@ -2173,13 +2173,12 @@ function enableQYLcolorfultag() {
         }
         /* 多彩标签 */
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-red);
+            background-color: rgba(from var(--QYL-custom-red) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -2197,13 +2196,12 @@ function enableQYLcolorfultag() {
             vertical-align: middle;
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-orange);
+            background-color: rgba(from var(--QYL-custom-orange) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -2221,13 +2219,12 @@ function enableQYLcolorfultag() {
             vertical-align: middle;
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-green);
+            background-color: rgba(from var(--QYL-custom-green) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -2245,13 +2242,12 @@ function enableQYLcolorfultag() {
             vertical-align: middle;
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-blue);
+            background-color: rgba(from var(--QYL-custom-blue) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -2269,13 +2265,12 @@ function enableQYLcolorfultag() {
             vertical-align: middle;
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-purple);
+            background-color: rgba(from var(--QYL-custom-purple) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -2293,13 +2288,12 @@ function enableQYLcolorfultag() {
             vertical-align: middle;
         }
         .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
-            opacity: 0.75;
             border-radius: var(--b3-border-radius);
             border: none;
             padding: 3px 5px;
             font-size: 80%;
             color: var(--QYL-white);
-            background-color: var(--QYL-custom-pink);
+            background-color: rgba(from var(--QYL-custom-pink) r g b/0.7);
             &:hover {
                 background-color: var(--b3-theme-primary);
             }
@@ -3200,6 +3194,7 @@ init().catch(error => {
 
 
 // 连点三次Q开启或关闭隐藏顶栏
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 let qKeyPressTimes = [];
 document.addEventListener('keydown', function(event) {
     if (event.key.toLowerCase() === 'q') {
@@ -3228,6 +3223,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 // 底部状态栏位置更新
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 const QYLStatusPositionManager = (() => {
     const QYL_MAX_RETRIES = 5;
     const QYL_BASE_DELAY = 300;
@@ -3372,6 +3368,7 @@ const QYLStatusInitialize = () => {
 QYLStatusInitialize();
 
 // 顶栏融合
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 function QYLfusion() {
     let isRunning = false;
     let retryTimeout;
@@ -3489,6 +3486,7 @@ class QYLFusionWindowWidth {
   const windowObserver = new QYLFusionWindowWidth();
 
 //css自定义属性
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 setTimeout(function(){
     (function(){
         function QYLcssApplyCustomCSS() {
@@ -6285,6 +6283,7 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
 }
 
 // 状态栏防遮挡
+// QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
 setTimeout(() => {
     const statusElement = document.getElementById('status');
     if (!statusElement) return;
