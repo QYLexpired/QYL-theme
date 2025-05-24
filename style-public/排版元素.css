@@ -746,6 +746,15 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 .protyle-background__action {
     transform: translateY(20px);
 }
+.QYLmobile .protyle-background__icon {
+    transform: scale(1.2);
+    &[style*="margin-top"] {
+        margin-top: 38px !important;
+    }
+}
+.QYLmobile .protyle-background__img::after {
+    top: -40px;
+}
 
 /* 引述块callout */
 .protyle-wysiwyg blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .bq[custom-bq-callout="启用"] {

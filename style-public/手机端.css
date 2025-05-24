@@ -175,17 +175,6 @@
     width: 90vw !important;
 }
 
-/* 按钮 */
-.QYLmobile .b3-button--text {
-    border: 1.5px solid var(--b3-theme-primary);
-}
-.QYLmobile .b3-button--cancel:not(#findResultsCount, #findMsg) {
-    border: 1.5px solid var(--b3-theme-on-surface);
-}
-.QYLmobile .b3-button--outline {
-    box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
-}
-
 /* 编辑器工具栏 */
 .QYLmobile #keyboardToolbar {
     border-radius: var(--b3-border-radius);
