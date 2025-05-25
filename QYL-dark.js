@@ -1719,11 +1719,11 @@ function enableQYLfocuseditingmode() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .layout__center .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
+        :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
             opacity: 0.3;
             filter: blur(0.5px);
         }
-        .layout__center .protyle-wysiwyg [data-node-id].QYLfocusblock {
+        :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg [data-node-id].QYLfocusblock {
             opacity: 1 !important;
             filter: blur(0px) !important;
             & [data-node-id] {
@@ -3270,7 +3270,7 @@ function QYLtypewriter() {
                         });
                     });
                 });
-                const targetNode = document.querySelector('.layout__center');
+                const targetNode = document.querySelector('.layout__center') || document.querySelector('#editor');
                 if (targetNode) {
                     protyleContentObserver.observe(targetNode, {
                         childList: true,
@@ -3421,6 +3421,7 @@ const I18Nattr = {
 
         headingstyle: '标题样式',
         headingstylecolorful: '多彩',
+        headingstyleglitch: '故障',
         headingstylegold: '金箔',
         headingstyleunderline: '下划线',
         headingstyleleftborder: '左边框',
@@ -3534,6 +3535,7 @@ const I18Nattr = {
 
         headingstyle: 'Heading style',
         headingstylecolorful: 'Colorful',
+        headingstyleglitch: 'Glitch',
         headingstylegold: 'Gold',
         headingstyleunderline: 'Underline',
         headingstyleleftborder: 'Left border',
@@ -3625,8 +3627,6 @@ const I18Nattr = {
         listviewkanban: '看板',
         listviewtable: '表格',
         listviewdefault: '預設',
-        liststylehide: '隐藏序标',
-        liststylerecover: '恢复序标',
     
         lineheight: '文字行間距',
         lineheight1: '單倍行距',
@@ -3644,9 +3644,12 @@ const I18Nattr = {
         theadhl: '強化表頭',
         tablewidth100: '全宽表格',
         tablestyledelete: '清除屬性',
+        liststylehide: '隐藏序标',
+        liststylerecover: '恢复序标',
     
         headingstyle: '標題樣式',
         headingstylecolorful: '多彩',
+        headingstyleglitch: '故障',
         headingstylegold: '金箔',
         headingstyleunderline: '下劃線',
         headingstyleleftborder: '左邊框',
@@ -4705,6 +4708,135 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
         }
     }
 }
+
+/* -----------------------------------------标题块------------------------------------- */
+    function QYLNodeHeadingsub(selectid) {//创建标题块二级菜单
+        let div = document.createElement("div")
+        div.id = "QYLNodeHeadingsub"
+        div.className = "b3-menu__submenu"
+        div.appendChild(QYLNodeHeadingsubitems(selectid))//准备创建标题块二级菜单的b3-menu__items
+        return div
+
+        function QYLNodeHeadingsubitems(selectid) {//创建标题块二级菜单的b3-menu__items
+            let div = document.createElement("div")
+            div.className = "b3-menu__items"
+            div.appendChild(QYLattrcssitem(selectid))//准备创建css属性选项
+            div.appendChild(QYLattrhstyleitem(selectid))//准备创建标题样式选项
+            div.appendChild(QYLattrstyleitem(selectid))//准备创建块样式选项
+            div.appendChild(QYLattrimgitem(selectid))//准备创建图片样式选项
+            div.appendChild(QYLattrfontfamilyitem(selectid))//准备创建字体选项
+            div.appendChild(QYLattrheightitem(selectid))//准备创建最大高度选项
+            return div
+        }
+    }
+    function QYLattrhstyleitem(selectid) {//创建标题样式选项
+        let button = document.createElement(`button`);
+        button.className = "b3-menu__item"
+        button.innerHTML = `<svg class="b3-menu__icon" style="null"><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label" style="">${i18nattr.headingstyle}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
+        button.appendChild(QYLattrhstylesub(selectid))//准备创建标题样式选项的二级菜单
+        return button
+    }
+    function QYLattrhstylesub(selectid) {//创建标题样式选项的二级菜单
+        let div = document.createElement(`div`);
+        div.className = "b3-menu__submenu"
+        div.appendChild(QYLattrhstylesubitems(selectid))//准备创建标题样式选项的b3-menu__items
+        return div
+
+        function QYLattrhstylesubitems(selectid) {//创建标题样式选项的b3-menu__items
+            let div = document.createElement("div")
+            div.className = "b3-menu__items"
+            div.appendChild(QYLhstyleduocai(selectid))//多彩
+            div.appendChild(QYLhstyleguzhang(selectid))//故障
+            div.appendChild(QYLhstylejinbo(selectid))//金箔
+            div.appendChild(QYLhstylexiahuaxian(selectid))//下划线
+            div.appendChild(QYLhstylezuobiankuang(selectid))//左边框
+            div.appendChild(QYLhstylecengji(selectid))//层级
+            div.appendChild(QYLhstyledelete(selectid))//全部清除
+            return div
+        }
+
+        function QYLhstyleduocai(selectid) {//多彩
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "多彩")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylecolorful}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstyleguzhang(selectid) {//故障
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "故障")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleglitch}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylejinbo(selectid) {//金箔
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "金箔")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylegold}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylexiahuaxian(selectid) {//下划线
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style-u")
+            button.setAttribute("custom-attr-value", "下划线")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleunderline}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylezuobiankuang(selectid) {//左边框
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style-u")
+            button.setAttribute("custom-attr-value", "左边框")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleleftborder}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstylecengji(selectid) {//层级
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style-l")
+            button.setAttribute("custom-attr-value", "层级")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylelevel}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstyledelete(selectid) {//全部清除
+            let button = document.createElement("button")
+            button.className = "b3-menu__item b3-menu__item--warning"
+            button.style.color = "var(--b3-theme-error)"
+            button.setAttribute("data-node-id", selectid)
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconClose"></use></svg><span class="b3-menu__label">${i18nattr.headingstyledelete}</span>`
+            button.onclick = function(e) {
+                button.setAttribute("custom-attr-name", "h-style");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+        
+                button.setAttribute("custom-attr-name", "h-style-u");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+
+                button.setAttribute("custom-attr-name", "h-style-l");
+                button.setAttribute("custom-attr-value", "");
+                QYLcustomattrset.call(button, e);
+            };
+            return button
+        }
+    }
 
 
 

@@ -1974,11 +1974,11 @@ function enableQYLfocuseditingmode() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .layout__center .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
+        :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg > [data-node-id]:not(:has(.QYLfocusblock)):not(.av) {
             opacity: 0.3;
             filter: blur(0.5px);
         }
-        .layout__center .protyle-wysiwyg [data-node-id].QYLfocusblock {
+        :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg [data-node-id].QYLfocusblock {
             opacity: 1 !important;
             filter: blur(0px) !important;
             & [data-node-id] {
@@ -3642,7 +3642,7 @@ function QYLtypewriter() {
                         });
                     });
                 });
-                const targetNode = document.querySelector('.layout__center');
+                const targetNode = document.querySelector('.layout__center') || document.querySelector('#editor');
                 if (targetNode) {
                     protyleContentObserver.observe(targetNode, {
                         childList: true,
@@ -3792,6 +3792,7 @@ const I18Nattr = {
 
         headingstyle: '标题样式',
         headingstylecolorful: '多彩',
+        headingstyleglitch: '故障',
         headingstylegold: '金箔',
         headingstyleunderline: '下划线',
         headingstyleleftborder: '左边框',
@@ -3905,6 +3906,7 @@ const I18Nattr = {
 
         headingstyle: 'Heading style',
         headingstylecolorful: 'Colorful',
+        headingstyleglitch: 'Glitch',
         headingstylegold: 'Gold',
         headingstyleunderline: 'Underline',
         headingstyleleftborder: 'Left border',
@@ -4018,6 +4020,7 @@ const I18Nattr = {
     
         headingstyle: '標題樣式',
         headingstylecolorful: '多彩',
+        headingstyleglitch: '故障',
         headingstylegold: '金箔',
         headingstyleunderline: '下劃線',
         headingstyleleftborder: '左邊框',
@@ -5114,6 +5117,7 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             let div = document.createElement("div")
             div.className = "b3-menu__items"
             div.appendChild(QYLhstyleduocai(selectid))//多彩
+            div.appendChild(QYLhstyleguzhang(selectid))//故障
             div.appendChild(QYLhstylejinbo(selectid))//金箔
             div.appendChild(QYLhstylexiahuaxian(selectid))//下划线
             div.appendChild(QYLhstylezuobiankuang(selectid))//左边框
@@ -5129,6 +5133,16 @@ function QYLattrtablestylesub(selectid) {//创建表格样式选项的二级菜�
             button.setAttribute("custom-attr-name", "h-style")
             button.setAttribute("custom-attr-value", "多彩")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstylecolorful}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLhstyleguzhang(selectid) {//故障
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "h-style")
+            button.setAttribute("custom-attr-value", "故障")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconHeadings"></use></svg><span class="b3-menu__label">${i18nattr.headingstyleglitch}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
