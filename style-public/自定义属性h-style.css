@@ -119,3 +119,47 @@
     padding-left: 8px;
     border-left: 8px solid var(--QYL-custom-h-style-fix);
 }
+
+/* 故障 */
+[data-theme-mode="dark"] [custom-h-style="故障"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"]):not([fold="1"])>[spellcheck]:not(:empty), [data-theme-mode="dark"] [custom-h-style="故障"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+    animation: QYLglitchdark 4s infinite linear !important;
+}
+@keyframes QYLglitchdark {
+    0%, 40%, 48%, 60%, 80% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+    42% {
+        transform: translateX(2px);
+        text-shadow: 3px 0 rgba(115, 0, 255, 0.7), -3px 0 rgba(0,255,255,0.7);
+    }
+    44% {
+        transform: translateX(-2px);
+        text-shadow: -3px 0 rgba(0,0,255,0.7), 3px 0 rgba(255, 255, 2, 0.8);
+    }
+    46% {
+        transform: translate(1px, -1px);
+        text-shadow: 2px -1px rgba(0, 255, 0, 0.8), -2px 1px rgba(255, 0, 0, 0.8);
+    }
+}
+[data-theme-mode="light"] [custom-h-style="故障"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"]):not([fold="1"])>[spellcheck]:not(:empty), [data-theme-mode="light"] [custom-h-style="故障"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+    animation: QYLglitchlight 4s infinite linear !important;
+}
+@keyframes QYLglitchlight {
+    0%, 40%, 48%, 60%, 80% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+    42% {
+        transform: translateX(2px);
+        text-shadow: 3px 0 rgb(255, 90, 151), -3px 0 rgb(50, 180, 240);
+    }
+    44% {
+        transform: translateX(-2px);
+        text-shadow: -3px 0 rgb(169, 70, 255), 3px 0 rgb(255, 241, 50);
+    }
+    46% {
+        transform: translate(1px, -1px);
+        text-shadow: 2px -1px rgb(255, 149, 50), -2px 1px rgb(85, 255, 70);
+    }
+}

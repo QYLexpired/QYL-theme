@@ -78,8 +78,11 @@
 }
 .QYLmobile .b3-menu--fullscreen .b3-menu__submenu {
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
-    top: 60px;
+    top: 56px;
     background: var(--b3-theme-surface);
+    & .b3-menu__submenu {
+        top: 0px;
+    }
 }
 
 /* 底栏 */
