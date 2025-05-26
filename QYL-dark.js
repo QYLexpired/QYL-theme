@@ -143,49 +143,51 @@ const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
     addThemeToolBar();
 })();
 function addThemeToolBar() {
-    var QYLToolBar = document.getElementById("QToolbar");
+    const isMobile = !!window.siyuan?.mobile;
+    const QYLToolBar = document.getElementById("QToolbar");
     if (!QYLToolBar) {
-        var toolbarVIP = document.getElementById("toolbarVIP");
-        var windowControls = document.getElementById("windowControls");
-        QYLToolBar = document.createElement("div");
-        QYLToolBar.id = "QToolbar";
-        QYLToolBar.className = "toolbar__item ariaLabel";
-        QYLToolBar.style.width = "23.5px";
-        QYLToolBar.style.height = "23.5px";
-        QYLToolBar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" opacity=".9" p-id="4701"></path></svg>`;
-        QYLToolBar.ariaLabel = i18n.QYLztsz;
-        QYLToolBar.style.userSelect = 'none';
+        const toolbarVIP = document.getElementById("toolbarVIP");
+        const windowControls = document.getElementById("windowControls");
+        const newToolbar = document.createElement("div");
+        newToolbar.id = "QToolbar";
+        newToolbar.className = "toolbar__item ariaLabel";
+        newToolbar.style.width = "23.5px";
+        newToolbar.style.height = "23.5px";
+        newToolbar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" opacity=".9" p-id="4701"></path></svg>`;
+        newToolbar.ariaLabel = i18n.QYLztsz;
+        newToolbar.style.userSelect = 'none';
         const handleToolbarClick = () => {
             const settingsWindow = document.getElementById('QYLsettings-window');
             settingsWindow ? closeSettingsWindow() : createSettingsWindow();
         };
-
-        var parentElement = toolbarVIP ? toolbarVIP.parentElement : (windowControls ? windowControls.parentElement : null);
-        if (!parentElement) {
+        if (isMobile) {
             document.body.classList.add("QYLmobile");
-            QYLToolBar.className = "block__icon fn__flex-center ariaLabel";
-            QYLToolBar.style.height = "14px";
-            QYLToolBar.style.width = "14px";
-            var breadcrumbButtons = document.getElementsByClassName("block__icon fn__flex-center ariaLabel");
+            newToolbar.className = "block__icon fn__flex-center ariaLabel";
+            newToolbar.style.height = "14px";
+            newToolbar.style.width = "14px";
+            const breadcrumbButtons = document.getElementsByClassName("block__icon fn__flex-center ariaLabel");
             try {
-                var firstButton = breadcrumbButtons[0];
+                const firstButton = breadcrumbButtons[0];
                 const container = firstButton.parentElement;
-                container.insertBefore(QYLToolBar, firstButton);
-                QYLToolBar.addEventListener("click", handleToolbarClick);
+                container.insertBefore(newToolbar, firstButton);
+                newToolbar.addEventListener("click", handleToolbarClick);
             } catch (error) {
-                setTimeout(function() {
-                    var firstButton = document.getElementsByClassName("block__icon fn__flex-center ariaLabel")[0];
+                setTimeout(() => {
+                    const firstButton = document.querySelector(".block__icon.fn__flex-center.ariaLabel");
                     if (firstButton) {
                         const container = firstButton.parentElement;
-                        container.insertBefore(QYLToolBar, firstButton);
-                        QYLToolBar.addEventListener("click", handleToolbarClick);
+                        container.insertBefore(newToolbar, firstButton);
+                        newToolbar.addEventListener("click", handleToolbarClick);
                     }
                 }, 1000);
             }
-            return;
+        } else {
+            const parentElement = toolbarVIP?.parentElement || windowControls?.parentElement;
+            if (parentElement) {
+                parentElement.insertBefore(newToolbar, toolbarVIP || windowControls);
+                newToolbar.addEventListener("click", handleToolbarClick);
+            }
         }
-        parentElement.insertBefore(QYLToolBar, toolbarVIP || windowControls);
-        QYLToolBar.addEventListener("click", handleToolbarClick);
     }
 }
 
@@ -1769,6 +1771,20 @@ function disableQYLfocuseditingmode() {
         styleSheet.innerText = ``;
     }
 }
+
+//专注编辑快捷键alt+w
+document.addEventListener('keydown', function(event) {
+    if (event.key.toLowerCase() === 'w' && event.altKey) {
+        event.preventDefault();
+        if (isChecked38) {
+            isChecked38 = false;
+            disableQYLfocuseditingmode();
+        } else {
+            isChecked38 = true;
+            enableQYLfocuseditingmode();
+        }
+    }
+});
 
 // 开启多彩文档树功能
 function enablecolorfulfiletree() {

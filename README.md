@@ -1,40 +1,24 @@
-# Pursuing Simplicity, Practicality, Compatibility
-
+# QYL is a theme designed for Siyuan Note
 ###### If you like this theme, please give it a ⭐ on [GitHub](https://github.com/QYLexpired/QYL-theme).
 
-## Theme Features
-
-* English supported
-* Light & Dark Modes Combined, 21 Theme Color Schemes
-* Light Themes: Classic, Sunset, Forest, Ocean, Sugar, Lavender, fog, Frostsheaf, Memory, Lakeside, Freesia, Ivory
-* Dark Themes: Classic, Burgundy, Xuanqing, Blackjadeite, Grayscreen, Cabernet Sauvignon, Mossnow, Dusk Mist, Bogwood
-* E-Ink Mode, Frosted Glass Effect
-* Dynamic and lively animations
-* Hide The Topbar, Vertical Tabs, Tab-Integrated Top Bar
-* Block Highlight On Mouse Hover, Super Block Highlight On Mouse Hover, Highlight Block On Focus
-* Hide Marked Text, Editor Layout With Reduced Side Padding, List Bullet Line
-* Colorful Tags & Colorful Inline Code 
-* File Tree With Indentation Guides, Colorful Headings & Colorful Outlines, Colorful File Tree, Add Borders To File Tree
-* Extensive element styling optimizations and detail refinements
-* Highly customizable property styles
-
-## Instructions
-
-* Triple-press the `Q` key quickly to toggle top toolbar visibility (PC only)  
-* To save space, vertical tabs are only applied to the first document panel, while the tabs in split-screen document panels remain horizontally arranged
-* `E-Ink Mode` and `Frosted Glass Effect` cannot be enabled simultaneously, ​`Tab-Integrated Top Bar` and `Hide The Topbar` or `Vertical Tabs` cannot be enabled simultaneously
-* In custom `css` properties:  
-&emsp;✓ Separate styles with semicolons `;` (no `{ }` brackets)  
-&emsp;✓ Example: `color:red;font-size:16px;`  
-&emsp;✓ Learn CSS: [CSS Tutorial](https://www.runoob.com/css/css-tutorial.html)  
-
-
-|Custom Attribute|Applicable To|Values|Function|
-|----------------|-------------|------|--------|
-|`css`|Any Block/Document|`CSS code`|Custom CSS styles (non-exportable for documents)|
-|`style`|Any Block|`red note` `red left border` `warning` `orange note` `orange left border` `tip` `yellow note` `yellow left border` `green note` `green left border` `done` `cyan note` `cyan left border` `info` `blue note` `blue left border` `todo` `purple note` `purple left border` `important` `pink note` `pink left border` `black note` `black left border` `comment` `gray note` `gray left border` `quote` `sajin paper` `grid`|Block styling presets|
-|`h-style`|Heading Block/Document|`colorful` `gold` `underline` `left border` `level`|Heading text effects|
-|`font-family`|Any Block/Document|Chinese Only|Font family (requires local install)|
-|`height`|Any Block|`Default`,`50`,`100`,`150`,`200`|Max display height (scrollable)|
-|`table-style`|Table Block/Document|`three-line table`|Table styling|
-|`blankblock-remind`|Any Block/Document|`turn on`|Show a "There's nothing there" reminder when the block is empty|
+#### Introduction
+* **All text added by the theme is available in English**
+* **Light & Dark Modes Combined, 28 Theme Color Schemes**
+* **Custom Callout for Quote Blocks**: Enter text in the first block of a quote block (as the Callout title), then enable Callout styling via Block Menu > QYL-theme Block Settings > Quote Block Callout > Enable Callout Style.
+* **Focus Editing Mode**: Automatically keep the currently edited block vertically centered in the editor while blurring unedited blocks, can be toggled using the keyboard shortcut <kbd>ALT</kbd>​+<kbd>W</kbd>. Cannot be used simultaneously with Focus Block Highlight. (Performance impact may occur; disable if lag is detected)
+* **Hide Top Toolbar**: Hide the top toolbar. Hover the mouse at the top-left/right edges of the screen to reveal it. Triple-press Q to toggle. If the toolbar fails to appear in windowed mode, adjust window size to restore it.
+* **Vertical Tabs**: Arrange document tabs vertically (applies only to the first document pane to save space; split-screen panes retain horizontal tabs).
+* **Toolbar Fusion**: Integrate document tabs into the top toolbar area, avoiding button collisions. Incompatible with "Hide Top Toolbar" or "Vertical Tabs". (Minor lag may occur during left sidebar resizing due to document position calculations.)
+* **Acrylic Effect**: Apply frosted glass styling to global menus and windows. (Performance impact may occur; disable if lag is detected)
+* **Theme Animations**: Add lively and dynamic animations. (Performance impact may occur; disable if lag is detected)
+* **E Ink Mode**: Enable high-contrast border styling optimized for E Ink displays. Incompatible with "Acrylic Effect" or "Flat Style".
+* **Full-Width Editor**: Reduce left/right margins in the editing area.
+* **Hidden Highlights**: Hide highlighted text (revealed on hover) for spaced repetition review.
+* **List Guidelines**: Add hierarchical guidelines between parent/child list items.
+* **Focus Block Highlight**: Add shadow effects to the currently edited block.
+* **Flat Style**: Minimalist interface design.
+* **Immersive Toolbar**: Darken the top toolbar.
+* **QYL-theme Block Settings**: Add "QYL-theme Block Settings" to block/document menus for adjusting block-specific styles.
+* **Easter Egg**: Hyperlinks, block refs, and PDF annotation links using the 13th background color (last color) will display as button styles.
+* **Easter Egg**: Set a `link-style` custom attribute to `button` for a document/block to convert all hyperlinks, block refs, and PDF annotation links into button styles.
+* **Easter Egg**: Set a `background-style` custom attribute to `half-height` for a document/block to make all text backgrounds half-height.
