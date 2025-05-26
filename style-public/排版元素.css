@@ -225,20 +225,11 @@ div.protyle-action.protyle-action--task svg {
     border-bottom: 1.5px solid;
 }
 /* 代码块 */
-[data-theme-mode="light"] {
-    --codeblock-background: var(--b3-theme-background);
-    --codeblock-brightness: brightness(0.97);
-}
-[data-theme-mode="dark"] {
-    --codeblock-background: var(--b3-theme-background);
-    --codeblock-brightness: brightness(1.2);
+:is(.b3-typography,.protyle-wysiwyg) :is(.code-block,code.hljs) {
+    background-color: var(--QYL-hover-light);
 }
 .protyle-linenumber__rows>span::before {
     color: var(--b3-theme-primary);
-}
-.code-block {
-    background-color: var(--codeblock-background) !important;
-    filter: var(--codeblock-brightness);
 }
 .b3-typography .code-block:not(pre):hover .protyle-action__language, .protyle-wysiwyg .code-block:not(pre):hover .protyle-action__language {
     color: var(--b3-theme-primary);

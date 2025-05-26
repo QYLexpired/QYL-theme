@@ -237,6 +237,13 @@ div[data-key="dialog-commandpanel"] {
     background-color: var(--QYL-filter-background) !important;
     backdrop-filter: var(--QYL-Aero-filter);
 }
+/* 窗口页签适配扁平化 */
+.b3-dialog .layout-tab-bar .item {
+    background-color: var(--QYL-hover-light) !important;
+    &.item--focus {
+        background-color: var(--QYL-hover) !important;
+    }
+}
 
 /* 叶归插件 */
 #enApp[data-v-app] ~ :is(.arco-drawer-container, .arco-trigger-popup, .arco-modal-container) .arco-drawer {

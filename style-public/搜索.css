@@ -24,6 +24,10 @@
         position: sticky;
         top: -8px;
         z-index: 1;
+        background-color: var(--b3-theme-surface);
+        & .b3-list-item__graphic {
+            transform: translateY(40%);
+        }
     }
     & > .b3-list-item[data-type=search-item] .b3-list-item__meta {
         line-height: 16px;
