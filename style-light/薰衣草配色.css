@@ -9,7 +9,7 @@
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
     --b3-theme-surface: rgb(239, 228, 255);
     --b3-theme-surface-light: rgba(239, 228, 255, 0.8); /* 面板色0.8透明度 */
-    --b3-theme-surface-lighter: rgba(219, 203, 245, 0.5);
+    --b3-theme-surface-lighter: rgb(215, 203, 232);
     --b3-theme-background: #faf3ff;
     --b3-theme-background-light:rgb(229, 207, 245); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(245, 239, 255); /* 失焦颜色 */
