@@ -70,6 +70,7 @@ const I18N = {
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
         QYLzzbj: ' 专注编辑模式',
+        QYLtpjgg: ' 启用图片九宫格排列',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -108,6 +109,7 @@ const I18N = {
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
         QYLzzbj: ' Focus Editing Mode',
+        QYLtpjgg: ' Enable 3×3 grid layout for images',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -146,6 +148,7 @@ const I18N = {
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
         QYLzzbj: ' 專注編輯模式',
+        QYLtpjgg: '啟用圖片九宮格排列'
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -242,6 +245,7 @@ let isChecked35;
 let isChecked36;
 let isChecked37;
 let isChecked38;
+let isChecked39;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -658,6 +662,17 @@ function createSettingsWindow() {
     label38.style.fontSize = '14px';
     label38.style.userSelect= 'none';
 
+    const checkbox39 = document.createElement('input');
+    checkbox39.type = 'checkbox';
+    checkbox39.id = 'QYL33grid-checkbox';
+    checkbox39.checked = isChecked39;
+
+    const label39 = document.createElement('label');
+    label39.htmlFor = 'QYL33grid-checkbox';
+    label39.textContent = i18n.QYLtpjgg;
+    label39.style.fontSize = '14px';
+    label39.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -869,6 +884,12 @@ function createSettingsWindow() {
     QYLfunctionpair38.appendChild(label38);
     QYLfunctionpair38.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair39 = document.createElement('div');
+    QYLfunctionpair39.className = 'checkbox-label-pair';
+    QYLfunctionpair39.appendChild(checkbox39);
+    QYLfunctionpair39.appendChild(label39);
+    QYLfunctionpair39.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -936,6 +957,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair21); //多彩标题
     settingsWindow.appendChild(QYLfunctionpair7); //多彩文档树
     settingsWindow.appendChild(QYLfunctionpair23); //边框化文档树
+    settingsWindow.appendChild(QYLfunctionpair39); //图片九宫格
     settingsWindow.appendChild(QYLfunctionpairdivider4);
     settingsWindow.appendChild(QYLfunctionpair34);
     settingsWindow.appendChild(QYLfunctionpair35);
@@ -1002,6 +1024,7 @@ async function saveConfig() {
         isChecked36: checkbox36.checked,
         isChecked37: checkbox37.checked,
         isChecked38: checkbox38.checked,
+        isChecked39: checkbox39.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -1123,6 +1146,18 @@ checkbox23.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableborderfiletree() : disableborderfiletree();
     state ? isChecked23 = true : isChecked23 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 九宫格排列开关
+checkbox39.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYL33grid() : disableQYL33grid();
+    state ? isChecked39 = true : isChecked39 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2032,18 +2067,14 @@ function disableQYLfocuseditingmode() {
 }
 
 //专注编辑快捷键alt+w
-document.addEventListener('keydown', function(event) {
+const QYLfocuseditingmodeKeydown = (event) => {
     if (event.key.toLowerCase() === 'w' && event.altKey) {
         event.preventDefault();
-        if (isChecked38) {
-            isChecked38 = false;
-            disableQYLfocuseditingmode();
-        } else {
-            isChecked38 = true;
-            enableQYLfocuseditingmode();
-        }
+        isChecked38 = !isChecked38;
+        isChecked38 ? enableQYLfocuseditingmode() : disableQYLfocuseditingmode();
     }
-});
+};
+document.addEventListener('keydown', QYLfocuseditingmodeKeydown);
 
 // 开启多彩文档树功能
 function enablecolorfulfiletree() {
@@ -2080,6 +2111,26 @@ function enableborderfiletree() {
 // 关闭边框化文档树
 function disableborderfiletree() {
     const linkElement = document.getElementById("borderfiletree-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
+// 开启九宫格排列
+function enableQYL33grid() {
+    let linkElement = document.getElementById("QYL33grid-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYL33grid-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/九宫格.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭九宫格排列
+function disableQYL33grid() {
+    const linkElement = document.getElementById("QYL33grid-style");
     if (linkElement) {
         linkElement.remove();
     }
@@ -3141,6 +3192,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked38 === false) {
             disableQYLfocuseditingmode();
             isChecked38 = false;
+        }
+
+        if (config?.isChecked39 === true) {
+            enableQYL33grid();
+            isChecked39 = true;
+        } else if (config?.isChecked39 === false) {
+            disableQYL33grid();
+            isChecked39 = false;
         }
 
     } catch (e) {
