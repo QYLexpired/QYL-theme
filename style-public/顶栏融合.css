@@ -21,7 +21,7 @@
 #layouts {
     --QYL-fusion-right-fix: 52px;
 }
-#layouts:has(+#dockRight.fn__none) {
+.dock#dockLeft.fn__none + #layouts {
     --QYL-fusion-right-fix: 16px;
 }
 /* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
@@ -89,8 +89,10 @@
     margin-top: 1.75px;
     border-radius: var(--b3-border-radius) !important;
 }
-#layouts .layout__center .layout-tab-container:has(.layout__empty) {
-    margin-top: 38px;
+.layout__empty {
+    height: calc( 100% - 36px );
+    transform: translateY(36px);
+    border-radius: var(--b3-border-radius);
 }
 #layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
     & >.item:first-child {

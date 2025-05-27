@@ -129,9 +129,7 @@
         }
       }
 }
-.b3-menu__item--current:not(.b3-menu__item--readonly):has(.arco-tabs) {
-    background-color: var(--b3-theme-background) !important;
-}
+
 
 /* 插入时间插件 */
 .protyle-hint .b3-list-item[data-value^="plugin"][data-value*="sy-insert-time"] {
@@ -451,9 +449,6 @@ body[arco-theme=dark] .arco-card-grid-hoverable:hover:before, body[arco-theme=da
 }
 .arco-input-number {
     --border-radius-small: var(--b3-border-radius);
-}
-.EnProtyleContainer[data-v-566ac7f9] .protyle .protyle-wysiwyg:has(>[custom-lifelog-type]), .en-user-memo .EnProtyleContainer .protyle .protyle-wysiwyg:has(>[custom-lifelog-type]) {
-    padding-left: 20px !important;
 }
 .EnLifeLogDailyNoteGraph[data-v-bb9159db] {
     border-radius: var(--b3-border-radius);

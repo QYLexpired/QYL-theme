@@ -30,22 +30,6 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
     background-color: var(--QYL-flashcard-type4-background);
     color: var(--QYL-white) !important;
 }
-div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="1"]) > span {
-    color: var(--QYL-flashcard-type1-background);
-    font-size: 13px;
-}
-div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="2"]) > span {
-    color: var(--QYL-flashcard-type2-background);
-    font-size: 13px;
-}
-div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="3"]) > span {
-    color: var(--QYL-flashcard-type3-background);
-    font-size: 13px;
-}
-div[data-key="dialog-opencard"] .card__action > div:has(.b3-button[data-type="4"]) > span {
-    color: var(--QYL-flashcard-type4-background);
-    font-size: 13px;
-}
 /* 界面 */
 #cardPreview {
     margin: 6px 6px 6px 0;

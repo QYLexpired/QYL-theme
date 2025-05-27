@@ -532,10 +532,7 @@ body > div.block__popover.block__popover--open {
 .viewer-canvas, .viewer-footer{
     animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
 }
-.protyle-wysiwyg blockquote:not(:has(:is(.bq, blockquote)))::before, .protyle-wysiwyg .bq:not(:has(:is(.bq, blockquote)))::before {
-    animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
-}
-.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6)>[spellcheck]:not(:empty) {
+.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6) {
     animation: QYLtooltipenter 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards;
 }
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {

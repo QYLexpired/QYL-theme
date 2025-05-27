@@ -51,7 +51,7 @@
     padding-right: 20px !important;
 }
 /* 页签打开 */
-.layout__center .block__icons:has( + .search__header) {
+[data-type="wnd"] .block__icons:has( + .search__header) {
     background-color: var(--b3-theme-background);
     & + .search__header .b3-text-field {
         background-color: var(--b3-theme-background);
@@ -127,6 +127,7 @@
     width: 100%;
     height: 6px;
     border-radius: var(--b3-border-radius-q);
+    transition: none;
 }
 .search__drag:hover::after {
     visibility: visible;
@@ -139,6 +140,7 @@
     height: 100%;
     width: 6px;
     border-radius: var(--b3-border-radius-q);
+    transition: none;
 }
 .search__layout--row .search__drag:hover::after {
     visibility: visible;
