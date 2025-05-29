@@ -120,9 +120,9 @@
     --QYL-filter-fix-background-theme: rgba(26, 26, 26, 0.9);
 }
 :root {
-    --b3-highlight-background: var(--b3-theme-primary) !important;
-    --b3-highlight-color: var(--QYL-white) !important;
-    --b3-highlight-current-background: var(--b3-theme-primary) !important;
+    --b3-highlight-background: rgb(255, 0, 238) !important;
+    --b3-highlight-color: white !important;
+    --b3-highlight-current-background: rgb(179, 0, 255) !important;
 }
 :root {
     --QYL-h1: var(--b3-theme-on-background);
