@@ -35,7 +35,8 @@
     display: none;
 }
 .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6) {
-    outline: 1.5px solid var(--b3-theme-surface-lighter);
+    outline: 1px solid var(--b3-theme-surface-lighter);
+    margin-bottom: 30px;
     &>[spellcheck]:not(:empty) {
         opacity: 0.3;
     }

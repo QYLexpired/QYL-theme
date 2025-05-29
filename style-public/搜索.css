@@ -22,9 +22,11 @@
     }
     & > .b3-list-item:not([data-type=search-item]) {
         position: sticky;
-        top: -8px;
+        top: 1px;
         z-index: 1;
         background-color: var(--b3-theme-surface);
+        box-shadow: 0 -10px 0 var(--b3-theme-background);
+        margin-bottom: 10px;
         & .b3-list-item__graphic {
             transform: translateY(40%);
         }
@@ -106,17 +108,19 @@
         }
     }
     .b3-list-item mark {
-        border-radius: 6px;
-        padding: 2px 4px;
-        background-color: var(--b3-theme-primary);
-        color: var(--QYL-white);
+        border-radius: 3px;
+        padding: 1px 2px;
+        margin: 0 1px;
+        background-color: var(--QYL-flat-primary);
+        color: white;
     }
 }
 #searchAssetPreview mark {
-    border-radius: 6px;
-    padding: 2px 4px;
-    background-color: var(--b3-theme-primary);
-    color: var(--QYL-white);
+    border-radius: 3px;
+    padding: 1px 2px;
+    margin: 0 1px;
+    background-color: var(--QYL-flat-primary);
+    color: white;
     box-shadow: none;
 }
 #searchPreview.search__preview.protyle.fullscreen .protyle-breadcrumb {

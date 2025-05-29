@@ -94,16 +94,23 @@
 /* 面包屑 */
 .QYLmobile .protyle-breadcrumb__icon[data-type="mobile-menu"] {
     color: var(--b3-theme-primary);
-    background-color: rgba(255, 0, 0, 0);
-    padding: 0 2px;
-    font-weight: bold;
-    border: 1.5px solid var(--b3-theme-primary);
+    background-color: var(--QYL-hover-light);
+    padding: 2px 4px;
     line-height: 18px;
+    font-size: 12px;
 }
 .QYLmobile #commonMenu[data-name="breadcrumb-mobile-path"] .b3-menu__item .b3-menu__icon  {
     color: var(--b3-theme-primary);
 }
-
+.QYLmobile  .protyle-breadcrumb button[data-type="exit-focus"] {
+    color: var(--b3-theme-primary);
+    background-color: var(--QYL-hover-light);
+    padding: 2px 4px !important;
+    line-height: 18px;
+    border: none;
+    font-size: 12px;
+    font-weight: normal;
+}
 /*  主要页面 */
 .QYLmobile #model > .toolbar--border {
     margin: 4px 4px 4px 4px;
@@ -181,12 +188,21 @@
 /* 编辑器工具栏 */
 .QYLmobile #keyboardToolbar {
     border-radius: var(--b3-border-radius);
-    border: 1.5px solid var(--b3-theme-primary);
+    border: none;
+    box-shadow: var(--b3-theme-primary-lightest) 0px 50px 100px -20px, var(--b3-theme-primary-lighter) 0px 30px 60px -30px, var(--b3-theme-primary-light) 0px -2px 6px 0px inset;
+    & .keyboard__bar {
+        border: none;
+    }
+    & .keyboard__util {
+        box-shadow: var(--b3-theme-primary-lightest) 0px 50px 100px -20px, var(--b3-theme-primary-lighter) 0px 30px 60px -30px, var(--b3-theme-primary-light) 0px -2px 6px 0px inset;
+        background-color: var(--b3-theme-background);
+    }
 }
 .QYLmobile .keyboard__slash-item {
-    box-shadow: inset 0 0 0 1px var(--b3-theme-primary);
+    box-shadow: none;
+    background-color: var(--QYL-hover-light);
       & :is(.keyboard__slash-icon, .keyboard__slash-text) {
-        color:  var(--b3-theme-primary);
+        color:  var(--b3-theme-on-surface);
       }
 }
 

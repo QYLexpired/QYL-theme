@@ -234,6 +234,22 @@ div.protyle-action.protyle-action--task svg {
 .b3-typography .code-block:not(pre):hover .protyle-action__language, .protyle-wysiwyg .code-block:not(pre):hover .protyle-action__language {
     color: var(--b3-theme-primary);
 }
+.protyle-wysiwyg .code-block:not(pre) {
+    &:hover {
+        & .protyle-action {
+            background-color: var(--b3-theme-surface);
+            & .protyle-action__language {
+                opacity: 1;
+            }
+        }
+    }
+    & .protyle-action {
+        position: sticky;
+        top: 0;
+        border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+        margin: -4px -4px 0 -4px;
+    }
+}
 /* 超链接按钮样式 */
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext)[style*="background-color: var(--b3-font-background13"], .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref][style*="background-color: var(--b3-font-background13"] {
     box-shadow: var(--b3-light-shadow);

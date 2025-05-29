@@ -81,23 +81,29 @@
 }
 /* 标记 */
 .b3-list mark {
-    border-radius: 6px;
-    padding: 2px 4px;
-    background-color: var(--b3-theme-primary);
-    color: var(--QYL-white);
+    border-radius: 3px;
+    padding: 1px 2px;
+    margin: 0 1px;
+    background-color: var(--QYL-flat-primary);
+    color: white;
 }
 .protyle-wysiwyg [data-node-id] .def--mark {
-    border-radius: 6px;
-    padding: 2px 4px;
+    border-radius: 3px;
+    padding: 1px 2px;
+    margin: 0 1px;
     background-color: var(--QYL-ref);
-    color: var(--QYL-white) !important;
+    color: white !important;
 }
 .protyle-wysiwyg [data-node-id] .def--mark:hover {
-    border-radius: 6px !important;
-    padding: 2px 4px !important;
-    background-color: var(--QYL-ref) !important;
-    color: var(--QYL-white) !important;
+    border-radius: 3px;
+    padding: 1px 2px;
+    margin: 0 1px;
+    background-color: var(--QYL-ref);
+    color: white !important;
     border: none !important;
+}
+.textLayer .highlight.selected {
+    background-color: var(--QYL-hover);
 }
 /* 外观菜单 */
 .protyle-util .protyle-font .color__square {

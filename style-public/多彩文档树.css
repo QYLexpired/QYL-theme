@@ -1,56 +1,56 @@
 [data-theme-mode="light"] {
-    --filetree-line-1: rgb(106, 156, 218);
-    --filetree-line-2: rgb(239, 205, 151);
-    --filetree-line-3: rgb(240, 198, 198);
-    --filetree-line-4: rgb(154, 235, 162);
-    --filetree-line-5: rgb(208, 139, 235);
-    --filetree-line-6: rgb(139, 235, 219);
-    --filetree-line-7: rgb(235, 139, 230);
-    --filetree-line-8: rgb(180, 131, 110);
+    --filetree-line-1: #a0b3d7;
+    --filetree-line-2: rgb(176, 170, 207);
+    --filetree-line-3: rgb(222, 182, 224);
+    --filetree-line-4: rgb(216, 161, 161);
+    --filetree-line-5: #e3ba97;
+    --filetree-line-6: #dbcc73;
+    --filetree-line-7: rgb(143, 202, 135);
+    --filetree-line-8: rgb(142, 209, 196);
 
-    --colorful-file-1: #3575f0 !important;
-    --colorful-file-background-1: rgb(184, 209, 255);
-    --colorful-file-2: var(--b3-theme-secondary) !important;
-    --colorful-file-background-2: rgb(255, 224, 174);
-    --colorful-file-3: var(--b3-theme-error) !important;
-    --colorful-file-background-3: rgb(255, 187, 180);
-    --colorful-file-4: var(--b3-theme-success) !important;
-    --colorful-file-background-4: rgb(192, 234, 181);
-    --colorful-file-5: #9c4db8 !important;
-    --colorful-file-background-5: rgb(239, 195, 255);
-    --colorful-file-6: #00dacf !important;
-    --colorful-file-background-6: rgb(170, 235, 232);
-    --colorful-file-7: rgb(230, 0, 123) !important;
-    --colorful-file-background-7: rgb(255, 186, 223);
-    --colorful-file-8: rgb(177, 80, 0) !important;
-    --colorful-file-background-8: rgb(230, 184, 147);
+    --colorful-file-1: #6589cc !important;
+    --colorful-file-background-1: rgb(190, 212, 251);
+    --colorful-file-2: rgb(143, 134, 190) !important;
+    --colorful-file-background-2: rgb(220, 205, 248);
+    --colorful-file-3: rgb(198, 132, 203) !important;
+    --colorful-file-background-3: rgb(243, 199, 246);
+    --colorful-file-4: rgb(207, 98, 98) !important;
+    --colorful-file-background-4: rgb(255, 197, 197);
+    --colorful-file-5: #e78734 !important;
+    --colorful-file-background-5: #ffd2ab;
+    --colorful-file-6: #ead55d !important;
+    --colorful-file-background-6: #fae988;
+    --colorful-file-7: rgb(129, 207, 117) !important;
+    --colorful-file-background-7: rgb(177, 245, 167);
+    --colorful-file-8: rgb(112, 194, 178) !important;
+    --colorful-file-background-8: rgb(164, 236, 222);
 }
 [data-theme-mode="dark"] {
-    --filetree-line-1: rgba(84, 115, 207, 0.5);
-    --filetree-line-2: rgba(190, 139, 57, 0.5);
-    --filetree-line-3: rgba(194, 75, 75, 0.5);
-    --filetree-line-4: rgba(64, 185, 76, 0.5);
-    --filetree-line-5: rgba(156, 76, 187, 0.5);
-    --filetree-line-6: rgba(49, 147, 131, 0.5);
-    --filetree-line-7: rgba(171, 64, 166, 0.5);
-    --filetree-line-8: rgba(169, 96, 65, 0.5);
+    --filetree-line-1: rgba(36, 95, 204, 0.5);
+    --filetree-line-2: rgba(153, 97, 210, 0.5);
+    --filetree-line-3: rgba(192, 93, 177, 0.5);
+    --filetree-line-4: rgba(199, 89, 89, 0.5);
+    --filetree-line-5: rgba(225, 116, 32, 0.5);
+    --filetree-line-6: rgba(182, 169, 23, 0.5);
+    --filetree-line-7: rgba(70, 204, 47, 0.5);
+    --filetree-line-8: rgba(24, 190, 190, 0.5);
 
-    --colorful-file-1: #3573f0 !important;
-    --colorful-file-background-1: rgba(53, 115, 240, 0.5);
-    --colorful-file-2: rgb(220, 172, 14) !important;
-    --colorful-file-background-2: rgba(220, 172, 14, 0.5);
-    --colorful-file-3: rgb(211, 70, 54) !important;
-    --colorful-file-background-3: rgba(211, 70, 54, 0.5);
-    --colorful-file-4: rgb(80, 159, 60) !important;
-    --colorful-file-background-4: rgba(80, 159, 60, 0.5);
-    --colorful-file-5: rgb(154, 75, 183) !important;
-    --colorful-file-background-5: rgba(157, 103, 177, 0.5);
-    --colorful-file-6: rgb(33, 152, 145) !important;
-    --colorful-file-background-6: rgba(33, 152, 144, 0.5);
-    --colorful-file-7: rgb(180, 42, 115) !important;
-    --colorful-file-background-7: rgba(180, 42, 115, 0.5);
-    --colorful-file-8: rgb(180, 42, 116) !important;
-    --colorful-file-background-8: rgba(176, 95, 28, 0.5);
+    --colorful-file-1: #274f99 !important;
+    --colorful-file-background-1: rgba(21, 66, 149, 0.5);
+    --colorful-file-2: #614182 !important;
+    --colorful-file-background-2: rgba(89, 46, 132, 0.5);
+    --colorful-file-3: rgb(138, 38, 123) !important;
+    --colorful-file-background-3: rgba(138, 38, 123, 0.5);
+    --colorful-file-4: rgb(137, 31, 31) !important;
+    --colorful-file-background-4: rgba(159, 41, 41, 0.5);
+    --colorful-file-5: rgb(141, 74, 23) !important;
+    --colorful-file-background-5: rgba(188, 90, 15, 0.5);
+    --colorful-file-6: rgb(123, 114, 12) !important;
+    --colorful-file-background-6: rgba(123, 114, 12, 0.5);
+    --colorful-file-7: rgb(45, 127, 30) !important;
+    --colorful-file-background-7: rgba(45, 127, 30, 0.5);
+    --colorful-file-8: rgb(27, 136, 136) !important;
+    --colorful-file-background-8: rgba(0, 132, 132, 0.5);
 }
 
 .fn__flex-1.fn__flex-column.file-tree.sy__file ul.b3-list.b3-list--background { margin-left: 20px; }
@@ -84,7 +84,7 @@ div.sy__file ul:not(ul ul):not(ul.b3-list.fn__flex-column):nth-of-type(8n+2) {
 .b3-list:nth-of-type(8n+2)>[data-type="navigation-root"] {
     background-color: var(--colorful-file-background-2) !important;
     & :is(.b3-list-item__toggle .b3-list-item__arrow, [data-type="more-root"], [data-type="new"]) {
-        color:rgb(240, 135, 44) !important;
+        color:var(--colorful-file-2) !important;
     }
 }
 .b3-list:nth-of-type(8n+3)>[data-type="navigation-root"]::before {

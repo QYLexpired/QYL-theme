@@ -34,3 +34,11 @@
 .sy__backlink .protyle-breadcrumb__bar + div {
     font-size: 90%;
 }
+.sy__backlink .b3-list--background .b3-list-item {
+	position: sticky;
+    top: 1px;
+    z-index: 6;
+    margin-bottom: 6px;
+    box-shadow: 0 6px 0 var(--b3-theme-background), 0 -6px 0 var(--b3-theme-background); 
+    background-color: var(--b3-theme-surface) !important;
+}

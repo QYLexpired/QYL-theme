@@ -206,6 +206,9 @@
     & .graph {
         background-color: var(--b3-theme-background);
     }
+    .b3-text-field {
+        background-color: var(--b3-theme-background);
+    }
 }
 .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
     border-top-left-radius: var(--b3-border-radius);
