@@ -145,12 +145,12 @@
     --QYL-h6-fold-background: rgba(240, 240, 240, 0.1);
 }
 :root {
-    --QYL-link: rgb(88, 154, 229);
-    --QYL-link-background: rgba(124, 166, 215, 0.2);
-    --QYL-ref: rgb(170, 117, 197);
-    --QYL-ref-background: rgba(180, 149, 195, 0.2);
-    --QYL-PDFmark: rgb(98, 176, 98);
-    --QYL-PDFmark-background: rgba(64, 171, 64, 0.2);
+    --QYL-link: rgb(60, 118, 255);
+    --QYL-link-background: rgba(60, 118, 255, 0.2);
+    --QYL-ref: rgb(137, 90, 255);
+    --QYL-ref-background: rgba(137, 90, 255, 0.2);
+    --QYL-PDFmark: rgb(50, 208, 173);
+    --QYL-PDFmark-background: rgba(50, 208, 174, 0.2);
 }
 :root {
     --QYL-blockquote: rgb(173, 173, 173);
