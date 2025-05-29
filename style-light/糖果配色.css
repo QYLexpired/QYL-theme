@@ -7,10 +7,10 @@
     --b3-theme-primary-lighter: rgba(244, 139, 181, 0.4); /* 主色0.3透明度 */
     --b3-theme-primary-lightest: rgba(244, 139, 181, 0.15); /* 主色0.1透明度 */
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
-    --b3-theme-surface: rgb(250, 227, 235);
+    --b3-theme-surface: rgb(249, 233, 239);
     --b3-theme-surface-light: rgba(250, 227, 235, 0.8); /* 面板色0.8透明度 */
     --b3-theme-surface-lighter: rgb(229, 196, 207);
-    --b3-theme-background: #fff3f9;
+    --b3-theme-background: #fff6fb;
     --b3-theme-background-light:rgb(248, 210, 229); /* 编辑器较多加深（不透明） */
     --b3-toolbar-blur-background: rgb(255, 244, 250); /* 失焦颜色 */
     --b3-scroll-color: rgb(244, 210, 223); /* 滚动条颜色 */
