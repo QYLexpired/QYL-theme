@@ -332,7 +332,7 @@
 /* 隐藏不适配设置项 */
 .QYLmobile #QYLsettings-window {
     & .checkbox-label-pair {
-        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLinkmode-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox)) {
+        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLinkmode-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox, #QYLcolorblocking-checkbox)) {
             display: none;
         }
     }

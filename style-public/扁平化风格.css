@@ -324,15 +324,6 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
     box-shadow: none;
     border: 1px solid var(--b3-theme-surface-lighter);
 }
-/* 高亮 */
-:root {
-    --b3-highlight-background: var(--QYL-flat-primary) !important;
-    --b3-highlight-color: var(--QYL-white) !important;
-    --b3-highlight-current-background: var(--QYL-flat-primary) !important;
-}
-.b3-list mark {
-    background-color: var(--QYL-flat-primary);
-}
 /* PDF */
 #dialogContainer>.dialog--open {
     box-shadow: none !important;
@@ -438,12 +429,12 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
 }
 /* 分割线 */
 #layouts .layout__resize.layout__resize--lr::after {
-    width: 1px;
+    width: 0.5px;
     background-color: var(--b3-theme-primary);
     transform: translateX(2.5px);
 }
 #layouts .layout__resize:not(.layout__resize--lr)::after {
-    height: 1px;
+    height: 0.5px;
     background-color: var(--b3-theme-primary);
     transform: translateY(0);
 }

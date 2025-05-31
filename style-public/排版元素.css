@@ -734,11 +734,12 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 .protyle-background__img {
     & img {
         height: 35vh;
+        filter: saturate(1.5);
     }
     &::after {/* ref Asri */
         content: '';
         position: absolute;
-        top: 32px;
+        top: 3.5vh;
         left: 0;
         width: 100%;
         height: 32vh;

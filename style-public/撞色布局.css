@@ -1,0 +1,118 @@
+/* 主界面 */
+#layouts {
+  background-color: var(--b3-theme-background);
+  padding-bottom: 0;
+}
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
+  border-radius: 0;
+}
+:is(.layout__dockl, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
+  background-color: var(--b3-theme-surface);
+}
+.layout__dockl:not([style*="width: 0px"])  {
+  box-shadow: 0 40px 0 0 var(--b3-theme-surface) inset;
+}
+.dock#dockLeft:not(:has(.dock__item--active)) {
+  background-color: var(--b3-theme-background);
+  border-right: 0.5px solid var(--b3-theme-surface-lighter);
+  clip-path: inset(45px 0 0 0);
+}
+.dock#dockRight {
+  border-left: 0.5px solid var(--b3-theme-surface-lighter);
+  clip-path: inset(45px 0 0 0);
+  background-color: var(--b3-theme-background);
+  &:has(.dock__item--active) {
+      border-left: none;
+  }
+}
+.dock#dockBottom {
+  border-top: 0.5px solid var(--b3-theme-surface-lighter);
+  background-color: var(--b3-theme-background);
+  margin-top: 0 !important;
+}
+#layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .layout-tab-container {
+  border-radius: 0 !important;
+}
+/* 主界面分割线 */
+.layout__resize {
+  margin: -3px 0 !important;
+  &:hover {
+      &::after {
+          background-color: var(--b3-theme-primary) !important;
+      }
+  }
+  &::after {
+      transform: none !important;
+      visibility: visible !important;
+      height: 0.5px;
+      border-radius: 0 !important;
+      background-color: var(--b3-theme-surface-lighter) !important;
+  }
+}
+.layout__resize.layout__resize--lr {
+  margin: 0 -6px 0 0 !important;
+  &:hover {
+      &::after {
+          background-color: var(--b3-theme-primary) !important;
+      }
+  }
+  &::after {
+      visibility: visible !important;
+      width: 0.5px;
+      border-radius: 0 !important;
+      background-color: var(--b3-theme-surface-lighter) !important;
+  }
+}
+.layout__dockl + .layout__resize {
+  &::after {
+    background-color: transparent !important;
+}
+}
+/* 取消扁平化风格的边框 */
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
+  border: none !important;
+}
+#layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .layout-tab-container {
+  border: none !important;
+}
+/* 取消顶栏融合的分割线切割 */
+#layouts .layout__resize.layout__resize--lr {
+  clip-path: none !important;
+  &::after {
+      transform: none !important;
+  }
+}
+/* 顶栏融合文档第一个页签位置调整 */
+#layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+  & >.item:first-child {
+      margin-left: 7.5px !important;
+  }
+}
+/* 更改顶栏融合侧栏偏移 */
+:is(.layout__dockl, .layout__dockr):not(.layout--float) {
+  padding-top: 31.5px !important;
+}
+/* 反链面板兼容 */
+:is(.layout__dockl, .layout__dockb) .sy__backlink .protyle,.sy__backlink .protyle-content {
+  background-color: rgba(0,0,0,0)
+}
+:is(.layout__dockl, .layout__dockb) .sy__backlink .b3-list--background .b3-list-item {
+  box-shadow: 0 6px 0 var(--b3-theme-surface), 0 -6px 0 var(--b3-theme-surface);
+  background-color: var(--b3-theme-background) !important;
+}
+/* 状态栏回退 */
+@media (max-width: 630px) {
+  #status {
+      border-top: 0.5px solid var(--b3-theme-surface-lighter);
+      background-color: var(--b3-theme-background);
+  }
+}
+/* 修改扁平化风格页签 */
+.item.item--focus {
+  border: none !important;
+  background-color: var(--QYL-hover) !important;
+}
+.layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
+  border: none !important;
+  background-color: var(--QYL-hover-light) !important;
+}

@@ -83,7 +83,7 @@
         border-radius: 12px;
         height: 27px !important;
         overflow: hidden;
-        z-index: 3;
+        z-index: 4;
         border: 1px solid var(--b3-theme-surface-lighter);
         background-color: var(--b3-theme-background);
         display: flex;
