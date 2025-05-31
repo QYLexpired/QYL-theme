@@ -1,10 +1,10 @@
 :root {
     /* 主色 */
-    --b3-theme-background: #201d1d;
-    --b3-theme-background-light:rgb(71, 64, 64); /* 编辑器较多变浅（不透明） */
-    --b3-theme-surface: #2c2525;
-    --b3-theme-surface-light: rgba(41, 42, 45, 0.86);
-    --b3-theme-surface-lighter: rgba(110, 91, 91, 0.5); /* 线条色 */
+    --b3-theme-background: #1d1515;
+    --b3-theme-background-light:#473939; /* 编辑器较多变浅（不透明） */
+    --b3-theme-surface: #161010;
+    --b3-theme-surface-light: rgba(22, 16, 16, 0.82);
+    --b3-theme-surface-lighter: #352929; /* 线条色 */
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -22,7 +22,7 @@
     --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
 }
 :root {
-    --QYL-hover: rgba(138, 63, 63, 0.6); /* 主要悬停色 */
+    --QYL-hover: rgba(138, 63, 63, 0.5); /* 主要悬停色 */
     --QYL-hover-hover: rgba(138, 63, 63, 0.7);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(138, 63, 63, 0.1);/* 主要悬停色变浅 */
     --b3-theme-primary: #a34c4c !important; 
@@ -32,15 +32,15 @@
     --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
     --b3-protyle-inline-mark-color: #dadada; /* 标记文字色 */
     --b3-scroll-color: rgb(57, 41, 41); /* 滚动条颜色 */
-    --QYL-white: var(--b3-theme-on-background); /* 通用白 */
+    --QYL-white: white; /* 通用白 */
     --QYL-black: #171717; /* 通用黑 */
     --QYL-gray: #bfbfbf; /* 通用灰 */
     --b3-toolbar-blur-background: #302b2b; /* 失焦颜色 */
 }
 :root {
-    --QYL-blockquote: rgb(168, 145, 145);
-    --QYL-blockquote-background: rgb(58, 47, 47);
-    --QYL-blockquote-svg: rgb(114, 95, 95);
+    --QYL-blockquote: #a89a9a;
+    --QYL-blockquote-background: #352929;
+    --QYL-blockquote-svg: #594b4b;
 }
 :root {
     --QYL-switch-close: var(--QYL-gray);
@@ -51,9 +51,9 @@
     --b3-switch-checked: var(--QYL-gray);
 }
 :root {
-    --QYL-filter-background-theme: rgba(27, 24, 24, 0.7);
-    --QYL-filter-wrap-background-theme: rgb(46 39 39 / 70%);
-    --QYL-filter-fix-background-theme: rgba(27, 24, 24, 0.9);
+    --QYL-filter-background-theme: rgba(15, 14, 14, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(43, 32, 32, 0.7);
+    --QYL-filter-fix-background-theme: rgba(15, 14, 14, 0.9);
 }
 :root {
     --QYL-account-background1: linear-gradient(to right bottom, #2c2525, #292323, #262121, #231f1f, #201d1d);

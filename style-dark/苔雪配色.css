@@ -7,21 +7,30 @@
     --b3-theme-surface-lighter: rgba(101, 128, 137, 0.5); /* 线条色 */
 
     /* 文字颜色 */
-    --b3-theme-on-primary: #cbcdbd;
-    --b3-theme-on-secondary: #cac9b9;
-    --b3-theme-on-background: #dcdecc;
-    --b3-theme-on-surface: #cac9b9;
+    --b3-theme-on-primary: #e3e5d7;
+    --b3-theme-on-secondary: #e3e5d7;
+    --b3-theme-on-background: #eceee1;
+    --b3-theme-on-surface: #dadad0;
     --b3-theme-on-surface-light: #cbcdbd;
-    --b3-theme-on-error: #cbcdbd;
+    --b3-theme-on-error: #e3e5d7;
+}
+
+:root {
+    --QYL-link: rgb(125, 164, 255);
+    --QYL-link-background: rgba(125, 164, 255, 0.2);
+    --QYL-ref: rgb(181, 152, 255);
+    --QYL-ref-background: rgba(181, 152, 255, 0.2);
+    --QYL-PDFmark: rgb(127, 231, 209);
+    --QYL-PDFmark-background: rgba(127, 231, 209, 0.2);
 }
 :root {
     --QYL-hover: rgba(116, 143, 155, 0.55); /* 主要悬停色 */
     --QYL-hover-hover: rgba(116, 143, 155, 0.7);/* 主要悬停色加深 */
     --QYL-hover-light: rgba(116, 143, 155, 0.15);/* 主要悬停色变浅 */
     --b3-theme-primary: #6b848f !important; 
-    --b3-theme-primary-light: rgba(107, 132, 143, 0.5); /* 主色0.5透明度 */
-    --b3-theme-primary-lighter: rgba(107, 132, 143, 0.3); /* 主色0.3透明度 */
-    --b3-theme-primary-lightest: rgba(107, 132, 143, 0.12); /* 主色0.1透明度 */
+    --b3-theme-primary-light: rgba(137, 166, 178, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(142, 172, 185, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(140, 173, 187, 0.12); /* 主色0.1透明度 */
     --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);/* 标记色 */
     --b3-protyle-inline-mark-color: #cbcdbd; /* 标记文字色 */
     --b3-border-color: var(--b3-theme-surface-lighter); /* 线条色 */
@@ -73,4 +82,7 @@
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
     color: var(--b3-theme-on-surface);
     background-color: var(--b3-theme-primary-lighter);
+}
+:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
+    color: #cad8ff;
 }
