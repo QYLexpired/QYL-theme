@@ -3,7 +3,7 @@
 
 #### Introduction
 * **All text added by the theme is available in English**
-* **Light & Dark Modes Combined, 28 Theme Color Schemes**
+* **Light & Dark Modes Combined, 29 Theme Color Schemes**
 * **Custom Callout for Quote Blocks**: Enter text in the first block of a quote block (as the Callout title), then enable Callout styling via Block Menu > QYL-theme Block Settings > Quote Block Callout > Enable Callout Style.
 * **Focus Editing Mode**: Automatically keep the currently edited block vertically centered in the editor while blurring unedited blocks, can be toggled using the keyboard shortcut <kbd>ALT</kbd>​+<kbd>W</kbd>. Cannot be used simultaneously with Focus Block Highlight. (Performance impact may occur; disable if lag is detected)
 * **Hide Top Toolbar**: Hide the top toolbar. Hover the mouse at the top-left/right edges of the screen to reveal it. Triple-press Q to toggle. If the toolbar fails to appear in windowed mode, adjust window size to restore it.
