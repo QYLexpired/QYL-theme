@@ -40,9 +40,9 @@
     --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
 }
 :root {
-    --QYL-blockquote: #9b9e91;
-    --QYL-blockquote-background: #edf1d9;
-    --QYL-blockquote-svg: #d1d4c4;
+    --QYL-blockquote: #7a7c68;
+    --QYL-blockquote-background: #f2f4dd;
+    --QYL-blockquote-svg: #dcdec3;
 }
 :root {
     --QYL-switch-close: var(--QYL-white);
@@ -51,7 +51,7 @@
     --QYL-input-border-hover: rgb(41, 126, 112);
 }
 :root {
-    --QYL-filter-background-theme: rgba(248, 255, 248, 0.7);
+    --QYL-filter-background-theme: rgba(252, 255, 252, 0.7);
     --QYL-filter-wrap-background-theme:rgba(248, 255, 248, 0.7);
     --QYL-filter-fix-background-theme: rgba(248, 255, 248, 0.9);
 }
