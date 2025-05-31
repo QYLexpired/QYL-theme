@@ -67,6 +67,7 @@ const I18N = {
         QYLcjsdl: ' 沉浸式顶栏',
         QYLzzbj: ' 专注编辑模式',
         QYLtpjgg: ' 启用图片九宫格排列',
+        QYLzsbj: ' 撞色布局',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -102,6 +103,7 @@ const I18N = {
         QYLcjsdl: ' Immersive Topbar',
         QYLzzbj: ' Focus Editing Mode',
         QYLtpjgg: ' Enable 3×3 grid layout for images',
+        QYLzsbj: ' ​​Color Blocking Layout',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -136,7 +138,8 @@ const I18N = {
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
         QYLzzbj: ' 專注編輯模式',
-        QYLtpjgg: '啟用圖片九宮格排列'
+        QYLtpjgg: '啟用圖片九宮格排列',
+        QYLzsbj: ' 撞色佈局',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -228,6 +231,7 @@ let isChecked34;
 let isChecked35;
 let isChecked38;
 let isChecked39;
+let isChecked40;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -611,6 +615,17 @@ function createSettingsWindow() {
     label39.style.fontSize = '14px';
     label39.style.userSelect= 'none';
 
+    const checkbox40 = document.createElement('input');
+    checkbox40.type = 'checkbox';
+    checkbox40.id = 'QYLcolorblocking-checkbox';
+    checkbox40.checked = isChecked40;
+
+    const label40 = document.createElement('label');
+    label40.htmlFor = 'QYLcolorblocking-checkbox';
+    label40.textContent = i18n.QYLzsbj;
+    label40.style.fontSize = '14px';
+    label40.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -804,6 +819,12 @@ function createSettingsWindow() {
     QYLfunctionpair39.appendChild(label39);
     QYLfunctionpair39.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair40 = document.createElement('div');
+    QYLfunctionpair40.className = 'checkbox-label-pair';
+    QYLfunctionpair40.appendChild(checkbox40);
+    QYLfunctionpair40.appendChild(label40);
+    QYLfunctionpair40.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -872,6 +893,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpairdivider4);
     settingsWindow.appendChild(QYLfunctionpair34);
     settingsWindow.appendChild(QYLfunctionpair35);
+    settingsWindow.appendChild(QYLfunctionpair40);
     settingsWindow.appendChild(QYLfunctionpairdivider5);
     settingsWindow.appendChild(QYLfunctionpair12);
     settingsWindow.appendChild(QYLfunctionpair13);
@@ -928,6 +950,7 @@ async function saveConfig() {
         isChecked35: checkbox35.checked,
         isChecked38: checkbox38.checked,
         isChecked39: checkbox39.checked,
+        isChecked40: checkbox40.checked,
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -963,6 +986,7 @@ checkbox3.addEventListener('change', async function() {
     state ? enabletoolbarhidden() : disabletoolbarhidden();
     state ? isChecked3 = true : isChecked3 = false;
     if (isChecked22 === true) { checkbox22.click(); }
+    if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1377,6 +1401,23 @@ checkbox35.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLimmersivetopbar() : disableQYLimmersivetopbar();
     state ? isChecked35 = true : isChecked35 = false;
+    if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 撞色布局开关
+checkbox40.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLcolorblocking() : disableQYLcolorblocking();
+    state ? isChecked40 = true : isChecked40 = false;
+    if (isChecked35 === true) { checkbox35.click(); }//不能与沉浸式顶栏同时开启
+    if (isChecked20 === true) { checkbox20.click(); }//不能与垂直页签同时开启
+    if (isChecked3 === true) { checkbox3.click(); }//不能与隐藏顶栏同时开启
+    if (isChecked16 === true) { checkbox16.click(); }//不能与墨水屏模式同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1391,6 +1432,7 @@ checkbox16.addEventListener('change', async function() {
     state ? isChecked16 = true : isChecked16 = false;
     if (isChecked10 === true) { checkbox10.click(); }//不能与毛玻璃同时开启
     if (isChecked34 === true) { checkbox34.click(); }//不能与扁平化风格同时开启
+    if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1404,6 +1446,7 @@ checkbox20.addEventListener('change', async function() {
     state ? enableQYLverticaltab() : disableQYLverticaltab();
     state ? isChecked20 = true : isChecked20 = false;
     if (isChecked22 === true) { checkbox22.click(); }
+    if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2461,6 +2504,41 @@ function disableQYLimmersivetopbar() {
     }
 }
 
+// 开启撞色布局
+function enableQYLcolorblocking() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    try {
+        if (typeof isChecked22 === 'boolean' && isChecked22 === false) {
+            isChecked22 = true;
+            enableQYLfusion();
+        }
+    } catch {
+    }
+    let linkElement = document.getElementById("QYLcolorblocking-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLcolorblocking-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/撞色布局.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭撞色布局
+function disableQYLcolorblocking() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    const linkElement = document.getElementById("QYLcolorblocking-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let styleElement = document.getElementById("snippet-QYLcolorfulh-style");
@@ -2536,6 +2614,13 @@ function enableQYLfusion() {
 
 // 关闭顶栏融合
 function disableQYLfusion() {
+    try {
+        if (typeof isChecked40 === 'boolean' && isChecked40 === true) {
+            isChecked40 = false;
+            disableQYLcolorblocking();
+        }
+    } catch {
+    }
     fusion.stop();
     windowObserver.stop();
 
@@ -2829,6 +2914,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked39 === false) {
             disableQYL33grid();
             isChecked39 = false;
+        }
+
+        if (config?.isChecked40 === true) {
+            enableQYLcolorblocking();
+            isChecked40 = true;
+        } else if (config?.isChecked40 === false) {
+            disableQYLcolorblocking();
+            isChecked40 = false;
         }
 
     } catch (e) {
