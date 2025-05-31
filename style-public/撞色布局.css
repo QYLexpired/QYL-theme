@@ -33,6 +33,10 @@
 #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .layout-tab-container {
   border-radius: 0 !important;
 }
+.layout__empty {
+  border-radius: 0 !important;
+  box-shadow: 0 -40px 0 0 var(--b3-theme-background);
+}
 /* 主界面分割线 */
 .layout__resize {
   margin: -3px 0 !important;
@@ -115,4 +119,13 @@
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
   border: none !important;
   background-color: var(--QYL-hover-light) !important;
+}
+/* 数据库页签 */
+#layouts .av__views .layout-tab-bar.fn__flex {
+  & .item.item--focus {
+      background-color: var(--b3-theme-background) !important;
+  }
+  & .item:not(.item--focus) {
+      background-color: rgba(255, 0, 0, 0) !important;
+  }
 }

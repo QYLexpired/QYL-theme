@@ -50,7 +50,14 @@ body:not(.body--mobile,.body--window) #layouts {
         color: var(--QYL-immerse-fusion-fix-4, var(--b3-theme-on-surface)) !important;
     }
 }
-
+.layout__empty::before {
+    content: "";
+    position: absolute;
+    top: -43.75px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--QYL-immerse-toolbar);
+}
 
 /* dark */
 [data-theme-mode="dark"] .toolbar__item, [data-theme-mode="dark"] .toolbar #drag {
