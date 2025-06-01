@@ -914,7 +914,7 @@ function createSettingsWindow() {
 // 保存配置到QYLdarkconfig.json
 async function saveConfig() {
     const formData = new FormData();
-    formData.append('path', '/data/snippets/QYLdarkconfig.json');
+    formData.append('path', '/conf/QYLdarkconfig.json');
     formData.append('isDir', 'false');
     formData.append('modTime', Math.floor(Date.now() / 1000));
     formData.append('file', new Blob([JSON.stringify({
@@ -2566,6 +2566,36 @@ function enableQYLcolorfulh() {
             --QYL-h6-fold: rgba(179, 103, 184, 0.4);
             --QYL-h6-fold-background: rgba(179, 103, 184, 0.1);
         }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h1"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h1);
+            }
+        }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h2"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h2);
+            }
+        }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h3"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h3);
+            }
+        }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h4"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h4);
+            }
+        }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h5"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h5);
+            }
+        }
+        .sy__outline .b3-list--background .b3-list-item[data-subtype="h6"] {
+            & .b3-list-item__graphic, .b3-list-item__text {
+                color: var(--QYL-h6);
+            }
+        }
         /* 手机端彩色大纲 */
         .QYLmobile [data-type="sidebar-outline"] [data-subtype="h1"] :is(.b3-list-item__graphic, .b3-list-item__text) {
             color: var(--QYL-h1);
@@ -2656,7 +2686,7 @@ function disableQYLverticaltab() {
 // 读取QYLdarkconfig.json
 async function loadAndCheckConfig() {
     try {
-        const content = await getFile("/data/snippets/QYLdarkconfig.json");
+        const content = await getFile("/conf/QYLdarkconfig.json");
         if (!content) return;
         const config = JSON.parse(content);
 
