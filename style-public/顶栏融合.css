@@ -147,6 +147,20 @@
     color: var(--b3-toolbar-color);
 }
 
+#drag + .toolbar__item {
+    overflow: visible;
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: var(--QYL-hover);
+        border-radius: 99px;
+        width: 2px;
+        height: 20px;
+        top: 1.75px;
+        left: -6px;
+    }
+}
+
 /* 湖畔配色调整 */
 :root {
     --QYL-lakeside-tag-1: #eef4f2 !important;

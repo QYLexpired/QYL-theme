@@ -251,6 +251,9 @@ div.protyle-action.protyle-action--task svg {
         margin: -4px -4px 0 -4px;
     }
 }
+.b3-typography div.hljs, .protyle-wysiwyg div.hljs {
+    padding: 0em 1em 1em 1em;
+}
 /* 超链接按钮样式 */
 .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext)[style*="background-color: var(--b3-font-background13"], .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref][style*="background-color: var(--b3-font-background13"] {
     box-shadow: var(--b3-light-shadow);

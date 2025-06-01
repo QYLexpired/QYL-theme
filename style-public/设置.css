@@ -1,4 +1,7 @@
 /* 设置 */
+.b3-dialog .layout-tab-bar {
+    background-color: transparent;
+}
 [data-key="dialog-setting"] {
     & .config__tab-wrap {
         height: calc(100% - 12px);

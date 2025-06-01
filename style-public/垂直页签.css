@@ -69,10 +69,24 @@
         padding: 4px 0px 4px 8px !important;
     }
     & .layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
-        margin-top: 20px;
+        margin-top: 15px;
         margin-left : 0 !important;
+        overflow: visible;
+        &::before {
+            content: "" !important;
+            display: unset !important;
+            position: absolute !important;
+            background-color: var(--QYL-hover) !important;
+            border-radius: 99px !important;
+            width: 100px !important;
+            height: 2px !important;
+            top: -10px !important;
+            left: 6px !important;
+            transform: none !important;
+        }
     }
 }
+
 /* 适配墨水屏 */
 /* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
 .layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],

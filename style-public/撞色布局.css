@@ -70,7 +70,10 @@
 .layout__dockl + .layout__resize {
   &::after {
     background-color: transparent !important;
+  }
 }
+#layouts .layout__resize.layout__resize--lr:has( + .layout__dockr) {
+  clip-path: inset(40px 0 0 0) !important;
 }
 /* 取消扁平化风格的边框 */
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
@@ -127,5 +130,61 @@
   }
   & .item:not(.item--focus) {
       background-color: rgba(255, 0, 0, 0) !important;
+  }
+}
+/* 顶栏 */
+#barWorkspace {
+  background-color:rgba(255, 0, 0, 0);
+  height: 22px;
+  min-width: 30px;
+  & span.toolbar__text {
+      color: var(--b3-toolbar-color);
+      line-height: 12px;
+  }
+  &:hover {
+      background-color: var(--b3-theme-primary) !important;
+      & span.toolbar__text {
+          color: var(--b3-theme-background);
+      }
+  }
+}
+/* 侧栏 */
+.dock__item--active {
+  background-color: var(--QYL-hover);
+  color: var(--b3-toolbar-color);
+}
+.dock__item:hover:not(.dock__item--activefocus) {
+  background-color: var(--QYL-hover);
+  color: var(--b3-toolbar-color);
+}
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
+  & :is(.block__logo, .block__logoicon, .block__icon) {
+      color: var(--b3-theme-on-surface-light);
+      font-weight: bold;
+  }
+}
+.file-tree .b3-list-item .b3-list-item__graphic, .file-tree .b3-list-item .b3-list-item__text {
+  color: var(--b3-theme-on-surface-light);
+}
+/* 面包屑 */
+.protyle-breadcrumb button[data-type="exit-focus"] {
+  color: var(--b3-theme-on-surface);
+  font-weight: normal;
+  border: none;
+  background-color: var(--QYL-hover-light);
+  &:hover {
+      background-color: var(--b3-theme-primary);
+      color: var(--QYL-white);
+  }
+}
+/* 设置界面 */
+[data-key="dialog-setting"] {
+  & .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child,& :where(.b3-label,.config__ite)::first-line{
+      font-weight: bold;
+      color: var(--b3-theme-on-background);
+  }
+  & .config__tab-wrap .config-query .fn__flex-1, & .b3-label__text, & .b3-label :where(a,code,.ft__on-surface):not(.b3-button--outline) {
+      font-weight: normal !important;
+      color: var(--b3-theme-on-surface) !important;
   }
 }
