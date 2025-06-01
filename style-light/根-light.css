@@ -230,14 +230,14 @@
     --QYL-custom-gray-background: #eaeaea;
 }
 :root {
-    --filetree-line-1: var(--b3-theme-primary-lighter);
-    --filetree-line-2: var(--b3-theme-primary-lighter);
-    --filetree-line-3: var(--b3-theme-primary-lighter);
-    --filetree-line-4: var(--b3-theme-primary-lighter);
-    --filetree-line-5: var(--b3-theme-primary-lighter);
-    --filetree-line-6: var(--b3-theme-primary-lighter);
-    --filetree-line-7: var(--b3-theme-primary-lighter);
-    --filetree-line-8: var(--b3-theme-primary-lighter);
+    --filetree-line-1: var(--b3-theme-surface-lighter);
+    --filetree-line-2: var(--b3-theme-surface-lighter);
+    --filetree-line-3: var(--b3-theme-surface-lighter);
+    --filetree-line-4: var(--b3-theme-surface-lighter);
+    --filetree-line-5: var(--b3-theme-surface-lighter);
+    --filetree-line-6: var(--b3-theme-surface-lighter);
+    --filetree-line-7: var(--b3-theme-surface-lighter);
+    --filetree-line-8: var(--b3-theme-surface-lighter);
 }
 :root {
     --QYL-flat-primary: rgb(129, 40, 230);
@@ -285,3 +285,73 @@
     --b3-font-background12: #ebff79;
     --b3-font-background13: var(--b3-theme-on-background);
 }
+
+/* NEW */
+:root {
+    --QYL-hover: rgba(189, 197, 212, 0.5); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(189, 197, 212, 0.7);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(189, 197, 212, 0.2);/* 主要悬停色变浅 */
+    --b3-theme-primary: #4c77d2 !important;
+    --b3-theme-primary-light: rgba(76, 119, 210, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(76, 119, 210, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(76, 119, 210, 0.15); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-theme-surface: #e8edf8;
+    --b3-theme-surface-light: rgba(229, 233, 241, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter: #d3d9e5;
+    --b3-theme-background: #f8faff;
+    --b3-theme-background-light:#d9dce4; /* 编辑器较多加深（不透明） */
+    --b3-toolbar-blur-background: #f4f5f9; /* 失焦颜色 */
+    --b3-scroll-color: rgba(189, 197, 212, 0.4); /* 滚动条颜色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-color: var(--b3-theme-on-surface-light);/* 顶部按钮颜色 */
+    --QYL-filetree-arrow: var(--b3-theme-on-surface-light);/* 文档树箭头颜色 */
+    --b3-theme-error: #dc3030;
+    --b3-theme-success: #38c172;
+    --b3-theme-secondary: #f4ca64;
+    --QYL-accent-color: #707070;
+  
+    /* 文字颜色 */
+    --b3-theme-on-primary: #f6f6f6;
+    --b3-theme-on-secondary: #f6f6f6;
+    --b3-theme-on-background: #353c48;
+    --b3-theme-on-surface: #636771;
+    --b3-theme-on-surface-light: #838897;
+    --b3-theme-on-error: #f6f6f6;
+  
+    /* 容器阴影 */
+    --b3-point-shadow: var(--QYL-hover-light) 0px 2px 1px, var(--QYL-hover-light) 0px 4px 2px, var(--QYL-hover-light) 0px 8px 4px, var(--QYL-hover-light) 0px 16px 8px;
+    --b3-dialog-shadow: var(--b3-point-shadow);
+    --b3-button-shadow: var(--b3-point-shadow);
+    --b3-light-shadow: var(--QYL-hover-light) 0px 1px 2px 0px, var(--QYL-hover-light) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--QYL-hover) 0px 0px 8px;
+  }
+  :root {
+    --QYL-blockquote: rgb(142, 148, 159);
+    --QYL-blockquote-background: rgba(189, 197, 212, 0.3);
+    --QYL-blockquote-svg: rgba(189, 197, 212, 0.6);
+  }
+  :root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: #c9d3dc;
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover:#3a3e4e;
+  }
+  :root {
+    --QYL-filter-background-theme: rgba(249, 251, 253, 0.7);
+    --QYL-filter-wrap-background-theme:rgba(245, 250, 255, 0.7);
+    --QYL-filter-fix-background-theme: rgba(248, 252, 255, 0.9);
+  }
+  :root {
+    --QYL-account-background1: linear-gradient(to right bottom, #e5e9f1, #e9edf4, #ecf0f8, #f0f4fb, #f4f8ff);
+    --QYL-account-background2: linear-gradient(to right bottom, #e5e9f1, #e9edf4, #ecf0f8, #f0f4fb, #f4f8ff);
+  }
+  :root {
+    --QYL-flat-primary: rgb(209, 87, 66);
+    --QYL-flat-second: var(--b3-theme-primary);
+  }
+  :root {
+    --QYL-immerse-toolbar: #808691;
+  }
