@@ -3,7 +3,7 @@
     border-bottom-color: transparent;
     margin-bottom: -38px;
     pointer-events: none;
-    z-index: 2;
+    z-index: 5;
     app-region: drag;
 }
 .toolbar__item {
@@ -267,4 +267,10 @@
 }
 [data-theme-mode="dark"] .layout__center :not(.av__views) > .layout-tab-bar .item.item--focus {
     --QYL-immerse-fusion-fix-3: var(--b3-theme-primary-light);
+}
+
+/* 适配隐藏页签和面包屑 */
+:root {
+    --QYL-hidetabstr-fix-1: translateY(40px);
+    --QYL-hidetabstr-fix-2: translateY(40px);
 }

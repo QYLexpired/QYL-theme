@@ -1,0 +1,110 @@
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+    position: relative;
+    & > .fn__flex:first-child  {
+        opacity: 0;
+        position: absolute;
+        z-index: 3;
+        transform: translateX(5px) translateY(5px);
+        max-width: 100%;
+        transition: opacity 0.5s;
+        &:hover {
+            opacity: 1;
+        }
+        & > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+            border-radius: var(--b3-border-radius) 0 0 var(--b3-border-radius);
+            background-color: var(--QYL-filter-fix-background-theme);
+        }
+        & > .layout-tab-bar.layout-tab-bar--readonly {
+            border-radius: 0 var(--b3-border-radius) var(--b3-border-radius) 0;
+            background-color: var(--QYL-filter-fix-background-theme);
+        }
+        & + .layout-tab-container {
+            border-radius: var(--b3-border-radius);
+            & .protyle-breadcrumb {
+                opacity: 0; 
+                position: absolute;
+                border-radius: var(--b3-border-radius);
+                z-index: 3;
+                max-width: 100%;
+                right: 15px;
+                top: 30px;
+                background-color: var(--QYL-filter-fix-background-theme);
+                transition: opacity 0.5s;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+/* 取消顶栏融合右上角文档页签左边距 */
+/* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
+.layout__center> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"] {
+    & > .fn__flex:not(.layout-tab-container) {
+        padding-left: 0 !important; 
+        transform: translateX(5px) var(--QYL-hidetabstr-fix-1, translateY(5px)) !important;/* 顶栏融合时还要向下偏移 */
+    }
+}
+/* 取消顶栏融合左上角文档页签右边距 */
+.QYLtrwnd > .fn__flex:first-child  {
+    transform: var(--QYL-hidetabstr-fix-2) !important;/* 顶栏融合时还要向下偏移 */
+    & + .layout-tab-container {
+        transform: var(--QYL-hidetabstr-fix-2) !important;
+    }
+}
+.QYLtrwnd .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/*  右上角页签右边距 */
+    padding-right: 0 !important;
+}
+
+/* 题头图设置窗口需下移 */
+.protyle-background__img .protyle-icons {
+    top: 48px;
+}
+/* 适配垂直页签 */
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+    & > .fn__flex:first-child  {
+        max-width: var(--QYL-hidetabstr-vertical-fix-3, 100%);
+        & > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+            border-radius: var(--QYL-hidetabstr-vertical-fix-1, var(--b3-border-radius) 0 0 var(--b3-border-radius));
+        }
+        & > .layout-tab-bar.layout-tab-bar--readonly {
+            border-radius: var(--QYL-hidetabstr-vertical-fix-2, 0 var(--b3-border-radius) var(--b3-border-radius) 0);
+        }
+    }
+}
+/* 同时开启撞色布局时增加遮罩 */
+#toolbar {
+    &::before {
+        display: var(--QYL-hidetabstr-cb-fix-1, none);
+        opacity: 0;
+        transition: 0.1s;
+        border-radius: 0px;
+        content: '';
+        height: 35px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: var(--QYL-hover-light);
+        backdrop-filter: blur(10px) saturate(1.5);
+        z-index: -5;
+        transition: opacity 0.5s;
+    }
+    &:hover::before {
+        opacity: 1;
+    }
+}

@@ -174,6 +174,9 @@
     padding: 6px 0 6px 0;
     min-height: 50%;
 }
+#layouts.layout__center {/* 新窗口打开时应取消内边距 */
+    padding: 0;
+}
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
     border-radius: var(--b3-border-radius);
     background-color: var(--b3-theme-background);
@@ -252,7 +255,12 @@
     margin-bottom: -25px;
     border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
 }
-
+/* 状态栏下移 */
+@media (min-width: 630px) {
+    #status {
+        bottom: 6px;
+    }
+}
 /* PDF界面 */
 .pdf__outer #mainContainer {
     background-color: var(--b3-theme-background);

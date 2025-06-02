@@ -1,7 +1,7 @@
 /* 主界面 */
 #layouts {
   background-color: var(--b3-theme-background);
-  padding-bottom: 0;
+  padding: 0;
 }
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
   border-radius: 0;
@@ -78,6 +78,10 @@
 }
 #layouts .layout__resize.layout__resize--lr:has( + .layout__dockr) {
   clip-path: inset(40px 0 0 0) !important;
+}
+/* 页签需向下偏移 */
+#layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+  transform: translateY(6px);
 }
 /* 取消扁平化风格的边框 */
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
@@ -191,4 +195,8 @@
       font-weight: normal !important;
       color: var(--b3-theme-on-surface) !important;
   }
+}
+/* 适配隐藏页签和面包屑 */
+:root {
+  --QYL-hidetabstr-cb-fix-1: block;
 }

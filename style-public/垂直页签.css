@@ -113,3 +113,9 @@
         border-top: none;
     }
 }
+/* 适配隐藏页签和面包屑 */
+:root {
+    --QYL-hidetabstr-vertical-fix-1: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+    --QYL-hidetabstr-vertical-fix-2: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    --QYL-hidetabstr-vertical-fix-3: 125px;
+}
