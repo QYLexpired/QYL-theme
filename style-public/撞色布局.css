@@ -37,6 +37,10 @@
   border-radius: 0 !important;
   box-shadow: 0 -40px 0 0 var(--b3-theme-background);
 }
+#dockLeft.fn__none + #layouts {
+  padding-left: 0;
+  padding-right: 0;
+}
 /* 主界面分割线 */
 .layout__resize {
   margin: -3px 0 !important;

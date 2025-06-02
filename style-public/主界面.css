@@ -90,6 +90,7 @@
         align-items: center;
         box-shadow: var(--b3-light-shadow);
         user-select: none;
+        transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
         & #barDock {
             position: relative;
             order: 1;
@@ -133,26 +134,6 @@
     .dock#dockBottom:not(.fn__none) + #status {
         bottom: 48px;
     }
-}
-#status {
-    transition: 
-        width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        height 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-        border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-#status.QYLstatushidden:not(:hover) {
-    transition: 
-        width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        height 0.1s cubic-bezier(0.4, 0, 0.2, 1),
-        border-radius 0.3s 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-#status.QYLstatushidden:not(:hover) * {
-    transition: 
-        opacity 0.2s ease-in,
-}
-#status:not(.QYLstatushidden) * {
-    transition: 
-        opacity 0.2s 0.1s ease-out,
 }
 .status .toolbar__item:hover {
     background-color: var(--QYL-hover) !important;
