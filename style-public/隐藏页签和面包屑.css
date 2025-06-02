@@ -58,6 +58,9 @@
         padding-top: 0 !important;
         padding-left: 0 !important; 
         transform: translateX(5px) var(--QYL-hidetabstr-fix-1, translateY(5px)) !important;/* 顶栏融合时还要向下偏移 */
+        & + .layout-tab-container {
+            transform: var(--QYL-hidetabstr-fix-2) !important;
+        }
     }
 }
 /* 取消顶栏融合左上角文档页签右边距 */
