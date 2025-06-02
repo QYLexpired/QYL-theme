@@ -68,6 +68,7 @@ const I18N = {
         QYLzzbj: ' 专注编辑模式',
         QYLtpjgg: ' 启用图片九宫格排列',
         QYLzsbj: ' 撞色布局',
+        QYLycyqmbx: ' 隐藏页签和面包屑',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -104,6 +105,7 @@ const I18N = {
         QYLzzbj: ' Focus Editing Mode',
         QYLtpjgg: ' Enable 3×3 grid layout for images',
         QYLzsbj: ' ​​Color Blocking Layout',
+        QYLycyqmbx: ' Hide Tabs and Breadcrumb Trail',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -140,6 +142,7 @@ const I18N = {
         QYLzzbj: ' 專注編輯模式',
         QYLtpjgg: '啟用圖片九宮格排列',
         QYLzsbj: ' 撞色佈局',
+        QYLycyqmbx: ' ​​隱藏頁籤和麵包屑導覽',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -232,6 +235,7 @@ let isChecked35;
 let isChecked38;
 let isChecked39;
 let isChecked40;
+let isChecked41;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -626,6 +630,17 @@ function createSettingsWindow() {
     label40.style.fontSize = '14px';
     label40.style.userSelect= 'none';
 
+    const checkbox41 = document.createElement('input');
+    checkbox41.type = 'checkbox';
+    checkbox41.id = 'QYLhidetabsbt-checkbox';
+    checkbox41.checked = isChecked41;
+
+    const label41 = document.createElement('label');
+    label41.htmlFor = 'QYLhidetabsbt-checkbox';
+    label41.textContent = i18n.QYLycyqmbx;
+    label41.style.fontSize = '14px';
+    label41.style.userSelect= 'none';
+
     // 将复选框和标签组合
     const QYLfunctionpair1 = document.createElement('div');
     QYLfunctionpair1.className = 'checkbox-label-pair';
@@ -825,6 +840,12 @@ function createSettingsWindow() {
     QYLfunctionpair40.appendChild(label40);
     QYLfunctionpair40.style.animation = 'QYLbounceRight2 0.1s';
 
+    const QYLfunctionpair41 = document.createElement('div');
+    QYLfunctionpair41.className = 'checkbox-label-pair';
+    QYLfunctionpair41.appendChild(checkbox41);
+    QYLfunctionpair41.appendChild(label41);
+    QYLfunctionpair41.style.animation = 'QYLbounceRight2 0.1s';
+
     //分割线
     const QYLfunctionpairdivider1 = document.createElement('hr');
     QYLfunctionpairdivider1.style.cssText = `
@@ -877,6 +898,7 @@ function createSettingsWindow() {
     settingsWindow.appendChild(QYLfunctionpair20);  //垂直页签
     settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
     settingsWindow.appendChild(QYLfunctionpair38);//专注编辑模式
+    settingsWindow.appendChild(QYLfunctionpair41);//隐藏页签和面包屑
     settingsWindow.appendChild(QYLfunctionpairdivider3); 
     settingsWindow.appendChild(QYLfunctionpair1); //标记挖空
     settingsWindow.appendChild(QYLfunctionpair24); //列表辅助线
@@ -951,6 +973,7 @@ async function saveConfig() {
         isChecked38: checkbox38.checked,
         isChecked39: checkbox39.checked,
         isChecked40: checkbox40.checked,
+        isChecked41: checkbox41.checked,
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -1389,6 +1412,18 @@ checkbox34.addEventListener('change', async function() {
     state ? enableQYLflatstyle() : disableQYLflatstyle();
     state ? isChecked34 = true : isChecked34 = false;
     if (isChecked16 === true) { checkbox16.click(); }//不能与墨水屏模式同时开启
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 隐藏页签和面包屑开关
+checkbox41.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLhidetabsbt() : disableQYLhidetabsbt();
+    state ? isChecked41 = true : isChecked41 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2504,6 +2539,34 @@ function disableQYLimmersivetopbar() {
     }
 }
 
+// 开启隐藏页签和面包屑
+function enableQYLhidetabsbt() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    let linkElement = document.getElementById("QYLhidetabsbt-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLhidetabsbt-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/隐藏页签和面包屑.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭隐藏页签和面包屑
+function disableQYLhidetabsbt() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    const linkElement = document.getElementById("QYLhidetabsbt-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启撞色布局
 function enableQYLcolorblocking() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -2956,6 +3019,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked40 === false) {
             disableQYLcolorblocking();
             isChecked40 = false;
+        }
+
+        if (config?.isChecked41 === true) {
+            enableQYLhidetabsbt();
+            isChecked41 = true;
+        } else if (config?.isChecked41 === false) {
+            disableQYLhidetabsbt();
+            isChecked41 = false;
         }
 
     } catch (e) {
