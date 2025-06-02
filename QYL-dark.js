@@ -2631,7 +2631,10 @@ function disableQYLcolorfulh() {
 function enableQYLfusion() {
     fusion.start();
     windowObserver.start();
-
+    setTimeout(() => {
+        QYLtrwndhandle.start();
+    }, 2000);
+    
     let linkElement = document.getElementById("QYLfusion-style");
     if (!linkElement) {
         linkElement = document.createElement("link");
@@ -2653,6 +2656,7 @@ function disableQYLfusion() {
     }
     fusion.stop();
     windowObserver.stop();
+    QYLtrwndhandle.stop();
 
     const linkElement = document.getElementById("QYLfusion-style");
     if (linkElement) {
@@ -3062,6 +3066,7 @@ const QYLStatusPositionManager = (() => {
             this.QYL_observer = null;
             this.QYL_styleObserver = null;
             this.QYL_isActive = false;
+            this.QYL_pendingDebounce = null;
             this.QYL_init();
         }
         QYL_elementDetector() {
@@ -3084,30 +3089,32 @@ const QYLStatusPositionManager = (() => {
         }
         QYL_calculatePosition() {
             if (!this.QYL_validateElements()) return;
-            
             try {
+                if (this.QYL_pendingDebounce) {
+                    clearTimeout(this.QYL_pendingDebounce);
+                    this.QYL_pendingDebounce = null;
+                }  
                 const rect = this.QYL_layout.getBoundingClientRect();
                 const offset = window.innerWidth - rect.right + 15;
+                this.QYL_layout.style.setProperty('--QYL-fusion-center-right', `${offset}px`);
                 this.QYL_status.style.setProperty('--QYL-status-transformX', `-${offset}px`);
             } catch (error) {
                 this.QYL_scheduleRecovery();
             }
         }
-        QYL_animationFrameThrottle(func) {
-            let QYL_pending = false;
-            return (...args) => {
-                if (!QYL_pending) {
-                    QYL_pending = true;
-                    requestAnimationFrame(() => {
-                        func.apply(this, args);
-                        QYL_pending = false;
-                    });
+        QYL_debounceFunction(func) {
+            return () => {
+                if (this.QYL_pendingDebounce) {
+                    clearTimeout(this.QYL_pendingDebounce);
                 }
+                this.QYL_pendingDebounce = setTimeout(() => {
+                    func.apply(this);
+                }, 500);
             };
         }
         QYL_handleResize = () => {
             this.QYL_windowWidth = window.innerWidth;
-            this.QYL_rafUpdate();
+            this.QYL_debouncedUpdate();
         }
         QYL_handleVisibility = () => {
             if (document.visibilityState === 'visible') {
@@ -3119,24 +3126,25 @@ const QYLStatusPositionManager = (() => {
                 const { layout, status } = await this.QYL_elementDetector();
                 this.QYL_layout = layout;
                 this.QYL_status = status;
-                this.QYL_rafUpdate = this.QYL_animationFrameThrottle(
+                this.QYL_debouncedUpdate = this.QYL_debounceFunction(
                     this.QYL_calculatePosition.bind(this)
                 );
                 window.addEventListener('resize', this.QYL_handleResize, { passive: true });
-                window.addEventListener('scroll', this.QYL_rafUpdate, { passive: true });
+                window.addEventListener('scroll', this.QYL_debouncedUpdate, { passive: true });
                 document.addEventListener('visibilitychange', this.QYL_handleVisibility);
-                this.QYL_observer = new ResizeObserver(() => this.QYL_rafUpdate());
+                this.QYL_observer = new ResizeObserver(() => this.QYL_debouncedUpdate());
                 this.QYL_observer.observe(this.QYL_layout);
+                
                 this.QYL_styleObserver = new MutationObserver(mutations => {
                     if (mutations.some(m => m.attributeName === 'style')) {
-                        this.QYL_rafUpdate();
+                        this.QYL_debouncedUpdate();
                     }
                 });
                 this.QYL_styleObserver.observe(this.QYL_status, {
                     attributes: true,
                     attributeFilter: ['style']
                 });
-                requestAnimationFrame(() => this.QYL_calculatePosition());
+                this.QYL_calculatePosition();
                 this.QYL_isActive = true;
             } catch (error) {
                 this.QYL_scheduleRecovery();
@@ -3146,10 +3154,9 @@ const QYLStatusPositionManager = (() => {
             return [this.QYL_layout, this.QYL_status].every(
                 el => el?.isConnected
             );
-        }
+        }  
         QYL_scheduleRecovery() {
             if (!this.QYL_isActive) return;
-            
             QYL_retryCount = 0;
             setTimeout(() => {
                 this.QYL_cleanup();
@@ -3157,10 +3164,13 @@ const QYLStatusPositionManager = (() => {
             }, 2000);
         }
         QYL_cleanup() {
+            if (this.QYL_pendingDebounce) {
+                clearTimeout(this.QYL_pendingDebounce);
+                this.QYL_pendingDebounce = null;
+            }
             window.removeEventListener('resize', this.QYL_handleResize);
-            window.removeEventListener('scroll', this.QYL_rafUpdate);
+            window.removeEventListener('scroll', this.QYL_debouncedUpdate);
             document.removeEventListener('visibilitychange', this.QYL_handleVisibility);
-            
             this.QYL_observer?.disconnect();
             this.QYL_styleObserver?.disconnect();
             this.QYL_isActive = false;
@@ -3173,6 +3183,7 @@ const QYLStatusPositionManager = (() => {
             }
             return this.QYL_instance;
         },
+        
         QYL_destroy: () => {
             this.QYL_instance?.QYL_cleanup();
             this.QYL_instance = null;
@@ -3309,7 +3320,73 @@ class QYLFusionWindowWidth {
       this.debouncedHandler = null;
     }
   }
-  const windowObserver = new QYLFusionWindowWidth();
+const windowObserver = new QYLFusionWindowWidth();
+
+const QYLtrwndhandle = (() => {
+    let observer = null;
+    let mutationDebounce = null;
+    function markWindow() {
+        const center = document.querySelector('.layout__center');
+        if (!center) return;
+        const oldMarked = center.querySelectorAll('[data-type="wnd"].QYLtrwnd');
+        oldMarked.forEach(el => el.classList.remove('QYLtrwnd'));
+        let current = center;
+        while (true) {
+            const children = Array.from(current.children);
+            if (children.length === 1) {
+                const child = children[0];
+                if (child.dataset.type === 'wnd') {
+                    child.classList.add('QYLtrwnd');
+                    return;
+                }
+                current = child;
+                continue;
+            }
+            const resizeIndex = children.findIndex(el => 
+                el.classList.contains('layout__resize') && 
+                !el.classList.contains('layout__resize--lr')
+            );
+            if (resizeIndex !== -1) {
+                current = resizeIndex > 0 
+                    ? children[resizeIndex - 1] 
+                    : children[children.length - 1];
+            } else {
+                current = children[children.length - 1];
+            }
+        }
+    }
+    function cleanUp() {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+        if (mutationDebounce) {
+            clearTimeout(mutationDebounce);
+            mutationDebounce = null;
+        }
+        const markedElements = document.querySelectorAll('.QYLtrwnd');
+        markedElements.forEach(el => el.classList.remove('QYLtrwnd'));
+    }
+    return {
+        start() {
+            cleanUp();
+            const center = document.querySelector('.layout__center');
+            if (!center) return;
+            markWindow();
+            observer = new MutationObserver(() => {
+                if (mutationDebounce) clearTimeout(mutationDebounce);
+                mutationDebounce = setTimeout(markWindow, 1000);
+            });
+            observer.observe(center, {
+                childList: true,
+                subtree: true
+            });
+        },       
+        stop() {
+            cleanUp();
+        }
+    };
+})();
 
 //css自定义属性
 // QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
