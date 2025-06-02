@@ -59,7 +59,9 @@
         padding-left: 0 !important; 
         transform: translateX(5px) var(--QYL-hidetabstr-fix-1, translateY(5px)) !important;/* 顶栏融合时还要向下偏移 */
         & + .layout-tab-container {
-            transform: var(--QYL-hidetabstr-fix-2) !important;
+            & .protyle-breadcrumb {
+                transform: var(--QYL-hidetabstr-fix-2) !important;
+            }
         }
     }
 }
@@ -68,7 +70,9 @@
     padding-top: 0 !important;
     transform: var(--QYL-hidetabstr-fix-2) !important;/* 顶栏融合时还要向下偏移 */
     & + .layout-tab-container {
-        transform: var(--QYL-hidetabstr-fix-2) !important;
+        & .protyle-breadcrumb {
+            transform: var(--QYL-hidetabstr-fix-2) !important;
+        }
     }
 }
 .QYLtrwnd .layout-tab-bar.layout-tab-bar--readonly.fn__flex-1 {/*  右上角页签右边距 */
