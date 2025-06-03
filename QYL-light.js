@@ -35,6 +35,11 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         QYLztsz: ' QYL主题设置',
+        QYLsubbj: ' 布局',
+        QYLsubfg: ' 风格',
+        QYLsubgn: ' 功能',
+        QYLsubys: ' 元素',
+        QYLsubps: ' 配色',
         QYLbjwk: ' 标记挖空',
         QYLsjx: ' 文档树和大纲缩进线',
         QYLycdl: ' 隐藏顶栏',
@@ -77,6 +82,11 @@ const I18N = {
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
+        QYLsubbj: ' Layout',
+        QYLsubfg: ' Style',
+        QYLsubgn: ' Function',
+        QYLsubys: ' Element',
+        QYLsubps: ' Theme',
         QYLbjwk: ' Hide Marked Text',
         QYLsjx: ' File Tree With Indentation Guides',
         QYLycdl: ' Hide The Topbar',
@@ -119,6 +129,11 @@ const I18N = {
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
+        QYLsubbj: ' 佈局',
+        QYLsubfg: ' 風格',
+        QYLsubgn: ' 功能',
+        QYLsubys: ' 元素',
+        QYLsubps: ' 配色',
         QYLbjwk: ' 標記挖空',
         QYLsjx: ' 文件樹和大綱縮進線',
         QYLycdl: ' 隱藏頂欄',
@@ -177,7 +192,7 @@ function addThemeToolBar() {
         newToolbar.className = "toolbar__item ariaLabel";
         newToolbar.style.width = "23.5px";
         newToolbar.style.height = "23.5px";
-        newToolbar.innerHTML = `<svg t="1740797651161" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" opacity=".9" p-id="4701"></path></svg>`;
+        newToolbar.innerHTML = `<svg t="1748926087349" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="55665"><path d="M204.8 426.666667c0 10.24 6.826667 17.066667 17.066667 17.066666s17.066667-6.826667 17.066666-17.066666c0-81.92 10.24-126.293333 37.546667-150.186667s68.266667-37.546667 150.186667-37.546667c10.24 0 17.066667-6.826667 17.066666-17.066666s-6.826667-17.066667-17.066666-17.066667c-81.92 0-126.293333-10.24-150.186667-37.546667S238.933333 98.986667 238.933333 17.066667c0-10.24-6.826667-17.066667-17.066666-17.066667S204.8 6.826667 204.8 17.066667c0 81.92-10.24 126.293333-37.546667 150.186666S98.986667 204.8 17.066667 204.8c-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066666c81.92 0 126.293333 10.24 150.186666 37.546667s37.546667 68.266667 37.546667 150.186667zM409.6 119.466667c30.72 0 47.786667 3.413333 54.613333 13.653333 10.24 6.826667 13.653333 23.893333 13.653334 54.613333 0 10.24 6.826667 17.066667 17.066666 17.066667s17.066667-6.826667 17.066667-17.066667c0-30.72 3.413333-47.786667 13.653333-54.613333 10.24-10.24 23.893333-13.653333 54.613334-13.653333 10.24 0 17.066667-6.826667 17.066666-17.066667s-6.826667-17.066667-17.066666-17.066667c-30.72 0-47.786667-3.413333-54.613334-13.653333-10.24-6.826667-13.653333-23.893333-13.653333-54.613333 0-10.24-6.826667-17.066667-17.066667-17.066667s-17.066667 6.826667-17.066666 17.066667c0 30.72-3.413333 47.786667-13.653334 54.613333-10.24 10.24-23.893333 13.653333-54.613333 13.653333-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066667zM433.493333 488.106667c-17.066667-17.066667-23.893333-44.373333-23.893333-95.573334 0-10.24-6.826667-17.066667-17.066667-17.066666s-17.066667 6.826667-17.066666 17.066666c0 54.613333-6.826667 81.92-23.893334 95.573334-13.653333 17.066667-40.96 23.893333-95.573333 23.893333-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066666c54.613333 0 81.92 6.826667 95.573333 23.893334 17.066667 17.066667 23.893333 44.373333 23.893334 95.573333 0 10.24 6.826667 17.066667 17.066666 17.066667s17.066667-6.826667 17.066667-17.066667c0-54.613333 6.826667-81.92 23.893333-95.573333 17.066667-17.066667 44.373333-23.893333 95.573334-23.893334 10.24 0 17.066667-6.826667 17.066666-17.066666s-6.826667-17.066667-17.066666-17.066667c-54.613333 0-81.92-6.826667-95.573334-23.893333z" fill="" p-id="55666"></path><path d="M737.28 109.226667c-6.826667-3.413333-13.653333 0-20.48 3.413333-3.413333 3.413333-6.826667 13.653333-3.413333 20.48C737.28 187.733333 750.933333 245.76 750.933333 307.2c0 245.76-197.973333 443.733333-443.733333 443.733333-61.44 0-119.466667-13.653333-177.493333-37.546666-6.826667-3.413333-13.653333 0-20.48 3.413333s-6.826667 13.653333-3.413334 20.48C184.32 911.36 354.986667 1024 546.133333 1024c262.826667 0 477.866667-215.04 477.866667-477.866667 0-191.146667-112.64-361.813333-286.72-436.906666z" fill="" p-id="55667"></path></svg>`;
         newToolbar.ariaLabel = i18n.QYLztsz;
         newToolbar.style.userSelect = 'none';
         const handleToolbarClick = () => {
@@ -288,761 +303,172 @@ function createSettingsWindow() {
     console.error('错误');
     }
 
-    // 创建复选框和标签
-    const checkbox1 = document.createElement('input');
-    checkbox1.type = 'checkbox';
-    checkbox1.id = 'mark-empty-checkbox';
-    checkbox1.checked = isChecked1;
-
-    const label1 = document.createElement('label');
-    label1.htmlFor = 'mark-empty-checkbox';
-    label1.textContent = i18n.QYLbjwk;
-    label1.style.fontSize = '14px';
-    label1.style.userSelect= 'none';
-
-    const checkbox2 = document.createElement('input');
-    checkbox2.type = 'checkbox';
-    checkbox2.id = 'filetree-indent-checkbox';
-    checkbox2.checked = isChecked2;
-
-    const label2 = document.createElement('label');
-    label2.htmlFor = 'filetree-indent-checkbox';
-    label2.textContent = i18n.QYLsjx;
-    label2.style.fontSize = '14px';
-    label2.style.userSelect= 'none';
-
-    const checkbox3 = document.createElement('input');
-    checkbox3.type = 'checkbox';
-    checkbox3.id = 'toolbar-hidden-checkbox';
-    checkbox3.checked = isChecked3;
-
-    const label3 = document.createElement('label');
-    label3.htmlFor = 'toolbar-hidden-checkbox';
-    label3.textContent = i18n.QYLycdl;
-    label3.style.fontSize = '14px';
-    label3.style.userSelect= 'none';
-
-    const checkbox4 = document.createElement('input');
-    checkbox4.type = 'checkbox';
-    checkbox4.id = 'hoverblock-remind-checkbox';
-    checkbox4.checked = isChecked4;
-
-    const label4 = document.createElement('label');
-    label4.htmlFor = 'hoverblock-remind-checkbox';
-    label4.textContent = i18n.QYLhoverhighlight;
-    label4.style.fontSize = '14px';
-    label4.style.userSelect= 'none';
-
-    const checkbox5 = document.createElement('input');
-    checkbox5.type = 'checkbox';
-    checkbox5.id = 'sbblock-remind-checkbox';
-    checkbox5.checked = isChecked5;
-
-    const label5 = document.createElement('label');
-    label5.htmlFor = 'sbblock-remind-checkbox';
-    label5.textContent = i18n.QYLsbhoverhighlight;
-    label5.style.fontSize = '14px';
-    label5.style.userSelect= 'none';
-
-    const checkbox6 = document.createElement('input');
-    checkbox6.type = 'checkbox';
-    checkbox6.id = 'fullwidthpage-checkbox';
-    checkbox6.checked = isChecked6;
-
-    const label6 = document.createElement('label');
-    label6.htmlFor = 'fullwidthpage-checkbox';
-    label6.textContent = i18n.QYLqkxs;
-    label6.style.fontSize = '14px';
-    label6.style.userSelect= 'none';
-
-    const checkbox7 = document.createElement('input');
-    checkbox7.type = 'checkbox';
-    checkbox7.id = 'colorfulfiletree-checkbox';
-    checkbox7.checked = isChecked7;
-
-    const label7 = document.createElement('label');
-    label7.htmlFor = 'colorfulfiletree-checkbox';
-    label7.textContent = i18n.QYLdcwds;
-    label7.style.fontSize = '14px';
-    label7.style.userSelect= 'none';
-
-    const checkbox8 = document.createElement('input');
-    checkbox8.type = 'checkbox';
-    checkbox8.id = 'focusblockremind-checkbox';
-    checkbox8.checked = isChecked8;
-
-    const label8 = document.createElement('label');
-    label8.htmlFor = 'focusblockremind-checkbox';
-    label8.textContent = i18n.QYLfocushighlight;
-    label8.style.fontSize = '14px';
-    label8.style.userSelect= 'none';
-
-    const checkbox9 = document.createElement('input');
-    checkbox9.type = 'checkbox';
-    checkbox9.id = 'QYLanimation-checkbox';
-    checkbox9.checked = isChecked9;
-
-    const label9 = document.createElement('label');
-    label9.htmlFor = 'QYLanimation-checkbox';
-    label9.textContent = i18n.QYLztdh;
-    label9.style.fontSize = '14px';
-    label9.style.userSelect= 'none';
-
-    const checkbox10 = document.createElement('input');
-    checkbox10.type = 'checkbox';
-    checkbox10.id = 'QYLAero-checkbox';
-    checkbox10.checked = isChecked10;
-
-    const label10 = document.createElement('label');
-    label10.htmlFor = 'QYLAero-checkbox';
-    label10.textContent = i18n.QYLmbl;
-    label10.style.fontSize = '14px';
-    label10.style.userSelect= 'none';
-
-    const checkbox11 = document.createElement('input');
-    checkbox11.type = 'checkbox';
-    checkbox11.id = 'QYLbancolofultag-checkbox';
-    checkbox11.checked = isChecked11;
-
-    const label11 = document.createElement('label');
-    label11.htmlFor = 'QYLbancolofultag-checkbox';
-    label11.textContent = i18n.QYLdcbq;
-    label11.style.fontSize = '14px';
-    label11.style.userSelect= 'none';
-
-    const checkbox12 = document.createElement('input');
-    checkbox12.type = 'checkbox';
-    checkbox12.id = 'QYLsunset-checkbox';
-    checkbox12.checked = isChecked12;
-
-    const label12 = document.createElement('label');
-    label12.htmlFor = 'QYLsunset-checkbox';
-    label12.textContent = i18n.QYLxyps;
-    label12.style.fontSize = '14px';
-    label12.style.userSelect= 'none';
-
-    const checkbox13 = document.createElement('input');
-    checkbox13.type = 'checkbox';
-    checkbox13.id = 'QYLforest-checkbox';
-    checkbox13.checked = isChecked13;
-
-    const label13 = document.createElement('label');
-    label13.htmlFor = 'QYLforest-checkbox';
-    label13.textContent = i18n.QYLslps;
-    label13.style.fontSize = '14px';
-    label13.style.userSelect= 'none';
-
-    const checkbox14 = document.createElement('input');
-    checkbox14.type = 'checkbox';
-    checkbox14.id = 'QYLocean-checkbox';
-    checkbox14.checked = isChecked14;
-
-    const label14 = document.createElement('label');
-    label14.htmlFor = 'QYLocean-checkbox';
-    label14.textContent = i18n.QYLhyps;
-    label14.style.fontSize = '14px';
-    label14.style.userSelect= 'none';
-
-    const checkbox15 = document.createElement('input');
-    checkbox15.type = 'checkbox';
-    checkbox15.id = 'QYLsugar-checkbox';
-    checkbox15.checked = isChecked15;
-
-    const label15 = document.createElement('label');
-    label15.htmlFor = 'QYLsugar-checkbox';
-    label15.textContent = i18n.QYLtgps;
-    label15.style.fontSize = '14px';
-    label15.style.userSelect= 'none';
-
-    const checkbox16 = document.createElement('input');
-    checkbox16.type = 'checkbox';
-    checkbox16.id = 'QYLlavender-checkbox';
-    checkbox16.checked = isChecked16;
-
-    const label16 = document.createElement('label');
-    label16.htmlFor = 'QYLlavender-checkbox';
-    label16.textContent = i18n.QYLxycps;
-    label16.style.fontSize = '14px';
-    label16.style.userSelect= 'none';
-
-    const checkbox17 = document.createElement('input');
-    checkbox17.type = 'checkbox';
-    checkbox17.id = 'QYLlfog-checkbox';
-    checkbox17.checked = isChecked17;
-
-    const label17 = document.createElement('label');
-    label17.htmlFor = 'QYLlfog-checkbox';
-    label17.textContent = i18n.QYLywps;
-    label17.style.fontSize = '14px';
-    label17.style.userSelect= 'none';
-
-    const checkbox18 = document.createElement('input');
-    checkbox18.type = 'checkbox';
-    checkbox18.id = 'QYLlinkmode-checkbox';
-    checkbox18.checked = isChecked18;
-
-    const label18 = document.createElement('label');
-    label18.htmlFor = 'QYLlinkmode-checkbox';
-    label18.textContent = i18n.QYLmsp;
-    label18.style.fontSize = '14px';
-    label18.style.userSelect= 'none';
-
-    const checkbox19 = document.createElement('input');
-    checkbox19.type = 'checkbox';
-    checkbox19.id = 'QYLlshuanghe-checkbox';
-    checkbox19.checked = isChecked19;
-
-    const label19 = document.createElement('label');
-    label19.htmlFor = 'QYLlshuanghe-checkbox';
-    label19.textContent = i18n.QYLshps;
-    label19.style.fontSize = '14px';
-    label19.style.userSelect= 'none';
-
-    const checkbox20 = document.createElement('input');
-    checkbox20.type = 'checkbox';
-    checkbox20.id = 'QYLlverticaltab-checkbox';
-    checkbox20.checked = isChecked20;
-
-    const label20 = document.createElement('label');
-    label20.htmlFor = 'QYLlverticaltab-checkbox';
-    label20.textContent = i18n.QYLczyq;
-    label20.style.fontSize = '14px';
-    label20.style.userSelect= 'none';
-
-    const checkbox21 = document.createElement('input');
-    checkbox21.type = 'checkbox';
-    checkbox21.id = 'QYLlcolorfulh-checkbox';
-    checkbox21.checked = isChecked21;
-
-    const label21 = document.createElement('label');
-    label21.htmlFor = 'QYLlcolorfulh-checkbox';
-    label21.textContent = i18n.QYLdcbt;
-    label21.style.fontSize = '14px';
-    label21.style.userSelect= 'none';
-
-    const checkbox22 = document.createElement('input');
-    checkbox22.type = 'checkbox';
-    checkbox22.id = 'QYLlfusion-checkbox';
-    checkbox22.checked = isChecked22;
-
-    const label22 = document.createElement('label');
-    label22.htmlFor = 'QYLlfusion-checkbox';
-    label22.textContent = i18n.QYLdlrh;
-    label22.style.fontSize = '14px';
-    label22.style.userSelect= 'none';
-
-    const checkbox23 = document.createElement('input');
-    checkbox23.type = 'checkbox';
-    checkbox23.id = 'QYLlborderfile-checkbox';
-    checkbox23.checked = isChecked23;
-
-    const label23 = document.createElement('label');
-    label23.htmlFor = 'QYLlborderfile-checkbox';
-    label23.textContent = i18n.QYLbkhwds;
-    label23.style.fontSize = '14px';
-    label23.style.userSelect= 'none';
-
-    const checkbox24 = document.createElement('input');
-    checkbox24.type = 'checkbox';
-    checkbox24.id = 'QYLlihelp-checkbox';
-    checkbox24.checked = isChecked24;
-
-    const label24 = document.createElement('label');
-    label24.htmlFor = 'QYLlihelp-checkbox';
-    label24.textContent = i18n.QYLlbfzx;
-    label24.style.fontSize = '14px';
-    label24.style.userSelect= 'none';
-
-    const checkbox25 = document.createElement('input');
-    checkbox25.type = 'checkbox';
-    checkbox25.id = 'QYLLime-checkbox';
-    checkbox25.checked = isChecked25;
-
-    const label25 = document.createElement('label');
-    label25.htmlFor = 'QYLLime-checkbox';
-    label25.textContent = i18n.QYLqnps;
-    label25.style.fontSize = '14px';
-    label25.style.userSelect= 'none';
-
-    const checkbox26 = document.createElement('input');
-    checkbox26.type = 'checkbox';
-    checkbox26.id = 'QYLbullfinch-checkbox';
-    checkbox26.checked = isChecked26;
-
-    const label26 = document.createElement('label');
-    label26.htmlFor = 'QYLbullfinch-checkbox';
-    label26.textContent = i18n.QYLhqqps;
-    label26.style.fontSize = '14px';
-    label26.style.userSelect= 'none';
-
-    const checkbox27 = document.createElement('input');
-    checkbox27.type = 'checkbox';
-    checkbox27.id = 'QYLgoldenautumn-checkbox';
-    checkbox27.checked = isChecked27;
-
-    const label27 = document.createElement('label');
-    label27.htmlFor = 'QYLgoldenautumn-checkbox';
-    label27.textContent = i18n.QYLjqps;
-    label27.style.fontSize = '14px';
-    label27.style.userSelect= 'none';
-
-    const checkbox30 = document.createElement('input');
-    checkbox30.type = 'checkbox';
-    checkbox30.id = 'QYLlmemory-checkbox';
-    checkbox30.checked = isChecked30;
-
-    const label30 = document.createElement('label');
-    label30.htmlFor = 'QYLlmemory-checkbox';
-    label30.textContent = i18n.QYLhyhyps;
-    label30.style.fontSize = '14px';
-    label30.style.userSelect= 'none';
-
-    const checkbox31 = document.createElement('input');
-    checkbox31.type = 'checkbox';
-    checkbox31.id = 'QYLllakeside-checkbox';
-    checkbox31.checked = isChecked31;
-
-    const label31 = document.createElement('label');
-    label31.htmlFor = 'QYLllakeside-checkbox';
-    label31.textContent = i18n.QYLhpps;
-    label31.style.fontSize = '14px';
-    label31.style.userSelect= 'none';
-
-    const checkbox32 = document.createElement('input');
-    checkbox32.type = 'checkbox';
-    checkbox32.id = 'QYLlfreesia-checkbox';
-    checkbox32.checked = isChecked32;
-
-    const label32 = document.createElement('label');
-    label32.htmlFor = 'QYLlfreesia-checkbox';
-    label32.textContent = i18n.QYLxxlps;
-    label32.style.fontSize = '14px';
-    label32.style.userSelect= 'none';
-
-    const checkbox33 = document.createElement('input');
-    checkbox33.type = 'checkbox';
-    checkbox33.id = 'QYLivory-checkbox';
-    checkbox33.checked = isChecked33;
-
-    const label33 = document.createElement('label');
-    label33.htmlFor = 'QYLivory-checkbox';
-    label33.textContent = i18n.QYLxyyps;
-    label33.style.fontSize = '14px';
-    label33.style.userSelect= 'none';
-
-    const checkbox34 = document.createElement('input');
-    checkbox34.type = 'checkbox';
-    checkbox34.id = 'QYLflatstyle-checkbox';
-    checkbox34.checked = isChecked34;
-
-    const label34 = document.createElement('label');
-    label34.htmlFor = 'QYLflatstyle-checkbox';
-    label34.textContent = i18n.QYLbphfg;
-    label34.style.fontSize = '14px';
-    label34.style.userSelect= 'none';
-
-    const checkbox35 = document.createElement('input');
-    checkbox35.type = 'checkbox';
-    checkbox35.id = 'QYLimmersivetopbar-checkbox';
-    checkbox35.checked = isChecked35;
-
-    const label35 = document.createElement('label');
-    label35.htmlFor = 'QYLimmersivetopbar-checkbox';
-    label35.textContent = i18n.QYLcjsdl;
-    label35.style.fontSize = '14px';
-    label35.style.userSelect= 'none';
-
-    const checkbox36 = document.createElement('input');
-    checkbox36.type = 'checkbox';
-    checkbox36.id = 'QYLcoral-checkbox';
-    checkbox36.checked = isChecked36;
-
-    const label36 = document.createElement('label');
-    label36.htmlFor = 'QYLcoral-checkbox';
-    label36.textContent = i18n.QYLshhps;
-    label36.style.fontSize = '14px';
-    label36.style.userSelect= 'none';
-
-    const checkbox37 = document.createElement('input');
-    checkbox37.type = 'checkbox';
-    checkbox37.id = 'QYLmint-checkbox';
-    checkbox37.checked = isChecked37;
-
-    const label37 = document.createElement('label');
-    label37.htmlFor = 'QYLmint-checkbox';
-    label37.textContent = i18n.QYLbhps;
-    label37.style.fontSize = '14px';
-    label37.style.userSelect= 'none';
-
-    const checkbox38 = document.createElement('input');
-    checkbox38.type = 'checkbox';
-    checkbox38.id = 'QYLfocuseditingmode-checkbox';
-    checkbox38.checked = isChecked38;
-
-    const label38 = document.createElement('label');
-    label38.htmlFor = 'QYLfocuseditingmode-checkbox';
-    label38.textContent = i18n.QYLzzbj;
-    label38.style.fontSize = '14px';
-    label38.style.userSelect= 'none';
-
-    const checkbox39 = document.createElement('input');
-    checkbox39.type = 'checkbox';
-    checkbox39.id = 'QYL33grid-checkbox';
-    checkbox39.checked = isChecked39;
-
-    const label39 = document.createElement('label');
-    label39.htmlFor = 'QYL33grid-checkbox';
-    label39.textContent = i18n.QYLtpjgg;
-    label39.style.fontSize = '14px';
-    label39.style.userSelect= 'none';
-
-    const checkbox40 = document.createElement('input');
-    checkbox40.type = 'checkbox';
-    checkbox40.id = 'QYLcolorblocking-checkbox';
-    checkbox40.checked = isChecked40;
-
-    const label40 = document.createElement('label');
-    label40.htmlFor = 'QYLcolorblocking-checkbox';
-    label40.textContent = i18n.QYLzsbj;
-    label40.style.fontSize = '14px';
-    label40.style.userSelect= 'none';
-
-    const checkbox41 = document.createElement('input');
-    checkbox41.type = 'checkbox';
-    checkbox41.id = 'QYLhidetabsbt-checkbox';
-    checkbox41.checked = isChecked41;
-
-    const label41 = document.createElement('label');
-    label41.htmlFor = 'QYLhidetabsbt-checkbox';
-    label41.textContent = i18n.QYLycyqmbx;
-    label41.style.fontSize = '14px';
-    label41.style.userSelect= 'none';
-
-    // 将复选框和标签组合
-    const QYLfunctionpair1 = document.createElement('div');
-    QYLfunctionpair1.className = 'checkbox-label-pair';
-    QYLfunctionpair1.appendChild(checkbox1);
-    QYLfunctionpair1.appendChild(label1);
-    QYLfunctionpair1.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair2 = document.createElement('div');
-    QYLfunctionpair2.className = 'checkbox-label-pair';
-    QYLfunctionpair2.appendChild(checkbox2);
-    QYLfunctionpair2.appendChild(label2);
-    QYLfunctionpair2.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair3 = document.createElement('div');
-    QYLfunctionpair3.className = 'checkbox-label-pair';
-    QYLfunctionpair3.appendChild(checkbox3);
-    QYLfunctionpair3.appendChild(label3);
-    QYLfunctionpair3.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair4 = document.createElement('div');
-    QYLfunctionpair4.className = 'checkbox-label-pair';
-    QYLfunctionpair4.appendChild(checkbox4);
-    QYLfunctionpair4.appendChild(label4);
-    QYLfunctionpair4.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair5 = document.createElement('div');
-    QYLfunctionpair5.className = 'checkbox-label-pair';
-    QYLfunctionpair5.appendChild(checkbox5);
-    QYLfunctionpair5.appendChild(label5);
-    QYLfunctionpair5.style.animation = 'QYLbounceRight2 0.1s';
+    // 创建设置选项
+    function createCheckboxPair(id, i18nKey, checked, pairName, checkboxName) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = id;
+        checkbox.checked = checked;
+        const label = document.createElement('label');
+        label.htmlFor = id;
+        label.textContent = i18nKey;
+        label.style.fontSize = '14px';
+        label.style.userSelect = 'none';
+        const pairContainer = document.createElement('div');
+        pairContainer.className = 'checkbox-label-pair';
+        pairContainer.appendChild(checkbox);
+        pairContainer.appendChild(label);
+        pairContainer.style.animation = 'QYLbounceRight2 0.1s';
+        window[pairName] = pairContainer;
+        window[checkboxName] = checkbox;
+        return { pairContainer, checkbox };
+    }
+    createCheckboxPair('mark-empty-checkbox', i18n.QYLbjwk, isChecked1, 'QYLfunctionpair1', 'checkbox1');
+    createCheckboxPair('filetree-indent-checkbox', i18n.QYLsjx, isChecked2, 'QYLfunctionpair2', 'checkbox2');
+    createCheckboxPair('toolbar-hidden-checkbox', i18n.QYLycdl, isChecked3, 'QYLfunctionpair3', 'checkbox3');
+    createCheckboxPair('hoverblock-remind-checkbox', i18n.QYLhoverhighlight, isChecked4, 'QYLfunctionpair4', 'checkbox4');
+    createCheckboxPair('sbblock-remind-checkbox', i18n.QYLsbhoverhighlight, isChecked5, 'QYLfunctionpair5', 'checkbox5');
+    createCheckboxPair('fullwidthpage-checkbox', i18n.QYLqkxs, isChecked6, 'QYLfunctionpair6', 'checkbox6');
+    createCheckboxPair('colorfulfiletree-checkbox', i18n.QYLdcwds, isChecked7, 'QYLfunctionpair7', 'checkbox7');
+    createCheckboxPair('focusblockremind-checkbox', i18n.QYLfocushighlight, isChecked8, 'QYLfunctionpair8', 'checkbox8');
+    createCheckboxPair('QYLanimation-checkbox', i18n.QYLztdh, isChecked9, 'QYLfunctionpair9', 'checkbox9');
+    createCheckboxPair('QYLAero-checkbox', i18n.QYLmbl, isChecked10, 'QYLfunctionpair10', 'checkbox10');
+    createCheckboxPair('QYLbancolofultag-checkbox', i18n.QYLdcbq, isChecked11, 'QYLfunctionpair11', 'checkbox11');
+    createCheckboxPair('QYLsunset-checkbox', i18n.QYLxyps, isChecked12, 'QYLfunctionpair12', 'checkbox12');
+    createCheckboxPair('QYLforest-checkbox', i18n.QYLslps, isChecked13, 'QYLfunctionpair13', 'checkbox13');
+    createCheckboxPair('QYLocean-checkbox', i18n.QYLhyps, isChecked14, 'QYLfunctionpair14', 'checkbox14');
+    createCheckboxPair('QYLsugar-checkbox', i18n.QYLtgps, isChecked15, 'QYLfunctionpair15', 'checkbox15');
+    createCheckboxPair('QYLlavender-checkbox', i18n.QYLxycps, isChecked16, 'QYLfunctionpair16', 'checkbox16');
+    createCheckboxPair('QYLlfog-checkbox', i18n.QYLywps, isChecked17, 'QYLfunctionpair17', 'checkbox17');
+    createCheckboxPair('QYLlinkmode-checkbox', i18n.QYLmsp, isChecked18, 'QYLfunctionpair18', 'checkbox18');
+    createCheckboxPair('QYLlshuanghe-checkbox', i18n.QYLshps, isChecked19, 'QYLfunctionpair19', 'checkbox19');
+    createCheckboxPair('QYLlverticaltab-checkbox', i18n.QYLczyq, isChecked20, 'QYLfunctionpair20', 'checkbox20');
+    createCheckboxPair('QYLlcolorfulh-checkbox', i18n.QYLdcbt, isChecked21, 'QYLfunctionpair21', 'checkbox21');
+    createCheckboxPair('QYLlfusion-checkbox', i18n.QYLdlrh, isChecked22, 'QYLfunctionpair22', 'checkbox22');
+    createCheckboxPair('QYLlborderfile-checkbox', i18n.QYLbkhwds, isChecked23, 'QYLfunctionpair23', 'checkbox23');
+    createCheckboxPair('QYLlihelp-checkbox', i18n.QYLlbfzx, isChecked24, 'QYLfunctionpair24', 'checkbox24');
+    createCheckboxPair('QYLLime-checkbox', i18n.QYLqnps, isChecked25, 'QYLfunctionpair25', 'checkbox25');
+    createCheckboxPair('QYLbullfinch-checkbox', i18n.QYLhqqps, isChecked26, 'QYLfunctionpair26', 'checkbox26');
+    createCheckboxPair('QYLgoldenautumn-checkbox', i18n.QYLjqps, isChecked27, 'QYLfunctionpair27', 'checkbox27');
+    createCheckboxPair('QYLlmemory-checkbox', i18n.QYLhyhyps, isChecked30, 'QYLfunctionpair30', 'checkbox30');
+    createCheckboxPair('QYLllakeside-checkbox', i18n.QYLhpps, isChecked31, 'QYLfunctionpair31', 'checkbox31');
+    createCheckboxPair('QYLlfreesia-checkbox', i18n.QYLxxlps, isChecked32, 'QYLfunctionpair32', 'checkbox32');
+    createCheckboxPair('QYLivory-checkbox', i18n.QYLxyyps, isChecked33, 'QYLfunctionpair33', 'checkbox33');
+    createCheckboxPair('QYLflatstyle-checkbox', i18n.QYLbphfg, isChecked34, 'QYLfunctionpair34', 'checkbox34');
+    createCheckboxPair('QYLimmersivetopbar-checkbox', i18n.QYLcjsdl, isChecked35, 'QYLfunctionpair35', 'checkbox35');
+    createCheckboxPair('QYLcoral-checkbox', i18n.QYLshhps, isChecked36, 'QYLfunctionpair36', 'checkbox36');
+    createCheckboxPair('QYLmint-checkbox', i18n.QYLbhps, isChecked37, 'QYLfunctionpair37', 'checkbox37');
+    createCheckboxPair('QYLfocuseditingmode-checkbox', i18n.QYLzzbj, isChecked38, 'QYLfunctionpair38', 'checkbox38');
+    createCheckboxPair('QYL33grid-checkbox', i18n.QYLtpjgg, isChecked39, 'QYLfunctionpair39', 'checkbox39');
+    createCheckboxPair('QYLcolorblocking-checkbox', i18n.QYLzsbj, isChecked40, 'QYLfunctionpair40', 'checkbox40');
+    createCheckboxPair('QYLhidetabsbt-checkbox', i18n.QYLycyqmbx, isChecked41, 'QYLfunctionpair41', 'checkbox41');
     
-    const QYLfunctionpair6 = document.createElement('div');
-    QYLfunctionpair6.className = 'checkbox-label-pair';
-    QYLfunctionpair6.appendChild(checkbox6);
-    QYLfunctionpair6.appendChild(label6);
-    QYLfunctionpair6.style.animation = 'QYLbounceRight2 0.1s';
+    // 创建分组
+    const groupMenu = document.createElement('div');
+    groupMenu.id = 'QYL-settings-group-menu';
+    groupMenu.style.display = 'flex';
+    groupMenu.style.justifyContent = 'space-around';
+    groupMenu.style.borderBottom = '1px solid var(--b3-theme-primary)';
+    groupMenu.style.paddingBottom = '5px';
+    const groupNames = [
+        i18n.QYLsubbj, 
+        i18n.QYLsubfg, 
+        i18n.QYLsubgn,
+        i18n.QYLsubys,
+        i18n.QYLsubps,
+    ];
+    const contentContainer = document.createElement('div');
+    contentContainer.id = 'QYL-settings-content';
+    contentContainer.style.maxHeight = 'calc(70vh - 40px)';
+    contentContainer.style.overflowY = 'auto';
+    contentContainer.style.padding = '4px';
+    const groups = groupNames.map((name, index) => {
+        const menuItem = document.createElement('div');
+        menuItem.textContent = name;
+        menuItem.style.cursor = 'pointer';
+        menuItem.style.padding = '4px 8px';
+        menuItem.style.borderRadius = 'var(--b3-border-radius)';
+        menuItem.addEventListener('mouseenter', () => {
+            groupMenu.querySelectorAll('div').forEach(item => {
+                item.style.backgroundColor = '';
+            });
+            menuItem.style.backgroundColor = 'var(--QYL-hover)';
+            menuItem.style.color = 'var(--b3-theme-primary)';
+            menuItem.style.fontWeight = 'bold';
+            menuItem.style.fontSize = '15px';
+            document.querySelectorAll('.settings-group').forEach(group => {
+                group.style.display = 'none';
+            });
+            document.getElementById(`QYLgroup${index + 1}`).style.display = 'block';
+        });
+        if (index === 0) menuItem.style.backgroundColor = 'var(--QYL-hover)';
+        menuItem.style.color = 'var(--b3-theme-primary)';
+        menuItem.style.fontWeight = 'bold';
+        menuItem.style.fontSize = '15px';
+        groupMenu.appendChild(menuItem);
+        const groupContainer = document.createElement('div');
+        groupContainer.id = `QYLgroup${index + 1}`;
+        groupContainer.className = 'settings-group';
+        groupContainer.style.display = index === 0 ? 'block' : 'none';
+        
+        return groupContainer;
+    });
+    
+    // 布局
+    groups[0].appendChild(QYLfunctionpair3); //隐藏顶栏
+    groups[0].appendChild(QYLfunctionpair22); //顶栏融合
+    groups[0].appendChild(QYLfunctionpair20); //垂直页签
+    groups[0].appendChild(QYLfunctionpair40); //撞色
+    groups[0].appendChild(QYLfunctionpair41); //隐藏页签和面包屑
 
-    const QYLfunctionpair7 = document.createElement('div');
-    QYLfunctionpair7.className = 'checkbox-label-pair';
-    QYLfunctionpair7.appendChild(checkbox7);
-    QYLfunctionpair7.appendChild(label7);
-    QYLfunctionpair7.style.animation = 'QYLbounceRight2 0.1s';
+    // 风格
+    groups[1].appendChild(QYLfunctionpair10); //毛玻璃
+    groups[1].appendChild(QYLfunctionpair18); //墨水屏
+    groups[1].appendChild(QYLfunctionpair35); //沉浸式顶栏
+    groups[1].appendChild(QYLfunctionpair34); //扁平风格
+    groups[1].appendChild(QYLfunctionpair9); //动画
+    groups[1].appendChild(QYLfunctionpair2); //缩进线
+    groups[1].appendChild(QYLfunctionpair7); //多彩文档树
+    groups[1].appendChild(QYLfunctionpair23); //边框化文档树
 
-    const QYLfunctionpair8 = document.createElement('div');
-    QYLfunctionpair8.className = 'checkbox-label-pair';
-    QYLfunctionpair8.appendChild(checkbox8);
-    QYLfunctionpair8.appendChild(label8);
-    QYLfunctionpair8.style.animation = 'QYLbounceRight2 0.1s';
+    // 功能
+    groups[2].appendChild(QYLfunctionpair38); //专注编辑模式
+    groups[2].appendChild(QYLfunctionpair6); //全宽显示
+    groups[2].appendChild(QYLfunctionpair1); //标记挖空
+    groups[2].appendChild(QYLfunctionpair24); //列表辅助线
+    groups[2].appendChild(QYLfunctionpair4); //鼠标悬停高亮
+    groups[2].appendChild(QYLfunctionpair5); //超级块高亮
+    groups[2].appendChild(QYLfunctionpair8); //聚焦块高亮
 
-    const QYLfunctionpair9 = document.createElement('div');
-    QYLfunctionpair9.className = 'checkbox-label-pair';
-    QYLfunctionpair9.appendChild(checkbox9);
-    QYLfunctionpair9.appendChild(label9);
-    QYLfunctionpair9.style.animation = 'QYLbounceRight2 0.1s';
+    // 样式
+    groups[3].appendChild(QYLfunctionpair39); //图片九宫格
+    groups[3].appendChild(QYLfunctionpair11); //多彩标签
+    groups[3].appendChild(QYLfunctionpair21); //多彩标题
 
-    const QYLfunctionpair10 = document.createElement('div');
-    QYLfunctionpair10.className = 'checkbox-label-pair';
-    QYLfunctionpair10.appendChild(checkbox10);
-    QYLfunctionpair10.appendChild(label10);
-    QYLfunctionpair10.style.animation = 'QYLbounceRight2 0.1s';
+    // 配色
+    groups[4].appendChild(QYLfunctionpair12);
+    groups[4].appendChild(QYLfunctionpair13);
+    groups[4].appendChild(QYLfunctionpair14);
+    groups[4].appendChild(QYLfunctionpair15);
+    groups[4].appendChild(QYLfunctionpair16);
+    groups[4].appendChild(QYLfunctionpair17);
+    groups[4].appendChild(QYLfunctionpair19);
+    groups[4].appendChild(QYLfunctionpair25);
+    groups[4].appendChild(QYLfunctionpair26);
+    groups[4].appendChild(QYLfunctionpair27);
+    groups[4].appendChild(QYLfunctionpair30); 
+    groups[4].appendChild(QYLfunctionpair31);
+    groups[4].appendChild(QYLfunctionpair32);
+    groups[4].appendChild(QYLfunctionpair33);
+    groups[4].appendChild(QYLfunctionpair36);
+    groups[4].appendChild(QYLfunctionpair37);
 
-    const QYLfunctionpair11 = document.createElement('div');
-    QYLfunctionpair11.className = 'checkbox-label-pair';
-    QYLfunctionpair11.appendChild(checkbox11);
-    QYLfunctionpair11.appendChild(label11);
-    QYLfunctionpair11.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair12 = document.createElement('div');
-    QYLfunctionpair12.className = 'checkbox-label-pair';
-    QYLfunctionpair12.appendChild(checkbox12);
-    QYLfunctionpair12.appendChild(label12);
-    QYLfunctionpair12.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair13 = document.createElement('div');
-    QYLfunctionpair13.className = 'checkbox-label-pair';
-    QYLfunctionpair13.appendChild(checkbox13);
-    QYLfunctionpair13.appendChild(label13);
-    QYLfunctionpair13.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair14 = document.createElement('div');
-    QYLfunctionpair14.className = 'checkbox-label-pair';
-    QYLfunctionpair14.appendChild(checkbox14);
-    QYLfunctionpair14.appendChild(label14);
-    QYLfunctionpair14.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair15 = document.createElement('div');
-    QYLfunctionpair15.className = 'checkbox-label-pair';
-    QYLfunctionpair15.appendChild(checkbox15);
-    QYLfunctionpair15.appendChild(label15);
-    QYLfunctionpair15.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair16 = document.createElement('div');
-    QYLfunctionpair16.className = 'checkbox-label-pair';
-    QYLfunctionpair16.appendChild(checkbox16);
-    QYLfunctionpair16.appendChild(label16);
-    QYLfunctionpair16.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair17 = document.createElement('div');
-    QYLfunctionpair17.className = 'checkbox-label-pair';
-    QYLfunctionpair17.appendChild(checkbox17);
-    QYLfunctionpair17.appendChild(label17);
-    QYLfunctionpair17.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair18 = document.createElement('div');
-    QYLfunctionpair18.className = 'checkbox-label-pair';
-    QYLfunctionpair18.appendChild(checkbox18);
-    QYLfunctionpair18.appendChild(label18);
-    QYLfunctionpair18.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair19 = document.createElement('div');
-    QYLfunctionpair19.className = 'checkbox-label-pair';
-    QYLfunctionpair19.appendChild(checkbox19);
-    QYLfunctionpair19.appendChild(label19);
-    QYLfunctionpair19.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair20 = document.createElement('div');
-    QYLfunctionpair20.className = 'checkbox-label-pair';
-    QYLfunctionpair20.appendChild(checkbox20);
-    QYLfunctionpair20.appendChild(label20);
-    QYLfunctionpair20.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair21 = document.createElement('div');
-    QYLfunctionpair21.className = 'checkbox-label-pair';
-    QYLfunctionpair21.appendChild(checkbox21);
-    QYLfunctionpair21.appendChild(label21);
-    QYLfunctionpair21.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair22 = document.createElement('div');
-    QYLfunctionpair22.className = 'checkbox-label-pair';
-    QYLfunctionpair22.appendChild(checkbox22);
-    QYLfunctionpair22.appendChild(label22);
-    QYLfunctionpair22.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair23 = document.createElement('div');
-    QYLfunctionpair23.className = 'checkbox-label-pair';
-    QYLfunctionpair23.appendChild(checkbox23);
-    QYLfunctionpair23.appendChild(label23);
-    QYLfunctionpair23.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair24 = document.createElement('div');
-    QYLfunctionpair24.className = 'checkbox-label-pair';
-    QYLfunctionpair24.appendChild(checkbox24);
-    QYLfunctionpair24.appendChild(label24);
-    QYLfunctionpair24.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair25 = document.createElement('div');
-    QYLfunctionpair25.className = 'checkbox-label-pair';
-    QYLfunctionpair25.appendChild(checkbox25);
-    QYLfunctionpair25.appendChild(label25);
-    QYLfunctionpair25.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair26 = document.createElement('div');
-    QYLfunctionpair26.className = 'checkbox-label-pair';
-    QYLfunctionpair26.appendChild(checkbox26);
-    QYLfunctionpair26.appendChild(label26);
-    QYLfunctionpair26.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair27 = document.createElement('div');
-    QYLfunctionpair27.className = 'checkbox-label-pair';
-    QYLfunctionpair27.appendChild(checkbox27);
-    QYLfunctionpair27.appendChild(label27);
-    QYLfunctionpair27.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair30 = document.createElement('div');
-    QYLfunctionpair30.className = 'checkbox-label-pair';
-    QYLfunctionpair30.appendChild(checkbox30);
-    QYLfunctionpair30.appendChild(label30);
-    QYLfunctionpair30.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair31 = document.createElement('div');
-    QYLfunctionpair31.className = 'checkbox-label-pair';
-    QYLfunctionpair31.appendChild(checkbox31);
-    QYLfunctionpair31.appendChild(label31);
-    QYLfunctionpair31.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair32 = document.createElement('div');
-    QYLfunctionpair32.className = 'checkbox-label-pair';
-    QYLfunctionpair32.appendChild(checkbox32);
-    QYLfunctionpair32.appendChild(label32);
-    QYLfunctionpair32.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair33 = document.createElement('div');
-    QYLfunctionpair33.className = 'checkbox-label-pair';
-    QYLfunctionpair33.appendChild(checkbox33);
-    QYLfunctionpair33.appendChild(label33);
-    QYLfunctionpair33.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair34 = document.createElement('div');
-    QYLfunctionpair34.className = 'checkbox-label-pair';
-    QYLfunctionpair34.appendChild(checkbox34);
-    QYLfunctionpair34.appendChild(label34);
-    QYLfunctionpair34.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair35 = document.createElement('div');
-    QYLfunctionpair35.className = 'checkbox-label-pair';
-    QYLfunctionpair35.appendChild(checkbox35);
-    QYLfunctionpair35.appendChild(label35);
-    QYLfunctionpair35.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair36 = document.createElement('div');
-    QYLfunctionpair36.className = 'checkbox-label-pair';
-    QYLfunctionpair36.appendChild(checkbox36);
-    QYLfunctionpair36.appendChild(label36);
-    QYLfunctionpair36.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair37 = document.createElement('div');
-    QYLfunctionpair37.className = 'checkbox-label-pair';
-    QYLfunctionpair37.appendChild(checkbox37);
-    QYLfunctionpair37.appendChild(label37);
-    QYLfunctionpair37.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair38 = document.createElement('div');
-    QYLfunctionpair38.className = 'checkbox-label-pair';
-    QYLfunctionpair38.appendChild(checkbox38);
-    QYLfunctionpair38.appendChild(label38);
-    QYLfunctionpair38.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair39 = document.createElement('div');
-    QYLfunctionpair39.className = 'checkbox-label-pair';
-    QYLfunctionpair39.appendChild(checkbox39);
-    QYLfunctionpair39.appendChild(label39);
-    QYLfunctionpair39.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair40 = document.createElement('div');
-    QYLfunctionpair40.className = 'checkbox-label-pair';
-    QYLfunctionpair40.appendChild(checkbox40);
-    QYLfunctionpair40.appendChild(label40);
-    QYLfunctionpair40.style.animation = 'QYLbounceRight2 0.1s';
-
-    const QYLfunctionpair41 = document.createElement('div');
-    QYLfunctionpair41.className = 'checkbox-label-pair';
-    QYLfunctionpair41.appendChild(checkbox41);
-    QYLfunctionpair41.appendChild(label41);
-    QYLfunctionpair41.style.animation = 'QYLbounceRight2 0.1s';
-
-    //分割线
-    const QYLfunctionpairdivider1 = document.createElement('hr');
-    QYLfunctionpairdivider1.style.cssText = `
-        height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
-        border: none;
-        width: 100%;
-    `;
-    const QYLfunctionpairdivider2 = document.createElement('hr');
-    QYLfunctionpairdivider2.style.cssText = `
-        height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
-        border: none;
-        width: 100%;
-    `;
-    const QYLfunctionpairdivider3 = document.createElement('hr');
-    QYLfunctionpairdivider3.style.cssText = `
-        height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
-        border: none;
-        width: 100%;
-    `;
-    const QYLfunctionpairdivider4 = document.createElement('hr');
-    QYLfunctionpairdivider4.style.cssText = `
-        height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
-        border: none;
-        width: 100%;
-    `;
-    const QYLfunctionpairdivider5 = document.createElement('hr');
-    QYLfunctionpairdivider5.style.cssText = `
-        height: 1px;
-        margin: 5px 0;
-        background-image: linear-gradient( to right, transparent 0%, var(--b3-theme-primary) 30%, var(--b3-theme-primary) 70%, transparent 100% );
-        border: none;
-        width: 100%;
-    `;
-
-
-
-    // 将复选框和标签添加到设置窗口
-
-    settingsWindow.appendChild(QYLfunctionpair10); //毛玻璃
-    settingsWindow.appendChild(QYLfunctionpair18); //墨水屏
-    settingsWindow.appendChild(QYLfunctionpair9); //动画
-    settingsWindow.appendChild(QYLfunctionpairdivider1);  
-    settingsWindow.appendChild(QYLfunctionpair3); //隐藏顶栏
-    settingsWindow.appendChild(QYLfunctionpair22); //顶栏融合
-    settingsWindow.appendChild(QYLfunctionpair20);  //垂直页签
-    settingsWindow.appendChild(QYLfunctionpair6); //全宽显示
-    settingsWindow.appendChild(QYLfunctionpair38);//专注编辑模式
-    settingsWindow.appendChild(QYLfunctionpair41);//隐藏页签和面包屑
-    settingsWindow.appendChild(QYLfunctionpairdivider3); 
-    settingsWindow.appendChild(QYLfunctionpair1); //标记挖空
-    settingsWindow.appendChild(QYLfunctionpair24); //列表辅助线
-    settingsWindow.appendChild(QYLfunctionpair4); //鼠标悬停高亮
-    settingsWindow.appendChild(QYLfunctionpair5); //超级块高亮
-    settingsWindow.appendChild(QYLfunctionpair8); //聚焦块高亮 
-    settingsWindow.appendChild(QYLfunctionpairdivider2); 
-    settingsWindow.appendChild(QYLfunctionpair2); //缩进线
-    settingsWindow.appendChild(QYLfunctionpair11); //多彩标签
-    settingsWindow.appendChild(QYLfunctionpair21); //多彩标题
-    settingsWindow.appendChild(QYLfunctionpair7); //多彩文档树
-    settingsWindow.appendChild(QYLfunctionpair23); //边框化文档树
-    settingsWindow.appendChild(QYLfunctionpair39); //图片九宫格
-    settingsWindow.appendChild(QYLfunctionpairdivider4);
-    settingsWindow.appendChild(QYLfunctionpair34);
-    settingsWindow.appendChild(QYLfunctionpair35);
-    settingsWindow.appendChild(QYLfunctionpair40);
-    settingsWindow.appendChild(QYLfunctionpairdivider5);
-    settingsWindow.appendChild(QYLfunctionpair12);
-    settingsWindow.appendChild(QYLfunctionpair13);
-    settingsWindow.appendChild(QYLfunctionpair14);
-    settingsWindow.appendChild(QYLfunctionpair15);
-    settingsWindow.appendChild(QYLfunctionpair16);
-    settingsWindow.appendChild(QYLfunctionpair17);
-    settingsWindow.appendChild(QYLfunctionpair19);
-    settingsWindow.appendChild(QYLfunctionpair30);
-    settingsWindow.appendChild(QYLfunctionpair31);
-    settingsWindow.appendChild(QYLfunctionpair32);
-    settingsWindow.appendChild(QYLfunctionpair33);
-    settingsWindow.appendChild(QYLfunctionpair36);
-    settingsWindow.appendChild(QYLfunctionpair37);
-    settingsWindow.appendChild(QYLfunctionpair25);
-    settingsWindow.appendChild(QYLfunctionpair26);
-    settingsWindow.appendChild(QYLfunctionpair27);
+    groups.forEach(group => {
+        contentContainer.appendChild(group);
+    });
+    settingsWindow.appendChild(groupMenu);
+    settingsWindow.appendChild(contentContainer);
+    document.body.appendChild(settingsWindow);
 
 
 // 将设置窗口添加到body
@@ -4638,7 +4064,7 @@ const i18nattr = I18Nattr[window.siyuan.config.lang] || I18Nattr.en_US;
       let button = document.createElement("button")
       button.id = "QYLattr"
       button.className = "b3-menu__item"
-      button.innerHTML = `<svg t="1740797651161" class="b3-menu__icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4700" width="24" height="24"><path d="M896 0a128 128 0 0 1 128 128v768a128 128 0 0 1-128 128H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h768zM505.856 179.712c-97.664 0-174.72 31.36-230.272 95.872-53.76 60.928-79.744 139.776-79.744 237.44 0 96.768 25.984 175.616 79.744 236.544 55.552 62.72 132.608 94.976 230.272 94.976 66.304 0 122.752-14.336 170.24-43.008 23.296 31.36 46.592 64.512 70.784 99.456l62.72-55.552c-23.296-34.048-47.488-66.304-70.784-97.664 51.968-60.928 77.952-138.88 77.952-234.752 0-98.56-26.88-178.304-80.64-238.336-56.448-63.616-133.504-94.976-230.272-94.976z m0 86.016c68.096 0 120.96 21.504 157.696 66.304 35.84 43.904 54.656 103.936 54.656 180.992 0 65.408-13.44 118.272-40.32 159.488A2949.44 2949.44 0 0 0 581.12 564.096l-56.448 55.552c31.36 33.152 63.616 69.888 95.872 110.208-31.36 18.816-69.888 28.672-114.688 28.672-68.096 0-120.96-23.296-158.592-68.096-35.84-43.904-53.76-103.04-53.76-177.408 0-75.264 17.92-134.4 53.76-178.304 37.632-46.592 90.496-68.992 158.592-68.992z" p-id="4701"></path></svg><span class="b3-menu__label" style="">${i18nattr.QYLcustomattr}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
+      button.innerHTML = `<svg t="1748926087349" class="b3-menu__icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="55665"><path d="M204.8 426.666667c0 10.24 6.826667 17.066667 17.066667 17.066666s17.066667-6.826667 17.066666-17.066666c0-81.92 10.24-126.293333 37.546667-150.186667s68.266667-37.546667 150.186667-37.546667c10.24 0 17.066667-6.826667 17.066666-17.066666s-6.826667-17.066667-17.066666-17.066667c-81.92 0-126.293333-10.24-150.186667-37.546667S238.933333 98.986667 238.933333 17.066667c0-10.24-6.826667-17.066667-17.066666-17.066667S204.8 6.826667 204.8 17.066667c0 81.92-10.24 126.293333-37.546667 150.186666S98.986667 204.8 17.066667 204.8c-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066666c81.92 0 126.293333 10.24 150.186666 37.546667s37.546667 68.266667 37.546667 150.186667zM409.6 119.466667c30.72 0 47.786667 3.413333 54.613333 13.653333 10.24 6.826667 13.653333 23.893333 13.653334 54.613333 0 10.24 6.826667 17.066667 17.066666 17.066667s17.066667-6.826667 17.066667-17.066667c0-30.72 3.413333-47.786667 13.653333-54.613333 10.24-10.24 23.893333-13.653333 54.613334-13.653333 10.24 0 17.066667-6.826667 17.066666-17.066667s-6.826667-17.066667-17.066666-17.066667c-30.72 0-47.786667-3.413333-54.613334-13.653333-10.24-6.826667-13.653333-23.893333-13.653333-54.613333 0-10.24-6.826667-17.066667-17.066667-17.066667s-17.066667 6.826667-17.066666 17.066667c0 30.72-3.413333 47.786667-13.653334 54.613333-10.24 10.24-23.893333 13.653333-54.613333 13.653333-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066667zM433.493333 488.106667c-17.066667-17.066667-23.893333-44.373333-23.893333-95.573334 0-10.24-6.826667-17.066667-17.066667-17.066666s-17.066667 6.826667-17.066666 17.066666c0 54.613333-6.826667 81.92-23.893334 95.573334-13.653333 17.066667-40.96 23.893333-95.573333 23.893333-10.24 0-17.066667 6.826667-17.066667 17.066667s6.826667 17.066667 17.066667 17.066666c54.613333 0 81.92 6.826667 95.573333 23.893334 17.066667 17.066667 23.893333 44.373333 23.893334 95.573333 0 10.24 6.826667 17.066667 17.066666 17.066667s17.066667-6.826667 17.066667-17.066667c0-54.613333 6.826667-81.92 23.893333-95.573333 17.066667-17.066667 44.373333-23.893333 95.573334-23.893334 10.24 0 17.066667-6.826667 17.066666-17.066666s-6.826667-17.066667-17.066666-17.066667c-54.613333 0-81.92-6.826667-95.573334-23.893333z" fill="" p-id="55666"></path><path d="M737.28 109.226667c-6.826667-3.413333-13.653333 0-20.48 3.413333-3.413333 3.413333-6.826667 13.653333-3.413333 20.48C737.28 187.733333 750.933333 245.76 750.933333 307.2c0 245.76-197.973333 443.733333-443.733333 443.733333-61.44 0-119.466667-13.653333-177.493333-37.546666-6.826667-3.413333-13.653333 0-20.48 3.413333s-6.826667 13.653333-3.413334 20.48C184.32 911.36 354.986667 1024 546.133333 1024c262.826667 0 477.866667-215.04 477.866667-477.866667 0-191.146667-112.64-361.813333-286.72-436.906666z" fill="" p-id="55667"></path></svg><span class="b3-menu__label" style="">${i18nattr.QYLcustomattr}</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg></button>`
       
       if (selecttype === "NodeHeading") {//准备创建标题块的二级菜单
         button.appendChild(QYLNodeHeadingsub(selectid))
