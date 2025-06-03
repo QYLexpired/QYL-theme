@@ -100,7 +100,13 @@
 /* 顶栏融合文档第一个页签位置调整 */
 #layouts .layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
   & >.item:first-child {
-      margin-left: 7.5px !important;
+      margin-left: var(--QYL-hidetabstr-fusion-tab-1, 7.5px) !important;
+  }
+}
+/* 状态栏下移 */
+@media (min-width: 630px) {
+  #status {
+      bottom: 6px;
   }
 }
 /* 更改顶栏融合侧栏偏移 */

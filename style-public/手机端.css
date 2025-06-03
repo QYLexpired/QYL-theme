@@ -332,11 +332,12 @@
 /* 隐藏不适配设置项 */
 .QYLmobile #QYLsettings-window {
     & .checkbox-label-pair {
-        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLinkmode-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox, #QYLcolorblocking-checkbox)) {
-            display: none;
+        &:has(>:is(#QYLAero-checkbox, #QYLlinkmode-checkbox, #QYLinkmode-checkbox, #toolbar-hidden-checkbox, #QYLlfusion-checkbox, #QYLlverticaltab-checkbox, #fullwidthpage-checkbox, #QYLflatstyle-checkbox, #QYLimmersivetopbar-checkbox, #QYLcolorblocking-checkbox, #QYLhidetabsbt-checkbox)) {
+            opacity: 0.3;
+            pointer-events: none;
+            & input {
+                visibility: hidden;
+            }
         }
-    }
-    & hr:is(:nth-of-type(1), :nth-of-type(2), :nth-of-type(5)) {
-        display: none;
     }
 }

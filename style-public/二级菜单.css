@@ -160,3 +160,23 @@
     border-radius: 4px;
     padding: 2px 4px;
 }
+
+
+#QYLsettings-window .checkbox-label-pair {
+    border-radius: var(--b3-border-radius);
+    padding-top: 2px;
+    & label {
+        cursor: pointer;   
+        &:hover {
+            color: var(--b3-theme-primary);
+            font-weight: bold;
+        }
+    }
+    & input {
+        cursor: pointer;   
+        &:hover + label {
+            color: var(--b3-theme-primary);
+            font-weight: bold;
+        }
+    }
+}

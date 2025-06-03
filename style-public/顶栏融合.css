@@ -274,3 +274,9 @@
     --QYL-hidetabstr-fix-1: translateY(40px);
     --QYL-hidetabstr-fix-2: translateY(40px);
 }
+/* 顶栏融合文档第一个页签位置调整 */
+.layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    & >.item:first-child {
+        margin-left: var(--QYL-hidetabstr-fusion-tab-1, 0) !important;
+    }
+}

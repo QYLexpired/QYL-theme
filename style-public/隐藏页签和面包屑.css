@@ -20,7 +20,7 @@
         }
         & + .layout-tab-container {
             border-radius: var(--b3-border-radius);
-            & .protyle-breadcrumb {
+            & > .fn__flex-1.protyle .protyle-breadcrumb {/* 只隐藏protyle的面包屑 */
                 opacity: 0; 
                 position: absolute;
                 border-radius: var(--b3-border-radius);
@@ -31,6 +31,9 @@
                 background-color: var(--QYL-filter-fix-background-theme);
                 transition: opacity 0.5s;
                 &:hover {
+                    opacity: 1;
+                }
+                &:has(button[data-type="exit-focus"]:not(.fn__none)) {
                     opacity: 1;
                 }
             }
@@ -59,7 +62,7 @@
         padding-left: 0 !important; 
         transform: translateX(5px) var(--QYL-hidetabstr-fix-1, translateY(5px)) !important;/* 顶栏融合时还要向下偏移 */
         & + .layout-tab-container {
-            & .protyle-breadcrumb {
+            & > .fn__flex-1.protyle .protyle-breadcrumb {
                 transform: var(--QYL-hidetabstr-fix-2) !important;
             }
         }
@@ -70,7 +73,7 @@
     padding-top: 0 !important;
     transform: var(--QYL-hidetabstr-fix-2) !important;/* 顶栏融合时还要向下偏移 */
     & + .layout-tab-container {
-        & .protyle-breadcrumb {
+        & > .fn__flex-1.protyle .protyle-breadcrumb {
             transform: var(--QYL-hidetabstr-fix-2) !important;
         }
     }
@@ -117,3 +120,16 @@
         opacity: 1;
     }
 }
+/* 撞色布局页签偏移适配 */
+:root {
+    --QYL-hidetabstr-fusion-tab-1: 3px;
+    --QYL-hidetabstr-fusion-tab-2: 3px;
+}
+/* 既没有题头图也没有图标的情况 */
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle-background .protyle-background__img.fn__none ~ .protyle-background__ia .protyle-background__icon.fn__none ~ .protyle-background__action {
+    transform: translateY(85px);
+}
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle-background .protyle-background__img.fn__none ~ .protyle-background__ia .protyle-background__icon.fn__none ~ .b3-chips__doctag {
+    transform: translateY(40px);
+}
+/* 既没有题头图也没有图标也没有文档标签的情况 */
