@@ -35,6 +35,7 @@ async function getFile(path) {
 const I18N = {
     zh_CN: {
         QYLztsz: ' QYL主题设置',
+        QYLshowall: ' 列出所有选项',
         QYLsubbj: ' 布局',
         QYLsubfg: ' 风格',
         QYLsubgn: ' 功能',
@@ -82,6 +83,7 @@ const I18N = {
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
+        QYLshowall: ' Show All Options',
         QYLsubbj: ' Layout',
         QYLsubfg: ' Style',
         QYLsubgn: ' Function',
@@ -129,6 +131,7 @@ const I18N = {
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
+        QYLshowall: ' 列出所有选项',
         QYLsubbj: ' 佈局',
         QYLsubfg: ' 風格',
         QYLsubgn: ' 功能',
@@ -273,6 +276,7 @@ let isChecked38;
 let isChecked39;
 let isChecked40;
 let isChecked41;
+let isChecked42;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -362,7 +366,8 @@ function createSettingsWindow() {
     createCheckboxPair('QYL33grid-checkbox', i18n.QYLtpjgg, isChecked39, 'QYLfunctionpair39', 'checkbox39');
     createCheckboxPair('QYLcolorblocking-checkbox', i18n.QYLzsbj, isChecked40, 'QYLfunctionpair40', 'checkbox40');
     createCheckboxPair('QYLhidetabsbt-checkbox', i18n.QYLycyqmbx, isChecked41, 'QYLfunctionpair41', 'checkbox41');
-    
+    createCheckboxPair('QYLshowalloptions-checkbox', i18n.QYLshowall, isChecked42, 'QYLfunctionpair42', 'checkbox42');
+
     // 创建分组
     const groupMenu = document.createElement('div');
     groupMenu.id = 'QYL-settings-group-menu';
@@ -415,6 +420,7 @@ function createSettingsWindow() {
     });
     
     // 布局
+    groups[0].appendChild(QYLfunctionpair42); //列出所有选项
     groups[0].appendChild(QYLfunctionpair3); //隐藏顶栏
     groups[0].appendChild(QYLfunctionpair22); //顶栏融合
     groups[0].appendChild(QYLfunctionpair20); //垂直页签
@@ -520,10 +526,23 @@ async function saveConfig() {
         isChecked39: checkbox39.checked,
         isChecked40: checkbox40.checked,
         isChecked41: checkbox41.checked,
+        isChecked42: checkbox42.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
 }
+
+// 列出所有选项开关
+checkbox42.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLshowalloptions() : disableQYLshowalloptions();
+    state ? isChecked42 = true : isChecked42 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
 
 // 标记挖空开关
 checkbox1.addEventListener('change', async function() {
@@ -2455,6 +2474,44 @@ function disableQYLcolorblocking() {
     }
 }
 
+// 开启列出所有选项
+function enableQYLshowalloptions() {
+    let styleElement = document.getElementById("QYLshowalloptions-style");
+    if (!styleElement) {
+        styleElement = document.createElement("style");
+        styleElement.id = "QYLshowalloptions-style";
+        styleElement.innerHTML = `
+        #QYLsettings-window {
+            padding: 0 8px !important;
+            & #QYL-settings-group-menu {
+                display: none !important;
+            }
+            & #QYL-settings-content {
+                overflow: visible !important;
+                padding: 0 !important;
+            }
+            & #QYLgroup1, #QYLgroup2, #QYLgroup3, #QYLgroup4, #QYLgroup5 {
+                display: block !important;
+                padding-bottom: 4px;
+                border-bottom: 1px solid var(--b3-theme-primary);
+            }
+            & #QYLgroup5 {
+                padding-bottom: 2px;
+                border-bottom: none;
+            }
+        }`;
+        document.head.appendChild(styleElement);
+    }
+}
+
+// 关闭列出所有选项
+function disableQYLshowalloptions() {
+    const styleElement = document.getElementById("QYLshowalloptions-style");
+    if (styleElement) {
+        styleElement.remove();
+    }
+}
+
 // 开启多彩标题和多彩大纲
 function enableQYLcolorfulh() {
     let styleElement = document.getElementById("snippet-QYLcolorfulh-style");
@@ -2920,6 +2977,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked41 === false) {
             disableQYLhidetabsbt();
             isChecked41 = false;
+        }
+
+        if (config?.isChecked42 === true) {
+            enableQYLshowalloptions();
+            isChecked42 = true;
+        } else if (config?.isChecked42 === false) {
+            disableQYLshowalloptions();
+            isChecked42 = false;
         }
 
     } catch (e) {
