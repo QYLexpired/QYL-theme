@@ -2,7 +2,7 @@
   "name": "QYL-theme",
   "author": "QYL",
   "url": "https://github.com/QYLexpired/QYL-theme",
-  "version": "3.3.7",
+  "version": "3.3.8",
   "displayName": {
     "default": "QYL",
     "zh_CN": "QYL",
@@ -17,6 +17,9 @@
     "default": "README.md",
     "zh_CN": "README_zh_CN.md",
     "en_US": "README.md"
+  },
+  "funding": {
+    "custom": ["https://ifdian.net/a/QYLexpired"]
   },
   "modes": [
     "light",
