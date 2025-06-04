@@ -141,9 +141,6 @@
 /* 顶栏 */
 .toolbar {
     border: none;
-    & > * {
-        transform: translateY(2px);
-    }
 }
 /* 侧栏 */
 .dock#dockLeft {

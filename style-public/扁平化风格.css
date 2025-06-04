@@ -156,19 +156,19 @@ div[data-key="dialog-opencard"] .b3-button:is([data-type="-2"], [data-type="-3"]
 /* 页签 */
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
     background-color: var(--b3-theme-surface);
-    border: 1px solid var(--b3-theme-surface-lighter);
+    outline: 1px solid var(--b3-theme-surface-lighter);
 }
 .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus):hover {
     background-color:var(--b3-theme-surface);
-    border: 1px solid var(--b3-theme-surface-lighter);
+    outline: 1px solid var(--b3-theme-surface-lighter);
 }
 .item.item--focus {
     background-color:var(--b3-theme-background);
-    border: 1px solid var(--b3-theme-surface-lighter);
+    outline: 1px solid var(--b3-theme-surface-lighter);
 }
 .item.item--focus:hover {
     background-color:var(--b3-theme-background);
-    border: 1px solid var(--b3-theme-surface-lighter);
+    outline: 1px solid var(--b3-theme-surface-lighter);
 }
 .layout-tab-bar .item {
     --QYL-tab-close-background-hover-close: var(--QYL-flat-primary);
