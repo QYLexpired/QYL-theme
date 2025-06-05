@@ -25,8 +25,8 @@
     --QYL-border-file: var(--b3-theme-primary);
 
     /* 圆角矩形 */
-    --b3-border-radius: 6px;
-    --b3-border-radius-b: 10px;
+    --b3-border-radius: 8px;
+    --b3-border-radius-b: 12px;
     --b3-border-radius-q: 12px;
     --b3-border-radius-s: 3px;
 
