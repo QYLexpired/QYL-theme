@@ -1,0 +1,68 @@
+:root {
+    --QYL-hover: rgba(182, 245, 81, 0.5); /* 主要悬停色 */
+    --QYL-hover-hover: rgba(182, 245, 81, 0.7);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(182, 245, 81, 0.1);/* 主要悬停色变浅 */
+    --b3-theme-primary: #89c95c !important;
+    --b3-theme-primary-light: rgba(137, 201, 92, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(137, 201, 92, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(137, 201, 92, 0.1); /* 主色0.1透明度 */
+    --b3-protyle-inline-mark-background: rgb(139, 235, 144);/* 标记色 */
+    --b3-theme-surface: #eef9e7;
+    --b3-theme-surface-light: rgba(238, 249, 231, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter: #dbe7d4;
+    --b3-theme-background: #f7fff4;
+    --b3-theme-background-light:#dbead6; /* 编辑器较多加深（不透明） */
+    --b3-toolbar-blur-background: #f6fbf3; /* 失焦颜色 */
+    --b3-scroll-color: #e4f6d8; /* 滚动条颜色 */
+    --QYL-white: #fff; /* 通用白 */
+    --QYL-black: #171717; /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-color: #8ab571;/* 顶部按钮颜色 */
+    --QYL-filetree-arrow: #8ab571;/* 文档树箭头颜色 */
+    --b3-theme-error: #dc3030;
+    --b3-theme-success: #38c172;
+    --b3-theme-secondary: #f4ca64;
+    --QYL-accent-color: #6f9822;
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #f6f6f6;
+    --b3-theme-on-secondary: #f6f6f6;
+    --b3-theme-on-background: #2b4c68;
+    --b3-theme-on-surface: #3e6078;
+    --b3-theme-on-surface-light: #53758e;
+    --b3-theme-on-error: #f6f6f6;
+
+    /* 容器阴影 */
+    --b3-point-shadow: var(--b3-theme-primary-lightest) 0px 2px 1px, var(--b3-theme-primary-lightest) 0px 4px 2px, var(--b3-theme-primary-lightest) 0px 8px 4px, var(--b3-theme-primary-lightest) 0px 16px 8px;
+    --b3-dialog-shadow: var(--b3-point-shadow);
+    --b3-button-shadow: var(--b3-point-shadow);
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lighter) 0px 0px 8px;
+}
+:root {
+    --QYL-blockquote: #7c9670;
+    --QYL-blockquote-background: #e7f6e1;
+    --QYL-blockquote-svg: #bcd3b3;
+}
+:root {
+    --QYL-switch-close: var(--QYL-white);
+    --QYL-switch-close-background: #c4dec0;
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover:#3a8126;
+}
+:root {
+    --QYL-filter-background-theme: rgba(250, 255, 247, 0.7);
+    --QYL-filter-wrap-background-theme:rgba(250, 255, 247, 0.7);
+    --QYL-filter-fix-background-theme: rgba(250, 255, 247, 0.9);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to right bottom, #eef9e7, #f0fbea, #f2fcee, #f5fef1, #f7fff4);
+    --QYL-account-background2: linear-gradient(to right bottom, #eef9e7, #f0fbea, #f2fcee, #f5fef1, #f7fff4);
+}
+:root {
+    --QYL-flat-primary: rgb(170, 173, 0);
+    --QYL-flat-second: var(--b3-theme-primary);
+}
+:root {
+    --QYL-immerse-toolbar: #9ec054;
+}
