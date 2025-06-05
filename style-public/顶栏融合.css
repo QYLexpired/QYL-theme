@@ -14,7 +14,7 @@
 .toolbar {
     border: none;
     & > * {
-        transform: translateY(4px);
+        transform: translateY(3px);
     }
 }
 #drag {

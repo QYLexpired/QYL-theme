@@ -142,6 +142,12 @@
 .toolbar {
     border: none;
 }
+.toolbar {
+    border: none;
+    & > * {
+        transform: translateY(3px);
+    }
+}
 /* 侧栏 */
 .dock#dockLeft {
     border: none;

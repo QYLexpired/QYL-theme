@@ -91,3 +91,8 @@ body:not(.body--mobile,.body--window) #layouts {
         color: var(--QYL-immerse-fusion-fix-4, var(--b3-toolbar-color)) !important;
     }
 }
+
+/* 顶栏融合适配 */
+#layouts .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+    transform: translateY(0.5px);
+}

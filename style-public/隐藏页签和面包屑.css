@@ -41,6 +41,9 @@
                 opacity: 0;
                 background-color: var(--QYL-hover-light);
                 backdrop-filter: blur(10px);
+                &[data-type="more"] {
+                    margin-right: 8px;
+                }
             }
             &:has(button[data-type="exit-focus"]:not(.fn__none)) {
                 & button[data-type="exit-focus"] {
