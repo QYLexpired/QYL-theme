@@ -69,6 +69,7 @@ const I18N = {
         QYLwyps: ' 配色：午夜',
         QYLcmps: ' 配色：沧溟',
         QYLzqps: ' 配色：蒸汽',
+        QYLntps: ' 配色：拿铁',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
         QYLzzbj: ' 专注编辑模式',
@@ -76,6 +77,7 @@ const I18N = {
         QYLzsbj: ' 撞色布局',
         QYLycyqmbx: ' 隐藏页签和面包屑<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪实验性</sup>',
         QYLqgjm: ' 全高界面<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪实验性</sup>',
+        QYLwghsslb: ' 网格化搜索列表',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -113,6 +115,7 @@ const I18N = {
         QYLwyps: ' Midnight Theme',
         QYLcmps: ' Cangming Theme',
         QYLzqps: ' Steam Theme',
+        QYLntps: ' Latte Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
         QYLzzbj: ' Focus Editing Mode',
@@ -120,6 +123,7 @@ const I18N = {
         QYLzsbj: ' ​​Color Blocking Layout',
         QYLycyqmbx: ' Hide Tabs and Breadcrumb Trail<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪Experimental</sup>',
         QYLqgjm: ' Full Height Layout<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪Experimental</sup>',
+        QYLwghsslb: ' Grid Search List',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -157,6 +161,7 @@ const I18N = {
         QYLwyps: ' 配色：午夜',
         QYLcmps: ' 配色：滄溟',
         QYLzqps: ' 配色：蒸汽',
+        QYLntps: ' 配色：拿铁',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
         QYLzzbj: ' 專注編輯模式',
@@ -164,6 +169,7 @@ const I18N = {
         QYLzsbj: ' 撞色佈局',
         QYLycyqmbx: ' ​​隱藏頁籤和麵包屑導覽<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪實驗性</sup>',
         QYLqgjm: ' 全高界面<sup style="font-style: italic; vertical-align: 1px; font-size: 10px">🧪實驗性</sup>',
+        QYLwghsslb: ' 網格化搜尋列表',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -249,6 +255,7 @@ let isChecked24;
 let isChecked25;
 let isChecked26;
 let isChecked27;
+let isChecked28;
 let isChecked30;
 let isChecked31;
 let isChecked34;
@@ -259,6 +266,7 @@ let isChecked40;
 let isChecked41;
 let isChecked42;
 let isChecked43;
+let isChecked44;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -335,6 +343,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLmidnight-checkbox', i18n.QYLwyps, isChecked25, 'QYLfunctionpair25', 'checkbox25');
     createCheckboxPair('QYLcangming-checkbox', i18n.QYLcmps, isChecked26, 'QYLfunctionpair26', 'checkbox26');
     createCheckboxPair('QYLsteam-checkbox', i18n.QYLzqps, isChecked27, 'QYLfunctionpair27', 'checkbox27');
+    createCheckboxPair('QYLlatte-checkbox', i18n.QYLntps, isChecked28, 'QYLfunctionpair28', 'checkbox28');
     createCheckboxPair('QYLduskmist-checkbox', i18n.QYLmaps, isChecked30, 'QYLfunctionpair30', 'checkbox30');
     createCheckboxPair('QYLbogwood-checkbox', i18n.QYLwmps, isChecked31, 'QYLfunctionpair31', 'checkbox31');
     createCheckboxPair('QYLflatstyle-checkbox', i18n.QYLbphfg, isChecked34, 'QYLfunctionpair34', 'checkbox34');
@@ -345,6 +354,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLhidetabsbt-checkbox', i18n.QYLycyqmbx, isChecked41, 'QYLfunctionpair41', 'checkbox41');
     createCheckboxPair('QYLshowalloptions-checkbox', i18n.QYLshowall, isChecked42, 'QYLfunctionpair42', 'checkbox42');
     createCheckboxPair('QYLfullheight-checkbox', i18n.QYLqgjm, isChecked43, 'QYLfunctionpair43', 'checkbox43');
+    createCheckboxPair('QYLgridsearchlist-checkbox', i18n.QYLwghsslb, isChecked44, 'QYLfunctionpair44', 'checkbox44');
 
     // 创建分组
     const groupMenu = document.createElement('div');
@@ -415,6 +425,7 @@ function createSettingsWindow() {
     groups[1].appendChild(QYLfunctionpair2); //缩进线
     groups[1].appendChild(QYLfunctionpair7); //多彩文档树
     groups[1].appendChild(QYLfunctionpair23); //边框化文档树
+    groups[1].appendChild(QYLfunctionpair44); //网格化搜索列表
 
     // 功能
     groups[2].appendChild(QYLfunctionpair38); //专注编辑模式
@@ -443,6 +454,7 @@ function createSettingsWindow() {
     groups[4].appendChild(QYLfunctionpair25);
     groups[4].appendChild(QYLfunctionpair26);
     groups[4].appendChild(QYLfunctionpair27);
+    groups[4].appendChild(QYLfunctionpair28);
 
     groups.forEach(group => {
         contentContainer.appendChild(group);
@@ -489,6 +501,7 @@ async function saveConfig() {
         isChecked25: checkbox25.checked,
         isChecked26: checkbox26.checked,
         isChecked27: checkbox27.checked,
+        isChecked28: checkbox28.checked,
         isChecked30: checkbox30.checked,
         isChecked31: checkbox31.checked,
         isChecked34: checkbox34.checked,
@@ -499,6 +512,7 @@ async function saveConfig() {
         isChecked41: checkbox41.checked,
         isChecked42: checkbox42.checked,
         isChecked43: checkbox43.checked,
+        isChecked44: checkbox44.checked,
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -547,7 +561,6 @@ checkbox3.addEventListener('change', async function() {
     state ? isChecked3 = true : isChecked3 = false;
     if (isChecked22 === true) { checkbox22.click(); }
     if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
-    if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -717,6 +730,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -739,6 +753,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -761,6 +776,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -783,6 +799,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -805,6 +822,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -827,6 +845,7 @@ checkbox18.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -849,6 +868,7 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -871,6 +891,7 @@ checkbox31.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -893,6 +914,7 @@ checkbox25.addEventListener('change', async function() {
     if (isChecked31 === true) { checkbox31.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -915,6 +937,7 @@ checkbox26.addEventListener('change', async function() {
     if (isChecked31 === true) { checkbox31.click(); }
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -937,6 +960,30 @@ checkbox27.addEventListener('change', async function() {
     if (isChecked31 === true) { checkbox31.click(); }
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 拿铁配色开关
+checkbox28.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLlatte() : disableQYLlatte();
+    state ? isChecked28 = true : isChecked28 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked27 === true) { checkbox27.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -962,6 +1009,7 @@ checkbox41.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLhidetabsbt() : disableQYLhidetabsbt();
     if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
+    if (isChecked20 === true) { checkbox20.click(); }//不能与垂直页签同时开启
     state ? isChecked41 = true : isChecked41 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
@@ -1007,7 +1055,6 @@ checkbox43.addEventListener('change', async function() {
     state ? isChecked43 = true : isChecked43 = false;
     if (isChecked35 === true) { checkbox35.click(); }//不能与沉浸式顶栏同时开启
     if (isChecked20 === true) { checkbox20.click(); }//不能与垂直页签同时开启
-    if (isChecked3 === true) { checkbox3.click(); }//不能与隐藏顶栏同时开启
     if (isChecked18 === true) { checkbox18.click(); }//不能与墨水屏模式同时开启
     if (isChecked41 === true) { checkbox41.click(); }//不能与隐藏页签同时开启
     try {
@@ -1041,6 +1088,7 @@ checkbox20.addEventListener('change', async function() {
     if (isChecked22 === true) { checkbox22.click(); }
     if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
     if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
+    if (isChecked41 === true) { checkbox41.click(); }//不能与隐藏页签同时开启
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1067,6 +1115,18 @@ checkbox22.addEventListener('change', async function() {
     state ? isChecked22 = true : isChecked22 = false;
     if (isChecked3 === true) { checkbox3.click(); }
     if (isChecked20 === true) { checkbox20.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 网格化搜索列表开关
+checkbox44.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLgridsearchlist() : disableQYLgridsearchlist();
+    state ? isChecked44 = true : isChecked44 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1157,7 +1217,7 @@ function enabletoolbarhidden() {
         document.head.appendChild(styleSheet);
     }
     styleSheet.innerText = `
-        .toolbar {
+        #toolbar.toolbar {
             margin-bottom: -32px;
             opacity: 0;
             transition: all 200ms;
@@ -1166,8 +1226,11 @@ function enabletoolbarhidden() {
             border-bottom-right-radius: var(--b3-border-radius);
             border-bottom-left-radius: var(--b3-border-radius);
             box-shadow: var(--b3-point-shadow);
+            & > * {
+                transform: translateY(0.5px);
+            }
         }
-        .toolbar:hover {
+        #toolbar.toolbar:hover {
             opacity: 1;
             transform: translateY(0px);
             transition: all 200ms;
@@ -2042,6 +2105,28 @@ function disableQYLsteam() {
     }
 }
 
+// 开启拿铁配色
+function enableQYLlatte() {
+    let linkElement = document.getElementById("QYLlatte-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLlatte-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/拿铁配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭拿铁配色
+function disableQYLlatte() {
+    const linkElement = document.getElementById("QYLlatte-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启扁平化风格
 function enableQYLflatstyle() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -2165,13 +2250,6 @@ function disableQYLcolorblocking() {
 function enableQYLfullheight() {
     if (document.body.classList.contains('QYLmobile')) {
         return;
-    }
-    try {
-        if (typeof isChecked40 === 'boolean' && isChecked40 === false) {
-            isChecked40 = true;
-            enableQYLcolorblocking();
-        }
-    } catch {
     }
     let linkElement = document.getElementById("QYLfullheight-style");
     if (!linkElement) {
@@ -2324,6 +2402,9 @@ function disableQYLcolorfulh() {
 
 // 开启顶栏融合
 function enableQYLfusion() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     fusion.start();
     windowObserver.start();
     setTimeout(() => {
@@ -2361,6 +2442,9 @@ function disableQYLfusion() {
 
 // 开启垂直页签
 function enableQYLverticaltab() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
 
       let linkElement = document.getElementById("QYLverticaltab-style");
       if (!linkElement) {
@@ -2379,6 +2463,31 @@ function disableQYLverticaltab() {
     if (linkElement) {
         linkElement.remove();
     }
+}
+
+// 开启网格化搜索列表
+function enableQYLgridsearchlist() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+
+    let linkElement = document.getElementById("QYLgridsearchlist-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLgridsearchlist-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/网格化搜索列表.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭网格化搜索列表
+function disableQYLgridsearchlist() {
+
+  const linkElement = document.getElementById("QYLgridsearchlist-style");
+  if (linkElement) {
+      linkElement.remove();
+  }
 }
 
 
@@ -2597,6 +2706,14 @@ async function loadAndCheckConfig() {
             isChecked27 = false;
         }
 
+        if (config?.isChecked28 === true) {
+            enableQYLlatte();
+            isChecked28 = true;
+        } else if (config?.isChecked28 === false) {
+            disableQYLlatte();
+            isChecked28 = false;
+        }
+
         if (config?.isChecked30 === true) {
             enableQYLduskmist();
             isChecked30 = true;
@@ -2675,6 +2792,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked43 === false) {
             disableQYLfullheight();
             isChecked43 = false;
+        }
+
+        if (config?.isChecked44 === true) {
+            enableQYLgridsearchlist();
+            isChecked44 = true;
+        } else if (config?.isChecked44 === false) {
+            disableQYLgridsearchlist();
+            isChecked44 = false;
         }
 
     } catch (e) {
@@ -3445,6 +3570,7 @@ const I18Nattr = {
         fileblockstyle: '文档样式',
         fileblockstylesajinzhi: '洒金纸',
         fileblockstylegrid: '网格',
+        fileblockstyledot: '格点',
         fileblockstyledelete: '清除属性',
 
         blockstyle: '块样式',
@@ -3461,6 +3587,7 @@ const I18Nattr = {
         blockstyledelete: '清除属性',
         blockstylenote: '便签',
         blockstyleleftborder: '左边框',
+        blockstyledot: '格点',
 
         fontfamily: '字体',
         fontfamilydelete: '清除属性',
@@ -3559,6 +3686,7 @@ const I18Nattr = {
         fileblockstyle: 'File block style',
         fileblockstylesajinzhi: 'Sajin paper',
         fileblockstylegrid: 'Grid',
+        fileblockstyledot: 'Dot',
         fileblockstyledelete: 'Recover all',
 
         blockstyle: 'Block style',
@@ -3575,6 +3703,7 @@ const I18Nattr = {
         blockstyledelete: 'Recover all',
         blockstylenote: 'Note',
         blockstyleleftborder: 'Left border',
+        blockstyledot: 'Dot',
 
         fontfamily: 'Font',
         fontfamilydelete: 'Recover all',
@@ -3673,6 +3802,7 @@ const I18Nattr = {
         fileblockstyle: '文檔樣式',
         fileblockstylesajinzhi: '灑金紙',
         fileblockstylegrid: '網格',
+        fileblockstyledot: '格点',
         fileblockstyledelete: '清除屬性',
     
         blockstyle: '塊樣式',
@@ -3689,6 +3819,7 @@ const I18Nattr = {
         blockstyledelete: '清除屬性',
         blockstylenote: '便籤',
         blockstyleleftborder: '左邊框',
+        blockstyledot: '格点',
     
         fontfamily: '字體',
         fontfamilydelete: '清除屬性',
@@ -5126,6 +5257,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
         div.className = "b3-menu__items"
         div.appendChild(QYLstylewangge(selectid))//网格
         div.appendChild(QYLstylesajinzhi(selectid))//洒金纸
+        div.appendChild(QYLstyledot(selectid))//格点
         div.appendChild(QYLstyledelete(selectid))//清除属性
         return div
         function QYLstylesajinzhi(selectid) {//洒金纸
@@ -5145,6 +5277,16 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
             button.setAttribute("custom-attr-name", "style")
             button.setAttribute("custom-attr-value", "网格")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.fileblockstylegrid}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLstyledot(selectid) {//格点
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "style")
+            button.setAttribute("custom-attr-value", "格点")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.fileblockstyledot}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
             button.onclick = QYLcustomattrset
             return button
         }
@@ -5189,6 +5331,7 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
             div.appendChild(QYLstyledone(selectid))//完成
             div.appendChild(QYLstylesajinzhi(selectid))//洒金纸
             div.appendChild(QYLstylewangge(selectid))//网格
+            div.appendChild(QYLstyledot(selectid))//格点
             div.appendChild(QYLstylenoteitem(selectid))//便签
             div.appendChild(QYLstyleleftborderitem(selectid))//左边框
             div.appendChild(QYLstyledelete(selectid))//清除属性
@@ -5291,6 +5434,16 @@ function QYLattrfilestylesub(selectid) {//创建文档样式选项的二级菜�
                 button.setAttribute("custom-attr-name", "style")
                 button.setAttribute("custom-attr-value", "网格")
                 button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstylegrid}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
+                button.onclick = QYLcustomattrset
+                return button
+            }
+            function QYLstyledot(selectid) {//格点
+                let button = document.createElement("button")
+                button.className = "b3-menu__item"
+                button.setAttribute("data-node-id", selectid)
+                button.setAttribute("custom-attr-name", "style")
+                button.setAttribute("custom-attr-value", "格点")
+                button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconTheme"></use></svg><span class="b3-menu__label">${i18nattr.blockstyledot}</span><span class="b3-menu__accelerator">${i18nattr.group1}</span>`
                 button.onclick = QYLcustomattrset
                 return button
             }
