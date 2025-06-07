@@ -112,7 +112,25 @@
 #configBazaarReadme .block__icons {
     border-bottom: none;
 }
+.config-bazaar__readme .item__main {
+    scroll-timeline-name: --QYL-bazaar-scroller;
+}
+.config-bazaar__readme .item__preview {
+    animation: QYLbazzarimgscroller  linear;
+    animation-timeline: --QYL-bazaar-scroller;
+    animation-range: 0 50cqh;
+    animation-duration: auto;
+}
 
+@keyframes QYLbazzarimgscroller {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(60%);
+      opacity: 0;
+    }
+}
 
 /* 多语言设置侧栏宽度调整 */
 [lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {

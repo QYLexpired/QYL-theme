@@ -45,8 +45,14 @@
         & .b3-list-item__meta--ellipsis.ariaLabel {
             position: absolute;
             top: 1px;
-            left: 20px;
+            left: 15px;
             max-width: calc(100% - 35px);
+            background-color: transparent;
+            font-weight: bold;
+            color: var(--b3-theme-primary);
+            &::before {
+                display: none;
+            }
         }
         & .b3-list-item__meta:not(.b3-list-item__meta--ellipsis) {
             margin-top: auto;
@@ -78,6 +84,9 @@
             top: 5px;
             left: 40px;
             max-width: calc(100% - 125px);
+            background-color: transparent;
+            font-weight: bold;
+            color: var(--b3-theme-primary);
         }
         & .b3-list-item__meta:not(.b3-list-item__meta--ellipsis) {
             margin-top: auto;

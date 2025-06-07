@@ -74,14 +74,6 @@
 li.item.item--readonly {
     border-top: 2px solid rgba(255, 0, 0, 0) !important;
 }
-.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full) :is(.item__icon,.item__graphic, .item__text) {
-    transform: translateX(12px);
-    transition: var(--b3-transition);
-}
-.layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full):hover :is(.item__icon,.item__graphic, .item__text) {
-    transform: translateX(0px);
-    transition: var(--b3-transition);
-}
 .layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
     overflow: visible;
     &::before {
@@ -95,6 +87,29 @@ li.item.item--readonly {
         top: 4.5px !important;
         left: -15px !important;
         transform: none !important;
+    }
+}
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    & .item {
+        transition: var(--b3-transition);
+        align-self: center;
+        &.item--focus {
+            max-width: 250px;
+        }
+        & .item__close {
+            opacity: 0;
+            margin-right: -25px;
+            transition: var(--b3-transition);
+        }
+        & .item__text {
+            padding: 0 12px;
+        }
+        &:hover {
+            .item__close {
+                opacity: 1;
+                margin-right: 0px;
+            }
+        }
     }
 }
 /* 钉住 */

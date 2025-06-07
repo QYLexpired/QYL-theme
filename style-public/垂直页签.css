@@ -29,18 +29,17 @@
             flex-direction: column;
             border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
             & .item {
-                width: 90%;
+                align-self: center;
+                width: 120px;
                 margin: 3px 0;
                 &:first-child {
                     margin-top: 6px;
                 }
-            }
-            & .item__close {
-                margin-left: auto;
-                display: none;
-            }
-            & .item:hover .item__close {
-                display: flex;
+                & .item__close {
+                    opacity: 0;
+                    margin-right: -25px;
+                    transition: var(--b3-transition);
+                }
             }
         }
         & > .layout-tab-bar--readonly {

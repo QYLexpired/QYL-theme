@@ -13,13 +13,13 @@
 [custom-style="警告"], [custom-style="warning"] {
     background-color: var(--QYL-custom-red-background) !important;
     border: 3px solid var(--QYL-custom-red) !important;
-    border-top: 30px solid var(--QYL-custom-red) !important;
+    border-top: 38px solid var(--QYL-custom-red) !important;
     padding: 5px 10px !important;
 }
 [custom-style="警告"]::before, [custom-style="warning"]::before {
     content: "Warning";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -39,13 +39,13 @@
 [custom-style="灵感"], [custom-style="tip"] {
     background-color: var(--QYL-custom-orange-background) !important;
     border: 3px solid var(--QYL-custom-orange) !important;
-    border-top: 30px solid var(--QYL-custom-orange) !important;
+    border-top: 38px solid var(--QYL-custom-orange) !important;
     padding: 5px 10px !important;
 }
 [custom-style="灵感"]::before, [custom-style="tip"]::before {
     content: "Tip";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -76,13 +76,13 @@
 [custom-style="完成"], [custom-style="done"] {
     background-color: var(--QYL-custom-green-background) !important;
     border: 3px solid var(--QYL-custom-green) !important;
-    border-top: 30px solid var(--QYL-custom-green) !important;
+    border-top: 38px solid var(--QYL-custom-green) !important;
     padding: 5px 10px !important;
 }
 [custom-style="完成"]::before, [custom-style="done"]::before {
     content: "Done";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -102,13 +102,13 @@
 [custom-style="信息"], [custom-style="info"] {
     background-color: var(--QYL-custom-cyan-background) !important;
     border: 3px solid var(--QYL-custom-cyan) !important;
-    border-top: 30px solid var(--QYL-custom-cyan) !important;
+    border-top: 38px solid var(--QYL-custom-cyan) !important;
     padding: 5px 10px !important;
 }
 [custom-style="信息"]::before, [custom-style="info"]::before {
     content: "Information";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -128,13 +128,13 @@
 [custom-style="待办"], [custom-style="todo"] {
     background-color: var(--QYL-custom-blue-background) !important;
     border: 3px solid var(--QYL-custom-blue) !important;
-    border-top: 30px solid var(--QYL-custom-blue) !important;
+    border-top: 38px solid var(--QYL-custom-blue) !important;
     padding: 5px 10px !important;
 }
 [custom-style="待办"]::before, [custom-style="todo"]::before {
     content: "Todo";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -154,13 +154,13 @@
 [custom-style="重要"], [custom-style="important"] {
     background-color: var(--QYL-custom-purple-background) !important;
     border: 3px solid var(--QYL-custom-purple) !important;
-    border-top: 30px solid var(--QYL-custom-purple) !important;
+    border-top: 38px solid var(--QYL-custom-purple) !important;
     padding: 5px 10px !important;
 }
 [custom-style="重要"]::before, [custom-style="important"]::before {
     content: "Important";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -191,13 +191,13 @@
 [custom-style="批注"], [custom-style="comment"] {
     background-color: var(--QYL-custom-black-background) !important;
     border: 3px solid var(--QYL-custom-black) !important;
-    border-top: 30px solid var(--QYL-custom-black) !important;
+    border-top: 38px solid var(--QYL-custom-black) !important;
     padding: 5px 10px !important;
 }
 [custom-style="批注"]::before, [custom-style="comment"]::before {
     content: "Comment";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -217,13 +217,13 @@
 [custom-style="引用"], [custom-style="quote"] {
     background-color: var(--QYL-custom-gray-background) !important;
     border: 3px solid var(--QYL-custom-gray) !important;
-    border-top: 30px solid var(--QYL-custom-gray) !important;
+    border-top: 38px solid var(--QYL-custom-gray) !important;
     padding: 5px 10px !important;
 }
 [custom-style="引用"]::before, [custom-style="quote"]::before {
     content: "Quote";
     position: absolute;
-    top: -27px;
+    top: -32px;
     left: 10px;
     color: var(--QYL-white);
     font-size: 16px;
@@ -383,7 +383,7 @@
     &::before {
         display: -webkit-box;
         position: absolute;
-        top: -27px;
+        top: -32px;
         left: 10px;
         color: var(--QYL-white);
         font-size: 16px;        
