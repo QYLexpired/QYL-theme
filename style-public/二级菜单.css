@@ -170,6 +170,9 @@
         &:hover {
             color: var(--b3-theme-primary);
             font-weight: bold;
+            & svg {
+                color: var(--b3-theme-primary);
+            }
         }
     }
     & input {

@@ -883,7 +883,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
         &[fold="1"] {
             border: none;
             opacity: 0.5 !important;
-            height: 40  px !important;
+            height: 40px !important;
             padding: 5px 10px !important;
             background-color: var(--b3-theme-primary);
             &[custom-bq-callout-color="红色"] {
@@ -932,10 +932,144 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
                 }
             }
     }
-}   
-.protyle-wysiwyg .li > blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .li > .bq[custom-bq-callout="启用"] {
+}
+.protyle-wysiwyg .li > blockquote[custom-bq-callout*="启用"], .protyle-wysiwyg .li > .bq[custom-bq-callout*="启用"] {
     &>[data-node-id]:first-child {
         margin-right: 0;
+        margin-top: -8px;
         top: 4px;
+    }
+}
+.protyle-wysiwyg blockquote[custom-bq-callout="启用2"], .protyle-wysiwyg .bq[custom-bq-callout="启用2"] {
+    padding: 0px 6px;
+    border-left: 5px solid var(--b3-theme-primary);
+    border-radius: 0;
+    background-color: var(--b3-theme-primary-lightest);
+    color: unset;
+    &>[data-node-id]:first-child {
+        border-radius: 0;
+        color: var(--b3-theme-primary);
+        font-weight: bold;
+    }
+    &::before {
+        display: none;
+    }
+    &[custom-bq-callout-color="红色"] {
+        background-color: var(--QYL-custom-red-background);
+        border-color: var(--QYL-custom-red);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-red);
+        }
+    }
+    &[custom-bq-callout-color="橙色"] {
+        background-color: var(--QYL-custom-orange-background);
+        border-color: var(--QYL-custom-orange);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-orange);
+        }
+    }
+    &[custom-bq-callout-color="黄色"] {
+        background-color: var(--QYL-custom-yellow-background);
+        border-color: var(--QYL-custom-yellow);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-yellow);
+        }
+    }
+    &[custom-bq-callout-color="绿色"] {
+        background-color: var(--QYL-custom-green-background);
+        border-color: var(--QYL-custom-green);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-green);
+        }
+    }
+    &[custom-bq-callout-color="青色"] {
+        background-color: var(--QYL-custom-cyan-background);
+        border-color: var(--QYL-custom-cyan);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-cyan);
+        }
+    }
+    &[custom-bq-callout-color="蓝色"] {
+        background-color: var(--QYL-custom-blue-background);
+        border-color: var(--QYL-custom-blue);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-blue);
+        }
+    }
+    &[custom-bq-callout-color="紫色"] {
+        background-color: var(--QYL-custom-purple-background);
+        border-color: var(--QYL-custom-purple);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-purple);
+        }
+    }
+    &[custom-bq-callout-color="粉色"] {
+        background-color: var(--QYL-custom-pink-background);
+        border-color: var(--QYL-custom-pink);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-pink);
+        }
+    }
+    &[custom-bq-callout-color="黑色"] {
+        background-color: var(--QYL-custom-black-background);
+        border-color: var(--QYL-custom-black);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-black);
+        }
+    }
+    &[custom-bq-callout-color="灰色"] {
+        background-color: var(--QYL-custom-gray-background);
+        border-color: var(--QYL-custom-gray);
+        &>[data-node-id]:first-child {
+            color: var(--QYL-custom-gray);
+        }
+    }
+    &[fold="1"] {
+        border-radius: var(--b3-border-radius);
+        &[custom-bq-callout-color="红色"] {
+            background-color: var(--QYL-custom-red);
+        }
+        &[custom-bq-callout-color="橙色"] {
+            background-color: var(--QYL-custom-orange);
+        }
+        &[custom-bq-callout-color="黄色"] {
+            background-color: var(--QYL-custom-yellow);
+        }
+        &[custom-bq-callout-color="绿色"] {
+            background-color: var(--QYL-custom-green);
+        }
+        &[custom-bq-callout-color="青色"] {
+            background-color: var(--QYL-custom-cyan);
+        }
+        &[custom-bq-callout-color="蓝色"] {
+            background-color: var(--QYL-custom-blue);
+        }
+        &[custom-bq-callout-color="紫色"] {
+            background-color: var(--QYL-custom-purple);
+        }
+        &[custom-bq-callout-color="粉色"] {
+            background-color: var(--QYL-custom-pink);
+        }
+        &[custom-bq-callout-color="黑色"] {
+            background-color: var(--QYL-custom-black);
+        }
+        &[custom-bq-callout-color="灰色"] {
+            background-color: var(--QYL-custom-gray);
+        }
+        & >[data-node-id]:not(:first-child) {
+            display: none;
+        }
+        & >[data-node-id]:first-child {
+            opacity: 0.9 !important;
+            max-height: 26px;
+            font-size: 22px;
+            font-style: italic;
+            color: var(--QYL-white);
+            background-color: transparent;
+            transform: translateY(10px) translateX(8px);
+            & >[contenteditable]>span[data-type*="strong"] {
+                filter: brightness(1.5);
+            }
+        }
     }
 }

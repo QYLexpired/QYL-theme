@@ -131,3 +131,19 @@ html[data-en_enabled_module~=EnableLifelogTag] [data-type=NodeParagraph][custom-
       }
   }
 }
+
+/* 增强页签显示效果 */
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+    &:hover {
+        & [data-type="tab-header"], [data-type="new"], [data-type="more"] {
+            background-color: var(--QYL-filter-background-theme) !important;
+            backdrop-filter: blur(10px);
+            &.item--focus {
+                background-color: var(--QYL-hover-hover) !important;
+                & .item__text {
+                    mix-blend-mode: difference;
+                }
+            }
+        }
+    }
+}
