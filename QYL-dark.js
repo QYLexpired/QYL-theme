@@ -1053,6 +1053,7 @@ checkbox41.addEventListener('change', async function() {
     state ? enableQYLhidetabsbt() : disableQYLhidetabsbt();
     if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
     if (isChecked20 === true) { checkbox20.click(); }//不能与垂直页签同时开启
+    if (isChecked35 === true && isChecked22 === true) { checkbox35.click(); }//同时开启沉浸式顶栏和顶栏融合时，关闭沉浸式顶栏
     state ? isChecked41 = true : isChecked41 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
@@ -1068,6 +1069,7 @@ checkbox35.addEventListener('change', async function() {
     state ? isChecked35 = true : isChecked35 = false;
     if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
     if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
+    if (isChecked22 === true && isChecked41 === true) { checkbox41.click(); }//同时开启顶栏融合和隐藏页签时，关闭隐藏页签
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1158,6 +1160,7 @@ checkbox22.addEventListener('change', async function() {
     state ? isChecked22 = true : isChecked22 = false;
     if (isChecked3 === true) { checkbox3.click(); }
     if (isChecked20 === true) { checkbox20.click(); }
+    if (isChecked35 === true && isChecked41 === true) { checkbox41.click(); }//同时开启沉浸式顶栏和隐藏页签时，关闭隐藏页签
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -3997,7 +4000,7 @@ const i18nattr = I18Nattr[window.siyuan.config.lang] || I18Nattr.en_US;
             insertTimeout = setTimeout(() => {
             InsertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
             查询css自定义块属性的内容(selectinfo.id);
-            }, 300);
+            }, 200);
         }
         }, 0);
     }
@@ -4012,7 +4015,7 @@ const i18nattr = I18Nattr[window.siyuan.config.lang] || I18Nattr.en_US;
             fileInsertTimeout = setTimeout(() => {
             InsertQYLattrforfile(selectinfo.id, selectinfo.type);
             查询css自定义块属性的内容(selectinfo.id);
-            }, 300);
+            }, 200);
         }
         }, 0);
     }
@@ -5122,7 +5125,7 @@ function QYLattrcsssub(selectid) {//创建css属性选项的二级菜单
     function QYLattrcsssubitems(selectid) {//创建css属性选项的b3-menu__items
         let div = document.createElement("div")
         div.className = "b3-menu__items"
-        div.style.padding = "4px 8px"
+        div.style.padding = "2px 10px"
         div.appendChild(QYLattrcsstextarea(selectid))//输入区域
         return div
 
