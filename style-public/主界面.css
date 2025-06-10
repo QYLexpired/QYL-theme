@@ -276,9 +276,6 @@
     position: absolute;
     visibility: visible;
     margin-left: 3px;
-    &::before {
-        background-color: var(--b3-theme-primary);
-    }
 }
 .file-tree .b3-list-item .b3-list-item__arrow {
     color: var(--QYL-filetree-arrow);

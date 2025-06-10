@@ -203,8 +203,25 @@
     --QYL-hidetabstr-fix-2: translateY(40px);
 }
 /* 顶栏融合文档第一个页签位置调整 */
-.layout__center [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+.layout__center:not(#layouts) [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
     & >.item:first-child {
         margin-left: 1px;
     }
+}
+
+/* 页签渐隐 */
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    --QYL-tabfading-1: 0px;
+    --QYL-tabfading-2: 0px;
+    -webkit-mask-image: linear-gradient(to right, transparent, var(--b3-theme-background) var(--QYL-tabfading-1), var(--b3-theme-background) calc(100% - var(--QYL-tabfading-2)), transparent);
+    mask-image: linear-gradient(to right, transparent, var(--b3-theme-background) var(--QYL-tabfading-1), var(--b3-theme-background) calc(100% - var(--QYL-tabfading-2)), transparent);
+    animation-name: QYLtabfadingfirst, QYLtabfadinglast;
+    animation-direction: alternate, alternate-reverse;
+    animation-timeline: scroll(self x);
+}
+@keyframes QYLtabfadingfirst {
+    to { --QYL-tabfading-1: 40px }
+}
+@keyframes QYLtabfadinglast {
+    to { --QYL-tabfading-2: 40px }
 }

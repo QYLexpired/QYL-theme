@@ -85,11 +85,6 @@ html[data-en_enabled_module~=EnableLifelogTag] [data-type=NodeParagraph][custom-
     top: -62px;
     z-index: 2;
 }
-.protyle-wysiwyg .code-block:not(pre) {
-    & .protyle-action {
-        position: absolute;
-    }
-}
 
 /* 视差 */
 @keyframes QYLimgscroller {
