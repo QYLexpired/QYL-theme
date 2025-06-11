@@ -249,7 +249,7 @@ div.protyle-action.protyle-action--task svg {
 .b3-typography .code-block:not(pre) .protyle-action, .protyle-wysiwyg .code-block:not(pre) .protyle-action {
     top: 6px;
     & .protyle-action__language {
-        margin-left: 70px;
+        margin-left: 5em;
     }
     &:hover {
         color: var(--b3-theme-primary);
