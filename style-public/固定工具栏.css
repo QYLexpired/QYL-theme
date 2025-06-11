@@ -11,7 +11,7 @@
   padding: 1px 0;
   & .protyle-toolbar__item {
       border-radius: 8px;
-      margin: 1px 2px;
+      margin: 0 1px;
       &::after {
           transform: none !important;
           top: 0 !important;
@@ -33,7 +33,7 @@
   flex-direction: column;
   position: absolute !important;
   top: 50% !important;
-  right: 50px !important;
+  right: 35px !important;
   left: auto !important;
   transform: translateY(-50%);
   animation: none !important;
@@ -41,7 +41,7 @@
   padding: 1px 0;
   & .protyle-toolbar__item {
       border-radius: 8px;
-      margin: 1px 2px;
+      margin: 0 1px;
       &::after {
           transform: none !important;
           top: 0 !important;
@@ -66,13 +66,13 @@
   transform: translateX(-50%);
   animation: none !important;
   border-radius: 8px;
-  padding: 1px 0;
+  padding: 0 1px;
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
   width: auto !important;
   box-shadow: var(--b3-point-shadow) !important;
   & .protyle-toolbar__item {
       border-radius: 8px;
-      margin: 2px 1px;
+      margin: 1px 1px;
       &::after {
         transform: none !important;
         top: 30px !important;
@@ -92,13 +92,13 @@
   transform: translateX(-50%);
   animation: none !important;
   border-radius: 8px;
-  padding: 1px 0;
+  padding: 0 1px;
   & .protyle-toolbar__item {
       border-radius: 8px;
-      margin: 2px 1px;
+      margin: 1px 1px;
       &::after {
         transform: none !important;
-        top: -30px !important;
+        top: -26px !important;
         bottom: auto !important;
         left: 0 !important;
         right: auto !important;
