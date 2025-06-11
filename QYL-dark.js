@@ -79,6 +79,7 @@ const I18N = {
         QYLycyqmbx: ' 隐藏页签和面包屑<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 网格化搜索列表',
+        QYLgdgjl: ' 固定工具栏',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -126,6 +127,7 @@ const I18N = {
         QYLycyqmbx: ' Hide Tabs and Breadcrumb Trail<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' Full Height Layout<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' Grid Search List',
+        QYLgdgjl: ' Fixed Toolbar',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -173,6 +175,7 @@ const I18N = {
         QYLycyqmbx: ' ​​隱藏頁籤和麵包屑導覽<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 網格化搜尋列表',
+        QYLgdgjl: ' 固定工具栏',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -271,6 +274,7 @@ let isChecked41;
 let isChecked42;
 let isChecked43;
 let isChecked44;
+let isChecked45;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -360,6 +364,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLshowalloptions-checkbox', i18n.QYLshowall, isChecked42, 'QYLfunctionpair42', 'checkbox42');
     createCheckboxPair('QYLfullheight-checkbox', i18n.QYLqgjm, isChecked43, 'QYLfunctionpair43', 'checkbox43');
     createCheckboxPair('QYLgridsearchlist-checkbox', i18n.QYLwghsslb, isChecked44, 'QYLfunctionpair44', 'checkbox44');
+    createCheckboxPair('QYLfixedtoolbar-checkbox', i18n.QYLgdgjl, isChecked45, 'QYLfunctionpair45', 'checkbox45');
 
     // 创建分组
     const groupMenu = document.createElement('div');
@@ -440,6 +445,7 @@ function createSettingsWindow() {
     groups[2].appendChild(QYLfunctionpair4); //鼠标悬停高亮
     groups[2].appendChild(QYLfunctionpair5); //超级块高亮
     groups[2].appendChild(QYLfunctionpair8); //聚焦块高亮
+    groups[2].appendChild(QYLfunctionpair45); //固定工具栏
 
 
     // 样式
@@ -520,6 +526,7 @@ async function saveConfig() {
         isChecked42: checkbox42.checked,
         isChecked43: checkbox43.checked,
         isChecked44: checkbox44.checked,
+        isChecked45: checkbox45.checked,
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -678,6 +685,18 @@ checkbox24.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLlihelp() : disableQYLlihelp();
     state ? isChecked24 = true : isChecked24 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 固定工具栏开关
+checkbox45.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfixedtoolbar() : disableQYLfixedtoolbar();
+    state ? isChecked45 = true : isChecked45 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1642,6 +1661,33 @@ function disableQYLlihelp() {
     QYLlihelp.stop();
 
     const linkElement = document.getElementById("QYLlihelp-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
+// 开启固定工具栏
+function enableQYLfixedtoolbar() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    QYLfixedtoolbar.start();
+
+    let linkElement = document.getElementById("QYLfixedtoolbar-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLfixedtoolbar-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/固定工具栏.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭固定工具栏
+function disableQYLfixedtoolbar() {
+    QYLfixedtoolbar.stop();
+
+    const linkElement = document.getElementById("QYLfixedtoolbar-style");
     if (linkElement) {
         linkElement.remove();
     }
@@ -2928,6 +2974,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked44 === false) {
             disableQYLgridsearchlist();
             isChecked44 = false;
+        }
+
+        if (config?.isChecked45 === true) {
+            enableQYLfixedtoolbar();
+            isChecked45 = true;
+        } else if (config?.isChecked45 === false) {
+            disableQYLfixedtoolbar();
+            isChecked45 = false;
         }
 
     } catch (e) {
@@ -6244,3 +6298,41 @@ setTimeout(() => {
     });
     checkElement();
 }, 1000);
+
+//固定工具栏
+const QYLfixedtoolbar = {
+    handler: null,
+    isActive: false,
+    cycleClasses: ['toolbarl', 'toolbarb', 'toolbarr', 'toolbart'],
+    _handleRightClick(event) {
+        const toolbar = event.target.closest('.protyle-toolbar');
+        if (!toolbar) return;     
+        event.preventDefault();
+        const current = this.cycleClasses.find(cls => toolbar.classList.contains(cls));       
+        if (!current) {
+            toolbar.classList.add(this.cycleClasses[0]);
+        } else {
+            const nextIndex = (this.cycleClasses.indexOf(current) + 1) % this.cycleClasses.length;
+            toolbar.classList.remove(current);
+            toolbar.classList.add(this.cycleClasses[nextIndex]);
+        }
+    },
+    _cleanupClasses() {
+        document.querySelectorAll('.protyle-toolbar').forEach(toolbar => {
+            this.cycleClasses.forEach(cls => toolbar.classList.remove(cls));
+        });
+    },
+    start() {
+        if (this.isActive) return;
+        this.handler = this._handleRightClick.bind(this);
+        document.addEventListener('contextmenu', this.handler);
+        this.isActive = true;
+    },
+    stop() {
+        if (!this.isActive) return;
+        document.removeEventListener('contextmenu', this.handler);
+        this.handler = null;
+        this._cleanupClasses();
+        this.isActive = false;
+    }
+};

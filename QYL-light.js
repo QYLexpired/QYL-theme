@@ -75,6 +75,8 @@ const I18N = {
         QYLhqqps: ' 配色：灰雀',
         QYLjqps: ' 配色：金秋',
         QYLhppps: ' 配色：琥珀',
+        QYLyyyps: ' 配色：云嫣',
+        QYLyccps: ' 配色：云苍',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
         QYLzzbj: ' 专注编辑模式',
@@ -83,6 +85,7 @@ const I18N = {
         QYLycyqmbx: ' 隐藏页签和面包屑<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 网格化搜索列表',
+        QYLgdgjl: ' 固定工具栏',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -126,6 +129,8 @@ const I18N = {
         QYLhqqps: ' Bullfinch Theme',
         QYLjqps: ' Golden Autumn Theme',
         QYLhppps: ' Amber Theme',
+        QYLyyyps: ' Yunyan Theme',
+        QYLyccps: ' Yuncang Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
         QYLzzbj: ' Focus Editing Mode',
@@ -134,6 +139,7 @@ const I18N = {
         QYLycyqmbx: ' Hide Tabs and Breadcrumb Trail<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' Full Height Layout<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' Grid Search List',
+        QYLgdgjl: ' Fixed Toolbar',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -177,6 +183,8 @@ const I18N = {
         QYLhqqps: ' 配色：灰雀',
         QYLjqps: ' 配色：金秋',
         QYLhppps: ' 配色：琥珀',
+        QYLyyyps: ' 配色：云嫣',
+        QYLyccps: ' 配色：云苍',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
         QYLzzbj: ' 專注編輯模式',
@@ -185,6 +193,7 @@ const I18N = {
         QYLycyqmbx: ' ​​隱藏頁籤和麵包屑導覽<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 網格化搜尋列表',
+        QYLgdgjl: ' 固定工具栏',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -274,6 +283,7 @@ let isChecked25;
 let isChecked26;
 let isChecked27;
 let isChecked28;
+let isChecked29;
 let isChecked30;
 let isChecked31;
 let isChecked32;
@@ -289,6 +299,8 @@ let isChecked41;
 let isChecked42;
 let isChecked43;
 let isChecked44;
+let isChecked45;
+let isChecked50;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -367,6 +379,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLbullfinch-checkbox', i18n.QYLhqqps, isChecked26, 'QYLfunctionpair26', 'checkbox26');
     createCheckboxPair('QYLgoldenautumn-checkbox', i18n.QYLjqps, isChecked27, 'QYLfunctionpair27', 'checkbox27');
     createCheckboxPair('QYLamber-checkbox', i18n.QYLhppps, isChecked28, 'QYLfunctionpair28', 'checkbox28');
+    createCheckboxPair('QYLyunyan-checkbox', i18n.QYLyyyps, isChecked29, 'QYLfunctionpair29', 'checkbox29');
     createCheckboxPair('QYLlmemory-checkbox', i18n.QYLhyhyps, isChecked30, 'QYLfunctionpair30', 'checkbox30');
     createCheckboxPair('QYLllakeside-checkbox', i18n.QYLhpps, isChecked31, 'QYLfunctionpair31', 'checkbox31');
     createCheckboxPair('QYLlfreesia-checkbox', i18n.QYLxxlps, isChecked32, 'QYLfunctionpair32', 'checkbox32');
@@ -382,6 +395,8 @@ function createSettingsWindow() {
     createCheckboxPair('QYLshowalloptions-checkbox', i18n.QYLshowall, isChecked42, 'QYLfunctionpair42', 'checkbox42');
     createCheckboxPair('QYLfullheight-checkbox', i18n.QYLqgjm, isChecked43, 'QYLfunctionpair43', 'checkbox43');
     createCheckboxPair('QYLgridsearchlist-checkbox', i18n.QYLwghsslb, isChecked44, 'QYLfunctionpair44', 'checkbox44');
+    createCheckboxPair('QYLfixedtoolbar-checkbox', i18n.QYLgdgjl, isChecked45, 'QYLfunctionpair45', 'checkbox45');
+    createCheckboxPair('QYLyuncang-checkbox', i18n.QYLyccps, isChecked50, 'QYLfunctionpair50', 'checkbox50');
 
     // 创建分组
     const groupMenu = document.createElement('div');
@@ -462,6 +477,7 @@ function createSettingsWindow() {
     groups[2].appendChild(QYLfunctionpair4); //鼠标悬停高亮
     groups[2].appendChild(QYLfunctionpair5); //超级块高亮
     groups[2].appendChild(QYLfunctionpair8); //聚焦块高亮
+    groups[2].appendChild(QYLfunctionpair45); //固定工具栏
 
     // 样式
     groups[3].appendChild(QYLfunctionpair39); //图片九宫格
@@ -475,6 +491,8 @@ function createSettingsWindow() {
     groups[4].appendChild(QYLfunctionpair15);
     groups[4].appendChild(QYLfunctionpair16);
     groups[4].appendChild(QYLfunctionpair17);
+    groups[4].appendChild(QYLfunctionpair29);
+    groups[4].appendChild(QYLfunctionpair50);
     groups[4].appendChild(QYLfunctionpair19);
     groups[4].appendChild(QYLfunctionpair25);
     groups[4].appendChild(QYLfunctionpair26);
@@ -533,6 +551,7 @@ async function saveConfig() {
         isChecked26: checkbox26.checked,
         isChecked27: checkbox27.checked,
         isChecked28: checkbox28.checked,
+        isChecked29: checkbox29.checked,
         isChecked30: checkbox30.checked,
         isChecked31: checkbox31.checked,
         isChecked32: checkbox32.checked,
@@ -548,6 +567,8 @@ async function saveConfig() {
         isChecked42: checkbox42.checked,
         isChecked43: checkbox43.checked,
         isChecked44: checkbox44.checked,
+        isChecked45: checkbox45.checked,
+        isChecked50: checkbox50.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
@@ -713,6 +734,18 @@ checkbox24.addEventListener('change', async function() {
     }
 });
 
+// 固定工具栏开关
+checkbox45.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLfixedtoolbar() : disableQYLfixedtoolbar();
+    state ? isChecked45 = true : isChecked45 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
 // 开启主题动画开关
 checkbox9.addEventListener('change', async function() {
     const state = this.checked;
@@ -772,6 +805,8 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -800,6 +835,8 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -828,6 +865,8 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -856,6 +895,8 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -884,6 +925,8 @@ checkbox16.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -912,6 +955,8 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -940,6 +985,8 @@ checkbox19.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -968,6 +1015,8 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -996,6 +1045,8 @@ checkbox31.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1024,6 +1075,8 @@ checkbox32.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1052,6 +1105,8 @@ checkbox33.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1080,6 +1135,8 @@ checkbox36.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1108,6 +1165,8 @@ checkbox37.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1136,6 +1195,8 @@ checkbox25.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1164,6 +1225,8 @@ checkbox26.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1192,6 +1255,8 @@ checkbox27.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1220,6 +1285,68 @@ checkbox28.addEventListener('change', async function() {
     if (isChecked25 === true) { checkbox25.click(); }
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 云嫣配色开关
+checkbox29.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLyunyan() : disableQYLyunyan();
+    state ? isChecked29 = true : isChecked29 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    if (isChecked33 === true) { checkbox33.click(); }
+    if (isChecked36 === true) { checkbox36.click(); }
+    if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked50 === true) { checkbox50.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 云苍配色开关
+checkbox50.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLyuncang() : disableQYLyuncang();
+    state ? isChecked50 = true : isChecked50 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    if (isChecked33 === true) { checkbox33.click(); }
+    if (isChecked36 === true) { checkbox36.click(); }
+    if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1850,6 +1977,33 @@ function disableQYLlihelp() {
     QYLlihelp.stop();
 
     const linkElement = document.getElementById("QYLlihelp-style");
+    if (linkElement) {
+        linkElement.remove();
+    }
+}
+
+// 开启固定工具栏
+function enableQYLfixedtoolbar() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
+    QYLfixedtoolbar.start();
+
+    let linkElement = document.getElementById("QYLfixedtoolbar-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLfixedtoolbar-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-public/固定工具栏.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭固定工具栏
+function disableQYLfixedtoolbar() {
+    QYLfixedtoolbar.stop();
+
+    const linkElement = document.getElementById("QYLfixedtoolbar-style");
     if (linkElement) {
         linkElement.remove();
     }
@@ -2535,6 +2689,50 @@ function disableQYLamber() {
     }
 }
 
+// 开启云嫣配色
+function enableQYLyunyan() {
+    let linkElement = document.getElementById("QYLyunyan-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLyunyan-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/云嫣配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭云嫣配色
+function disableQYLyunyan() {
+    const linkElement = document.getElementById("QYLyunyan-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
+// 开启云苍配色
+function enableQYLyuncang() {
+    let linkElement = document.getElementById("QYLyuncang-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLyuncang-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-light/云苍配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭云苍配色
+function disableQYLyuncang() {
+    const linkElement = document.getElementById("QYLyuncang-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启扁平化风格
 function enableQYLflatstyle() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -3131,6 +3329,14 @@ async function loadAndCheckConfig() {
             isChecked28 = false;
         }
 
+        if (config?.isChecked29 === true) {
+            enableQYLyunyan();
+            isChecked29 = true;
+        } else if (config?.isChecked29 === false) {
+            disableQYLyunyan();
+            isChecked29 = false;
+        }
+
         if (config?.isChecked30 === true) {
             enableQYLmemory();
             isChecked30 = true;
@@ -3249,6 +3455,22 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked44 === false) {
             disableQYLgridsearchlist();
             isChecked44 = false;
+        }
+
+        if (config?.isChecked45 === true) {
+            enableQYLfixedtoolbar();
+            isChecked45 = true;
+        } else if (config?.isChecked45 === false) {
+            disableQYLfixedtoolbar();
+            isChecked45 = false;
+        }
+
+        if (config?.isChecked50 === true) {
+            enableQYLyuncang();
+            isChecked50 = true;
+        } else if (config?.isChecked50 === false) {
+            disableQYLyuncang();
+            isChecked50 = false;
         }
 
     } catch (e) {
@@ -6565,3 +6787,42 @@ setTimeout(() => {
     });
     checkElement();
 }, 1000);
+
+
+//固定工具栏
+const QYLfixedtoolbar = {
+    handler: null,
+    isActive: false,
+    cycleClasses: ['toolbarl', 'toolbarb', 'toolbarr', 'toolbart'],
+    _handleRightClick(event) {
+        const toolbar = event.target.closest('.protyle-toolbar');
+        if (!toolbar) return;     
+        event.preventDefault();
+        const current = this.cycleClasses.find(cls => toolbar.classList.contains(cls));       
+        if (!current) {
+            toolbar.classList.add(this.cycleClasses[0]);
+        } else {
+            const nextIndex = (this.cycleClasses.indexOf(current) + 1) % this.cycleClasses.length;
+            toolbar.classList.remove(current);
+            toolbar.classList.add(this.cycleClasses[nextIndex]);
+        }
+    },
+    _cleanupClasses() {
+        document.querySelectorAll('.protyle-toolbar').forEach(toolbar => {
+            this.cycleClasses.forEach(cls => toolbar.classList.remove(cls));
+        });
+    },
+    start() {
+        if (this.isActive) return;
+        this.handler = this._handleRightClick.bind(this);
+        document.addEventListener('contextmenu', this.handler);
+        this.isActive = true;
+    },
+    stop() {
+        if (!this.isActive) return;
+        document.removeEventListener('contextmenu', this.handler);
+        this.handler = null;
+        this._cleanupClasses();
+        this.isActive = false;
+    }
+};
