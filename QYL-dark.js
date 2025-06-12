@@ -288,10 +288,10 @@ function createSettingsWindow() {
     settingsWindow.style.backgroundColor = 'var(--QYL-filter-background-forQsettings)';
     settingsWindow.style.backdropFilter = 'var(--QYL-Aero-filter)';
     settingsWindow.style.padding = '6px';
-    settingsWindow.style.border = '1px solid var(--b3-theme-surface-lighter)';
+    settingsWindow.style.border = 'border: 1px solid var(--b3-theme-surface)';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
-    settingsWindow.style.borderRadius = 'var(--b3-border-radius)'; 
+    settingsWindow.style.borderRadius = 'var(--b3-border-radius-b)'; 
     settingsWindow.style.maxHeight = '70vh';
     settingsWindow.style.overflowY = 'auto';
 

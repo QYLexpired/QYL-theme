@@ -317,7 +317,7 @@ function createSettingsWindow() {
     settingsWindow.style.border = '1px solid var(--b3-theme-surface-lighter)';
     settingsWindow.style.boxShadow = 'var(--b3-point-shadow)';
     settingsWindow.style.zIndex = '1000';
-    settingsWindow.style.borderRadius = 'var(--b3-border-radius)';
+    settingsWindow.style.borderRadius = 'var(--b3-border-radius-b)';
     settingsWindow.style.maxHeight = '70vh';
     settingsWindow.style.overflowY = 'auto';
 
