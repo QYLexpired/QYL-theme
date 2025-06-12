@@ -69,7 +69,7 @@
   padding: 0 1px;
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
   width: auto !important;
-  box-shadow: var(--b3-point-shadow) !important;
+  box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset !important;
   & .protyle-toolbar__item {
       border-radius: 8px;
       margin: 1px 1px;
@@ -98,7 +98,7 @@
       margin: 1px 1px;
       &::after {
         transform: none !important;
-        top: -26px !important;
+        top: -32px !important;
         bottom: auto !important;
         left: 0 !important;
         right: auto !important;

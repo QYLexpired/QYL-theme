@@ -54,15 +54,15 @@
 /* 集市 */
 .config-bazaar__panel {
     & .b3-card {
-        box-shadow: var(--b3-light-shadow);
+        box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
         background-color: rgba(255, 0, 0, 0);
         &:hover {
-            background-color: var(--QYL-hover-light);
-            transform: translateY(1px) scale(1.02) !important;
-            box-shadow: var(--b3-point-shadow);
+            background-color: var(--QYL-hover);
+            transform: scale(1.03) !important;
+            filter: saturate(2.5) brightness(1.1);
         }
         &.b3-card--current {
-            background-color: var(--QYL-hover-light);
+            background-color: var(--QYL-hover);
         }
     }
 }

@@ -40,6 +40,11 @@
                     margin-right: -25px;
                     transition: var(--b3-transition);
                 }
+                &:hover .item__close {
+                    opacity: 1;
+                    margin-right: 0px;
+                    transition: var(--b3-transition);
+                }
             }
         }
         & > .layout-tab-bar--readonly {
