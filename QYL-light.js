@@ -2246,13 +2246,13 @@ function enableQYLcolorfultag() {
                 left: 0;
                 transform: skewX(-45deg) translateX(calc(-1 * var(--translate-offset)));
             }
-            &:hover, &:focus  {
+            &:hover, &:focus {
                 box-shadow: none;
                 border: none;
+            }
             &::before {
                 transition: 0.4s cubic-bezier(0.8, 0, 0.9, 1);
                 transform: skewX(-45deg) translateX(calc(var(--translate-offset) + 270%));
-            }
             }
             &:nth-of-type(8n+1) {
                 background-color: var(--b3-theme-primary);
@@ -2277,6 +2277,7 @@ function enableQYLcolorfultag() {
             }
             &:nth-of-type(8n+8) {
                 background-color: var(--QYL-custom-cyan);
+            }
         }`;
         document.head.appendChild(styleElement);
     }
