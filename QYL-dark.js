@@ -1922,27 +1922,9 @@ function enableQYLcolorfultag() {
             color: var(--b3-theme-on-primary);
             border: none !important;
             outline: none !important;
-            position: relative;
-            overflow: hidden;
-            --translate-offset: 220%;
-            &::before {
-                content: "";
-                background-color: rgba(255,255,255,0.8);
-                height: 100%;
-                width: 30%;
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: skewX(-45deg) translateX(calc(-1 * var(--translate-offset)));
-            }
-            &:hover, &:focus {
+            &:hover, &:focus  {
                 box-shadow: none;
                 border: none;
-            }
-            &::before {
-                transition: 0.4s cubic-bezier(0.8, 0, 0.9, 1);
-                transform: skewX(-45deg) translateX(calc(var(--translate-offset) + 270%));
             }
             &:nth-of-type(8n+1) {
                 background-color: var(--b3-theme-primary);

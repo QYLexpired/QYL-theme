@@ -1,15 +1,16 @@
 # 带来更丰富的笔记体验
 ###### 如果喜欢这个主题，欢迎在[GitHub](https://github.com/QYLexpired/QYL-theme)点个⭐小星星
-
+![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.3.15
+##### v3.3.16
 
-* 增加功能选项：`固定工具栏`，开启后工具栏将固定在编辑器的上、左、下、右四个方向（鼠标右键单击工具栏切换位置，不同文档的工具栏位置是独立的，默认处在上方）
-    * 此功能兼容`工具栏Plus`插件
-* light增加两款基础配色：`云嫣`、`云苍`
-* 优化阴影效果
-* 修复开启垂直页签后不显示页签关闭按钮的问题
+* 修复页签在新窗口打开时状态栏位置错误的问题
+* 使任何布局下的题头图都具有视差滚动效果
+* 优化开启隐藏页签或全高界面后数据库表头的吸顶位置
+* 修复多彩标签代码错误
+* 提供垂直页签宽度配置方法
+* 修复开启网格化搜索列表后文档图标位置异常的问题
  
 #### 主题介绍
 
@@ -17,15 +18,26 @@
 * **light-dark二合一，共34种主题配色**
 * **引述块自定义Callout**：通过块菜单-QYL自定义属性-引述块Callout-启用Callout样式来开启，引述块内第一个子块会作为标题
 * **专注编辑模式**：使当前编辑的块自动保持在编辑器的垂直中心，且模糊未编辑的块来突出当前编辑的块，可通过快捷键<kbd>ALT</kbd>​+<kbd>W</kbd>来开关，不能与聚焦块高亮提示同时开启（此功能需消耗性能，若感知到卡顿请及时关闭）
+    <style>summary::marker, summary::-webkit-details-marker { color: var(--b3-theme-primary) }</style>
     <details>
     <summary><span style="color: var(--b3-theme-primary)">可通过以下JS代码片段来忽略专注编辑模式的快捷键</span></summary>
+    <div style="font-family: var(--b3-font-family-code); font-size: 85%; margin: 10px 5px;">
     setTimeout(() => {
-    document.removeEventListener('keydown', QYLfocuseditingmodeKeydown);
+        document.removeEventListener('keydown', QYLfocuseditingmodeKeydown);
     }, 3000);
+    </div>
     </details>
 * **固定工具栏**：将工具栏将固定在编辑器的上、左、下、右四个方向（鼠标右键单击工具栏切换位置，不同文档的工具栏位置是独立的，默认处在上方）
 * **隐藏顶栏**：隐藏顶部工具栏，可通过鼠标悬停在屏幕最上方的左右两侧来呼出顶栏，可通过连续按三次Q键快速开/关隐藏顶栏，若在窗口化状态无法通过鼠标悬停呼出顶栏，可调节窗口尺寸来恢复顶栏
 * **垂直页签**：使文档页签垂直排列，可同时展示更多页签，为节省空间，仅对第一个文档栏生效，分屏的文档栏标签保持水平排列
+    <details>
+    <summary><span style="color: var(--b3-theme-primary)">可通过以下CSS代码片段来自定义垂直页签的宽度</span></summary>
+    <div style="font-family: var(--b3-font-family-code); font-size: 85%; margin: 10px 5px;">
+    :root {
+        --QYL-vertical-width: 125px !important;/* 更改此数值，默认为125px */
+    }
+    </div>
+    </details>
 * **顶栏融合**：将文档页签提升至顶栏区域，并自动避开顶栏按钮，不能与隐藏顶栏或垂直页签同时开启（由于此功能依赖文档位置计算，在左侧侧栏宽度变化时可能会导致略微卡顿）
 * **毛玻璃效果**：使全局菜单、窗口应用毛玻璃风格（渲染样式需消耗性能，若发现卡顿或画面闪烁请及时关闭）
 * **主题动画**：添加大量灵动、活泼的动画效果（渲染样式需消耗性能，若发现卡顿或画面闪烁请及时关闭）
@@ -55,6 +67,15 @@
 * [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色、扁平化风格
 
 #### 更新历史
+
+##### v3.3.16
+
+* 修复页签在新窗口打开时状态栏位置错误的问题
+* 使任何布局下的题头图都具有视差滚动效果
+* 优化开启隐藏页签或全高界面后数据库表头的吸顶位置
+* 修复多彩标签代码错误
+* 提供垂直页签宽度配置方法
+* 修复开启网格化搜索列表后文档图标位置异常的问题
 
 ##### v3.3.15
 
