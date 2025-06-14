@@ -202,30 +202,3 @@
 [data-theme-mode="dark"] :is(.tooltip) {
     outline: 1px solid var(--b3-theme-surface);
 }
-.b3-menu, .b3-menu__submenu {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-#QYLsettings-window {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset !important;
-}
-.b3-dialog__container {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-.tooltip {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-#message .b3-snackbar__content {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-.protyle-toolbar {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-.protyle-hint.hint--menu {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-.protyle-util {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}
-.protyle-hint {
-    box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-}

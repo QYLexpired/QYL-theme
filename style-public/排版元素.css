@@ -769,6 +769,46 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
 .QYLmobile .protyle-background__img::after {
     top: -20px;
 }
+/* 视差 */
+@keyframes QYLimgscroller {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(45vh);
+      opacity: 0;
+    }
+}
+@keyframes QYLiascroller {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(calc(100%)));
+    opacity: 0;
+  }
+}
+.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+  & + .layout-tab-container {
+      & > .fn__flex-1.protyle .protyle-breadcrumb {
+          & + .protyle-content {
+            scroll-timeline-name: --QYL-protyle-scroller;
+              & .protyle-background__img {
+                animation: QYLimgscroller linear;
+                animation-timeline: --QYL-protyle-scroller;
+                animation-range: 0 50vh;
+                animation-duration: auto;
+            }
+            & .protyle-background__ia {
+                animation: QYLiascroller linear;
+                animation-timeline: --QYL-protyle-scroller;
+                animation-range: 0 50vh;
+                animation-duration: auto;
+            }
+          }
+      }
+  }
+}
 /* 文档标签 */
 .protyle-background .b3-chips__doctag .b3-chip {
     border-radius: 12px;
@@ -1074,6 +1114,27 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
             & >[contenteditable]>span[data-type*="strong"] {
                 filter: brightness(1.5);
             }
+        }
+    }
+}
+
+
+/* 块属性 */
+.protyle-attr {
+    & > .protyle-attr--bookmark {
+        &::before {
+            content: "";
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Cpath fill='black' d='M640 96A202.922667 202.922667 0 0 1 842.666667 298.666667v554.666666a74.666667 74.666667 0 0 1-117.162667 61.354667l-207.488-143.658667a10.752 10.752 0 0 0-12.16 0l-207.317333 143.658667A74.666667 74.666667 0 0 1 181.333333 853.333333V298.666667A202.922667 202.922667 0 0 1 384 96zm0 64.213333H384a138.837333 138.837333 0 0 0-138.666667 138.666667v554.666667a10.666667 10.666667 0 0 0 16.725334 8.533333l207.317333-143.616a74.922667 74.922667 0 0 1 85.034667 0l207.488 143.658667a10.154667 10.154667 0 0 0 11.050666 0.682666 10.282667 10.282667 0 0 0 5.717334-9.472V298.88A138.837333 138.837333 0 0 0 640 160.213333z'/%3E%3C/svg%3E");
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Cpath fill='black' d='M640 96A202.922667 202.922667 0 0 1 842.666667 298.666667v554.666666a74.666667 74.666667 0 0 1-117.162667 61.354667l-207.488-143.658667a10.752 10.752 0 0 0-12.16 0l-207.317333 143.658667A74.666667 74.666667 0 0 1 181.333333 853.333333V298.666667A202.922667 202.922667 0 0 1 384 96zm0 64.213333H384a138.837333 138.837333 0 0 0-138.666667 138.666667v554.666667a10.666667 10.666667 0 0 0 16.725334 8.533333l207.317333-143.616a74.922667 74.922667 0 0 1 85.034667 0l207.488 143.658667a10.154667 10.154667 0 0 0 11.050666 0.682666 10.282667 10.282667 0 0 0 5.717334-9.472V298.88A138.837333 138.837333 0 0 0 640 160.213333z'/%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            width: 13px;
+            height: 13px;
+            transform: translateY(2px);
+            display: inline-block;
+            background-color: var(--b3-theme-on-surface);
         }
     }
 }

@@ -1,5 +1,8 @@
 /* 垂直页签 */
 /* QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!! */
+:root {
+    --QYL-vertical-width: 125px;
+}
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
@@ -20,8 +23,8 @@
     height: 100%;
     & > .fn__flex {
         flex: 0 0 auto;
-        min-width: 125px;
-        max-width: 125px;
+        min-width: var(--QYL-vertical-width);
+        max-width: var(--QYL-vertical-width);
         margin-right: 6px;
         flex-direction: column;
         & .layout-tab-bar:not(.layout-tab-bar--readonly) {
@@ -30,7 +33,8 @@
             border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
             & .item {
                 align-self: center;
-                width: 120px;
+                width: calc(100% - 12px);
+                max-width: var(--QYL-vertical-width);
                 margin: 3px 0;
                 &:first-child {
                     margin-top: 6px;
@@ -82,10 +86,10 @@
             position: absolute !important;
             background-color: var(--QYL-hover) !important;
             border-radius: 99px !important;
-            width: 100px !important;
+            width: calc(var(--QYL-vertical-width) - 24px) !important;
             height: 2px !important;
             top: -10px !important;
-            left: 9px !important;
+            left: calc(calc((var(--QYL-vertical-width) - 100%) * 0.5)) !important;
             transform: none !important;
         }
     }

@@ -45,8 +45,8 @@
         & .b3-list-item__meta--ellipsis.ariaLabel {
             position: absolute;
             top: 1px;
-            left: 15px;
-            max-width: calc(100% - 35px);
+            left: 18px;
+            max-width: calc(100% - 38px);
             background-color: transparent;
             font-weight: bold;
             color: var(--b3-theme-primary);
@@ -65,6 +65,10 @@
             margin-left: -20px;
             -webkit-line-clamp: 5;
         }
+        & .b3-list-item__graphic:not(.popover__block) ~ .b3-list-item__meta--ellipsis.ariaLabel {
+            left: 38px;
+            max-width: calc(100% - 58px);
+        }
     }
 }
 #searchAssetList {
@@ -82,8 +86,8 @@
         & .b3-list-item__meta--ellipsis.ariaLabel {
             position: absolute;
             top: 5px;
-            left: 40px;
-            max-width: calc(100% - 125px);
+            left: 30px;
+            max-width: calc(100% - 115px);
             background-color: transparent;
             font-weight: bold;
             color: var(--b3-theme-primary);

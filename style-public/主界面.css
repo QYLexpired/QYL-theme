@@ -91,6 +91,9 @@
         box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
         user-select: none;
         transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+        &:not([style]) {
+            right: 15px; /* 新窗口打开 */
+        }
         & #barDock {
             position: relative;
             order: 1;
@@ -111,6 +114,9 @@
             border: none !important;
             container-type: inline-size;
             right: -7px;
+            &:not([style]) {
+                right: 15px; /* 新窗口打开 */
+            }
             & * {
                 opacity: 0;
             }
@@ -251,6 +257,9 @@
 }
 .layout__dockb[style="height: 0px;"] {
     opacity: 0;
+}
+.layout--float:is(.layout__dockl,.layout__dockr,.layout__dockb) {
+    box-shadow: var(--b3-point-shadow);
 }
 .layout__dockb.layout--float {
     margin-left: 42px;
