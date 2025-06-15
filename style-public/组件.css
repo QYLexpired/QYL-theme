@@ -72,10 +72,10 @@ label:hover .b3-switch:checked:not(:disabled)::after, .b3-switch:checked:hover:n
     outline: 1px solid var(--b3-theme-surface-lighter);
     box-shadow: var(--b3-point-shadow);
 }
-[class*="b3-tooltips"]::before {
+.b3-tooltips::before {
     display: none !important;
 }   
-[class*="b3-tooltips"]::after {
+.b3-tooltips::after {
     background-color: var(--b3-theme-background);
     color: var(--b3-theme-on-background);
     outline: 1px solid var(--b3-theme-surface-lighter);
