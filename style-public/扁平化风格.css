@@ -451,3 +451,19 @@ div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b
     background-color: var(--b3-theme-primary);
     transform: translateX(2.5px);
 }
+
+/* 细节调整 */
+[data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu,.b3-dialog__container, #message .b3-snackbar__content, .protyle-toolbar, .protyle-hint.hint--menu, .protyle-util, .protyle-hint) {
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+@media (min-width: 630px) {
+    [data-theme-mode="dark"] #status {
+        border: 1px solid var(--b3-theme-surface-lighter);
+    }
+}
+[data-theme-mode="dark"] :is(.tooltip) {
+    border: 1px solid var(--b3-theme-surface-lighter);
+}
+[data-theme-mode="dark"] #QYLsettings-window {
+    border: 1px solid var(--b3-theme-surface-lighter) !important;
+}

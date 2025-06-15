@@ -10,9 +10,10 @@
         left: 5px;
         width: 100%;
         height: 100%;
-        mask-image: url('../img/引用.svg');
         -webkit-mask-image: url('../img/引用.svg');
         -webkit-mask-repeat: no-repeat;
+        mask-image: url('../img/引用.svg');
+        mask-repeat: no-repeat;
         background-color: var(--QYL-blockquote-svg);
         background-size: 20px 20px;
     }
@@ -49,6 +50,7 @@
 }
 /* 行级代码 */
 :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
+    border-radius: 6px;
     color: var(--b3-theme-primary);
 }
 /* 标签 */
@@ -98,9 +100,8 @@
 }
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
-    box-shadow: var(--b3-theme-primary-lighter) 0px 1px 1px, var(--b3-theme-primary-lightest) 0px 0px 1px 1px;
-    border: none;
-    background-color: var(--QYL-hover-light);
+    box-shadow: var(--b3-point-shadow);
+    border: 1px solid var(--QYL-hover);
 }
 /* 行级备注 */
 .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
@@ -200,6 +201,8 @@ div.protyle-action.protyle-action--task svg {
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/未勾选.svg');
     -webkit-mask-repeat: no-repeat;
+    mask-image: url('../img/勾选.svg');
+    mask-repeat: no-repeat;
 }
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
     content: "" !important;
@@ -210,6 +213,8 @@ div.protyle-action.protyle-action--task svg {
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/勾选.svg');
     -webkit-mask-repeat: no-repeat;
+    mask-image: url('../img/勾选.svg');
+    mask-repeat: no-repeat;
 }
 .av__cell-check::before, .av__cell-uncheck::before {
     animation: none !important;
@@ -590,6 +595,7 @@ span[style*="text-shadow: 1px 1px var(--b3-theme-surface-lighter), 2px 2px var(-
         font-weight: bold;
         background-image: url('../img/金箔.webp') !important;  
         -webkit-background-clip: text !important; 
+        background-clip: text !important;
         color: transparent !important;
         background-size: contain !important;
         caret-color: gold;
@@ -601,6 +607,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     -webkit-text-fill-color: unset !important;
     background-image: url('../img/金箔.webp') !important;  
     -webkit-background-clip: text !important; 
+    background-clip: text !important;
     color: transparent !important;
     background-size: contain !important;
     caret-color: gold;
@@ -1136,5 +1143,66 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
             display: inline-block;
             background-color: var(--b3-theme-on-surface);
         }
+    }
+}
+
+/* iframe */
+.b3-typography iframe, .protyle-wysiwyg iframe {
+    border-radius: var(--b3-border-radius);
+    border: none;
+    box-shadow: var(--b3-point-shadow);
+}
+.protyle-wysiwyg [data-node-id].iframe {
+    &:hover .protyle-action__drag {
+        opacity: 0.3;
+    }
+    & .protyle-action__drag {
+        display: inline-block;
+        opacity: 0;
+        height: 48px;
+        width: 48px;
+        background-color: var(--b3-theme-primary);
+        -webkit-mask-image: url(../img/调节柄.svg);
+        mask-image: url(../img/调节柄.svg);
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        right: -20px;
+        bottom: -20px;
+        &:hover {
+            opacity: 1;
+            box-shadow: none;
+            background-color: var(--b3-theme-primary);
+        }
+        &::after {
+            display: none;
+        }
+    }
+}
+/* 视频块 */
+.b3-typography video, .protyle-wysiwyg video {
+    border-radius: var(--b3-border-radius);
+    border: none;
+    box-shadow: var(--b3-point-shadow);
+}
+
+/* 图片块 */
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
+    box-shadow: none;
+    background: var(--b3-theme-primary);
+    width: 6px;
+    opacity: 0.3;
+    &:hover {
+        box-shadow: none;
+        background: var(--b3-theme-primary);
+        width: 6px;
+        opacity: 1;
+    }
+}
+.protyle-wysiwyg [data-node-id] .img--select {
+    filter: brightness(1);
+    & img {
+        box-shadow: var(--b3-point-shadow);
     }
 }

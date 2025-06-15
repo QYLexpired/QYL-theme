@@ -81,7 +81,7 @@
 }
 /* 页签需向下偏移 */
 #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
-  transform: translateY(6px);
+  transform: translateY(5.5px);
 }
 /* 取消扁平化风格的边框 */
 :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {

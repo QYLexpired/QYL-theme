@@ -4,6 +4,7 @@
     background: -webkit-linear-gradient(135deg,#0eaf6d,#ff6ac6 25%,#147b96 50%,#e6d205 55%,#2cc4e0 60%,#8b2ce0 80%,#ff6384 95%,#08dfb4);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
     background-size: 200% 100%;
     animation: hcolorful 8s infinite linear;
 }
@@ -17,6 +18,7 @@
     &>[spellcheck]:not(:empty) {
     background-image: url('../img/金箔.webp') !important;  
     -webkit-background-clip: text !important; 
+    background-clip: text !important; 
     color: transparent !important;
     background-size: contain !important;
     caret-color: gold;

@@ -145,7 +145,7 @@
 }
 .viewer-toolbar>ul {
     background-color: var(--b3-theme-primary);
-    border-radius: var(--b3-border-radius);
+    border-radius: 16px;
     padding: 4px 6px;
     &>li {
         background-color: transparent;
@@ -163,8 +163,8 @@
 .viewer-title {
     background-color: var(--b3-theme-primary);
     color: var(--b3-theme-on-primary);
-    border-radius: 4px;
-    padding: 2px 4px;
+    border-radius: 16px;
+    padding: 2px 8px;
 }
 
 
