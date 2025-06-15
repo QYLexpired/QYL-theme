@@ -1,0 +1,85 @@
+:root {
+    --b3-menu-background: var(--b3-theme-surface);
+    --QYL-hover: rgba(216, 183, 162, 0.3);/* 主要悬停色 */
+    --QYL-hover-hover: rgba(216, 183, 162, 0.5);/* 主要悬停色加深 */
+    --QYL-hover-light: rgba(216, 183, 162, 0.1);/* 主要悬停色变浅 */
+    --b3-theme-primary: #a94255 !important; 
+    --b3-theme-primary-light: rgba(203, 96, 116, 0.5); /* 主色0.5透明度 */
+    --b3-theme-primary-lighter: rgba(160, 128, 223, 0.3); /* 主色0.3透明度 */
+    --b3-theme-primary-lightest: rgba(225, 112, 112, 0.12); /* 主色0.1透明度 */
+    --b3-theme-surface: #2d2935;
+    --b3-theme-surface-light: rgba(45, 41, 53, 0.8); /* 面板色0.8透明度 */
+    --b3-theme-surface-lighter:#474153;
+    --b3-theme-background: #17151c;
+    --b3-theme-background-light:#393542; /* 编辑器较多变浅（不透明） */
+    --b3-toolbar-blur-background: #4e4958; /* 失焦颜色 */
+    --b3-scroll-color: #534e5e; /* 滚动条颜色 */
+    --QYL-white: #e5ecf4; /* 通用白 */
+    --QYL-black: var(--b3-theme-background); /* 通用黑 */
+    --QYL-gray: #bfbfbf; /* 通用灰 */
+    --b3-toolbar-color: var(--b3-theme-on-background);/* 顶部按钮颜色 */
+    --QYL-filetree-arrow: var(--b3-theme-on-background);/* 文档树箭头颜色 */
+    --b3-theme-error: #c12222;
+    --b3-theme-success: #18b95b;
+    --b3-theme-secondary: #b7721e;
+    --QYL-accent-color:     #67547e;  
+    --QYL-border-file: #575163;
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #e5ecf4;
+    --b3-theme-on-secondary: #e5ecf4;
+    --b3-theme-on-background: #d7c9c2;
+    --b3-theme-on-surface: #cfbfb7;
+    --b3-theme-on-surface-light: #bdada5;
+    --b3-theme-on-error: #e5ecf4;
+
+    /* 容器阴影 */
+    --b3-point-shadow: 0px 13px 25px -2px rgba(0, 0, 0, 0.3), 0px 0px 10px 0px var(--QYL-hover-light),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+    --b3-dialog-shadow: var(--b3-point-shadow);
+    --b3-button-shadow: var(--b3-point-shadow);
+    --b3-light-shadow: var(--b3-theme-primary-lightest) 0px 1px 2px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+    --QYL-shadow-highlight: var(--b3-theme-primary-lightest) 0px 1px 1px 0px, var(--b3-theme-primary-lightest) 0px 1px 3px 1px;
+}
+:root {
+    --QYL-link: rgb(86, 168, 234);
+    --QYL-link-background: rgba(124, 166, 215, 0.2);
+    --QYL-ref: rgb(150, 142, 255);
+    --QYL-ref-background: rgba(101, 89, 235, 0.2);
+    --QYL-PDFmark: rgb(107, 217, 173);
+    --QYL-PDFmark-background: rgba(64, 171, 64, 0.2);
+}
+:root {
+    --QYL-blockquote: #9790ac;
+    --QYL-blockquote-background: #302c38;
+    --QYL-blockquote-svg: #504b5d;
+}
+:root {
+    --QYL-switch-close: var(--QYL-gray);
+    --QYL-switch-close-background: #60546d;
+    --QYL-input-border: var(--b3-theme-primary);
+    --QYL-input-border-hover: #463a57;
+}
+:root {
+    --QYL-filter-background-theme: rgba(52, 50, 55, 0.7);
+    --QYL-filter-wrap-background-theme: rgba(65, 61, 70, 0.7);
+    --QYL-filter-fix-background-theme: rgba(52, 50, 55, 0.9);
+}
+:root {
+    --QYL-account-background1: linear-gradient(to right bottom, #2d2935, #27242f, #221f28, #1c1a22, #17151c);
+    --QYL-account-background2: linear-gradient(to right bottom, #2d2935, #27242f, #221f28, #1c1a22, #17151c);
+}
+:root {
+    --QYL-flat-primary:#725c86;
+    --QYL-flat-second: var(--b3-theme-primary);
+}
+:root {
+    --QYL-immerse-toolbar: #5f516e;
+}
+
+/* 细节调整 */
+[data-key="dialog-setting"] {
+    & .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child,& :where(.b3-label,.config__ite)::first-line{
+        font-weight: bold;
+        color: var(--b3-theme-on-background);
+    }
+}
