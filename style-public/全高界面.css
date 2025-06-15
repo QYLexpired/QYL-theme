@@ -41,7 +41,7 @@
                 opacity: 1;
             }
             & .protyle-breadcrumb__bar {
-                margin-left: -0.5px;
+                margin-left: -3px;
                 background-color: rgb(from var(--b3-theme-background) r g b / 50%);
                 border-radius: var(--b3-border-radius);
                 backdrop-filter: blur(10px);
@@ -100,4 +100,16 @@ html[data-en_enabled_module~=EnableLifelogTag] [data-type=NodeParagraph][custom-
         width: 100%;
         background-color: var(--b3-theme-background);
     }
+}
+
+/* 如果是顶栏融合，需要增加第一个页签的左边距 */
+.layout__center:not(#layouts) [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    & >.item:first-child {
+        margin-left: 5.5px !important;
+    }
+}
+
+/* 固定工具栏修复 */
+.protyle-toolbar {
+    --QYL-fixedtoolbar-fix: 75px;
 }

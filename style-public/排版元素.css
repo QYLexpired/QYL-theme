@@ -201,7 +201,7 @@ div.protyle-action.protyle-action--task svg {
     background-color: var(--QYL-task-block);
     -webkit-mask-image: url('../img/未勾选.svg');
     -webkit-mask-repeat: no-repeat;
-    mask-image: url('../img/勾选.svg');
+    mask-image: url('../img/未勾选.svg');
     mask-repeat: no-repeat;
 }
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {

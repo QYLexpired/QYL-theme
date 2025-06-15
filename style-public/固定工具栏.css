@@ -61,7 +61,7 @@
 #layouts .protyle-content:has(>[contenteditable="true"]) ~ .protyle-toolbar {
   display: flex !important;
   position: absolute !important;
-  top: 30px !important;
+  top: var(--QYL-fixedtoolbar-fix, 30px) !important;
   left: 50% !important;
   transform: translateX(-50%);
   animation: none !important;
