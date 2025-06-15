@@ -3,12 +3,13 @@
 ![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.4.0
+##### v3.4.1
 
 * light增加配色：`碧纨`
 * dark增加配色：`星穹`
 * 优化IFrame块样式
 * 优化标题折叠样式
+* 优化同时开启隐藏页签/全高界面和固定工具栏时上方工具栏的位置
  
 #### 主题介绍
 
@@ -66,12 +67,13 @@
 
 #### 更新历史
 
-##### v3.4.0
+##### v3.4.1
 
 * light增加配色：`碧纨`
 * dark增加配色：`星穹`
 * 优化IFrame块样式
 * 优化标题折叠样式
+* 优化同时开启隐藏页签/全高界面和固定工具栏时上方工具栏的位置
 
 ##### v3.3.16
 
