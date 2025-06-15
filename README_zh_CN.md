@@ -3,19 +3,17 @@
 ![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.3.16
+##### v3.4.0
 
-* 修复页签在新窗口打开时状态栏位置错误的问题
-* 使任何布局下的题头图都具有视差滚动效果
-* 优化开启隐藏页签或全高界面后数据库表头的吸顶位置
-* 修复多彩标签代码错误
-* 提供垂直页签宽度配置方法
-* 修复开启网格化搜索列表后文档图标位置异常的问题
+* light增加配色：`碧纨`
+* dark增加配色：`星穹`
+* 优化IFrame块样式
+* 优化标题折叠样式
  
 #### 主题介绍
 
 * **超高的界面可定制性**：多种布局选项和样式风格随意搭配，总有一种符合你的心意
-* **light-dark二合一，共34种主题配色**
+* **light-dark二合一，共36种主题配色**
 * **引述块自定义Callout**：通过块菜单-QYL自定义属性-引述块Callout-启用Callout样式来开启，引述块内第一个子块会作为标题
 * **专注编辑模式**：使当前编辑的块自动保持在编辑器的垂直中心，且模糊未编辑的块来突出当前编辑的块，可通过快捷键<kbd>ALT</kbd>​+<kbd>W</kbd>来开关，不能与聚焦块高亮提示同时开启（此功能需消耗性能，若感知到卡顿请及时关闭）
     <style>summary::marker, summary::-webkit-details-marker { color: var(--b3-theme-primary) }</style>
@@ -67,6 +65,13 @@
 * [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色、扁平化风格
 
 #### 更新历史
+
+##### v3.4.0
+
+* light增加配色：`碧纨`
+* dark增加配色：`星穹`
+* 优化IFrame块样式
+* 优化标题折叠样式
 
 ##### v3.3.16
 

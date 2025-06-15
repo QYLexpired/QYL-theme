@@ -71,6 +71,7 @@ const I18N = {
         QYLzqps: ' 配色：蒸汽',
         QYLntps: ' 配色：拿铁',
         QYLldps: ' 配色：凛冬',
+        QYLxqqps: ' 配色：星穹',
         QYLbphfg: ' 扁平化风格',
         QYLcjsdl: ' 沉浸式顶栏',
         QYLzzbj: ' 专注编辑模式',
@@ -119,6 +120,7 @@ const I18N = {
         QYLzqps: ' Steam Theme',
         QYLntps: ' Latte Theme',
         QYLldps: ' Bleak Winter Theme',
+        QYLxqqps: ' Stellar Theme',
         QYLbphfg: ' Flat Style',
         QYLcjsdl: ' Immersive Topbar',
         QYLzzbj: ' Focus Editing Mode',
@@ -167,6 +169,7 @@ const I18N = {
         QYLzqps: ' 配色：蒸汽',
         QYLntps: ' 配色：拿铁',
         QYLldps: ' 配色：凛冬',
+        QYLxqqps: ' 配色：星穹',
         QYLbphfg: ' 扁平化風格',
         QYLcjsdl: ' 沉浸式頂欄',
         QYLzzbj: ' 專注編輯模式',
@@ -253,6 +256,7 @@ let isChecked15;
 let isChecked16;
 let isChecked17;
 let isChecked18;
+let isChecked19;
 let isChecked20;
 let isChecked21;
 let isChecked22;
@@ -343,6 +347,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLinkmode-checkbox', i18n.QYLmsp, isChecked16, 'QYLfunctionpair16', 'checkbox16');
     createCheckboxPair('QYLlchixia-checkbox', i18n.QYLcxps, isChecked17, 'QYLfunctionpair17', 'checkbox17');
     createCheckboxPair('QYLltaixue-checkbox', i18n.QYLtxps, isChecked18, 'QYLfunctionpair18', 'checkbox18');
+    createCheckboxPair('QYLlstellar-checkbox', i18n.QYLxqqps, isChecked19, 'QYLfunctionpair19', 'checkbox19');
     createCheckboxPair('QYLlverticaltab-checkbox', i18n.QYLczyq, isChecked20, 'QYLfunctionpair20', 'checkbox20');
     createCheckboxPair('QYLlcolorfulh-checkbox', i18n.QYLdcbt, isChecked21, 'QYLfunctionpair21', 'checkbox21');
     createCheckboxPair('QYLlfusion-checkbox', i18n.QYLdlrh, isChecked22, 'QYLfunctionpair22', 'checkbox22');
@@ -467,6 +472,7 @@ function createSettingsWindow() {
     groups[4].appendChild(QYLfunctionpair27);
     groups[4].appendChild(QYLfunctionpair28);
     groups[4].appendChild(QYLfunctionpair29);
+    groups[4].appendChild(QYLfunctionpair19);
 
     groups.forEach(group => {
         contentContainer.appendChild(group);
@@ -505,6 +511,7 @@ async function saveConfig() {
         isChecked16: checkbox16.checked,
         isChecked17: checkbox17.checked,
         isChecked18: checkbox18.checked,
+        isChecked19: checkbox19.checked,
         isChecked20: checkbox20.checked,
         isChecked21: checkbox21.checked,
         isChecked22: checkbox22.checked,
@@ -758,6 +765,7 @@ checkbox12.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -782,6 +790,7 @@ checkbox13.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -806,6 +815,7 @@ checkbox14.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -830,6 +840,7 @@ checkbox15.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -854,6 +865,7 @@ checkbox17.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -878,6 +890,7 @@ checkbox18.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -902,6 +915,7 @@ checkbox30.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -926,6 +940,7 @@ checkbox31.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -950,6 +965,7 @@ checkbox25.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -974,6 +990,7 @@ checkbox26.addEventListener('change', async function() {
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -998,6 +1015,7 @@ checkbox27.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1022,6 +1040,7 @@ checkbox28.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -1046,6 +1065,32 @@ checkbox29.addEventListener('change', async function() {
     if (isChecked26 === true) { checkbox26.click(); }
     if (isChecked27 === true) { checkbox27.click(); }
     if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 星穹配色开关
+checkbox19.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLstellar() : disableQYLstellar();
+    state ? isChecked19 = true : isChecked19 = false;
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -2276,6 +2321,28 @@ function disableQYLbleakwinter() {
     }
 }
 
+// 开启星穹配色
+function enableQYLstellar() {
+    let linkElement = document.getElementById("QYLstellar-style");
+    if (!linkElement) {
+        linkElement = document.createElement("link");
+        linkElement.id = "QYLstellar-style";
+        linkElement.rel = "stylesheet";
+        linkElement.href = "/appearance/themes/QYL-theme/style-dark/星穹配色.css";
+        document.head.appendChild(linkElement);
+    }
+}
+
+// 关闭星穹配色
+function disableQYLstellar() {
+    const linkElement = document.getElementById("QYLstellar-style");
+    if (linkElement) {
+        setTimeout(() => {
+            linkElement.remove();
+        }, 300);
+    }
+}
+
 // 开启扁平化风格
 function enableQYLflatstyle() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -2789,6 +2856,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked18 === false) {
             disableQYLtaixue();
             isChecked18 = false;
+        }
+
+        if (config?.isChecked19 === true) {
+            enableQYLstellar();
+            isChecked19 = true;
+        } else if (config?.isChecked19 === false) {
+            disableQYLstellar();
+            isChecked19 = false;
         }
 
         if (config?.isChecked20 === true) {
