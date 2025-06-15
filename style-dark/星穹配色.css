@@ -83,3 +83,8 @@
         color: var(--b3-theme-on-background);
     }
 }
+[data-theme-mode="dark"] .b3-select {
+    &:is(:hover, :focus) {
+        background-color: var(--b3-theme-surface);
+    }
+}
