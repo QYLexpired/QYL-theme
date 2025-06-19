@@ -144,6 +144,14 @@
 .av__checkbox:hover, .av__firstcol svg:hover {
     color: var(--b3-theme-primary);
 }
+.protyle-wysiwyg [data-node-id].li[fold="1"] {
+    width: fit-content;
+    box-shadow: var(--b3-dialog-shadow);
+    padding-right: 4px;
+    &[data-subtype="t"] > .protyle-action::after {
+        box-shadow: none;
+    }
+}
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
     border-radius: 50%;
     background-color: var(--b3-theme-primary-lighter);
@@ -166,14 +174,6 @@
 }
 .protyle-wysiwyg [data-node-id].li[fold="1"][data-subtype=t]>.protyle-action::after {
     background-color: rgba(255, 0, 0, 0) !important;
-}
-.protyle-wysiwyg [data-node-id].li[fold="1"][data-subtype=t]>.protyle-action {
-    &::before {
-        background-color: var(--b3-theme-on-background) !important;
-    }
-    & + [data-node-id] {
-        color: var(--b3-theme-on-background) !important;
-    }
 }
 /* 标记 */
 .b3-typography mark, .b3-typography span[data-type~=mark], .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
@@ -260,6 +260,9 @@ div.protyle-action.protyle-action--task svg {
         color: var(--b3-theme-primary);
         & .protyle-action__language {
             color: var(--b3-theme-primary);
+            &:hover {
+                color: var(--b3-theme-primary);
+            }
         }
     }
 }
@@ -1179,6 +1182,10 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
             display: none;
         }
     }
+}
+:is(#preview, [data-key="dialog-exportimage"]) .protyle-wysiwyg [data-node-id].iframe .protyle-action__drag {
+    right: 0;
+    bottom: 0;
 }
 /* 视频块 */
 .b3-typography video, .protyle-wysiwyg video {

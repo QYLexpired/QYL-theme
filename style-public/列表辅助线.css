@@ -10,6 +10,7 @@
 }
 :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) .en_item_bullet_actived > :is(.protyle-action, .protyle-action::before, .protyle-action::after) {
   color: var(--QYL-lihelp) !important;
+  --QYL-lihelp-fix: var(--QYL-lihelp);
 }
 /* 修复边缘情况 */
 [data-subtype="u"] [data-subtype="u"] .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {

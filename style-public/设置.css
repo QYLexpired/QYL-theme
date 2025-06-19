@@ -66,50 +66,28 @@
         }
     }
 }
-@media screen and (min-width: 1230px) {
-    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+    margin: 16px;
+    & .b3-card {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 16px;
-        margin: 16px;
-        & .b3-card {
-            display: grid;
-            grid-template-areas: "img info" "img buttons";
-            grid-template-columns: 90px 1fr;
-            margin: 0;
-            & > .b3-card__actions {
-                grid-area: buttons;
-                padding: 0 16px 14px;
-                align-self: flex-end
-            }
-            & :is(> [data-type=setting], > [data-type=setting].fn__none~[data-type=uninstall], > [data-type=open]:first-child) {
-                margin-left: auto;
-            }
+        grid-template-areas: "img info" "img buttons";
+        grid-template-columns: 90px 1fr;
+        margin: 0;
+        & > .b3-card__actions {
+            grid-area: buttons;
+            padding: 0 16px 14px;
+            align-self: flex-end
         }
-    }
-}
-@media screen and (min-width: 950px) and (max-width: 1230px) {
-    .config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        & .b3-card {
-            display: grid;
-            grid-template-areas: "img info" "img buttons";
-            grid-template-columns: 90px 1fr;
-            margin: 16px 16px 8px 8px;
-            & > .b3-card__actions {
-                grid-area: buttons;
-                padding: 0 16px 14px;
-                align-self: flex-end
-            }
-            & :is(> [data-type=setting], > [data-type=setting].fn__none~[data-type=uninstall], > [data-type=open]:first-child) {
-                margin-left: auto;
-            }
+        & :is(> [data-type=setting], > [data-type=setting].fn__none~[data-type=uninstall], > [data-type=open]:first-child) {
+            margin-left: auto;
         }
     }
 }
 #configBazaarDownloaded .b3-list--empty {
-    margin-top: 20px;
+    text-align: center;
 }
 #configBazaarReadme .block__icons {
     border-bottom: none;
