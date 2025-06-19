@@ -3183,6 +3183,7 @@ function enableQYLmultilevellist() {
         .protyle-wysiwyg [data-node-id].li[data-subtype="u"] {
             & > .protyle-action::before {
                 font-size: 1.6em;
+                font-family: Arial;
                 content: "•";
                 position: absolute;
             }
@@ -3194,7 +3195,7 @@ function enableQYLmultilevellist() {
                 & .li[data-subtype="u"] {
                     & > .protyle-action::before {
                         content: "◆";
-                        font-size: 1.1em;
+                        font-size: 0.55em;
                     }
                     & .li[data-subtype="u"] {
                         & > .protyle-action::before {
@@ -3209,7 +3210,7 @@ function enableQYLmultilevellist() {
                             & .li[data-subtype="u"] {
                                 & > .protyle-action::before {
                                     content: "◆";
-                                    font-size: 1.1em;
+                                    font-size: 0.55em;
                                 }
                             }
                             & .li[data-subtype="u"] {
@@ -3225,7 +3226,7 @@ function enableQYLmultilevellist() {
                                     & .li[data-subtype="u"] {
                                         & > .protyle-action::before {
                                             content: "◆";
-                                            font-size: 1.1em;
+                                            font-size: 0.55em;
                                         }
                                     }
                                 }
