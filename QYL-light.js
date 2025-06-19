@@ -87,6 +87,7 @@ const I18N = {
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 网格化搜索列表',
         QYLgdgjl: ' 固定工具栏',
+        QYLlbdjxh: ' 列表多级序号',
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -142,6 +143,7 @@ const I18N = {
         QYLqgjm: ' Full Height Layout<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' Grid Search List',
         QYLgdgjl: ' Fixed Toolbar',
+        QYLlbdjxh: ' Multi-level List Numbering​',
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -197,6 +199,7 @@ const I18N = {
         QYLqgjm: ' 全高界面<svg t="1749402193485" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14596" width="14" height="14" color="var(--b3-theme-on-background)"><path d="M307.2 122.88h409.6a40.96 40.96 0 1 1 0 81.92l-33.42336 11.14112A40.96 40.96 0 0 0 655.36 254.81216v110.94016a81.92 81.92 0 0 0 12.32896 43.2128l215.47008 346.8288a81.92 81.92 0 0 1 17.96096 51.2V819.2a81.92 81.92 0 0 1-81.92 81.92H204.8a81.92 81.92 0 0 1-81.92-81.92v-12.22656a81.92 81.92 0 0 1 17.96096-51.17952l215.4496-346.80832A81.92 81.92 0 0 0 368.64 365.75232v-110.94016a40.96 40.96 0 0 0-28.01664-38.87104L307.2 204.8a40.96 40.96 0 1 1 0-81.92z m206.848 471.04c39.58784-25.33376 96.9728-25.33376 172.11392 0l-88.064-141.7216A163.84 163.84 0 0 1 573.44 365.7728V245.76a40.96 40.96 0 0 0-40.96-40.96h-40.96a40.96 40.96 0 0 0-40.96 40.96v119.99232a163.84 163.84 0 0 1-24.6784 86.44608L337.83808 593.92c77.88544 25.33376 136.6016 25.33376 176.20992 0z" p-id="14597"></path></svg>',
         QYLwghsslb: ' 網格化搜尋列表',
         QYLgdgjl: ' 固定工具栏',
+        QYLlbdjxh: ' 多層次列表編號​​',
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -303,6 +306,7 @@ let isChecked42;
 let isChecked43;
 let isChecked44;
 let isChecked45;
+let isChecked46;
 let isChecked50;
 let isChecked51;
 
@@ -400,6 +404,7 @@ function createSettingsWindow() {
     createCheckboxPair('QYLfullheight-checkbox', i18n.QYLqgjm, isChecked43, 'QYLfunctionpair43', 'checkbox43');
     createCheckboxPair('QYLgridsearchlist-checkbox', i18n.QYLwghsslb, isChecked44, 'QYLfunctionpair44', 'checkbox44');
     createCheckboxPair('QYLfixedtoolbar-checkbox', i18n.QYLgdgjl, isChecked45, 'QYLfunctionpair45', 'checkbox45');
+    createCheckboxPair('QYLmultilevellist-checkbox', i18n.QYLlbdjxh, isChecked46, 'QYLfunctionpair46', 'checkbox46');
     createCheckboxPair('QYLyuncang-checkbox', i18n.QYLyccps, isChecked50, 'QYLfunctionpair50', 'checkbox50');
     createCheckboxPair('QYLbiwan-checkbox', i18n.QYLbwps, isChecked51, 'QYLfunctionpair51', 'checkbox51');
 
@@ -484,10 +489,11 @@ function createSettingsWindow() {
     groups[2].appendChild(QYLfunctionpair8); //聚焦块高亮
     groups[2].appendChild(QYLfunctionpair45); //固定工具栏
 
-    // 样式
+    // 元素
     groups[3].appendChild(QYLfunctionpair39); //图片九宫格
     groups[3].appendChild(QYLfunctionpair11); //多彩标签
     groups[3].appendChild(QYLfunctionpair21); //多彩标题
+    groups[3].appendChild(QYLfunctionpair46); //列表多级序号
 
     // 配色
     groups[4].appendChild(QYLfunctionpair12);
@@ -574,6 +580,7 @@ async function saveConfig() {
         isChecked43: checkbox43.checked,
         isChecked44: checkbox44.checked,
         isChecked45: checkbox45.checked,
+        isChecked46: checkbox46.checked,
         isChecked50: checkbox50.checked,
         isChecked51: checkbox51.checked,
     })], { type: 'application/json' }), 'QYLconfig.json');
@@ -784,6 +791,18 @@ checkbox11.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLcolorfultag() : disableQYLcolorfultag();
     state ? isChecked11 = true : isChecked11 = false;
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
+
+// 列表多级序号开关
+checkbox46.addEventListener('change', async function() {
+    const state = this.checked;
+    state ? enableQYLmultilevellist() : disableQYLmultilevellist();
+    state ? isChecked46 = true : isChecked46 = false;
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -3068,6 +3087,191 @@ function disableQYLcolorfulh() {
     }
 }
 
+// 开启列表多级序号
+function enableQYLmultilevellist() {
+    let styleElement = document.getElementById("snippet-QYLmultilevellist-style");
+    if (!styleElement) {
+        styleElement = document.createElement("style");
+        styleElement.id = "snippet-QYLmultilevellist-style";
+        styleElement.innerHTML = `
+        /* 有序列表 */
+        .list[data-subtype="o"] {
+            counter-reset: o-counter-1 0 o-counter-2 0 o-counter-3 0 o-counter-4 0 o-counter-5 0 o-counter-6 0 o-counter-7 0 o-counter-8 0 o-counter-9 0;
+        }
+        .protyle-wysiwyg [data-node-id].li[data-subtype="o"] {
+            counter-increment: o-counter-1;
+            & .protyle-action {
+                color: transparent !important;
+                &::after {
+                    content: counter(o-counter-1) ".";
+                    color: var(--QYL-lihelp-fix, var(--b3-theme-on-background));
+                    display: flex;
+                    align-items: center;
+                    margin: -0.5em 0 0 -0.4em;
+                    text-indent: 0.1em;
+                }
+            }
+            & .li[data-subtype="o"] {
+                counter-increment: o-counter-2;
+                & .protyle-action {
+                    &::after {
+                        content: counter(o-counter-2, lower-alpha) ".";
+                    }
+                }
+                & .li[data-subtype="o"] {
+                    counter-increment: o-counter-3;
+                    & .protyle-action {
+                        &::after {
+                            content: counter(o-counter-3, lower-roman) ".";
+                        }
+                    }
+                    & .li[data-subtype="o"] {
+                        counter-increment: o-counter-4;
+                        & .protyle-action {
+                            &::after {
+                                content: counter(o-counter-4) ".";
+                            }
+                        }
+                        & .li[data-subtype="o"] {
+                            counter-increment: o-counter-5;
+                            & .protyle-action {
+                                &::after {
+                                    content: counter(o-counter-5, lower-alpha) ".";
+                                }
+                            }
+                            & .li[data-subtype="o"] {
+                                counter-increment: o-counter-6;
+                                & .protyle-action {
+                                    &::after {
+                                        content: counter(o-counter-6, lower-roman) ".";
+                                    }
+                                }
+                                & .li[data-subtype="o"] {
+                                    counter-increment: o-counter-7;
+                                    & .protyle-action {
+                                        &::after {
+                                            content: counter(o-counter-7) ".";
+                                        }
+                                    }
+                                    & .li[data-subtype="o"] {
+                                        counter-increment: o-counter-8;
+                                        & .protyle-action {
+                                            &::after {
+                                                content: counter(o-counter-8, lower-alpha) ".";
+                                            }
+                                        }
+                                        & .li[data-subtype="o"] {
+                                            counter-increment: o-counter-9;
+                                            & .protyle-action {
+                                                &::after {
+                                                    content: counter(o-counter-9, lower-roman) ".";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /* 无序列表 */
+        .protyle-wysiwyg [data-node-id].li[data-subtype="u"] > .protyle-action svg {
+            color:transparent;
+        }
+        .protyle-wysiwyg [data-node-id].li[data-subtype="u"] {
+            & > .protyle-action::before {
+                font-size: 1.6em;
+                content: "•";
+                position: absolute;
+            }
+            & .li[data-subtype="u"] {
+                & > .protyle-action::before {
+                    content: "▪";
+                    font-size: 1.7em;
+                }
+                & .li[data-subtype="u"] {
+                    & > .protyle-action::before {
+                        content: "◆";
+                        font-size: 1.1em;
+                    }
+                    & .li[data-subtype="u"] {
+                        & > .protyle-action::before {
+                            font-size: 1.6em;
+                            content: "•";
+                        }
+                        & .li[data-subtype="u"] {
+                            & > .protyle-action::before {
+                                content: "▪";
+                                font-size: 1.7em;
+                            }
+                            & .li[data-subtype="u"] {
+                                & > .protyle-action::before {
+                                    content: "◆";
+                                    font-size: 1.1em;
+                                }
+                            }
+                            & .li[data-subtype="u"] {
+                                & > .protyle-action::before {
+                                    font-size: 1.6em;
+                                    content: "•";
+                                }
+                                & .li[data-subtype="u"] {
+                                    & > .protyle-action::before {
+                                        content: "▪";
+                                        font-size: 1.7em;
+                                    }
+                                    & .li[data-subtype="u"] {
+                                        & > .protyle-action::before {
+                                            content: "◆";
+                                            font-size: 1.1em;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
+            animation: QYLlienterfix 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards !important;
+            box-shadow: 0 0 0 0.2em var(--b3-theme-primary-lighter);
+        }
+        @keyframes QYLlienterfix {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            65% {
+                transform: scale(0.95);
+            }
+            85% {
+                transform: scale(1.12);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }`;
+        document.head.appendChild(styleElement);
+    }
+}
+
+// 关闭列表多级序号
+function disableQYLmultilevellist() {
+    const styleElement = document.getElementById("snippet-QYLmultilevellist-style");
+    if (styleElement) {
+        styleElement.remove();
+    }
+}
+
 // 开启顶栏融合
 function enableQYLfusion() {
     if (document.body.classList.contains('QYLmobile')) {
@@ -3525,6 +3729,14 @@ async function loadAndCheckConfig() {
         } else if (config?.isChecked45 === false) {
             disableQYLfixedtoolbar();
             isChecked45 = false;
+        }
+
+        if (config?.isChecked46 === true) {
+            enableQYLmultilevellist();
+            isChecked46 = true;
+        } else if (config?.isChecked46 === false) {
+            disableQYLmultilevellist();
+            isChecked46 = false;
         }
 
         if (config?.isChecked50 === true) {
