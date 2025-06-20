@@ -180,17 +180,14 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0),var(--b3-protyle-inline-mark-background), var(--b3-protyle-inline-mark-background)) !important;
 }
 /* 任务列表复选框样式 */
-.protyle-wysiwyg .li.protyle-task--done>.protyle-action--task svg {
-    color: transparent;
+.protyle-wysiwyg .li[data-subtype="t"] > .protyle-action--task svg {
+    opacity: 0;
 }
-div.protyle-action.protyle-action--task svg {
-    color: transparent;
+.av__cell-uncheck svg {
+    opacity: 0;
 }
-.av__cell-uncheck > svg {
-    color: transparent;
-}
-.av__cell-check > svg {
-    color: transparent;
+.av__cell-check svg {
+    opacity: 0;
 }
 .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
     content: "" !important;
@@ -216,11 +213,8 @@ div.protyle-action.protyle-action--task svg {
     mask-image: url('../img/勾选.svg');
     mask-repeat: no-repeat;
 }
-.av__cell-check::before, .av__cell-uncheck::before {
-    animation: none !important;
-}
-.protyle-task--done>div[data-node-id].p {
-    color: var(--QYL-task-done) !important;
+.protyle-wysiwyg .li[data-subtype=t].protyle-task--done > div[data-node-id].p {
+    color: var(--QYL-task-done);
 }
 /* 闪卡标识 */
 .protyle-wysiwyg [data-node-id][custom-riff-decks] {
