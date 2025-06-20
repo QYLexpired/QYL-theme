@@ -3,11 +3,10 @@
 ![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.4.3
+##### v3.4.5
 
-* 增加元素样式选项：`列表多级序号`，开启后有序/无序列表嵌套时将使用不同的编号形式
-* 重做列表折叠样式
-* 修复挂件导出时可能出现横向滚动条的问题
+* 复选框样式兼容彩色图标（将直接覆盖彩色图标）
+* 微调无序列表多级序号样式
  
 #### 主题介绍
 
@@ -64,6 +63,11 @@
 * [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色、扁平化风格
 
 #### 更新历史
+
+##### v3.4.5
+
+* 复选框样式兼容彩色图标（将直接覆盖彩色图标）
+* 微调无序列表多级序号样式
 
 ##### v3.4.3
 

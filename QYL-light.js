@@ -3182,7 +3182,7 @@ function enableQYLmultilevellist() {
         }
         .protyle-wysiwyg [data-node-id].li[data-subtype="u"] {
             & > .protyle-action::before {
-                font-size: 1.6em;
+                font-size: 1.5em;
                 font-family: Arial;
                 content: "•";
                 position: absolute;
@@ -3190,43 +3190,43 @@ function enableQYLmultilevellist() {
             & .li[data-subtype="u"] {
                 & > .protyle-action::before {
                     content: "▪";
-                    font-size: 1.7em;
+                    font-size: 1.5em;
                 }
                 & .li[data-subtype="u"] {
                     & > .protyle-action::before {
-                        content: "◆";
-                        font-size: 0.55em;
+                        content: "✦";
+                        font-size: 0.95em;
                     }
                     & .li[data-subtype="u"] {
                         & > .protyle-action::before {
-                            font-size: 1.6em;
+                            font-size: 1.5em;
                             content: "•";
                         }
                         & .li[data-subtype="u"] {
                             & > .protyle-action::before {
                                 content: "▪";
-                                font-size: 1.7em;
+                                font-size: 1.5em;
                             }
                             & .li[data-subtype="u"] {
                                 & > .protyle-action::before {
-                                    content: "◆";
-                                    font-size: 0.55em;
+                                    content: "✦";
+                                    font-size: 0.95em;
                                 }
                             }
                             & .li[data-subtype="u"] {
                                 & > .protyle-action::before {
-                                    font-size: 1.6em;
+                                    font-size: 1.5em;
                                     content: "•";
                                 }
                                 & .li[data-subtype="u"] {
                                     & > .protyle-action::before {
                                         content: "▪";
-                                        font-size: 1.7em;
+                                        font-size: 1.5em;
                                     }
                                     & .li[data-subtype="u"] {
                                         & > .protyle-action::before {
-                                            content: "◆";
-                                            font-size: 0.55em;
+                                            content: "✦";
+                                            font-size: 0.95em;
                                         }
                                     }
                                 }
