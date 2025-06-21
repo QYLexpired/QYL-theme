@@ -2648,7 +2648,7 @@ function enableQYLmultilevellist() {
         }
         .protyle-wysiwyg [data-node-id].li[data-subtype="o"] {
             counter-increment: o-counter-1;
-            & .protyle-action {
+            & > .protyle-action {
                 color: transparent !important;
                 &::after {
                     content: counter(o-counter-1) ".";
@@ -2661,56 +2661,56 @@ function enableQYLmultilevellist() {
             }
             & .li[data-subtype="o"] {
                 counter-increment: o-counter-2;
-                & .protyle-action {
+                & > .protyle-action {
                     &::after {
                         content: counter(o-counter-2, lower-alpha) ".";
                     }
                 }
                 & .li[data-subtype="o"] {
                     counter-increment: o-counter-3;
-                    & .protyle-action {
+                    & > .protyle-action {
                         &::after {
                             content: counter(o-counter-3, lower-roman) ".";
                         }
                     }
                     & .li[data-subtype="o"] {
                         counter-increment: o-counter-4;
-                        & .protyle-action {
+                        & > .protyle-action {
                             &::after {
                                 content: counter(o-counter-4) ".";
                             }
                         }
                         & .li[data-subtype="o"] {
                             counter-increment: o-counter-5;
-                            & .protyle-action {
+                            & > .protyle-action {
                                 &::after {
                                     content: counter(o-counter-5, lower-alpha) ".";
                                 }
                             }
                             & .li[data-subtype="o"] {
                                 counter-increment: o-counter-6;
-                                & .protyle-action {
+                                & > .protyle-action {
                                     &::after {
                                         content: counter(o-counter-6, lower-roman) ".";
                                     }
                                 }
                                 & .li[data-subtype="o"] {
                                     counter-increment: o-counter-7;
-                                    & .protyle-action {
+                                    & > .protyle-action {
                                         &::after {
                                             content: counter(o-counter-7) ".";
                                         }
                                     }
                                     & .li[data-subtype="o"] {
                                         counter-increment: o-counter-8;
-                                        & .protyle-action {
+                                        & > .protyle-action {
                                             &::after {
                                                 content: counter(o-counter-8, lower-alpha) ".";
                                             }
                                         }
                                         & .li[data-subtype="o"] {
                                             counter-increment: o-counter-9;
-                                            & .protyle-action {
+                                            & > .protyle-action {
                                                 &::after {
                                                     content: counter(o-counter-9, lower-roman) ".";
                                                 }
@@ -3952,6 +3952,7 @@ const I18Nattr = {
         removecallout: '取消CallOut样式',
         recovercallout: '启用CallOut样式1',
         recovercallout2: '启用CallOut样式2',
+        recovercallout3: '启用CallOut样式3（时间轴）',
 
         colsbgap: '水平排列超级块间距',
         colsblianxu: '水平连续排列',
@@ -4069,6 +4070,7 @@ const I18Nattr = {
         removecallout: 'Remove callout',
         recovercallout: 'Enable callout type1',
         recovercallout2: 'Enable callout type2',
+        recovercallout3: 'Enable callout type2(Timeline)',
 
         colsbgap: 'Column super block gap',
         colsblianxu: '0',
@@ -4186,6 +4188,7 @@ const I18Nattr = {
         removecallout: '取消CallOut樣式',
         recovercallout: '啟用CallOut樣式1',
         recovercallout2: '啟用CallOut樣式2',
+        recovercallout3: '啟用CallOut樣式3',
     
         colsbgap: '水平排列超級塊間距',
         colsblianxu: '水平連續排列',
@@ -4792,6 +4795,7 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
         div.appendChild(QYLattrbqcalloutcancel(selectid))//取消CallOut
         div.appendChild(QYLattrbqcalloutrecover(selectid))//启用CallOut1
         div.appendChild(QYLattrbqcalloutrecover2(selectid))//启用CallOut2
+        div.appendChild(QYLattrbqcalloutrecover3(selectid))//启用CallOut3
         return div
 
         function QYLattrbqcalloutred(selectid) {//红色
@@ -4931,6 +4935,16 @@ function QYLattrbqcalloutcolorsub(selectid) {//创建CallOut颜色选项的二�
             button.setAttribute("custom-attr-name", "bq-callout")
             button.setAttribute("custom-attr-value", "启用2")
             button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.recovercallout2}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
+            button.onclick = QYLcustomattrset
+            return button
+        }
+        function QYLattrbqcalloutrecover3(selectid) {//启用CallOut样式3
+            let button = document.createElement("button")
+            button.className = "b3-menu__item"
+            button.setAttribute("data-node-id", selectid)
+            button.setAttribute("custom-attr-name", "bq-callout")
+            button.setAttribute("custom-attr-value", "启用3")
+            button.innerHTML = `<svg class="b3-menu__icon" style=""><use xlink:href="#iconQuote"></use></svg><span class="b3-menu__label">${i18nattr.recovercallout3}</span><span class="b3-menu__accelerator">${i18nattr.group2}</span>`
             button.onclick = QYLcustomattrset
             return button
         }

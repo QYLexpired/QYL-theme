@@ -3,10 +3,11 @@
 ![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.4.5
+##### v3.4.6
 
-* 复选框样式兼容彩色图标（将直接覆盖彩色图标）
-* 微调无序列表多级序号样式
+* 引述块Callout增加样式：`时间轴`
+* 修复列表多级序号引起的样式错误
+* 隐藏页签/全高界面/题头图视差滚动对新窗口打开的页签也生效
  
 #### 主题介绍
 
@@ -63,6 +64,12 @@
 * [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色、扁平化风格
 
 #### 更新历史
+
+##### v3.4.6
+
+* 引述块Callout增加样式：`时间轴`
+* 修复列表多级序号引起的样式错误
+* 隐藏页签/全高界面/题头图视差滚动对新窗口打开的页签也生效
 
 ##### v3.4.5
 
