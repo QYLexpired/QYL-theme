@@ -4571,7 +4571,7 @@ const I18Nattr = {
         removecallout: 'Remove callout',
         recovercallout: 'Enable callout type1',
         recovercallout2: 'Enable callout type2',
-        recovercallout3: 'Enable callout type2(Timeline)',
+        recovercallout3: 'Enable callout type3(Timeline)',
 
         colsbgap: 'Column super block gap',
         colsblianxu: '0',
