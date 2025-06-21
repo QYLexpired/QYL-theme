@@ -1,4 +1,4 @@
-.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
     content: "";
     display: block;
     background-color: rgba(247, 247, 247, 0.7);
@@ -12,10 +12,10 @@
     z-index: 1;
     pointer-events: none
 }
-[data-theme-mode="dark"] .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
+[data-theme-mode="dark"] .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
     background-color: rgba(0, 0, 0, 0.7);
 }
-.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
     background-color: transparent;
     z-index: 4;
     border: none;
@@ -71,7 +71,7 @@
         }
     }
 }
-.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
     background-color: var(--b3-theme-background);
     & > :not(.protyle) {
         margin-top: 43.5px;
@@ -79,6 +79,11 @@
 }
 .protyle-background__img .protyle-icons {
     top: 80px
+}
+.layout__center#layouts [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    & >.item:first-child {
+        margin-left: 5.5px !important;
+    }
 }
 
 /* 吸顶调整 */

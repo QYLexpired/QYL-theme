@@ -1,4 +1,4 @@
-.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
     opacity: 0;
     background-color: transparent;
     z-index: 4;
@@ -62,7 +62,7 @@
         }
     }
 }
-.layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
     background-color: var(--b3-theme-background);
     & > :not(.protyle) {
         margin-top: 43.5px;
@@ -77,6 +77,11 @@
         margin-left: 4px;
     }
 }
+.layout__center#layouts [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
+    & >.item:first-child {
+        margin-left: 5.5px !important;
+    }
+}
 
 
 /* 吸顶调整 */
@@ -87,7 +92,7 @@ html[data-en_enabled_module~=EnableLifelogTag] [data-type=NodeParagraph][custom-
 }
 
 /* 增强页签显示效果 */
-[data-theme-mode="light"] .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+[data-theme-mode="light"] .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
     &:hover {
         & [data-type="tab-header"], [data-type="new"], [data-type="more"] {
             background-color: var(--QYL-filter-background-theme) !important;

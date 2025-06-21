@@ -115,7 +115,7 @@
             container-type: inline-size;
             right: -7px;
             &:not([style]) {
-                right: 15px; /* 新窗口打开 */
+                right: 6px; /* 新窗口打开 */
             }
             & * {
                 opacity: 0;
