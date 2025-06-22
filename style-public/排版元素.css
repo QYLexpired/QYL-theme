@@ -3,6 +3,7 @@
     background-color: var(--QYL-blockquote-background);
     color: var(--QYL-blockquote);
     padding-top: 22px;
+    overflow: hidden;
     &::before {
         content: "";
         position: absolute;
@@ -218,7 +219,7 @@
 }
 /* 闪卡标识 */
 .protyle-wysiwyg [data-node-id][custom-riff-decks] {
-    box-shadow: -5px 0 0 0 var(--b3-protyle-inline-mark-background);
+    box-shadow: 2px 0 0 0 var(--b3-protyle-inline-mark-background) inset;
 }
 /* 下划线 */
 .b3-typography u, .b3-typography span[data-type~=u], .protyle-wysiwyg u, .protyle-wysiwyg span[data-type~=u] {
@@ -1128,6 +1129,7 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
     border-radius: 0;
     background-color: var(--b3-theme-background);
     color: unset;
+    overflow: visible;
     & + [custom-bq-callout="启用3"] {
         margin-top: -2px;
     }
@@ -1293,6 +1295,11 @@ span[style*="-webkit-text-stroke: 0.2px var(--b3-theme-on-background); -webkit-t
             }
         }
     }
+}
+#preview .protyle-wysiwyg blockquote[custom-bq-callout="启用3"], #preview .protyle-wysiwyg .bq[custom-bq-callout="启用3"] {/* 导出修复 */
+    margin-left: 10px;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 

@@ -167,7 +167,14 @@
     padding: 2px 8px;
 }
 
-
+.QYLmobile #QYLsettings-window {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto !important;
+    top: 100px !important;
+    min-width: max-content;
+    animation: none
+}
 #QYLsettings-window .checkbox-label-pair {
     border-radius: var(--b3-border-radius);
     padding-top: 2px;
@@ -189,6 +196,22 @@
         }
     }
 }
+#QYL-settings-group-menu .settings-menu-item {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: var(--b3-border-radius);
+    color: var(--b3-theme-on-surface);
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: var(--QYL-hover);
+    }
+    &.active {
+        background-color: var(--QYL-hover);
+        color: var(--b3-theme-primary);
+    }
+}
 
 /* 阴影 */
 [data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu,.b3-dialog__container, #message .b3-snackbar__content, .protyle-toolbar, .protyle-hint.hint--menu, .protyle-util, .protyle-hint) {
@@ -201,4 +224,64 @@
 }
 [data-theme-mode="dark"] :is(.tooltip) {
     outline: 1px solid var(--b3-theme-surface);
+}
+
+/* lite模式 */
+#QYLliteconfirm {
+    z-index: 1001;
+    & .b3-dialog__container {
+        width: min(520px, 80vw);
+        height: auto;
+        left:auto;
+        top:auto;
+        animation: QYLliteconfirmenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        background-color: var(--b3-theme-background);
+        & .b3-dialog__content {
+            word-break: normal;
+            padding-top: 0;
+            padding-bottom: 2px;
+            line-height: 1.625;
+        }
+        & #QYLlite-confirm {
+            margin-left: 8px;
+        }
+    }
+}
+
+.QYLlite :is(#QYLgroup1, #QYLgroup2, #QYLgroup3, #QYLgroup4, #QYL-settings-group-menu) {
+    display: none !important;
+}
+.QYLlite #QYLgroup5 {
+    display: block !important;
+}
+.QYLmobile.QYLlite #QYLgroup3 {
+    display: block !important;
+    & .checkbox-label-pair:not(:last-child) {
+        display: none !important;
+    }
+}
+[lang]:not([lang="zh_CN"]) .QYLlite #QYLgroup3 {
+    display: block !important;
+    & .checkbox-label-pair:not(:last-child) {
+        display: none !important;
+    }
+}
+@keyframes QYLliteconfirmenter {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.01);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.99);
+    }
+    85% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
 }
