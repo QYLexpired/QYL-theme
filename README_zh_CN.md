@@ -3,16 +3,32 @@
 ![111.png](https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIe1mhK-e2mGEM5fiH3p_vdrU0Y0csSAAI8GQACrklZVumygcgYYqDLNgQ.png)
 #### 主要更新
 
-##### v3.4.6
+##### v3.4.7
 
-* 引述块Callout增加样式：`时间轴`
-* 修复列表多级序号引起的样式错误
-* 隐藏页签/全高界面/题头图视差滚动对新窗口打开的页签也生效
+* 增加功能选项：`精简模式`，开启后将关闭并隐藏所有QYL主题功能（包括QYL自定义属性功能），仅保留配色选择
+    * 开启精简模式后，相应功能不再影响性能
+    * 若需关闭精简模式，请查看主题介绍
+* 修复部分情况下垂直页签与顶栏融合会同时开启的问题
+* 优化QYL主题设置窗口分组切换逻辑
+* 修复时间轴样式导出为PDF时显示不全的问题
+* 修复存在引述块时，导出PDF出现横向滚动条的问题
  
 #### 主题介绍
 
 * **超高的界面可定制性**：多种布局选项和样式风格随意搭配，总有一种符合你的心意
 * **light-dark二合一，共36种主题配色**
+* **精简模式**：开启后将关闭并隐藏所有QYL主题功能（包括QYL自定义属性功能），仅保留配色选择
+    <details>
+    <summary><span style="color: var(--b3-theme-primary)">关闭精简模式的方法：添加以下CSS代码片段（手机端无需此操作），然后在QYL主题设置窗口取消勾选精简模式并重启思源</span></summary>
+    <div style="font-family: var(--b3-font-family-code); font-size: 85%; margin: 10px 5px;">
+        .QYLlite #QYLgroup3 {
+            display: block !important;
+            & .checkbox-label-pair:not(:last-child) {
+                display: none !important;
+            }
+        }
+    </div>
+    </details>
 * **引述块自定义Callout**：通过块菜单-QYL自定义属性-引述块Callout-启用Callout样式来开启，引述块内第一个子块会作为标题
 * **专注编辑模式**：使当前编辑的块自动保持在编辑器的垂直中心，且模糊未编辑的块来突出当前编辑的块，可通过快捷键<kbd>ALT</kbd>​+<kbd>W</kbd>来开关，不能与聚焦块高亮提示同时开启（此功能需消耗性能，若感知到卡顿请及时关闭）
     <style>summary::marker, summary::-webkit-details-marker { color: var(--b3-theme-primary) }</style>
@@ -64,6 +80,16 @@
 * [Rem Craft主题](https://github.com/svchord/Rem-Craft)：象牙配色、乌木配色、扁平化风格
 
 #### 更新历史
+
+##### v3.4.7
+
+* 增加功能选项：`精简模式`，开启后将关闭并隐藏所有QYL主题功能（包括QYL自定义属性功能），仅保留配色选择
+    * 开启精简模式后，相应功能不再影响性能
+    * 若需关闭精简模式，请查看主题介绍
+* 修复部分情况下垂直页签与顶栏融合会同时开启的问题
+* 优化QYL主题设置窗口分组切换逻辑
+* 修复时间轴样式导出为PDF时显示不全的问题
+* 修复存在引述块时，导出PDF出现横向滚动条的问题
 
 ##### v3.4.6
 

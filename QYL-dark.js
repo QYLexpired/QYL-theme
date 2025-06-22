@@ -82,6 +82,11 @@ const I18N = {
         QYLwghsslb: ' 网格化搜索列表',
         QYLgdgjl: ' 固定工具栏',
         QYLlbdjxh: ' 列表多级序号',
+        QYLlitemode: ' 精简模式',
+        QYLlitedialogcontent: '启用精简模式后，将关闭所有QYL主题功能并隐藏相应选项，仅保留配色选择功能！若需要取消精简模式，请查看集市介绍页面的说明。点击“确定”来开启精简模式，开启后请重启思源',
+        QYLliteconfirm: '确定',
+        QYLlitecancle: '取消',
+        QYLlitedialogheader: '确定开启精简模式？', 
     },
     en_US: {
         QYLztsz: ' QYL-Theme Settings',
@@ -132,6 +137,11 @@ const I18N = {
         QYLwghsslb: ' Grid Search List',
         QYLgdgjl: ' Fixed Toolbar',
         QYLlbdjxh: ' Multi-level List Numbering​',
+        QYLlitemode: ' Lite Mode',
+        QYLlitedialogcontent: 'When Lite Mode is enabled, all QYL theme features will be disabled and hidden, preserving only the color scheme customization function! To exit Lite Mode, please visit the Introduction page in the Marketplace for instructions. Click "Confirm" to enable Lite Mode, Please restart Siyuan after enabling.',
+        QYLliteconfirm: 'Confirm',
+        QYLlitecancle: 'Cancle',  
+        QYLlitedialogheader: 'Confirm Enabling Lite Mode?', 
     },
     zh_CHT: {
         QYLztsz: ' QYL主題設定',
@@ -182,6 +192,11 @@ const I18N = {
         QYLwghsslb: ' 網格化搜尋列表',
         QYLgdgjl: ' 固定工具栏',
         QYLlbdjxh: ' 多層次列表編號​​',
+        QYLlitemode: ' 精簡模式',
+        QYLlitedialogcontent: '啟用精簡模式後，將關停所有 QYL 主題功能並隱藏相應選項，僅保留配色選擇功能！若需取消精簡模式，請查看市集介紹頁面的說明。點擊「確定」來開啟精簡模式，開啟後請重新啟動思源。',
+        QYLliteconfirm: '確定',
+        QYLlitecancle: '取消', 
+        QYLlitedialogheader: '確認啟用精簡模式？', 
     },
 };
 const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
@@ -283,6 +298,7 @@ let isChecked43;
 let isChecked44;
 let isChecked45;
 let isChecked46;
+let isChecked1000;
 
 function createSettingsWindow() {
     // 检查是否已经存在设置窗口
@@ -376,6 +392,8 @@ function createSettingsWindow() {
     createCheckboxPair('QYLfixedtoolbar-checkbox', i18n.QYLgdgjl, isChecked45, 'QYLfunctionpair45', 'checkbox45');
     createCheckboxPair('QYLmultilevellist-checkbox', i18n.QYLlbdjxh, isChecked46, 'QYLfunctionpair46', 'checkbox46');
 
+    createCheckboxPair('QYLlite-checkbox', i18n.QYLlitemode, isChecked1000, 'QYLfunctionpair1000', 'checkbox1000');
+
     // 创建分组
     const groupMenu = document.createElement('div');
     groupMenu.id = 'QYL-settings-group-menu';
@@ -395,35 +413,28 @@ function createSettingsWindow() {
     contentContainer.style.maxHeight = 'calc(70vh - 40px)';
     contentContainer.style.overflowY = 'auto';
     contentContainer.style.padding = '4px';
+    let currentActiveIndex = 0;
     const groups = groupNames.map((name, index) => {
         const menuItem = document.createElement('div');
         menuItem.textContent = name;
-        menuItem.style.cursor = 'pointer';
-        menuItem.style.padding = '4px 8px';
-        menuItem.style.borderRadius = 'var(--b3-border-radius)';
-        menuItem.style.color = 'var(--b3-theme-primary)';
-        menuItem.style.fontWeight = 'bold';
-        menuItem.style.fontSize = '15px';
-        menuItem.addEventListener('mouseenter', () => {
-            groupMenu.querySelectorAll('div').forEach(item => {
-                item.style.backgroundColor = '';
+        menuItem.className = 'settings-menu-item';
+        if (index === 0) menuItem.classList.add('active');
+        menuItem.addEventListener('click', () => {
+            groupMenu.querySelectorAll('.settings-menu-item').forEach(item => {
+                item.classList.remove('active');
             });
-            menuItem.style.backgroundColor = 'var(--QYL-hover)';
+            menuItem.classList.add('active');
             document.querySelectorAll('.settings-group').forEach(group => {
                 group.style.display = 'none';
             });
             document.getElementById(`QYLgroup${index + 1}`).style.display = 'block';
+            currentActiveIndex = index;
         });
-        if (index === 0) menuItem.style.backgroundColor = 'var(--QYL-hover)';
-        menuItem.style.color = 'var(--b3-theme-primary)';
-        menuItem.style.fontWeight = 'bold';
-        menuItem.style.fontSize = '15px';
         groupMenu.appendChild(menuItem);
         const groupContainer = document.createElement('div');
         groupContainer.id = `QYLgroup${index + 1}`;
         groupContainer.className = 'settings-group';
         groupContainer.style.display = index === 0 ? 'block' : 'none';
-        
         return groupContainer;
     });
     
@@ -456,6 +467,7 @@ function createSettingsWindow() {
     groups[2].appendChild(QYLfunctionpair5); //超级块高亮
     groups[2].appendChild(QYLfunctionpair8); //聚焦块高亮
     groups[2].appendChild(QYLfunctionpair45); //固定工具栏
+    groups[2].appendChild(QYLfunctionpair1000); //精简模式
 
 
     // 元素
@@ -541,10 +553,99 @@ async function saveConfig() {
         isChecked44: checkbox44.checked,
         isChecked45: checkbox45.checked,
         isChecked46: checkbox46.checked,
+        isChecked1000: checkbox1000.checked,
     })], { type: 'application/json' }), 'QYLdarkconfig.json');
 
     return fetch('/api/file/putFile', { method: 'POST', body: formData });
 }
+
+// lite模式开关
+checkbox1000.addEventListener('change', async function() {
+    const state = this.checked;
+    if (state && !isChecked1000) {
+        const QYLliteconfirmdialog = document.createElement('div');
+        QYLliteconfirmdialog.id = 'QYLliteconfirm';
+        QYLliteconfirmdialog.className = 'b3-dialog--open';
+        QYLliteconfirmdialog.innerHTML = `
+            <div class="b3-dialog">
+                <div class="b3-dialog__scrim"></div>
+                <div class="b3-dialog__container">
+                    <div class="resize__move b3-dialog__header" onselectstart="return false;">${i18n.QYLlitedialogheader}</div>
+                    <div class="b3-dialog__body">
+                        <div class="b3-dialog__content">${i18n.QYLlitedialogcontent}</div>
+                        <div class="b3-dialog__action">
+                            <button class="b3-button b3-button--cancel" id="QYLlite-cancel">${i18n.QYLlitecancle}</button>
+                            <button class="b3-button b3-button--text" id="QYLlite-confirm">${i18n.QYLliteconfirm}</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(QYLliteconfirmdialog);
+        const confirmed = await new Promise(resolve => {
+            document.getElementById('QYLlite-confirm').addEventListener('click', () => resolve(true));
+            document.getElementById('QYLlite-cancel').addEventListener('click', () => resolve(false));
+            QYLliteconfirmdialog.querySelector('.b3-dialog__scrim').addEventListener('click', () => resolve(false));
+        });
+        QYLliteconfirmdialog.remove();
+        if (!confirmed) {
+            this.checked = false;
+            return;
+        }
+    }
+    state ? enableQYLlite() : disableQYLlite();
+    isChecked1000 = state;
+    if (isChecked40 === true) { checkbox40.click(); }
+    if (isChecked1 === true) { checkbox1.click(); }
+    if (isChecked2 === true) { checkbox2.click(); }
+    if (isChecked3 === true) { checkbox3.click(); }
+    if (isChecked4 === true) { checkbox4.click(); }
+    if (isChecked5 === true) { checkbox5.click(); }
+    if (isChecked6 === true) { checkbox6.click(); }
+    if (isChecked7 === true) { checkbox7.click(); }
+    if (isChecked8 === true) { checkbox8.click(); }
+    if (isChecked9 === true) { checkbox9.click(); }
+    if (isChecked10 === true) { checkbox10.click(); }
+    if (isChecked11 === true) { checkbox11.click(); }
+    if (isChecked12 === true) { checkbox12.click(); }
+    if (isChecked13 === true) { checkbox13.click(); }
+    if (isChecked14 === true) { checkbox14.click(); }
+    if (isChecked15 === true) { checkbox15.click(); }
+    if (isChecked16 === true) { checkbox16.click(); }
+    if (isChecked17 === true) { checkbox17.click(); }
+    if (isChecked18 === true) { checkbox18.click(); }
+    if (isChecked19 === true) { checkbox19.click(); }
+    if (isChecked20 === true) { checkbox20.click(); }
+    if (isChecked21 === true) { checkbox21.click(); }
+    if (isChecked22 === true) { checkbox22.click(); }
+    if (isChecked23 === true) { checkbox23.click(); }
+    if (isChecked24 === true) { checkbox24.click(); }
+    if (isChecked25 === true) { checkbox25.click(); }
+    if (isChecked26 === true) { checkbox26.click(); }
+    if (isChecked27 === true) { checkbox27.click(); }
+    if (isChecked28 === true) { checkbox28.click(); }
+    if (isChecked29 === true) { checkbox29.click(); }
+    if (isChecked30 === true) { checkbox30.click(); }
+    if (isChecked31 === true) { checkbox31.click(); }
+    if (isChecked32 === true) { checkbox32.click(); }
+    if (isChecked33 === true) { checkbox33.click(); }
+    if (isChecked34 === true) { checkbox34.click(); }
+    if (isChecked35 === true) { checkbox35.click(); }
+    if (isChecked36 === true) { checkbox36.click(); }
+    if (isChecked37 === true) { checkbox37.click(); }
+    if (isChecked38 === true) { checkbox38.click(); }
+    if (isChecked39 === true) { checkbox39.click(); }
+    if (isChecked41 === true) { checkbox41.click(); }
+    if (isChecked42 === true) { checkbox42.click(); }
+    if (isChecked43 === true) { checkbox43.click(); }
+    if (isChecked44 === true) { checkbox44.click(); }
+    if (isChecked45 === true) { checkbox45.click(); }
+    if (isChecked46 === true) { checkbox46.click(); }
+    try {
+        if ((await (await saveConfig()).json()).code !== 0) throw 0;
+    } catch {
+        this.checked = !state;
+    }
+});
 
 // 列出所有选项开关
 checkbox42.addEventListener('change', async function() {
@@ -1213,10 +1314,11 @@ checkbox20.addEventListener('change', async function() {
     const state = this.checked;
     state ? enableQYLverticaltab() : disableQYLverticaltab();
     state ? isChecked20 = true : isChecked20 = false;
-    if (isChecked22 === true) { checkbox22.click(); }
     if (isChecked40 === true) { checkbox40.click(); }//不能与撞色布局同时开启
+    if (isChecked22 === true) { checkbox22.click(); }
     if (isChecked43 === true) { checkbox43.click(); }//不能与全高界面同时开启
     if (isChecked41 === true) { checkbox41.click(); }//不能与隐藏页签同时开启
+    if (isChecked22 === true) { checkbox22.click(); }
     try {
         if ((await (await saveConfig()).json()).code !== 0) throw 0;
     } catch {
@@ -3255,6 +3357,14 @@ async function loadAndCheckConfig() {
             isChecked46 = false;
         }
 
+        if (config?.isChecked1000 === true) {
+            enableQYLlite();
+            isChecked1000 = true;
+        } else if (config?.isChecked1000 === false) {
+            disableQYLlite();
+            isChecked1000 = false;
+        }
+
     } catch (e) {
         console.error("加载配置失败:", e);
     }
@@ -4287,6 +4397,9 @@ const I18Nattr = {
 const i18nattr = I18Nattr[window.siyuan.config.lang] || I18Nattr.en_US;
 
 // 右键菜单QYL自定义属性
+(function() {
+    setTimeout(function() {
+        if (!document.body.classList.contains('QYLlite')) {
 {
     function debounce(func, delay) {
         let timeout;
@@ -6552,6 +6665,9 @@ function QYLattrfontfamilysub(selectid) {//创建字体选项的二级菜单
         }));
     }
 }
+}
+}, 3000);
+})();
 
 // 状态栏防遮挡
 // QYL PROPRIETARY CODE - DO NOT COPY, DISTRIBUTE OR MODIFY!!!
@@ -6621,3 +6737,55 @@ const QYLfixedtoolbar = {
         this.isActive = false;
     }
 };
+
+//lite模式
+function enableQYLlite() {
+    (function() {
+        var maxAttempts = 10;
+        var attempts = 0;
+        
+        (function tryAddClass() {
+          if (document.body) {
+            document.body.classList.add('QYLlite');
+          } else if (attempts < maxAttempts) {
+            attempts++;
+            setTimeout(tryAddClass, 300);
+          }
+        })();
+      })();
+}
+//取消lite模式
+function disableQYLlite() {
+    if (document.body.classList.contains('QYLlite')) {
+        document.body.classList.remove('QYLlite');
+    }
+    const cssFiles = [
+        "/appearance/themes/QYL-theme/style-public/自定义属性font-family.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性h-style.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性height.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性style.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性table-style.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性blankblock-remind.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性list-view.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性img.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性sb-style.css",
+        "/appearance/themes/QYL-theme/style-public/自定义属性line-height.css"
+    ];
+    async function loadQYLcustomattrCSS() {
+        try {
+            const fetchPromises = cssFiles.map(url => 
+                fetch(url).then(res => res.text())
+            );
+            const cssContents = await Promise.all(fetchPromises);
+            const QYLcustomattrCSS = cssContents.join('\n\n');
+            const style = document.createElement('style');
+            style.id = 'snippet-QYLcustomattrCSS';
+            style.textContent = QYLcustomattrCSS;
+            document.head.appendChild(style);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+    loadQYLcustomattrCSS();
+}
