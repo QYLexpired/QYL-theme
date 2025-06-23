@@ -27,10 +27,11 @@
         max-width: var(--QYL-vertical-width);
         margin-right: 6px;
         flex-direction: column;
+        border-radius: var(--b3-border-radius);
+        overflow: hidden;
         & .layout-tab-bar:not(.layout-tab-bar--readonly) {
             flex: 1;
             flex-direction: column;
-            border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
             & .item {
                 align-self: center;
                 width: calc(100% - 12px);
@@ -53,11 +54,10 @@
         }
         & > .layout-tab-bar--readonly {
             flex: none;
-            border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius) !important;
         }
     }
     & > .layout-tab-container {
-        border-radius: var(--b3-border-radius) !important;
+        border-radius: var(--b3-border-radius);
     }
     & .layout-tab-bar li[data-type="tab-header"].item:not(.item--pin, .item--full) :is(.item__icon,.item__graphic, .item__text) {
         transform: translateX(0px)  !important;
@@ -112,13 +112,14 @@
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"],
 .layout__center:not(#layouts)> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child> :is(.fn__flex-column, .fn__flex-1, .fn__flex):first-child>[data-type="wnd"] {
-    & .fn__flex:not(.av__views) .fn__flex.layout-tab-bar {
-        border: var(--QYL-vertical-fix-1);
-        border-bottom: none;
+    border: none;
+    & > .fn__flex {
+        border: var(--QYL-vertical-fix-1, var(--QYL-flat-vertical-fix-1));
+        box-sizing: border-box;
     }
-    & .fn__flex:not(.av__views) .layout-tab-bar--readonly {
-        border: var(--QYL-vertical-fix-1);
-        border-top: none;
+    & > .layout-tab-container {
+        border: var(--QYL-vertical-fix-1, var(--QYL-flat-vertical-fix-1));
+        box-sizing: border-box;
     }
 }
 /* 适配隐藏页签和面包屑 */

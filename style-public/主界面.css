@@ -186,34 +186,27 @@
 #layouts.layout__center {/* 新窗口打开时应取消内边距 */
     padding: 0;
 }
-:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
+:is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
     border-radius: var(--b3-border-radius);
-    background-color: var(--b3-theme-background);
-    & :is(.block__logo, .block__logoicon, .block__icon) {
-        color: var(--b3-theme-primary);
-        font-weight: bold;
-    }
-    & .block__icons {
-        border-bottom: none;
-    }
-    & .graph {
+    & > .layout-tab-container {
         background-color: var(--b3-theme-background);
-    }
-    .b3-text-field {
-        background-color: var(--b3-theme-background);
+        & :is(.block__logo, .block__logoicon, .block__icon) {
+            color: var(--b3-theme-primary);
+            font-weight: bold;
+        }
+        & .block__icons {
+            border-bottom: none;
+        }
+        & .graph {
+            background-color: var(--b3-theme-background);
+        }
+        .b3-text-field {
+            background-color: var(--b3-theme-background);
+        }
     }
 }
-.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex > .layout-tab-bar:not(.layout-tab-bar--readonly) {
-    border-top-left-radius: var(--b3-border-radius);
-    & + .layout-tab-bar.layout-tab-bar--readonly {
-        border-top-right-radius: var(--b3-border-radius);
-    }
-}
-.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .layout-tab-container {
-    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
-    & .block__icons {
-        background-color: var(--b3-theme-background);
-    }
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+    border-radius: var(--b3-border-radius);
 }
 .layout__empty {
     border-radius: var(--b3-border-radius);

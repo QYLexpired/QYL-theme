@@ -235,7 +235,7 @@
         left:auto;
         top:auto;
         animation: QYLliteconfirmenter 0.6s cubic-bezier(0.8, 0, 0.9, 1);
-        background-color: var(--b3-theme-background);
+        --b3-theme-surface: var(--b3-theme-background);
         & .b3-dialog__content {
             word-break: normal;
             padding-top: 0;

@@ -100,14 +100,18 @@
     }
 }
 
-#layouts .layout__center .layout-tab-container {
-    margin-top: 1.9px;
-    border-radius: var(--b3-border-radius) !important;
+.layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+    --QYL-vertical-border-none: none;
+    --QYL-flat-border-none: none;
+    & > .layout-tab-container {
+        margin-top: 1.9px;
+        border-radius: var(--b3-border-radius);
+        border: var(--QYL-vertical-fix-1, var(--QYL-flat-fusion-fix-1));/* 墨水屏修复 */
+    }
 }
 .layout__empty {
     height: calc( 100% - 36px );
     transform: translateY(36px);
-    border-radius: var(--b3-border-radius);
 }
 #dockLeft {
     padding-top: 38px;

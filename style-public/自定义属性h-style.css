@@ -16,7 +16,7 @@
 [custom-h-style="gold"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="gold"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
     --QYL-custom-h-style-fix: gold;
     &>[spellcheck]:not(:empty) {
-    background-image: url('../img/金箔.webp') !important;  
+    background-image: url('/appearance/themes/QYL-theme/img/金箔.webp') !important;  
     -webkit-background-clip: text !important; 
     background-clip: text !important; 
     color: transparent !important;
@@ -39,8 +39,8 @@
     width: 18px;
     height: 18px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/一级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/一级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/一级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/一级标题.svg') no-repeat center / contain;
     pointer-events: none;
     opacity: 0.3;
     }
@@ -54,8 +54,8 @@
     width: 16px;
     height: 16px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/二级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/二级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/二级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/二级标题.svg') no-repeat center / contain;
     opacity: 0.3;
     }
 }
@@ -68,8 +68,8 @@
     width: 14px;
     height: 14px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/三级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/三级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/三级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/三级标题.svg') no-repeat center / contain;
     opacity: 0.3;
     }
 }
@@ -82,8 +82,8 @@
     width: 14px;
     height: 14px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/四级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/四级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/四级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/四级标题.svg') no-repeat center / contain;
     opacity: 0.3;
     }
 }
@@ -96,8 +96,8 @@
     width: 12px;
     height: 12px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/五级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/五级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/五级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/五级标题.svg') no-repeat center / contain;
     opacity: 0.3;
     }
 }
@@ -110,8 +110,8 @@
     width: 10px;
     height: 10px;
     background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../img/六级标题.svg') no-repeat center / contain;
-    -webkit-mask: url('../img/六级标题.svg') no-repeat center / contain;
+    mask: url('/appearance/themes/QYL-theme/img/六级标题.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL-theme/img/六级标题.svg') no-repeat center / contain;
     opacity: 0.3;
     }
 }
