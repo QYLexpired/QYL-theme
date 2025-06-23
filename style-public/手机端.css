@@ -290,45 +290,6 @@
     color: var(--QYL-filetree-arrow);
 }
 
-/* 修改文字外观菜单 */
-.QYLmobile .keyboard__slash-item[data-type="style4"] .keyboard__slash-text {
-    position: relative;
-    color: rgba(255, 0, 0, 0);
-    text-shadow: none !important;
-    &::before {
-        content: "荧光";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        text-shadow: 0px 0px 0.15em var(--b3-theme-primary), 0px 0px 0.25em var(--b3-theme-primary) !important;
-        color: var(--QYL-fluorescence-font) !important;
-        filter: saturate(3.5);
-    }
-}
-.QYLmobile .keyboard__slash-item[data-type="style2"] .keyboard__slash-text {
-    position: relative;
-    color: rgba(255, 0, 0, 0);
-    -webkit-text-stroke: 0 !important;
-    -webkit-text-fill-color: unset !important;
-    &::before {
-        content: "金箔";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        font-weight: bold;
-        background-image: url('../img/金箔.png') !important;  
-        -webkit-background-clip: text !important; 
-        color: transparent !important;
-        background-size: contain !important;
-        caret-color: gold;
-        filter: saturate(2.5);
-    }
-}
-
 /* 隐藏不适配设置项 */
 .QYLmobile #QYLsettings-window {
     & .checkbox-label-pair {
