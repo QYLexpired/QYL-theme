@@ -58,6 +58,3 @@
         }
     }
 }
-#QYLSunset:not(.active) {
-    background-color: rgba(255, 166, 111, 0.4) !important;
-}
