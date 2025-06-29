@@ -1,0 +1,88 @@
+.layout-tab-bar {
+    background-color: transparent;
+    border-bottom: none;
+}
+[data-type="wnd"] .layout-tab-bar {
+    background-color: var(--b3-theme-background);
+}
+.layout-tab-bar .item {
+    min-height: 20px;
+    height: 28px;
+    margin: 3px;
+    transition: var(--b3-transition);
+    &:not(.item--readonly, .item.item--focus) {
+        border-radius: var(--b3-border-radius);
+        background-color: var(--QYL-tab-item);
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+            & .item__close {
+                opacity: 1;
+                margin-right: 0px;
+            }
+        }
+        & .item__close {
+            opacity: 0;
+            margin-right: -25px;
+            transition: var(--b3-transition);
+            &:hover svg {
+                background-color: var(--b3-theme-primary);
+                color: var(--b3-theme-on-primary);
+            }
+        }
+    }
+    &.item--focus {
+        border-radius: var(--b3-border-radius);
+        background-color: var(--QYL-tab-item-focus);
+        &::after {
+            display: none;
+        }
+        & .item__text {
+            font-weight: 600;
+            color: var(--b3-theme-on-surface);
+        }
+        &:hover {
+            & .item__close {
+                opacity: 1;
+                margin-right: 0px;
+            }
+        }
+        & .item__close {
+            opacity: 0;
+            margin-right: -25px;
+            transition: var(--b3-transition);
+            &:hover svg {
+                background-color: var(--b3-theme-primary);
+                color: var(--b3-theme-on-primary);
+            }
+        }
+    }
+}
+.layout-tab-bar .item + .item {
+    margin-left: 0px;
+}
+/* 钉住 */
+.layout-tab-bar .item--pin {
+    min-width: 20px;
+}
+.layout-tab-bar .item--pin .item__icon {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
+    margin-left: 25px;
+}
+.layout-tab-bar .item--pin+.item:not(.item--pin,.item--readonly) {
+    overflow: visible;
+    &::before {
+        content: "" !important;
+        display: unset !important;
+        position: absolute !important;
+        background-color: var(--QYL-tab-item-focus) !important;
+        border-radius: 99px !important;
+        width: 2px !important;
+        height: 20px !important;
+        top: 4.5px !important;
+        left: -15px !important;
+        transform: none !important;
+    }
+}

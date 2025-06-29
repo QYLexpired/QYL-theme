@@ -1,0 +1,16 @@
+/* 标题折叠 */
+.protyle-wysiwyg div[fold="1"][data-type=NodeHeading]::before {
+    display: none;
+}
+.protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    box-shadow: var(--b3-dialog-shadow);
+    margin-bottom: 15px;
+    max-width: fit-content;
+    padding: 4px 10px;
+    &>[spellcheck]:not(:empty) {
+        opacity: 0.5;
+    }
+}
+.protyle-title__input {
+    color: var(--b3-theme-primary);
+}

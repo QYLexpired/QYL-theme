@@ -1,0 +1,7 @@
+/* 块右上角按键栏 */
+.protyle-icon {
+    background-color: var(--b3-theme-primary);
+}
+.protyle-icon:hover {
+    background-color: color-mix(in srgb, var(--b3-theme-primary) 80%, black 20%);
+}

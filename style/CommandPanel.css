@@ -1,0 +1,21 @@
+/* 命令面板 */
+div[data-key="dialog-commandpanel"] {
+    & .search__header {
+        margin: 3px 6px 3px 6px;
+        border-radius: var(--b3-border-radius);
+        & .b3-text-field {
+            border-radius: var(--b3-border-radius);
+            background-color: var(--b3-theme-background);
+        }
+    }
+    & .search__list {
+        margin: 3px 6px 0 6px;
+        border-radius: var(--b3-border-radius);
+    }
+    & .b3-tab-bar {
+        width: 180px;
+    }
+    .search__tip {
+        border: none;
+    }
+}

@@ -1,0 +1,13 @@
+.b3-select {
+    box-shadow: 0 0 0 1px var(--QYL-tab-item-focus);
+    background-color: var(--QYL-tab-item);
+    &:is(:hover, :focus) {
+        box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%);
+        background-color: var(--QYL-tab-item);
+    }
+}
+[data-theme-mode="dark"] .b3-select {
+    &:is(:hover, :focus) {
+        background-color: var(--b3-theme-background);
+    }
+}

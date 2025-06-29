@@ -1,0 +1,72 @@
+/* 按钮 */
+.card__icon {
+    display: none;
+}
+.card__action .b3-button {
+    line-height: 30px;
+}
+.card__action {
+    & > div:first-child > .b3-button.b3-button--cancel:first-child {
+        border: none;
+    }
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
+    border-color: #d10e0e;
+    background-color: #d10e0e;
+    color: var(--b3-theme-on-primary) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
+    border-color: #ea601b;
+    background-color: #ea601b;
+    color: var(--b3-theme-on-primary) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
+    border-color: #188ec5;
+    background-color: #188ec5;
+    color: var(--b3-theme-on-primary) !important;
+}
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
+    border-color: #5ab203;
+    background-color: #5ab203;
+    color: var(--b3-theme-on-primary) !important;
+}
+[data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
+    border-color: #771414;
+    background-color: #771414;
+    color: var(--b3-theme-on-primary) !important;
+}
+[data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
+    border-color: #8d2f00;
+    background-color: #8d2f00;
+    color: var(--b3-theme-on-primary) !important;
+}
+[data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
+    border-color: #115a72;
+    background-color: #115a72;
+    color: var(--b3-theme-on-primary) !important;
+}
+[data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
+    border-color: #266e00;
+    background-color: #266e00;
+    color: var(--b3-theme-on-primary) !important;
+}
+/* 界面 */
+#cardPreview {
+    margin: 6px 6px 6px 0;
+    border-radius: var(--b3-border-radius);
+}
+[data-key="dialog-opencard"] .card__block {
+    margin: 6px 6px -1px 6px;
+    border-radius: var(--b3-border-radius);
+}
+.card__action {
+    padding: 6px;
+}
+.layout__center div[data-key="dialog-opencard"] .card__main {
+    background-color: var(--b3-theme-background) !important;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}
+.layout__center [data-key="dialog-opencard"] .card__block {
+    margin: 0 ;
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+}

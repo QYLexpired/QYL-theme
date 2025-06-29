@@ -1,0 +1,58 @@
+.config-bazaar__panel {
+    & .b3-card {
+        box-shadow: var(--b3-point-shadow);
+        background-color: rgba(255, 0, 0, 0);
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+            transform: scale(1.03) !important;
+            filter: saturate(2.5) brightness(1.1);
+        }
+        &.b3-card--current {
+            background-color: var(--QYL-tab-item-focus);
+        }
+    }
+}
+.config-bazaar__panel[data-type=downloaded] .config-bazaar__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+    margin: 16px;
+    & .b3-card {
+        display: grid;
+        grid-template-areas: "img info" "img buttons";
+        grid-template-columns: 90px 1fr;
+        margin: 0;
+        & > .b3-card__actions {
+            grid-area: buttons;
+            padding: 0 16px 14px;
+            align-self: flex-end
+        }
+        & :is(> [data-type=setting], > [data-type=setting].fn__none~[data-type=uninstall], > [data-type=open]:first-child) {
+            margin-left: auto;
+        }
+    }
+}
+#configBazaarDownloaded .b3-list--empty {
+    text-align: center;
+}
+#configBazaarReadme .block__icons {
+    border-bottom: none;
+}
+.config-bazaar__readme .item__main {
+    scroll-timeline-name: --QYL-bazaar-scroller;
+}
+.config-bazaar__readme .item__preview {
+    animation: QYLBazzarImgSroller  linear;
+    animation-timeline: --QYL-bazaar-scroller;
+    animation-range: 0 50cqh;
+    animation-duration: auto;
+}
+@keyframes QYLBazzarImgSroller {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(60%);
+      opacity: 0;
+    }
+}

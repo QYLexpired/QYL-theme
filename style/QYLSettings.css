@@ -1,0 +1,63 @@
+#QYLSettingsContent > div:first-child {
+    display: flex;
+    & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 2px 6px;
+        border-radius: var(--b3-border-radius);
+        font-size: 14.5px;
+        color: var(--b3-theme-on-surface-light);
+        font-weight: bold;
+        user-select: none;
+        cursor: pointer;
+        white-space: nowrap;
+        margin: 0 2px;
+        transition: 0.3s;
+        &.active {
+            background-color: var(--QYL-tab-item-focus);
+        }
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+        }
+    }
+}
+:is(#QYL-content-layout, #QYL-content-style, #QYL-content-function, #QYL-content-element, #QYL-content-color) {
+    padding: 8px 2px 0 2px;
+    & > :is(.QYL-layout-container, .QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
+        & > :is(.QYL-layout-option, .QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
+            margin-bottom: 6px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            & > button {
+                user-select: none;
+                width: 100%;
+                text-align: left;
+                border-radius: var(--b3-border-radius);
+                border: none;
+                font-size: 13px;
+                padding: 4px 12px;
+                background-color: var(--QYL-tab-item);
+                color: var(--b3-theme-on-surface-light);
+                font-weight: bold;
+                transition: 0.3s;
+                &.active {
+                    background-color: var(--b3-theme-primary-light);
+                    color: var(--b3-theme-on-primary);
+                    &:hover {
+                        background-color: var(--b3-theme-primary-light);
+                    }
+                }
+                &:hover {
+                    background-color: var(--QYL-tab-item-focus);
+                }
+            }
+        }
+    }
+}
+#QYLSunset:not(.active) {
+    background-color: rgba(255, 166, 111, 0.4) !important;
+}

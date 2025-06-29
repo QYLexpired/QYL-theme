@@ -1,0 +1,27 @@
+[data-name="account"] {
+    & .config__tab-container.config__tab-container--full {
+        margin: 50px 20px 50px 20px  !important;
+    }
+    & .config-account__center {
+        &:not(.config-account__center--text) {
+            border-radius: var(--b3-border-radius);
+            background-image: var(--QYL-account-background1);
+            margin: 20px 10px 4px 20px;
+        }
+        &.config-account__center--text {
+            border-radius: var(--b3-border-radius);
+            background-image: var(--QYL-account-background2);
+            margin: 20px 20px 4px 10px;
+            & .b3-form__icon-icon {
+                top: 8px;
+            }
+            & .b3-button.b3-button--text  {
+                top: 4.5px !important;
+                right: 3px !important;
+            }
+        }
+        & .b3-text-field.fn__block.b3-form__icon-input {
+            padding: 7px 10px;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+/* 编辑器工具栏 */
+.protyle-toolbar {
+    border-radius: 20px;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    & .protyle-toolbar__item {
+        margin: 3px 1px;
+        border-radius: 20px;
+        &:first-child {
+            margin-left: 5px;
+        }
+        &:last-child {
+            margin-right: 5px;
+        }
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+        }
+        & svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

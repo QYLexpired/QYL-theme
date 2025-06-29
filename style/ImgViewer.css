@@ -1,0 +1,41 @@
+/* 图片查看器 */
+.viewer-backdrop {
+    background-color: rgba(255, 0, 0, 0);
+    backdrop-filter: blur(1px) brightness(0.75);
+}
+.viewer-navbar {
+    background-color: var(--b3-theme-primary-lighter);
+}
+.viewer-list>.viewer-active, .viewer-list>.viewer-active:focus, .viewer-list>.viewer-active:hover, .viewer-list>li:hover {
+    outline: 2px solid var(--b3-theme-primary);
+    filter: brightness(1.5);
+}
+.viewer-list {
+    transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+}
+.viewer-list>li+li {
+    margin-left: 5px;
+}
+.viewer-toolbar>ul {
+    background-color: var(--b3-theme-primary);
+    border-radius: 16px;
+    padding: 4px 6px;
+    &>li {
+        background-color: transparent;
+        & svg {
+            color: var(--b3-theme-on-primary);
+        }
+        &:hover {
+            background-color: var(--b3-theme-on-primary);
+            & svg {
+                color: var(--b3-theme-primary);
+            }
+        }
+    }
+}
+.viewer-title {
+    background-color: var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
+    border-radius: 16px;
+    padding: 2px 8px;
+}

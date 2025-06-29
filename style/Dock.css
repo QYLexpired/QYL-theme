@@ -1,0 +1,118 @@
+/* 文档树 */
+.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+    content: "";
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 99px;
+    background-color: var(--b3-theme-on-surface-light);
+    position: absolute;
+    visibility: visible;
+    margin-left: 3px;
+}
+.file-tree .b3-list-item .b3-list-item__arrow {
+    color: var(--b3-theme-on-surface-light);
+}
+/* 文档树缩进线修复 */
+.file-tree>.fn__flex-1>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 22px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 40px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 58px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 76px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 94px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 112px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 130px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {/* 第八层 */
+    padding-left: unset !important;
+    padding-inline-start: 148px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 166px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 184px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 202px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 220px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 238px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 256px !important
+}
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+    padding-left: unset !important;
+    padding-inline-start: 274px !important
+}
+/* 侧栏 */
+.dock#dockLeft {
+    border: none;
+}
+.dock#dockRight {
+    border: none;
+}
+.dock#dockBottom {
+    border: none;
+      &:not(.fn__none) {
+        margin-top: -6px;
+      }
+}
+.dock__item {
+    color: var(--b3-toolbar-color);
+}
+#dockLeft.fn__none + #layouts {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.layout__dockb[style="height: 0px;"] {
+    opacity: 0;
+}
+.layout--float:is(.layout__dockl,.layout__dockr,.layout__dockb) {
+    box-shadow: var(--b3-point-shadow);
+}
+.layout__dockb.layout--float {
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: -25px;
+    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
+}
+.dock__item {
+    border-radius: 8px;
+}
+.dock__item--activefocus {
+    background-color: var(--QYL-tab-item-focus);
+    color: var(--b3-theme-on-surface);
+}
+.dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
+    background-color: var(--QYL-tab-item-focus);
+    color: var(--b3-theme-on-surface);
+}

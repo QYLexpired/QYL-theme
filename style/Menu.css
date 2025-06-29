@@ -1,0 +1,15 @@
+.b3-menu__item {
+    line-height: 24px;
+}
+/* 阴影 */
+[data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu,.b3-dialog__container, #message .b3-snackbar__content, .protyle-toolbar, .protyle-hint.hint--menu, .protyle-util, .protyle-hint) {
+    border: 1px solid var(--b3-theme-surface);
+}
+@media (min-width: 630px) {
+    [data-theme-mode="dark"] #status {
+        border: 1px solid var(--b3-theme-surface);
+    }
+}
+[data-theme-mode="dark"] :is(.tooltip) {
+    outline: 1px solid var(--b3-theme-surface);
+}

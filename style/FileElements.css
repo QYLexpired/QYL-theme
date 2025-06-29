@@ -1,0 +1,326 @@
+/* 引述块 */
+.protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+    background-color: var(--QYL-blockquote-background);
+    color: var(--QYL-blockquote);
+    padding-top: 22px;
+    overflow: hidden;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 100%;
+        height: 100%;
+        -webkit-mask-image: url('../img/quote.svg');
+        -webkit-mask-repeat: no-repeat;
+        mask-image: url('../img/quote.svg');
+        mask-repeat: no-repeat;
+        background-color: var(--QYL-blockquote-svg);
+        background-size: 20px 20px;
+    }
+    & :is(blockquote, .bq) {
+        padding: 4px 4px 4px 10px;
+        border-radius: 0;
+        border-left: 5px solid var(--QYL-blockquote-svg);
+        &::before {
+            display: none;
+        }
+    }
+}
+/* 分割线 */
+.protyle-wysiwyg [data-node-id].hr>div::after {
+    height: 2px;
+    background-color: var(--b3-theme-primary);
+}
+/* 块标 */
+.protyle-gutters { 
+    transition: 0.15s; 
+}
+.protyle-gutters button:hover svg {
+    color: var(--b3-theme-primary); 
+    transition: var(--b3-color-transition);
+}
+.protyle-title.protyle-wysiwyg--attr span.protyle-title__icon.ariaLabel:hover svg {
+    color: var(--b3-theme-primary); 
+    transition: var(--b3-color-transition);
+}
+/* 表格 */
+.b3-typography table td, .b3-typography table th, .protyle-wysiwyg table td, .protyle-wysiwyg table th, .b3-typography table tr:nth-child(even) td, .protyle-wysiwyg table tr:nth-child(even) td {
+    border: 1px solid var(--b3-theme-on-background);
+    background-color: rgba(255, 0, 0, 0);
+}
+/* 行级代码 */
+:is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
+    border-radius: 6px;
+    color: var(--QYL-inline-code);
+}
+/* 标签 */
+.protyle-wysiwyg [data-node-id] span[data-type~=tag]{
+    border-radius: var(--b3-border-radius);
+    border: none;
+    padding: 3px 5px;
+    font-size: 80%;
+    color: var(--b3-theme-on-primary);
+    background-color: var(--b3-theme-primary);
+    transition: var(--b3-transition);
+    margin-left: 2px;
+    margin-right: 2px;
+    &:hover {
+        background-color: var(--b3-theme-success);
+        opacity: 1 !important;
+    }
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+        top: -0.08em;
+        border-radius: 50%;
+        background-color: currentColor;
+        margin-right: 0.4em;
+        position: relative;
+        vertical-align: middle;
+    }
+}
+/* 键盘元素 */
+.b3-typography kbd, .b3-typography span[data-type~=kbd], .protyle-wysiwyg kbd, .protyle-wysiwyg span[data-type~=kbd] {
+    border-radius: 6px;
+    background-color: var(--b3-theme-background);
+    border: solid 1px var(--b3-theme-surface-lighter);
+    box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
+    position: relative;
+    bottom: 1px;
+}
+.fn__kbd {
+    border-radius: 6px;
+    background-color: var(--b3-theme-background);
+    border: solid 1px var(--b3-theme-surface-lighter);
+    box-shadow: inset 0 -2px 0 var(--b3-theme-surface-lighter);
+    position: relative;
+    bottom: -1px;
+}
+/* 嵌入块 */
+.protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
+    box-shadow: var(--b3-point-shadow);
+    border: 1px solid var(--QYL-tab-item);
+}
+/* 行级备注 */
+.b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
+    background-color: var(--QYL-tab-item-focus);
+    border-bottom: 2px solid var(--b3-theme-primary);
+    padding-bottom: 1.5px;
+}
+.tooltip.tooltip--memo {
+    font-size: 14px;
+    line-height: 20px;
+}
+/* 行内文字背景 */
+:is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-font-background"],
+:is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-card-error-background)"],
+:is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-card-warning-background)"],
+:is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-card-info-background)"],
+:is(span[data-type*="text"], span[data-type*="strong"])[style*="background-color: var(--b3-card-success-background)"] {
+    border-radius: 6px;
+    padding: 0.15em 0.2em;
+}
+/* 任务列表复选框样式 */
+.protyle-wysiwyg .li[data-subtype="t"] > .protyle-action--task svg {
+    opacity: 0;
+}
+.av__cell-uncheck svg {
+    opacity: 0;
+}
+.av__cell-check svg {
+    opacity: 0;
+}
+.protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
+    content: "" !important;
+    position: absolute;
+    width: 34px;
+    height: 25px;
+    left: 5px;
+    background-color: var(--b3-theme-primary);
+    -webkit-mask-image: url('../img/uncheck.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url('../img/uncheck.svg');
+    mask-repeat: no-repeat;
+}
+.protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
+    content: "" !important;
+    position: absolute;
+    width: 34px;
+    height: 25px;
+    left: 5px;
+    background-color: var(--b3-theme-primary);
+    -webkit-mask-image: url('../img/checked.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url('../img/checked.svg');
+    mask-repeat: no-repeat;
+}
+.protyle-wysiwyg .li[data-subtype=t].protyle-task--done > div[data-node-id].p {
+    color: var(--QYL-task-done);
+}
+/* 列表 */
+.protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
+    color: var(--b3-theme-primary);
+    & svg {
+        color: var(--b3-theme-primary);
+    }
+    &::after {
+        background-color: var(--QYL-tab-item-focus);
+        transform: scale(1.5);
+    }
+}
+.protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover {
+    color: var(--b3-theme-primary);
+}
+.protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover::after, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover::after, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover::after {
+    background-color: var(--QYL-tab-item-focus);
+}
+.protyle-wysiwyg [data-node-id].li[data-subtype="t"]:not([fold="1"])>.protyle-action::after {
+    background-color: transparent !important;
+}
+/* 标记 */
+.b3-typography mark, .b3-typography span[data-type~=mark], .protyle-wysiwyg mark, .protyle-wysiwyg span[data-type~=mark] {
+    background: linear-gradient(transparent 50%, var(--b3-protyle-inline-mark-background) 50%);
+}
+/* 下划线 */
+.b3-typography u, .b3-typography span[data-type~=u], .protyle-wysiwyg u, .protyle-wysiwyg span[data-type~=u] {
+    border-bottom: 1.5px solid;
+}
+/* 代码块 */
+:is(.b3-typography,.protyle-wysiwyg) :is(.code-block,code.hljs) {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 1em;
+        width: 12px;
+        height: 12px;
+        background: #ff5f56;
+        border-radius: 50%;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    }
+}
+.protyle-linenumber__rows>span::before {
+    color: var(--b3-theme-primary);
+}
+.b3-typography div.hljs, .protyle-wysiwyg div.hljs {
+    padding: 1.8em 1em 0.2em 1em;
+}
+.b3-typography .code-block:not(pre) .protyle-action, .protyle-wysiwyg .code-block:not(pre) .protyle-action {
+    top: 6px;
+    & .protyle-action__language {
+        margin-left: 5em;
+    }
+    &:hover {
+        color: var(--b3-theme-primary);
+        & .protyle-action__language {
+            color: var(--b3-theme-primary);
+            &:hover {
+                color: var(--b3-theme-primary);
+            }
+        }
+    }
+}
+/* 文档标签 */
+.protyle-background .b3-chips__doctag .b3-chip {
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    color: var(--b3-theme-on-surface);
+    font-weight: bold;
+    padding: 4px 12px;
+    align-self: center;
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+        border-color: var(--b3-theme-primary);
+        & .b3-chip__close {
+            opacity: 1;
+            margin-left: 12px;
+            margin-right: 0;
+            &:hover {
+                color: var(--b3-theme-error);
+            }
+        }
+    }
+    & .b3-chip__close {
+        width: 16px;
+        margin-right: -18px;
+        opacity: 0;
+    }
+}
+/* iframe */
+.b3-typography iframe, .protyle-wysiwyg iframe {
+    border-radius: var(--b3-border-radius);
+    border: none;
+    box-shadow: var(--b3-point-shadow);
+}
+.protyle-wysiwyg [data-node-id].iframe {
+    &:hover .protyle-action__drag {
+        opacity: 0.3;
+    }
+    & .protyle-action__drag {
+        display: inline-block;
+        opacity: 0;
+        height: 48px;
+        width: 48px;
+        background-color: var(--b3-theme-primary);
+        -webkit-mask-image: url(../img/resize.svg);
+        mask-image: url(../img/resize.svg);
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        right: -20px;
+        bottom: -20px;
+        &:hover {
+            opacity: 1;
+            box-shadow: none;
+            background-color: var(--b3-theme-primary);
+        }
+        &::after {
+            display: none;
+        }
+    }
+}
+:is(#preview, [data-key="dialog-exportimage"]) .protyle-wysiwyg [data-node-id].iframe .protyle-action__drag {
+    right: 0;
+    bottom: 0;
+}
+/* 视频块 */
+.b3-typography video, .protyle-wysiwyg video {
+    border-radius: var(--b3-border-radius);
+    border: none;
+    box-shadow: var(--b3-point-shadow);
+}
+/* 图片块 */
+.protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
+    box-shadow: none;
+    background: var(--b3-theme-primary);
+    width: 6px;
+    opacity: 0.3;
+    &:hover {
+        box-shadow: none;
+        background: var(--b3-theme-primary);
+        width: 6px;
+        opacity: 1;
+    }
+}
+.protyle-wysiwyg [data-node-id] .img--select {
+    filter: brightness(1);
+    & img {
+        box-shadow: var(--b3-point-shadow);
+    }
+}
+/* 代码块 */
+.b3-typography .code-block, .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
+    background-color: oklch(0.96 calc(0.035 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+}
+[data-theme-mode="dark"] .b3-typography .code-block, 
+[data-theme-mode="dark"] .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
+    background-color: oklch(0.3 calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+}

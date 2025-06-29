@@ -1,0 +1,69 @@
+.toolbar {
+    border: none;
+    transition: var(--b3-transition);
+    & > * {
+        transform: translateY(3px);
+    }
+}
+#windowControls {
+    margin-right: 1.5px;
+}
+#minWindow, #restoreWindow {
+    border-radius: var(--b3-border-radius);
+    padding: 7px;
+    margin: 4px;
+    width: 28px;
+    height: 26px;
+    & svg {
+        width: 13.5px;
+        height: 13.5px;
+    }
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+}
+#maxWindow {
+    border-radius: var(--b3-border-radius);
+    padding: 8px;
+    margin: 4px;
+    width: 28px;
+    height: 26px;
+    & svg {
+        width: 11px;
+        height: 11px;
+    }
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+}
+#closeWindow {
+    border-radius: var(--b3-border-radius);
+    padding: 8px;
+    margin: 6px;
+    width: 28px;
+    height: 26px;
+    & svg {
+        width: 11px !important;
+        height: 11px !important;
+    }
+}
+#barWorkspace {
+    background-color: var(--QYL-tab-item-focus);
+    border-radius: 8px;
+    transition: var(--b3-transition);
+    & .toolbar__svg {
+        display: none;
+    }
+    & .toolbar__text {
+        font-weight: bold;
+        color: var(--b3-theme-on-surface);
+    }
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        & .toolbar__text {
+            color: var(--b3-theme-on-primary);
+        }
+    }
+}

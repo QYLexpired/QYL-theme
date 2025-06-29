@@ -1,0 +1,21 @@
+.protyle-wysiwyg [data-node-id] span[data-type~=a] {
+    border-bottom: 0.5px solid;
+    &:hover {
+        color: var(--b3-theme-on-primary);
+        background-color: var(--b3-protyle-inline-link-color);
+    }
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext) {
+    border-bottom: 0.5px solid;
+    &:hover {
+        color: var(--b3-theme-on-primary);
+        background-color: var(--b3-protyle-inline-blockref-color);
+    }
+}
+.protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
+    border-bottom: 0.5px solid;
+    &:hover {
+        color: var(--b3-theme-on-primary);
+        background-color: var(--b3-protyle-inline-fileref-color);
+    }
+}

@@ -1,0 +1,41 @@
+/* 表情面板 */
+.emojis__item {
+    font-size: 32px;
+    padding: 0px;
+    height: 40px;
+    width: 40px;
+}
+.emojis__type {
+    font-size: 24px;
+    margin-top: 10px;
+    border-radius: var(--b3-border-radius);
+}
+.emojis__title {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+}
+[data-key="dialog-emojis"] .b3-dialog__container {
+    background-color: var(--b3-theme-background);
+}
+@keyframes QYLemojishimmer {
+    0% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.5);
+      }
+      100% {
+        filter: brightness(1);
+      }
+}
+.emojis__item--current {
+    background-color: rgba(255, 0, 0, 0);
+    filter: brightness(1.3) saturate(1.5);
+    animation: QYLemojishimmer 2s infinite !important;
+}
+.emojis__item:hover {
+    transition: var(--b3-transition);
+    background-color: rgba(255, 0, 0, 0);
+    transform: scale(1.3);
+    filter: brightness(1.3) saturate(1.5);
+}

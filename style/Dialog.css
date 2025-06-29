@@ -1,0 +1,11 @@
+.b3-dialog__close {
+    display: none;
+}
+.b3-dialog__header {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: none;
+}
+.b3-dialog__action {
+    border-top: none;
+}

@@ -1,0 +1,167 @@
+/* QYL色相选择器整体容器 */
+.QYLColorPickContainer {
+    padding: 15px;
+}
+.QYLColorPickSpectrum {
+    width: 100%;
+    height: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 0deg) 0%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 15deg) 4.17%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 30deg) 8.33%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 45deg) 12.5%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 60deg) 16.67%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 75deg) 20.83%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 90deg) 25%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 105deg) 29.17%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 120deg) 33.33%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 135deg) 37.5%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 150deg) 41.67%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 165deg) 45.83%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 180deg) 50%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 195deg) 54.17%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 210deg) 58.33%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 225deg) 62.5%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 240deg) 66.67%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 255deg) 70.83%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 270deg) 75%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 285deg) 79.17%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 300deg) 83.33%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 315deg) 87.5%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 330deg) 91.67%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 345deg) 95.83%, 
+        oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) 360deg) 100%);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+[data-theme-mode="dark"] .QYLColorPickSpectrum {
+    background: linear-gradient(to right, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 0deg) 0%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 15deg) 4.17%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 30deg) 8.33%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 45deg) 12.5%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 60deg) 16.67%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 75deg) 20.83%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 90deg) 25%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 105deg) 29.17%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 120deg) 33.33%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 135deg) 37.5%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 150deg) 41.67%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 165deg) 45.83%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 180deg) 50%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 195deg) 54.17%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 210deg) 58.33%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 225deg) 62.5%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 240deg) 66.67%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 255deg) 70.83%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 270deg) 75%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 285deg) 79.17%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 300deg) 83.33%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 315deg) 87.5%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 330deg) 91.67%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 345deg) 95.83%, 
+        oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) 360deg) 100%);
+}
+.QYLColorPickIndicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: grab;
+    transition: 0.1s;
+    border: 2px solid var(--b3-theme-background);
+    background: oklch(0.95 calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+}
+[data-theme-mode="dark"] .QYLColorPickIndicator {
+    border: 2px solid var(--b3-theme-on-surface-light);
+    background: oklch(0.45 calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+}
+.QYLSaturationSlider {
+    margin-top: 10px;
+    height: 15px;
+}
+.QYLSaturationInput {
+    width: 100%;
+    height: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(to right, 
+    oklch(0.95 0 var(--b3-theme-primary-main)) 0%, 
+    oklch(0.95 0.2 var(--b3-theme-primary-main)) 50%, 
+    oklch(0.95 0.35 var(--b3-theme-primary-main)) 100%);
+    -webkit-appearance: none;
+    appearance: none;
+}
+[data-theme-mode="dark"] .QYLSaturationInput {
+    background: linear-gradient(to right, 
+    oklch(0.45 0 var(--b3-theme-primary-main)) 0%, 
+    oklch(0.45 0.1 var(--b3-theme-primary-main)) 50%, 
+    oklch(0.45 0.35 var(--b3-theme-primary-main)) 100%);
+}
+/* Webkit浏览器滑块轨道样式 */
+.QYLSaturationInput::-webkit-slider-track {
+    background: linear-gradient(to right, 
+    oklch(0.95 0 var(--b3-theme-primary-main)) 0%, 
+    oklch(0.95 0.2 var(--b3-theme-primary-main)) 50%, 
+    oklch(0.95 0.35 var(--b3-theme-primary-main)) 100%);
+    border-radius: 12px;
+    height: 10px;
+}
+[data-theme-mode="dark"] .QYLSaturationInput::-webkit-slider-track {
+    background: linear-gradient(to right, 
+    oklch(0.45 0 var(--b3-theme-primary-main)) 0%, 
+    oklch(0.45 0.1 var(--b3-theme-primary-main)) 50%, 
+    oklch(0.45 0.35 var(--b3-theme-primary-main)) 100%);
+}
+/* Webkit浏览器滑块样式 */
+.QYLSaturationInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: oklch(0.95 calc(0.233 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    border: 2px solid var(--b3-theme-background);
+    cursor: grab;
+    box-sizing: content-box;
+}
+[data-theme-mode="dark"] .QYLSaturationInput::-webkit-slider-thumb {
+    background: oklch(0.55 calc(0.233 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    border: 2px solid var(--b3-theme-on-surface-light);
+}
+/* Firefox浏览器滑块轨道样式 */
+.QYLSaturationInput::-moz-range-track {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: oklch(0.95 calc(0.233 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    border: 2px solid var(--b3-theme-background);
+    cursor: grab;
+    box-sizing: content-box;
+}
+[data-theme-mode="dark"] .QYLSaturationInput::-moz-range-track {
+    background: oklch(0.55 calc(0.233 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    border: 2px solid var(--b3-theme-on-surface-light);
+}
+/* Firefox浏览器滑块样式 */
+.QYLSaturationInput::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--b3-theme-surface);
+    border: 2px solid var(--b3-theme-background);
+    cursor: grab;
+    box-sizing: content-box;
+}
+[data-theme-mode="dark"] .QYLSaturationInput::-moz-range-thumb {
+    background: oklch(0.55 calc(0.233 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    border: 2px solid var(--b3-theme-on-surface-light);
+}

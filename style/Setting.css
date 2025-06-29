@@ -1,0 +1,55 @@
+[data-key="dialog-setting"] {
+    & .config__tab-wrap {
+        height: calc(100% - 12px);
+        margin: 6px 6px 0px 0px;
+        border-radius: var(--b3-border-radius);
+    }
+    & .b3-tab-bar {
+        width: 150px;
+    }
+    & .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child,& :where(.b3-label,.config__ite)::first-line{
+        font-weight: bold;
+        color: var(--b3-theme-primary);
+    }
+    & .config__tab-wrap .config-query .fn__flex-1, & .b3-label__text, & .b3-label :where(a,code,.ft__on-surface):not(.b3-button--outline) {
+        font-weight: normal !important;
+        color: var(--b3-theme-on-surface) !important;
+    }
+}
+.config__panel>.b3-tab-bar .config__tab-hr {
+    opacity: 0;
+}   
+/* 多语言设置侧栏宽度调整 */
+[lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 160px;
+}
+[lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 160px;
+}
+[lang="ar_SA"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 160px;
+}
+[lang="de_DE"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 190px;
+}
+[lang="es_ES"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 240px;
+}
+[lang="fr_FR"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 170px;
+}
+[lang="he_IL"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 160px;
+}
+[lang="it_IT"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 210px;
+}
+[lang="ja_JP"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 180px;
+}
+[lang="pl_PL"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 240px;
+}
+[lang="ru_RU"] [data-key="dialog-setting"] .b3-tab-bar {
+    width: 220px;
+}
