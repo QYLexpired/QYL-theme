@@ -1,0 +1,80 @@
+[data-theme-mode="light"] {
+    --QYL-custom-primary-main: 13deg;
+
+    /* 主色 */
+    --b3-theme-primary: #ff005c;
+    --b3-theme-primary-light: rgba(255, 0, 140, 0.5);
+    --b3-theme-primary-lighter: rgba(255, 0, 140, 0.32);
+    --b3-theme-primary-lightest: rgba(255, 0, 140, 0.12);
+
+    /* 编辑器背景色 */
+    --b3-theme-background: #f5f7fa;
+    --b3-theme-background-light: #dfe0e3;
+
+    /* 面板背景色 */
+    --b3-theme-surface: #edf1f5;
+    --b3-theme-surface-light: rgba(237, 241, 245, 0.8);
+    --b3-theme-surface-lighter: #d9dfe6;
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #f5f7fa;
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
+    --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-background: #11253e;
+    --b3-theme-on-surface: #617691;
+    --b3-theme-on-surface-light: #617691;
+
+    /* 顶部工具栏 */
+    --b3-toolbar-blur-background: #f3f6f8;
+    --b3-toolbar-color: var(--b3-theme-on-surface-light);
+    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+
+    /* 滚动条 */
+    --b3-scroll-color: #e6ecf4;
+
+    /* 悬停 */
+    --b3-list-hover: rgba(255, 169, 229, 0.5);
+    --b3-list-icon-hover: rgba(255, 169, 229, 0.5);
+
+    /* 菜单 */
+    --b3-menu-background: var(--b3-theme-background);
+
+    /* 提示 */
+    --b3-tooltips-background: var(--b3-theme-background);
+    --b3-tooltips-color: var(--b3-theme-on-surface);
+    --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-shadow: var(--b3-point-shadow);
+
+    /* 遮罩 */
+    --b3-mask-background: rgba(220, 220, 220, 0.4);
+
+    /* 高亮 */
+    --b3-highlight-color: white;
+    --b3-highlight-background: rgb(255, 0, 238);
+    --b3-highlight-current-background: rgb(179, 0, 255);
+
+    /* switch */
+    --b3-switch-background: #d4dadf;
+
+    /* 行级代码背景色 */
+    --b3-protyle-code-background: var(--b3-theme-surface);
+
+    /* 页签 */
+    --QYL-tab-item: rgba(255, 169, 229, 0.2);
+    --QYL-tab-item-focus: rgba(255, 169, 229, 0.5);
+
+    /* 状态栏 */
+    --QYL-status-background: var(--b3-theme-background);
+
+    /* 毛玻璃 */
+    --QYL-Aero-background: rgba(245, 247, 250, 0.7);
+    --QYL-Aero-background-wrap: rgba(245, 247, 250, 0.7);
+
+    /* 引述块 */
+    --QYL-blockquote-background: #eaedf2;
+    --QYL-blockquote-svg: #c9ced4;
+    --QYL-blockquote: #7d8186;
+
+    /* 行级代码 */
+    --QYL-inline-code: var(--b3-theme-primary);
+}

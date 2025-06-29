@@ -1,0 +1,71 @@
+[data-theme-mode="dark"] {
+    --QYL-custom-primary-main: 83deg;
+
+    /* 主色 */
+    --b3-theme-primary: #cb9d36;
+    --b3-theme-primary-light: rgba(203, 156, 54, 0.5);
+    --b3-theme-primary-lighter: rgba(203, 156, 54, 0.3);
+    --b3-theme-primary-lightest: rgba(157, 132, 79, 0.12);
+
+    /* 编辑器背景色 */
+    --b3-theme-background: #2b2622;
+    --b3-theme-background-light: #4b433d;
+
+    /* 面板背景色 */
+    --b3-theme-surface: #221e1b;
+    --b3-theme-surface-light: rgba(34, 30, 27, 0.8);
+    --b3-theme-surface-lighter: #46403a;
+
+    /* 文字颜色 */
+    --b3-theme-on-primary: #fbfdff;
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
+    --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-background: #f2eedf;
+    --b3-theme-on-surface: #dbd6c5;
+    --b3-theme-on-surface-light: #cec7b2;
+
+    /* 顶部工具栏 */
+    --b3-toolbar-blur-background: #47403b;
+    --b3-toolbar-color: var(--b3-theme-on-background);
+    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+
+    /* 滚动条 */
+    --b3-scroll-color: #443d37;
+
+    /* 悬停 */
+    --b3-list-hover: rgba(122, 103, 62, 0.5);
+    --b3-list-icon-hover: rgba(122, 103, 62, 0.5);
+
+    /* 菜单 */
+    --b3-menu-background: var(--b3-theme-background);
+
+    /* 提示 */
+    --b3-tooltips-background: var(--b3-theme-background);
+    --b3-tooltips-color: var(--b3-theme-on-surface);
+    --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-shadow: var(--b3-point-shadow);
+
+    /* 高亮 */
+    --b3-highlight-color: white;
+    --b3-highlight-background: rgb(255, 0, 238);
+    --b3-highlight-current-background: rgb(179, 0, 255);
+
+    /* switch */
+    --b3-switch-background: rgb(104, 97, 91);
+
+    /* 行级代码背景色 */
+    --b3-protyle-code-background: var(--b3-theme-surface);
+
+    /* 页签 */
+    --QYL-tab-item: rgba(122, 103, 62, 0.2);
+    --QYL-tab-item-focus: rgba(122, 103, 62, 0.5);
+
+    /* 毛玻璃 */
+    --QYL-Aero-background: rgba(27, 25, 25, 0.7);
+    --QYL-Aero-background-wrap: rgba(52, 47, 43, 0.7);
+
+    /* 引述块 */
+    --QYL-blockquote-background: #423c37;
+    --QYL-blockquote-svg: #5d554e;
+    --QYL-blockquote: #a19385;
+}
