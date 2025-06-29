@@ -1,0 +1,69 @@
+class ListBullet {
+    constructor() {
+        this.allListItemNode = [];
+        this.eventHandlers = {};
+        this.init();
+    }
+    init() {
+        this.eventHandlers.selectionChange = () => {
+            this.updateListBullet();
+        };
+        document.addEventListener('selectionchange', this.eventHandlers.selectionChange);
+    }
+    updateListBullet() {
+        const selection = window.getSelection();
+        if (!selection.rangeCount) {
+            return;
+        }
+        const range = selection?.getRangeAt(0);
+        const startNode = range?.startContainer;
+        let currentNode = startNode;
+        this.allListItemNode.forEach((node) => {
+            node.classList.remove('en_item_bullet_actived');
+            node.classList.remove('en_item_bullet_line');
+        });
+        this.allListItemNode = [];
+        while (currentNode) {
+            if (currentNode?.dataset?.type === 'NodeListItem') {
+                this.allListItemNode.push(currentNode);
+            }
+            currentNode = currentNode.parentElement;
+        }
+        for (let i = 0; i < this.allListItemNode.length - 1; i++) {
+            const currentNode = this.allListItemNode[i];
+            const currentRect = currentNode.getBoundingClientRect();
+            const nextNode = this.allListItemNode[i + 1];
+            const nextRect = nextNode.getBoundingClientRect();
+            const height = currentRect.top - nextRect.top;
+            currentNode.style.setProperty('--en-bullet-line-height', `${height}px`);
+            currentNode.classList.add('en_item_bullet_line');
+        }
+        this.allListItemNode.forEach((node) => {
+            node.classList.add('en_item_bullet_actived');
+        });
+    }
+    destroy() {
+        if (this.eventHandlers.selectionChange) {
+            document.removeEventListener('selectionchange', this.eventHandlers.selectionChange);
+        }
+        this.allListItemNode.forEach((node) => {
+            if (node && node.classList) {
+                node.classList.remove('en_item_bullet_actived');
+                node.classList.remove('en_item_bullet_line');
+                node.style.removeProperty('--en-bullet-line-height');
+            }
+        });
+        const activeElements = document.querySelectorAll('.en_item_bullet_actived');
+        activeElements.forEach(element => {
+            element.classList.remove('en_item_bullet_actived');
+        });
+        const lineElements = document.querySelectorAll('.en_item_bullet_line');
+        lineElements.forEach(element => {
+            element.classList.remove('en_item_bullet_line');
+            element.style.removeProperty('--en-bullet-line-height');
+        });
+        this.allListItemNode = [];
+        this.eventHandlers = {};
+    }
+}
+export default ListBullet;
