@@ -7,8 +7,10 @@ export default {
     "Color": "Color",
     "SettingsContent": "Settings Content",
     "ColorfulHeading": "Colorful Heading & Outline",
+    "ColorfulTags": "Colorful Tags & Inline Code",
     "QYLAttrOn": "Enable QYL Custom Attribute Styles",
     "NineGridSquares": "Enable Image Nine Grid Layout",
+    "MultilevelList": "Multilevel List Numbers",
     "MarktoBlank": "Mark to Blank",
     "EditorFullWidth": "Editor Full Width",
     "FocusBlockHighlight": "Focus Block Highlight",
@@ -61,6 +63,8 @@ export default {
     "QYLLatte": "Latte",
     "QYLWinter": "Winter",
     "QYLXingqiong": "Starry Dome",
+    "QYLLightClassic": "Light Classic",
+    "QYLDarkClassic": "Dark Classic",
 
     "QYLcustomattr": "QYL-theme block settings",
     "group1": "Group 1",
@@ -178,4 +182,7 @@ export default {
 
     "fontfamily": "Font",
     "fontfamilydelete": "Recover all",
+
+    "FlatStyle": "Flat Style",
+    "InkMode": "Ink Screen Mode",
 }; 
