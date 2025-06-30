@@ -1,5 +1,1 @@
-import('./index.js')
-    .then(() => {
-    })
-    .catch(error => {
-    });
+import('./index.js');

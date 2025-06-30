@@ -1,24 +1,61 @@
-# QYL is a theme designed for Siyuan Note
-###### If you like this theme, please give it a ⭐ on [GitHub](https://github.com/QYLexpired/QYL-theme).
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 
-#### Introduction
-* **All text added by the theme is available in English**
-* **Light & Dark Modes Combined, 32 Theme Color Schemes**
-* **Custom Callout for Quote Blocks**: Enter text in the first block of a quote block (as the Callout title), then enable Callout styling via Block Menu > QYL-theme Block Settings > Quote Block Callout > Enable Callout Style.
-* **Focus Editing Mode**: Automatically keep the currently edited block vertically centered in the editor while blurring unedited blocks, can be toggled using the keyboard shortcut <kbd>ALT</kbd>​+<kbd>W</kbd>. Cannot be used simultaneously with Focus Block Highlight. (Performance impact may occur; disable if lag is detected)
-* **Hide Top Toolbar**: Hide the top toolbar. Hover the mouse at the top-left/right edges of the screen to reveal it. Triple-press Q to toggle. If the toolbar fails to appear in windowed mode, adjust window size to restore it.
-* **Vertical Tabs**: Arrange document tabs vertically (applies only to the first document pane to save space; split-screen panes retain horizontal tabs).
-* **Toolbar Fusion**: Integrate document tabs into the top toolbar area, avoiding button collisions. Incompatible with "Hide Top Toolbar" or "Vertical Tabs". (Minor lag may occur during left sidebar resizing due to document position calculations.)
-* **Acrylic Effect**: Apply frosted glass styling to global menus and windows. (Performance impact may occur; disable if lag is detected)
-* **Theme Animations**: Add lively and dynamic animations. (Performance impact may occur; disable if lag is detected)
-* **E Ink Mode**: Enable high-contrast border styling optimized for E Ink displays. Incompatible with "Acrylic Effect" or "Flat Style".
-* **Full-Width Editor**: Reduce left/right margins in the editing area.
-* **Hidden Highlights**: Hide highlighted text (revealed on hover) for spaced repetition review.
-* **List Guidelines**: Add hierarchical guidelines between parent/child list items.
-* **Focus Block Highlight**: Add shadow effects to the currently edited block.
-* **Flat Style**: Minimalist interface design.
-* **Immersive Toolbar**: Darken the top toolbar.
-* **QYL-theme Block Settings**: Add "QYL-theme Block Settings" to block/document menus for adjusting block-specific styles.
-* **Easter Egg**: Hyperlinks, block refs, and PDF annotation links using the 13th background color (last color) will display as button styles.
-* **Easter Egg**: Set a `link-style` custom attribute to `button` for a document/block to convert all hyperlinks, block refs, and PDF annotation links into button styles.
-* **Easter Egg**: Set a `background-style` custom attribute to `half-height` for a document/block to make all text backgrounds half-height.
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Color Options</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">The theme provides a custom theme color feature, allowing you to mix and match your favorite effects by selecting hue and saturation.<br>The theme comes with over 30 built-in day and night color schemes.<br>Note: Custom theme colors will not work on some mobile devices due to lack of OKLCH color space support.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Performance Notes</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is no impact on performance.</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Nine Grid Layout, Focus Editing Mode, Theme Animation, Frosted Glass Effect, Top Bar Fusion, QYL Custom Attribute Styles.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hide Top Bar</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, the top bar is hidden. Hover your mouse over either side of the top of the page to reveal it again.<br>If you cannot bring up the top bar in windowed mode, you can restore it by pressing <span data-type="kbd">Q three times in a row</span>.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Vertical Tabs</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, the document tabs in the upper left corner will be arranged vertically, allowing more tabs to be displayed.<br>You can customize the width of the vertical tab bar with a CSS snippet: <span data-type="code">:root { --QYL-vertical-width: 125px !important;/* Change this value, default is 125px */ }</span></p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Custom Callout for Quote Blocks</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires enabling QYL custom attribute styles.<br>Enable via Block Menu - QYL Custom Attribute - Quote Block Callout - Enable Callout Style. The first child block in the quote block will be used as the title.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Focus Editing Mode</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Keeps the currently edited block vertically centered in the editor and blurs unedited blocks to highlight the current one.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Fixed Toolbar</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">The text toolbar will be fixed to the top, left, bottom, or right of the editor.<br>Right-click the toolbar to switch its position.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hollow Mark</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Marked text will appear hollowed out, and the text will be restored on mouse hover.</p>
+</details>
+
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">The theme also supports the following features</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Top bar fusion, contrasting color layout, full-height interface, hiding tabs and breadcrumbs, animation effects, frosted glass effect, colorful file tree, grid search list, full-width editor, focus block highlight, list bullet lines, a large number of custom attribute styles, etc.</p>
+</details>
+
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Acknowledgements</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">A lot of marketplace themes and other content creators were referenced when making the QYL theme. Thanks to all, including but not limited to (in no particular order):</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
+• <a href="https://github.com/royc01/notion-theme">Savor Theme</a>: List bullet lines, top bar fusion, style, multi-column slash menu, method to connect to SiYuan API<br>
+• <a href="https://github.com/mustakshif/Asri">Asri Theme</a>: File tree indent lines, style, multi-line search list, status bar avoidance, contrasting color layout, full-height interface<br>
+• <a href="https://github.com/chenshinshi/OneNote">Onenote Theme</a>: Colorful file tree<br>
+• <a href="https://github.com/StarDustSheep/pink-room">pink-room Theme</a>: Style<br>
+• <a href="https://github.com/TCOTC/Whisper">Whisper Theme</a>, <a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>: Mobile detection method, image nine-grid layout<br>
+• <a href="https://ld246.com/member/wilsons">wilsons</a>: Floating status bar<br>
+• <a href="https://github.com/svchord/Rem-Craft">Rem-Craft Theme</a>: Flat style<br>
+</p>
