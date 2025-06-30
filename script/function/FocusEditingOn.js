@@ -9,10 +9,12 @@ export function initFocusEditingOn() {
         :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg > [data-node-id]:not(:has(.QYLFocusBlock)):not(.av) {
             opacity: 0.3;
             filter: blur(0.5px);
+            transition: 0.3s;
         }
         :is(.layout__center, .QYLmobile #editor) .protyle-wysiwyg [data-node-id].QYLFocusBlock {
             opacity: 1 !important;
             filter: blur(0px) !important;
+            transition: 0.3s;
             & [data-node-id] {
                 opacity: 1 !important;
                 filter: blur(0px) !important;
@@ -21,12 +23,15 @@ export function initFocusEditingOn() {
         .card__main .protyle-wysiwyg > [data-node-id]:not(:has(.QYLFocusBlock)):not(.av) {
             opacity: 1 !important;
             filter: blur(0px) !important;
+            transition: 0.3s;
         }
         [data-node-id].QYLFocusBlock {
             box-shadow: none !important;
+            transition: 0.3s;
         }
         [data-node-id].QYLFocusBlock:hover {
             box-shadow: none !important;
+            transition: 0.3s;
         }
         [data-node-id].QYLFocusBlock::before {
             content: "";
@@ -38,6 +43,7 @@ export function initFocusEditingOn() {
             left: -7px;
             background-color: var(--b3-theme-primary);
             animation: QYLFocusEditing 0.5s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.3s;
         }
         @keyframes QYLFocusEditing {
             0% {
