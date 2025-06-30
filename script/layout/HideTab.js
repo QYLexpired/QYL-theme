@@ -1,4 +1,5 @@
 export function initHideTab() {
+    if (document.body.classList.contains('QYLmobile')) return;
     const style = document.createElement('style');
     style.id = 'QYL-HideTab';
     style.textContent = `

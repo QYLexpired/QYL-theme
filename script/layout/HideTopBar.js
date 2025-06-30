@@ -2,6 +2,12 @@ let isTopBarHidden = false;
 let qKeyPressCount = 0;
 let qKeyPressTimer = null;
 export function initHideTopBar() {
+    if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        return;
+    }
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     const style = document.createElement('style');
     style.id = 'QYL-HideTopBar';
     style.textContent = `

@@ -3,10 +3,14 @@ let isEnabled = false;
 let styleElement = null;
 export function initVerticalTab() {
     if (isEnabled) return;
+    if (document.body.classList.contains('QYLmobile')) return;
     styleElement = document.createElement('style');
     styleElement.id = 'QYL-VerticalTab';
     styleElement.textContent = `
         :root {
+            --QYL-wnd-border-none: none;/* 适配扁平化、墨水屏 */
+            --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);/* 适配扁平化 */
+            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);/* 适配墨水屏 */
             --QYL-vertical-width: 125px;
         }
         .layout__center:not(#layouts) .QYLWndTopLeft {
@@ -21,6 +25,7 @@ export function initVerticalTab() {
                 flex-direction: column;
                 border-radius: var(--b3-border-radius);
                 overflow: hidden;
+                border: var(--QYL-wnd-layout-tab-border-flat, var(--QYL-wnd-layout-tab-border-ink));
                 & > .layout-tab-bar:not(.layout-tab-bar--readonly) {
                     flex: 1;
                     flex-direction: column;

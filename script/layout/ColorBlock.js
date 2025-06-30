@@ -1,4 +1,5 @@
 export function initColorBlock() {
+    if (document.body.classList.contains('QYLmobile')) return;
     
     const style = document.createElement('style');
     style.id = 'QYL-ColorBlock';
