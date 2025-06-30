@@ -12,7 +12,7 @@ const cssFiles = [
     "style/CustomAttr/callout.css"
 ];
 function getThemePath() {
-    return '/appearance/themes/QYL-theme';
+    return '/appearance/themes/QYL';
 }
 async function loadQYLcustomattrCSS() {
     try {
