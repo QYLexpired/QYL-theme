@@ -6,7 +6,7 @@ export function initYunwu() {
     link.id = 'QYL-Yunwu';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme/style/Color/Yunwu.css';
+    link.href = '/appearance/themes/QYL/style/Color/Yunwu.css';
     document.head.appendChild(link);
 }
 export function removeYunwu() {

@@ -6,7 +6,7 @@ export function initCoral() {
     link.id = 'QYL-Coral';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Coral.css';
+    link.href = '/appearance/themes/QYL//style/Color/Coral.css';
     document.head.appendChild(link);
 }
 export function removeCoral() {

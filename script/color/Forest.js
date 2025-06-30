@@ -6,7 +6,7 @@ export function initForest() {
     link.id = 'QYL-Forest';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Forest.css';
+    link.href = '/appearance/themes/QYL//style/Color/Forest.css';
     document.head.appendChild(link);
 }
 export function removeForest() {

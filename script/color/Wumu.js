@@ -6,7 +6,7 @@ export function initWumu() {
     link.id = 'QYL-Wumu';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Wumu.css';
+    link.href = '/appearance/themes/QYL//style/Color/Wumu.css';
     document.head.appendChild(link);
 }
 export function removeWumu() {

@@ -6,7 +6,7 @@ export function initYunyan() {
     link.id = 'QYL-Yunyan';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Yunyan.css';
+    link.href = '/appearance/themes/QYL//style/Color/Yunyan.css';
     document.head.appendChild(link);
 }
 export function removeYunyan() {

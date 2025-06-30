@@ -6,7 +6,7 @@ export function initXingqiong() {
     link.id = 'QYL-Xingqiong';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Xingqiong.css';
+    link.href = '/appearance/themes/QYL//style/Color/Xingqiong.css';
     document.head.appendChild(link);
 }
 export function removeXingqiong() {

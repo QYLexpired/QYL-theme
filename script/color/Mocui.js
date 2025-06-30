@@ -6,7 +6,7 @@ export function initMocui() {
     link.id = 'QYL-Mocui';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Mocui.css';
+    link.href = '/appearance/themes/QYL//style/Color/Mocui.css';
     document.head.appendChild(link);
 }
 export function removeMocui() {

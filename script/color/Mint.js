@@ -6,7 +6,7 @@ export function initMint() {
     link.id = 'QYL-Mint';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL-theme//style/Color/Mint.css';
+    link.href = '/appearance/themes/QYL//style/Color/Mint.css';
     document.head.appendChild(link);
 }
 export function removeMint() {
