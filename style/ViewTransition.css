@@ -1,0 +1,33 @@
+@keyframes QYL-theme-circle-wipe-dark {
+    from {
+        clip-path: circle(0% at var(--circle-x, 50%) var(--circle-y, 50%));
+        filter: saturate(2.5) brightness(1.3);
+    }
+    to {
+        clip-path: circle(150% at 50% 50%);
+        opacity: 1;
+    }
+}
+@keyframes QYL-theme-circle-wipe-light {
+    from {
+        clip-path: circle(0% at var(--circle-x, 50%) var(--circle-y, 50%));
+        filter: saturate(3) brightness(0.8);
+    }
+    to {
+        clip-path: circle(150% at 50% 50%);
+        opacity: 1;
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.9 , 1);
+    animation-fill-mode: both;
+}
+[data-theme-mode="dark"]::view-transition-new(root) {
+    animation-name: QYL-theme-circle-wipe-dark;
+}
+[data-theme-mode="light"]::view-transition-new(root) {
+    animation-name: QYL-theme-circle-wipe-light;
+}

@@ -1,5 +1,13 @@
+#QYLSettingsWindow {
+    padding-bottom: 0;
+}
+#QYLSettingsContent {
+    padding: 0 8px 2px 8px;
+}
 #QYLSettingsContent > div:first-child {
     display: flex;
+    border-bottom: 2px solid var(--QYL-tab-item-focus);
+    padding-bottom: 8px;
     & > div {
         display: flex;
         flex-direction: column;
@@ -29,9 +37,6 @@
     & > :is(.QYL-layout-container, .QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
         & > :is(.QYL-layout-option, .QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
             margin-bottom: 6px;
-            &:last-child {
-                margin-bottom: 0;
-            }
             & > button {
                 user-select: none;
                 width: 100%;
@@ -55,6 +60,19 @@
                     background-color: var(--QYL-tab-item-focus);
                 }
             }
+        }
+    }
+}
+#QYL-content-color .QYL-color-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    & .QYL-color-option {
+        &:first-child {
+            grid-column: span 2;
+        }
+        & button {
+            height: 100%;
         }
     }
 }

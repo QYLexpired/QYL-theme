@@ -41,7 +41,7 @@
 .config-bazaar__readme .item__main {
     scroll-timeline-name: --QYL-bazaar-scroller;
 }
-.config-bazaar__readme .item__preview {
+.config-bazaar__readme .item__preview:not(.item__preview--fullscreen) {
     animation: QYLBazzarImgSroller  linear;
     animation-timeline: --QYL-bazaar-scroller;
     animation-range: 0 50cqh;
