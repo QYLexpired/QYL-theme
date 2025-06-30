@@ -1,137 +1,140 @@
 import FocusBlock from './FocusBlock.js';
+
+let observerMap = new WeakMap();
+let protyleContentObserver = null;
 let focusBlockInstance = null;
-let cachedProtyleContent = null;
-let scrollDebounceTimer = null;
-function initFocusEditing() {
-    if (!focusBlockInstance) {
-        focusBlockInstance = new FocusBlock();
-    }
-    cachedProtyleContent = findProtyleContent(document.body);
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
+
+function setupProtyleContent(container) {
+    let currentFocusBlock = null;
+    const innerObserver = new MutationObserver(mutations => {
+        let focusChanged = false;
+        mutations.forEach(mutation => {
             if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                const target = mutation.target;
-                if (target.classList.contains('QYLFocusBlock')) {
-                    debounceScrollToCenter(target);
-                }
+                const wasFocus = mutation.oldValue?.includes('QYLFocusBlock') || false;
+                const isFocus = mutation.target.classList.contains('QYLFocusBlock');
+                if (wasFocus !== isFocus) focusChanged = true;
             }
         });
-    });
-    const wysiwygContainer = document.querySelector('.protyle-wysiwyg');
-    if (wysiwygContainer) {
-        observer.observe(wysiwygContainer, {
-            attributes: true,
-            subtree: true,
-            attributeFilter: ['class']
-        });
-    } else {
-        observer.observe(document.body, {
-            attributes: true,
-            subtree: true,
-            attributeFilter: ['class']
-        });
-    }
-    window.focusEditingObserver = observer;
-    const removeObserver = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            mutation.removedNodes.forEach((node) => {
-                if (node.nodeType === Node.ELEMENT_NODE) {
-                    const focusBlocks = node.querySelectorAll('.QYLFocusBlock');
-                    focusBlocks.forEach(block => {
-                        handleFocusBlockRemoved(block);
-                    });
+        if (focusChanged) {
+            const newFocus = focusBlockInstance?.currentFocusElement;
+            if (newFocus && container.contains(newFocus)) {
+                if (newFocus !== currentFocusBlock) {
+                    currentFocusBlock = newFocus;
+                    scrollFocusBlockToCenter(container, currentFocusBlock);
                 }
-            });
-        });
-    });
-    if (wysiwygContainer) {
-        removeObserver.observe(wysiwygContainer, {
-            childList: true,
-            subtree: true
-        });
-    } else {
-        removeObserver.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    }
-    window.focusEditingRemoveObserver = removeObserver;
-}
-function debounceScrollToCenter(focusBlock) {
-    if (scrollDebounceTimer) {
-        clearTimeout(scrollDebounceTimer);
-    }
-    scrollDebounceTimer = setTimeout(() => {
-        adjustScrollToCenter(focusBlock);
-    }, 50);
-}
-function adjustScrollToCenter(focusBlock) {
-    let protyleContent = cachedProtyleContent;
-    if (!protyleContent || !document.contains(protyleContent)) {
-        protyleContent = findProtyleContent(focusBlock);
-        cachedProtyleContent = protyleContent;
-    }
-    if (!protyleContent) {
-        return;
-    }
-    const focusBlockRect = focusBlock.getBoundingClientRect();
-    const containerRect = protyleContent.getBoundingClientRect();
-    const focusBlockTop = focusBlockRect.top - containerRect.top;
-    const focusBlockHeight = focusBlockRect.height;
-    const containerHeight = containerRect.height;
-    const idealScrollTop = protyleContent.scrollTop + focusBlockTop - (containerHeight / 2) + (focusBlockHeight / 2);
-    smoothScrollTo(protyleContent, idealScrollTop);
-}
-function findProtyleContent(element) {
-    let current = element;
-    while (current && current !== document.body) {
-        if (current.classList.contains('protyle-content')) {
-            return current;
+            } else {
+                currentFocusBlock = null;
+            }
         }
-        current = current.parentElement;
+    });
+    observerMap.set(container, {
+        innerObserver
+    });
+    innerObserver.observe(container, {
+        attributes: true,
+        attributeOldValue: true,
+        subtree: true,
+        attributeFilter: ['class']
+    });
+    const initialFocus = focusBlockInstance?.currentFocusElement;
+    if (initialFocus && container.contains(initialFocus)) {
+        currentFocusBlock = initialFocus;
+        scrollFocusBlockToCenter(container, currentFocusBlock);
     }
-    return null;
 }
-function smoothScrollTo(element, targetScrollTop) {
-    const startScrollTop = element.scrollTop;
-    const distance = targetScrollTop - startScrollTop;
-    if (Math.abs(distance) < 10) {
-        element.scrollTop = targetScrollTop;
-        return;
+
+function cleanupProtyleContent(container) {
+    const data = observerMap.get(container);
+    if (data) {
+        data.innerObserver.disconnect();
+        observerMap.delete(container);
     }
-    const duration = 300;
+}
+
+function scrollFocusBlockToCenter(container, element) {
+    const containerRect = container.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
+    const relativeTop = elementRect.top - containerRect.top;
+    const visiblePosition = relativeTop + container.scrollTop;
+    const targetScroll = visiblePosition - container.clientHeight / 2 + elementRect.height / 2;
+
+    const startScroll = container.scrollTop;
+    const distance = targetScroll - startScroll;
+    if (Math.abs(distance) < 0.5) return; 
+
+    const duration = 600; 
     const startTime = performance.now();
-    function animate(currentTime) {
-        const elapsed = currentTime - startTime;
+
+    
+    function easeInOutCubic(t) {
+        return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function animate(now) {
+        const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-        const currentScrollTop = startScrollTop + (distance * easeOutCubic);
-        element.scrollTop = currentScrollTop;
+        const eased = easeInOutCubic(progress);
+        container.scrollTop = startScroll + distance * eased;
         if (progress < 1) {
             requestAnimationFrame(animate);
         }
     }
     requestAnimationFrame(animate);
 }
-function handleFocusBlockRemoved(focusBlock) {
+
+function initFocusEditing() {
+    if (!focusBlockInstance) {
+        focusBlockInstance = new FocusBlock();
+    }
+    if (!protyleContentObserver) {
+        protyleContentObserver = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (node.matches && node.matches('.protyle-content')) {
+                            setupProtyleContent(node);
+                        }
+                        if (node.querySelectorAll) {
+                            node.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
+                        }
+                    }
+                });
+                mutation.removedNodes.forEach(node => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (node.matches && node.matches('.protyle-content')) {
+                            cleanupProtyleContent(node);
+                        }
+                        if (node.querySelectorAll) {
+                            node.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
+                        }
+                    }
+                });
+            });
+        });
+        const targetNode = document.querySelector('.layout__center') || document.querySelector('#editor') || document.body;
+        if (targetNode) {
+            protyleContentObserver.observe(targetNode, {
+                childList: true,
+                subtree: true
+            });
+            targetNode.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
+        }
+    }
 }
+
 function removeFocusEditing() {
-    if (window.focusEditingObserver) {
-        window.focusEditingObserver.disconnect();
-        delete window.focusEditingObserver;
+    if (protyleContentObserver) {
+        document.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
+        observerMap = new WeakMap();
+        protyleContentObserver.disconnect();
+        protyleContentObserver = null;
     }
-    if (window.focusEditingRemoveObserver) {
-        window.focusEditingRemoveObserver.disconnect();
-        delete window.focusEditingRemoveObserver;
-    }
-    if (scrollDebounceTimer) {
-        clearTimeout(scrollDebounceTimer);
-        scrollDebounceTimer = null;
-    }
-    cachedProtyleContent = null;
     if (focusBlockInstance) {
         focusBlockInstance.destroy();
         focusBlockInstance = null;
     }
 }
-export { initFocusEditing, removeFocusEditing }; 
+
+export { initFocusEditing, removeFocusEditing };

@@ -6,6 +6,8 @@ const debounceDelay = 1000;
 let cachedLayoutCenter = null;
 let cachedToolbar = null;
 let cachedWindows = null;
+let isInitializing = false;
+
 function getLayoutCenter() {
     if (!cachedLayoutCenter) {
         cachedLayoutCenter = document.querySelector('.layout__center');
@@ -34,7 +36,28 @@ function clearCache() {
     cachedWindows = null;
 }
 export function initFusionTop() {
-    if (isEnabled) return;
+    if (isEnabled || isInitializing) return;
+    
+    isInitializing = true;
+    
+    // 先清理可能存在的残留状态
+    if (debounceTimer) {
+        clearTimeout(debounceTimer);
+        debounceTimer = null;
+    }
+    
+    if (initCheckTimer) {
+        clearTimeout(initCheckTimer);
+        initCheckTimer = null;
+    }
+    
+    if (layoutObserver) {
+        layoutObserver.disconnect();
+        layoutObserver = null;
+    }
+    
+    clearCache();
+    
     const overlapThreshold = 15;
     function checkOverlap() {
         const layoutCenter = getLayoutCenter();
@@ -116,11 +139,16 @@ export function initFusionTop() {
         checkOverlap();
         observeLayoutCenter();
         isEnabled = true;
+        isInitializing = false;
     }
     setTimeout(checkDOMReady, 500);
 }
 export function removeFusionTop() {
-    if (!isEnabled) return;
+    if (!isEnabled && !isInitializing) return;
+    
+    isEnabled = false;
+    isInitializing = false;
+    
     if (debounceTimer) {
         clearTimeout(debounceTimer);
         debounceTimer = null;
@@ -138,9 +166,7 @@ export function removeFusionTop() {
     fusionTopElements.forEach((element) => {
         element.classList.remove('QYLFusionTop');
     });
-    isEnabled = false;
 }
 export function isFusionTopEnabled() {
     return isEnabled;
-}
-initFusionTop(); 
+} 
