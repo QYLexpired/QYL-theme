@@ -4,9 +4,10 @@ import { toggleButtonState, getButtonState, setButtonState } from '../basic/Stor
 import { getStorageItem } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
-// 注册light模式下的颜色互斥组
+
 const lightColorGroup = [
     'CustomColorPick',
+    'QYLLightClassic',
     'QYLSunset',
     'QYLForest',
     'QYLOcean',
@@ -28,9 +29,10 @@ const lightColorGroup = [
     'QYLAmber',
     'QYLBiwan'
 ];
-// 注册dark模式下的颜色互斥组
+
 const darkColorGroup = [
     'CustomColorPick',
+    'QYLDarkClassic',
     'QYLBurgundy',
     'QYLXuanqing',
     'QYLMocui',
@@ -43,7 +45,7 @@ const darkColorGroup = [
     'QYLWinter',
     'QYLXingqiong'
 ];
-// 注册互斥组
+
 excluSetting.registerGroup('lightColors', lightColorGroup);
 excluSetting.registerGroup('darkColors', darkColorGroup);
 let colorModule1 = null;
@@ -78,6 +80,8 @@ let steamModule = null;
 let latteModule = null;
 let winterModule = null;
 let xingqiongModule = null;
+let lightClassicModule = null;
+let darkClassicModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -426,6 +430,36 @@ async function loadXingqiongModule() {
         }
     }
     return xingqiongModule;
+}
+async function loadLightClassicModule() {
+    if (!lightClassicModule) {
+        try {
+            lightClassicModule = await import('../color/LightClassic.js');
+        } catch (error) {
+        }
+    }
+    return lightClassicModule;
+}
+async function loadDarkClassicModule() {
+    if (!darkClassicModule) {
+        try {
+            darkClassicModule = await import('../color/DarkClassic.js');
+        } catch (error) {
+        }
+    }
+    return darkClassicModule;
+}
+async function enableLightClassic() {
+    const module = await loadLightClassicModule();
+    if (module && module.initLightClassic) {
+        module.initLightClassic();
+    }
+}
+async function disableLightClassic() {
+    const module = await loadLightClassicModule();
+    if (module && module.removeLightClassic) {
+        module.removeLightClassic();
+    }
 }
 async function enableSunset() {
     const module = await loadSunsetModule();
@@ -799,99 +833,116 @@ async function disableXingqiong() {
         module.removeXingqiong();
     }
 }
-// 通用的颜色按钮处理函数
+async function enableDarkClassic() {
+    const module = await loadDarkClassicModule();
+    if (module && module.initDarkClassic) {
+        module.initDarkClassic();
+    }
+}
+async function disableDarkClassic() {
+    const module = await loadDarkClassicModule();
+    if (module && module.removeDarkClassic) {
+        module.removeDarkClassic();
+    }
+}
+
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
-    const currentMode = ThemeMode.getThemeMode();
-    const groupId = currentMode === 'light' ? 'lightColors' : 'darkColors';
-    const newState = await toggleButtonState(buttonId);
-    const button = document.getElementById(buttonId);
-    button.classList.toggle('active', newState);
-    if (newState) {
-        // 启用当前颜色，禁用其他颜色
-        await excluSetting.handleExclusion(groupId, buttonId, 
-            async (id, state) => {
-                await setButtonState(id, state);
-                const btn = document.getElementById(id);
-                if (btn) btn.classList.toggle('active', state);
-            },
-            async (id) => {
-                // 根据ID调用对应的禁用函数
-                if (id === 'CustomColorPick') {
-                    await destroyColorPicker();
-                } else if (id === 'QYLSunset') {
-                    await disableSunset();
-                } else if (id === 'QYLForest') {
-                    await disableForest();
-                } else if (id === 'QYLOcean') {
-                    await disableOcean();
-                } else if (id === 'QYLSugar') {
-                    await disableSugar();
-                } else if (id === 'QYLLavender') {
-                    await disableLavender();
-                } else if (id === 'QYLYunwu') {
-                    await disableYunwu();
-                } else if (id === 'QYLYunyan') {
-                    await disableYunyan();
-                } else if (id === 'QYLYuncang') {
-                    await disableYuncang();
-                } else if (id === 'QYLShuanghe') {
-                    await disableShuanghe();
-                } else if (id === 'QYLLime') {
-                    await disableLime();
-                } else if (id === 'QYLHuique') {
-                    await disableHuique();
-                } else if (id === 'QYLAutumn') {
-                    await disableAutumn();
-                } else if (id === 'QYLMemory') {
-                    await disableMemory();
-                } else if (id === 'QYLLake') {
-                    await disableLake();
-                } else if (id === 'QYLXiangxuelan') {
-                    await disableXiangxuelan();
-                } else if (id === 'QYLIvory') {
-                    await disableIvory();
-                } else if (id === 'QYLCoral') {
-                    await disableCoral();
-                } else if (id === 'QYLMint') {
-                    await disableMint();
-                } else if (id === 'QYLAmber') {
-                    await disableAmber();
-                } else if (id === 'QYLBiwan') {
-                    await disableBiwan();
-                } else if (id === 'QYLBurgundy') {
-                    await disableBurgundy();
-                } else if (id === 'QYLXuanqing') {
-                    await disableXuanqing();
-                } else if (id === 'QYLMocui') {
-                    await disableMocui();
-                } else if (id === 'QYLHuimu') {
-                    await disableHuimu();
-                } else if (id === 'QYLWumu') {
-                    await disableWumu();
-                } else if (id === 'QYLMidnight') {
-                    await disableMidnight();
-                } else if (id === 'QYLCangming') {
-                    await disableCangming();
-                } else if (id === 'QYLSteam') {
-                    await disableSteam();
-                } else if (id === 'QYLLatte') {
-                    await disableLatte();
-                } else if (id === 'QYLWinter') {
-                    await disableWinter();
-                } else if (id === 'QYLXingqiong') {
-                    await disableXingqiong();
-                }
+    
+    const useViewTransition = !!(document.startViewTransition);
+    const doSwitch = async () => {
+        const currentMode = ThemeMode.getThemeMode();
+        const groupId = currentMode === 'light' ? 'lightColors' : 'darkColors';
+        const newState = await toggleButtonState(buttonId);
+        const button = document.getElementById(buttonId);
+        button.classList.toggle('active', newState);
+        if (newState) {
+            if (enableFunction) {
+                await enableFunction();
             }
-        );
-        // 启用当前颜色
-        if (enableFunction) {
-            await enableFunction();
+            await excluSetting.handleExclusion(groupId, buttonId, 
+                async (id, state) => {
+                    await setButtonState(id, state);
+                    const btn = document.getElementById(id);
+                    if (btn) btn.classList.toggle('active', state);
+                },
+                async (id) => {
+                    if (id === 'CustomColorPick') {
+                        await destroyColorPicker();
+                    } else if (id === 'QYLSunset') {
+                        await disableSunset();
+                    } else if (id === 'QYLForest') {
+                        await disableForest();
+                    } else if (id === 'QYLOcean') {
+                        await disableOcean();
+                    } else if (id === 'QYLSugar') {
+                        await disableSugar();
+                    } else if (id === 'QYLLavender') {
+                        await disableLavender();
+                    } else if (id === 'QYLYunwu') {
+                        await disableYunwu();
+                    } else if (id === 'QYLYunyan') {
+                        await disableYunyan();
+                    } else if (id === 'QYLYuncang') {
+                        await disableYuncang();
+                    } else if (id === 'QYLShuanghe') {
+                        await disableShuanghe();
+                    } else if (id === 'QYLLime') {
+                        await disableLime();
+                    } else if (id === 'QYLHuique') {
+                        await disableHuique();
+                    } else if (id === 'QYLAutumn') {
+                        await disableAutumn();
+                    } else if (id === 'QYLMemory') {
+                        await disableMemory();
+                    } else if (id === 'QYLLake') {
+                        await disableLake();
+                    } else if (id === 'QYLXiangxuelan') {
+                        await disableXiangxuelan();
+                    } else if (id === 'QYLIvory') {
+                        await disableIvory();
+                    } else if (id === 'QYLCoral') {
+                        await disableCoral();
+                    } else if (id === 'QYLMint') {
+                        await disableMint();
+                    } else if (id === 'QYLAmber') {
+                        await disableAmber();
+                    } else if (id === 'QYLBiwan') {
+                        await disableBiwan();
+                    } else if (id === 'QYLBurgundy') {
+                        await disableBurgundy();
+                    } else if (id === 'QYLXuanqing') {
+                        await disableXuanqing();
+                    } else if (id === 'QYLMocui') {
+                        await disableMocui();
+                    } else if (id === 'QYLHuimu') {
+                        await disableHuimu();
+                    } else if (id === 'QYLWumu') {
+                        await disableWumu();
+                    } else if (id === 'QYLMidnight') {
+                        await disableMidnight();
+                    } else if (id === 'QYLCangming') {
+                        await disableCangming();
+                    } else if (id === 'QYLSteam') {
+                        await disableSteam();
+                    } else if (id === 'QYLLatte') {
+                        await disableLatte();
+                    } else if (id === 'QYLWinter') {
+                        await disableWinter();
+                    } else if (id === 'QYLXingqiong') {
+                        await disableXingqiong();
+                    }
+                }
+            );
+        } else {
+            if (disableFunction) {
+                await disableFunction();
+            }
         }
+    };
+    if (useViewTransition) {
+        document.startViewTransition(doSwitch);
     } else {
-        // 禁用当前颜色
-        if (disableFunction) {
-            await disableFunction();
-        }
+        await doSwitch();
     }
 }
 function getColorOptions() {
@@ -900,6 +951,10 @@ function getColorOptions() {
         {
             id: 'CustomColorPick',
             label: i18n.CustomColorPick
+        },
+        {
+            id: 'QYLLightClassic',
+            label: '经典'
         },
         {
             id: 'QYLSunset',
@@ -988,6 +1043,10 @@ function getColorOptions() {
             label: i18n.CustomColorPick
         },
         {
+            id: 'QYLDarkClassic',
+            label: i18n.QYLDarkClassic
+        },
+        {
             id: 'QYLBurgundy',
             label: i18n.QYLBurgundy
         },
@@ -1048,7 +1107,15 @@ async function createColorContent() {
             </button>
         `;
         const button = optionElement.querySelector(`#${option.id}`);
-        // 为CustomColorPick添加右键菜单事件
+        
+        
+        button.addEventListener('mousedown', function(e) {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.documentElement.style.setProperty('--circle-x', `${x}%`);
+            document.documentElement.style.setProperty('--circle-y', `${y}%`);
+        });
+        
         if (option.id === 'CustomColorPick') {
             button.addEventListener('contextmenu', async (e) => {
                 e.preventDefault(); 
@@ -1058,15 +1125,26 @@ async function createColorContent() {
                 }
             });
         }
-        // 为所有按钮添加点击事件，使用通用处理函数
+        
         button.addEventListener('click', async () => {
-            // 根据按钮ID确定对应的启用和禁用函数
             let enableFunction = null;
             let disableFunction = null;
+            if (option.id === 'CustomColorPick') {
+                
+                const currentState = await getStorageItem('CustomColorPick', false);
+                if (!currentState) {
+                    
+                    await handleColorButtonClick('CustomColorPick', createColorPicker, destroyColorPicker);
+                } else {
+                    
+                    await createColorPicker();
+                }
+                return;
+            }
             switch (option.id) {
-                case 'CustomColorPick':
-                    enableFunction = createColorPicker;
-                    disableFunction = destroyColorPicker;
+                case 'QYLLightClassic':
+                    enableFunction = enableLightClassic;
+                    disableFunction = disableLightClassic;
                     break;
                 case 'QYLSunset':
                     enableFunction = enableSunset;
@@ -1192,9 +1270,19 @@ async function createColorContent() {
                     enableFunction = enableXingqiong;
                     disableFunction = disableXingqiong;
                     break;
+                case 'QYLDarkClassic':
+                    enableFunction = enableDarkClassic;
+                    disableFunction = disableDarkClassic;
+                    break;
             }
-            // 使用通用处理函数处理点击事件
-            await handleColorButtonClick(option.id, enableFunction, disableFunction);
+            
+            if (document.startViewTransition) {
+                document.startViewTransition(async () => {
+                    await handleColorButtonClick(option.id, enableFunction, disableFunction);
+                });
+            } else {
+                await handleColorButtonClick(option.id, enableFunction, disableFunction);
+            }
         });
         container.appendChild(optionElement);
     }
@@ -1204,7 +1292,7 @@ async function initializeColorStates() {
     const currentMode = ThemeMode.getThemeMode();
     const groupId = currentMode === 'light' ? 'lightColors' : 'darkColors';
     const group = currentMode === 'light' ? lightColorGroup : darkColorGroup;
-    // 找到当前模式下第一个激活的颜色选项
+    
     let firstActiveColor = null;
     for (const colorId of group) {
         const currentState = await getStorageItem(colorId, false);
@@ -1213,16 +1301,88 @@ async function initializeColorStates() {
             break;
         }
     }
-    // 如果找到了激活的颜色，启用它并禁用其他颜色
+    
     if (firstActiveColor) {
+        
+        if (firstActiveColor === 'CustomColorPick') {
+            await loadColorFromConfig();
+        } else if (firstActiveColor === 'QYLLightClassic') {
+            await enableLightClassic();
+        } else if (firstActiveColor === 'QYLSunset') {
+            await enableSunset();
+        } else if (firstActiveColor === 'QYLForest') {
+            await enableForest();
+        } else if (firstActiveColor === 'QYLOcean') {
+            await enableOcean();
+        } else if (firstActiveColor === 'QYLSugar') {
+            await enableSugar();
+        } else if (firstActiveColor === 'QYLLavender') {
+            await enableLavender();
+        } else if (firstActiveColor === 'QYLYunwu') {
+            await enableYunwu();
+        } else if (firstActiveColor === 'QYLYunyan') {
+            await enableYunyan();
+        } else if (firstActiveColor === 'QYLYuncang') {
+            await enableYuncang();
+        } else if (firstActiveColor === 'QYLShuanghe') {
+            await enableShuanghe();
+        } else if (firstActiveColor === 'QYLLime') {
+            await enableLime();
+        } else if (firstActiveColor === 'QYLHuique') {
+            await enableHuique();
+        } else if (firstActiveColor === 'QYLAutumn') {
+            await enableAutumn();
+        } else if (firstActiveColor === 'QYLMemory') {
+            await enableMemory();
+        } else if (firstActiveColor === 'QYLLake') {
+            await enableLake();
+        } else if (firstActiveColor === 'QYLXiangxuelan') {
+            await enableXiangxuelan();
+        } else if (firstActiveColor === 'QYLIvory') {
+            await enableIvory();
+        } else if (firstActiveColor === 'QYLCoral') {
+            await enableCoral();
+        } else if (firstActiveColor === 'QYLMint') {
+            await enableMint();
+        } else if (firstActiveColor === 'QYLAmber') {
+            await enableAmber();
+        } else if (firstActiveColor === 'QYLBiwan') {
+            await enableBiwan();
+        } else if (firstActiveColor === 'QYLBurgundy') {
+            await enableBurgundy();
+        } else if (firstActiveColor === 'QYLXuanqing') {
+            await enableXuanqing();
+        } else if (firstActiveColor === 'QYLMocui') {
+            await enableMocui();
+        } else if (firstActiveColor === 'QYLHuimu') {
+            await enableHuimu();
+        } else if (firstActiveColor === 'QYLWumu') {
+            await enableWumu();
+        } else if (firstActiveColor === 'QYLMidnight') {
+            await enableMidnight();
+        } else if (firstActiveColor === 'QYLCangming') {
+            await enableCangming();
+        } else if (firstActiveColor === 'QYLSteam') {
+            await enableSteam();
+        } else if (firstActiveColor === 'QYLLatte') {
+            await enableLatte();
+        } else if (firstActiveColor === 'QYLWinter') {
+            await enableWinter();
+        } else if (firstActiveColor === 'QYLXingqiong') {
+            await enableXingqiong();
+        }
+        
+        
         await excluSetting.handleExclusion(groupId, firstActiveColor, 
             async (id, state) => {
                 await setButtonState(id, state);
             },
             async (id) => {
-                // 根据ID调用对应的禁用函数
+                
                 if (id === 'CustomColorPick') {
                     await destroyColorPicker();
+                } else if (id === 'QYLLightClassic') {
+                    await disableLightClassic();
                 } else if (id === 'QYLSunset') {
                     await disableSunset();
                 } else if (id === 'QYLForest') {
@@ -1288,78 +1448,12 @@ async function initializeColorStates() {
                 }
             }
         );
-        // 启用第一个激活的颜色
-        if (firstActiveColor === 'CustomColorPick') {
-            await loadColorFromConfig();
-        } else if (firstActiveColor === 'QYLSunset') {
-            await enableSunset();
-        } else if (firstActiveColor === 'QYLForest') {
-            await enableForest();
-        } else if (firstActiveColor === 'QYLOcean') {
-            await enableOcean();
-        } else if (firstActiveColor === 'QYLSugar') {
-            await enableSugar();
-        } else if (firstActiveColor === 'QYLLavender') {
-            await enableLavender();
-        } else if (firstActiveColor === 'QYLYunwu') {
-            await enableYunwu();
-        } else if (firstActiveColor === 'QYLYunyan') {
-            await enableYunyan();
-        } else if (firstActiveColor === 'QYLYuncang') {
-            await enableYuncang();
-        } else if (firstActiveColor === 'QYLShuanghe') {
-            await enableShuanghe();
-        } else if (firstActiveColor === 'QYLLime') {
-            await enableLime();
-        } else if (firstActiveColor === 'QYLHuique') {
-            await enableHuique();
-        } else if (firstActiveColor === 'QYLAutumn') {
-            await enableAutumn();
-        } else if (firstActiveColor === 'QYLMemory') {
-            await enableMemory();
-        } else if (firstActiveColor === 'QYLLake') {
-            await enableLake();
-        } else if (firstActiveColor === 'QYLXiangxuelan') {
-            await enableXiangxuelan();
-        } else if (firstActiveColor === 'QYLIvory') {
-            await enableIvory();
-        } else if (firstActiveColor === 'QYLCoral') {
-            await enableCoral();
-        } else if (firstActiveColor === 'QYLMint') {
-            await enableMint();
-        } else if (firstActiveColor === 'QYLAmber') {
-            await enableAmber();
-        } else if (firstActiveColor === 'QYLBiwan') {
-            await enableBiwan();
-        } else if (firstActiveColor === 'QYLBurgundy') {
-            await enableBurgundy();
-        } else if (firstActiveColor === 'QYLXuanqing') {
-            await enableXuanqing();
-        } else if (firstActiveColor === 'QYLMocui') {
-            await enableMocui();
-        } else if (firstActiveColor === 'QYLHuimu') {
-            await enableHuimu();
-        } else if (firstActiveColor === 'QYLWumu') {
-            await enableWumu();
-        } else if (firstActiveColor === 'QYLMidnight') {
-            await enableMidnight();
-        } else if (firstActiveColor === 'QYLCangming') {
-            await enableCangming();
-        } else if (firstActiveColor === 'QYLSteam') {
-            await enableSteam();
-        } else if (firstActiveColor === 'QYLLatte') {
-            await enableLatte();
-        } else if (firstActiveColor === 'QYLWinter') {
-            await enableWinter();
-        } else if (firstActiveColor === 'QYLXingqiong') {
-            await enableXingqiong();
-        }
     }
-    // 添加主题模式变化监听器
+    
     ThemeMode.addModeChangeListener(async (newMode) => {
         const newGroupId = newMode === 'light' ? 'lightColors' : 'darkColors';
         const newGroup = newMode === 'light' ? lightColorGroup : darkColorGroup;
-        // 找到新模式下第一个激活的颜色选项
+        
         let newFirstActiveColor = null;
         for (const colorId of newGroup) {
             const currentState = await getStorageItem(colorId, false);
@@ -1368,16 +1462,88 @@ async function initializeColorStates() {
                 break;
             }
         }
-        // 如果找到了激活的颜色，启用它并禁用其他颜色
+        
         if (newFirstActiveColor) {
+            
+            if (newFirstActiveColor === 'CustomColorPick') {
+                await loadColorFromConfig();
+            } else if (newFirstActiveColor === 'QYLLightClassic') {
+                await enableLightClassic();
+            } else if (newFirstActiveColor === 'QYLSunset') {
+                await enableSunset();
+            } else if (newFirstActiveColor === 'QYLForest') {
+                await enableForest();
+            } else if (newFirstActiveColor === 'QYLOcean') {
+                await enableOcean();
+            } else if (newFirstActiveColor === 'QYLSugar') {
+                await enableSugar();
+            } else if (newFirstActiveColor === 'QYLLavender') {
+                await enableLavender();
+            } else if (newFirstActiveColor === 'QYLYunwu') {
+                await enableYunwu();
+            } else if (newFirstActiveColor === 'QYLYunyan') {
+                await enableYunyan();
+            } else if (newFirstActiveColor === 'QYLYuncang') {
+                await enableYuncang();
+            } else if (newFirstActiveColor === 'QYLShuanghe') {
+                await enableShuanghe();
+            } else if (newFirstActiveColor === 'QYLLime') {
+                await enableLime();
+            } else if (newFirstActiveColor === 'QYLHuique') {
+                await enableHuique();
+            } else if (newFirstActiveColor === 'QYLAutumn') {
+                await enableAutumn();
+            } else if (newFirstActiveColor === 'QYLMemory') {
+                await enableMemory();
+            } else if (newFirstActiveColor === 'QYLLake') {
+                await enableLake();
+            } else if (newFirstActiveColor === 'QYLXiangxuelan') {
+                await enableXiangxuelan();
+            } else if (newFirstActiveColor === 'QYLIvory') {
+                await enableIvory();
+            } else if (newFirstActiveColor === 'QYLCoral') {
+                await enableCoral();
+            } else if (newFirstActiveColor === 'QYLMint') {
+                await enableMint();
+            } else if (newFirstActiveColor === 'QYLAmber') {
+                await enableAmber();
+            } else if (newFirstActiveColor === 'QYLBiwan') {
+                await enableBiwan();
+            } else if (newFirstActiveColor === 'QYLBurgundy') {
+                await enableBurgundy();
+            } else if (newFirstActiveColor === 'QYLXuanqing') {
+                await enableXuanqing();
+            } else if (newFirstActiveColor === 'QYLMocui') {
+                await enableMocui();
+            } else if (newFirstActiveColor === 'QYLHuimu') {
+                await enableHuimu();
+            } else if (newFirstActiveColor === 'QYLWumu') {
+                await enableWumu();
+            } else if (newFirstActiveColor === 'QYLMidnight') {
+                await enableMidnight();
+            } else if (newFirstActiveColor === 'QYLCangming') {
+                await enableCangming();
+            } else if (newFirstActiveColor === 'QYLSteam') {
+                await enableSteam();
+            } else if (newFirstActiveColor === 'QYLLatte') {
+                await enableLatte();
+            } else if (newFirstActiveColor === 'QYLWinter') {
+                await enableWinter();
+            } else if (newFirstActiveColor === 'QYLXingqiong') {
+                await enableXingqiong();
+            }
+            
+            
             await excluSetting.handleExclusion(newGroupId, newFirstActiveColor, 
                 async (id, state) => {
                     await setButtonState(id, state);
                 },
                 async (id) => {
-                    // 根据ID调用对应的禁用函数
+                    
                     if (id === 'CustomColorPick') {
                         await destroyColorPicker();
+                    } else if (id === 'QYLLightClassic') {
+                        await disableLightClassic();
                     } else if (id === 'QYLSunset') {
                         await disableSunset();
                     } else if (id === 'QYLForest') {
@@ -1443,72 +1609,6 @@ async function initializeColorStates() {
                     }
                 }
             );
-            // 启用第一个激活的颜色
-            if (newFirstActiveColor === 'CustomColorPick') {
-                await loadColorFromConfig();
-            } else if (newFirstActiveColor === 'QYLSunset') {
-                await enableSunset();
-            } else if (newFirstActiveColor === 'QYLForest') {
-                await enableForest();
-            } else if (newFirstActiveColor === 'QYLOcean') {
-                await enableOcean();
-            } else if (newFirstActiveColor === 'QYLSugar') {
-                await enableSugar();
-            } else if (newFirstActiveColor === 'QYLLavender') {
-                await enableLavender();
-            } else if (newFirstActiveColor === 'QYLYunwu') {
-                await enableYunwu();
-            } else if (newFirstActiveColor === 'QYLYunyan') {
-                await enableYunyan();
-            } else if (newFirstActiveColor === 'QYLYuncang') {
-                await enableYuncang();
-            } else if (newFirstActiveColor === 'QYLShuanghe') {
-                await enableShuanghe();
-            } else if (newFirstActiveColor === 'QYLLime') {
-                await enableLime();
-            } else if (newFirstActiveColor === 'QYLHuique') {
-                await enableHuique();
-            } else if (newFirstActiveColor === 'QYLAutumn') {
-                await enableAutumn();
-            } else if (newFirstActiveColor === 'QYLMemory') {
-                await enableMemory();
-            } else if (newFirstActiveColor === 'QYLLake') {
-                await enableLake();
-            } else if (newFirstActiveColor === 'QYLXiangxuelan') {
-                await enableXiangxuelan();
-            } else if (newFirstActiveColor === 'QYLIvory') {
-                await enableIvory();
-            } else if (newFirstActiveColor === 'QYLCoral') {
-                await enableCoral();
-            } else if (newFirstActiveColor === 'QYLMint') {
-                await enableMint();
-            } else if (newFirstActiveColor === 'QYLAmber') {
-                await enableAmber();
-            } else if (newFirstActiveColor === 'QYLBiwan') {
-                await enableBiwan();
-            } else if (newFirstActiveColor === 'QYLBurgundy') {
-                await enableBurgundy();
-            } else if (newFirstActiveColor === 'QYLXuanqing') {
-                await enableXuanqing();
-            } else if (newFirstActiveColor === 'QYLMocui') {
-                await enableMocui();
-            } else if (newFirstActiveColor === 'QYLHuimu') {
-                await enableHuimu();
-            } else if (newFirstActiveColor === 'QYLWumu') {
-                await enableWumu();
-            } else if (newFirstActiveColor === 'QYLMidnight') {
-                await enableMidnight();
-            } else if (newFirstActiveColor === 'QYLCangming') {
-                await enableCangming();
-            } else if (newFirstActiveColor === 'QYLSteam') {
-                await enableSteam();
-            } else if (newFirstActiveColor === 'QYLLatte') {
-                await enableLatte();
-            } else if (newFirstActiveColor === 'QYLWinter') {
-                await enableWinter();
-            } else if (newFirstActiveColor === 'QYLXingqiong') {
-                await enableXingqiong();
-            }
         }
     });
 }

@@ -1,5 +1,3 @@
-
-
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
 import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
@@ -12,6 +10,8 @@ import bindSetting from './BindSettings.js';
 let colorfulHeadingModule = null;
 let QYLAttrModule = null;
 let nineGridSquaresModule = null;
+let multilevelListModule = null;
+let colorfulTagsModule = null;
 
 
 async function loadColorfulHeadingModule() {
@@ -47,6 +47,30 @@ async function loadNineGridSquaresModule() {
         }
     }
     return nineGridSquaresModule;
+}
+
+
+async function loadMultilevelListModule() {
+    if (!multilevelListModule) {
+        try {
+            multilevelListModule = await import('../element/MultilevelList.js');
+        } catch (error) {
+            
+        }
+    }
+    return multilevelListModule;
+}
+
+
+async function loadColorfulTagsModule() {
+    if (!colorfulTagsModule) {
+        try {
+            colorfulTagsModule = await import('../element/ColorfulTags.js');
+        } catch (error) {
+            
+        }
+    }
+    return colorfulTagsModule;
 }
 
 
@@ -112,6 +136,38 @@ async function disableNineGridSquares() {
 }
 
 
+async function enableMultilevelList() {
+    const module = await loadMultilevelListModule();
+    if (module && module.initMultilevelList) {
+        module.initMultilevelList();
+    }
+}
+
+
+async function disableMultilevelList() {
+    const module = await loadMultilevelListModule();
+    if (module && module.removeMultilevelList) {
+        module.removeMultilevelList();
+    }
+}
+
+
+async function enableColorfulTags() {
+    const module = await loadColorfulTagsModule();
+    if (module && module.initColorfulTags) {
+        module.initColorfulTags();
+    }
+}
+
+
+async function disableColorfulTags() {
+    const module = await loadColorfulTagsModule();
+    if (module && module.removeColorfulTags) {
+        module.removeColorfulTags();
+    }
+}
+
+
 function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
     
@@ -128,6 +184,14 @@ function getElementOptions() {
         {
             id: 'NineGridSquares',
             label: i18n.NineGridSquares || '启用图片九宫格排列'
+        },
+        {
+            id: 'MultilevelList',
+            label: i18n.MultilevelList || '列表多级序号'
+        },
+        {
+            id: 'ColorfulTags',
+            label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
         }
     ];
     
@@ -144,6 +208,14 @@ function getElementOptions() {
         {
             id: 'NineGridSquares',
             label: i18n.NineGridSquares || '启用图片九宫格排列'
+        },
+        {
+            id: 'MultilevelList',
+            label: i18n.MultilevelList || '列表多级序号'
+        },
+        {
+            id: 'ColorfulTags',
+            label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
         }
     ];
     
@@ -210,6 +282,18 @@ async function createElementContent() {
                 } else {
                     await disableNineGridSquares();
                 }
+            } else if (option.id === 'MultilevelList') {
+                if (newState) {
+                    await enableMultilevelList();
+                } else {
+                    await disableMultilevelList();
+                }
+            } else if (option.id === 'ColorfulTags') {
+                if (newState) {
+                    await enableColorfulTags();
+                } else {
+                    await disableColorfulTags();
+                }
             }
         });
         
@@ -237,6 +321,14 @@ async function initializeElementStates() {
         } else if (option.id === 'NineGridSquares') {
             if (currentState) {
                 await enableNineGridSquares();
+            }
+        } else if (option.id === 'MultilevelList') {
+            if (currentState) {
+                await enableMultilevelList();
+            }
+        } else if (option.id === 'ColorfulTags') {
+            if (currentState) {
+                await enableColorfulTags();
             }
         }
     }

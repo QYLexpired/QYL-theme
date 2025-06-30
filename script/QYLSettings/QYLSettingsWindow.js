@@ -1,5 +1,7 @@
 import { createQYLSettingsContent } from './QYLSettingsContent.js';
 export async function createQYLSettingsWindow() {
+    
+    removeQYLSettingsWindow();
     const settingsWindow = document.createElement('div');
     settingsWindow.id = 'QYLSettingsWindow';
     settingsWindow.className = 'b3-menu';
@@ -9,13 +11,19 @@ export async function createQYLSettingsWindow() {
     if (button) {
         const buttonRect = button.getBoundingClientRect();
         settingsWindow.style.left = `${buttonRect.right}px`;
-        settingsWindow.style.top = `${buttonRect.bottom + 5}px`; 
-        settingsWindow.style.transform = 'translateX(-100%)'; 
+        settingsWindow.style.top = `${buttonRect.bottom + 5}px`;
+        settingsWindow.style.transform = 'translateX(-100%)';
     }
     const settingsContent = await createQYLSettingsContent();
     settingsWindow.appendChild(settingsContent);
+    
+    document.body.appendChild(settingsWindow);
     const handleClickOutside = (event) => {
+        
         if (event.target.closest('#QYLButton')) {
+            return;
+        }
+        if (event.target.closest('#QYLSettingsWindow')) {
             return;
         }
         if (event.target.closest('.QYLColorPickContainer') || 
@@ -25,9 +33,7 @@ export async function createQYLSettingsWindow() {
             event.target.closest('.QYLSaturationInput')) {
             return;
         }
-        if (!settingsWindow.contains(event.target)) {
-            removeQYLSettingsWindow();
-        }
+        removeQYLSettingsWindow();
     };
     const handleEscKey = (event) => {
         if (event.key === 'Escape') {
@@ -36,10 +42,8 @@ export async function createQYLSettingsWindow() {
     };
     settingsWindow._clickOutsideHandler = handleClickOutside;
     settingsWindow._escKeyHandler = handleEscKey;
-    setTimeout(() => {
-        document.addEventListener('click', handleClickOutside);
-        document.addEventListener('keydown', handleEscKey);
-    }, 0);
+    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleEscKey);
     return settingsWindow;
 }
 export function removeQYLSettingsWindow() {

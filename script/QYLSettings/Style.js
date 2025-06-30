@@ -2,12 +2,15 @@ import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
 import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
 import { getStorageItem } from '../basic/GetStorage.js';
+import excluSetting from './ExcluSetting.js';
 let fileTreeIndentModule = null;
 let frostedGlassModule = null;
 let animationModule = null;
 let colorfulFileTreeModule = null;
 let borderFileTreeModule = null;
 let gridSearchListModule = null;
+let flatStyleModule = null;
+let inkModeModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
         try {
@@ -61,6 +64,24 @@ async function loadGridSearchListModule() {
         }
     }
     return gridSearchListModule;
+}
+async function loadFlatStyleModule() {
+    if (!flatStyleModule) {
+        try {
+            flatStyleModule = await import('../style/FlatStyle.js');
+        } catch (error) {
+        }
+    }
+    return flatStyleModule;
+}
+async function loadInkModeModule() {
+    if (!inkModeModule) {
+        try {
+            inkModeModule = await import('../style/InkMode.js');
+        } catch (error) {
+        }
+    }
+    return inkModeModule;
 }
 async function enableFileTreeIndent() {
     const module = await loadFileTreeIndentModule();
@@ -134,6 +155,30 @@ async function disableGridSearchList() {
         module.removeGridSearchList();
     }
 }
+async function enableFlatStyle() {
+    const module = await loadFlatStyleModule();
+    if (module && module.initFlatStyle) {
+        module.initFlatStyle();
+    }
+}
+async function disableFlatStyle() {
+    const module = await loadFlatStyleModule();
+    if (module && module.removeFlatStyle) {
+        module.removeFlatStyle();
+    }
+}
+async function enableInkMode() {
+    const module = await loadInkModeModule();
+    if (module && module.initInkMode) {
+        module.initInkMode();
+    }
+}
+async function disableInkMode() {
+    const module = await loadInkModeModule();
+    if (module && module.removeInkMode) {
+        module.removeInkMode();
+    }
+}
 function getStyleOptions() {
     return [
         { id: 'FileTreeIndent', label: i18n.FileTreeIndent || '文档树缩进线' },
@@ -142,6 +187,8 @@ function getStyleOptions() {
         { id: 'ColorfulFileTree', label: i18n.ColorfulFileTree || '多彩文档树' },
         { id: 'BorderFileTree', label: i18n.BorderFileTree || '边框化文档树' },
         { id: 'GridSearchList', label: i18n.GridSearchList || '网格化搜索列表' },
+        { id: 'FlatStyle', label: i18n.FlatStyle || '扁平化风格' },
+        { id: 'InkMode', label: i18n.InkMode || '墨水屏模式' },
     ];
 }
 async function createStyleContent() {
@@ -197,6 +244,24 @@ async function createStyleContent() {
                 } else {
                     await disableGridSearchList();
                 }
+            } else if (option.id === 'FlatStyle') {
+                if (newState) {
+                    await excluSetting.handleExclusion('styleExclusion', option.id, null, async (disabledId) => {
+                        if (disabledId === 'InkMode') await disableInkMode();
+                    });
+                    await enableFlatStyle();
+                } else {
+                    await disableFlatStyle();
+                }
+            } else if (option.id === 'InkMode') {
+                if (newState) {
+                    await excluSetting.handleExclusion('styleExclusion', option.id, null, async (disabledId) => {
+                        if (disabledId === 'FlatStyle') await disableFlatStyle();
+                    });
+                    await enableInkMode();
+                } else {
+                    await disableInkMode();
+                }
             }
         });
         container.appendChild(optionElement);
@@ -219,6 +284,10 @@ async function initializeStyleStates() {
             await enableBorderFileTree();
         } else if (option.id === 'GridSearchList' && currentState) {
             await enableGridSearchList();
+        } else if (option.id === 'FlatStyle' && currentState) {
+            await enableFlatStyle();
+        } else if (option.id === 'InkMode' && currentState) {
+            await enableInkMode();
         }
     }
 }
@@ -227,3 +296,4 @@ export {
     createStyleContent,
     initializeStyleStates
 };
+excluSetting.registerGroup('styleExclusion', ['FlatStyle', 'InkMode']);
