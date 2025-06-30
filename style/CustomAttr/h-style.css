@@ -16,7 +16,7 @@
 [custom-h-style="gold"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="gold"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
     --QYL-custom-h-style-fix: gold;
     &>[spellcheck]:not(:empty) {
-    background-image: url('/appearance/themes/QYL-theme/img/goldleaf.webp') !important;  
+    background-image: url('/appearance/themes/QYL/img/goldleaf.webp') !important;  
     -webkit-background-clip: text !important; 
     background-clip: text !important; 
     color: transparent !important;
