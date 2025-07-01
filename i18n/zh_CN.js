@@ -32,7 +32,7 @@ export default {
     "FullHeightLayout": "全高布局",
     "HideTab": "隐藏页签与面包屑",
     "CustomColorPick": "自定义主题色",
-    "QYLSunset": "夕阳",
+    "QYLSunset": "落日",
     "QYLForest": "森林",
     "QYLOcean": "海洋",
     "QYLSugar": "糖果",
@@ -169,4 +169,5 @@ export default {
     "InkMode": "墨水屏模式",
     "QYLLightClassic": "经典",
     "QYLDarkClassic": "经典",
+    "ColorSwitchTime": "主题色随时间变化",
 }; 

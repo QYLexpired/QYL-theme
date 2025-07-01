@@ -65,6 +65,7 @@ export default {
     "QYLXingqiong": "Starry Dome",
     "QYLLightClassic": "Light Classic",
     "QYLDarkClassic": "Dark Classic",
+    "ColorSwitchTime": "Theme color changes with time",
 
     "QYLcustomattr": "QYL-theme block settings",
     "group1": "Group 1",
