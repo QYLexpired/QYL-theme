@@ -6,11 +6,11 @@
     style.textContent = `
         [data-theme-mode="light"] {
             --QYL-border-filetree: var(--b3-theme-surface-lighter);
-            --QYL-border-filetree: oklch(0.87 calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --QYL-border-filetree: oklch(calc(0.87 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         }
         [data-theme-mode="dark"] {
             --QYL-border-filetree: var(--b3-theme-surface-darker);
-            --QYL-border-filetree: oklch(0.35 calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --QYL-border-filetree: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         }
         .file-tree.sy__file .fn__flex-1 [data-type="navigation-root"] {
             margin: 0;

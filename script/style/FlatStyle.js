@@ -1,4 +1,5 @@
 export function initFlatStyle() {
+    if (document.body.classList.contains('QYLmobile')) return;
     const style = document.createElement('style');
     style.id = 'QYL-FlatStyle';
     style.textContent = `
@@ -139,7 +140,6 @@ export function initFlatStyle() {
             box-shadow: none;
             color: var(--b3-theme-on-surface);
         }
-
         /* 集市 */
         .config-bazaar__panel .b3-card {
             box-shadow: none;
@@ -223,9 +223,6 @@ export function initFlatStyle() {
                 color: var(--b3-theme-primary);
             }
         }
-        :is(#searchList, #searchUnRefList, #searchAssetList) .b3-list-item mark {
-            background-color: var(--b3-theme-primary);
-        }
         /* 侧栏 */
         .graph__panel {
             box-shadow: none;
@@ -299,7 +296,6 @@ export function initFlatStyle() {
             background-color: var(--b3-theme-primary);
             transform: translateX(2.5px);
         }
-
         /* 细节调整 */
         [data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu,.b3-dialog__container, #message .b3-snackbar__content, .protyle-toolbar, .protyle-hint.hint--menu, .protyle-util, .protyle-hint) {
             border: 1px solid var(--b3-theme-surface-lighter);
@@ -309,16 +305,12 @@ export function initFlatStyle() {
                 border: 1px solid var(--b3-theme-surface-lighter);
             }
         }
-        [data-theme-mode="dark"] :is(.tooltip) {
+        [data-theme-mode="dark"] .tooltip {
             border: 1px solid var(--b3-theme-surface-lighter);
-        }
-        [data-theme-mode="dark"] #QYLsettings-window {
-            border: 1px solid var(--b3-theme-surface-lighter) !important;
         }
 `;
     document.head.appendChild(style);
 }
-
 export function removeFlatStyle() {
     const style = document.getElementById('QYL-FlatStyle');
     if (style) {

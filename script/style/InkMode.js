@@ -1,4 +1,5 @@
 export function initInkMode() {
+    if (document.body.classList.contains('QYLmobile')) return;
     const style = document.createElement('style');
     style.id = 'QYL-InkMode';
     style.textContent = `
@@ -101,7 +102,6 @@ export function initInkMode() {
     `;
     document.head.appendChild(style);
 }
-
 export function removeInkMode() {
     const style = document.getElementById('QYL-InkMode');
     if (style) {
