@@ -61,7 +61,7 @@
 
     /* 页签 */
     --QYL-tab-item: rgba(75, 79, 93, 0.2);
-    --QYL-tab-item-focus: rgba(75, 79, 93, 0.5)
+    --QYL-tab-item-focus: rgba(75, 79, 93, 0.5);
 
     /* 状态栏 */
     --QYL-status-background: var(--b3-theme-background);
