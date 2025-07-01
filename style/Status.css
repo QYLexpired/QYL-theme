@@ -1,4 +1,7 @@
 @media (min-width: 630px) {
+    #dockBottom:not(.fn__none) + #status {
+        bottom: 48px !important;
+    }
     #status {
         position: fixed;
         display: flex;

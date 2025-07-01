@@ -5,7 +5,7 @@
     --b3-border-radius-b: 12px;
     /* 阴影 */
     --b3-shadow-main: var(--b3-theme-primary-lightest);
-    --b3-shadow-main: oklch(0.62 calc(0.16 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.1);
+    --b3-shadow-main: oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.01) calc(0.16 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.1);
     --b3-point-shadow: 0px 13px 25px -2px var(--b3-shadow-main),0px 0px 10px 0px var(--b3-shadow-main),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
     --b3-dialog-shadow: var(--b3-point-shadow);
     --b3-button-shadow: var(--b3-point-shadow);

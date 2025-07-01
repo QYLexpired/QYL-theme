@@ -2,7 +2,7 @@
     padding-bottom: 0;
 }
 #QYLSettingsContent {
-    padding: 0 8px 2px 8px;
+    padding: 0 8px 4px 8px;
 }
 #QYLSettingsContent > div:first-child {
     display: flex;
@@ -63,16 +63,36 @@
         }
     }
 }
-#QYL-content-color .QYL-color-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    & .QYL-color-option {
-        &:first-child {
-            grid-column: span 2;
-        }
-        & button {
-            height: 100%;
+#QYL-content-color {
+    padding-bottom: 6px;
+    & .QYL-color-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        & .QYL-color-option {
+            margin-bottom: 0;
+            &:first-child {
+                grid-column: span 2;
+            }
+            &:nth-child(2) {
+                grid-column: span 2;
+            }
+            & button {
+                height: 100%;
+            }
         }
     }
+}
+.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth) {
+    opacity: 0.5;
+    pointer-events: none;
+    color: var(--b3-theme-on-surface-light) !important;
+    background-color: var(--QYL-tab-item) !important;
+}
+
+#QYLattrcsssub .b3-menu__items {
+    padding: 0;
+}
+#QYLattr .b3-menu__icon--arrow {
+    margin-right: 1.75px;
 }

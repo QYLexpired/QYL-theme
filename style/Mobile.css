@@ -1,0 +1,28 @@
+.QYLmobile .b3-menu--fullscreen .b3-menu__item {
+    border-bottom: none;
+}
+.QYLmobile .b3-menu--fullscreen .b3-menu__separator {
+    height: 1px;
+    margin: 16px;
+    background-color: var(--b3-theme-on-surface);
+    opacity: 0.13;
+    width: calc(100% - 32px);
+    border-bottom: none;
+}
+.QYLmobile .b3-menu--fullscreen .b3-menu__item:first-child {
+    border-top: none;
+}
+.QYLmobile .b3-menu--fullscreen .b3-menu__title {
+    border-bottom: 1px solid rgba(from var(--b3-theme-on-surface) r g b/ 0.13);
+}
+.QYLmobile .toolbar {
+    border-bottom: 1px solid rgba(from var(--b3-theme-on-surface) r g b/ 0.13);
+}
+.QYLmobile .protyle-breadcrumb__icon {
+    background-color: transparent;
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+    line-height: 20px;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    padding: 0 6px;
+}
