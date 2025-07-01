@@ -1,4 +1,5 @@
 export function initEditorFullWidth() {
+    if (document.body.classList.contains('QYLmobile')) return;
     const style = document.createElement('style');
     style.id = 'QYL-EditorFullWidth';
     style.textContent = `
