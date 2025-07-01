@@ -7,43 +7,33 @@ let debounceTimer = null;
 let cachedDragElement = null; 
 let fusionTopCheckTimer = null; 
 let isInitializing = false;
-
 export function initFusionOn() {
     if (document.body.classList.contains('QYLmobile')) return;
     if (isEnabled || isInitializing) return;
-    
     isInitializing = true;
-    
     try {
         // 先清理可能存在的残留状态
         if (styleElement) {
             styleElement.remove();
             styleElement = null;
         }
-        
         if (dockObserver) {
             dockObserver.disconnect();
             dockObserver = null;
         }
-        
         if (fusionTopClassObserver) {
             fusionTopClassObserver.disconnect();
             fusionTopClassObserver = null;
         }
-        
         if (debounceTimer) {
             clearTimeout(debounceTimer);
             debounceTimer = null;
         }
-        
         if (fusionTopCheckTimer) {
             clearTimeout(fusionTopCheckTimer);
             fusionTopCheckTimer = null;
         }
-        
         initFusionTop();
-        
-        
         styleElement = document.createElement('style');
         styleElement.id = 'QYL-FusionOn';
         styleElement.textContent = `
@@ -70,7 +60,8 @@ export function initFusionOn() {
                 opacity: 0;
             }
             .layout__center:not(#layouts) {
-                margin-top: 3.75px;
+                padding-top: 3.75px;
+                box-sizing: border-box;
             }
             .layout__center#layouts {
                 background-color: var(--b3-theme-background);
@@ -127,33 +118,26 @@ export function initFusionOn() {
             }
         `;
         document.head.appendChild(styleElement);
-        
         const debounceDelay = 500;
-        
         function getDragElement() {
             if (!cachedDragElement) {
                 cachedDragElement = document.querySelector('#drag');
             }
             return cachedDragElement;
         }
-        
         function adjustFusionTopMargin() {
             const fusionTopElements = document.querySelectorAll('.QYLFusionTop');
             const dragElement = getDragElement();
             if (!dragElement) {
                 return;
             }
-            
             fusionTopElements.forEach((fusionTop) => {
                 const flexElement = fusionTop.querySelector('.fn__flex');
                 if (!flexElement) {
                     return;
                 }
-                
                 const fusionTopRect = fusionTop.getBoundingClientRect();
                 const dragRect = dragElement.getBoundingClientRect();
-                
-                
                 if (fusionTopRect.left < dragRect.left) {
                     const marginLeft = dragRect.left - fusionTopRect.left;
                     const currentMarginLeft = flexElement.style.marginLeft;
@@ -164,8 +148,6 @@ export function initFusionOn() {
                 } else if (flexElement.style.marginLeft) {
                     flexElement.style.marginLeft = '';
                 }
-                
-                
                 if (fusionTopRect.right > dragRect.right) {
                     const marginRight = fusionTopRect.right - dragRect.right;
                     const currentMarginRight = flexElement.style.marginRight;
@@ -178,75 +160,57 @@ export function initFusionOn() {
                 }
             });
         }
-        
-        
         function checkFusionTopReady() {
             const fusionTopElements = document.querySelectorAll('.QYLFusionTop');
             const layoutCenter = document.querySelector('.layout__center');
             const windows = layoutCenter ? layoutCenter.querySelectorAll('[data-type="wnd"]') : [];
-            
             if (windows.length > 0 && fusionTopElements.length === 0) {
-                
                 initFusionTop(); 
                 fusionTopCheckTimer = setTimeout(checkFusionTopReady, 100); 
                 return;
             }
-            
-            
             adjustFusionTopMargin();
             observeDockElements();
             isEnabled = true;
             isInitializing = false;
         }
-        
-        
         function observeDockElements() {
             const dockLeft = document.querySelector('.layout__dockl');
             const dockRight = document.querySelector('.layout__dockr');
-            
             if (!dockLeft && !dockRight) {
                 setTimeout(() => observeDockElements(), 1000); 
                 return;
             }
-            
             dockObserver = new MutationObserver((mutations) => {
                 const hasStyleChange = mutations.some(mutation => 
                     mutation.type === 'attributes' && mutation.attributeName === 'style'
                 );
-                
                 if (hasStyleChange) {
                     debouncedAdjust(); 
                 }
             });
-            
             if (dockLeft) {
                 dockObserver.observe(dockLeft, {
                     attributes: true,
                     attributeFilter: ['style']
                 });
             }
-            
             if (dockRight) {
                 dockObserver.observe(dockRight, {
                     attributes: true,
                     attributeFilter: ['style']
                 });
             }
-            
             observeFusionTopParents();
         }
-        
-        
         function observeFusionTopParents() {
             fusionTopClassObserver = new MutationObserver((mutations) => {
                 let shouldAdjust = false;
-                
                 mutations.forEach((mutation) => {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                         const target = mutation.target;
                         const hadClass = mutation.oldValue && mutation.oldValue.includes('QYLFusionTop');
                         const hasClass = target.classList.contains('QYLFusionTop');
-                        
                         if (hadClass !== hasClass) {
                             shouldAdjust = true;
                         }
@@ -257,14 +221,11 @@ export function initFusionOn() {
                         }
                     }
                 });
-                
                 if (shouldAdjust) {
                     debouncedAdjust(); 
                 }
             });
-            
             const layoutCenter = document.querySelector('.layout__center');
-            
             if (layoutCenter) {
                 fusionTopClassObserver.observe(layoutCenter, {
                     attributes: true,
@@ -276,62 +237,44 @@ export function initFusionOn() {
                 setTimeout(() => observeFusionTopParents(), 1000); 
             }
         }
-        
-        
         function debouncedAdjust() {
             if (debounceTimer) {
                 clearTimeout(debounceTimer);
             }
-            
             debounceTimer = setTimeout(() => {
                 adjustFusionTopMargin();
             }, debounceDelay);
         }
-        
-        
         setTimeout(checkFusionTopReady, 100);
-        
     } catch (error) {
         console.error('Error initializing FusionOn:', error);
         isInitializing = false;
     }
 }
-
 export async function removeFusionOn() {
     if (!isEnabled && !isInitializing) return;
-    
     isEnabled = false;
     isInitializing = false;
-    
-    
     if (debounceTimer) {
         clearTimeout(debounceTimer);
         debounceTimer = null;
     }
-    
     if (fusionTopCheckTimer) {
         clearTimeout(fusionTopCheckTimer);
         fusionTopCheckTimer = null;
     }
-    
-    
     if (dockObserver) {
         dockObserver.disconnect();
         dockObserver = null;
     }
-    
     if (fusionTopClassObserver) {
         fusionTopClassObserver.disconnect();
         fusionTopClassObserver = null;
     }
-    
-    
     if (styleElement) {
         styleElement.remove();
         styleElement = null;
     }
-    
-    
     const layoutCenter = document.querySelector('.layout__center');
     if (layoutCenter) {
         const windows = layoutCenter.querySelectorAll('[data-type="wnd"]');
@@ -343,24 +286,17 @@ export async function removeFusionOn() {
             }
         });
     }
-    
-    
     const fusionTopElements = document.querySelectorAll('.QYLFusionTop');
     fusionTopElements.forEach((element) => {
         element.classList.remove('QYLFusionTop');
     });
-    
-    
     try {
         removeFusionTop();
     } catch (error) {
         console.error('Error removing fusion top:', error);
     }
-    
-    
     cachedDragElement = null;
 }
-
 export function isFusionOnEnabled() {
     return isEnabled;
 }

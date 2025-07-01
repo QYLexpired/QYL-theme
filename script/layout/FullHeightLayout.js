@@ -6,7 +6,7 @@ export function initFullHeightLayout() {
         .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
             content: "";
             display: block;
-            background-color: rgba(247, 247, 247, 0.7);
+            background-color: var(--b3-theme-background);
             mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
             backdrop-filter: blur(100px);
             width: 100%;
@@ -18,7 +18,7 @@ export function initFullHeightLayout() {
             pointer-events: none
         }
         [data-theme-mode="dark"] .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: var(--b3-theme-background);
         }
         .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
             background-color: transparent;
