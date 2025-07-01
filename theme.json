@@ -2,7 +2,7 @@
   "name": "QYL",
   "author": "QYL",
   "url": "https://github.com/QYLexpired/QYL-theme",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "displayName": {
     "default": "QYL",
     "zh_CN": "QYL",
@@ -11,11 +11,13 @@
   "description": {
     "default": "Deliver an enhanced note-taking experience.",
     "zh_CN": "带来更丰富的笔记体验",
+    "zh_CHT": "帶來更豐富的筆記體驗",
     "en_US": "Deliver an enhanced note-taking experience."
   },
   "readme": {
     "default": "README.md",
     "zh_CN": "README_zh_CN.md",
+    "zh_CHT": "README_zh_CHT.md",
     "en_US": "README.md"
   },
   "funding": {

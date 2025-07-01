@@ -1,8 +1,9 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 完全重构整个主题<br>• 增加自定义主题色功能<br>• 由于改动过大，之前的主题设置失效<br>• 暂未适配手机端</p>
+
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.2</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 适配手机端<br>• 增加主题色随时间变化<br>• 自定义主题色增加亮度因子<br>• 优化主题加载速度<br>• 修复开启经典配色后其他配色无效的问题</p>
 
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.1</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复切换主题配色无效的问题<br>• 修复QYL自定义属性样式无效的问题<br>• 修复顶栏融合开关失效的问题<br>• 修复专注编辑模式异常并优化滚动效果<br>• 修复开启顶栏融合后，将页签在新窗口打开后无法拖动位置的问题<br>• 重新增加列表多级序号<br>• 重新增加多彩标签和多彩行级代码<br>• 重新增加扁平化风格<br>• 重新增加墨水屏模式<br>• 增加配色切换动画</p>
@@ -11,13 +12,15 @@
 
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相和饱和度来搭配出你喜欢的效果<br>主题内置超过30种日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题内置超过30种日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效</p>
 </details>
 
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">性能说明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未启用时，相应代码不会加载，因此对性能没有任何影响</p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若发现卡顿，按照功能对性能的消耗程度，推荐按顺序优先关闭：九宫格排列、专注编辑模式、主题动画、毛玻璃效果、顶栏融合、QYL自定义属性样式</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若发现卡顿，按照功能对性能的消耗程度，推荐按顺序优先关闭：九宫格排列、固定工具栏、专注编辑模式、QYL自定义属性样式、主题动画、毛玻璃效果、顶栏融合</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若设备性能不佳，或者文档比较复杂，建议不要开启过多功能，尤其建议不要同时开启九宫格排列和固定工具栏</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 
 <details style="padding-left: 1em">
