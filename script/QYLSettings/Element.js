@@ -1,7 +1,7 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
-import { getStorageItem } from '../basic/GetStorage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 
@@ -224,18 +224,22 @@ function getElementOptions() {
 }
 
 
-async function createElementContent() {
+async function createElementContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-element-container';
     
     const options = getElementOptions();
     
+    
+    if (!config) {
+        config = await getStorageConfig();
+    }
+    
     for (const option of options) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-element-option';
         
-        
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''}">
@@ -243,26 +247,15 @@ async function createElementContent() {
             </button>
         `;
         
-        
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
-            const newState = await toggleButtonState(option.id);
-            button.classList.toggle('active', newState);
+            const newState = await smartToggleButtonState(option.id);
             
+            button.classList.toggle('active', newState);
             
             if (newState) {
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
-            
             
             if (option.id === 'ColorfulHeading') {
                 if (newState) {
@@ -295,6 +288,9 @@ async function createElementContent() {
                     await disableColorfulTags();
                 }
             }
+            
+            
+            await flushBatchUpdate();
         });
         
         container.appendChild(optionElement);
@@ -304,12 +300,17 @@ async function createElementContent() {
 }
 
 
-async function initializeElementStates() {
+async function initializeElementStates(config = null) {
     const options = getElementOptions();
+    if (!config) {
+        config = await getStorageConfig();
+    }
+    
+    
+    
     
     for (const option of options) {
-        const currentState = await getStorageItem(option.id, false);
-        
+        const currentState = config[option.id] || false;
         if (option.id === 'ColorfulHeading') {
             if (currentState) {
                 await enableColorfulHeading();

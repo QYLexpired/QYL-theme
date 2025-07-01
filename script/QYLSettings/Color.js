@@ -1,12 +1,10 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
-import { getStorageItem } from '../basic/GetStorage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
-
-const lightColorGroup = [
-    'CustomColorPick',
+const lightColorMainGroup = [
     'QYLLightClassic',
     'QYLSunset',
     'QYLForest',
@@ -29,9 +27,7 @@ const lightColorGroup = [
     'QYLAmber',
     'QYLBiwan'
 ];
-
-const darkColorGroup = [
-    'CustomColorPick',
+const darkColorMainGroup = [
     'QYLDarkClassic',
     'QYLBurgundy',
     'QYLXuanqing',
@@ -45,9 +41,12 @@ const darkColorGroup = [
     'QYLWinter',
     'QYLXingqiong'
 ];
-
-excluSetting.registerGroup('lightColors', lightColorGroup);
-excluSetting.registerGroup('darkColors', darkColorGroup);
+excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
+excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
+excluSetting.registerGroup('lightCustomColor', ['CustomColorPickLight', ...lightColorMainGroup]);
+excluSetting.registerGroup('darkCustomColor', ['CustomColorPickDark', ...darkColorMainGroup]);
+excluSetting.registerGroup('lightSwitchTime', ['ColorSwitchTimeLight', ...lightColorMainGroup]);
+excluSetting.registerGroup('darkSwitchTime', ['ColorSwitchTimeDark', ...darkColorMainGroup]);
 let colorModule1 = null;
 let sunsetModule = null;
 let forestModule = null;
@@ -82,6 +81,7 @@ let winterModule = null;
 let xingqiongModule = null;
 let lightClassicModule = null;
 let darkClassicModule = null;
+let colorSwitchTimeModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -93,22 +93,23 @@ async function loadColorModule1() {
 }
 async function enableColor1() {
     const module = await loadColorModule1();
-    if (module && module.default) {
-        await module.default.init();
+    if (module && module.customColor) {
+        await createColorPicker();
     }
 }
 async function disableColor1() {
     const module = await loadColorModule1();
-    if (module && module.default) {
-        module.default.destroy();
+    if (module && module.customColor) {
+        module.customColor.destroy();
     }
 }
 async function showColorPanel1() {
     const module = await loadColorModule1();
-    if (module && module.default) {
-        if (module.default.isFeatureEnabled()) {
-            await module.default.togglePanel();
+    if (module && module.customColor) {
+        if (module.customColor.container) {
+            module.customColor.toggle();
         } else {
+            await createColorPicker();
         }
     }
 }
@@ -119,23 +120,33 @@ async function createColorPicker() {
             const colorConfig = await module.customColor.loadFromConfig();
             document.documentElement.style.setProperty('--QYL-custom-primary-main', colorConfig.hue.toString() + 'deg');
             document.documentElement.style.setProperty('--QYL-custom-primary-saturate', colorConfig.saturation.toString());
+            document.documentElement.style.setProperty('--QYL-custom-primary-brightness', colorConfig.brightness.toString());
             await module.customColor.createColorPicker(
                 async (colorData) => {
                     if (colorData.type === 'saturation') {
-                        const currentHue = module.customColor.getColor()?.hue || colorConfig.hue;
+                        const currentHue = module.customColor.getColor()?.hue ?? colorConfig.hue;
+                        const currentBrightness = module.customColor.getColor()?.brightness ?? colorConfig.brightness;
                         document.documentElement.style.setProperty('--QYL-custom-primary-saturate', colorData.saturation.toString());
-                        await module.customColor.saveToConfig(currentHue, colorData.saturation);
+                        await module.customColor.saveToConfig(currentHue, colorData.saturation, currentBrightness);
+                    } else if (colorData.type === 'brightness') {
+                        const currentHue = module.customColor.getColor()?.hue ?? colorConfig.hue;
+                        const currentSaturation = module.customColor.getColor()?.saturation ?? colorConfig.saturation;
+                        document.documentElement.style.setProperty('--QYL-custom-primary-brightness', colorData.brightness.toString());
+                        await module.customColor.saveToConfig(currentHue, currentSaturation, colorData.brightness);
                     } else {
-                        const currentSaturation = module.customColor.getColor()?.saturation || colorConfig.saturation;
+                        const currentSaturation = module.customColor.getColor()?.saturation ?? colorConfig.saturation;
+                        const currentBrightness = module.customColor.getColor()?.brightness ?? colorConfig.brightness;
                         if (colorData && colorData.hue !== undefined) {
                             document.documentElement.style.setProperty('--QYL-custom-primary-main', colorData.hue.toString() + 'deg');
                             document.documentElement.style.setProperty('--QYL-custom-primary-saturate', currentSaturation.toString());
-                            await module.customColor.saveToConfig(colorData.hue, currentSaturation);
+                            document.documentElement.style.setProperty('--QYL-custom-primary-brightness', currentBrightness.toString());
+                            await module.customColor.saveToConfig(colorData.hue, currentSaturation, currentBrightness);
                         }
                     }
                 },
                 colorConfig.hue,
-                colorConfig.saturation
+                colorConfig.saturation,
+                colorConfig.brightness
             );
         } catch (error) {
         }
@@ -148,6 +159,7 @@ async function destroyColorPicker() {
             module.customColor.destroy();
             document.documentElement.style.removeProperty('--QYL-custom-primary-main');
             document.documentElement.style.removeProperty('--QYL-custom-primary-saturate');
+            document.documentElement.style.removeProperty('--QYL-custom-primary-brightness');
         } catch (error) {
         }
     }
@@ -448,6 +460,26 @@ async function loadDarkClassicModule() {
         }
     }
     return darkClassicModule;
+}
+async function loadColorSwitchTimeModule() {
+    if (!colorSwitchTimeModule) {
+        try {
+            colorSwitchTimeModule = await import('../color/ColorSwitchTime.js');
+        } catch (error) {}
+    }
+    return colorSwitchTimeModule;
+}
+async function enableColorSwitchTime() {
+    const module = await loadColorSwitchTimeModule();
+    if (module && module.startColorSwitch) {
+        module.startColorSwitch();
+    }
+}
+async function disableColorSwitchTime() {
+    const module = await loadColorSwitchTimeModule();
+    if (module && module.stopColorSwitch) {
+        module.stopColorSwitch();
+    }
 }
 async function enableLightClassic() {
     const module = await loadLightClassicModule();
@@ -845,99 +877,73 @@ async function disableDarkClassic() {
         module.removeDarkClassic();
     }
 }
-
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
-    
     const useViewTransition = !!(document.startViewTransition);
     const doSwitch = async () => {
         const currentMode = ThemeMode.getThemeMode();
-        const groupId = currentMode === 'light' ? 'lightColors' : 'darkColors';
-        const newState = await toggleButtonState(buttonId);
+        const mainGroupId = currentMode === 'light' ? 'lightColorMain' : 'darkColorMain';
+        const customGroupId = currentMode === 'light' ? 'lightCustomColor' : 'darkCustomColor';
+        const switchTimeGroupId = currentMode === 'light' ? 'lightSwitchTime' : 'darkSwitchTime';
+        const customColorPickId = currentMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
+        const colorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+        if (buttonId === 'CustomColorPickLight' || buttonId === 'CustomColorPickDark') {
+            const currentState = await getButtonState(buttonId);
+            if (currentState) {
+                await showColorPanel1();
+                return;
+            }
+        }
+        if (buttonId === 'ColorSwitchTimeLight' || buttonId === 'ColorSwitchTimeDark') {
+            const customState = await getButtonState(customColorPickId);
+            if (!customState) {
+                await smartToggleButtonState(customColorPickId);
+                const customBtn = document.getElementById(customColorPickId);
+                if (customBtn) customBtn.classList.add('active');
+                await createColorPicker();
+            }
+        }
+        const newState = await smartToggleButtonState(buttonId);
         const button = document.getElementById(buttonId);
         button.classList.toggle('active', newState);
         if (newState) {
             if (enableFunction) {
                 await enableFunction();
             }
-            await excluSetting.handleExclusion(groupId, buttonId, 
-                async (id, state) => {
-                    await setButtonState(id, state);
-                    const btn = document.getElementById(id);
-                    if (btn) btn.classList.toggle('active', state);
-                },
-                async (id) => {
-                    if (id === 'CustomColorPick') {
-                        await destroyColorPicker();
-                    } else if (id === 'QYLSunset') {
-                        await disableSunset();
-                    } else if (id === 'QYLForest') {
-                        await disableForest();
-                    } else if (id === 'QYLOcean') {
-                        await disableOcean();
-                    } else if (id === 'QYLSugar') {
-                        await disableSugar();
-                    } else if (id === 'QYLLavender') {
-                        await disableLavender();
-                    } else if (id === 'QYLYunwu') {
-                        await disableYunwu();
-                    } else if (id === 'QYLYunyan') {
-                        await disableYunyan();
-                    } else if (id === 'QYLYuncang') {
-                        await disableYuncang();
-                    } else if (id === 'QYLShuanghe') {
-                        await disableShuanghe();
-                    } else if (id === 'QYLLime') {
-                        await disableLime();
-                    } else if (id === 'QYLHuique') {
-                        await disableHuique();
-                    } else if (id === 'QYLAutumn') {
-                        await disableAutumn();
-                    } else if (id === 'QYLMemory') {
-                        await disableMemory();
-                    } else if (id === 'QYLLake') {
-                        await disableLake();
-                    } else if (id === 'QYLXiangxuelan') {
-                        await disableXiangxuelan();
-                    } else if (id === 'QYLIvory') {
-                        await disableIvory();
-                    } else if (id === 'QYLCoral') {
-                        await disableCoral();
-                    } else if (id === 'QYLMint') {
-                        await disableMint();
-                    } else if (id === 'QYLAmber') {
-                        await disableAmber();
-                    } else if (id === 'QYLBiwan') {
-                        await disableBiwan();
-                    } else if (id === 'QYLBurgundy') {
-                        await disableBurgundy();
-                    } else if (id === 'QYLXuanqing') {
-                        await disableXuanqing();
-                    } else if (id === 'QYLMocui') {
-                        await disableMocui();
-                    } else if (id === 'QYLHuimu') {
-                        await disableHuimu();
-                    } else if (id === 'QYLWumu') {
-                        await disableWumu();
-                    } else if (id === 'QYLMidnight') {
-                        await disableMidnight();
-                    } else if (id === 'QYLCangming') {
-                        await disableCangming();
-                    } else if (id === 'QYLSteam') {
-                        await disableSteam();
-                    } else if (id === 'QYLLatte') {
-                        await disableLatte();
-                    } else if (id === 'QYLWinter') {
-                        await disableWinter();
-                    } else if (id === 'QYLXingqiong') {
-                        await disableXingqiong();
+            if (buttonId === 'CustomColorPickLight' || buttonId === 'CustomColorPickDark') {
+                await excluSetting.handleExclusionBatch(customGroupId, buttonId, async (id, state) => {}, async (id) => {
+                    if (id !== buttonId) {
+                        await handleDisableById(id);
                     }
-                }
-            );
+                });
+            } else if (buttonId === 'ColorSwitchTimeLight' || buttonId === 'ColorSwitchTimeDark') {
+                await excluSetting.handleExclusionBatch(switchTimeGroupId, buttonId, async (id, state) => {}, async (id) => {
+                    if (id !== buttonId) {
+                        await handleDisableById(id);
+                    }
+                });
+            } else {
+                await excluSetting.handleExclusionBatch(mainGroupId, buttonId, async (id, state) => {}, async (id) => {
+                    await handleDisableById(id);
+                });
+                await setButtonState(customColorPickId, false);
+                await setButtonState(colorSwitchTimeId, false);
+                const customBtnLight = document.getElementById('CustomColorPickLight');
+                if (customBtnLight) customBtnLight.classList.remove('active');
+                const customBtnDark = document.getElementById('CustomColorPickDark');
+                if (customBtnDark) customBtnDark.classList.remove('active');
+                const switchBtnLight = document.getElementById('ColorSwitchTimeLight');
+                if (switchBtnLight) switchBtnLight.classList.remove('active');
+                const switchBtnDark = document.getElementById('ColorSwitchTimeDark');
+                if (switchBtnDark) switchBtnDark.classList.remove('active');
+                await destroyColorPicker();
+                await disableColorSwitchTime();
+            }
         } else {
             if (disableFunction) {
                 await disableFunction();
             }
         }
+        await flushBatchUpdate();
     };
     if (useViewTransition) {
         document.startViewTransition(doSwitch);
@@ -945,12 +951,89 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
         await doSwitch();
     }
 }
+async function handleDisableById(id) {
+    if (id === 'CustomColorPickLight' || id === 'CustomColorPickDark') {
+        await destroyColorPicker();
+    } else if (id === 'ColorSwitchTimeLight' || id === 'ColorSwitchTimeDark') {
+        await disableColorSwitchTime();
+    } else if (id === 'QYLLightClassic') {
+        await disableLightClassic();
+    } else if (id === 'QYLSunset') {
+        await disableSunset();
+    } else if (id === 'QYLForest') {
+        await disableForest();
+    } else if (id === 'QYLOcean') {
+        await disableOcean();
+    } else if (id === 'QYLSugar') {
+        await disableSugar();
+    } else if (id === 'QYLLavender') {
+        await disableLavender();
+    } else if (id === 'QYLYunwu') {
+        await disableYunwu();
+    } else if (id === 'QYLYunyan') {
+        await disableYunyan();
+    } else if (id === 'QYLYuncang') {
+        await disableYuncang();
+    } else if (id === 'QYLShuanghe') {
+        await disableShuanghe();
+    } else if (id === 'QYLLime') {
+        await disableLime();
+    } else if (id === 'QYLHuique') {
+        await disableHuique();
+    } else if (id === 'QYLAutumn') {
+        await disableAutumn();
+    } else if (id === 'QYLMemory') {
+        await disableMemory();
+    } else if (id === 'QYLLake') {
+        await disableLake();
+    } else if (id === 'QYLXiangxuelan') {
+        await disableXiangxuelan();
+    } else if (id === 'QYLIvory') {
+        await disableIvory();
+    } else if (id === 'QYLCoral') {
+        await disableCoral();
+    } else if (id === 'QYLMint') {
+        await disableMint();
+    } else if (id === 'QYLAmber') {
+        await disableAmber();
+    } else if (id === 'QYLBiwan') {
+        await disableBiwan();
+    } else if (id === 'QYLBurgundy') {
+        await disableBurgundy();
+    } else if (id === 'QYLXuanqing') {
+        await disableXuanqing();
+    } else if (id === 'QYLMocui') {
+        await disableMocui();
+    } else if (id === 'QYLHuimu') {
+        await disableHuimu();
+    } else if (id === 'QYLWumu') {
+        await disableWumu();
+    } else if (id === 'QYLMidnight') {
+        await disableMidnight();
+    } else if (id === 'QYLCangming') {
+        await disableCangming();
+    } else if (id === 'QYLSteam') {
+        await disableSteam();
+    } else if (id === 'QYLLatte') {
+        await disableLatte();
+    } else if (id === 'QYLWinter') {
+        await disableWinter();
+    } else if (id === 'QYLXingqiong') {
+        await disableXingqiong();
+    } else if (id === 'QYLDarkClassic') {
+        await disableDarkClassic();
+    }
+}
 function getColorOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
         {
-            id: 'CustomColorPick',
+            id: 'CustomColorPickLight',
             label: i18n.CustomColorPick
+        },
+        {
+            id: 'ColorSwitchTimeLight',
+            label: i18n.ColorSwitchTime
         },
         {
             id: 'QYLLightClassic',
@@ -1039,8 +1122,12 @@ function getColorOptions() {
     ];
     const darkModeOptions = [
         {
-            id: 'CustomColorPick',
+            id: 'CustomColorPickDark',
             label: i18n.CustomColorPick
+        },
+        {
+            id: 'ColorSwitchTimeDark',
+            label: i18n.ColorSwitchTime
         },
         {
             id: 'QYLDarkClassic',
@@ -1093,189 +1180,183 @@ function getColorOptions() {
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
 }
-async function createColorContent() {
+async function createColorContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-color-container';
     const options = getColorOptions();
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-color-option';
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-color-button ${currentState ? 'active' : ''}">
                 ${option.label}
             </button>
         `;
         const button = optionElement.querySelector(`#${option.id}`);
-        
-        
         button.addEventListener('mousedown', function(e) {
             const x = (e.clientX / window.innerWidth) * 100;
             const y = (e.clientY / window.innerHeight) * 100;
             document.documentElement.style.setProperty('--circle-x', `${x}%`);
             document.documentElement.style.setProperty('--circle-y', `${y}%`);
         });
-        
-        if (option.id === 'CustomColorPick') {
+        if (option.id === 'CustomColorPickLight' || option.id === 'CustomColorPickDark') {
             button.addEventListener('contextmenu', async (e) => {
                 e.preventDefault(); 
-                const currentState = await getStorageItem(option.id, false);
+                const currentState = config[option.id] || false;
                 if (currentState) {
                     await showColorPanel1();
                 }
             });
         }
-        
         button.addEventListener('click', async () => {
             let enableFunction = null;
             let disableFunction = null;
-            if (option.id === 'CustomColorPick') {
-                
-                const currentState = await getStorageItem('CustomColorPick', false);
-                if (!currentState) {
-                    
-                    await handleColorButtonClick('CustomColorPick', createColorPicker, destroyColorPicker);
-                } else {
-                    
-                    await createColorPicker();
+            if (option.id === 'CustomColorPickLight' || option.id === 'CustomColorPickDark') {
+                enableFunction = createColorPicker;
+                disableFunction = destroyColorPicker;
+            } else if (option.id === 'ColorSwitchTimeLight' || option.id === 'ColorSwitchTimeDark') {
+                enableFunction = enableColorSwitchTime;
+                disableFunction = disableColorSwitchTime;
+            } else {
+                switch (option.id) {
+                    case 'QYLLightClassic':
+                        enableFunction = enableLightClassic;
+                        disableFunction = disableLightClassic;
+                        break;
+                    case 'QYLSunset':
+                        enableFunction = enableSunset;
+                        disableFunction = disableSunset;
+                        break;
+                    case 'QYLForest':
+                        enableFunction = enableForest;
+                        disableFunction = disableForest;
+                        break;
+                    case 'QYLOcean':
+                        enableFunction = enableOcean;
+                        disableFunction = disableOcean;
+                        break;
+                    case 'QYLSugar':
+                        enableFunction = enableSugar;
+                        disableFunction = disableSugar;
+                        break;
+                    case 'QYLLavender':
+                        enableFunction = enableLavender;
+                        disableFunction = disableLavender;
+                        break;
+                    case 'QYLYunwu':
+                        enableFunction = enableYunwu;
+                        disableFunction = disableYunwu;
+                        break;
+                    case 'QYLYunyan':
+                        enableFunction = enableYunyan;
+                        disableFunction = disableYunyan;
+                        break;
+                    case 'QYLYuncang':
+                        enableFunction = enableYuncang;
+                        disableFunction = disableYuncang;
+                        break;
+                    case 'QYLShuanghe':
+                        enableFunction = enableShuanghe;
+                        disableFunction = disableShuanghe;
+                        break;
+                    case 'QYLLime':
+                        enableFunction = enableLime;
+                        disableFunction = disableLime;
+                        break;
+                    case 'QYLHuique':
+                        enableFunction = enableHuique;
+                        disableFunction = disableHuique;
+                        break;
+                    case 'QYLAutumn':
+                        enableFunction = enableAutumn;
+                        disableFunction = disableAutumn;
+                        break;
+                    case 'QYLMemory':
+                        enableFunction = enableMemory;
+                        disableFunction = disableMemory;
+                        break;
+                    case 'QYLLake':
+                        enableFunction = enableLake;
+                        disableFunction = disableLake;
+                        break;
+                    case 'QYLXiangxuelan':
+                        enableFunction = enableXiangxuelan;
+                        disableFunction = disableXiangxuelan;
+                        break;
+                    case 'QYLIvory':
+                        enableFunction = enableIvory;
+                        disableFunction = disableIvory;
+                        break;
+                    case 'QYLCoral':
+                        enableFunction = enableCoral;
+                        disableFunction = disableCoral;
+                        break;
+                    case 'QYLMint':
+                        enableFunction = enableMint;
+                        disableFunction = disableMint;
+                        break;
+                    case 'QYLAmber':
+                        enableFunction = enableAmber;
+                        disableFunction = disableAmber;
+                        break;
+                    case 'QYLBiwan':
+                        enableFunction = enableBiwan;
+                        disableFunction = disableBiwan;
+                        break;
+                    case 'QYLBurgundy':
+                        enableFunction = enableBurgundy;
+                        disableFunction = disableBurgundy;
+                        break;
+                    case 'QYLXuanqing':
+                        enableFunction = enableXuanqing;
+                        disableFunction = disableXuanqing;
+                        break;
+                    case 'QYLMocui':
+                        enableFunction = enableMocui;
+                        disableFunction = disableMocui;
+                        break;
+                    case 'QYLHuimu':
+                        enableFunction = enableHuimu;
+                        disableFunction = disableHuimu;
+                        break;
+                    case 'QYLWumu':
+                        enableFunction = enableWumu;
+                        disableFunction = disableWumu;
+                        break;
+                    case 'QYLMidnight':
+                        enableFunction = enableMidnight;
+                        disableFunction = disableMidnight;
+                        break;
+                    case 'QYLCangming':
+                        enableFunction = enableCangming;
+                        disableFunction = disableCangming;
+                        break;
+                    case 'QYLSteam':
+                        enableFunction = enableSteam;
+                        disableFunction = disableSteam;
+                        break;
+                    case 'QYLLatte':
+                        enableFunction = enableLatte;
+                        disableFunction = disableLatte;
+                        break;
+                    case 'QYLWinter':
+                        enableFunction = enableWinter;
+                        disableFunction = disableWinter;
+                        break;
+                    case 'QYLXingqiong':
+                        enableFunction = enableXingqiong;
+                        disableFunction = disableXingqiong;
+                        break;
+                    case 'QYLDarkClassic':
+                        enableFunction = enableDarkClassic;
+                        disableFunction = disableDarkClassic;
+                        break;
                 }
-                return;
             }
-            switch (option.id) {
-                case 'QYLLightClassic':
-                    enableFunction = enableLightClassic;
-                    disableFunction = disableLightClassic;
-                    break;
-                case 'QYLSunset':
-                    enableFunction = enableSunset;
-                    disableFunction = disableSunset;
-                    break;
-                case 'QYLForest':
-                    enableFunction = enableForest;
-                    disableFunction = disableForest;
-                    break;
-                case 'QYLOcean':
-                    enableFunction = enableOcean;
-                    disableFunction = disableOcean;
-                    break;
-                case 'QYLSugar':
-                    enableFunction = enableSugar;
-                    disableFunction = disableSugar;
-                    break;
-                case 'QYLLavender':
-                    enableFunction = enableLavender;
-                    disableFunction = disableLavender;
-                    break;
-                case 'QYLYunwu':
-                    enableFunction = enableYunwu;
-                    disableFunction = disableYunwu;
-                    break;
-                case 'QYLYunyan':
-                    enableFunction = enableYunyan;
-                    disableFunction = disableYunyan;
-                    break;
-                case 'QYLYuncang':
-                    enableFunction = enableYuncang;
-                    disableFunction = disableYuncang;
-                    break;
-                case 'QYLShuanghe':
-                    enableFunction = enableShuanghe;
-                    disableFunction = disableShuanghe;
-                    break;
-                case 'QYLLime':
-                    enableFunction = enableLime;
-                    disableFunction = disableLime;
-                    break;
-                case 'QYLHuique':
-                    enableFunction = enableHuique;
-                    disableFunction = disableHuique;
-                    break;
-                case 'QYLAutumn':
-                    enableFunction = enableAutumn;
-                    disableFunction = disableAutumn;
-                    break;
-                case 'QYLMemory':
-                    enableFunction = enableMemory;
-                    disableFunction = disableMemory;
-                    break;
-                case 'QYLLake':
-                    enableFunction = enableLake;
-                    disableFunction = disableLake;
-                    break;
-                case 'QYLXiangxuelan':
-                    enableFunction = enableXiangxuelan;
-                    disableFunction = disableXiangxuelan;
-                    break;
-                case 'QYLIvory':
-                    enableFunction = enableIvory;
-                    disableFunction = disableIvory;
-                    break;
-                case 'QYLCoral':
-                    enableFunction = enableCoral;
-                    disableFunction = disableCoral;
-                    break;
-                case 'QYLMint':
-                    enableFunction = enableMint;
-                    disableFunction = disableMint;
-                    break;
-                case 'QYLAmber':
-                    enableFunction = enableAmber;
-                    disableFunction = disableAmber;
-                    break;
-                case 'QYLBiwan':
-                    enableFunction = enableBiwan;
-                    disableFunction = disableBiwan;
-                    break;
-                case 'QYLBurgundy':
-                    enableFunction = enableBurgundy;
-                    disableFunction = disableBurgundy;
-                    break;
-                case 'QYLXuanqing':
-                    enableFunction = enableXuanqing;
-                    disableFunction = disableXuanqing;
-                    break;
-                case 'QYLMocui':
-                    enableFunction = enableMocui;
-                    disableFunction = disableMocui;
-                    break;
-                case 'QYLHuimu':
-                    enableFunction = enableHuimu;
-                    disableFunction = disableHuimu;
-                    break;
-                case 'QYLWumu':
-                    enableFunction = enableWumu;
-                    disableFunction = disableWumu;
-                    break;
-                case 'QYLMidnight':
-                    enableFunction = enableMidnight;
-                    disableFunction = disableMidnight;
-                    break;
-                case 'QYLCangming':
-                    enableFunction = enableCangming;
-                    disableFunction = disableCangming;
-                    break;
-                case 'QYLSteam':
-                    enableFunction = enableSteam;
-                    disableFunction = disableSteam;
-                    break;
-                case 'QYLLatte':
-                    enableFunction = enableLatte;
-                    disableFunction = disableLatte;
-                    break;
-                case 'QYLWinter':
-                    enableFunction = enableWinter;
-                    disableFunction = disableWinter;
-                    break;
-                case 'QYLXingqiong':
-                    enableFunction = enableXingqiong;
-                    disableFunction = disableXingqiong;
-                    break;
-                case 'QYLDarkClassic':
-                    enableFunction = enableDarkClassic;
-                    disableFunction = disableDarkClassic;
-                    break;
-            }
-            
             if (document.startViewTransition) {
                 document.startViewTransition(async () => {
                     await handleColorButtonClick(option.id, enableFunction, disableFunction);
@@ -1288,25 +1369,36 @@ async function createColorContent() {
     }
     return container;
 }
-async function initializeColorStates() {
+async function initializeColorStates(config = null) {
     const currentMode = ThemeMode.getThemeMode();
-    const groupId = currentMode === 'light' ? 'lightColors' : 'darkColors';
-    const group = currentMode === 'light' ? lightColorGroup : darkColorGroup;
-    
+    const mainGroup = currentMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
+    const customColorPickId = currentMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
+    const colorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+    if (!config) {
+        config = await getStorageConfig();
+    }
+    if (config[colorSwitchTimeId]) {
+        if (!config[customColorPickId]) {
+            config[customColorPickId] = true;
+        }
+        await loadColorFromConfig();
+        await enableColorSwitchTime();
+        return;
+    }
+    if (config[customColorPickId]) {
+        await loadColorFromConfig();
+        return;
+    }
     let firstActiveColor = null;
-    for (const colorId of group) {
-        const currentState = await getStorageItem(colorId, false);
+    for (const colorId of mainGroup) {
+        const currentState = config[colorId] || false;
         if (currentState) {
             firstActiveColor = colorId;
             break;
         }
     }
-    
     if (firstActiveColor) {
-        
-        if (firstActiveColor === 'CustomColorPick') {
-            await loadColorFromConfig();
-        } else if (firstActiveColor === 'QYLLightClassic') {
+        if (firstActiveColor === 'QYLLightClassic') {
             await enableLightClassic();
         } else if (firstActiveColor === 'QYLSunset') {
             await enableSunset();
@@ -1370,103 +1462,26 @@ async function initializeColorStates() {
             await enableWinter();
         } else if (firstActiveColor === 'QYLXingqiong') {
             await enableXingqiong();
+        } else if (firstActiveColor === 'QYLDarkClassic') {
+            await enableDarkClassic();
         }
-        
-        
-        await excluSetting.handleExclusion(groupId, firstActiveColor, 
-            async (id, state) => {
-                await setButtonState(id, state);
-            },
-            async (id) => {
-                
-                if (id === 'CustomColorPick') {
-                    await destroyColorPicker();
-                } else if (id === 'QYLLightClassic') {
-                    await disableLightClassic();
-                } else if (id === 'QYLSunset') {
-                    await disableSunset();
-                } else if (id === 'QYLForest') {
-                    await disableForest();
-                } else if (id === 'QYLOcean') {
-                    await disableOcean();
-                } else if (id === 'QYLSugar') {
-                    await disableSugar();
-                } else if (id === 'QYLLavender') {
-                    await disableLavender();
-                } else if (id === 'QYLYunwu') {
-                    await disableYunwu();
-                } else if (id === 'QYLYunyan') {
-                    await disableYunyan();
-                } else if (id === 'QYLYuncang') {
-                    await disableYuncang();
-                } else if (id === 'QYLShuanghe') {
-                    await disableShuanghe();
-                } else if (id === 'QYLLime') {
-                    await disableLime();
-                } else if (id === 'QYLHuique') {
-                    await disableHuique();
-                } else if (id === 'QYLAutumn') {
-                    await disableAutumn();
-                } else if (id === 'QYLMemory') {
-                    await disableMemory();
-                } else if (id === 'QYLLake') {
-                    await disableLake();
-                } else if (id === 'QYLXiangxuelan') {
-                    await disableXiangxuelan();
-                } else if (id === 'QYLIvory') {
-                    await disableIvory();
-                } else if (id === 'QYLCoral') {
-                    await disableCoral();
-                } else if (id === 'QYLMint') {
-                    await disableMint();
-                } else if (id === 'QYLAmber') {
-                    await disableAmber();
-                } else if (id === 'QYLBiwan') {
-                    await disableBiwan();
-                } else if (id === 'QYLBurgundy') {
-                    await disableBurgundy();
-                } else if (id === 'QYLXuanqing') {
-                    await disableXuanqing();
-                } else if (id === 'QYLMocui') {
-                    await disableMocui();
-                } else if (id === 'QYLHuimu') {
-                    await disableHuimu();
-                } else if (id === 'QYLWumu') {
-                    await disableWumu();
-                } else if (id === 'QYLMidnight') {
-                    await disableMidnight();
-                } else if (id === 'QYLCangming') {
-                    await disableCangming();
-                } else if (id === 'QYLSteam') {
-                    await disableSteam();
-                } else if (id === 'QYLLatte') {
-                    await disableLatte();
-                } else if (id === 'QYLWinter') {
-                    await disableWinter();
-                } else if (id === 'QYLXingqiong') {
-                    await disableXingqiong();
-                }
-            }
-        );
     }
-    
     ThemeMode.addModeChangeListener(async (newMode) => {
-        const newGroupId = newMode === 'light' ? 'lightColors' : 'darkColors';
-        const newGroup = newMode === 'light' ? lightColorGroup : darkColorGroup;
-        
+        const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
+        const config = await getStorageConfig();
         let newFirstActiveColor = null;
         for (const colorId of newGroup) {
-            const currentState = await getStorageItem(colorId, false);
+            const currentState = config[colorId] || false;
             if (currentState) {
                 newFirstActiveColor = colorId;
                 break;
             }
         }
-        
         if (newFirstActiveColor) {
-            
-            if (newFirstActiveColor === 'CustomColorPick') {
+            if (newFirstActiveColor === 'CustomColorPickLight' || newFirstActiveColor === 'CustomColorPickDark') {
                 await loadColorFromConfig();
+            } else if (newFirstActiveColor === 'ColorSwitchTimeLight' || newFirstActiveColor === 'ColorSwitchTimeDark') {
+                await enableColorSwitchTime();
             } else if (newFirstActiveColor === 'QYLLightClassic') {
                 await enableLightClassic();
             } else if (newFirstActiveColor === 'QYLSunset') {
@@ -1531,84 +1546,9 @@ async function initializeColorStates() {
                 await enableWinter();
             } else if (newFirstActiveColor === 'QYLXingqiong') {
                 await enableXingqiong();
+            } else if (newFirstActiveColor === 'QYLDarkClassic') {
+                await enableDarkClassic();
             }
-            
-            
-            await excluSetting.handleExclusion(newGroupId, newFirstActiveColor, 
-                async (id, state) => {
-                    await setButtonState(id, state);
-                },
-                async (id) => {
-                    
-                    if (id === 'CustomColorPick') {
-                        await destroyColorPicker();
-                    } else if (id === 'QYLLightClassic') {
-                        await disableLightClassic();
-                    } else if (id === 'QYLSunset') {
-                        await disableSunset();
-                    } else if (id === 'QYLForest') {
-                        await disableForest();
-                    } else if (id === 'QYLOcean') {
-                        await disableOcean();
-                    } else if (id === 'QYLSugar') {
-                        await disableSugar();
-                    } else if (id === 'QYLLavender') {
-                        await disableLavender();
-                    } else if (id === 'QYLYunwu') {
-                        await disableYunwu();
-                    } else if (id === 'QYLYunyan') {
-                        await disableYunyan();
-                    } else if (id === 'QYLYuncang') {
-                        await disableYuncang();
-                    } else if (id === 'QYLShuanghe') {
-                        await disableShuanghe();
-                    } else if (id === 'QYLLime') {
-                        await disableLime();
-                    } else if (id === 'QYLHuique') {
-                        await disableHuique();
-                    } else if (id === 'QYLAutumn') {
-                        await disableAutumn();
-                    } else if (id === 'QYLMemory') {
-                        await disableMemory();
-                    } else if (id === 'QYLLake') {
-                        await disableLake();
-                    } else if (id === 'QYLXiangxuelan') {
-                        await disableXiangxuelan();
-                    } else if (id === 'QYLIvory') {
-                        await disableIvory();
-                    } else if (id === 'QYLCoral') {
-                        await disableCoral();
-                    } else if (id === 'QYLMint') {
-                        await disableMint();
-                    } else if (id === 'QYLAmber') {
-                        await disableAmber();
-                    } else if (id === 'QYLBiwan') {
-                        await disableBiwan();
-                    } else if (id === 'QYLBurgundy') {
-                        await disableBurgundy();
-                    } else if (id === 'QYLXuanqing') {
-                        await disableXuanqing();
-                    } else if (id === 'QYLMocui') {
-                        await disableMocui();
-                    } else if (id === 'QYLHuimu') {
-                        await disableHuimu();
-                    } else if (id === 'QYLWumu') {
-                        await disableWumu();
-                    } else if (id === 'QYLMidnight') {
-                        await disableMidnight();
-                    } else if (id === 'QYLCangming') {
-                        await disableCangming();
-                    } else if (id === 'QYLSteam') {
-                        await disableSteam();
-                    } else if (id === 'QYLLatte') {
-                        await disableLatte();
-                    } else if (id === 'QYLWinter') {
-                        await disableWinter();
-                    } else if (id === 'QYLXingqiong') {
-                        await disableXingqiong();
-                    }
-                }
-            );
         }
     });
 }
@@ -1619,6 +1559,7 @@ async function loadColorFromConfig() {
             const colorConfig = await module.customColor.loadFromConfig();
             document.documentElement.style.setProperty('--QYL-custom-primary-main', colorConfig.hue.toString() + 'deg');
             document.documentElement.style.setProperty('--QYL-custom-primary-saturate', colorConfig.saturation.toString());
+            document.documentElement.style.setProperty('--QYL-custom-primary-brightness', colorConfig.brightness.toString());
         } catch (error) {
         }
     }

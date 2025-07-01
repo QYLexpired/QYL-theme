@@ -1,4 +1,4 @@
-import { setButtonState, getButtonState } from '../basic/Storage.js';
+import { setButtonState, getButtonState, batchSetButtonStates, smartBatchUpdate } from '../basic/Storage.js';
 class ExcluSetting {
     constructor() {
         this.groups = {};
@@ -17,6 +17,21 @@ class ExcluSetting {
                 if (btn) btn.classList.remove('active');
                 if (onDisable) onDisable(id);
             }
+        }
+    }
+    async handleExclusionBatch(groupId, activeId, onStateChange, onDisable) {
+        const group = this.groups[groupId];
+        if (!group) return;
+        const buttonsToDisable = [];
+        for (const id of group) {
+            if (id !== activeId) {
+                await smartBatchUpdate(id, false);
+                buttonsToDisable.push(id);
+            }
+        }
+        for (const id of buttonsToDisable) {
+            if (onStateChange) onStateChange(id, false);
+            if (onDisable) onDisable(id);
         }
     }
 }

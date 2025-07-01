@@ -1,7 +1,7 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
-import { getStorageItem } from '../basic/GetStorage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 let marktoBlankModule = null;
@@ -12,7 +12,6 @@ let superBlockHighlightModule = null;
 let listBulletOnModule = null;
 let fixedToolModule = null;
 let focusEditingOnModule = null;
-let fileTreeIndentModule = null;
 async function loadMarktoBlankModule() {
     if (!marktoBlankModule) {
         try {
@@ -84,15 +83,6 @@ async function loadFocusEditingOnModule() {
         }
     }
     return focusEditingOnModule;
-}
-async function loadFileTreeIndentModule() {
-    if (!fileTreeIndentModule) {
-        try {
-            fileTreeIndentModule = await import('../style/FileTreeIndent.js');
-        } catch (error) {
-        }
-    }
-    return fileTreeIndentModule;
 }
 async function enableMarktoBlank() {
     const module = await loadMarktoBlankModule();
@@ -193,18 +183,6 @@ async function disableFocusEditingOn() {
     }
     focusEditingOnModule = null;
 }
-async function enableFileTreeIndent() {
-    const module = await loadFileTreeIndentModule();
-    if (module && module.initFileTreeIndent) {
-        module.initFileTreeIndent();
-    }
-}
-async function disableFileTreeIndent() {
-    const module = await loadFileTreeIndentModule();
-    if (module && module.removeFileTreeIndent) {
-        module.removeFileTreeIndent();
-    }
-}
 function getFunctionOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -239,10 +217,6 @@ function getFunctionOptions() {
         {
             id: 'FocusEditing',
             label: i18n.FocusEditing || '专注编辑'
-        },
-        {
-            id: 'FileTreeIndent',
-            label: i18n.FileTreeIndent || '文档树缩进线'
         }
     ];
     const darkModeOptions = [
@@ -277,22 +251,22 @@ function getFunctionOptions() {
         {
             id: 'FocusEditing',
             label: i18n.FocusEditing || '专注编辑'
-        },
-        {
-            id: 'FileTreeIndent',
-            label: i18n.FileTreeIndent || '文档树缩进线'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
 }
-async function createFunctionContent() {
+async function createFunctionContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-function-container';
     const options = getFunctionOptions();
+    // 如果没有传入配置，则获取配置
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-function-option';
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-function-button ${currentState ? 'active' : ''}">
                 ${option.label}
@@ -300,11 +274,12 @@ async function createFunctionContent() {
         `;
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
-            const newState = await toggleButtonState(option.id);
+            const newState = await smartToggleButtonState(option.id);
+            // 立即更新按钮状态，确保UI同步
             button.classList.toggle('active', newState);
             if (newState) {
                 if (['FocusBlockHighlight', 'FocusEditing'].includes(option.id)) {
-                    await excluSetting.handleExclusion('focusGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('focusGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'FocusBlockHighlight') {
                             await disableFocusBlockHighlight();
                         } else if (disabledId === 'FocusEditing') {
@@ -318,12 +293,6 @@ async function createFunctionContent() {
                     await enableMarktoBlank();
                 } else {
                     await disableMarktoBlank();
-                }
-            } else if (option.id === 'FileTreeIndent') {
-                if (newState) {
-                    await enableFileTreeIndent();
-                } else {
-                    await disableFileTreeIndent();
                 }
             } else if (option.id === 'EditorFullWidth') {
                 if (newState) {
@@ -368,22 +337,24 @@ async function createFunctionContent() {
                     await disableFocusEditingOn();
                 }
             }
+            // 立即执行批量更新
+            await flushBatchUpdate();
         });
         container.appendChild(optionElement);
     }
     return container;
 }
-async function initializeFunctionStates() {
+async function initializeFunctionStates(config = null) {
     const options = getFunctionOptions();
+    // 如果没有传入配置，则获取配置
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         if (option.id === 'MarktoBlank') {
             if (currentState) {
                 await enableMarktoBlank();
-            }
-        } else if (option.id === 'FileTreeIndent') {
-            if (currentState) {
-                await enableFileTreeIndent();
             }
         } else if (option.id === 'EditorFullWidth') {
             if (currentState) {

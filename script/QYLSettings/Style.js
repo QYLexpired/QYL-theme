@@ -1,7 +1,7 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
-import { getStorageItem } from '../basic/GetStorage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 let fileTreeIndentModule = null;
 let frostedGlassModule = null;
@@ -191,14 +191,17 @@ function getStyleOptions() {
         { id: 'InkMode', label: i18n.InkMode || '墨水屏模式' },
     ];
 }
-async function createStyleContent() {
+async function createStyleContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-style-container';
     const options = getStyleOptions();
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-style-option';
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-style-button ${currentState ? 'active' : ''}">
                 ${option.label}
@@ -206,72 +209,67 @@ async function createStyleContent() {
         `;
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
-            const newState = await toggleButtonState(option.id);
+            const newState = await smartToggleButtonState(option.id);
             button.classList.toggle('active', newState);
-            if (option.id === 'FileTreeIndent') {
-                if (newState) {
+            if (newState) {
+                if (['FlatStyle', 'InkMode'].includes(option.id)) {
+                    await excluSetting.handleExclusionBatch('styleExclusion', option.id, null, async (disabledId) => {
+                        if (disabledId === 'FlatStyle') {
+                            await disableFlatStyle();
+                        } else if (disabledId === 'InkMode') {
+                            await disableInkMode();
+                        }
+                    });
+                }
+                if (option.id === 'FileTreeIndent') {
                     await enableFileTreeIndent();
-                } else {
-                    await disableFileTreeIndent();
-                }
-            } else if (option.id === 'FrostedGlass') {
-                if (newState) {
+                } else if (option.id === 'FlatStyle') {
+                    await enableFlatStyle();
+                } else if (option.id === 'FrostedGlass') {
                     await enableFrostedGlass();
-                } else {
-                    await disableFrostedGlass();
-                }
-            } else if (option.id === 'Animation') {
-                if (newState) {
+                } else if (option.id === 'InkMode') {
+                    await enableInkMode();
+                } else if (option.id === 'Animation') {
                     await enableAnimation();
-                } else {
-                    await disableAnimation();
-                }
-            } else if (option.id === 'ColorfulFileTree') {
-                if (newState) {
+                } else if (option.id === 'ColorfulFileTree') {
                     await enableColorfulFileTree();
-                } else {
-                    await disableColorfulFileTree();
-                }
-            } else if (option.id === 'BorderFileTree') {
-                if (newState) {
+                } else if (option.id === 'BorderFileTree') {
                     await enableBorderFileTree();
-                } else {
-                    await disableBorderFileTree();
-                }
-            } else if (option.id === 'GridSearchList') {
-                if (newState) {
+                } else if (option.id === 'GridSearchList') {
                     await enableGridSearchList();
-                } else {
+                }
+            } else {
+                if (option.id === 'FileTreeIndent') {
+                    await disableFileTreeIndent();
+                } else if (option.id === 'FlatStyle') {
+                    await disableFlatStyle();
+                } else if (option.id === 'FrostedGlass') {
+                    await disableFrostedGlass();
+                } else if (option.id === 'InkMode') {
+                    await disableInkMode();
+                } else if (option.id === 'Animation') {
+                    await disableAnimation();
+                } else if (option.id === 'ColorfulFileTree') {
+                    await disableColorfulFileTree();
+                } else if (option.id === 'BorderFileTree') {
+                    await disableBorderFileTree();
+                } else if (option.id === 'GridSearchList') {
                     await disableGridSearchList();
                 }
-            } else if (option.id === 'FlatStyle') {
-                if (newState) {
-                    await excluSetting.handleExclusion('styleExclusion', option.id, null, async (disabledId) => {
-                        if (disabledId === 'InkMode') await disableInkMode();
-                    });
-                    await enableFlatStyle();
-                } else {
-                    await disableFlatStyle();
-                }
-            } else if (option.id === 'InkMode') {
-                if (newState) {
-                    await excluSetting.handleExclusion('styleExclusion', option.id, null, async (disabledId) => {
-                        if (disabledId === 'FlatStyle') await disableFlatStyle();
-                    });
-                    await enableInkMode();
-                } else {
-                    await disableInkMode();
-                }
             }
+            await flushBatchUpdate();
         });
         container.appendChild(optionElement);
     }
     return container;
 }
-async function initializeStyleStates() {
+async function initializeStyleStates(config = null) {
     const options = getStyleOptions();
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         if (option.id === 'FileTreeIndent' && currentState) {
             await enableFileTreeIndent();
         } else if (option.id === 'FrostedGlass' && currentState) {

@@ -1,7 +1,7 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { toggleButtonState, getButtonState, setButtonState } from '../basic/Storage.js';
-import { getStorageItem } from '../basic/GetStorage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 let verticalTabModule = null;
@@ -192,14 +192,17 @@ function getLayoutOptions() {
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
 }
-async function createLayoutContent() {
+async function createLayoutContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-layout-container';
     const options = getLayoutOptions();
+    if (!config) {
+        config = await getStorageConfig();
+    }
     for (const option of options) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-layout-option';
-        const currentState = await getStorageItem(option.id, false);
+        const currentState = config[option.id] || false;
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-layout-button ${currentState ? 'active' : ''}">
                 ${option.label}
@@ -207,178 +210,170 @@ async function createLayoutContent() {
         `;
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
-            const newState = await toggleButtonState(option.id);
+            const newState = await smartToggleButtonState(option.id);
             button.classList.toggle('active', newState);
             if (newState) {
                 if (['VerticalTab', 'FusionOn'].includes(option.id)) {
-                    await excluSetting.handleExclusion('verticalFusionGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('verticalFusionGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'VerticalTab') {
                             await disableVerticalTab();
-                            const verticalTabButton = document.getElementById('VerticalTab');
-                            if (verticalTabButton) verticalTabButton.classList.remove('active');
                         } else if (disabledId === 'FusionOn') {
                             await disableFusionOn();
-                            const fusionOnButton = document.getElementById('FusionOn');
-                            if (fusionOnButton) fusionOnButton.classList.remove('active');
                         }
                     });
                 }
                 if (['FusionOn', 'HideTopBar'].includes(option.id)) {
-                    await excluSetting.handleExclusion('fusionHideGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('fusionHideGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'FusionOn') {
                             await disableFusionOn();
-                            const fusionOnButton = document.getElementById('FusionOn');
-                            if (fusionOnButton) fusionOnButton.classList.remove('active');
                         } else if (disabledId === 'HideTopBar') {
                             await disableHideTopBar();
-                            const hideTopBarButton = document.getElementById('HideTopBar');
-                            if (hideTopBarButton) hideTopBarButton.classList.remove('active');
                         }
                     });
                 }
                 if (['ColorBlock', 'VerticalTab'].includes(option.id)) {
-                    await excluSetting.handleExclusion('colorBlockVerticalGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('colorBlockVerticalGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'ColorBlock') {
                             await disableColorBlock();
-                            const colorBlockButton = document.getElementById('ColorBlock');
-                            if (colorBlockButton) colorBlockButton.classList.remove('active');
                         } else if (disabledId === 'VerticalTab') {
                             await disableVerticalTab();
-                            const verticalTabButton = document.getElementById('VerticalTab');
-                            if (verticalTabButton) verticalTabButton.classList.remove('active');
                         }
                     });
                 }
                 if (['ColorBlock', 'HideTopBar'].includes(option.id)) {
-                    await excluSetting.handleExclusion('colorBlockHideTopBarGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('colorBlockHideTopBarGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'ColorBlock') {
                             await disableColorBlock();
-                            const colorBlockButton = document.getElementById('ColorBlock');
-                            if (colorBlockButton) colorBlockButton.classList.remove('active');
                         } else if (disabledId === 'HideTopBar') {
                             await disableHideTopBar();
-                            const hideTopBarButton = document.getElementById('HideTopBar');
-                            if (hideTopBarButton) hideTopBarButton.classList.remove('active');
                         }
                     });
                 }
                 if (['FullHeightLayout', 'VerticalTab'].includes(option.id)) {
-                    await excluSetting.handleExclusion('fullHeightVerticalGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('fullHeightVerticalGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'FullHeightLayout') {
                             await disableFullHeightLayout();
-                            const fullHeightButton = document.getElementById('FullHeightLayout');
-                            if (fullHeightButton) fullHeightButton.classList.remove('active');
                         } else if (disabledId === 'VerticalTab') {
                             await disableVerticalTab();
-                            const verticalTabButton = document.getElementById('VerticalTab');
-                            if (verticalTabButton) verticalTabButton.classList.remove('active');
                         }
                     });
                 }
                 if (['HideTab', 'VerticalTab'].includes(option.id)) {
-                    await excluSetting.handleExclusion('hideTabVerticalGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('hideTabVerticalGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'HideTab') {
                             await disableHideTab();
-                            const hideTabButton = document.getElementById('HideTab');
-                            if (hideTabButton) hideTabButton.classList.remove('active');
                         } else if (disabledId === 'VerticalTab') {
                             await disableVerticalTab();
-                            const verticalTabButton = document.getElementById('VerticalTab');
-                            if (verticalTabButton) verticalTabButton.classList.remove('active');
                         }
                     });
                 }
                 if (['HideTab', 'FullHeightLayout'].includes(option.id)) {
-                    await excluSetting.handleExclusion('hideTabFullHeightGroup', option.id, null, async (disabledId) => {
+                    await excluSetting.handleExclusionBatch('hideTabFullHeightGroup', option.id, null, async (disabledId) => {
                         if (disabledId === 'HideTab') {
                             await disableHideTab();
-                            const hideTabButton = document.getElementById('HideTab');
-                            if (hideTabButton) hideTabButton.classList.remove('active');
                         } else if (disabledId === 'FullHeightLayout') {
                             await disableFullHeightLayout();
-                            const fullHeightButton = document.getElementById('FullHeightLayout');
-                            if (fullHeightButton) fullHeightButton.classList.remove('active');
                         }
                     });
                 }
-                if (option.id === 'VerticalTab') {
-                    await enableVerticalTab();
-                } else if (option.id === 'FusionOn') {
-                    await enableFusionOn();
-                } else if (option.id === 'HideTopBar') {
-                    await enableHideTopBar();
-                } else if (option.id === 'ColorBlock') {
-                    await bindSetting.handleBinding('colorBlockFusionGroup', 'ColorBlock', async (buttonId) => {
+                if (option.id === 'ColorBlock') {
+                    await bindSetting.handleBindingBatch('colorBlockFusionGroup', 'ColorBlock', async (buttonId) => {
                         if (buttonId === 'FusionOn') {
                             await enableFusionOn();
                         }
                     });
-                    await enableColorBlock();
+                }
+                if (option.id === 'HideTab') {
+                    await enableHideTab();
+                } else if (option.id === 'HideTopBar') {
+                    await enableHideTopBar();
+                } else if (option.id === 'VerticalTab') {
+                    await enableVerticalTab();
                 } else if (option.id === 'FullHeightLayout') {
                     await enableFullHeightLayout();
-                } else if (option.id === 'HideTab') {
-                    await enableHideTab();
+                } else if (option.id === 'ColorBlock') {
+                    await enableColorBlock();
+                } else if (option.id === 'FusionOn') {
+                    await enableFusionOn();
                 }
             } else {
-                if (option.id === 'VerticalTab') {
-                    await disableVerticalTab();
-                } else if (option.id === 'FusionOn') {
-                    await bindSetting.handleUnbinding('colorBlockFusionGroup', 'FusionOn', async (buttonId) => {
+                if (option.id === 'FusionOn') {
+                    await bindSetting.handleUnbindingBatch('colorBlockFusionGroup', 'FusionOn', async (buttonId) => {
                         if (buttonId === 'ColorBlock') {
                             await disableColorBlock();
                         }
                     });
-                    await disableFusionOn();
+                }
+                if (option.id === 'HideTab') {
+                    await disableHideTab();
                 } else if (option.id === 'HideTopBar') {
                     await disableHideTopBar();
-                } else if (option.id === 'ColorBlock') {
-                    await disableColorBlock();
+                } else if (option.id === 'VerticalTab') {
+                    await disableVerticalTab();
                 } else if (option.id === 'FullHeightLayout') {
                     await disableFullHeightLayout();
-                } else if (option.id === 'HideTab') {
-                    await disableHideTab();
+                } else if (option.id === 'ColorBlock') {
+                    await disableColorBlock();
+                } else if (option.id === 'FusionOn') {
+                    await disableFusionOn();
                 }
             }
+            await flushBatchUpdate();
         });
         container.appendChild(optionElement);
     }
     return container;
 }
-async function initializeLayoutStates() {
+async function initializeLayoutStates(config = null) {
     const options = getLayoutOptions();
-    let verticalTabState = await getStorageItem('VerticalTab', false);
-    let fusionOnState = await getStorageItem('FusionOn', false);
-    let hideTopBarState = await getStorageItem('HideTopBar', false);
-    let colorBlockState = await getStorageItem('ColorBlock', false);
+    if (!config) {
+        config = await getStorageConfig();
+    }
+    let verticalTabState = config['VerticalTab'] || false;
+    let fusionOnState = config['FusionOn'] || false;
+    let hideTopBarState = config['HideTopBar'] || false;
+    let colorBlockState = config['ColorBlock'] || false;
+    let fullHeightLayoutState = config['FullHeightLayout'] || false;
+    let hideTabState = config['HideTab'] || false;
+    let needSave = false;
     if (verticalTabState && fusionOnState) {
         fusionOnState = false;
-        await setButtonState('FusionOn', false);
+        config['FusionOn'] = false;
+        needSave = true;
     }
     if (fusionOnState && hideTopBarState) {
         hideTopBarState = false;
-        await setButtonState('HideTopBar', false);
+        config['HideTopBar'] = false;
+        needSave = true;
     }
     if (colorBlockState && !fusionOnState) {
         fusionOnState = true;
-        await setButtonState('FusionOn', true);
+        config['FusionOn'] = true;
+        needSave = true;
     }
     if (!fusionOnState && colorBlockState) {
         colorBlockState = false;
-        await setButtonState('ColorBlock', false);
+        config['ColorBlock'] = false;
+        needSave = true;
     }
-    let fullHeightLayoutState = await getStorageItem('FullHeightLayout', false);
     if (fullHeightLayoutState && verticalTabState) {
         verticalTabState = false;
-        await setButtonState('VerticalTab', false);
+        config['VerticalTab'] = false;
+        needSave = true;
     }
-    let hideTabState = await getStorageItem('HideTab', false);
     if (hideTabState && verticalTabState) {
         verticalTabState = false;
-        await setButtonState('VerticalTab', false);
+        config['VerticalTab'] = false;
+        needSave = true;
     }
     if (hideTabState && fullHeightLayoutState) {
         fullHeightLayoutState = false;
-        await setButtonState('FullHeightLayout', false);
+        config['FullHeightLayout'] = false;
+        needSave = true;
+    }
+    if (needSave) {
+        const { saveConfig } = await import('../basic/Storage.js');
+        await saveConfig(config);
     }
     for (const option of options) {
         let currentState = false;

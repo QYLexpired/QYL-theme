@@ -1,7 +1,9 @@
 import { createQYLSettingsContent } from './QYLSettingsContent.js';
 export async function createQYLSettingsWindow() {
-    
     removeQYLSettingsWindow();
+    if (window.QYLConfigManager) {
+        window.QYLConfigManager.clearCache();
+    }
     const settingsWindow = document.createElement('div');
     settingsWindow.id = 'QYLSettingsWindow';
     settingsWindow.className = 'b3-menu';
@@ -16,10 +18,8 @@ export async function createQYLSettingsWindow() {
     }
     const settingsContent = await createQYLSettingsContent();
     settingsWindow.appendChild(settingsContent);
-    
     document.body.appendChild(settingsWindow);
     const handleClickOutside = (event) => {
-        
         if (event.target.closest('#QYLButton')) {
             return;
         }
