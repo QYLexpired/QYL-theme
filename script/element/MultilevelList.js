@@ -151,8 +151,6 @@ export function initMultilevelList() {
                 }
             }
         }
-
-
         .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action::after {
             animation: QYLlienterfix 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards !important;
             box-shadow: 0 0 0 0.2em var(--QYL-tab-item-focus);
@@ -179,7 +177,6 @@ export function initMultilevelList() {
     `;
     document.head.appendChild(style);
 }
-
 export function removeMultilevelList() {
     const style = document.getElementById('snippet-QYL-MultilevelList');
     if (style) {
