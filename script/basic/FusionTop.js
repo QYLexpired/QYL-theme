@@ -7,7 +7,6 @@ let cachedLayoutCenter = null;
 let cachedToolbar = null;
 let cachedWindows = null;
 let isInitializing = false;
-
 function getLayoutCenter() {
     if (!cachedLayoutCenter) {
         cachedLayoutCenter = document.querySelector('.layout__center');
@@ -37,27 +36,20 @@ function clearCache() {
 }
 export function initFusionTop() {
     if (isEnabled || isInitializing) return;
-    
     isInitializing = true;
-    
-    // 先清理可能存在的残留状态
     if (debounceTimer) {
         clearTimeout(debounceTimer);
         debounceTimer = null;
     }
-    
     if (initCheckTimer) {
         clearTimeout(initCheckTimer);
         initCheckTimer = null;
     }
-    
     if (layoutObserver) {
         layoutObserver.disconnect();
         layoutObserver = null;
     }
-    
     clearCache();
-    
     const overlapThreshold = 15;
     function checkOverlap() {
         const layoutCenter = getLayoutCenter();
@@ -145,10 +137,8 @@ export function initFusionTop() {
 }
 export function removeFusionTop() {
     if (!isEnabled && !isInitializing) return;
-    
     isEnabled = false;
     isInitializing = false;
-    
     if (debounceTimer) {
         clearTimeout(debounceTimer);
         debounceTimer = null;
@@ -169,4 +159,4 @@ export function removeFusionTop() {
 }
 export function isFusionTopEnabled() {
     return isEnabled;
-} 
+}

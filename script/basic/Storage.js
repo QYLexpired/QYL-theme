@@ -1,33 +1,16 @@
 import { putFile, getFile } from './API.js';
+import { clearConfigCache, getStorageConfig } from './GetStorage.js';
 const CONFIG_PATH = '/conf/QYL-Config.json';
 async function getConfig() {
-    try {
-        const content = await getFile(CONFIG_PATH);
-        if (!content) {
-            return {};
-        }
-        const parsed = JSON.parse(content);
-        if (parsed && typeof parsed === 'object') {
-            const cleanConfig = {};
-            for (const [key, value] of Object.entries(parsed)) {
-                if (value && typeof value === 'object' && (value.code === 404 || value.msg || value.data !== null)) {
-                    continue;
-                }
-                if (key === 'code' || key === 'msg' || key === 'data') {
-                    continue;
-                }
-                cleanConfig[key] = value;
-            }
-            return cleanConfig;
-        }
-        return {};
-    } catch (error) {
-        return {};
-    }
+    return await getStorageConfig();
 }
 async function saveConfig(config) {
     try {
         await putFile(CONFIG_PATH, JSON.stringify(config, null, 2));
+        clearConfigCache();
+        if (window.QYLConfigManager) {
+            window.QYLConfigManager.clearCache();
+        }
     } catch (error) {
     }
 }
@@ -47,5 +30,83 @@ async function setButtonState(buttonId, state) {
     const config = await getConfig();
     config[buttonId] = state;
     await saveConfig(config);
+}
+export async function batchUpdateConfig(updates) {
+    try {
+        const config = await getConfig();
+        for (const [key, value] of Object.entries(updates)) {
+            config[key] = value;
+        }
+        await saveConfig(config);
+        if (window.QYLConfigManager) {
+            window.QYLConfigManager.updateConfig(config);
+        }
+        return config;
+    } catch (error) {
+        console.error('Batch update config error:', error);
+        throw error;
+    }
+}
+export async function batchSetButtonStates(states) {
+    try {
+        const updates = {};
+        for (const [buttonId, state] of Object.entries(states)) {
+            updates[buttonId] = state;
+        }
+        await batchUpdateConfig(updates);
+        for (const [buttonId, state] of Object.entries(states)) {
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.classList.toggle('active', state);
+            }
+        }
+        if (window.QYLConfigManager) {
+            window.QYLConfigManager.clearCache();
+        }
+        return true;
+    } catch (error) {
+        console.error('Batch set button states error:', error);
+        return false;
+    }
+}
+let batchUpdateQueue = new Map();
+let batchUpdateTimer = null;
+export async function smartBatchUpdate(buttonId, state) {
+    batchUpdateQueue.set(buttonId, state);
+    if (batchUpdateTimer) {
+        clearTimeout(batchUpdateTimer);
+    }
+    batchUpdateTimer = setTimeout(async () => {
+        if (batchUpdateQueue.size > 0) {
+            const states = Object.fromEntries(batchUpdateQueue);
+            batchUpdateQueue.clear();
+            await batchSetButtonStates(states);
+        }
+    }, 1); 
+}
+export async function flushBatchUpdate() {
+    if (batchUpdateQueue.size > 0) {
+        const states = Object.fromEntries(batchUpdateQueue);
+        batchUpdateQueue.clear();
+        if (batchUpdateTimer) {
+            clearTimeout(batchUpdateTimer);
+            batchUpdateTimer = null;
+        }
+        await batchSetButtonStates(states);
+    }
+}
+export async function smartToggleButtonState(buttonId) {
+    try {
+        const currentState = await getButtonState(buttonId);
+        const newState = !currentState;
+        await smartBatchUpdate(buttonId, newState);
+        if (window.QYLConfigManager) {
+            window.QYLConfigManager.clearCache();
+        }
+        return newState;
+    } catch (error) {
+        console.error('Smart toggle button state error:', error);
+        return false;
+    }
 }
 export { toggleButtonState, getButtonState, setButtonState, getConfig, saveConfig };
