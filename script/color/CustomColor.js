@@ -7,8 +7,15 @@ export class CustomColor {
         this.colorPickInstance = null;
         this.container = null;
         this.isVisible = false;
+        this.configCache = null; 
     }
-    async createColorPicker(callback, initialHue = 0, initialSaturation = 0.5) {
+    async getCachedConfig() {
+        if (!this.configCache) {
+            this.configCache = await getConfig();
+        }
+        return this.configCache;
+    }
+    async createColorPicker(callback, initialHue = 0, initialSaturation = 0.5, initialBrightness = 0) {
         this.colorPickInstance = new ColorPick();
         this.container = this.colorPickInstance.createCustomColorPicker(
             async (colorData) => {
@@ -17,7 +24,8 @@ export class CustomColor {
                 }
             },
             initialHue,
-            initialSaturation
+            initialSaturation,
+            initialBrightness
         );
         this.container.style.position = 'fixed';
         this.container.style.zIndex = '10000'; 
@@ -81,11 +89,15 @@ export class CustomColor {
             this.show();
         }
     }
-    setColor(hue, saturation) {
+    setColor(hue, saturation, brightness = 0) {
         if (this.colorPickInstance) {
             const saturationInput = this.container?.querySelector('.QYLSaturationInput');
+            const brightnessInput = this.container?.querySelector('.QYLBrightnessInput');
             if (saturationInput) {
                 saturationInput.value = saturation.toString();
+            }
+            if (brightnessInput) {
+                brightnessInput.value = brightness.toString();
             }
             if (this.colorPickInstance.indicator) {
                 const percentage = hue / 360;
@@ -104,7 +116,9 @@ export class CustomColor {
                     } else if (hue >= 150 && hue <= 210) {
                         chroma = 0.25;
                     }
-                    const indicatorColor = `oklch(0.95 ${chroma} ${hue}deg)`;
+                    const currentSaturation = this.colorPickInstance.getColor()?.saturation ?? 0.5;
+                    const currentBrightness = this.colorPickInstance.getColor()?.brightness ?? 0;
+                    const indicatorColor = `oklch(calc(0.95 + ${currentBrightness} * 0.02) calc(0.25 * ${currentSaturation}) ${hue}deg)`;
                     this.colorPickInstance.indicator.style.background = indicatorColor;
                 }
             }
@@ -138,32 +152,39 @@ export class CustomColor {
             this.colorPickInstance = null;
         }
         this.isVisible = false;
+        this.configCache = null;
     }
     async loadFromConfig() {
         try {
-            const config = await getConfig();
+            const config = await this.getCachedConfig();
             const currentMode = ThemeMode.getThemeMode();
             const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
             const hueKey = `CustomMainColor${modeSuffix}`;
             const saturationKey = `CustomMainColorSaturate${modeSuffix}`;
-            const hue = config[hueKey] || 0;
-            const saturation = config[saturationKey] || 0.5;
-            return { hue, saturation };
+            const brightnessKey = `CustomMainColorBrightness${modeSuffix}`;
+            const hue = config[hueKey] ?? 0;
+            const saturation = config[saturationKey] ?? 0.5;
+            const brightness = config[brightnessKey] ?? 0;
+            return { hue, saturation, brightness };
         } catch (error) {
-            return { hue: 0, saturation: 0.5 };
+            console.error('加载配置失败:', error);
+            return { hue: 0, saturation: 0.5, brightness: 0 };
         }
     }
-    async saveToConfig(hue, saturation) {
+    async saveToConfig(hue, saturation, brightness = 0) {
         try {
-            const config = await getConfig();
+            const config = await this.getCachedConfig();
             const currentMode = ThemeMode.getThemeMode();
             const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
             const hueKey = `CustomMainColor${modeSuffix}`;
             const saturationKey = `CustomMainColorSaturate${modeSuffix}`;
+            const brightnessKey = `CustomMainColorBrightness${modeSuffix}`;
             config[hueKey] = hue;
             config[saturationKey] = saturation;
+            config[brightnessKey] = brightness;
             await saveConfig(config);
         } catch (error) {
+            console.error('保存配置失败:', error);
         }
     }
 }
