@@ -91,36 +91,17 @@ export class CustomColor {
     }
     setColor(hue, saturation, brightness = 0) {
         if (this.colorPickInstance) {
+            const hueInput = this.container?.querySelector('.QYLHueInput');
             const saturationInput = this.container?.querySelector('.QYLSaturationInput');
             const brightnessInput = this.container?.querySelector('.QYLBrightnessInput');
+            if (hueInput) {
+                hueInput.value = hue.toString();
+            }
             if (saturationInput) {
                 saturationInput.value = saturation.toString();
             }
             if (brightnessInput) {
                 brightnessInput.value = brightness.toString();
-            }
-            if (this.colorPickInstance.indicator) {
-                const percentage = hue / 360;
-                const colorSpectrum = this.container?.querySelector('.QYLColorPickSpectrum');
-                if (colorSpectrum) {
-                    const maxLeft = colorSpectrum.offsetWidth - this.colorPickInstance.indicator.offsetWidth;
-                    this.colorPickInstance.indicator.style.left = `${percentage * maxLeft}px`;
-                    const okhclHue = hue;
-                    let chroma = 0.4; 
-                    if (hue >= 45 && hue <= 75) {
-                        chroma = 0.6;
-                    } else if (hue >= 30 && hue <= 90) {
-                        chroma = 0.5;
-                    } else if (hue >= 240 && hue <= 300) {
-                        chroma = 0.5;
-                    } else if (hue >= 150 && hue <= 210) {
-                        chroma = 0.25;
-                    }
-                    const currentSaturation = this.colorPickInstance.getColor()?.saturation ?? 0.5;
-                    const currentBrightness = this.colorPickInstance.getColor()?.brightness ?? 0;
-                    const indicatorColor = `oklch(calc(0.95 + ${currentBrightness} * 0.02) calc(0.25 * ${currentSaturation}) ${hue}deg)`;
-                    this.colorPickInstance.indicator.style.background = indicatorColor;
-                }
             }
         }
     }
