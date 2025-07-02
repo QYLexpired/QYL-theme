@@ -138,27 +138,37 @@
     position: absolute;
     width: 34px;
     height: 25px;
-    left: 5px;
-    background-color: var(--b3-theme-primary);
+    background: var(--b3-theme-primary);
+    background-image: linear-gradient(to right bottom, 
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg)));
     -webkit-mask-image: url('../img/uncheck.svg');
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     mask-image: url('../img/uncheck.svg');
     mask-repeat: no-repeat;
+    mask-position: center;
 }
 .protyle-wysiwyg .li.protyle-task--done>.protyle-action--task::before, .av__cell-check::before {
     content: "" !important;
     position: absolute;
-    width: 34px;
+    width: 36px;
     height: 25px;
-    left: 5px;
-    background-color: var(--b3-theme-primary);
+    background: var(--b3-theme-primary);
+    background-image: linear-gradient(to right bottom, 
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg)));
     -webkit-mask-image: url('../img/checked.svg');
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     mask-image: url('../img/checked.svg');
     mask-repeat: no-repeat;
+    mask-position: center;
 }
 .protyle-wysiwyg .li[data-subtype=t].protyle-task--done > div[data-node-id].p {
-    color: var(--QYL-task-done);
+    opacity: 0.6;
 }
 /* 列表 */
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {

@@ -5,6 +5,7 @@
     }
     to {
         clip-path: circle(150% at 50% 50%);
+        filter: saturate(1) brightness(1);
         opacity: 1;
     }
 }
@@ -15,6 +16,7 @@
     }
     to {
         clip-path: circle(150% at 50% 50%);
+        filter: saturate(1) brightness(1);
         opacity: 1;
     }
 }

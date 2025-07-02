@@ -56,3 +56,23 @@
       opacity: 0;
     }
 }
+#configBazaarReadme .item__preview + .b3-typography blockquote {
+    border-radius: 36px;
+    border: 2px solid var(--b3-theme-surface-lighter);
+    padding: 16px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--b3-theme-on-surface-light);
+    text-align: center;
+    &::before {
+        display: none;
+    }
+}
+#configBazaarReadme :is(.b3-typography,.protyle-wysiwyg) :is(.code-block,code.hljs) {
+    &::before {
+        display: none;
+    }
+}
+.config-bazaar__title {
+    margin-bottom: 16px;
+}

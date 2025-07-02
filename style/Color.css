@@ -269,7 +269,7 @@
         --b3-theme-background-light: oklch(calc(0.27 + var(--b3-theme-primary-brightness) * 0.02) calc(0.07 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 
         /* 面板背景色 */
-        --b3-theme-surface: oklch(calc(0.21 + var(--b3-theme-primary-brightness) * 0.03) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        --b3-theme-surface: oklch(calc(0.20 + var(--b3-theme-primary-brightness) * 0.03) calc(0.075 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-surface-light: oklch(calc(0.18 + var(--b3-theme-primary-brightness) * 0.03) calc(0.06 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
         --b3-theme-surface-lighter: oklch(calc(0.33 + var(--b3-theme-primary-brightness) * 0.03) calc(0.06 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 
@@ -317,11 +317,11 @@
         --b3-protyle-code-background: oklch(calc(0.38 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 
         /* 页签 */
-        --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
-        --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
+        --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
+        --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
 
         /* 状态栏 */
-        --QYL-status-background: oklch(calc(0.25 + var(--b3-theme-primary-brightness) * 0.015) calc(0.07 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        --QYL-status-background: oklch(calc(0.235 + var(--b3-theme-primary-brightness) * 0.015) calc(0.06 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 
         /* 毛玻璃 */
         --QYL-Aero-background: oklch(calc(0.18 + var(--b3-theme-primary-brightness) * 0.015) calc(0.01 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.7);
