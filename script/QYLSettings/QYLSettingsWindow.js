@@ -27,10 +27,12 @@ export async function createQYLSettingsWindow() {
             return;
         }
         if (event.target.closest('.QYLColorPickContainer') || 
-            event.target.closest('.QYLColorPickSpectrum') || 
-            event.target.closest('.QYLColorPickIndicator') || 
+            event.target.closest('.QYLHueSlider') || 
+            event.target.closest('.QYLHueInput') || 
             event.target.closest('.QYLSaturationSlider') || 
-            event.target.closest('.QYLSaturationInput')) {
+            event.target.closest('.QYLSaturationInput') ||
+            event.target.closest('.QYLBrightnessSlider') || 
+            event.target.closest('.QYLBrightnessInput')) {
             return;
         }
         removeQYLSettingsWindow();
