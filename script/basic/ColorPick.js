@@ -3,13 +3,12 @@ import ThemeMode from './ThemeMode.js';
 export class ColorPick {
     constructor() {
         this.container = null;
-        this.colorSpectrum = null;
-        this.indicator = null;
+        this.hueSlider = null;
+        this.hueInput = null;
         this.saturationSlider = null;
         this.saturationInput = null;
         this.brightnessSlider = null;
         this.brightnessInput = null;
-        this.isDragging = false;
         this.configCache = null;
         this.pendingSave = null;
     }
@@ -34,10 +33,15 @@ export class ColorPick {
     createCustomColorPicker(callback, initialHue = 0, initialSaturation = 0.5, initialBrightness = 0) {
         this.container = document.createElement('div');
         this.container.className = 'QYLColorPickContainer b3-menu';
-        this.colorSpectrum = document.createElement('div');
-        this.colorSpectrum.className = 'QYLColorPickSpectrum';
-        this.indicator = document.createElement('div');
-        this.indicator.className = 'QYLColorPickIndicator';
+        this.hueSlider = document.createElement('div');
+        this.hueSlider.className = 'QYLHueSlider';
+        this.hueInput = document.createElement('input');
+        this.hueInput.type = 'range';
+        this.hueInput.min = '0';
+        this.hueInput.max = '360';
+        this.hueInput.step = '1';
+        this.hueInput.value = initialHue.toString();
+        this.hueInput.className = 'QYLHueInput';
         this.saturationSlider = document.createElement('div');
         this.saturationSlider.className = 'QYLSaturationSlider';
         this.saturationInput = document.createElement('input');
@@ -56,6 +60,23 @@ export class ColorPick {
         this.brightnessInput.step = '0.01';
         this.brightnessInput.value = initialBrightness.toString();
         this.brightnessInput.className = 'QYLBrightnessInput';
+        this.hueInput.addEventListener('input', async (e) => {
+            const value = parseInt(e.target.value);
+            try {
+                const config = await this.getCachedConfig();
+                const currentMode = ThemeMode.getThemeMode();
+                const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
+                config[`CustomMainColor${modeSuffix}`] = value;
+                await this.saveConfigDebounced();
+            } catch (error) {
+            }
+            document.documentElement.style.setProperty('--QYL-custom-primary-main', value.toString() + 'deg');
+            const currentSaturation = this.getColor()?.saturation ?? 0.5;
+            const currentBrightness = this.getColor()?.brightness ?? 0;
+            if (callback) {
+                callback({ hue: value, saturation: currentSaturation, brightness: currentBrightness, type: 'hue' });
+            }
+        });
         this.saturationInput.addEventListener('input', async (e) => {
             const value = parseFloat(e.target.value);
             try {
@@ -90,73 +111,19 @@ export class ColorPick {
                 callback({ hue: currentHue, saturation: currentSaturation, brightness: value, type: 'brightness' });
             }
         });
-        const updateColorDisplay = async (hue, shouldSaveHue = true) => {
-            const currentSaturation = this.getColor()?.saturation ?? 0.5;
-            const currentBrightness = this.getColor()?.brightness ?? 0;
-            this.indicator.style.left = `${(hue / 360) * (this.colorSpectrum.offsetWidth - this.indicator.offsetWidth)}px`;
-            if (shouldSaveHue) {
-                try {
-                    const config = await this.getCachedConfig();
-                    const currentMode = ThemeMode.getThemeMode();
-                    const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
-                    config[`CustomMainColor${modeSuffix}`] = hue;
-                    await this.saveConfigDebounced();
-                } catch (error) {
-                }
-            }
-            if (callback) {
-                const currentSaturation = this.getColor()?.saturation ?? 0.5;
-                const currentBrightness = this.getColor()?.brightness ?? 0;
-                callback({ hue, saturation: currentSaturation, brightness: currentBrightness, type: 'hue' });
-            }
-        };
-        this.colorSpectrum.addEventListener('mousedown', async (e) => {
-            this.isDragging = true;
-            const rect = this.colorSpectrum.getBoundingClientRect();
-            const relativeX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-            const hue = Math.round((relativeX / rect.width) * 360);
-            await updateColorDisplay(hue, true);
-        });
-        document.addEventListener('mousemove', async (e) => {
-            if (this.isDragging) {
-                const rect = this.colorSpectrum.getBoundingClientRect();
-                const relativeX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-                const hue = Math.round((relativeX / rect.width) * 360);
-                await updateColorDisplay(hue, true);
-            }
-        });
-        document.addEventListener('mouseup', () => {
-            this.isDragging = false;
-        });
-        this.colorSpectrum.addEventListener('click', async (e) => {
-            if (!this.isDragging) {
-                const rect = this.colorSpectrum.getBoundingClientRect();
-                const relativeX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-                const hue = Math.round((relativeX / rect.width) * 360);
-                await updateColorDisplay(hue, true);
-            }
-        });
-        this.colorSpectrum.appendChild(this.indicator);
+        this.hueSlider.appendChild(this.hueInput);
         this.saturationSlider.appendChild(this.saturationInput);
         this.brightnessSlider.appendChild(this.brightnessInput);
-        this.container.appendChild(this.colorSpectrum);
+        this.container.appendChild(this.hueSlider);
         this.container.appendChild(this.saturationSlider);
         this.container.appendChild(this.brightnessSlider);
-        setTimeout(() => {
-            updateColorDisplay(initialHue, false).catch(error => {
-            });
-        }, 0);
         return this.container;
     }
     getColor() {
-        if (this.indicator && this.colorSpectrum) {
-            const maxLeft = this.colorSpectrum.offsetWidth - this.indicator.offsetWidth;
-            const hue = maxLeft > 0 ? Math.round((parseFloat(this.indicator.style.left) / maxLeft) * 360) : 0;
-            const saturation = this.saturationInput ? parseFloat(this.saturationInput.value) : 0.5;
-            const brightness = this.brightnessInput ? parseFloat(this.brightnessInput.value) : 0;
-            return { hue, saturation, brightness };
-        }
-        return null;
+        const hue = this.hueInput ? parseInt(this.hueInput.value) : 0;
+        const saturation = this.saturationInput ? parseFloat(this.saturationInput.value) : 0.5;
+        const brightness = this.brightnessInput ? parseFloat(this.brightnessInput.value) : 0;
+        return { hue, saturation, brightness };
     }
     destroy() {
         if (this.pendingSave) {
@@ -166,15 +133,14 @@ export class ColorPick {
         if (this.container) {
             this.container.remove();
             this.container = null;
-            this.colorSpectrum = null;
-            this.indicator = null;
+            this.hueSlider = null;
+            this.hueInput = null;
             this.saturationSlider = null;
             this.saturationInput = null;
             this.brightnessSlider = null;
             this.brightnessInput = null;
         }
         this.configCache = null;
-        this.isDragging = false;
     }
 }
 export default ColorPick;

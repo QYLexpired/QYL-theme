@@ -55,18 +55,19 @@ function scrollFocusBlockToCenter(container, element) {
     const targetScroll = visiblePosition - container.clientHeight / 2 + elementRect.height / 2;
     const startScroll = container.scrollTop;
     const distance = targetScroll - startScroll;
-    if (Math.abs(distance) < 0.5) return; 
-    const duration = 600; 
+    if (Math.abs(distance) < 20) {
+        container.scrollTop = targetScroll;
+        return;
+    }
+    const duration = 350; 
     const startTime = performance.now();
-    function easeInOutCubic(t) {
-        return t < 0.5
-            ? 4 * t * t * t
-            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     }
     function animate(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const eased = easeInOutCubic(progress);
+        const eased = easeInOutQuad(progress);
         container.scrollTop = startScroll + distance * eased;
         if (progress < 1) {
             requestAnimationFrame(animate);
