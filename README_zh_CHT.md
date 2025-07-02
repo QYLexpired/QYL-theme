@@ -1,13 +1,5 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
 
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
-
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.2</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 適配手機端<br>• 增加主題色隨時間變化<br>• 自訂主題色增加亮度因子<br>• 優化主題加載速度<br>• 修復開啟經典配色後其他配色無效的問題</p>
-
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.1</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修復切換主題配色無效的問題<br>• 修復QYL自訂屬性樣式無效的問題<br>• 修復頂欄融合開關失效的問題<br>• 修復專注編輯模式異常並優化滾動效果<br>• 修復開啟頂欄融合後，將分頁在新視窗打開後無法拖動位置的問題<br>• 重新增加列表多級序號<br>• 重新增加多彩標籤和多彩行級代碼<br>• 重新增加扁平化風格<br>• 重新增加墨水屏模式<br>• 增加配色切換動畫</p>
-
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 
 <details style="padding-left: 1em">
