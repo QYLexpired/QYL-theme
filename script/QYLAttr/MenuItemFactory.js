@@ -94,7 +94,11 @@ export class MenuItemFactory {
             ...this.menuData.colsBGapOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "sb-colgap", option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.colsbdefault, "#iconClose", "sb-colgap", "", this.i18n.group1, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.colsbdefault, "#iconClose", "sb-colgap", "", this.i18n.group1, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'sb-colgap');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrcolsbgapsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.colsbgap, "#iconSuper", submenu);
@@ -104,7 +108,11 @@ export class MenuItemFactory {
             ...this.menuData.rowsBGapOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "sb-rowgap", option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.rowsbdefault, "#iconClose", "sb-rowgap", "", this.i18n.group1, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.rowsbdefault, "#iconClose", "sb-rowgap", "", this.i18n.group1, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'sb-rowgap');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrrowsbgapsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.rowsbgap, "#iconSuper", submenu);
@@ -115,7 +123,12 @@ export class MenuItemFactory {
                 this.createMenuItem(this.i18n[option.label], option.icon, "list-view", option.value, this.i18n.group1, false, selectid)
             ),
             this.createMenuItem(this.i18n.liststylehide, "#iconList", "list-style", "隐藏序标", this.i18n.group2, false, selectid),
-            this.createMenuItem(this.i18n.liststylerecover, "#iconList", "list-style", "", this.i18n.group2, false, selectid)
+            this.createMenuItem(this.i18n.liststylerecover, "#iconList", "list-style", "", this.i18n.group2, false, selectid),
+            (() => {
+                const btn = this.createMenuItem(this.i18n.liststyledelete || '全部清除', "#iconClose", "list-view", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'list-view');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrlistviewsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.listview, "#iconList", submenu);
@@ -125,7 +138,11 @@ export class MenuItemFactory {
             ...this.menuData.lineHeightOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "line-height", option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.lineheightdefault, "#iconClose", "line-height", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.lineheightdefault, "#iconClose", "line-height", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'line-height');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrlineheightsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.lineheight, "#iconContract", submenu);
@@ -133,7 +150,11 @@ export class MenuItemFactory {
     createBlankBlockRemindItem(selectid) {
         const items = [
             this.createMenuItem(this.i18n.blankblockremindon, "#iconSelect", "blankblock-remind", "开启", null, false, selectid),
-            this.createMenuItem(this.i18n.blankblockremindoff, "#iconClose", "blankblock-remind", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.blankblockremindoff, "#iconClose", "blankblock-remind", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'blankblock-remind');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrblankblockremindsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blankblockremind, "#iconInfo", submenu);
@@ -146,7 +167,15 @@ export class MenuItemFactory {
             ...this.menuData.colors.map(color => 
                 this.createMenuItem(this.i18n[color.label], color.icon, "table-color", color.value, this.i18n.group3, false, selectid)
             ),
-            this.createMenuItem(this.i18n.tablestyledelete, "#iconClose", "table-style", "", null, true, selectid)
+            (() => {
+                const clearAttrs = [
+                    ...this.menuData.tableStyleOptions.map(option => option.attrName),
+                    'table-color'
+                ];
+                const btn = this.createMenuItem(this.i18n.tablestyledelete, "#iconClose", "table-style", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrtablestylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.tablestyle, "#iconTable", submenu);
@@ -156,7 +185,12 @@ export class MenuItemFactory {
             ...this.menuData.headingStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.headingstyledelete, "#iconClose", "h-style", "", null, true, selectid)
+            (() => {
+                const clearAttrs = this.menuData.headingStyleOptions.map(option => option.attrName);
+                const btn = this.createMenuItem(this.i18n.headingstyledelete, "#iconClose", "h-style", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrhstylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.headingstyle, "#iconHeadings", submenu);
@@ -166,7 +200,12 @@ export class MenuItemFactory {
             ...this.menuData.imgStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.imgstyledelete, "#iconClose", "img-border", "", null, true, selectid)
+            (() => {
+                const clearAttrs = this.menuData.imgStyleOptions.map(option => option.attrName);
+                const btn = this.createMenuItem(this.i18n.imgstyledelete, "#iconClose", "img-border", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrimgsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.imgstyle, "#iconImage", submenu);
@@ -176,7 +215,11 @@ export class MenuItemFactory {
             ...this.menuData.heightOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "height", option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.maxheightdelete, "#iconClose", "height", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.maxheightdelete, "#iconClose", "height", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'height');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrheightsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.maxheight, "#iconContract", submenu);
@@ -186,7 +229,11 @@ export class MenuItemFactory {
             ...this.menuData.fileStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "style", option.value, this.i18n.group1, false, selectid)
             ),
-            this.createMenuItem(this.i18n.fileblockstyledelete, "#iconClose", "style", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.fileblockstyledelete, "#iconClose", "style", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'style');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrfilestylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.fileblockstyle, "#iconTheme", submenu);
@@ -198,7 +245,11 @@ export class MenuItemFactory {
             ),
             this.createNoteSubmenu(selectid),
             this.createLeftBorderSubmenu(selectid),
-            this.createMenuItem(this.i18n.blockstyledelete, "#iconClose", "style", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.blockstyledelete, "#iconClose", "style", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'style');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrstylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstyle, "#iconTheme", submenu);
@@ -224,7 +275,11 @@ export class MenuItemFactory {
                 button.style.fontFamily = option.fontFamily;
                 return button;
             }),
-            this.createMenuItem(this.i18n.fontfamilydelete, "#iconClose", "font-family", "", null, true, selectid)
+            (() => {
+                const btn = this.createMenuItem(this.i18n.fontfamilydelete, "#iconClose", "font-family", "", null, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'font-family');
+                return btn;
+            })()
         ];
         const submenu = this.createSubmenu("QYLattrfontfamilysub", items);
         return this.createMenuItemWithSubmenu(this.i18n.fontfamily, "#iconFont", submenu);
@@ -235,7 +290,11 @@ export class MenuItemFactory {
                 this.createMenuItem(this.i18n[color.label], color.icon, "bq-callout-color", color.value, this.i18n.group1, false, selectid)
             ),
             this.createMenuItem(this.i18n.defaultcolor, "#iconQuote", "bq-callout-color", "", this.i18n.group1, false, selectid),
-            this.createMenuItem(this.i18n.removecallout, "#iconClose", "bq-callout", "", this.i18n.group2, true, selectid),
+            (() => {
+                const btn = this.createMenuItem(this.i18n.removecallout, "#iconClose", "bq-callout", "", this.i18n.group2, true, selectid);
+                btn.setAttribute('data-attr-clear-list', 'bq-callout,bq-callout-color');
+                return btn;
+            })(),
             this.createMenuItem(this.i18n.recovercallout, "#iconQuote", "bq-callout", "启用", this.i18n.group2, false, selectid),
             this.createMenuItem(this.i18n.recovercallout2, "#iconQuote", "bq-callout", "启用2", this.i18n.group2, false, selectid),
             this.createMenuItem(this.i18n.recovercallout3, "#iconQuote", "bq-callout", "启用3", this.i18n.group2, false, selectid)
@@ -247,10 +306,21 @@ export class MenuItemFactory {
         let id = event.currentTarget.getAttribute("data-node-id");
         let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name");
         let attrValue = event.currentTarget.getAttribute("custom-attr-value");
+        let clearList = event.currentTarget.getAttribute('data-attr-clear-list');
         let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
-        if (blocks) {
-            blocks.forEach(block => block.setAttribute(attrName, attrValue));
+        if (clearList) {
+            clearList.split(',').forEach(attr => {
+                let fullAttr = 'custom-' + attr;
+                if (blocks) {
+                    blocks.forEach(block => block.removeAttribute(fullAttr));
+                }
+                this.api.setCustomAttribute(id, fullAttr, '');
+            });
+        } else {
+            if (blocks) {
+                blocks.forEach(block => block.setAttribute(attrName, attrValue));
+            }
+            this.api.setCustomAttribute(id, attrName, attrValue);
         }
-        this.api.setCustomAttribute(id, attrName, attrValue);
     }
 }
