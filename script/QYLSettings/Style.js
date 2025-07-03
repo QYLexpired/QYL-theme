@@ -11,6 +11,7 @@ let borderFileTreeModule = null;
 let gridSearchListModule = null;
 let flatStyleModule = null;
 let inkModeModule = null;
+let galleryItemModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
         try {
@@ -83,6 +84,14 @@ async function loadInkModeModule() {
     }
     return inkModeModule;
 }
+async function loadGalleryItemModule() {
+    if (!galleryItemModule) {
+        try {
+            galleryItemModule = await import('../basic/GalleryItem.js');
+        } catch (error) {}
+    }
+    return galleryItemModule;
+}
 async function enableFileTreeIndent() {
     const module = await loadFileTreeIndentModule();
     if (module && module.initFileTreeIndent) {
@@ -112,11 +121,19 @@ async function enableAnimation() {
     if (module && module.initAnimation) {
         module.initAnimation();
     }
+    const galleryModule = await loadGalleryItemModule();
+    if (galleryModule && galleryModule.initGalleryItem) {
+        galleryModule.initGalleryItem();
+    }
 }
 async function disableAnimation() {
     const module = await loadAnimationModule();
     if (module && module.removeAnimation) {
         module.removeAnimation();
+    }
+    const galleryModule = await loadGalleryItemModule();
+    if (galleryModule && galleryModule.removeGalleryItem) {
+        galleryModule.removeGalleryItem();
     }
 }
 async function enableColorfulFileTree() {
