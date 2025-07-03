@@ -19,6 +19,13 @@
     background-color: var(--QYL-tab-item);
     color: var(--b3-theme-primary);
     border-bottom: none;
+    &.av__celltext.av__celltext--url {
+        padding: 2px 6px;
+        border-radius: var(--b3-border-radius);
+        &:empty {
+            padding: 0;
+        }
+    }
 }
 .protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
     background-color: var(--b3-theme-primary);
@@ -372,9 +379,6 @@
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
     }
-}
-.av__header .layout-tab-bar .item__text {
-    padding-bottom: 1.75px;
 }
 
 

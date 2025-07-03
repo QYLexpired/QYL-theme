@@ -116,3 +116,8 @@
     background-color: var(--QYL-tab-item-focus);
     color: var(--b3-theme-on-surface);
 }
+
+/* 聚焦 */
+.layout__tab--active .b3-list--background .b3-list-item--focus {
+    background-color: var(--b3-list-hover);
+}
