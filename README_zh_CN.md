@@ -1,11 +1,12 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
+
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.5</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 适配数据库画廊视图（P.S.开启主题动画会有彩蛋效果哦）</p>
+
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.4</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 当日夜主题都为QYL时，切换日夜模式不再需要重载，并增加日夜切换动画<br>• 优化复选框样式<br>• 优化手机端样式<br></p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.2</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 适配手机端<br>• 增加主题色随时间变化<br>• 自定义主题色增加亮度因子<br>• 优化主题加载速度<br>• 修复开启经典配色后其他配色无效的问题</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.1</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复切换主题配色无效的问题<br>• 修复QYL自定义属性样式无效的问题<br>• 修复顶栏融合开关失效的问题<br>• 修复专注编辑模式异常并优化滚动效果<br>• 修复开启顶栏融合后，将页签在新窗口打开后无法拖动位置的问题<br>• 重新增加列表多级序号<br>• 重新增加多彩标签和多彩行级代码<br>• 重新增加扁平化风格<br>• 重新增加墨水屏模式<br>• 增加配色切换动画</p>
+
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
