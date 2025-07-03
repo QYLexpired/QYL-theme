@@ -194,13 +194,6 @@ div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [d
     display: none !important;
     }
 }
-.av__row--util .b3-button {
-    border-radius: 12px;
-    border-color: var(--b3-theme-on-surface);
-    &:hover, :focus {
-    background-color: var(--b3-theme-on-surface);
-    }
-}
 .protyle-background__action .b3-button.b3-button--cancel {
     border-radius: 12px;
     border-color: var(--b3-theme-primary);

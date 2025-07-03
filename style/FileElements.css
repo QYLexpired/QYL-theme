@@ -136,7 +136,7 @@
 .protyle-wysiwyg .li[data-subtype=t] .protyle-action--task::before, .av__cell-uncheck::before {
     content: "" !important;
     position: absolute;
-    width: 34px;
+    width: 36px;
     height: 25px;
     background: var(--b3-theme-primary);
     background-image: linear-gradient(to right bottom, 

@@ -48,14 +48,6 @@
             display: none !important;
         }
     }
-    &:not(:has(.item + .item)) {
-        margin: 0;
-        border: 1px solid var(--b3-theme-surface-lighter);
-        box-shadow: var(--b3-point-shadow);
-        & .item {
-            margin: 0;
-        }
-    }
 }
 [data-theme-mode="dark"] #layouts .av__views .layout-tab-bar.fn__flex {
     & .item.item--focus {
@@ -370,5 +362,49 @@
     &:hover {
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
+    }
+}
+.av__row--util .b3-button {
+    border-radius: 12px;
+    color: var(--b3-theme-primary);
+    border-color: var(--b3-theme-primary);
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+}
+.av__header .layout-tab-bar .item__text {
+    padding-bottom: 1.75px;
+}
+
+
+/* 画廊 */
+.av__gallery-item, .av__gallery-add {
+    border: 0.5px solid var(--b3-theme-surface-lighter);
+    border-radius: var(--b3-border-radius-b);
+    transition: var(--b3-transition);
+    box-shadow: var(--b3-point-shadow);
+}
+.av__gallery-item:hover {
+    transform: scale(1.03);
+    & .av__gallery-fields {
+        background-color: transparent;
+    }
+}
+.av__gallery-cover {
+    border-radius: var(--b3-border-radius-b) var(--b3-border-radius-b) 0 0;
+    border-bottom: none;
+}
+.av__gallery-fields {
+    padding: 6px 12px;
+    border-radius: 0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
+}
+.av__gallery .av__cell[data-dtype="checkbox"] {
+    &::before {
+        -webkit-mask-position: -1px center;
+        mask-position: -1px center;  
+    }
+    & > .fn__flex {
+        color: transparent;
     }
 }
