@@ -14,21 +14,19 @@
 }
 [custom-h-style="金箔"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="金箔"] :is(.h1, .h2, .h3, .h4, .h5, .h6),
 [custom-h-style="gold"]:is(.h1, .h2, .h3, .h4, .h5, .h6), [custom-h-style="gold"] :is(.h1, .h2, .h3, .h4, .h5, .h6) {
-    --QYL-custom-h-style-fix: gold;
     &>[spellcheck]:not(:empty) {
-    background-image: url('/appearance/themes/QYL/img/goldleaf.webp') !important;  
-    -webkit-background-clip: text !important; 
-    background-clip: text !important; 
-    color: transparent !important;
-    background-size: contain !important;
-    caret-color: gold;
-    filter: saturate(2.5);
-    --QYL-custom-h-style-fix: gold;
+        background-image: url('/appearance/themes/QYL/img/goldleaf.webp') !important;  
+        -webkit-background-clip: text !important; 
+        background-clip: text !important; 
+        color: transparent !important;
+        background-size: contain !important;
+        caret-color: gold;
+        filter: saturate(2.5);
     }
 }
 [custom-h-style-u="下划线"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="下划线"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
 [custom-h-style-u="underline"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="underline"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
-    border-bottom: 3px solid var(--QYL-custom-h-style-fix);
+    border-bottom: 3px solid currentColor;
 }
 [custom-h-style-l="层级"].h1>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h1>[spellcheck]:not(:empty),
 [custom-h-style-l="level"].h1>[spellcheck]:not(:empty), [custom-h-style-l="level"] .h1>[spellcheck]:not(:empty) {
@@ -38,11 +36,11 @@
     top: 19px;
     width: 18px;
     height: 18px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h1.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h1.svg') no-repeat center / contain;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h1.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL//img/h1.svg') no-repeat center / contain;
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 0.5;
     }
 }
 [custom-h-style-l="层级"].h2>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h2>[spellcheck]:not(:empty),
@@ -53,10 +51,10 @@
     top: 17px;
     width: 16px;
     height: 16px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h2.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h2.svg') no-repeat center / contain;
-    opacity: 0.3;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h2.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL/img/h2.svg') no-repeat center / contain;
+    opacity: 0.5;
     }
 }
 [custom-h-style-l="层级"].h3>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h3>[spellcheck]:not(:empty),
@@ -67,10 +65,10 @@
     top: 15px;
     width: 14px;
     height: 14px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h3.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h3.svg') no-repeat center / contain;
-    opacity: 0.3;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h3.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL/img/h3.svg') no-repeat center / contain;
+    opacity: 0.5;
     }
 }
 [custom-h-style-l="层级"].h4>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h4>[spellcheck]:not(:empty),
@@ -81,10 +79,10 @@
     top: 14px;
     width: 14px;
     height: 14px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h4.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h4.svg') no-repeat center / contain;
-    opacity: 0.3;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h4.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL/img/h4.svg') no-repeat center / contain;
+    opacity: 0.5;
     }
 }
 [custom-h-style-l="层级"].h5>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h5>[spellcheck]:not(:empty),
@@ -95,10 +93,10 @@
     top: 13px;
     width: 12px;
     height: 12px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h5.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h5.svg') no-repeat center / contain;
-    opacity: 0.3;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h5.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL/img/h5.svg') no-repeat center / contain;
+    opacity: 0.5;
     }
 }
 [custom-h-style-l="层级"].h6>[spellcheck]:not(:empty), [custom-h-style-l="层级"] .h6>[spellcheck]:not(:empty),
@@ -109,17 +107,17 @@
     top: 12px;
     width: 10px;
     height: 10px;
-    background-color: var(--QYL-custom-h-style-fix);
-    mask: url('../../img/h6.svg') no-repeat center / contain;
-    -webkit-mask: url('../../img/h6.svg') no-repeat center / contain;
-    opacity: 0.3;
+    background-color: currentColor;
+    mask: url('/appearance/themes/QYL/img/h6.svg') no-repeat center / contain;
+    -webkit-mask: url('/appearance/themes/QYL/img/h6.svg') no-repeat center / contain;
+    opacity: 0.5;
     }
 }
 [custom-h-style-u="左边框"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="左边框"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty),
 [custom-h-style-u="left border"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty), [custom-h-style-u="left border"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
     border-radius: 0px;
     padding-left: 8px;
-    border-left: 8px solid var(--QYL-custom-h-style-fix);
+    border-left: 8px solid currentColor;
 }
 /* 故障 */
 [data-theme-mode="dark"] [custom-h-style="故障"]:is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"]):not([fold="1"])>[spellcheck]:not(:empty), [data-theme-mode="dark"] [custom-h-style="故障"] :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {

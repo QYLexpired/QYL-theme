@@ -238,12 +238,12 @@
     background-position: 50%;
 }
 [custom-style="格点"] {
-    background-image:  radial-gradient(var(--QYL-hover) 2px, transparent 2px), radial-gradient(var(--QYL-hover) 2px, transparent 2px);
+    background-image:  radial-gradient(var(--QYL-tab-item-focus) 2px, transparent 2px), radial-gradient(var(--QYL-tab-item-focus) 2px, transparent 2px);
     background-size: 58px 58px;
     background-position: 0 0,30px 30px;
 }
 [data-theme-mode="dark"] [custom-style="格点"] {
-    background-image:  radial-gradient(var(--QYL-hover-light) 2px, transparent 2px), radial-gradient(var(--QYL-hover-light) 2px, transparent 2px);
+    background-image:  radial-gradient(var(--QYL-tab-item) 2px, transparent 2px), radial-gradient(var(--QYL-tab-item) 2px, transparent 2px);
 }
 /* 标题块适配 */
 :is([custom-style="警告"],[custom-style="灵感"],[custom-style="完成"],[custom-style="信息"],[custom-style="待办"],[custom-style="重要"],[custom-style="批注"],[custom-style="引用"]):is(.h1,.h2,.h3,.h4,.h5,.h6)::before {
