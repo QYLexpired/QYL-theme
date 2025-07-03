@@ -36,7 +36,7 @@ function handleMove(e) {
             const shadowX = -offsetX * 16;
             const shadowY = -offsetY * 16 + 12;
             const shadowBlur = 32;
-            const shadowColor = 'var(--b3-theme-primary-light)';
+            const shadowColor = 'var(--b3-theme-primary-lighter)';
             currentItem.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColor}`;
             lastRAF = null;
         });
