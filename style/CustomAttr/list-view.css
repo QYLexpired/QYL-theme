@@ -370,7 +370,7 @@ div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{
         margin-left: 0;
     }
     & .li[fold="1"] {
-        background-color: var(--QYL-hover);
+        background-color: var(--QYL-tab-item-focus);
     }
     & .li::before {
         display: none;
