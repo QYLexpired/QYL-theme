@@ -54,7 +54,7 @@ export function initGridSearchList() {
                     max-width: calc(100% - 38px);
                     background-color: transparent;
                     font-weight: bold;
-                    color: var(--b3-theme-primary);
+                    color: var(--b3-theme-on-background);
                     &::before {
                         display: none;
                     }
@@ -95,7 +95,7 @@ export function initGridSearchList() {
                     max-width: calc(100% - 115px);
                     background-color: transparent;
                     font-weight: bold;
-                    color: var(--b3-theme-primary);
+                    color: var(--b3-theme-on-background);
                 }
                 & .b3-list-item__meta:not(.b3-list-item__meta--ellipsis) {
                     margin-top: auto;

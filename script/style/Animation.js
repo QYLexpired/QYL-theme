@@ -282,7 +282,7 @@ export function initAnimation() {
             }
         }
         .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
-            background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-hover) 50%);
+            background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-tab-item-focus) 50%);
             background-size: 200% 100%;
             background-position: 100% 0;
             background-repeat: no-repeat;

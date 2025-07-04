@@ -41,6 +41,10 @@ export function initInkMode() {
             border: 2px solid var(--b3-theme-primary);
             box-sizing: border-box;
         }
+        [data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu) {
+            border-color: var(--b3-theme-primary) !important;
+            box-sizing: border-box;
+        }
         #QYLsettings-window {
             border: 2px solid var(--b3-theme-primary) !important;
             box-sizing: border-box;
