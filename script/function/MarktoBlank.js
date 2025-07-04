@@ -6,7 +6,7 @@ export function initMarktoBlank() {
             color: transparent !important;
             border-bottom: 2px solid var(--b3-theme-primary);
             background: transparent !important;
-            background-color: var(--QYL-hover) !important;
+            background-color: var(--QYL-tab-item-focus) !important;
             margin-left: 3px;
             margin-right: 3px;
             transition: var(--b3-transition);
@@ -26,7 +26,7 @@ export function initMarktoBlank() {
         .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark]:hover {
             color: transparent !important;
             background: transparent !important;
-            background-color: var(--QYL-hover) !important;
+            background-color: var(--QYL-tab-item-focus) !important;
         }
         .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark]::before {
             display: none;
