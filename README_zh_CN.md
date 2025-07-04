@@ -1,15 +1,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.7</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化列表子弹线：当列表设置为“脑图”等特殊视图时，子弹线不再生效<br>• 修复标题层级样式错误<br>• 修复部分场景QYL自定义属性菜单项错误出现的问题<br>• 优化画廊样式<br>• 优化手机端样式细节<br>• 简化代码块样式<br>• 修复行内备注动画异常<br>• 优化块折叠样式</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.6</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复标题层级样式失效的问题<br>• 修复文档格点样式失效的问题<br>• 修复QYL自定义属性菜单中“清除全部”失效的问题<br>• 优化文档定位效果</p>
-
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.5</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 适配数据库画廊视图（P.S.开启主题动画会有彩蛋效果哦）</p>
-
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.4</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 当日夜主题都为QYL时，切换日夜模式不再需要重载，并增加日夜切换动画<br>• 优化复选框样式<br>• 优化手机端样式<br></p>
-
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
