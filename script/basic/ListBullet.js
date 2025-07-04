@@ -18,16 +18,29 @@ class ListBullet {
         const range = selection?.getRangeAt(0);
         const startNode = range?.startContainer;
         let currentNode = startNode;
+        let foundCustomListView = false;
         this.allListItemNode.forEach((node) => {
             node.classList.remove('en_item_bullet_actived');
             node.classList.remove('en_item_bullet_line');
         });
         this.allListItemNode = [];
         while (currentNode) {
-            if (currentNode?.dataset?.type === 'NodeListItem') {
-                this.allListItemNode.push(currentNode);
+            if (currentNode.nodeType === 1) {
+                if (currentNode.hasAttribute && currentNode.hasAttribute('custom-list-view')) {
+                    foundCustomListView = true;
+                    break;
+                }
+                if (currentNode.dataset && currentNode.dataset.type === 'NodeListItem') {
+                    this.allListItemNode.push(currentNode);
+                }
+                if (currentNode.classList && currentNode.classList.contains('protyle-wysiwyg')) {
+                    break;
+                }
             }
             currentNode = currentNode.parentElement;
+        }
+        if (foundCustomListView) {
+            this.allListItemNode = [];
         }
         for (let i = 0; i < this.allListItemNode.length - 1; i++) {
             const currentNode = this.allListItemNode[i];

@@ -4,7 +4,6 @@ let lastEvent = null;
 let mouseEnterHandler = null;
 let mouseLeaveHandler = null;
 let isEnabled = false;
-
 function handleMove(e) {
     lastEvent = e;
     if (!lastRAF) {
@@ -42,7 +41,6 @@ function handleMove(e) {
         });
     }
 }
-
 export function initGalleryItem() {
     if (isEnabled) return;
     mouseEnterHandler = function (e) {
@@ -68,7 +66,6 @@ export function initGalleryItem() {
     document.addEventListener('mouseleave', mouseLeaveHandler, true);
     isEnabled = true;
 }
-
 export function removeGalleryItem() {
     if (!isEnabled) return;
     document.removeEventListener('mouseenter', mouseEnterHandler, true);
