@@ -33,7 +33,7 @@
     transition: 0.1s;
 }
 /* 数据库页签 */
-#layouts .av__views .layout-tab-bar.fn__flex {
+.av__header .layout-tab-bar {
     background-color: var(--b3-theme-surface);
     border-radius: var(--b3-border-radius);
     padding: 2px;
@@ -56,7 +56,7 @@
         }
     }
 }
-[data-theme-mode="dark"] #layouts .av__views .layout-tab-bar.fn__flex {
+[data-theme-mode="dark"] .av__header .layout-tab-bar  {
     & .item.item--focus {
         background-color: var(--QYL-tab-item-focus);
     }
@@ -380,8 +380,6 @@
         color: var(--b3-theme-on-primary);
     }
 }
-
-
 /* 画廊 */
 .av__gallery-item, .av__gallery-add {
     border: 0.5px solid var(--b3-theme-surface-lighter);
@@ -398,10 +396,25 @@
 .av__gallery-cover {
     border-radius: var(--b3-border-radius-b) var(--b3-border-radius-b) 0 0;
     border-bottom: none;
+    background: linear-gradient(to bottom, var(--b3-theme-surface) 0%, var(--b3-theme-background) 100%);
 }
 .av__gallery-fields {
     padding: 6px 12px;
     border-radius: 0 0 var(--b3-border-radius-b) var(--b3-border-radius-b);
+    & .av__cell.ariaLabel:first-child {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: var(--b3-theme-on-surface);
+        & .b3-menu__avemoji {
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            padding-bottom: 0.2em;
+            & + .av__celltext--ref {
+                padding-left: 1.8em;
+            }
+        }
+    }
 }
 .av__gallery .av__cell[data-dtype="checkbox"] {
     &::before {

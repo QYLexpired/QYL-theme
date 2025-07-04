@@ -4,7 +4,6 @@
 .protyle-scroll__bar .b3-slider::-webkit-slider-runnable-track,.protyle-scroll__bar .b3-slider::-webkit-slider-thumb {
     background-color: var(--b3-scroll-color);
 }
-
 .protyle-scroll__bar .b3-slider::-moz-range-track,.protyle-scroll__bar .b3-slider::-moz-range-thumb {
     background-color: var(--b3-scroll-color);
 }

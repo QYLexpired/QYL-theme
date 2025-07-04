@@ -45,17 +45,16 @@
 }
 /* 退出聚焦 */
 .protyle-breadcrumb button[data-type="exit-focus"] {
+    background-color: transparent;
     color: var(--b3-theme-primary);
     font-weight: bold;
-    height: 22px;
-    line-height: 0px;
-    padding: 0px 5px !important;
-    border: 1.5px solid var(--b3-theme-primary);
-    transition: var(--b3-transition);
-    background-color: rgba(255, 0, 0, 0);
+    line-height: 20px;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    padding: 0 6px;
     &:hover {
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
+        border-color: var(--b3-theme-primary);
     }
 }
 /* 临时解锁 */

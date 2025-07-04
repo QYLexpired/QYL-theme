@@ -28,7 +28,7 @@
     }
 }
 .QYLmobile .protyle-background__img::after {
-    top: -20px;
+    display: none;
 }
 /* 视差 */
 @keyframes QYLimgscroller {

@@ -1,16 +1,18 @@
 .b3-switch {
-    width: 32px;
-    height: 18px;
+    width: 34px;
+    height: 20px;
     border: none;
 }
 .b3-switch::after {
-    left: 8px;
-    width: 12px;
-    height: 12px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
 }
 label:hover .b3-switch:not(:disabled)::before, .b3-switch:hover:not(:disabled)::before {
     display: none;
 }
 .b3-switch:checked::after {
-    left: 23px;
+    left: 24px;
+    width: 16px;
+    height: 16px;
 }

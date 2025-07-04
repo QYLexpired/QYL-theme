@@ -24,26 +24,26 @@
 .QYLmobile .side-panel {
     background-color: var(--b3-theme-background);
 }
-.QYLmobile .b3-menu {
+.QYLmobile .b3-menu--fullscreen .b3-menu {
     background-color: var(--b3-theme-background) !important;
 }
-.QYLmobile .b3-menu__items {
+.QYLmobile .b3-menu--fullscreen .b3-menu__items {
     padding: 0;
     background-color: var(--b3-theme-background) !important;
 }
-.QYLmobile .b3-menu__item {
+.QYLmobile .b3-menu--fullscreen .b3-menu__item {
     background-color: var(--b3-theme-background) !important;
     border-bottom: none;
     &:first-child {
         border-top: none;
     }
 }
-.QYLmobile .b3-menu__separator {
+.QYLmobile .b3-menu--fullscreen .b3-menu__separator {
     height: 0;
     background-color: var(--b3-theme-background);
     border-bottom: 1px solid var(--b3-theme-surface-lighter);
 }
-.QYLmobile .b3-menu__title {
+.QYLmobile .b3-menu--fullscreen .b3-menu__title {
     border-bottom: 1px solid var(--b3-theme-surface-lighter);
 }
 .QYLmobile .status {

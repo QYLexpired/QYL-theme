@@ -203,3 +203,6 @@ div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [d
     background-color: var(--b3-theme-primary);
     }
 }
+.b3-chips::before {
+    display: none !important;
+}

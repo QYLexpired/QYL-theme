@@ -55,7 +55,7 @@
 /* 页签打开 */
 [data-type="wnd"] .block__icons:has( + .search__header) {
     background-color: var(--b3-theme-background);
-    & + .search__header .b3-text-field {
+    & ~ .search__header .b3-text-field {
         background-color: var(--b3-theme-background);
     }
 }
@@ -148,4 +148,31 @@
 }
 .search__layout--row .search__drag:hover::after {
     visibility: visible;
+}
+#criteria [data-type="set-criteria"] {
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    color: var(--b3-theme-on-surface);
+    font-weight: bold;
+    padding: 4px 12px;
+    align-self: center;
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+        border-color: var(--b3-theme-primary);
+        & .b3-chip__close {
+            opacity: 1;
+            margin-left: 12px;
+            margin-right: 0;
+            &:hover {
+                color: var(--b3-theme-error);
+            }
+        }
+    }
+    & .b3-chip__close {
+        width: 16px;
+        margin-right: -18px;
+        opacity: 0;
+    }
 }
