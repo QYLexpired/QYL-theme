@@ -8,23 +8,31 @@ export class QYLAttrMenu {
         this.menuData = new MenuData();
     }
     insertQYLattr(selectid, selecttype, selectsbLayout) {
-        const commonMenu = this.getCommonMenu();
-        if (!commonMenu) return;
-        const readonly = commonMenu.querySelector(`[data-id="updateAndCreatedAt"]`);
-        const attritem = commonMenu.querySelector(`#QYLattr`);
-        if (readonly && !attritem) {
-            commonMenu.insertBefore(this.createQYLattrItem(selectid, selecttype, selectsbLayout), readonly);
-            commonMenu.insertBefore(this.createMenuSeparator(), readonly);
+        const menu = this.getCommonMenu();
+        if (!menu) return;
+        const hasExport = menu.querySelector('[data-id="export"]');
+        const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
+        const attritem = menu.querySelector('#QYLattr');
+        if (!hasExport && hasUpdate && !attritem) {
+            const qylBtn = this.createQYLattrItem(selectid, selecttype, selectsbLayout);
+            menu.insertBefore(qylBtn, hasUpdate);
+            if (qylBtn.nextSibling) {
+                menu.insertBefore(this.createMenuSeparator(), qylBtn.nextSibling);
+            } else {
+                menu.appendChild(this.createMenuSeparator());
+            }
         }
     }
     insertQYLattrforfile(selectid, selecttype) {
-        const commonMenu = this.getCommonMenu();
-        if (!commonMenu) return;
-        const readonly = commonMenu.querySelector(`[data-id="separator_3"]:has(~ [data-id="fileHistory"])`);
-        const attritem = commonMenu.querySelector(`#QYLattr`);
-        if (readonly && !attritem) {
-            commonMenu.insertBefore(this.createMenuSeparator(), readonly);
-            commonMenu.insertBefore(this.createQYLattrItem(selectid, selecttype), readonly);
+        const menu = this.getCommonMenu();
+        if (!menu) return;
+        const hasExport = menu.querySelector('[data-id="export"]');
+        const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
+        const attritem = menu.querySelector('#QYLattr');
+        if (hasExport && !hasUpdate && !attritem) {
+            const qylBtn = this.createQYLattrItem(selectid, selecttype);
+            menu.appendChild(qylBtn);
+            menu.insertBefore(this.createMenuSeparator(), qylBtn);
         }
     }
     getCommonMenu() {
