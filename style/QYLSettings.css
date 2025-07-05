@@ -83,7 +83,7 @@
         }
     }
 }
-.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth) {
+.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs) {
     opacity: 0.5;
     pointer-events: none;
     color: var(--b3-theme-on-surface-light) !important;

@@ -13,24 +13,40 @@
     color: var(--b3-theme-primary);
 }
 .av__cell .b3-chip {
-    border-radius: var(--b3-border-radius);
+    border-radius: 6px;
 }
-.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url, .av__celltext.av__celltext--url, .av__celltext--url.b3-chip {
-    background-color: var(--QYL-tab-item);
-    color: var(--b3-theme-primary);
-    border-bottom: none;
-    &.av__celltext.av__celltext--url {
-        padding: 2px 6px;
-        border-radius: var(--b3-border-radius);
-        &:empty {
-            padding: 0;
-        }
+.av__celltext--url.b3-chip {
+    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid var(--b3-theme-surface-lighter);
+    color: var(--b3-theme-on-surface);
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        border: 1px solid var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background-color: currentColor;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg t='1751732337384' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='1550' %3E%3Cpath d='M888.97 282.47L670.58 64.08c-7-7-16.5-10.94-26.4-10.94H259.02c-82.34 0-149.33 66.99-149.33 149.33V799.8c0 82.34 66.99 149.33 149.33 149.33h491.55c82.34 0 149.33-66.99 149.33-149.33V308.86c0.01-9.9-3.93-19.39-10.93-26.39z m-95.3 10.28H660.3V159.39l133.37 133.36z m-43.1 581.73H259.02c-41.17 0-74.67-33.49-74.67-74.67V202.48c0-41.18 33.5-74.67 74.67-74.67h326.61v202.27c0 20.62 16.72 37.33 37.33 37.33h202.28v432.4c0 41.18-33.5 74.67-74.67 74.67z' p-id='1551'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+        mask: url("data:image/svg+xml,%3Csvg t='1751732337384' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='1550' %3E%3Cpath d='M888.97 282.47L670.58 64.08c-7-7-16.5-10.94-26.4-10.94H259.02c-82.34 0-149.33 66.99-149.33 149.33V799.8c0 82.34 66.99 149.33 149.33 149.33h491.55c82.34 0 149.33-66.99 149.33-149.33V308.86c0.01-9.9-3.93-19.39-10.93-26.39z m-95.3 10.28H660.3V159.39l133.37 133.36z m-43.1 581.73H259.02c-41.17 0-74.67-33.49-74.67-74.67V202.48c0-41.18 33.5-74.67 74.67-74.67h326.61v202.27c0 20.62 16.72 37.33 37.33 37.33h202.28v432.4c0 41.18-33.5 74.67-74.67 74.67z' p-id='1551'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+        -webkit-mask-size: 1em;
+        mask-size: 1em;
+        vertical-align: -0.15em;
+        margin-right: 0.3em;
     }
 }
-.protyle-wysiwyg[data-readonly=true] .av .av__celltext--url:hover, .av__celltext.av__celltext--url:hover, .av__celltext--url.b3-chip:hover {
-    background-color: var(--b3-theme-primary);
-    color: var(--b3-theme-on-primary);
-    transition: 0.1s;
+.av__celltext--url:not(.b3-chip) {
+    color: var(--b3-theme-primary);
+    transition: var(--b3-transition);
+    border-bottom: 1px solid currentColor;
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
 }
 /* 数据库页签 */
 .av__header .layout-tab-bar {
@@ -64,11 +80,11 @@
 /* 数据库被引主键 */
 .av__celltext--ref {
     color: var(--b3-theme-primary);
-    border-bottom: none;
+    transition: var(--b3-transition);
+    border-bottom: 1px solid currentColor;
     &:hover {
-        background-color: var(--b3-theme-primary-lighter);
-        color: var(--b3-theme-on-bakcground);
-        transition: var(--b3-transition);
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
     }
 }
 /* 数据库chip颜色 */
@@ -385,7 +401,7 @@
     border: 0.5px solid var(--b3-theme-surface-lighter);
     border-radius: var(--b3-border-radius-b);
     transition: var(--b3-transition);
-    box-shadow: var(--b3-point-shadow);
+    box-shadow: var(--b3-shadow-outside );
 }
 .av__gallery-item:hover {
     transform: scale(1.03);
@@ -411,6 +427,7 @@
             left: 0;
             padding-bottom: 0.2em;
             & + .av__celltext--ref {
+                border-bottom: none;
                 padding-left: 1.8em;
             }
         }
