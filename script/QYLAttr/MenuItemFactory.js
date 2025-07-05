@@ -92,11 +92,12 @@ export class MenuItemFactory {
     createColsBGapItem(selectid) {
         const items = [
             ...this.menuData.colsBGapOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "sb-colgap", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.colsBGap, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.colsbdefault, "#iconClose", "sb-colgap", "", this.i18n.group1, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'sb-colgap');
+                const config = this.menuData.clearButtonConfig.colsBGap;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -106,11 +107,12 @@ export class MenuItemFactory {
     createRowsBGapItem(selectid) {
         const items = [
             ...this.menuData.rowsBGapOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "sb-rowgap", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.rowsBGap, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.rowsbdefault, "#iconClose", "sb-rowgap", "", this.i18n.group1, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'sb-rowgap');
+                const config = this.menuData.clearButtonConfig.rowsBGap;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -120,13 +122,15 @@ export class MenuItemFactory {
     createListViewItem(selectid) {
         const items = [
             ...this.menuData.listViewOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "list-view", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.listView, option.value, this.i18n[option.group], false, selectid)
             ),
-            this.createMenuItem(this.i18n.liststylehide, "#iconList", "list-style", "隐藏序标", this.i18n.group2, false, selectid),
-            this.createMenuItem(this.i18n.liststylerecover, "#iconList", "list-style", "", this.i18n.group2, false, selectid),
+            ...this.menuData.listStyleSpecialOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid)
+            ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.liststyledelete || '全部清除', "#iconClose", "list-view", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'list-view');
+                const config = this.menuData.clearButtonConfig.listView;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -136,11 +140,12 @@ export class MenuItemFactory {
     createLineHeightItem(selectid) {
         const items = [
             ...this.menuData.lineHeightOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "line-height", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.lineHeight, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.lineheightdefault, "#iconClose", "line-height", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'line-height');
+                const config = this.menuData.clearButtonConfig.lineHeight;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -149,12 +154,14 @@ export class MenuItemFactory {
     }
     createBlankBlockRemindItem(selectid) {
         const items = [
-            this.createMenuItem(this.i18n.blankblockremindon, "#iconSelect", "blankblock-remind", "开启", null, false, selectid),
-            (() => {
-                const btn = this.createMenuItem(this.i18n.blankblockremindoff, "#iconClose", "blankblock-remind", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'blankblock-remind');
+            ...this.menuData.blankBlockRemindOptions.map(option => {
+                const btn = this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.blankBlockRemind, option.value, option.group ? this.i18n[option.group] : null, option.isWarning || false, selectid);
+                if (option.isWarning) {
+                    const config = this.menuData.clearButtonConfig.blankBlockRemind;
+                    btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
+                }
                 return btn;
-            })()
+            })
         ];
         const submenu = this.createSubmenu("QYLattrblankblockremindsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blankblockremind, "#iconInfo", submenu);
@@ -162,18 +169,15 @@ export class MenuItemFactory {
     createTableStyleItem(selectid) {
         const items = [
             ...this.menuData.tableStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             ),
-            ...this.menuData.colors.map(color => 
-                this.createMenuItem(this.i18n[color.label], color.icon, "table-color", color.value, this.i18n.group3, false, selectid)
+            ...this.menuData.tableColorOptions.map(color => 
+                this.createMenuItem(this.i18n[color.label], color.icon, this.menuData.attrNameConfig.tableColor, color.value, this.i18n[color.group], false, selectid)
             ),
             (() => {
-                const clearAttrs = [
-                    ...this.menuData.tableStyleOptions.map(option => option.attrName),
-                    'table-color'
-                ];
-                const btn = this.createMenuItem(this.i18n.tablestyledelete, "#iconClose", "table-style", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                const config = this.menuData.clearButtonConfig.tableStyle;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -183,12 +187,12 @@ export class MenuItemFactory {
     createHeadingStyleItem(selectid) {
         const items = [
             ...this.menuData.headingStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const clearAttrs = this.menuData.headingStyleOptions.map(option => option.attrName);
-                const btn = this.createMenuItem(this.i18n.headingstyledelete, "#iconClose", "h-style", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                const config = this.menuData.clearButtonConfig.headingStyle;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -198,12 +202,12 @@ export class MenuItemFactory {
     createImgStyleItem(selectid) {
         const items = [
             ...this.menuData.imgStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const clearAttrs = this.menuData.imgStyleOptions.map(option => option.attrName);
-                const btn = this.createMenuItem(this.i18n.imgstyledelete, "#iconClose", "img-border", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', clearAttrs.join(','));
+                const config = this.menuData.clearButtonConfig.imgStyle;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -213,11 +217,12 @@ export class MenuItemFactory {
     createHeightItem(selectid) {
         const items = [
             ...this.menuData.heightOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "height", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.height, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.maxheightdelete, "#iconClose", "height", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'height');
+                const config = this.menuData.clearButtonConfig.height;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -227,11 +232,12 @@ export class MenuItemFactory {
     createFileStyleItem(selectid) {
         const items = [
             ...this.menuData.fileStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "style", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
             ),
             (() => {
-                const btn = this.createMenuItem(this.i18n.fileblockstyledelete, "#iconClose", "style", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'style');
+                const config = this.menuData.clearButtonConfig.fileStyle;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -241,13 +247,14 @@ export class MenuItemFactory {
     createBlockStyleItem(selectid) {
         const items = [
             ...this.menuData.blockStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "style", option.value, this.i18n.group1, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
             ),
             this.createNoteSubmenu(selectid),
             this.createLeftBorderSubmenu(selectid),
             (() => {
-                const btn = this.createMenuItem(this.i18n.blockstyledelete, "#iconClose", "style", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'style');
+                const config = this.menuData.clearButtonConfig.blockStyle;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -256,28 +263,29 @@ export class MenuItemFactory {
     }
     createNoteSubmenu(selectid) {
         const items = this.menuData.noteColorOptions.map(option => 
-            this.createMenuItem(this.i18n[option.label], option.icon, "style", option.value, this.i18n.group1, false, selectid)
+            this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
         );
         const submenu = this.createSubmenu("QYLstylenotesub", items);
-        return this.createMenuItemWithSubmenu(this.i18n.blockstylenote, "#iconTheme", submenu, this.i18n.group1);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstylenote, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.noteSubmenu.group]);
     }
     createLeftBorderSubmenu(selectid) {
         const items = this.menuData.leftBorderColorOptions.map(option => 
-            this.createMenuItem(this.i18n[option.label], option.icon, "style", option.value, this.i18n.group1, false, selectid)
+            this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
         );
         const submenu = this.createSubmenu("QYLstyleleftbordersub", items);
-        return this.createMenuItemWithSubmenu(this.i18n.blockstyleleftborder, "#iconTheme", submenu, this.i18n.group1);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyleleftborder, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.leftBorderSubmenu.group]);
     }
     createFontFamilyItem(selectid) {
         const items = [
             ...this.menuData.fontOptions.map(option => {
-                const button = this.createMenuItem(option.label, "#iconFont", "font-family", option.value, this.i18n.group1, false, selectid);
+                const button = this.createMenuItem(option.label, "#iconFont", this.menuData.attrNameConfig.fontFamily, option.value, this.i18n[option.group], false, selectid);
                 button.style.fontFamily = option.fontFamily;
                 return button;
             }),
             (() => {
-                const btn = this.createMenuItem(this.i18n.fontfamilydelete, "#iconClose", "font-family", "", null, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'font-family');
+                const config = this.menuData.clearButtonConfig.fontFamily;
+                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
+                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 return btn;
             })()
         ];
@@ -286,18 +294,17 @@ export class MenuItemFactory {
     }
     createCalloutColorItem(selectid) {
         const items = [
-            ...this.menuData.colors.map(color => 
-                this.createMenuItem(this.i18n[color.label], color.icon, "bq-callout-color", color.value, this.i18n.group1, false, selectid)
+            ...this.menuData.calloutColorOptions.map(color => 
+                this.createMenuItem(this.i18n[color.label], color.icon, this.menuData.attrNameConfig.calloutColor, color.value, this.i18n[color.group], false, selectid)
             ),
-            this.createMenuItem(this.i18n.defaultcolor, "#iconQuote", "bq-callout-color", "", this.i18n.group1, false, selectid),
-            (() => {
-                const btn = this.createMenuItem(this.i18n.removecallout, "#iconClose", "bq-callout", "", this.i18n.group2, true, selectid);
-                btn.setAttribute('data-attr-clear-list', 'bq-callout,bq-callout-color');
+            ...this.menuData.calloutSpecialOptions.map(option => {
+                const btn = this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid);
+                if (option.label === 'removecallout') {
+                    const config = this.menuData.clearButtonConfig.callout;
+                    btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
+                }
                 return btn;
-            })(),
-            this.createMenuItem(this.i18n.recovercallout, "#iconQuote", "bq-callout", "启用", this.i18n.group2, false, selectid),
-            this.createMenuItem(this.i18n.recovercallout2, "#iconQuote", "bq-callout", "启用2", this.i18n.group2, false, selectid),
-            this.createMenuItem(this.i18n.recovercallout3, "#iconQuote", "bq-callout", "启用3", this.i18n.group2, false, selectid)
+            })
         ];
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);
