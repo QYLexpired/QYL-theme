@@ -148,7 +148,6 @@ export class CustomColor {
             const brightness = config[brightnessKey] ?? 0;
             return { hue, saturation, brightness };
         } catch (error) {
-            console.error('加载配置失败:', error);
             return { hue: 0, saturation: 0.5, brightness: 0 };
         }
     }
@@ -165,7 +164,6 @@ export class CustomColor {
             config[brightnessKey] = brightness;
             await saveConfig(config);
         } catch (error) {
-            console.error('保存配置失败:', error);
         }
     }
 }
