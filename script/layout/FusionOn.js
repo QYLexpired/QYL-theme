@@ -12,7 +12,6 @@ export function initFusionOn() {
     if (isEnabled || isInitializing) return;
     isInitializing = true;
     try {
-        // 先清理可能存在的残留状态
         if (styleElement) {
             styleElement.remove();
             styleElement = null;
@@ -292,7 +291,6 @@ export async function removeFusionOn() {
     try {
         removeFusionTop();
     } catch (error) {
-        // 静默处理移除fusion top错误
     }
     cachedDragElement = null;
 }
