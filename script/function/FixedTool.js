@@ -3,6 +3,7 @@ let isEnabled = false;
 let styleElement = null;
 let toolDirectionInstance = null;
 export function initFixedTool() {
+    if (document.body.classList.contains('QYLmobile')) return;
     if (isEnabled) return;
     styleElement = document.createElement('style');
     styleElement.id = 'QYL-FixedTool';
