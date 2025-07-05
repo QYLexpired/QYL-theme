@@ -12,6 +12,7 @@ let gridSearchListModule = null;
 let flatStyleModule = null;
 let inkModeModule = null;
 let galleryItemModule = null;
+let colorfulTabsModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
         try {
@@ -91,6 +92,15 @@ async function loadGalleryItemModule() {
         } catch (error) {}
     }
     return galleryItemModule;
+}
+async function loadColorfulTabsModule() {
+    if (!colorfulTabsModule) {
+        try {
+            colorfulTabsModule = await import('../style/ColorfulTabs.js');
+        } catch (error) {
+        }
+    }
+    return colorfulTabsModule;
 }
 async function enableFileTreeIndent() {
     const module = await loadFileTreeIndentModule();
@@ -196,6 +206,18 @@ async function disableInkMode() {
         module.removeInkMode();
     }
 }
+async function enableColorfulTabs() {
+    const module = await loadColorfulTabsModule();
+    if (module && module.initColorfultabs) {
+        module.initColorfultabs();
+    }
+}
+async function disableColorfulTabs() {
+    const module = await loadColorfulTabsModule();
+    if (module && module.removeColorfultabs) {
+        module.removeColorfultabs();
+    }
+}
 function getStyleOptions() {
     return [
         { id: 'FileTreeIndent', label: i18n.FileTreeIndent || '文档树缩进线' },
@@ -206,6 +228,7 @@ function getStyleOptions() {
         { id: 'GridSearchList', label: i18n.GridSearchList || '网格化搜索列表' },
         { id: 'FlatStyle', label: i18n.FlatStyle || '扁平化风格' },
         { id: 'InkMode', label: i18n.InkMode || '墨水屏模式' },
+        { id: 'ColorfulTabs', label: i18n.ColorfulTabs || '多彩页签' },
     ];
 }
 async function createStyleContent(config = null) {
@@ -254,6 +277,8 @@ async function createStyleContent(config = null) {
                     await enableBorderFileTree();
                 } else if (option.id === 'GridSearchList') {
                     await enableGridSearchList();
+                } else if (option.id === 'ColorfulTabs') {
+                    await enableColorfulTabs();
                 }
             } else {
                 if (option.id === 'FileTreeIndent') {
@@ -272,6 +297,8 @@ async function createStyleContent(config = null) {
                     await disableBorderFileTree();
                 } else if (option.id === 'GridSearchList') {
                     await disableGridSearchList();
+                } else if (option.id === 'ColorfulTabs') {
+                    await disableColorfulTabs();
                 }
             }
             await flushBatchUpdate();
@@ -303,6 +330,8 @@ async function initializeStyleStates(config = null) {
             await enableFlatStyle();
         } else if (option.id === 'InkMode' && currentState) {
             await enableInkMode();
+        } else if (option.id === 'ColorfulTabs' && currentState) {
+            await enableColorfulTabs();
         }
     }
 }

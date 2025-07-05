@@ -47,7 +47,6 @@ async function initQYLSettings() {
             initializeColorStates(config)
         ]);
     } catch (error) {
-        console.error('QYL Settings initialization error:', error);
     }
 }
 function initQYLSettingsWhenReady() {
