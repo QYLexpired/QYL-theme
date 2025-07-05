@@ -85,7 +85,6 @@ export default {
     "black": "Black",
     "gray": "Gray",
     "themecolor": "Theme color",
-    "defaultcolor": "Default color",
     "removecallout": "Remove callout",
     "recovercallout": "Enable callout type1",
     "recovercallout2": "Enable callout type2",
@@ -128,7 +127,7 @@ export default {
     "threeline": "Three line table",
     "theadhl": "Enhance Headers",
     "tablewidth100": "Full width table",
-    "tablestyledelete": "Recover all",
+    "attrsdelete": "Recover all",
 
     "headingstyle": "Heading style",
     "headingstylecolorful": "Colorful",
@@ -137,7 +136,6 @@ export default {
     "headingstyleunderline": "Underline",
     "headingstyleleftborder": "Left border",
     "headingstylelevel": "Level",
-    "headingstyledelete": "Recover all",
 
     "CSSplaceholder": "Input CSS code here, no need to wrap with { } at the beginning and end, supports & nested selectors\nExample 1: Input color: red; border: 1px solid red makes the text inside the block turn red and the block have a red border.\nExample 2: Inputting span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none } to remove the dotted underline from all block reference links within blocks.\nExample 3: Input &.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}} to adjust the size of custom emojis in your document.",
 
@@ -147,7 +145,6 @@ export default {
     "imgstyleshadow": "Shadow",
     "imgstyleinvert": "Invert",
     "imgstyle33grid": "3x3 grid",
-    "imgstyledelete": "Recover all",
 
     "maxheight": "Max height",
     "maxheight50": "50px",
@@ -157,13 +154,11 @@ export default {
     "maxheight300": "300px",
     "maxheight400": "400px",
     "maxheight500": "500px",
-    "maxheightdelete": "Recover all",
 
     "fileblockstyle": "File block style",
     "fileblockstylesajinzhi": "Sajin paper",
     "fileblockstylegrid": "Grid",
     "fileblockstyledot": "Dot",
-    "fileblockstyledelete": "Recover all",
 
     "blockstyle": "Block style",
     "blockstylewarning": "Warning",
@@ -176,14 +171,13 @@ export default {
     "blockstyledone": "Done",
     "blockstylesajinzhi": "Sajin paper",
     "blockstylegrid": "Grid",
-    "blockstyledelete": "Recover all",
     "blockstylenote": "Note",
     "blockstyleleftborder": "Left border",
     "blockstyledot": "Dot",
 
     "fontfamily": "Font",
-    "fontfamilydelete": "Recover all",
 
     "FlatStyle": "Flat Style",
     "InkMode": "Ink Screen Mode",
+    "ColorfulTabs": "Colorful Tabs",
 }; 
