@@ -171,6 +171,38 @@
 [custom-table-style-thead="强化表头"][custom-table-color="粉色"][custom-table-style="三线表"] table tr:last-child {
     border-bottom: 2px solid var(--QYL-custom-pink) !important;
 }
+[custom-table-color="黑色"] table :is(th, td) {
+    border-color: var(--QYL-custom-black) !important;
+}
+[custom-table-color="黑色"] table th {
+    color: var(--QYL-custom-black);
+}
+[custom-table-color="黑色"][custom-table-style="三线表"] table tr:last-child {
+    border-color: var(--QYL-custom-black);
+}
+[custom-table-style-thead="强化表头"][custom-table-color="黑色"] table th {
+    background-color: var(--QYL-custom-black) !important;
+    color: var(--b3-theme-on-primary);
+}
+[custom-table-style-thead="强化表头"][custom-table-color="黑色"][custom-table-style="三线表"] table tr:last-child {
+    border-bottom: 2px solid var(--QYL-custom-black) !important;
+}
+[custom-table-color="灰色"] table :is(th, td) {
+    border-color: var(--QYL-custom-gray) !important;
+}
+[custom-table-color="灰色"] table th {
+    color: var(--QYL-custom-gray);
+}
+[custom-table-color="灰色"][custom-table-style="三线表"] table tr:last-child { 
+    border-color: var(--QYL-custom-gray);
+}
+[custom-table-style-thead="强化表头"][custom-table-color="灰色"] table th {
+    background-color: var(--QYL-custom-gray) !important;
+    color: var(--b3-theme-on-primary);
+}
+[custom-table-style-thead="强化表头"][custom-table-color="灰色"][custom-table-style="三线表"] table tr:last-child {
+    border-bottom: 2px solid var(--QYL-custom-gray) !important;
+}
 /* 全宽表格 */
 [custom-table-width="全宽表格"] table {
     display: table !important;

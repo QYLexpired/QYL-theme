@@ -1,4 +1,15 @@
 /* 自定义块属性style */
+[custom-style="主题色便签"] {
+    background-color: var(--b3-theme-primary-lightest) !important;
+    border-top: 5px solid var(--b3-theme-primary) !important;
+    padding: 5px 8px !important;
+}
+[custom-style="主题色左边框"] {
+    background-color: var(--b3-theme-primary-lightest) !important;
+    border-left: 5px solid var(--b3-theme-primary) !important;
+    border-radius: 0px !important;
+    padding: 5px 8px !important;
+}
 [custom-style="红色便签"], [custom-style="red note"] {
     background-color: var(--QYL-custom-red-background) !important;
     border-top: 5px solid var(--QYL-custom-red) !important;
