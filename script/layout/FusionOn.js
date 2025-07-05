@@ -247,7 +247,6 @@ export function initFusionOn() {
         }
         setTimeout(checkFusionTopReady, 100);
     } catch (error) {
-        console.error('Error initializing FusionOn:', error);
         isInitializing = false;
     }
 }
@@ -293,7 +292,7 @@ export async function removeFusionOn() {
     try {
         removeFusionTop();
     } catch (error) {
-        console.error('Error removing fusion top:', error);
+        // 静默处理移除fusion top错误
     }
     cachedDragElement = null;
 }

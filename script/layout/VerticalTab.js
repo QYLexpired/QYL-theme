@@ -1,6 +1,90 @@
-import { initWndTopLeft, cleanupWndTopLeft } from '../basic/WndTopLeft.js';
+import { initWndTopLeft, cleanupWndTopLeft, setVerticalTabResizeCallback } from '../basic/WndTopLeft.js';
 let isEnabled = false;
 let styleElement = null;
+function createResizeElement() {
+    const resizeElement = document.createElement('div');
+    resizeElement.className = 'layout__resize--lr layout__resize';
+    let isDragging = false;
+    let startX = 0;
+    let startWidth = 0;
+    const handleMouseDown = (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--QYL-vertical-width')) || 125;
+        document.body.style.cursor = 'col-resize';
+        e.preventDefault();
+    };
+    const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - startX;
+        const newWidth = Math.max(50, Math.min(800, startWidth + deltaX));
+        if (!resizeElement._rafId) {
+            resizeElement._rafId = requestAnimationFrame(() => {
+                document.documentElement.style.setProperty('--QYL-vertical-width', newWidth + 'px');
+                resizeElement._rafId = null;
+            });
+        }
+    };
+    const handleMouseUp = () => {
+        if (isDragging) {
+            isDragging = false;
+            document.body.style.cursor = '';
+            if (resizeElement._rafId) {
+                cancelAnimationFrame(resizeElement._rafId);
+                resizeElement._rafId = null;
+            }
+        }
+    };
+    const handleDblClick = (e) => {
+        document.documentElement.style.setProperty('--QYL-vertical-width', '125px');
+        e.preventDefault();
+    };
+    resizeElement.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    resizeElement.addEventListener('dblclick', handleDblClick);
+    resizeElement._eventHandlers = {
+        mousedown: handleMouseDown,
+        mousemove: handleMouseMove,
+        mouseup: handleMouseUp,
+        dblclick: handleDblClick
+    };
+    return resizeElement;
+}
+function cleanupResizeElement(resizeElement) {
+    if (!resizeElement || !resizeElement._eventHandlers) return;
+    if (resizeElement._rafId) {
+        cancelAnimationFrame(resizeElement._rafId);
+        resizeElement._rafId = null;
+    }
+    resizeElement.removeEventListener('mousedown', resizeElement._eventHandlers.mousedown);
+    document.removeEventListener('mousemove', resizeElement._eventHandlers.mousemove);
+    document.removeEventListener('mouseup', resizeElement._eventHandlers.mouseup);
+    resizeElement.removeEventListener('dblclick', resizeElement._eventHandlers.dblclick);
+    delete resizeElement._eventHandlers;
+    delete resizeElement._rafId;
+    if (resizeElement.parentNode) {
+        resizeElement.parentNode.removeChild(resizeElement);
+    }
+}
+function addResizeToAllWndTopLeft() {
+    const wndTopLeftElements = document.querySelectorAll('.QYLWndTopLeft');
+    wndTopLeftElements.forEach(element => {
+        const firstFlex = element.querySelector('.fn__flex:first-child');
+        if (firstFlex && !firstFlex.nextElementSibling?.classList.contains('layout__resize--lr')) {
+            const resizeElement = createResizeElement();
+            firstFlex.after(resizeElement);
+        }
+    });
+}
+export function addResizeToWndTopLeft(element) {
+    if (!isEnabled) return;
+    const firstFlex = element.querySelector('.fn__flex:first-child');
+    if (firstFlex && !firstFlex.nextElementSibling?.classList.contains('layout__resize--lr')) {
+        const resizeElement = createResizeElement();
+        firstFlex.after(resizeElement);
+    }
+}
 export function initVerticalTab() {
     if (isEnabled) return;
     if (document.body.classList.contains('QYLmobile')) return;
@@ -8,9 +92,9 @@ export function initVerticalTab() {
     styleElement.id = 'QYL-VerticalTab';
     styleElement.textContent = `
         :root {
-            --QYL-wnd-border-none: none;/* 适配扁平化、墨水屏 */
-            --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);/* 适配扁平化 */
-            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);/* 适配墨水屏 */
+            --QYL-wnd-border-none: none;
+            --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);
+            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);
             --QYL-vertical-width: 125px;
         }
         .layout__center:not(#layouts) .QYLWndTopLeft {
@@ -21,7 +105,6 @@ export function initVerticalTab() {
                 flex: 0 0 auto;
                 min-width: var(--QYL-vertical-width);
                 max-width: var(--QYL-vertical-width);
-                margin-right: 6px;
                 flex-direction: column;
                 border-radius: var(--b3-border-radius);
                 overflow: hidden;
@@ -41,6 +124,9 @@ export function initVerticalTab() {
                             opacity: 0;
                             margin-right: -25px;
                             transition: var(--b3-transition);
+                        }
+                        & .item__text {
+                            max-width: fit-content;
                         }
                         &:hover .item__close {
                             opacity: 1;
@@ -94,14 +180,19 @@ export function initVerticalTab() {
     `;
     document.head.appendChild(styleElement);
     initWndTopLeft();
+    setVerticalTabResizeCallback(addResizeToWndTopLeft);
+    addResizeToAllWndTopLeft();
     isEnabled = true;
 }
 export function removeVerticalTab() {
     if (!isEnabled) return;
+    const resizeElements = document.querySelectorAll('.layout__resize--lr.layout__resize');
+    resizeElements.forEach(cleanupResizeElement);
     if (styleElement) {
         styleElement.remove();
         styleElement = null;
     }
+    setVerticalTabResizeCallback(null);
     cleanupWndTopLeft();
     const elements = document.querySelectorAll('.QYLWndTopLeft');
     elements.forEach(element => {
