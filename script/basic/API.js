@@ -26,7 +26,6 @@ async function getFile(path) {
             throw new Error("Failed to get file content");
         }
     }).catch((error) => {
-        // API错误
     });
 }
 export { putFile, getFile }; 

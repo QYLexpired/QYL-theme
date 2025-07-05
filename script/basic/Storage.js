@@ -43,7 +43,6 @@ export async function batchUpdateConfig(updates) {
         }
         return config;
     } catch (error) {
-        console.error('Batch update config error:', error);
         throw error;
     }
 }
@@ -65,7 +64,6 @@ export async function batchSetButtonStates(states) {
         }
         return true;
     } catch (error) {
-        console.error('Batch set button states error:', error);
         return false;
     }
 }
@@ -105,7 +103,6 @@ export async function smartToggleButtonState(buttonId) {
         }
         return newState;
     } catch (error) {
-        console.error('Smart toggle button state error:', error);
         return false;
     }
 }

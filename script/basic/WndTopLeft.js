@@ -4,6 +4,7 @@ let cachedLayoutCenter = null;
 let cachedWindows = null;
 let observer = null;
 let isInitialized = false;
+let addResizeToWndTopLeft = null;
 function getLayoutCenter() {
     if (!cachedLayoutCenter) {
         cachedLayoutCenter = document.querySelector('.layout__center');
@@ -54,6 +55,9 @@ function updateTopLeftWindow() {
     }
     if (topLeftWindow) {
         topLeftWindow.classList.add('QYLWndTopLeft');
+        if (addResizeToWndTopLeft) {
+            addResizeToWndTopLeft(topLeftWindow);
+        }
     }
 }
 function debounceUpdate() {
@@ -101,4 +105,7 @@ export function cleanupWndTopLeft() {
         element.classList.remove('QYLWndTopLeft');
     });
     isInitialized = false;
+}
+export function setVerticalTabResizeCallback(callback) {
+    addResizeToWndTopLeft = callback;
 }

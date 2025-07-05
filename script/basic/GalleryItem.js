@@ -71,7 +71,6 @@ export function removeGalleryItem() {
     document.removeEventListener('mouseenter', mouseEnterHandler, true);
     document.removeEventListener('mouseleave', mouseLeaveHandler, true);
     document.removeEventListener('mousemove', handleMove);
-    // 清理所有相关样式
     const galleryItems = document.querySelectorAll('.av__gallery-item');
     galleryItems.forEach(item => {
         item.style.transform = '';
