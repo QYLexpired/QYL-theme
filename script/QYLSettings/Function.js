@@ -259,7 +259,6 @@ async function createFunctionContent(config = null) {
     const container = document.createElement('div');
     container.className = 'QYL-function-container';
     const options = getFunctionOptions();
-    // 如果没有传入配置，则获取配置
     if (!config) {
         config = await getStorageConfig();
     }
@@ -275,7 +274,6 @@ async function createFunctionContent(config = null) {
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
             const newState = await smartToggleButtonState(option.id);
-            // 立即更新按钮状态，确保UI同步
             button.classList.toggle('active', newState);
             if (newState) {
                 if (['FocusBlockHighlight', 'FocusEditing'].includes(option.id)) {
@@ -337,7 +335,6 @@ async function createFunctionContent(config = null) {
                     await disableFocusEditingOn();
                 }
             }
-            // 立即执行批量更新
             await flushBatchUpdate();
         });
         container.appendChild(optionElement);
@@ -346,7 +343,6 @@ async function createFunctionContent(config = null) {
 }
 async function initializeFunctionStates(config = null) {
     const options = getFunctionOptions();
-    // 如果没有传入配置，则获取配置
     if (!config) {
         config = await getStorageConfig();
     }

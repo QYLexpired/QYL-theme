@@ -12,6 +12,7 @@ let QYLAttrModule = null;
 let nineGridSquaresModule = null;
 let multilevelListModule = null;
 let colorfulTagsModule = null;
+let linkStyleModule = null;
 
 
 async function loadColorfulHeadingModule() {
@@ -73,6 +74,16 @@ async function loadColorfulTagsModule() {
     return colorfulTagsModule;
 }
 
+async function loadLinkStyleModule() {
+    if (!linkStyleModule) {
+        try {
+            linkStyleModule = await import('../element/LinkStyle.js');
+        } catch (error) {
+            
+        }
+    }
+    return linkStyleModule;
+}
 
 
 async function enableColorfulHeading() {
@@ -167,6 +178,20 @@ async function disableColorfulTags() {
     }
 }
 
+async function enableLinkStyle() {
+    const module = await loadLinkStyleModule();
+    if (module && module.initLinkStyle) {
+        module.initLinkStyle();
+    }
+}
+
+async function disableLinkStyle() {
+    const module = await loadLinkStyleModule();
+    if (module && module.removeLinkStyle) {
+        module.removeLinkStyle();
+    }
+}
+
 
 function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
@@ -192,6 +217,10 @@ function getElementOptions() {
         {
             id: 'ColorfulTags',
             label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
+        },
+        {
+            id: 'LinkStyle',
+            label: i18n.LinkStyle || '超链接图标'
         }
     ];
     
@@ -216,6 +245,10 @@ function getElementOptions() {
         {
             id: 'ColorfulTags',
             label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
+        },
+        {
+            id: 'LinkStyle',
+            label: i18n.LinkStyle || '超链接图标'
         }
     ];
     
@@ -287,6 +320,12 @@ async function createElementContent(config = null) {
                 } else {
                     await disableColorfulTags();
                 }
+            } else if (option.id === 'LinkStyle') {
+                if (newState) {
+                    await enableLinkStyle();
+                } else {
+                    await disableLinkStyle();
+                }
             }
             
             
@@ -305,9 +344,6 @@ async function initializeElementStates(config = null) {
     if (!config) {
         config = await getStorageConfig();
     }
-    
-    
-    
     
     for (const option of options) {
         const currentState = config[option.id] || false;
@@ -331,6 +367,10 @@ async function initializeElementStates(config = null) {
             if (currentState) {
                 await enableColorfulTags();
             }
+        } else if (option.id === 'LinkStyle') {
+            if (currentState) {
+                await enableLinkStyle();
+            }
         }
     }
 }
@@ -343,4 +383,10 @@ async function initializeElementStates(config = null) {
 
 
 
-export { getElementOptions, createElementContent, initializeElementStates };
+export { 
+    getElementOptions, 
+    createElementContent, 
+    initializeElementStates,
+    enableLinkStyle,
+    disableLinkStyle 
+};

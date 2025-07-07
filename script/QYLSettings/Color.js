@@ -82,6 +82,7 @@ let xingqiongModule = null;
 let lightClassicModule = null;
 let darkClassicModule = null;
 let colorSwitchTimeModule = null;
+let darkRevertModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -121,6 +122,7 @@ async function createColorPicker() {
             document.documentElement.style.setProperty('--QYL-custom-primary-main', colorConfig.hue.toString() + 'deg');
             document.documentElement.style.setProperty('--QYL-custom-primary-saturate', colorConfig.saturation.toString());
             document.documentElement.style.setProperty('--QYL-custom-primary-brightness', colorConfig.brightness.toString());
+            document.documentElement.classList.add('QYLCustomColor');
             await module.customColor.createColorPicker(
                 async (colorData) => {
                     if (colorData.type === 'saturation') {
@@ -160,6 +162,7 @@ async function destroyColorPicker() {
             document.documentElement.style.removeProperty('--QYL-custom-primary-main');
             document.documentElement.style.removeProperty('--QYL-custom-primary-saturate');
             document.documentElement.style.removeProperty('--QYL-custom-primary-brightness');
+            document.documentElement.classList.remove('QYLCustomColor');
         } catch (error) {
         }
     }
@@ -877,6 +880,18 @@ async function disableDarkClassic() {
         module.removeDarkClassic();
     }
 }
+async function enableDarkRevert() {
+    const module = await loadDarkRevertModule();
+    if (module && module.initDarkRevert) {
+        module.initDarkRevert();
+    }
+}
+async function disableDarkRevert() {
+    const module = await loadDarkRevertModule();
+    if (module && module.removeDarkRevert) {
+        module.removeDarkRevert();
+    }
+}
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
     const useViewTransition = !!(document.startViewTransition);
     const doSwitch = async () => {
@@ -921,7 +936,7 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
                         await handleDisableById(id);
                     }
                 });
-            } else {
+            } else if (buttonId !== 'QYLDarkRevert') {
                 await excluSetting.handleExclusionBatch(mainGroupId, buttonId, async (id, state) => {}, async (id) => {
                     await handleDisableById(id);
                 });
@@ -1022,6 +1037,8 @@ async function handleDisableById(id) {
         await disableXingqiong();
     } else if (id === 'QYLDarkClassic') {
         await disableDarkClassic();
+    } else if (id === 'QYLDarkRevert') {
+        await disableDarkRevert();
     }
 }
 function getColorOptions() {
@@ -1124,6 +1141,10 @@ function getColorOptions() {
         {
             id: 'CustomColorPickDark',
             label: i18n.CustomColorPick
+        },
+        {
+            id: 'QYLDarkRevert',
+            label: i18n.QYLDarkRevert
         },
         {
             id: 'ColorSwitchTimeDark',
@@ -1355,6 +1376,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableDarkClassic;
                         disableFunction = disableDarkClassic;
                         break;
+                    case 'QYLDarkRevert':
+                        enableFunction = enableDarkRevert;
+                        disableFunction = disableDarkRevert;
+                        break;
                 }
             }
             if (document.startViewTransition) {
@@ -1376,6 +1401,12 @@ async function initializeColorStates(config = null) {
     const colorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
     if (!config) {
         config = await getStorageConfig();
+    }
+    const darkRevertState = config['QYLDarkRevert'] || false;
+    if (currentMode === 'dark' && darkRevertState) {
+        await enableDarkRevert();
+        const button = document.getElementById('QYLDarkRevert');
+        if (button) button.classList.toggle('active', darkRevertState);
     }
     if (config[colorSwitchTimeId]) {
         if (!config[customColorPickId]) {
@@ -1469,6 +1500,11 @@ async function initializeColorStates(config = null) {
     ThemeMode.addModeChangeListener(async (newMode) => {
         const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
         const config = await getStorageConfig();
+        if (newMode === 'dark' && config['QYLDarkRevert']) {
+            await enableDarkRevert();
+        } else if (newMode === 'light' && config['QYLDarkRevert']) {
+            await disableDarkRevert();
+        }
         let newFirstActiveColor = null;
         for (const colorId of newGroup) {
             const currentState = config[colorId] || false;
@@ -1560,8 +1596,18 @@ async function loadColorFromConfig() {
             document.documentElement.style.setProperty('--QYL-custom-primary-main', colorConfig.hue.toString() + 'deg');
             document.documentElement.style.setProperty('--QYL-custom-primary-saturate', colorConfig.saturation.toString());
             document.documentElement.style.setProperty('--QYL-custom-primary-brightness', colorConfig.brightness.toString());
+            document.documentElement.classList.add('QYLCustomColor');
         } catch (error) {
         }
     }
+}
+async function loadDarkRevertModule() {
+    if (!darkRevertModule) {
+        try {
+            darkRevertModule = await import('../color/DarkRevert.js');
+        } catch (error) {
+        }
+    }
+    return darkRevertModule;
 }
 export { getColorOptions, createColorContent, initializeColorStates };
