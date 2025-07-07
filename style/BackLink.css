@@ -42,3 +42,7 @@
     box-shadow: 0 6px 0 var(--b3-theme-background), 0 -6px 0 var(--b3-theme-background); 
     background-color: var(--b3-theme-surface) !important;
 }
+.protyle-wysiwyg [data-node-id] .def--mark {
+    background-color: var(--b3-highlight-background);
+    color: var(--b3-theme-on-primary) !important;
+}

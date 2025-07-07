@@ -173,8 +173,10 @@
 /* 列表 */
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
     color: var(--b3-theme-primary);
+    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
     & svg {
         color: var(--b3-theme-primary);
+        color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
     }
     &::after {
         background-color: var(--QYL-tab-item-focus);
@@ -183,6 +185,7 @@
 }
 .protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover {
     color: var(--b3-theme-primary);
+    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 }
 .protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover::after, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover::after, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover::after {
     background-color: var(--QYL-tab-item-focus);
@@ -201,12 +204,17 @@
 /* 代码块 */
 .b3-typography .code-block, .protyle-wysiwyg .code-block {
     background-color: var(--b3-theme-surface);
-    background-color: oklch(calc(0.96 + var(--b3-theme-primary-brightness) * 0.015) calc(0.035 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    background-color: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.015) calc(0.034 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 }
 [data-theme-mode="dark"] .b3-typography .code-block, 
 [data-theme-mode="dark"] .protyle-wysiwyg .code-block {
     background-color: var(--b3-theme-surface);
     background-color: oklch(calc(0.3 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+}
+[data-theme-mode="dark"].QYLDarkRevert .b3-typography .code-block, 
+[data-theme-mode="dark"].QYLDarkRevert .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
+    background-color: oklch(calc(0.25 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 }
 .protyle-linenumber__rows>span::before {
     color: var(--b3-theme-primary);

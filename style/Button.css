@@ -53,6 +53,14 @@
     background-color: var(--b3-theme-on-surface);
     }
 }
+[data-theme-mode="dark"] .b3-button.b3-button--cancel {
+    border-color: var(--b3-theme-on-surface-light);
+    color: var(--b3-theme-on-surface-light);
+    &:hover, &:focus  {
+    color: var(--b3-theme-surface);
+    background-color: var(--b3-theme-on-surface-light);
+    }
+}
 .b3-button.b3-button--remove {
     border-color: var(--b3-theme-error);
     background-color: var(--b3-theme-error);
