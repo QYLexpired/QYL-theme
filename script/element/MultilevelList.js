@@ -23,6 +23,7 @@ export function initMultilevelList() {
                 & > .protyle-action {
                     &::after {
                         color: var(--b3-theme-primary);
+                        color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
                     }
                 }
             }
