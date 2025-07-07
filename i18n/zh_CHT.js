@@ -11,6 +11,7 @@ export default {
     "QYLAttrOn": "啟用QYL自定義屬性樣式",
     "NineGridSquares": "啟用圖片九宮格排列",
     "MultilevelList": "列表多級序號",
+    "LinkStyle": "超連結圖示",
     "MarktoBlank": "標記挖空",
     "EditorFullWidth": "編輯器全寬顯示",
     "FocusBlockHighlight": "聚焦塊高亮",
@@ -163,5 +164,6 @@ export default {
     "ColorfulTabs": "多彩頁簽",
     "QYLLightClassic": "經典",
     "QYLDarkClassic": "經典",
+    "QYLDarkRevert": "反轉",
     "ColorSwitchTime": "主題色隨時間變化",
 }; 

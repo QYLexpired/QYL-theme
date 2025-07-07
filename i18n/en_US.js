@@ -11,6 +11,7 @@ export default {
     "QYLAttrOn": "Enable QYL Custom Attribute Styles",
     "NineGridSquares": "Enable Image Nine Grid Layout",
     "MultilevelList": "Multilevel List Numbers",
+    "LinkStyle": "Link Icons",
     "MarktoBlank": "Mark to Blank",
     "EditorFullWidth": "Editor Full Width",
     "FocusBlockHighlight": "Focus Block Highlight",
@@ -65,6 +66,7 @@ export default {
     "QYLXingqiong": "Starry Dome",
     "QYLLightClassic": "Light Classic",
     "QYLDarkClassic": "Dark Classic",
+    "QYLDarkRevert": "Revert",
     "ColorSwitchTime": "Theme color changes with time",
 
     "QYLcustomattr": "QYL-theme block settings",

@@ -11,6 +11,7 @@ export default {
     "QYLAttrOn": "启用QYL自定义属性样式",
     "NineGridSquares": "启用图片九宫格排列",
     "MultilevelList": "列表多级序号",
+    "LinkStyle": "超链接图标",
     "MarktoBlank": "标记挖空",
     "EditorFullWidth": "编辑器全宽显示",
     "FocusBlockHighlight": "聚焦块高亮",
@@ -162,5 +163,6 @@ export default {
     "ColorfulTabs": "多彩页签",
     "QYLLightClassic": "经典",
     "QYLDarkClassic": "经典",
+    "QYLDarkRevert": "反转",
     "ColorSwitchTime": "主题色随时间变化",
 }; 
