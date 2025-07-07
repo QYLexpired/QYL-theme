@@ -17,7 +17,7 @@ function createResizeElement() {
     const handleMouseMove = (e) => {
         if (!isDragging) return;
         const deltaX = e.clientX - startX;
-        const newWidth = Math.max(50, Math.min(800, startWidth + deltaX));
+        const newWidth = Math.max(85, Math.min(800, startWidth + deltaX));
         if (!resizeElement._rafId) {
             resizeElement._rafId = requestAnimationFrame(() => {
                 document.documentElement.style.setProperty('--QYL-vertical-width', newWidth + 'px');
@@ -137,6 +137,9 @@ export function initVerticalTab() {
                 }
                 & > .layout-tab-bar--readonly {
                     flex: none;
+                    & > .item--readonly {
+                        padding: 0 8px;
+                    }
                 }
             }
             & > .layout-tab-container {
