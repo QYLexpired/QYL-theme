@@ -14,7 +14,7 @@
     /* 面板背景色 */
     --b3-theme-surface: #262626;
     --b3-theme-surface-light: rgba(41, 42, 45, .86);
-    --b3-theme-surface-lighter: rgba(230, 230, 230, .06);
+    --b3-theme-surface-lighter: rgba(255, 255, 255, 0.1);
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -80,4 +80,9 @@
 
     /* 标记 */
     --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);
+}
+/* 细节调整 */
+[data-theme-mode="dark"] .b3-typography .code-block, 
+[data-theme-mode="dark"] .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
 }

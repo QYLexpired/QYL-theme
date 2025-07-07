@@ -60,3 +60,7 @@
     /* 行级代码 */
     --QYL-inline-code: var(--b3-theme-primary);
 }
+/* 细节调整 */
+.b3-typography .code-block, .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
+}

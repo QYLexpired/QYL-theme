@@ -2,7 +2,7 @@
     --QYL-custom-primary-main: 269deg;
 
     /* 主色 */
-    --b3-theme-primary: #414d70;
+    --b3-theme-primary: #6178bd;
     --b3-theme-primary-light: rgba(182, 193, 222, 0.5);
     --b3-theme-primary-lighter: rgba(182, 193, 222, 0.3);
     --b3-theme-primary-lightest: rgba(182, 193, 222, 0.12);
@@ -68,4 +68,8 @@
     --QYL-blockquote-background: rgb(66, 71, 82);
     --QYL-blockquote-svg: rgb(89, 95, 108);
     --QYL-blockquote: rgb(159, 164, 176);
+}
+/* 细节调整 */
+[data-theme-mode="dark"] .b3-typography .code-block, [data-theme-mode="dark"] .protyle-wysiwyg .code-block {
+    background-color: var(--b3-theme-surface);
 }
