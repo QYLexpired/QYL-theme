@@ -1054,7 +1054,7 @@ function getColorOptions() {
         },
         {
             id: 'QYLLightClassic',
-            label: '经典'
+            label: i18n.QYLLightClassic
         },
         {
             id: 'QYLSunset',
