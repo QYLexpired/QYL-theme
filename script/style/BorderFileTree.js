@@ -1,6 +1,4 @@
-// BorderFileTree.js - 实现文档树边框化效果
-    export function initBorderFileTree() {
-        // 创建style标签
+export function initBorderFileTree() {
     const style = document.createElement('style');
     style.id = 'QYL-BorderFileTree';
     style.textContent = `

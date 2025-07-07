@@ -232,7 +232,7 @@ export function initAnimation() {
         .protyle-wysiwyg [data-node-id] span[data-type~=a] {
             background-image: linear-gradient(to right, var(--b3-protyle-inline-link-color) 50%, transparent 50%);
             background-size: 200% 100%;
-            background-position: 100% 0;
+            background-position: 110% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
@@ -245,7 +245,7 @@ export function initAnimation() {
         .protyle-wysiwyg [data-node-id] span[data-type~=block-ref]:not(.av__celltext) {
             background-image: linear-gradient(to right, var(--b3-protyle-inline-blockref-color) 50%, transparent 50%);
             background-size: 200% 100%;
-            background-position: 100% 0;
+            background-position: 110% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
@@ -258,7 +258,7 @@ export function initAnimation() {
         .protyle-wysiwyg [data-node-id] span[data-type~=file-annotation-ref] {
             background-image: linear-gradient(to right, var(--b3-protyle-inline-fileref-color) 50%, transparent 50%);
             background-size: 200% 100%;
-            background-position: 100% 0;
+            background-position: 110% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
@@ -271,7 +271,7 @@ export function initAnimation() {
         .protyle-wysiwyg [data-node-id] span[data-type=virtual-block-ref] {
             background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, transparent 50%);
             background-size: 200% 100%;
-            background-position: 100% 0;
+            background-position: 110% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
@@ -284,7 +284,7 @@ export function initAnimation() {
         .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
             background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-tab-item-focus) 50%);
             background-size: 200% 100%;
-            background-position: 100% 0;
+            background-position: 110% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
