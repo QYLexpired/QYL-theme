@@ -1,15 +1,15 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.9</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化自定义主题色下各类样式的效果<br>• 暗夜模式增加“反转”，可将面板色与编辑器背景色颠倒（仅对自定义主题色生效） <br>• 增加元素选项：超链接图标，开启后为反链、网站链接、PDF标注链接、虚拟引用增加独特标识，放弃用颜色区分<br>• 重做字体颜色</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.8</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复QYL自定义属性菜单的诸多问题<br>• 使垂直页签可通过拖拽条调整宽度，无需手动配置（双击拖拽条可恢复默认宽度，设备不支持拖动操作时仍然可通过代码片段手动配置）<br>• 重做数据库部分样式<br>• 增加风格选项：多彩页签<br></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.7</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化列表子弹线：当列表设置为“脑图”等特殊视图时，子弹线不再生效<br>• 修复标题层级样式错误<br>• 修复部分场景QYL自定义属性菜单项错误出现的问题<br>• 优化画廊样式<br>• 优化手机端样式细节<br>• 简化代码块样式<br>• 修复行内备注动画异常<br>• 优化块折叠样式</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.6</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复标题层级样式失效的问题<br>• 修复文档格点样式失效的问题<br>• 修复QYL自定义属性菜单中“清除全部”失效的问题<br>• 优化文档定位效果</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题还额外内置了超过30种预设日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题还额外内置了超过30种预设日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效<br>由于预设配色较多，无法保证全部完善，有任何问题欢迎反馈</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">性能说明</summary>

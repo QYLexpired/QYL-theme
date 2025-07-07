@@ -12,6 +12,8 @@ import('./index.js');
         html.style.removeProperty('--QYL-custom-primary-main');
         html.style.removeProperty('--QYL-custom-primary-saturate');
         html.style.removeProperty('--QYL-custom-primary-brightness');
+        html.classList.remove('QYLCustomColor');
+        html.classList.remove('QYLDarkRevert');
       };
     } else {
       delete window.destroyTheme;
