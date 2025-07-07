@@ -12,14 +12,18 @@ export function initListBulletOn() {
           display: block;
           box-sizing: border-box;
           border-left: 2px solid var(--b3-theme-primary);
+          border-left: 2px solid oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
           border-bottom: 2px solid var(--b3-theme-primary);
+          border-bottom: 2px solid oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
           border-bottom-left-radius: 8px;
           position: absolute;
           left: -18px;
         }
         :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) .en_item_bullet_actived > :is(.protyle-action, .protyle-action::before, .protyle-action::after) {
           color: var(--b3-theme-primary) !important;
-          --b3-theme-primary-fix: var(--b3-theme-primary);
+          color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) !important;
+          --b3-theme-primary-fix: var(--b3-theme-primary) !important;
+          --b3-theme-primary-fix-fix: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) !important;
         }
         [data-subtype="u"] [data-subtype="u"] .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
           width: 33px;
