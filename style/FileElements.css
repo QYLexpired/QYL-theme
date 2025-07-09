@@ -211,8 +211,8 @@
     background-color: var(--b3-theme-surface);
     background-color: oklch(calc(0.3 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 }
-[data-theme-mode="dark"].QYLDarkRevert .b3-typography .code-block, 
-[data-theme-mode="dark"].QYLDarkRevert .protyle-wysiwyg .code-block {
+[data-theme-mode="dark"].QYLDarkRevert.QYLCustomColor .b3-typography .code-block, 
+[data-theme-mode="dark"].QYLDarkRevert.QYLCustomColor .protyle-wysiwyg .code-block {
     background-color: var(--b3-theme-surface);
     background-color: oklch(calc(0.25 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
 }
