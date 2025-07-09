@@ -1,6 +1,6 @@
 export function initColorBlock() {
     if (document.body.classList.contains('QYLmobile')) return;
-    
+    document.documentElement.classList.add('QYLColorBlock');
     const style = document.createElement('style');
     style.id = 'QYL-ColorBlock';
     style.textContent = `
@@ -165,6 +165,7 @@ export function initColorBlock() {
     document.head.appendChild(style);
 }
 export function removeColorBlock() {
+    document.documentElement.classList.remove('QYLColorBlock');
     const style = document.getElementById('QYL-ColorBlock');
     if (style) {
         style.remove();
