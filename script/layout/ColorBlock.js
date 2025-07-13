@@ -161,7 +161,6 @@ export function initColorBlock() {
             }
         }
     `;
-
     document.head.appendChild(style);
 }
 export function removeColorBlock() {

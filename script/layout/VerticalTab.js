@@ -92,13 +92,12 @@ export function initVerticalTab() {
     styleElement.id = 'QYL-VerticalTab';
     styleElement.textContent = `
         :root {
-            --QYL-wnd-border-none: none;
-            --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);
-            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);
             --QYL-vertical-width: 125px;
         }
         .layout__center:not(#layouts) .QYLWndTopLeft {
-            display: flex;
+            --QYL-wnd-border-none: none;
+            --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);
+            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);
             flex-direction: row;
             height: 100%;
             & > .fn__flex:first-child {

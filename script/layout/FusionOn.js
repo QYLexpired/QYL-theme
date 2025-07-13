@@ -113,7 +113,7 @@ export function initFusionOn() {
                 clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
             }
             .QYLFusionTop > .fn__flex:first-child {
-                transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
             }
         `;
         document.head.appendChild(styleElement);
