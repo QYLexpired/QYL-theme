@@ -156,6 +156,7 @@ export default {
     "blockstylenote": "便签",
     "blockstyleleftborder": "左边框",
     "blockstyledot": "格点",
+    "blockstyleflashcard": "闪卡",
     "fontfamily": "字体",
     "fontfamilydelete": "清除属性",
     "FlatStyle": "扁平化风格",

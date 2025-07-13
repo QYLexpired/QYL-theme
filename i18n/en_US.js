@@ -176,6 +176,7 @@ export default {
     "blockstylenote": "Note",
     "blockstyleleftborder": "Left border",
     "blockstyledot": "Dot",
+    "blockstyleflashcard": "Flashcard",
 
     "fontfamily": "Font",
 

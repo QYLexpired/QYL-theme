@@ -158,6 +158,7 @@ export default {
     "blockstylenote": "便簽",
     "blockstyleleftborder": "左邊框",
     "blockstyledot": "格點",
+    "blockstyleflashcard": "閃卡",
     "fontfamily": "字體",
     "FlatStyle": "扁平化風格",
     "InkMode": "墨水屏模式",
