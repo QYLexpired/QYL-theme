@@ -2,6 +2,12 @@
     #dockBottom:not(.fn__none) + #status {
         bottom: 48px !important;
     }
+    #toolbar ~ #status {
+        bottom: 12px;
+    }
+    .QYLColorBlock #toolbar ~ #status {
+        bottom: 6px;
+    }
     #status {
         position: fixed;
         display: flex;
@@ -10,13 +16,14 @@
         border: 1px solid var(--b3-theme-surface-lighter);
         box-shadow: var(--b3-point-shadow);
         right: 0;
-        bottom: 12px;
+        bottom: 6px;
         height: 27px;
         align-items: center;
         background: var(--QYL-status-background); 
-        transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+        transition: transform 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
         transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px));
-        animation: QYLStatusSwitch1 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        animation: QYLStatusSwitch1 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
+        transform-origin: right bottom;
         & #barDock {
             position: relative;
             order: 1;
@@ -27,17 +34,18 @@
           }
         }
         &.QYLStatusHidden {
-            animation: QYLStatusSwitch2 0.6s cubic-bezier(0.8, 0, 0.9, 1);
-            &:hover {
-                animation: QYLStatusSwitch3 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+            transform-origin: right bottom;
+            animation: QYLStatusSwitch2 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
+            &:hover { 
+                animation: QYLStatusSwitch3 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
             }
         }
         &.QYLStatusHidden:not(:hover) {
             border-radius: 12px;
-            height: 20px;
-            width: 35px;
+            height: 15px;
+            width: 30px;
             & * {
-                opacity: 0;
+                display: none;
             }
             &::before {
                 content: "● ● ●";
@@ -58,58 +66,25 @@
 }
 @keyframes QYLStatusSwitch1 {
     0% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(0);
-      opacity: 0;
-    }
-    50% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.05);
-      opacity: 1;
-    }
-    70% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(0.95);
-    }
-    85% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.02);
+      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(0.3) scaleY(0.8);
     }
     100% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1);
+      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(1) scaleY(1);
     }
 }
 @keyframes QYLStatusSwitch2 {
-    0% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(0);
-      opacity: 0;
-    }
-    50% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.05);
-      opacity: 1;
-    }
-    70% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(0.95);
-    }
-    85% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.02);
-    }
-    100% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1);
-    }
+  0% {
+    transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(1.5) scaleY(1.1);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(1) scaleY(1);
+  }
 }
 @keyframes QYLStatusSwitch3 {
-    0% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1);
-      opacity: 0;
-    }
-    50% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.02);
-      opacity: 1;
-    }
-    70% {
-        transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(0.99);
-    }
-    85% {
-    transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1.01);
-    }
-    100% {
-      transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scale(1);
-    }
+  0% {
+    transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(0.4) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px)) scaleX(1) scaleY(1);
+  }
 }

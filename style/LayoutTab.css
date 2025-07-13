@@ -2,6 +2,9 @@
     background-color: transparent;
     border-bottom: none;
 }
+.layout-tab-container {
+    background-color: var(--b3-theme-background);
+}
 [data-type="wnd"] .layout-tab-bar {
     background-color: var(--b3-theme-background);
 }

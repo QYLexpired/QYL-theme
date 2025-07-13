@@ -1,0 +1,6 @@
+:root[data-theme-mode=light] .pdf__outer#outerContainer:not(.pdf__outer--dark) .pdfViewer .textLayer {
+    background-color: var(--b3-theme-background);
+}
+:root[data-theme-mode=dark] .pdf__outer#outerContainer.pdf__outer--dark .pdfViewer .textLayer{
+    background-color: var(--b3-theme-background);
+}
