@@ -1,14 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.10</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化暗夜模式自定义主题色</p>
-
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.9</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化自定义主题色下各类样式的效果<br>• 暗夜模式增加“反转”，可将面板色与编辑器背景色颠倒（仅对自定义主题色生效） <br>• 增加元素选项：超链接图标，开启后为反链、网站链接、PDF标注链接、虚拟引用增加独特标识，放弃用颜色区分<br>• 重做字体颜色</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.8</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复QYL自定义属性菜单的诸多问题<br>• 使垂直页签可通过拖拽条调整宽度，无需手动配置（双击拖拽条可恢复默认宽度，设备不支持拖动操作时仍然可通过代码片段手动配置）<br>• 重做数据库部分样式<br>• 增加风格选项：多彩页签<br></p>
-
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.11</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• QYL自定义属性-块样式增加<span data-type="code" style="padding: 0 0.4em">闪卡</span>，启用后块被遮挡，鼠标悬停时恢复<br>• 修复状态栏位置可能不随侧栏变化的问题<br>• 优化状态栏避让动效<br>• 修复开启固定工具栏后，部分非编辑器场景也出现工具栏的问题<br>• 修复同时开启垂直页签和墨水屏模式时的样式异常<br>• 修复导出为PDF时部分样式错误<br>• 修复开启标记挖空时闪卡复习界面样式错误<br>• 优化PDF阅读器背景色<br></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -23,7 +16,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">连按三次Q</span>来恢复顶栏</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">连按三次Q</span>来恢复顶栏<br>平板端隐藏顶栏不会生效（防止无法呼出顶栏）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">垂直页签</summary>
