@@ -5,6 +5,7 @@ let cachedWindows = null;
 let observer = null;
 let isInitialized = false;
 let addResizeToWndTopLeft = null;
+let observerBound = false;
 function getLayoutCenter() {
     if (!cachedLayoutCenter) {
         cachedLayoutCenter = document.querySelector('.layout__center');
@@ -71,8 +72,10 @@ function debounceUpdate() {
 function observeLayoutCenter() {
     const layoutCenter = getLayoutCenter();
     if (!layoutCenter) {
+        setTimeout(observeLayoutCenter, 200);
         return;
     }
+    if (observerBound) return;
     observer = new MutationObserver((mutations) => {
         clearCache();
         debounceUpdate();
@@ -82,6 +85,7 @@ function observeLayoutCenter() {
         subtree: true,   
         attributes: false 
     });
+    observerBound = true;
 }
 export function initWndTopLeft() {
     if (isInitialized) return;

@@ -1,10 +1,32 @@
+let statusTransformXRetryCount = 0;
+let statusTransformXRetryTimer = null;
+let observerBound = false;
 function setStatusTransformX() {
     const center = document.querySelector('.layout__center');
     const status = document.getElementById('status');
-    if (!center || !status) return;
-    const rect = center.getBoundingClientRect();
-    const distance = window.innerWidth - rect.right;
-    status.style.setProperty('--QYL-status-transformX', `${distance}px`);
+    if (!center || !status) {
+        if (statusTransformXRetryCount < 10) {
+            statusTransformXRetryCount++;
+            if (statusTransformXRetryTimer) clearTimeout(statusTransformXRetryTimer);
+            statusTransformXRetryTimer = setTimeout(setStatusTransformX, 200);
+        }
+        return;
+    }
+    statusTransformXRetryCount = 0;
+    if (statusTransformXRetryTimer) {
+        clearTimeout(statusTransformXRetryTimer);
+        statusTransformXRetryTimer = null;
+    }
+    if (!observerBound) {
+        observeDockrWidth();
+        window.addEventListener('resize', setStatusTransformX);
+        observerBound = true;
+    }
+    setTimeout(() => {
+        const rect = center.getBoundingClientRect();
+        const distance = window.innerWidth - rect.right;
+        status.style.setProperty('--QYL-status-transformX', `${distance}px`);
+    }, 200);
 }
 function observeDockrWidth() {
     const dockr = document.querySelector('.layout__dockr');
@@ -20,7 +42,5 @@ function observeDockrWidth() {
 }
 export function initStatusPosition() {
     setStatusTransformX();
-    observeDockrWidth();
-    window.addEventListener('resize', setStatusTransformX);
 }
 initStatusPosition();
