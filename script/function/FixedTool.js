@@ -8,16 +8,48 @@ export function initFixedTool() {
     styleElement = document.createElement('style');
     styleElement.id = 'QYL-FixedTool';
     styleElement.textContent = `
-        #layouts .protyle-content:has(>[contenteditable="true"]) ~ .protyle-toolbar.toolbarl {
+        @keyframes QYLFixedToolToolbarL {
+            0% {
+                transform: translateY(-50%) scale(0.8);
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+            }
+        }
+        @keyframes QYLFixedToolToolbarR {
+            0% {
+                transform: translateY(-50%) scale(0.8);
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+            }
+        }
+        @keyframes QYLFixedToolToolbarB {
+            0% {
+                transform: translateX(-50%) scale(0.8);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        @keyframes QYLFixedToolToolbarT {
+            0% {
+                transform: translateX(-50%) scale(0.8);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        :is(#layouts .layout__center, #layouts.layout__center) .layout-tab-container > .protyle:has(.protyle-content .protyle-title__input[contenteditable="true"]) > .protyle-toolbar.toolbarl {
           display: flex !important;
           flex-direction: column;
           position: absolute !important;
           top: 50% !important;
           left: 10px !important;
           transform: translateY(-50%);
-          animation: none !important;
           border-radius: 8px;
           padding: 1px 0;
+          animation: QYLFixedToolToolbarL 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99) !important;
           & .protyle-toolbar__item {
               border-radius: 8px;
               margin: 0 1px;
@@ -36,7 +68,7 @@ export function initFixedTool() {
               border-bottom: 1px solid var(--b3-theme-surface-lighter);
           }
         }
-        #layouts .protyle-content:has(>[contenteditable="true"]) ~ .protyle-toolbar.toolbarr {
+        :is(#layouts .layout__center, #layouts.layout__center) .layout-tab-container > .protyle:has(.protyle-content .protyle-title__input[contenteditable="true"]) > .protyle-toolbar.toolbarr {
           display: flex !important;
           flex-direction: column;
           position: absolute !important;
@@ -44,9 +76,9 @@ export function initFixedTool() {
           right: 35px !important;
           left: auto !important;
           transform: translateY(-50%);
-          animation: none !important;
           border-radius: 8px;
           padding: 1px 0;
+          animation: QYLFixedToolToolbarR 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99) !important;
           & .protyle-toolbar__item {
               border-radius: 8px;
               margin: 0 1px;
@@ -65,18 +97,19 @@ export function initFixedTool() {
               border-bottom: 1px solid var(--b3-theme-surface-lighter);
           }
         }
-        #layouts .protyle-content:has(>[contenteditable="true"]) ~ .protyle-toolbar {
+        :is(#layouts .layout__center, #layouts.layout__center) .layout-tab-container > .protyle:has(.protyle-content .protyle-title__input[contenteditable="true"]) > .protyle-toolbar {
           display: flex !important;
           position: absolute !important;
           top: var(--QYL-fixedtoolbar-fix, 30px) !important;
           left: 50% !important;
           transform: translateX(-50%);
-          animation: none !important;
           border-radius: 8px;
           padding: 0 1px;
           transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
           width: auto !important;
           box-shadow: var(--b3-point-shadow),0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset !important;
+          transition: none !important;
+          animation: QYLFixedToolToolbarT 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99) !important;
           & .protyle-toolbar__item {
               border-radius: 8px;
               margin: 1px 1px;
@@ -90,15 +123,15 @@ export function initFixedTool() {
             }
           }
         }
-        #layouts .protyle-content:has(>[contenteditable="true"]) ~ .protyle-toolbar.toolbarb {
+        :is(#layouts .layout__center, #layouts.layout__center) .layout-tab-container > .protyle:has(.protyle-content .protyle-title__input[contenteditable="true"]) > .protyle-toolbar.toolbarb {
           display: flex !important;
           position: absolute !important;
           left: 50% !important;
           top: calc(100% - 50px) !important;
           transform: translateX(-50%);
-          animation: none !important;
           border-radius: 8px;
           padding: 0 1px;
+          animation: QYLFixedToolToolbarB 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99) !important; 
           & .protyle-toolbar__item {
               border-radius: 8px;
               margin: 1px 1px;
@@ -112,8 +145,8 @@ export function initFixedTool() {
             }
           }
         }
-        #layouts .protyle-content:has(.protyle-title__input[contenteditable="true"]) {
-          margin-top: unset;
+        :is(#layouts .layout__center, #layouts.layout__center) .protyle-content:has(.protyle-title__input[contenteditable="true"]) {
+          margin-top: unset !important;
         }
     `;
     document.head.appendChild(styleElement);

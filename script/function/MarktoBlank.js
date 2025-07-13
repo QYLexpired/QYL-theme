@@ -7,8 +7,6 @@ export function initMarktoBlank() {
             border-bottom: 2px solid var(--b3-theme-primary);
             background: transparent !important;
             background-color: var(--QYL-tab-item-focus) !important;
-            margin-left: 3px;
-            margin-right: 3px;
             transition: var(--b3-transition);
         }
         .protyle-wysiwyg span[data-type~=mark]:hover {
@@ -16,20 +14,17 @@ export function initMarktoBlank() {
             background: unset !important;
             background-color: unset!important;
         }
-        .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark] {
-            display: inline-block;
-            font-size: unset !important;
+        .card__block .protyle-wysiwyg span[data-type~=mark] {
             transition: none !important;
-            width: 40px !important;
-            height: 1em !important;
-        }
-        .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark]:hover {
-            color: transparent !important;
-            background: transparent !important;
-            background-color: var(--QYL-tab-item-focus) !important;
         }
         .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark]::before {
-            display: none;
+            border-bottom: none !important;
+        }
+        .card__block.card__block--hidemark .protyle-wysiwyg span[data-type~=mark]::before {
+            content: "qqqqq";
+            color: transparent;
+            border-bottom: 2px solid var(--b3-theme-primary);
+            background-color: var(--QYL-tab-item-focus);
         }
     `;
     document.head.appendChild(style);
