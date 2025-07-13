@@ -97,6 +97,9 @@ export class MenuData {
             { value: "网格", label: "blockstylegrid", icon: "#iconTheme", group: "group1" },
             { value: "格点", label: "blockstyledot", icon: "#iconTheme", group: "group1" }
         ];
+        this.flashcardStyleOptions = [
+            { value: "闪卡", label: "blockstyleflashcard", icon: "#iconRiffCard", group: "group2" }
+        ];
         this.fontOptions = [
             { value: "宋体", label: "宋体", fontFamily: "SimSun", group: "group1" },
             { value: "幼圆", label: "幼圆", fontFamily: "YouYuan", group: "group1" },
@@ -228,7 +231,7 @@ export class MenuData {
             blockStyle: { 
                 group: null, 
                 attrName: "style",
-                clearList: ["style"]
+                clearList: ["style", "style-flashcard"]
             },
             fontFamily: { 
                 group: null, 

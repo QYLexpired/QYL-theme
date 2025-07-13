@@ -28,8 +28,9 @@ export class QYLAttrMenu {
         if (!menu) return;
         const hasExport = menu.querySelector('[data-id="export"]');
         const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
+        const hasFileHistory = menu.querySelector('[data-id="fileHistory"]');
         const attritem = menu.querySelector('#QYLattr');
-        if (hasExport && !hasUpdate && !attritem) {
+        if (hasExport && !hasUpdate && !attritem && hasFileHistory) {
             const qylBtn = this.createQYLattrItem(selectid, selecttype);
             menu.appendChild(qylBtn);
             menu.insertBefore(this.createMenuSeparator(), qylBtn);

@@ -1,6 +1,7 @@
 let QYLcssObserver = null;
 let QYLcssContainer = null;
 let QYLcssDebouncedApplyCSS = null;
+let observerBound = false;
 function QYLcssApplyCustomCSS() {
     if (QYLcssObserver) {
         QYLcssObserver.disconnect();
@@ -54,21 +55,26 @@ const QYLcssObserverConfig = {
 };
 function initCustomCSS() {
     QYLcssDebouncedApplyCSS = QYLcssDebounce(QYLcssApplyCustomCSS, 250);
-    QYLcssObserver = new MutationObserver((mutations) => {
-        mutations.forEach(mutation => {
-            if (mutation.type === 'attributes' && 
-                (mutation.attributeName === 'custom-css' || 
-                 mutation.attributeName === 'data-node-id' ||
-                 mutation.attributeName === 'data-css-uid')) {
-                QYLcssDebouncedApplyCSS();
-            }
-        });
-    });
-    const isMobile = document.body.classList.contains('QYLmobile');
-    QYLcssContainer = isMobile ? document.querySelector('#editor') : document.querySelector('.layout__center');
-    if (QYLcssContainer) {
-        QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
-        QYLcssApplyCustomCSS();
+    if (!observerBound) {
+        const isMobile = document.body.classList.contains('QYLmobile');
+        QYLcssContainer = isMobile ? document.querySelector('#editor') : document.querySelector('.layout__center');
+        if (QYLcssContainer) {
+            QYLcssObserver = new MutationObserver((mutations) => {
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'attributes' && 
+                        (mutation.attributeName === 'custom-css' || 
+                         mutation.attributeName === 'data-node-id' ||
+                         mutation.attributeName === 'data-css-uid')) {
+                        QYLcssDebouncedApplyCSS();
+                    }
+                });
+            });
+            QYLcssObserver.observe(QYLcssContainer, QYLcssObserverConfig);
+            QYLcssApplyCustomCSS();
+            observerBound = true;
+        } else {
+            setTimeout(initCustomCSS, 200);
+        }
     }
 }
 function cleanupCustomCSS() {

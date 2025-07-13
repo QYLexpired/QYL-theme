@@ -251,6 +251,9 @@ export class MenuItemFactory {
             ),
             this.createNoteSubmenu(selectid),
             this.createLeftBorderSubmenu(selectid),
+            ...this.menuData.flashcardStyleOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, "style-flashcard", option.value, this.i18n[option.group], false, selectid)
+            ),
             (() => {
                 const config = this.menuData.clearButtonConfig.blockStyle;
                 const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
