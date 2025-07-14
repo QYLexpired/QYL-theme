@@ -183,4 +183,6 @@ export default {
     "FlatStyle": "Flat Style",
     "InkMode": "Ink Screen Mode",
     "ColorfulTabs": "Colorful Tabs",
+    "QYLWildness": "Wildness",
+    "QYLWarm": "Warm Current",
 }; 

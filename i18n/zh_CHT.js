@@ -167,4 +167,6 @@ export default {
     "QYLDarkClassic": "經典",
     "QYLDarkRevert": "反轉",
     "ColorSwitchTime": "主題色隨時間變化",
+    QYLWildness: '曠野',
+    "QYLWarm": "暖流",
 }; 
