@@ -81,3 +81,7 @@
     /* 标记 */
     --b3-protyle-inline-mark-background: rgb(139, 235, 144);
 }
+/* 细节调整 */
+.QYLColorBlock[data-theme-mode="light"] {
+    --b3-theme-surface: #e2e8f6;
+}

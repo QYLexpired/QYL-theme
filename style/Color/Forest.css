@@ -42,7 +42,3 @@
     --QYL-blockquote: rgb(113, 178, 104);
     --QYL-inline-code: var(--b3-theme-primary);
 }
-/* 细节调整 */
-.b3-typography .code-block, .protyle-wysiwyg .code-block {
-    background-color: #dbeed3;
-}

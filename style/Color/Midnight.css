@@ -69,7 +69,3 @@
     --QYL-blockquote-svg: #44464e;
     --QYL-blockquote: #9194a0;
 }
-/* 细节调整 */
-[data-theme-mode="dark"] .b3-typography .code-block, [data-theme-mode="dark"] .protyle-wysiwyg .code-block {
-    background-color: #26272b;
-}
