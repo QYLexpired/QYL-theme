@@ -1,5 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.12</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加暗黑模式预设配色<span data-type="code" style="padding: 0 0.4em">旷野</span><br>• 增加明亮模式预设配色<span data-type="code" style="padding: 0 0.4em">暖流</span><br>• 修复多彩标签对文档标签不生效的问题</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.11</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• QYL自定义属性-块样式增加<span data-type="code" style="padding: 0 0.4em">闪卡</span>，启用后块被遮挡，鼠标悬停时恢复<br>• 修复状态栏位置可能不随侧栏变化的问题<br>• 优化状态栏避让动效<br>• 修复开启固定工具栏后，部分非编辑器场景也出现工具栏的问题<br>• 修复同时开启垂直页签和墨水屏模式时的样式异常<br>• 修复导出为PDF时部分样式错误<br>• 修复开启标记挖空时闪卡复习界面样式错误<br>• 优化PDF阅读器背景色<br></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
