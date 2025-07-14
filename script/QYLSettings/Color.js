@@ -25,7 +25,8 @@ const lightColorMainGroup = [
     'QYLCoral',
     'QYLMint',
     'QYLAmber',
-    'QYLBiwan'
+    'QYLBiwan',
+    'QYLWarm'
 ];
 const darkColorMainGroup = [
     'QYLDarkClassic',
@@ -39,7 +40,8 @@ const darkColorMainGroup = [
     'QYLSteam',
     'QYLLatte',
     'QYLWinter',
-    'QYLXingqiong'
+    'QYLXingqiong',
+    'QYLWildness'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -83,6 +85,8 @@ let lightClassicModule = null;
 let darkClassicModule = null;
 let colorSwitchTimeModule = null;
 let darkRevertModule = null;
+let wildnessModule = null;
+let warmModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -892,6 +896,30 @@ async function disableDarkRevert() {
         module.removeDarkRevert();
     }
 }
+async function enableWildness() {
+    const module = await loadWildnessModule();
+    if (module && module.initWildness) {
+        module.initWildness();
+    }
+}
+async function disableWildness() {
+    const module = await loadWildnessModule();
+    if (module && module.removeWildness) {
+        module.removeWildness();
+    }
+}
+async function enableWarm() {
+    const module = await loadWarmModule();
+    if (module && module.initWarm) {
+        module.initWarm();
+    }
+}
+async function disableWarm() {
+    const module = await loadWarmModule();
+    if (module && module.removeWarm) {
+        module.removeWarm();
+    }
+}
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
     const useViewTransition = !!(document.startViewTransition);
     const doSwitch = async () => {
@@ -1039,6 +1067,10 @@ async function handleDisableById(id) {
         await disableDarkClassic();
     } else if (id === 'QYLDarkRevert') {
         await disableDarkRevert();
+    } else if (id === 'QYLWildness') {
+        await disableWildness();
+    } else if (id === 'QYLWarm') {
+        await disableWarm();
     }
 }
 function getColorOptions() {
@@ -1135,6 +1167,10 @@ function getColorOptions() {
         {
             id: 'QYLBiwan',
             label: i18n.QYLBiwan
+        },
+        {
+            id: 'QYLWarm',
+            label: i18n.QYLWarm
         }
     ];
     const darkModeOptions = [
@@ -1197,6 +1233,10 @@ function getColorOptions() {
         {
             id: 'QYLXingqiong',
             label: i18n.QYLXingqiong
+        },
+        {
+            id: 'QYLWildness',
+            label: i18n.QYLWildness
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1380,6 +1420,14 @@ async function createColorContent(config = null) {
                         enableFunction = enableDarkRevert;
                         disableFunction = disableDarkRevert;
                         break;
+                    case 'QYLWildness':
+                        enableFunction = enableWildness;
+                        disableFunction = disableWildness;
+                        break;
+                    case 'QYLWarm':
+                        enableFunction = enableWarm;
+                        disableFunction = disableWarm;
+                        break;
                 }
             }
             if (document.startViewTransition) {
@@ -1495,6 +1543,10 @@ async function initializeColorStates(config = null) {
             await enableXingqiong();
         } else if (firstActiveColor === 'QYLDarkClassic') {
             await enableDarkClassic();
+        } else if (firstActiveColor === 'QYLWildness') {
+            await enableWildness();
+        } else if (firstActiveColor === 'QYLWarm') {
+            await enableWarm();
         }
     }
     ThemeMode.addModeChangeListener(async (newMode) => {
@@ -1584,6 +1636,10 @@ async function initializeColorStates(config = null) {
                 await enableXingqiong();
             } else if (newFirstActiveColor === 'QYLDarkClassic') {
                 await enableDarkClassic();
+            } else if (newFirstActiveColor === 'QYLWildness') {
+                await enableWildness();
+            } else if (newFirstActiveColor === 'QYLWarm') {
+                await enableWarm();
             }
         }
     });
@@ -1609,5 +1665,23 @@ async function loadDarkRevertModule() {
         }
     }
     return darkRevertModule;
+}
+async function loadWildnessModule() {
+    if (!wildnessModule) {
+        try {
+            wildnessModule = await import('../color/Wildness.js');
+        } catch (error) {
+        }
+    }
+    return wildnessModule;
+}
+async function loadWarmModule() {
+    if (!warmModule) {
+        try {
+            warmModule = await import('../color/Warm.js');
+        } catch (error) {
+        }
+    }
+    return warmModule;
 }
 export { getColorOptions, createColorContent, initializeColorStates };
