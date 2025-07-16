@@ -23,14 +23,14 @@ function renderSideMemo(wysiwyg) {
         blockMemoMap.get(block).push(memoContent);
         memoEl.addEventListener('mouseenter', function () {
             block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.textContent === memoContent) {
+                if (div.getAttribute('data-memo-content') === memoContent) {
                     div.classList.add('QYLmemoActive');
                 }
             });
         });
         memoEl.addEventListener('mouseleave', function () {
             block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.textContent === memoContent) {
+                if (div.getAttribute('data-memo-content') === memoContent) {
                     div.classList.remove('QYLmemoActive');
                 }
             });
@@ -46,6 +46,7 @@ function renderSideMemo(wysiwyg) {
             div.className = 'QYL-inline-memo protyle-custom';
             div.innerHTML = memoContent;
             div.setAttribute('contenteditable', 'false');
+            div.setAttribute('data-memo-content', memoContent);
             div.addEventListener('mouseenter', function () {
                 block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
                     if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
