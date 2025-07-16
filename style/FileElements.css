@@ -245,6 +245,10 @@
         }
     }
 }
+.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]).code-block .protyle-action__language {
+    margin-left: 1.5em;
+    margin-top: -9px;
+}
 /* 文档标签 */
 .protyle-background .b3-chips__doctag .b3-chip {
     border-radius: 12px;
@@ -277,7 +281,7 @@
 .b3-typography iframe, .protyle-wysiwyg iframe {
     border-radius: var(--b3-border-radius);
     border: none;
-    box-shadow: var(--b3-point-shadow);
+    box-shadow: var(--b3-shadow-outside);
 }
 .protyle-wysiwyg [data-node-id].iframe {
     &:hover .protyle-action__drag {
@@ -315,7 +319,7 @@
 .b3-typography video, .protyle-wysiwyg video {
     border-radius: var(--b3-border-radius);
     border: none;
-    box-shadow: var(--b3-point-shadow);
+    box-shadow: var(--b3-shadow-outside);
 }
 /* 图片块 */
 .protyle-wysiwyg [data-node-id] .img .protyle-action__drag {
