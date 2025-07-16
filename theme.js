@@ -14,6 +14,7 @@ import('./index.js');
         html.style.removeProperty('--QYL-custom-primary-brightness');
         html.classList.remove('QYLCustomColor');
         html.classList.remove('QYLDarkRevert');
+        document.getElementById('QYLButton')?.classList.remove('QYLbuttonActive');
       };
     } else {
       delete window.destroyTheme;

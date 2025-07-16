@@ -1,5 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.0</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>，开启后行内备注将显示在块的侧边或底部（切换方法：右键点击显示行内备注按钮）<br>• 优化多彩页签<br>• 优化隐藏顶栏的关闭方式，现在可稳定通过<span data-type="kbd">Ctrl+连按三次Q</span>恢复顶栏<br>• 新增大量动效（需开启主题动画）<br>• 优化列表子弹线的性能，并重做其动效<br>• 优化多级无序列表序号，不再受字体影响</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.12</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加暗黑模式预设配色<span data-type="code" style="padding: 0 0.4em">旷野</span><br>• 增加明亮模式预设配色<span data-type="code" style="padding: 0 0.4em">暖流</span><br>• 修复多彩标签对文档标签不生效的问题</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.11</p>
@@ -17,8 +19,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br></p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">连按三次Q</span>来恢复顶栏<br>平板端隐藏顶栏不会生效（防止无法呼出顶栏）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">Ctrl+连按三次Q</span>来恢复顶栏<br>平板端隐藏顶栏不会生效（防止无法呼出顶栏）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">垂直页签</summary>
