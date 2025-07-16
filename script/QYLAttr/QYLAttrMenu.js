@@ -14,10 +14,10 @@ export class QYLAttrMenu {
         const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
         const attritem = menu.querySelector('#QYLattr');
         if (!hasExport && hasUpdate && !attritem) {
-            const qylBtn = this.createQYLattrItem(selectid, selecttype, selectsbLayout);
-            menu.insertBefore(qylBtn, hasUpdate);
-            if (qylBtn.nextSibling) {
-                menu.insertBefore(this.createMenuSeparator(), qylBtn.nextSibling);
+            const QYLBtn = this.createQYLattrItem(selectid, selecttype, selectsbLayout);
+            menu.insertBefore(QYLBtn, hasUpdate);
+            if (QYLBtn.nextSibling) {
+                menu.insertBefore(this.createMenuSeparator(), QYLBtn.nextSibling);
             } else {
                 menu.appendChild(this.createMenuSeparator());
             }
@@ -31,9 +31,9 @@ export class QYLAttrMenu {
         const hasFileHistory = menu.querySelector('[data-id="fileHistory"]');
         const attritem = menu.querySelector('#QYLattr');
         if (hasExport && !hasUpdate && !attritem && hasFileHistory) {
-            const qylBtn = this.createQYLattrItem(selectid, selecttype);
-            menu.appendChild(qylBtn);
-            menu.insertBefore(this.createMenuSeparator(), qylBtn);
+            const QYLBtn = this.createQYLattrItem(selectid, selecttype);
+            menu.appendChild(QYLBtn);
+            menu.insertBefore(this.createMenuSeparator(), QYLBtn);
         }
     }
     getCommonMenu() {
