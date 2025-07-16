@@ -1,6 +1,7 @@
 class ListBullet {
     constructor() {
         this.allListItemNode = [];
+        this.prevListItemNode = [];
         this.eventHandlers = {};
         this.init();
     }
@@ -20,8 +21,6 @@ class ListBullet {
         let currentNode = startNode;
         let foundCustomListView = false;
         this.allListItemNode.forEach((node) => {
-            node.classList.remove('en_item_bullet_actived');
-            node.classList.remove('en_item_bullet_line');
         });
         this.allListItemNode = [];
         while (currentNode) {
@@ -42,6 +41,15 @@ class ListBullet {
         if (foundCustomListView) {
             this.allListItemNode = [];
         }
+        const prevSet = new Set(this.prevListItemNode);
+        const currSet = new Set(this.allListItemNode);
+        this.prevListItemNode.forEach(node => {
+            if (!currSet.has(node)) {
+                node.classList.remove('en_item_bullet_actived');
+                node.classList.remove('en_item_bullet_line');
+                node.style.removeProperty('--en-bullet-line-height');
+            }
+        });
         for (let i = 0; i < this.allListItemNode.length - 1; i++) {
             const currentNode = this.allListItemNode[i];
             const currentRect = currentNode.getBoundingClientRect();
@@ -54,6 +62,7 @@ class ListBullet {
         this.allListItemNode.forEach((node) => {
             node.classList.add('en_item_bullet_actived');
         });
+        this.prevListItemNode = [...this.allListItemNode];
     }
     destroy() {
         if (this.eventHandlers.selectionChange) {
@@ -66,6 +75,7 @@ class ListBullet {
                 node.style.removeProperty('--en-bullet-line-height');
             }
         });
+        this.prevListItemNode = [];
         const activeElements = document.querySelectorAll('.en_item_bullet_actived');
         activeElements.forEach(element => {
             element.classList.remove('en_item_bullet_actived');
