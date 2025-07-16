@@ -185,4 +185,5 @@ export default {
     "ColorfulTabs": "Colorful Tabs",
     "QYLWildness": "Wildness",
     "QYLWarm": "Warm Current",
+    "SideMemo": "Show Inline Memo",
 }; 

@@ -169,4 +169,5 @@ export default {
     "ColorSwitchTime": "主題色隨時間變化",
     QYLWildness: '曠野',
     "QYLWarm": "暖流",
+    "SideMemo": "顯示行內備註",
 }; 
