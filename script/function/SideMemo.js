@@ -44,7 +44,7 @@ function renderSideMemo(wysiwyg) {
         memoList.forEach(memoContent => {
             const div = document.createElement('div');
             div.className = 'QYL-inline-memo protyle-custom';
-            div.textContent = memoContent;
+            div.innerHTML = memoContent;
             div.setAttribute('contenteditable', 'false');
             div.addEventListener('mouseenter', function () {
                 block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
