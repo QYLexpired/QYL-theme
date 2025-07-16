@@ -96,8 +96,7 @@ export function initFusionOn() {
                 app-region: no-drag;
             }
             .layout__empty {
-                height: calc( 100% - 36px );
-                transform: translateY(36px);
+                box-shadow: 0 33.75px 0 0 var(--b3-theme-surface) inset;
             }
             #dockLeft {
                 padding-top: 38px;

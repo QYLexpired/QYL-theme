@@ -179,6 +179,9 @@ export function initVerticalTab() {
                 }
             }
         }
+        .QYLWndTopLeft > .fn__flex.fn__none:first-child + .layout__resize.layout__resize--lr {
+            display: none;
+        }
     `;
     document.head.appendChild(styleElement);
     initWndTopLeft();

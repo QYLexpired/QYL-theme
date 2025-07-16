@@ -31,6 +31,7 @@ export function initHideTopBar() {
     `;
     document.head.appendChild(style);
     document.addEventListener('keydown', handleKeyPress);
+    isTopBarHidden = true;
 }
 function handleKeyPress(event) {
     if (event.key.toLowerCase() === 'q') {
