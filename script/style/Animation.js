@@ -1,7 +1,4 @@
-
-
 export function initAnimation() {
-
     const style = document.createElement('style');
     style.id = 'QYL-Animation';
     style.textContent = `
@@ -26,7 +23,6 @@ export function initAnimation() {
                 transform: translateX(0);
             }
         }
-        
         /* DOCK */
         :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
             animation: QYLDockLogo 0.6s cubic-bezier(0.8, 0, 0.9, 1);
@@ -57,7 +53,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 集市 */
         .config-bazaar__panel .b3-card {
             animation: QYLBazaarCard 0.6s cubic-bezier(0.8, 0, 0.9, 1);
@@ -94,7 +89,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 搜索面板 */
         :is(#searchList, #searchAssetList, #searchUnRefList) .b3-list-item {
             animation: QYLSearchList 0.6s cubic-bezier(0.8, 0, 0.9, 1);
@@ -118,7 +112,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 退出聚焦 */
         .protyle-breadcrumb button[data-type="exit-focus"] {
             animation: QYLExitFocus 0.5s ease-out;
@@ -133,7 +126,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-        
         /* 文档标题 */
         .protyle-title__input {
             animation: QYLFileTitle 0.3s cubic-bezier(0.8, 0, 0.9, 1);
@@ -148,7 +140,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-
         /* 资源图片预览 */
         #preview > * {
             animation: QYLPreview 0.2s cubic-bezier(0.8, 0, 0.9, 1);
@@ -166,7 +157,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-        
         /* 菜单 */
         .b3-menu .b3-menu__item {
             animation: QYLMenu 0.3s;
@@ -184,7 +174,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-        
         /* list-item */
         .b3-list-item {
             animation: QYLListItem 0.3s;
@@ -199,7 +188,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-        
         /* 页签悬浮闪光 */
         .layout-tab-bar .item:not(.layout-tab-bar .item--readonly) {
             --translate-offset: 220%;
@@ -227,7 +215,6 @@ export function initAnimation() {
         #barWorkspace::before {
             display: block !important;
         }
-        
         /* 超链接动效 */
         .protyle-wysiwyg [data-node-id] span[data-type~=a] {
             background-image: linear-gradient(to right, var(--b3-protyle-inline-link-color) 50%, transparent 50%);
@@ -284,7 +271,7 @@ export function initAnimation() {
         .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
             background-image: linear-gradient(to right, var(--b3-theme-primary) 50%, var(--QYL-tab-item-focus) 50%);
             background-size: 200% 100%;
-            background-position: 110% 0;
+            background-position: 100% 0;
             background-repeat: no-repeat;
             transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
@@ -293,35 +280,25 @@ export function initAnimation() {
                 background-position: 0 0;
             }
         }
-        
         /* 列表子弹线 */
         .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
             animation: QYLListBullet 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            transform-origin: left top;
         }
         @keyframes QYLListBullet {
             0% {
-              transform: scale(0);
-              opacity: 0;
+                max-width: 2px;
+                transform: scaleY(0);
             }
-            50% {
-              transform: scale(1.05);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.95);
-            }
-            85% {
-              transform: scale(1.02);
+            60% {
+                max-width: 2px;
+                transform: scaleY(1);
             }
             100% {
-              transform: scale(1);
+                max-width: 100%;
             }
         }
-        
         /* 任务列表 */
-        .protyle-wysiwyg [data-node-id].li > .protyle-action {
-            animation: QYLtaskenter2 0.6s cubic-bezier(0.8, 0, 0.9, 1);
-        }
         .protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
             background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary-lighter) 40%,var(--b3-theme-primary-lighter) 60%,transparent 75%);
             background-size: 200% 100%;
@@ -349,23 +326,23 @@ export function initAnimation() {
             0% {
                 transform: scale(0);
                 opacity: 0;
-              }
-              50% {
-                transform: scale(1.4);
+            }
+            50% {
+                transform: scale(1.35);
                 opacity: 1;
-              }
-              55% {
+            }
+            58% {
+                transform: scale(0.85);
+            }
+            66% {
+                transform: scale(1.12);
+            }
+            74% {
+                transform: scale(0.97);
+            }
+            100% {
                 transform: scale(1);
-              }
-              60% {
-                transform: scale(0.9);
-              }
-              75% {
-                transform: scale(1.1);
-              }
-              100% {
-                transform: scale(1);
-              }
+            }
         }
         @keyframes QYLtaskenter2 {
             0% {
@@ -386,7 +363,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 分割线 */
         .protyle-wysiwyg [data-node-id].hr {
             animation: QYLHr 0.3s cubic-bezier(0.9, 0, 0.5, 1);
@@ -399,7 +375,6 @@ export function initAnimation() {
               transform: translateX(0%);
             }
         }
-        
         /* 块标 */
         .protyle-gutters button {
             animation: QYLGutters 0.3s cubic-bezier(0.8, 0, 0.9, 1);
@@ -429,7 +404,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 编辑器工具栏 */
         .protyle-toolbar {
             animation: QYLToolBar 0.3s cubic-bezier(0.8, 0, 0.9, 1);
@@ -447,7 +421,6 @@ export function initAnimation() {
               opacity: 1;
             }
         }
-        
         /* 提示 */
         .tooltip {
             animation: QYLTooltip 0.6s cubic-bezier(0.8, 0, 0.9, 1);
@@ -471,7 +444,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 面包屑 */
         .protyle-breadcrumb__bar {
             & .protyle-breadcrumb__item {
@@ -500,7 +472,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        
         /* 表情 */
         [data-key="dialog-emojis"] .b3-dialog__container {
             animation: QYLEmoji 0.8s cubic-bezier(0.8, 0, 0.9, 1);
@@ -571,13 +542,116 @@ export function initAnimation() {
                 transform: scale(1);
               } 
         }
+        .protyle-wysiwyg div[fold="1"][data-type="NodeHeading"]:is(.h1, .h2, .h3, .h4, .h5, .h6) {
+            animation: QYLHeadingFold 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99);
+            transform-origin: left;
+        }
+        @keyframes QYLHeadingFold {
+            0% {
+              transform: scaleX(2.5);
+            }
+            100% {
+              transform: scaleX(1);
+            }
+        }
+        .protyle-wysiwyg [data-node-id].li[fold="1"] {
+            animation: QYLListFold1 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99);
+            transform-origin: left;
+        }
+        .protyle-wysiwyg [data-node-id].li:not([fold="1"]) {
+            animation: QYLListFold2 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99);
+            transform-origin: left;
+        }
+        @keyframes QYLListFold1 {
+            0% {
+              transform: scaleX(2.5);
+            }
+            100% {
+              transform: scaleX(1);
+            }
+        }
+        @keyframes QYLListFold2 {
+          0% {
+            transform: scaleX(0.5);
+          }
+          100% {
+            transform: scaleX(1);
+          }
+        }
+        .protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {
+            animation: QYLAnyFold 0.3s cubic-bezier(0.33, 1.42, 0.69, 0.99);
+            transform-origin: top;
+        }
+        @keyframes QYLAnyFold {
+            0% {
+              transform: scaleY(2.5);
+            }
+            100% {
+              transform: scaleY(1);
+            }
+        }
+        .protyle-breadcrumb .block__icon[aria-label="取消临时解锁"] svg {
+            animation: QYLLock 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: 50% 70%;
+        }
+        @keyframes QYLLock {
+            0% {
+                transform: rotate(0deg);
+            }
+            40% {
+                transform: rotate(-18deg);
+            }
+            65% {
+                transform: rotate(6deg);
+            }
+            80% {
+                transform: rotate(-3deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        .protyle-breadcrumb .block__icon[aria-label="临时解锁"] svg {
+            animation: QYLLockReverse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: 50% 70%;
+        }
+        @keyframes QYLLockReverse {
+            0% {
+                transform: rotate(0deg);
+            }
+            40% {
+                transform: rotate(-18deg);
+            }
+            65% {
+                transform: rotate(6deg);
+            }
+            80% {
+                transform: rotate(-3deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        #QYLButton svg {
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        #QYLButton.QYLbuttonActive svg {
+            transform: rotateY(180deg);
+            color: var(--b3-theme-primary);
+        }
+        #QYLattr > .b3-menu__icon:first-child {
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        #QYLattr.b3-menu__item--show > .b3-menu__icon:first-child {
+            transform: rotateY(180deg);
+            color: var(--b3-theme-primary);
+        }
     `;
-
     document.head.appendChild(style);
 }
-
 export function removeAnimation() {
-
     const style = document.getElementById('QYL-Animation');
     if (style) {
         style.remove();
