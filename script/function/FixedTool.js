@@ -100,7 +100,7 @@ export function initFixedTool() {
         :is(#layouts .layout__center, #layouts.layout__center) .layout-tab-container > .protyle:has(.protyle-content .protyle-title__input[contenteditable="true"]) > .protyle-toolbar {
           display: flex !important;
           position: absolute !important;
-          top: var(--QYL-fixedtoolbar-fix, 30px) !important;
+          top: var(--QYL-fixedtoolbar-fix, 36px) !important;
           left: 50% !important;
           transform: translateX(-50%);
           border-radius: 8px;
