@@ -12,6 +12,7 @@ let superBlockHighlightModule = null;
 let listBulletOnModule = null;
 let fixedToolModule = null;
 let focusEditingOnModule = null;
+let sideMemoModule = null;
 async function loadMarktoBlankModule() {
     if (!marktoBlankModule) {
         try {
@@ -83,6 +84,15 @@ async function loadFocusEditingOnModule() {
         }
     }
     return focusEditingOnModule;
+}
+async function loadSideMemoModule() {
+    if (!sideMemoModule) {
+        try {
+            sideMemoModule = await import('../function/SideMemo.js');
+        } catch (error) {
+        }
+    }
+    return sideMemoModule;
 }
 async function enableMarktoBlank() {
     const module = await loadMarktoBlankModule();
@@ -183,6 +193,21 @@ async function disableFocusEditingOn() {
     }
     focusEditingOnModule = null;
 }
+async function enableSideMemo() {
+    const module = await loadSideMemoModule();
+    if (module && module.initSideMemo) {
+        module.initSideMemo();
+    }
+}
+async function disableSideMemo() {
+    const module = await loadSideMemoModule();
+    if (module && module.removeSideMemo) {
+        module.removeSideMemo();
+    }
+    sideMemoModule = null;
+    const body = document.body;
+    body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
+}
 function getFunctionOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -217,6 +242,10 @@ function getFunctionOptions() {
         {
             id: 'FocusEditing',
             label: i18n.FocusEditing || '专注编辑'
+        },
+        {
+            id: 'SideMemo',
+            label: i18n.SideMemo || '显示行内备注'
         }
     ];
     const darkModeOptions = [
@@ -251,6 +280,10 @@ function getFunctionOptions() {
         {
             id: 'FocusEditing',
             label: i18n.FocusEditing || '专注编辑'
+        },
+        {
+            id: 'SideMemo',
+            label: i18n.SideMemo || '显示行内备注'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -291,6 +324,12 @@ async function createFunctionContent(config = null) {
                     await enableMarktoBlank();
                 } else {
                     await disableMarktoBlank();
+                }
+            } else if (option.id === 'SideMemo') {
+                if (newState) {
+                    await enableSideMemo();
+                } else {
+                    await disableSideMemo();
                 }
             } else if (option.id === 'EditorFullWidth') {
                 if (newState) {
@@ -337,6 +376,26 @@ async function createFunctionContent(config = null) {
             }
             await flushBatchUpdate();
         });
+        if (option.id === 'SideMemo') {
+            button.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                const body = document.body;
+                const classList = body.classList;
+                const classes = ['QYLmemoB', 'QYLmemoR', 'QYLmemoL'];
+                let found = false;
+                for (let i = 0; i < classes.length; i++) {
+                    if (classList.contains(classes[i])) {
+                        classList.remove(classes[i]);
+                        classList.add(classes[(i + 1) % classes.length]);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    classList.add('QYLmemoR');
+                }
+            });
+        }
         container.appendChild(optionElement);
     }
     return container;
@@ -351,6 +410,10 @@ async function initializeFunctionStates(config = null) {
         if (option.id === 'MarktoBlank') {
             if (currentState) {
                 await enableMarktoBlank();
+            }
+        } else if (option.id === 'SideMemo') {
+            if (currentState) {
+                await enableSideMemo();
             }
         } else if (option.id === 'EditorFullWidth') {
             if (currentState) {

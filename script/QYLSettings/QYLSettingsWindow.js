@@ -11,6 +11,7 @@ export async function createQYLSettingsWindow() {
     settingsWindow.style.zIndex = '9999';
     const button = document.getElementById('QYLButton');
     if (button) {
+        button.classList.add('QYLbuttonActive');
         const buttonRect = button.getBoundingClientRect();
         settingsWindow.style.left = `${buttonRect.right}px`;
         settingsWindow.style.top = `${buttonRect.bottom + 5}px`;
@@ -50,6 +51,10 @@ export async function createQYLSettingsWindow() {
 }
 export function removeQYLSettingsWindow() {
     const settingsWindow = document.getElementById('QYLSettingsWindow');
+    const button = document.getElementById('QYLButton');
+    if (button) {
+        button.classList.remove('QYLbuttonActive');
+    }
     if (settingsWindow) {
         if (settingsWindow._clickOutsideHandler) {
             document.removeEventListener('click', settingsWindow._clickOutsideHandler);
