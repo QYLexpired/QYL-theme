@@ -1,11 +1,9 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>，开启后行内备注将显示在块的侧边或底部（切换方法：右键点击显示行内备注按钮）（支持解析HTML）<br>• 优化多彩页签<br>• 优化隐藏顶栏的关闭方式，现在可稳定通过<span data-type="kbd">Ctrl+连按三次Q</span>恢复顶栏<br>• 新增大量动效（需开启主题动画）<br>• 优化列表子弹线的性能，并重做其动效<br>• 优化多级无序列表序号，不再受字体影响</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.12</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加暗黑模式预设配色<span data-type="code" style="padding: 0 0.4em">旷野</span><br>• 增加明亮模式预设配色<span data-type="code" style="padding: 0 0.4em">暖流</span><br>• 修复多彩标签对文档标签不生效的问题</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.0.11</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• QYL自定义属性-块样式增加<span data-type="code" style="padding: 0 0.4em">闪卡</span>，启用后块被遮挡，鼠标悬停时恢复<br>• 修复状态栏位置可能不随侧栏变化的问题<br>• 优化状态栏避让动效<br>• 修复开启固定工具栏后，部分非编辑器场景也出现工具栏的问题<br>• 修复同时开启垂直页签和墨水屏模式时的样式异常<br>• 修复导出为PDF时部分样式错误<br>• 修复开启标记挖空时闪卡复习界面样式错误<br>• 优化PDF阅读器背景色<br></p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.5</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>：1.显示效果随备注个数和编辑器宽度自适应；2.当备注与正文距离较远时，左键点击正文/备注，可自动跳转；3.方向切换后可持久化</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.4</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>，开启后行内备注将显示在块的侧边或底部（切换方法：右键点击显示行内备注按钮）（支持解析HTML）<br>• 优化多彩页签<br>• 优化隐藏顶栏的关闭方式，现在可稳定通过<span data-type="kbd">Ctrl+连按三次Q</span>恢复顶栏<br>• 新增大量动效（需开启主题动画）<br>• 优化列表子弹线的性能，并重做其动效<br>• 优化多级无序列表序号，不再受字体影响<br>• 修复明亮和暗黑模式切换时主题色随时间变化功能可能不会停止的问题</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -20,7 +18,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>

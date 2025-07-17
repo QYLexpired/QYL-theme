@@ -15,6 +15,11 @@ import('./index.js');
         html.classList.remove('QYLCustomColor');
         html.classList.remove('QYLDarkRevert');
         document.getElementById('QYLButton')?.classList.remove('QYLbuttonActive');
+        import('./script/color/ColorSwitchTime.js').then(module => {
+          if (typeof module.stopColorSwitch === 'function') {
+            module.stopColorSwitch();
+          }
+        });
       };
     } else {
       delete window.destroyTheme;
