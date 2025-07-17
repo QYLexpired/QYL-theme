@@ -1,109 +1,117 @@
-.tooltip.tooltip--memo {
+:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .tooltip.tooltip--memo {
     display: none;
 }
-.QYLmemoBlock .QYL-inline-memo-box {
-    border-top: 3px solid var(--b3-theme-surface-lighter);
-    border-left: none;
-    border-right: none;
-    margin: 10px 0 0 0;
-    padding: 10px 0 0 0;
-    width: fit-content;
-    max-width: 100%;
-}
-.QYLmemoBlock > .QYL-inline-memo-box > .QYL-inline-memo {
-    cursor: pointer;
-    user-select: none;
-    white-space: break-spaces;
-    font-size: clamp(14px, 0.9em, 14px);
-    color: var(--b3-theme-on-surface);
-    transition: 0.3s;
-    padding: 6px;
-    border-radius: 6px;
-    width: fit-content;
-    max-width: 100%;
-    &.QYLmemoActive {
-        background-color: var(--b3-theme-primary);
-        color: var(--b3-theme-on-primary);
-        &:before {
-            background-color: var(--b3-theme-on-primary);
-            color: var(--b3-theme-primary);
-        }
+:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .b3-typography span[data-type~=inline-memo],
+:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .protyle-wysiwyg span[data-type~=inline-memo] {
+    transition: 0.2s;
+    &.QYLinlinememoActive {
+        background-color: var(--b3-theme-primary) !important;
+        color: var(--b3-theme-on-primary) !important;
     }
     &:hover {
-        background-color: var(--b3-theme-primary);
-        color: var(--b3-theme-on-primary);
-        &:before {
-            background-color: var(--b3-theme-on-primary);
-            color: var(--b3-theme-primary);
+        background-color: var(--b3-theme-primary) !important;
+        color: var(--b3-theme-on-primary) !important;
+    }
+}
+:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .QYLmemoBlock .QYL-inline-memo-box {
+    display: grid;
+    padding: 10px;
+    &.QYLmemoFullwidth {
+        grid-template-columns: 1fr;
+    }
+    &.QYLmemoGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+    & .QYL-inline-memo {
+        cursor: pointer;
+        user-select: none;
+        white-space: break-spaces;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        font-size: 13px;
+        color: var(--b3-theme-on-surface);
+        transition: 0.2s;
+        padding: 3px;
+        border-radius: 6px;
+        &.QYLmemoActive {
+            background-color: var(--QYL-tab-item-focus);
         }
-    }
-    &:before {
-        content: '1';
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        line-height: 1em;
-        text-align: center;
-        margin-right: 0.3em;
-        color: var(--b3-theme-on-primary);
-        background-color: var(--b3-theme-primary);
-        border-radius: 50%;
-    }
-    & + .QYL-inline-memo {
-        &:before {
-            content: '2';
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+        }
+        & > div:first-child {
+            color: var(--b3-theme-on-background);
+            font-weight: bold;
+            &:before {
+                content: '1';
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                line-height: 1em;
+                text-align: center;
+                margin-right: 0.3em;
+                color: var(--b3-theme-on-primary);
+                background-color: var(--b3-theme-primary);
+                border-radius: 50%;
+                vertical-align: 1px;
+            };
         }
         & + .QYL-inline-memo {
-            &:before {
-                content: '3';
+            & > div:first-child:before {
+                content: '2';
             }
             & + .QYL-inline-memo {
-                &:before {
-                    content: '4';
+                & > div:first-child:before {
+                    content: '3';
                 }
                 & + .QYL-inline-memo {
-                    &:before {
-                        content: '5';
+                    & > div:first-child:before {
+                        content: '4';
                     }
                     & + .QYL-inline-memo {
-                        &:before {
-                            content: '6';
+                        & > div:first-child:before {
+                            content: '5';
                         }
                         & + .QYL-inline-memo {
-                            &:before {
-                                content: '7';
+                            & > div:first-child:before {
+                                content: '6';
                             }
                             & + .QYL-inline-memo {
-                                &:before {
-                                    content: '8';
+                                & > div:first-child:before {
+                                    content: '7';
                                 }
                                 & + .QYL-inline-memo {
-                                    &:before {
-                                        content: '9';
+                                    & > div:first-child:before {
+                                        content: '8';
                                     }
                                     & + .QYL-inline-memo {
-                                        &:before {
-                                            content: '10';
+                                        & > div:first-child:before {
+                                            content: '9';
                                         }
                                         & + .QYL-inline-memo {
-                                            &:before {
-                                                content: '11';
+                                            & > div:first-child:before {
+                                                content: '10';
                                             }
                                             & + .QYL-inline-memo {
-                                                &:before {
-                                                    content: '12';
+                                                & > div:first-child:before {
+                                                    content: '11';
                                                 }
                                                 & + .QYL-inline-memo {
-                                                    &:before {
-                                                        content: '13';
+                                                    & > div:first-child:before {
+                                                        content: '12';
                                                     }
                                                     & + .QYL-inline-memo {
-                                                        &:before {
-                                                            content: '14';
+                                                        & > div:first-child:before {
+                                                            content: '13';
                                                         }
                                                         & + .QYL-inline-memo {
-                                                            &:before {
-                                                                content: '15';
+                                                            & > div:first-child:before {
+                                                                content: '14';
+                                                            }
+                                                            & + .QYL-inline-memo {
+                                                                & > div:first-child:before {
+                                                                    content: '15';
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -120,147 +128,79 @@
         }
     }
 }
-.b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
-    background-image: none !important;
-    background-position: 100% 0 !important;
-    border-bottom: 0.5px solid var(--b3-theme-primary) !important; 
-    background-color: transparent !important;
-    border-bottom: 1.5px solid var(--b3-theme-primary) !important;
-    transition: 0.3s !important;
-    padding: 0 4px;
-    &.QYLinlinememoActive {
-        border-radius: 6px;
-        background-color: var(--b3-theme-primary) !important;
-        color: var(--b3-theme-on-primary) !important;
-        &:before {
-            background-color: var(--b3-theme-on-primary);
-            color: var(--b3-theme-primary);
-        }
-    }
-    &:hover {
-        border-radius: 6px;
-        background-color: var(--b3-theme-primary) !important;
-        color: var(--b3-theme-on-primary) !important;
-        &:before {
-            background-color: var(--b3-theme-on-primary);
-            color: var(--b3-theme-primary);
-        }
-    }
-    &:before {
-        content: '1';
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        line-height: 1em;
-        text-align: center;
-        margin-right: 0.3em;
-        color: var(--b3-theme-on-primary);
-        background-color: var(--b3-theme-primary);
-        border-radius: 50%;
-    }
-    & ~ span[data-type~=inline-memo] {
-        &:before {
-            content: '2';
-        }
-        & ~ span[data-type~=inline-memo] {
-            &:before {
-                content: '3';
-            }
-            & ~ span[data-type~=inline-memo] {
-                &:before {
-                    content: '4';
-                }
-                & ~ span[data-type~=inline-memo] {
-                    &:before {
-                        content: '5';
-                    }
-                    & ~ span[data-type~=inline-memo] {
-                        &:before {
-                            content: '6';
-                        }
-                        & ~ span[data-type~=inline-memo] {
-                            &:before {
-                                content: '7';
-                            }
-                            & ~ span[data-type~=inline-memo] {
-                                &:before {
-                                    content: '8';
-                                }
-                                & ~ span[data-type~=inline-memo] {
-                                    &:before {
-                                        content: '9';
-                                    }
-                                    & ~ span[data-type~=inline-memo] {
-                                        &:before {
-                                            content: '10';
-                                        }
-                                        & ~ span[data-type~=inline-memo] {
-                                            &:before {
-                                                content: '11';
-                                            }
-                                            & ~ span[data-type~=inline-memo] {
-                                                &:before {
-                                                    content: '12';
-                                                }
-                                                & ~ span[data-type~=inline-memo] {
-                                                    &:before {
-                                                        content: '13';
-                                                    }
-                                                    & ~ span[data-type~=inline-memo] {
-                                                        &:before {
-                                                            content: '14';
-                                                        }
-                                                        & ~ span[data-type~=inline-memo] {
-                                                            &:before {
-                                                                content: '15';
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-.QYLmemoR .QYLmemoBlock {
+/* 右侧 */
+.QYLmemoR .QYLmemoBlock:not(:is(.list, .sb[data-sb-layout="row"])) {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    padding-right: 0 !important;
+    & > :first-child {
+        margin-right: auto;
+    }
+    & .QYL-inline-memo-box {
+        margin-left: 10px;
+        flex: 0 0 300px;
+        border-left: 3px solid var(--b3-theme-surface-lighter);
+        max-width: 300px;
+        min-width: 300px;
+        &.QYLmemoGrid {
+            flex: 0 0 600px;
+            max-width: 35%;
+        }
+    }
 }
-.QYLmemoR .QYLmemoBlock > [contenteditable]:first-child {
-    margin-right: auto;
+.QYLmemoR .protyle-wysiwyg {
+    padding-right: 20px !important;
 }
-.QYLmemoR .QYLmemoBlock .QYL-inline-memo-box {
-    border-top: none;
-    border-left: 3px solid var(--b3-theme-surface-lighter);
-    padding: 0 0 0 10px;
-    margin: 10px 0 0 10px;
-    flex: 0 0 300px;
-    max-width: min(300px, 35%);
-    min-width: min(300px, 35%);
-}
-.QYLmemoL .QYLmemoBlock {
+/* 左侧 */
+.QYLmemoL .QYLmemoBlock:not(:is(.list, .sb[data-sb-layout="row"])) {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    padding-left: 0 !important;
+    & > :first-child {
+        margin-right: auto;
+        order: 1;
+    }
+    & .QYL-inline-memo-box {
+        margin-right: 10px;
+        flex: 0 0 300px;
+        border-right: 3px solid var(--b3-theme-surface-lighter);
+        max-width: 300px;
+        min-width: 300px;
+        &.QYLmemoGrid {
+            flex: 0 0 600px;
+            max-width: 35%;
+        }
+    }
 }
-.QYLmemoL .QYLmemoBlock > [contenteditable]:first-child {
-    order: 1;
+.QYLmemoL .protyle-wysiwyg {
+    padding-left: 20px !important;
 }
-.QYLmemoL .QYLmemoBlock .QYL-inline-memo-box {
-    border-top: none;
-    border-right: 3px solid var(--b3-theme-surface-lighter);
-    padding: 0 10px 0 0;
-    margin: 0 10px 0 0;
-    flex: 0 0 300px;
-    max-width: min(300px, 35%);
-    min-width: min(300px, 35%);
-    order: 0;
+/* 底部 */
+.QYLmemoB .QYLmemoBlock {
+    & .QYL-inline-memo-box {
+        flex-basis: 100% !important;
+        width: 100% !important;
+        margin-top: 10px;
+        border-top: 3px solid var(--b3-theme-surface-lighter);
+        &.QYLmemoFullwidth {
+            grid-template-columns: 1fr;
+        }
+        &.QYLmemoGrid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
+}
+:is(.QYLmemoL, .QYLmemoR) .QYLmemoBlock:is(.list, .sb[data-sb-layout="row"]) {
+    & .QYL-inline-memo-box {
+        flex-basis: 100% !important;
+        width: 100% !important;
+        margin-top: 10px;
+        border-top: 3px solid var(--b3-theme-surface-lighter);
+        &.QYLmemoFullwidth {
+            grid-template-columns: 1fr;
+        }
+        &.QYLmemoGrid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
 }
