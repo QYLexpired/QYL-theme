@@ -1,6 +1,6 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate, batchUpdateConfig } from '../basic/Storage.js';
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
@@ -198,6 +198,11 @@ async function enableSideMemo() {
     if (module && module.initSideMemo) {
         module.initSideMemo();
     }
+    const config = await getStorageConfig();
+    const dir = config.QYLmemoDirection || 'B';
+    const body = document.body;
+    body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
+    body.classList.add('QYLmemo' + dir);
 }
 async function disableSideMemo() {
     const module = await loadSideMemoModule();
@@ -377,23 +382,28 @@ async function createFunctionContent(config = null) {
             await flushBatchUpdate();
         });
         if (option.id === 'SideMemo') {
-            button.addEventListener('contextmenu', (e) => {
+            button.addEventListener('contextmenu', async (e) => {
                 e.preventDefault();
                 const body = document.body;
                 const classList = body.classList;
                 const classes = ['QYLmemoB', 'QYLmemoR', 'QYLmemoL'];
                 let found = false;
+                let newDir = 'R';
                 for (let i = 0; i < classes.length; i++) {
                     if (classList.contains(classes[i])) {
                         classList.remove(classes[i]);
-                        classList.add(classes[(i + 1) % classes.length]);
+                        const next = (i + 1) % classes.length;
+                        classList.add(classes[next]);
+                        newDir = classes[next].replace('QYLmemo', '');
                         found = true;
                         break;
                     }
                 }
                 if (!found) {
                     classList.add('QYLmemoR');
+                    newDir = 'R';
                 }
+                await batchUpdateConfig({ QYLmemoDirection: newDir });
             });
         }
         container.appendChild(optionElement);
