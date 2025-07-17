@@ -2,119 +2,176 @@ let rootObserver = null;
 const wysiwygObserverMap = new WeakMap();
 let enabled = false;
 let observeTimeout = null;
-function renderSideMemo(wysiwyg) {
-    wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
-        block.classList.remove('QYLmemoBlock');
-    });
-    const observer = wysiwygObserverMap.get(wysiwyg);
-    if (observer) observer.disconnect();
-    wysiwyg.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => div.remove());
-    const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
-    const blockMemoMap = new Map();
+import { isMobile } from '../basic/Device.js';
+function getWysiwygDirectBlock(memoEl) {
+    let node = memoEl;
+    let wysiwyg = null;
+    while (node && node !== document) {
+        if (node.classList && node.classList.contains('protyle-wysiwyg')) {
+            wysiwyg = node;
+            break;
+        }
+        node = node.parentElement;
+    }
+    if (!wysiwyg) return null;
+    for (const child of wysiwyg.children) {
+        if (child.hasAttribute && child.hasAttribute('data-node-id') && child.contains(memoEl)) {
+            return child;
+        }
+    }
+    return null;
+}
+function renderBlockMemo(block) {
+    block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
+    block.classList.remove('QYLmemoBlock');
+    const memoElements = block.querySelectorAll('[data-inline-memo-content]');
+    if (memoElements.length === 0) return;
+    block.classList.add('QYLmemoBlock');
+    const memoList = [];
     memoElements.forEach(memoEl => {
-        let block = memoEl.closest('[data-node-id]');
-        if (!block || !wysiwyg.contains(block)) return;
-        block.classList.add('QYLmemoBlock');
         const memoContent = memoEl.getAttribute('data-inline-memo-content');
         if (!memoContent) return;
-        if (!blockMemoMap.has(block)) {
-            blockMemoMap.set(block, []);
-        }
-        blockMemoMap.get(block).push(memoContent);
-        memoEl.addEventListener('mouseenter', function () {
+        const memoText = memoEl.innerText || memoEl.textContent || '';
+        memoList.push({memoContent, memoText, memoEl});
+        memoEl.removeEventListener('mouseenter', memoEl._qyl_memo_mouseenter);
+        memoEl.removeEventListener('mouseleave', memoEl._qyl_memo_mouseleave);
+        memoEl.removeEventListener('click', memoEl._qyl_memo_click);
+        memoEl._qyl_memo_mouseenter = function () {
             block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
                 if (div.getAttribute('data-memo-content') === memoContent) {
                     div.classList.add('QYLmemoActive');
                 }
             });
-        });
-        memoEl.addEventListener('mouseleave', function () {
+        };
+        memoEl._qyl_memo_mouseleave = function () {
             block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
                 if (div.getAttribute('data-memo-content') === memoContent) {
                     div.classList.remove('QYLmemoActive');
                 }
             });
-        });
+        };
+        memoEl._qyl_memo_click = function (e) {
+            const targetDiv = block.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-content="' + memoContent + '"]');
+            if (targetDiv) {
+                const targetRect = targetDiv.getBoundingClientRect();
+                const sourceRect = memoEl.getBoundingClientRect();
+                const threshold = isMobile ? 150 : 500;
+                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
+                    targetDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        };
+        memoEl.addEventListener('mouseenter', memoEl._qyl_memo_mouseenter);
+        memoEl.addEventListener('mouseleave', memoEl._qyl_memo_mouseleave);
+        memoEl.addEventListener('click', memoEl._qyl_memo_click);
     });
-    blockMemoMap.forEach((memoList, block) => {
-        block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
-        const box = document.createElement('div');
-        box.className = 'QYL-inline-memo-box protyle-custom';
-        box.setAttribute('contenteditable', 'false');
-        memoList.forEach(memoContent => {
-            const div = document.createElement('div');
-            div.className = 'QYL-inline-memo protyle-custom';
-            div.innerHTML = memoContent;
-            div.setAttribute('contenteditable', 'false');
-            div.setAttribute('data-memo-content', memoContent);
-            div.addEventListener('mouseenter', function () {
-                block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                    if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                        memoEl.classList.add('QYLinlinememoActive');
-                    }
-                });
-            });
-            div.addEventListener('mouseleave', function () {
-                block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                    if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                        memoEl.classList.remove('QYLinlinememoActive');
-                    }
-                });
-            });
-            div.addEventListener('click', function (e) {
-                if (e.button === 0) { 
-                    e.preventDefault();
-                    e.stopPropagation();
-                    block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                        if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                            const evt = new MouseEvent('contextmenu', {
-                                bubbles: true,
-                                cancelable: true,
-                                view: window,
-                                button: 2, 
-                                buttons: 2,
-                                clientX: e.clientX,
-                                clientY: e.clientY
-                            });
-                            memoEl.dispatchEvent(evt);
-                        }
-                    });
+    if (memoList.length === 0) return;
+    const box = document.createElement('div');
+    box.className = 'QYL-inline-memo-box protyle-custom';
+    if (memoList.length <= 4) {
+        box.classList.add('QYLmemoFullwidth');
+    } else {
+        box.classList.add('QYLmemoGrid');
+    }
+    box.setAttribute('contenteditable', 'false');
+    memoList.forEach(({memoContent, memoText}) => {
+        const div = document.createElement('div');
+        div.className = 'QYL-inline-memo protyle-custom';
+        div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
+        div.setAttribute('contenteditable', 'false');
+        div.setAttribute('data-memo-content', memoContent);
+        div.addEventListener('mouseenter', function () {
+            block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
+                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
+                    memoEl.classList.add('QYLinlinememoActive');
                 }
             });
-            box.appendChild(div);
         });
-        block.appendChild(box);
+        div.addEventListener('mouseleave', function () {
+            block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
+                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
+                    memoEl.classList.remove('QYLinlinememoActive');
+                }
+            });
+        });
+        div.addEventListener('click', function (e) {
+            if (e.button === 0) {
+                e.preventDefault();
+                e.stopPropagation();
+                block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
+                    if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
+                        const evt = new MouseEvent('contextmenu', {
+                            bubbles: true,
+                            cancelable: true,
+                            view: window,
+                            button: 2,
+                            buttons: 2,
+                            clientX: e.clientX,
+                            clientY: e.clientY
+                        });
+                        memoEl.dispatchEvent(evt);
+                    }
+                });
+            }
+            const targetMemoEl = block.querySelector('[data-inline-memo-content="' + memoContent + '"]');
+            if (targetMemoEl) {
+                const targetRect = targetMemoEl.getBoundingClientRect();
+                const sourceRect = div.getBoundingClientRect();
+                const threshold = isMobile ? 150 : 500;
+                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
+                    targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+        box.appendChild(div);
     });
-    if (observer) observer.observe(wysiwyg, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['data-inline-memo-content']
+    block.appendChild(box);
+}
+function renderSideMemo(wysiwyg) {
+    wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
+        renderBlockMemo(block);
     });
+    const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+    const blocks = new Set();
+    memoElements.forEach(memoEl => {
+        const block = getWysiwygDirectBlock(memoEl);
+        if (block) blocks.add(block);
+    });
+    blocks.forEach(block => renderBlockMemo(block));
 }
 function bindWysiwygMemoObserver(wysiwyg) {
     unbindWysiwygMemoObserver(wysiwyg);
     const observer = new MutationObserver(mutations => {
-        let needUpdate = false;
+        const blocksToUpdate = new Set();
         for (const m of mutations) {
-            if (m.target && m.target.classList && m.target.classList.contains('QYL-inline-memo')) continue;
-            if (m.addedNodes) {
-                for (const n of m.addedNodes) {
-                    if (n.nodeType === 1 && n.classList && n.classList.contains('QYL-inline-memo')) {
-                        needUpdate = false;
-                        break;
-                    }
-                }
+            if (m.type === 'attributes' && m.target.hasAttribute && m.target.hasAttribute('data-inline-memo-content')) {
+                const block = getWysiwygDirectBlock(m.target);
+                if (block) blocksToUpdate.add(block);
             }
-            if (
-                m.type === 'childList' ||
-                (m.type === 'attributes' && m.attributeName === 'data-inline-memo-content')
-            ) {
-                needUpdate = true;
+            if (m.type === 'childList') {
+                m.addedNodes.forEach(node => {
+                    if (node.nodeType === 1) {
+                        if (node.hasAttribute && node.hasAttribute('data-inline-memo-content')) {
+                            const block = getWysiwygDirectBlock(node);
+                            if (block) blocksToUpdate.add(block);
+                        } else if (node.querySelectorAll) {
+                            node.querySelectorAll('[data-inline-memo-content]').forEach(memoEl => {
+                                const block = getWysiwygDirectBlock(memoEl);
+                                if (block) blocksToUpdate.add(block);
+                            });
+                        }
+                    }
+                });
+                m.removedNodes.forEach(node => {
+                    if (node.nodeType === 1 && node.hasAttribute && node.hasAttribute('data-inline-memo-content')) {
+                        const block = getWysiwygDirectBlock(node);
+                        if (block) blocksToUpdate.add(block);
+                    }
+                });
             }
         }
-        if (needUpdate) {
-            renderSideMemo(wysiwyg);
+        if (blocksToUpdate.size > 0) {
+            blocksToUpdate.forEach(block => renderBlockMemo(block));
         }
     });
     observer.observe(wysiwyg, {
