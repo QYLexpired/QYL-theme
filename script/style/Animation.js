@@ -279,6 +279,11 @@ export function initAnimation() {
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
             }
+            &.QYLinlinememoActive {
+                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1) !important;
+                color: var(--b3-theme-on-primary);
+                background-position: 0 0;
+            }
         }
         /* 列表子弹线 */
         .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
