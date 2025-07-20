@@ -8,7 +8,7 @@ export async function createQYLSettingsWindow() {
     settingsWindow.id = 'QYLSettingsWindow';
     settingsWindow.className = 'b3-menu';
     settingsWindow.style.position = 'fixed';
-    settingsWindow.style.zIndex = '9999';
+    settingsWindow.style.zIndex = '12';
     const button = document.getElementById('QYLButton');
     if (button) {
         button.classList.add('QYLbuttonActive');

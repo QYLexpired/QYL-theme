@@ -4,6 +4,7 @@ import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdat
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
+import { isMobile } from '../basic/Device.js';
 let marktoBlankModule = null;
 let editorFullWidthModule = null;
 let focusBlockHighlightModule = null;
@@ -199,7 +200,11 @@ async function enableSideMemo() {
         module.initSideMemo();
     }
     const config = await getStorageConfig();
-    const dir = config.QYLmemoDirection || 'B';
+    let dir = config.QYLmemoDirection || 'B';
+    if (isMobile) {
+        dir = 'B';
+        await batchUpdateConfig({ QYLmemoDirection: 'B' });
+    }
     const body = document.body;
     body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
     body.classList.add('QYLmemo' + dir);
@@ -384,6 +389,23 @@ async function createFunctionContent(config = null) {
         if (option.id === 'SideMemo') {
             button.addEventListener('contextmenu', async (e) => {
                 e.preventDefault();
+                if (isMobile) {
+                    try {
+                        await fetch('/api/notification/pushMsg', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                msg: i18n.SideMemoMobileNotSupported || '手机端不支持侧边备注',
+                                timeout: 3000
+                            })
+                        });
+                    } catch (error) {
+                    }
+                    await batchUpdateConfig({ QYLmemoDirection: 'B' });
+                    return;
+                }
                 const body = document.body;
                 const classList = body.classList;
                 const classes = ['QYLmemoB', 'QYLmemoR', 'QYLmemoL'];
@@ -404,6 +426,39 @@ async function createFunctionContent(config = null) {
                     newDir = 'R';
                 }
                 await batchUpdateConfig({ QYLmemoDirection: newDir });
+                let msg = '';
+                switch (newDir) {
+                    case 'R':
+                        msg = i18n.SideMemoRight || '已切换为右侧备注';
+                        break;
+                    case 'L':
+                        msg = i18n.SideMemoLeft || '已切换为左侧备注';
+                        break;
+                    case 'B':
+                        msg = i18n.SideMemoBottom || '已切换为底部备注';
+                        break;
+                }
+                if (msg) {
+                    try {
+                        await fetch('/api/notification/pushMsg', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                msg: msg,
+                                timeout: 3000
+                            })
+                        });
+                    } catch (error) {
+                    }
+                }
+                if (button.classList.contains('active')) {
+                    const module = await loadSideMemoModule();
+                    if (module && module.forceReRenderAllWysiwygs) {
+                        module.forceReRenderAllWysiwygs();
+                    }
+                }
             });
         }
         container.appendChild(optionElement);
