@@ -81,9 +81,9 @@ export function initListBulletOn() {
           top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="t"] > [data-subtype="t"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
-          width: 28px;
-          height: calc(var(--en-bullet-line-height) - 6px);
-          top: calc(var(--en-bullet-line-height) * -1 + 23px + ((var(--b3-font-size-editor) - 16px) * 0.75));
+          width: 25px;
+          height: calc(var(--en-bullet-line-height) - 7px);
+          top: calc(var(--en-bullet-line-height) * -1 + 25px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="u"] > [data-subtype="o"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
           width: 24px;
@@ -107,13 +107,13 @@ export function initListBulletOn() {
         }
         [data-subtype="t"] > [data-subtype="u"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
           width: 32px;
-          height: calc(var(--en-bullet-line-height) - 6px);
-          top: calc(var(--en-bullet-line-height) * -1 + 24px + ((var(--b3-font-size-editor) - 16px) * 0.75));
+          height: calc(var(--en-bullet-line-height) - 7px);
+          top: calc(var(--en-bullet-line-height) * -1 + 25px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="t"] > [data-subtype="o"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
           width: 24px;
           height: calc(var(--en-bullet-line-height) - 7px);
-          top: calc(var(--en-bullet-line-height) * -1 + 24px + ((var(--b3-font-size-editor) - 16px) * 0.75));
+          top: calc(var(--en-bullet-line-height) * -1 + 25px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="u"] > .protyle-action + :is([data-subtype="o"], [data-subtype="u"], [data-subtype="t"]) > .en_item_bullet_line:first-child:not(.protyle-wysiwyg--select)::after {
           top: calc(var(--en-bullet-line-height) * -1 + 16px + ((var(--b3-font-size-editor) - 16px) * 0.75));

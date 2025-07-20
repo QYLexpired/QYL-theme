@@ -22,12 +22,14 @@ export function initEditorFullWidth() {
         }
     `;
     document.head.appendChild(style);
+    document.body.classList.add('QYLEditorFullWidth');
 }
 export function removeEditorFullWidth() {
     const style = document.getElementById('QYL-EditorFullWidth');
     if (style) {
         style.remove();
     }
+    document.body.classList.remove('QYLEditorFullWidth');
 }
 export function isEditorFullWidthEnabled() {
     return document.getElementById('QYL-EditorFullWidth') !== null;
