@@ -1,9 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.5</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>：1.显示效果随备注个数和编辑器宽度自适应；2.当备注与正文距离较远时，左键点击正文/备注，可自动跳转；3.方向切换后可持久化</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.4</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>，开启后行内备注将显示在块的侧边或底部（切换方法：右键点击显示行内备注按钮）（支持解析HTML）<br>• 优化多彩页签<br>• 优化隐藏顶栏的关闭方式，现在可稳定通过<span data-type="kbd">Ctrl+连按三次Q</span>恢复顶栏<br>• 新增大量动效（需开启主题动画）<br>• 优化列表子弹线的性能，并重做其动效<br>• 优化多级无序列表序号，不再受字体影响<br>• 修复明亮和暗黑模式切换时主题色随时间变化功能可能不会停止的问题</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.6</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 重做<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>，大幅优化侧边备注的效果</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
