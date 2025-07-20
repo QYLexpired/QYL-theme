@@ -4,3 +4,12 @@
 :root[data-theme-mode=dark] .pdf__outer#outerContainer.pdf__outer--dark .pdfViewer .textLayer{
     background-color: var(--b3-theme-background);
 }
+.pdf__outer#outerContainer.pdf__outer--dark .pdfViewer .textLayer {
+    --b3-pdf-background1: rgb(146, 77, 77);
+    --b3-pdf-background2: #9e6339;
+    --b3-pdf-background3: #9b7620;
+    --b3-pdf-background4: #548747;
+    --b3-pdf-background5: #4f8f89;
+    --b3-pdf-background6: #5e809f;
+    --b3-pdf-background7: #9864a5;
+}

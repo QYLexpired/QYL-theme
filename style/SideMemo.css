@@ -1,8 +1,8 @@
-:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .tooltip.tooltip--memo {
+:is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .tooltip.tooltip--memo {
     display: none;
 }
-:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .b3-typography span[data-type~=inline-memo],
-:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .protyle-wysiwyg span[data-type~=inline-memo] {
+:is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .b3-typography span[data-type~=inline-memo],
+:is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .protyle-wysiwyg span[data-type~=inline-memo] {
     transition: 0.2s;
     &.QYLinlinememoActive {
         background-color: var(--b3-theme-primary) !important;
@@ -13,14 +13,19 @@
         color: var(--b3-theme-on-primary) !important;
     }
 }
-:is(.QYLmemoB, .QYLmemoL, .QYLmemoR) .QYLmemoBlock .QYL-inline-memo-box {
+/* 底部 */
+.QYLmemoB .QYL-inline-memo-box {
     display: grid;
     padding: 10px;
+    margin-top: 10px;
+    border-top: 3px solid var(--b3-theme-surface-lighter);
+    flex-basis: 100% !important;
+    width: 100% !important;
     &.QYLmemoFullwidth {
         grid-template-columns: 1fr;
     }
     &.QYLmemoGrid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     & .QYL-inline-memo {
         cursor: pointer;
@@ -129,78 +134,121 @@
     }
 }
 /* 右侧 */
-.QYLmemoR .QYLmemoBlock:not(:is(.list, .sb[data-sb-layout="row"])) {
-    display: flex;
-    flex-direction: row;
-    padding-right: 0 !important;
-    & > :first-child {
-        margin-right: auto;
-    }
-    & .QYL-inline-memo-box {
-        margin-left: 10px;
-        flex: 0 0 300px;
-        border-left: 3px solid var(--b3-theme-surface-lighter);
-        max-width: 300px;
-        min-width: 300px;
-        &.QYLmemoGrid {
-            flex: 0 0 600px;
-            max-width: 35%;
+.QYLmemoR .protyle-wysiwyg:not(.QYLmemoNone) {
+    width: calc(100% - 250px) !important;
+}
+.QYLEditorFullWidth.QYLmemoR .QYL-inline-memo-box {
+    right: -95px;
+}
+.QYLmemoR .QYL-inline-memo-box {
+    position: absolute;
+    right: -50px;
+    top: 55px;
+    width: 250px;
+    margin-left: 10px;
+    display: block;
+    & .QYL-inline-memo {
+        cursor: pointer;
+        user-select: none;
+        white-space: break-spaces;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        font-size: 13px;
+        color: var(--b3-theme-on-surface);
+        transition: 0.2s;
+        padding: 3px;
+        border-radius: 6px;
+        position: absolute;
+        width: 100%;
+        box-sizing: border-box;
+        &:before {
+            content: '';
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            background-color: var(--b3-theme-surface-lighter);
+        }   
+        &.QYLmemoActive {
+            background-color: var(--QYL-tab-item-focus);
+        }
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
+        }
+        & > div:first-child {
+            color: var(--b3-theme-on-background);
+            font-weight: bold;
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-color: var(--b3-theme-primary);
+                border-radius: 50%;
+                margin-right: 0.2em;
+                vertical-align: -1px;
+            };
         }
     }
-}
-.QYLmemoR .protyle-wysiwyg {
-    padding-right: 20px !important;
 }
 /* 左侧 */
-.QYLmemoL .QYLmemoBlock:not(:is(.list, .sb[data-sb-layout="row"])) {
-    display: flex;
-    flex-direction: row;
-    padding-left: 0 !important;
-    & > :first-child {
-        margin-right: auto;
-        order: 1;
-    }
-    & .QYL-inline-memo-box {
-        margin-right: 10px;
-        flex: 0 0 300px;
-        border-right: 3px solid var(--b3-theme-surface-lighter);
-        max-width: 300px;
-        min-width: 300px;
-        &.QYLmemoGrid {
-            flex: 0 0 600px;
-            max-width: 35%;
-        }
-    }
+.QYLmemoL .protyle-wysiwyg:not(.QYLmemoNone) {
+    width: calc(100% - 250px) !important;
+    margin-left: auto;
 }
-.QYLmemoL .protyle-wysiwyg {
-    padding-left: 20px !important;
+.QYLEditorFullWidth.QYLmemoL .QYL-inline-memo-box {
+    left: -5px;
 }
-/* 底部 */
-.QYLmemoB .QYLmemoBlock {
-    & .QYL-inline-memo-box {
-        flex-basis: 100% !important;
-        width: 100% !important;
-        margin-top: 10px;
-        border-top: 3px solid var(--b3-theme-surface-lighter);
-        &.QYLmemoFullwidth {
-            grid-template-columns: 1fr;
+.QYLmemoL .QYL-inline-memo-box {
+    position: absolute;
+    left: -50px;
+    top: 55px;
+    width: 250px;
+    margin-right: 10px;
+    display: block;
+    & .QYL-inline-memo {
+        cursor: pointer;
+        user-select: none;
+        white-space: break-spaces;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        font-size: 13px;
+        color: var(--b3-theme-on-surface);
+        transition: 0.2s;
+        padding: 3px;
+        border-radius: 6px;
+        position: absolute;
+        width: 100%;
+        box-sizing: border-box;
+        &:before {
+            content: '';
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            background-color: var(--b3-theme-surface-lighter);
+        }   
+        &.QYLmemoActive {
+            background-color: var(--QYL-tab-item-focus);
         }
-        &.QYLmemoGrid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        &:hover {
+            background-color: var(--QYL-tab-item-focus);
         }
-    }
-}
-:is(.QYLmemoL, .QYLmemoR) .QYLmemoBlock:is(.list, .sb[data-sb-layout="row"]) {
-    & .QYL-inline-memo-box {
-        flex-basis: 100% !important;
-        width: 100% !important;
-        margin-top: 10px;
-        border-top: 3px solid var(--b3-theme-surface-lighter);
-        &.QYLmemoFullwidth {
-            grid-template-columns: 1fr;
-        }
-        &.QYLmemoGrid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        & > div:first-child {
+            color: var(--b3-theme-on-background);
+            font-weight: bold;
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background-color: var(--b3-theme-primary);
+                border-radius: 50%;
+                margin-right: 0.2em;
+                vertical-align: -1px;
+            };
         }
     }
 }
