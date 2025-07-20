@@ -1,3 +1,4 @@
+import { isMobile } from './Device.js';
 class PWAThemeColor {
     constructor() {
         this.isActive = true;
@@ -52,7 +53,29 @@ class PWAThemeColor {
                 if (foundTag) {
                     this.updateThemeColor();
                 } else {
-                    this.stop();
+                    if (isMobile) {
+                        const ua = navigator.userAgent;
+                        const head = document.head;
+                        const surfaceColor = this.getThemeSurfaceColor() || '#ffffff';
+                        if (/Android/i.test(ua)) {
+                            if (!metaThemeColor) {
+                                const meta = document.createElement('meta');
+                                meta.name = 'theme-color';
+                                meta.content = surfaceColor;
+                                head.appendChild(meta);
+                            }
+                        } else if (/iPhone|iPad|iPod|ios|Apple/i.test(ua)) {
+                            if (!metaAppleStatusBar) {
+                                const meta = document.createElement('meta');
+                                meta.name = 'apple-mobile-web-app-status-bar-style';
+                                meta.content = surfaceColor;
+                                head.appendChild(meta);
+                            }
+                        }
+                        this.updateThemeColor();
+                    } else {
+                        this.stop();
+                    }
                 }
                 return;
             }
