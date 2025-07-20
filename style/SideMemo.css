@@ -21,6 +21,7 @@
     border-top: 3px solid var(--b3-theme-surface-lighter);
     flex-basis: 100% !important;
     width: 100% !important;
+    box-sizing: border-box;
     &.QYLmemoFullwidth {
         grid-template-columns: 1fr;
     }
@@ -134,17 +135,45 @@
     }
 }
 /* 右侧 */
-.QYLmemoR .protyle-wysiwyg:not(.QYLmemoNone) {
-    width: calc(100% - 250px) !important;
+.QYLmemoR:not(.QYLEditorFullWidth) .protyle-content[data-fullwidth="true"] {/* 非全宽 + 自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 250px) !important;
+    }
+    & .QYL-inline-memo-box {
+        width: 250px;
+        right: -50px;
+    }
 }
-.QYLEditorFullWidth.QYLmemoR .QYL-inline-memo-box {
-    right: -95px;
+.QYLmemoR.QYLEditorFullWidth .protyle-content[data-fullwidth="true"] {/* 全宽 + 自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 200px) !important;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        right: -15px;
+    }
+}
+.QYLmemoR:not(.QYLEditorFullWidth) .protyle-content:not([data-fullwidth="true"]) {/* 非全宽 + 非自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: 100% !important;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        right: -250px;
+    }
+}
+.QYLmemoR.QYLEditorFullWidth .protyle-content:not([data-fullwidth="true"]) {/* 全宽 + 非自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 200px) !important;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        right: -15px;
+    }
 }
 .QYLmemoR .QYL-inline-memo-box {
     position: absolute;
-    right: -50px;
     top: 55px;
-    width: 250px;
     margin-left: 10px;
     display: block;
     & .QYL-inline-memo {
@@ -193,18 +222,48 @@
     }
 }
 /* 左侧 */
-.QYLmemoL .protyle-wysiwyg:not(.QYLmemoNone) {
-    width: calc(100% - 250px) !important;
-    margin-left: auto;
+.QYLmemoL:not(.QYLEditorFullWidth) .protyle-content[data-fullwidth="true"] {/* 非全宽 + 自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 250px) !important;
+        margin-left: auto;
+    }
+    & .QYL-inline-memo-box {
+        width: 250px;
+        left: -50px;
+    }
 }
-.QYLEditorFullWidth.QYLmemoL .QYL-inline-memo-box {
-    left: -5px;
+.QYLmemoL.QYLEditorFullWidth .protyle-content[data-fullwidth="true"] {/* 全宽 + 自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 200px) !important;
+        margin-left: auto;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        left: -5px;
+    }
+}
+.QYLmemoL:not(.QYLEditorFullWidth) .protyle-content:not([data-fullwidth="true"]) {/* 非全宽 + 非自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: 100% !important;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        left: -250px;
+    }
+}
+.QYLmemoL.QYLEditorFullWidth .protyle-content:not([data-fullwidth="true"]) {/* 全宽 + 非自适应宽度 */
+    & .protyle-wysiwyg.QYLmemoProtyle {
+        width: calc(100% - 200px) !important;
+        margin-left: auto;
+    }
+    & .QYL-inline-memo-box {
+        width: 200px;
+        left: -5px;
+    }
 }
 .QYLmemoL .QYL-inline-memo-box {
     position: absolute;
-    left: -50px;
     top: 55px;
-    width: 250px;
     margin-right: 10px;
     display: block;
     & .QYL-inline-memo {
