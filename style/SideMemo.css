@@ -39,98 +39,24 @@
         transition: 0.2s;
         padding: 3px;
         border-radius: 6px;
+        z-index: 1;
         &.QYLmemoActive {
-            background-color: var(--QYL-tab-item-focus);
+            background-color: var(--QYL-tab-item-focus) !important;
         }
         &:hover {
-            background-color: var(--QYL-tab-item-focus);
+            background-color: var(--QYL-tab-item-focus) !important;
         }
         & > div:first-child {
-            color: var(--b3-theme-on-background);
-            font-weight: bold;
             &:before {
-                content: '1';
+                content: '';
                 display: inline-block;
                 width: 1em;
                 height: 1em;
-                line-height: 1em;
-                text-align: center;
-                margin-right: 0.3em;
-                color: var(--b3-theme-on-primary);
                 background-color: var(--b3-theme-primary);
                 border-radius: 50%;
-                vertical-align: 1px;
+                margin-right: 0.2em;
+                vertical-align: -1px;
             };
-        }
-        & + .QYL-inline-memo {
-            & > div:first-child:before {
-                content: '2';
-            }
-            & + .QYL-inline-memo {
-                & > div:first-child:before {
-                    content: '3';
-                }
-                & + .QYL-inline-memo {
-                    & > div:first-child:before {
-                        content: '4';
-                    }
-                    & + .QYL-inline-memo {
-                        & > div:first-child:before {
-                            content: '5';
-                        }
-                        & + .QYL-inline-memo {
-                            & > div:first-child:before {
-                                content: '6';
-                            }
-                            & + .QYL-inline-memo {
-                                & > div:first-child:before {
-                                    content: '7';
-                                }
-                                & + .QYL-inline-memo {
-                                    & > div:first-child:before {
-                                        content: '8';
-                                    }
-                                    & + .QYL-inline-memo {
-                                        & > div:first-child:before {
-                                            content: '9';
-                                        }
-                                        & + .QYL-inline-memo {
-                                            & > div:first-child:before {
-                                                content: '10';
-                                            }
-                                            & + .QYL-inline-memo {
-                                                & > div:first-child:before {
-                                                    content: '11';
-                                                }
-                                                & + .QYL-inline-memo {
-                                                    & > div:first-child:before {
-                                                        content: '12';
-                                                    }
-                                                    & + .QYL-inline-memo {
-                                                        & > div:first-child:before {
-                                                            content: '13';
-                                                        }
-                                                        & + .QYL-inline-memo {
-                                                            & > div:first-child:before {
-                                                                content: '14';
-                                                            }
-                                                            & + .QYL-inline-memo {
-                                                                & > div:first-child:before {
-                                                                    content: '15';
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
