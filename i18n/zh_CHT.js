@@ -167,7 +167,11 @@ export default {
     "QYLDarkClassic": "經典",
     "QYLDarkRevert": "反轉",
     "ColorSwitchTime": "主題色隨時間變化",
-    QYLWildness: '曠野',
+    "QYLWildness": "曠野",
     "QYLWarm": "暖流",
     "SideMemo": "顯示行內備註",
+    "SideMemoRight": "已切換為右側備註",
+    "SideMemoLeft": "已切換為左側備註",
+    "SideMemoBottom": "已切換為底部備註",
+    "SideMemoMobileNotSupported": "手機端僅支援底部備註，不支援側邊備註",
 }; 

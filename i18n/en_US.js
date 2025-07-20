@@ -186,4 +186,8 @@ export default {
     "QYLWildness": "Wildness",
     "QYLWarm": "Warm Current",
     "SideMemo": "Show Inline Memo",
+    "SideMemoRight": "Switched to right side memo",
+    "SideMemoLeft": "Switched to left side memo",
+    "SideMemoBottom": "Switched to bottom memo",
+    "SideMemoMobileNotSupported": "Mobile devices only support bottom memo, not side memo",
 }; 

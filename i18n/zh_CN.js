@@ -166,7 +166,11 @@ export default {
     "QYLDarkClassic": "经典",
     "QYLDarkRevert": "反转",
     "ColorSwitchTime": "主题色随时间变化",
-    QYLWildness: '旷野',
+    "QYLWildness": "旷野",
     "QYLWarm": "暖流",
     "SideMemo": "显示行内备注",
+    "SideMemoRight": "已切换为右侧备注",
+    "SideMemoLeft": "已切换为左侧备注",
+    "SideMemoBottom": "已切换为底部备注",
+    "SideMemoMobileNotSupported": "手机端仅支持底部备注，不支持侧边备注",
 }; 
