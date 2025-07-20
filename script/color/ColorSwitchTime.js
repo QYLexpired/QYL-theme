@@ -1,3 +1,4 @@
+import { updatePWAThemeColor } from '../basic/PWA.js';
 let animationFrameId = null;
 let lastUpdate = null;
 let retryCount = 0;
@@ -20,6 +21,7 @@ function step() {
         hue = (hue + 2) % 360;
         setCurrentHue(hue);
         lastUpdate = now;
+        updatePWAThemeColor();
     }
     animationFrameId = requestAnimationFrame(step);
 }
