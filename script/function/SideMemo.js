@@ -7,19 +7,21 @@ import { isMobile } from '../basic/Device.js';
 function hasMemo(wysiwyg) {
     return wysiwyg.querySelectorAll('[data-inline-memo-content]').length > 0;
 }
-function updateMemoNoneClass(wysiwyg) {
+function updateMemoProtyleClass(wysiwyg) {
     if (hasMemo(wysiwyg)) {
-        wysiwyg.classList.remove('QYLmemoNone');
+        wysiwyg.classList.add('QYLmemoProtyle');
     } else {
-        wysiwyg.classList.add('QYLmemoNone');
+        wysiwyg.classList.remove('QYLmemoProtyle');
     }
 }
 const BottomMemoModule = {
     renderBlockMemo(block) {
-    block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
     block.classList.remove('QYLmemoBlock');
     const memoElements = block.querySelectorAll('[data-inline-memo-content]');
-    if (memoElements.length === 0) return;
+    if (memoElements.length === 0) {
+        block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
+        return;
+    }
     block.classList.add('QYLmemoBlock');
     const memoList = [];
     memoElements.forEach(memoEl => {
@@ -27,11 +29,23 @@ const BottomMemoModule = {
         if (!memoContent) return;
         const memoText = memoEl.innerText || memoEl.textContent || '';
         memoList.push({memoContent, memoText, memoEl});
-            this.bindMemoEvents(memoEl, memoContent, block);
-        });
-        if (memoList.length === 0) return;
-        const box = this.createMemoBox(memoList, block);
-        block.appendChild(box);
+        this.bindMemoEvents(memoEl, memoContent, block);
+    });
+    if (memoList.length === 0) {
+        block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
+        return;
+    }
+    const oldBox = block.querySelector('div.QYL-inline-memo-box.protyle-custom');
+    if (oldBox) {
+        const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-content'));
+        const newMemos = memoList.map(m => m.memoContent);
+        if (oldMemos.length === newMemos.length && oldMemos.every((v, i) => v === newMemos[i])) {
+            return;
+        }
+        oldBox.remove();
+    }
+    const box = this.createMemoBox(memoList, block);
+    block.appendChild(box);
     },
     bindMemoEvents(memoEl, memoContent, block) {
         memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
@@ -146,15 +160,6 @@ const BottomMemoModule = {
     });
         blocks.forEach(block => this.renderBlockMemo(block));
     },
-    handleObserverChanges(mutations, wysiwyg) {
-        if (memoContentChangeTimeout) {
-            clearTimeout(memoContentChangeTimeout);
-        }
-        memoContentChangeTimeout = setTimeout(() => {
-            this.renderWysiwyg(wysiwyg);
-            updateMemoNoneClass(wysiwyg);
-        }, 1000);
-    },
     cleanup(wysiwyg) {
         wysiwyg.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
@@ -180,6 +185,15 @@ const BottomMemoModule = {
         wysiwyg.querySelectorAll('.QYLmemoActive').forEach(el => {
             el.classList.remove('QYLmemoActive');
         });
+    },
+    handleObserverChanges(mutations, wysiwyg) {
+        if (memoContentChangeTimeout) {
+            clearTimeout(memoContentChangeTimeout);
+        }
+        memoContentChangeTimeout = setTimeout(() => {
+            this.renderWysiwyg(wysiwyg);
+            updateMemoProtyleClass(wysiwyg);
+        }, 1000);
     }
 };
 const RightMemoModule = {
@@ -360,7 +374,7 @@ const RightMemoModule = {
         }
         memoContentChangeTimeout = setTimeout(() => {
             this.renderWysiwyg(wysiwyg);
-            updateMemoNoneClass(wysiwyg);
+            updateMemoProtyleClass(wysiwyg);
         }, 1000);
     },
     updateMemoPositions(wysiwyg) {
@@ -465,7 +479,7 @@ function getWysiwygDirectBlock(memoEl) {
 function cleanupAllDirections(wysiwyg) {
     BottomMemoModule.cleanup(wysiwyg);
     RightMemoModule.cleanup(wysiwyg);
-    wysiwyg.classList.remove('QYLmemoNone');
+    wysiwyg.classList.remove('QYLmemoProtyle');
 }
 function renderSideMemo(wysiwyg) {
     cleanupAllDirections(wysiwyg);
@@ -476,7 +490,7 @@ function renderSideMemo(wysiwyg) {
     } else {
         BottomMemoModule.renderWysiwyg(wysiwyg);
     }
-    updateMemoNoneClass(wysiwyg);
+    updateMemoProtyleClass(wysiwyg);
 }
 function bindWysiwygMemoObserver(wysiwyg) {
     unbindWysiwygMemoObserver(wysiwyg);
@@ -579,8 +593,8 @@ export function removeSideMemo() {
     document.querySelectorAll('.QYLmemoActive').forEach(el => {
         el.classList.remove('QYLmemoActive');
     });
-    document.querySelectorAll('.QYLmemoNone').forEach(el => {
-        el.classList.remove('QYLmemoNone');
+    document.querySelectorAll('.QYLmemoProtyle').forEach(el => {
+        el.classList.remove('QYLmemoProtyle');
     });
     if (window._QYL_memo_resize_handler) {
         window.removeEventListener('resize', window._QYL_memo_resize_handler);
