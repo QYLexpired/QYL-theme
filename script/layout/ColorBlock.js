@@ -89,6 +89,21 @@ export function initColorBlock() {
         #layouts .layout__resize.layout__resize--lr:has( + .layout__dockr) {
             clip-path: inset(40px 0 0 0) !important;
         }
+        .layout--float.layout__dockl {
+            top: 0;
+            bottom: var(--QYL-dock-float-b-0);
+            left: var(--QYL-dock-float-l-0) !important;
+            border-radius: 0;
+        }
+        .layout--float.layout__dockr {
+            top: 38px;
+            bottom: var(--QYL-dock-float-b-0);
+            right: var(--QYL-dock-float-r-0) !important;
+            border-radius: 0;
+        }
+        .layout--float.layout__dockb {
+            border-radius: 0;
+        }
         /* 页签需向下偏移 */
         #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
             transform: translateY(5.5px);

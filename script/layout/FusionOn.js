@@ -111,6 +111,9 @@ export function initFusionOn() {
             #layouts .layout__resize.layout__resize--lr {
                 clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
             }
+            #layouts .layout--float.layout__dockb .layout__resize.layout__resize--lr {
+                clip-path: none;
+            }
             .QYLFusionTop > .fn__flex:first-child {
                 transition: 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
             }

@@ -28,6 +28,12 @@ export function initHideTopBar() {
                 transform: translateY(0px);
             }
         }
+        .layout--float.layout__dockl {
+            top: 6px;
+        }
+        .layout--float.layout__dockr {
+            top: 6px;
+        }
     `;
     document.head.appendChild(style);
     document.addEventListener('keydown', handleKeyPress);
