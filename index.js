@@ -8,3 +8,4 @@ import './script/QYLSettings/InitQYLSettings.js';
 import './script/basic/StatusPosition.js';
 import './script/basic/StatusHidden.js';
 import './script/basic/PWA.js';
+import './script/basic/DockFloat.js';
