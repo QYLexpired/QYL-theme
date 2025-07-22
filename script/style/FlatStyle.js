@@ -129,6 +129,11 @@ export function initFlatStyle() {
                 border: var(--QYL-wnd-container-border-flat);
             }
         }
+        :is(.layout__dockl, .layout__dockr, .layout__dockb).layout--float {
+            > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+                border: none;
+            }
+        }
         /* 阴影 */
         .b3-menu, .b3-dialog__container, .b3-menu__submenu, .secondaryToolbar {
             box-shadow: none;

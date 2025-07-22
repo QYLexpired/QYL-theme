@@ -19,6 +19,26 @@ export function initInkMode() {
                 box-sizing: border-box;
             }
         }
+        :is(.layout__dockl, .layout__dockr, .layout__dockb).layout--float {
+            border: 2px solid var(--b3-theme-primary);
+            > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+                border: none;
+            }
+            & .layout__resize.layout__resize--lr {
+                margin: 0;
+                width: 2px;
+                &::after {
+                    width: 2px;
+                }
+            }
+            & .layout__resize:not(.layout__resize--lr) {
+                margin: 0;
+                height: 2px;
+                &::after {
+                    height: 2px;
+                }
+            }
+        }
         /* 页签 */
         .layout-tab-bar .item:not(.layout-tab-bar .item--readonly):not(.item.item--focus) {
             --QYL-tab-nonactive: transparent;
