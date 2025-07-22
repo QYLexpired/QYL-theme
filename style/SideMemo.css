@@ -7,6 +7,7 @@
     &.QYLinlinememoActive {
         background-color: var(--b3-theme-primary) !important;
         color: var(--b3-theme-on-primary) !important;
+        --b3-theme-primary: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
     }
     &:hover {
         background-color: var(--b3-theme-primary) !important;
@@ -34,7 +35,7 @@
         white-space: break-spaces;
         word-break: break-all;
         overflow-wrap: break-word;
-        font-size: 13px;
+        font-size: 0.85em;
         color: var(--b3-theme-on-surface);
         transition: 0.2s;
         padding: 3px;
@@ -50,8 +51,8 @@
             &:before {
                 content: '';
                 display: inline-block;
-                width: 1em;
-                height: 1em;
+                width: 0.85em;
+                height: 0.85em;
                 background-color: var(--b3-theme-primary);
                 border-radius: 50%;
                 margin-right: 0.2em;
@@ -99,7 +100,6 @@
 }
 .QYLmemoR .QYL-inline-memo-box {
     position: absolute;
-    top: 55px;
     margin-left: 10px;
     display: block;
     & .QYL-inline-memo {
@@ -108,7 +108,7 @@
         white-space: break-spaces;
         word-break: break-all;
         overflow-wrap: break-word;
-        font-size: 13px;
+        font-size: 0.85em;
         color: var(--b3-theme-on-surface);
         transition: 0.2s;
         padding: 3px;
@@ -137,8 +137,8 @@
             &:before {
                 content: '';
                 display: inline-block;
-                width: 1em;
-                height: 1em;
+                width: 0.85em;
+                height: 0.85em;
                 background-color: var(--b3-theme-primary);
                 border-radius: 50%;
                 margin-right: 0.2em;
@@ -189,7 +189,6 @@
 }
 .QYLmemoL .QYL-inline-memo-box {
     position: absolute;
-    top: 55px;
     margin-right: 10px;
     display: block;
     & .QYL-inline-memo {
@@ -198,7 +197,7 @@
         white-space: break-spaces;
         word-break: break-all;
         overflow-wrap: break-word;
-        font-size: 13px;
+        font-size: 0.85em;
         color: var(--b3-theme-on-surface);
         transition: 0.2s;
         padding: 3px;
@@ -227,8 +226,8 @@
             &:before {
                 content: '';
                 display: inline-block;
-                width: 1em;
-                height: 1em;
+                width: 0.85em;
+                height: 0.85em;
                 background-color: var(--b3-theme-primary);
                 border-radius: 50%;
                 margin-right: 0.2em;

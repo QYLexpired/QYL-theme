@@ -96,15 +96,6 @@
 .layout__dockb[style="height: 0px;"] {
     opacity: 0;
 }
-.layout--float:is(.layout__dockl,.layout__dockr,.layout__dockb) {
-    box-shadow: var(--b3-point-shadow);
-}
-.layout__dockb.layout--float {
-    margin-left: 42px;
-    margin-right: 42px;
-    margin-bottom: -25px;
-    border-radius: var(--b3-border-radius) var(--b3-border-radius) 0 0;
-}
 .dock__item {
     border-radius: 8px;
 }
@@ -115,6 +106,73 @@
 .dock__item:hover:not(.dock__item--activefocus), .dock__item--active {
     background-color: var(--QYL-tab-item-focus);
     color: var(--b3-theme-on-surface);
+}
+.layout--float.layout__dockl {
+    box-shadow: none;
+    border: none;
+    border-right: 0.5px solid var(--b3-theme-surface-lighter);
+    border-radius: var(--b3-border-radius) 0 0 var(--b3-border-radius);
+    top: 38px;
+    bottom: var(--QYL-dock-float-b);
+    left: var(--QYL-dock-float-l) !important;
+    & .layout__resize {
+        margin: -3px 0;
+        &::after {
+            visibility: visible;
+            transform: none;
+            height: 0.5px;
+            top: 0;
+            background-color: var(--b3-theme-surface-lighter);
+        }
+        &:hover::after {
+            background-color: var(--b3-theme-primary);
+        }
+    }
+}
+.layout--float.layout__dockr {
+    box-shadow: none;
+    border: none;
+    border-left: 0.5px solid var(--b3-theme-surface-lighter);
+    border-radius: 0 var(--b3-border-radius) var(--b3-border-radius) 0;
+    top: 38px;
+    bottom: var(--QYL-dock-float-b);
+    right: var(--QYL-dock-float-r) !important;
+    & .layout__resize {
+        margin: -3px 0;
+        &::after {
+            visibility: visible;
+            transform: none;
+            height: 0.5px;
+            margin: -3px 0;
+            top: 0;
+            background-color: var(--b3-theme-surface-lighter);
+        }
+        &:hover::after {
+            background-color: var(--b3-theme-primary);
+        }
+    }
+}
+.layout--float.layout__dockb {
+    box-shadow: none;
+    border: none;
+    border-top: 0.5px solid var(--b3-theme-surface-lighter);
+    border-radius: 0 0 var(--b3-border-radius) var(--b3-border-radius);
+    left: 42px;
+    right: 42px;
+    bottom: 42px !important;
+    & .layout__resize {
+        margin: 0 -3px;
+        &::after {
+            visibility: visible;
+            transform: none;
+            width: 0.5px;
+            top: 0;
+            background-color: var(--b3-theme-surface-lighter);
+        }
+        &:hover::after {
+            background-color: var(--b3-theme-primary);
+        }
+    }
 }
 /* 聚焦 */
 .layout__tab--active .b3-list--background .b3-list-item--focus {

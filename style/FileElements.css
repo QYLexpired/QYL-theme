@@ -3,20 +3,20 @@
     background-color: var(--QYL-blockquote-background);
     color: var(--QYL-blockquote);
     padding-top: 22px;
-    overflow: hidden;
     &::before {
         content: "";
         position: absolute;
         top: 5px;
         left: 5px;
-        width: 100%;
-        height: 100%;
+        width: 50px;
+        height: 50px;
         -webkit-mask-image: url('../img/quote.svg');
         -webkit-mask-repeat: no-repeat;
         mask-image: url('../img/quote.svg');
         mask-repeat: no-repeat;
         background-color: var(--QYL-blockquote-svg);
         background-size: 20px 20px;
+        pointer-events: none;
     }
     & :is(blockquote, .bq) {
         padding: 4px 4px 4px 10px;

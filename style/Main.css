@@ -33,6 +33,9 @@
         }
     }
 }
+:is(.layout__dockl, .layout__dockr, .layout__dockb).layout--float > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+        border-radius: 0;
+}
 .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
     border-radius: var(--b3-border-radius);
 }
