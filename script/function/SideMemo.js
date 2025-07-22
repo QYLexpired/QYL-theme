@@ -14,6 +14,14 @@ function updateMemoProtyleClass(wysiwyg) {
         wysiwyg.classList.remove('QYLmemoProtyle');
     }
 }
+function generateMemoUid(memoEl, idx) {
+    let uid = memoEl.getAttribute('data-memo-uid');
+    if (!uid) {
+        uid = 'memo-' + idx + '-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6);
+        memoEl.setAttribute('data-memo-uid', uid);
+    }
+    return uid;
+}
 const BottomMemoModule = {
     renderBlockMemo(block) {
     block.classList.remove('QYLmemoBlock');
@@ -24,12 +32,13 @@ const BottomMemoModule = {
     }
     block.classList.add('QYLmemoBlock');
     const memoList = [];
-    memoElements.forEach(memoEl => {
+    memoElements.forEach((memoEl, idx) => {
         const memoContent = memoEl.getAttribute('data-inline-memo-content');
         if (!memoContent) return;
         const memoText = memoEl.innerText || memoEl.textContent || '';
-        memoList.push({memoContent, memoText, memoEl});
-        this.bindMemoEvents(memoEl, memoContent, block);
+        const uid = generateMemoUid(memoEl, idx);
+        memoList.push({memoContent, memoText, memoEl, uid});
+        this.bindMemoEvents(memoEl, uid, block);
     });
     if (memoList.length === 0) {
         block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
@@ -37,8 +46,8 @@ const BottomMemoModule = {
     }
     const oldBox = block.querySelector('div.QYL-inline-memo-box.protyle-custom');
     if (oldBox) {
-        const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-content'));
-        const newMemos = memoList.map(m => m.memoContent);
+        const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-uid'));
+        const newMemos = memoList.map(m => m.uid);
         if (oldMemos.length === newMemos.length && oldMemos.every((v, i) => v === newMemos[i])) {
             return;
         }
@@ -47,26 +56,22 @@ const BottomMemoModule = {
     const box = this.createMemoBox(memoList, block);
     block.appendChild(box);
     },
-    bindMemoEvents(memoEl, memoContent, block) {
+    bindMemoEvents(memoEl, uid, block) {
         memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
         memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
         memoEl.removeEventListener('click', memoEl._QYL_memo_click);
         memoEl._QYL_memo_mouseenter = () => {
-            block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.getAttribute('data-memo-content') === memoContent) {
-                    div.classList.add('QYLmemoActive');
-                }
+            block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                div.classList.add('QYLmemoActive');
             });
         };
         memoEl._QYL_memo_mouseleave = () => {
-            block.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.getAttribute('data-memo-content') === memoContent) {
-                    div.classList.remove('QYLmemoActive');
-                }
+            block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                div.classList.remove('QYLmemoActive');
             });
         };
         memoEl._QYL_memo_click = (e) => {
-            const targetDiv = block.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-content="' + memoContent + '"]');
+            const targetDiv = block.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
             if (targetDiv) {
                 const targetRect = targetDiv.getBoundingClientRect();
                 const sourceRect = memoEl.getBoundingClientRect();
@@ -89,30 +94,26 @@ const BottomMemoModule = {
         box.classList.add('QYLmemoGrid');
     }
     box.setAttribute('contenteditable', 'false');
-    memoList.forEach(({memoContent, memoText}) => {
-            const div = this.createMemoDiv(memoContent, memoText, block);
+    memoList.forEach(({memoContent, memoText, uid}) => {
+            const div = this.createMemoDiv(memoContent, memoText, uid, block);
             box.appendChild(div);
         });
         return box;
     },
-    createMemoDiv(memoContent, memoText, block) {
+    createMemoDiv(memoContent, memoText, uid, block) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
         div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
         div.setAttribute('contenteditable', 'false');
-        div.setAttribute('data-memo-content', memoContent);
+        div.setAttribute('data-memo-uid', uid);
         div.addEventListener('mouseenter', () => {
-            block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                    memoEl.classList.add('QYLinlinememoActive');
-                }
+            block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                memoEl.classList.add('QYLinlinememoActive');
             });
         });
         div.addEventListener('mouseleave', () => {
-            block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                    memoEl.classList.remove('QYLinlinememoActive');
-                }
+            block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                memoEl.classList.remove('QYLinlinememoActive');
             });
         });
         div.addEventListener('click', (e) => {
@@ -120,23 +121,20 @@ const BottomMemoModule = {
             if (e.target === firstDiv && e.button === 0) {
                 e.preventDefault();
                 e.stopPropagation();
-                block.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                    if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                        const evt = new MouseEvent('contextmenu', {
-                            bubbles: true,
-                            cancelable: true,
-                            view: window,
-                            button: 2,
-                            buttons: 2,
-                            clientX: e.clientX,
-                            clientY: e.clientY
-                        });
-                        memoEl.dispatchEvent(evt);
-                    }
+                block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    const evt = new MouseEvent('contextmenu', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window,
+                        button: 2,
+                        buttons: 2,
+                        clientX: e.clientX,
+                        clientY: e.clientY
+                    });
+                    memoEl.dispatchEvent(evt);
                 });
             }
-            const escapedMemoContent = CSS.escape(memoContent);
-            const targetMemoEl = block.querySelector('[data-inline-memo-content="' + escapedMemoContent + '"]');
+            const targetMemoEl = block.querySelector('[data-memo-uid="' + uid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
@@ -214,38 +212,34 @@ const RightMemoModule = {
         const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
         if (memoElements.length === 0) return;
         const memoList = [];
-        memoElements.forEach(memoEl => {
+        memoElements.forEach((memoEl, idx) => {
             const memoContent = memoEl.getAttribute('data-inline-memo-content');
             if (!memoContent) return;
             const memoText = memoEl.innerText || memoEl.textContent || '';
-            memoList.push({memoContent, memoText, memoEl});
-            this.bindMemoEvents(memoEl, memoContent, titleElement);
+            const uid = generateMemoUid(memoEl, idx);
+            memoList.push({memoContent, memoText, memoEl, uid});
+            this.bindMemoEvents(memoEl, uid, titleElement);
         });
         if (memoList.length === 0) return;
         const box = this.createMemoBox(memoList, wysiwyg);
         titleElement.appendChild(box);
     },
-    bindMemoEvents(memoEl, memoContent, titleElement) {
+    bindMemoEvents(memoEl, uid, titleElement) {
         memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
         memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
         memoEl.removeEventListener('click', memoEl._QYL_memo_click);
         memoEl._QYL_memo_mouseenter = () => {
-            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.getAttribute('data-memo-content') === memoContent) {
-                    div.classList.add('QYLmemoActive');
-                }
+            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                div.classList.add('QYLmemoActive');
             });
         };
         memoEl._QYL_memo_mouseleave = () => {
-            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => {
-                if (div.getAttribute('data-memo-content') === memoContent) {
-                    div.classList.remove('QYLmemoActive');
-                }
+            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                div.classList.remove('QYLmemoActive');
             });
         };
         memoEl._QYL_memo_click = (e) => {
-            const escapedMemoContent = CSS.escape(memoContent);
-            const targetDiv = titleElement.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-content="' + escapedMemoContent + '"]');
+            const targetDiv = titleElement.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
             if (targetDiv) {
                 const targetRect = targetDiv.getBoundingClientRect();
                 const sourceRect = memoEl.getBoundingClientRect();
@@ -271,8 +265,8 @@ const RightMemoModule = {
         const wysiwygRect = wysiwyg.getBoundingClientRect();
         const memoElements = [];
         const minSpacing = 10; 
-        memoList.forEach(({memoContent, memoText}) => {
-            const div = this.createMemoDiv(memoContent, memoText, wysiwyg);
+        memoList.forEach(({memoContent, memoText, uid}) => {
+            const div = this.createMemoDiv(memoContent, memoText, uid, wysiwyg);
             memoElements.push(div);
         });
         memoElements.forEach(div => {
@@ -303,14 +297,13 @@ const RightMemoModule = {
         });
         return box;
     },
-    createMemoDiv(memoContent, memoText, wysiwyg) {
+    createMemoDiv(memoContent, memoText, uid, wysiwyg) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
         div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
         div.setAttribute('contenteditable', 'false');
-        div.setAttribute('data-memo-content', memoContent);
-        const escapedMemoContent = CSS.escape(memoContent);
-        const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content="' + escapedMemoContent + '"]');
+        div.setAttribute('data-memo-uid', uid);
+        const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
         if (targetMemoEl) {
             const targetRect = targetMemoEl.getBoundingClientRect();
             const wysiwygRect = wysiwyg.getBoundingClientRect();
@@ -319,17 +312,13 @@ const RightMemoModule = {
             div.style.top = `${relativeTop - offset}px`;
         }
         div.addEventListener('mouseenter', () => {
-            wysiwyg.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                    memoEl.classList.add('QYLinlinememoActive');
-                }
+            wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                memoEl.classList.add('QYLinlinememoActive');
             });
         });
         div.addEventListener('mouseleave', () => {
-            wysiwyg.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                    memoEl.classList.remove('QYLinlinememoActive');
-                }
+            wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                memoEl.classList.remove('QYLinlinememoActive');
             });
         });
         div.addEventListener('click', (e) => {
@@ -337,23 +326,20 @@ const RightMemoModule = {
             if (e.target === firstDiv && e.button === 0) {
                 e.preventDefault();
                 e.stopPropagation();
-                wysiwyg.querySelectorAll('[data-inline-memo-content]')?.forEach(memoEl => {
-                    if (memoEl.getAttribute('data-inline-memo-content') === memoContent) {
-                        const evt = new MouseEvent('contextmenu', {
-                            bubbles: true,
-                            cancelable: true,
-                            view: window,
-                            button: 2,
-                            buttons: 2,
-                            clientX: e.clientX,
-                            clientY: e.clientY
-                        });
-                        memoEl.dispatchEvent(evt);
-                    }
+                wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    const evt = new MouseEvent('contextmenu', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window,
+                        button: 2,
+                        buttons: 2,
+                        clientX: e.clientX,
+                        clientY: e.clientY
+                    });
+                    memoEl.dispatchEvent(evt);
                 });
             }
-            const escapedMemoContent = CSS.escape(memoContent);
-            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content="' + escapedMemoContent + '"]');
+            const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
@@ -367,6 +353,7 @@ const RightMemoModule = {
     },
     renderWysiwyg(wysiwyg) {
         this.renderTitleMemo(wysiwyg);
+        this.updateMemoPositions(wysiwyg);
     },
     handleObserverChanges(mutations, wysiwyg) {
         if (memoContentChangeTimeout) {
@@ -389,15 +376,24 @@ const RightMemoModule = {
         if (!titleElement || wysiwyg.contains(titleElement)) return;
         const memoBox = titleElement.querySelector('div.QYL-inline-memo-box.protyle-custom');
         if (!memoBox) return;
+        let topOffset = 0;
+        if (titleElement) {
+            topOffset += titleElement.offsetHeight;
+            let node = titleElement.nextElementSibling;
+            while (node && node !== wysiwyg) {
+                if (node.offsetHeight) topOffset += node.offsetHeight;
+                node = node.nextElementSibling;
+            }
+        }
+        memoBox.style.top = topOffset + 'px';
         const memoDivs = memoBox.querySelectorAll('.QYL-inline-memo');
         const wysiwygRect = wysiwyg.getBoundingClientRect();
         const minSpacing = 10;
         const memoElements = Array.from(memoDivs);
         const offset = 8; 
         memoElements.forEach(div => {
-            const memoContent = div.getAttribute('data-memo-content');
-            const escapedMemoContent = CSS.escape(memoContent);
-            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content="' + escapedMemoContent + '"]');
+            const memoUid = div.getAttribute('data-memo-uid');
+            const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + memoUid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const relativeTop = targetRect.top - wysiwygRect.top;
