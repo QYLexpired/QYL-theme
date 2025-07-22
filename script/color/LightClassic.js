@@ -6,7 +6,7 @@ export function initLightClassic() {
     link.id = 'QYL-LightClassic';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/LightClassic.css';
+    link.href = '/appearance/themes/QYL/style/Color/LightClassic.css';
     document.head.appendChild(link);
 }
 export function removeLightClassic() {

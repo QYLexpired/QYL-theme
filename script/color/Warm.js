@@ -6,7 +6,7 @@ export function initWarm() {
     link.id = 'QYL-Warm';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Warm.css';
+    link.href = '/appearance/themes/QYL/style/Color/Warm.css';
     document.head.appendChild(link);
 }
 export function removeWarm() {

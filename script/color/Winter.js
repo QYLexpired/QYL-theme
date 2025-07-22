@@ -6,7 +6,7 @@ export function initWinter() {
     link.id = 'QYL-Winter';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Winter.css';
+    link.href = '/appearance/themes/QYL/style/Color/Winter.css';
     document.head.appendChild(link);
 }
 export function removeWinter() {

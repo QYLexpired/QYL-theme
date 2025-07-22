@@ -6,7 +6,7 @@ export function initMemory() {
     link.id = 'QYL-Memory';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Memory.css';
+    link.href = '/appearance/themes/QYL/style/Color/Memory.css';
     document.head.appendChild(link);
 }
 export function removeMemory() {

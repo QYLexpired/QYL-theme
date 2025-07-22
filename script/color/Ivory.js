@@ -6,7 +6,7 @@ export function initIvory() {
     link.id = 'QYL-Ivory';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Ivory.css';
+    link.href = '/appearance/themes/QYL/style/Color/Ivory.css';
     document.head.appendChild(link);
 }
 export function removeIvory() {

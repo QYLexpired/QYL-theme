@@ -6,7 +6,7 @@ export function initAutumn() {
     link.id = 'QYL-Autumn';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Autumn.css';
+    link.href = '/appearance/themes/QYL/style/Color/Autumn.css';
     document.head.appendChild(link);
 }
 export function removeAutumn() {

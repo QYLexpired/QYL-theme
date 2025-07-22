@@ -6,7 +6,7 @@ export function initDarkClassic() {
     link.id = 'QYL-DarkClassic';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/DarkClassic.css';
+    link.href = '/appearance/themes/QYL/style/Color/DarkClassic.css';
     document.head.appendChild(link);
 }
 export function removeDarkClassic() {

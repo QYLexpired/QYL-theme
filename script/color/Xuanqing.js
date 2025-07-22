@@ -6,7 +6,7 @@ export function initXuanqing() {
     link.id = 'QYL-Xuanqing';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Xuanqing.css';
+    link.href = '/appearance/themes/QYL/style/Color/Xuanqing.css';
     document.head.appendChild(link);
 }
 export function removeXuanqing() {

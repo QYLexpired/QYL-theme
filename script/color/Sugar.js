@@ -6,7 +6,7 @@ export function initSugar() {
     link.id = 'QYL-Sugar';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Sugar.css';
+    link.href = '/appearance/themes/QYL/style/Color/Sugar.css';
     document.head.appendChild(link);
 }
 export function removeSugar() {

@@ -6,7 +6,7 @@ export function initCangming() {
     link.id = 'QYL-Cangming';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL//style/Color/Cangming.css';
+    link.href = '/appearance/themes/QYL/style/Color/Cangming.css';
     document.head.appendChild(link);
 }
 export function removeCangming() {
