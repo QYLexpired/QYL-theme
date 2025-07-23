@@ -114,7 +114,9 @@
     border-radius: var(--b3-border-radius) 0 0 var(--b3-border-radius);
     top: 38px;
     bottom: var(--QYL-dock-float-b);
-    left: var(--QYL-dock-float-l) !important;
+    &:not([style*="translateX"]) {
+        left: var(--QYL-dock-float-l) !important;
+    }
     & .layout__resize {
         margin: -3px 0;
         &::after {
@@ -136,7 +138,9 @@
     border-radius: 0 var(--b3-border-radius) var(--b3-border-radius) 0;
     top: 38px;
     bottom: var(--QYL-dock-float-b);
-    right: var(--QYL-dock-float-r) !important;
+    &:not([style*="translateX"]) {
+        right: var(--QYL-dock-float-r) !important;
+    }
     & .layout__resize {
         margin: -3px 0;
         &::after {
