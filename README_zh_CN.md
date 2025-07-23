@@ -1,6 +1,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.9</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.10</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>的部分细节，并修复相关错误<br>• 优化浮动侧栏样式</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
