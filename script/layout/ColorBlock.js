@@ -90,19 +90,30 @@ export function initColorBlock() {
             clip-path: inset(40px 0 0 0) !important;
         }
         .layout--float.layout__dockl {
-            top: 0;
+            top: 38px;
             bottom: var(--QYL-dock-float-b-0);
-            left: var(--QYL-dock-float-l-0) !important;
             border-radius: 0;
+            &:not([style*="translateX"]) {
+                top: 0;
+                left: var(--QYL-dock-float-l-0) !important;
+                & > .fn__flex-1.fn__flex:first-child {
+                    padding-top: 30px;
+                }
+            }
         }
         .layout--float.layout__dockr {
             top: 38px;
             bottom: var(--QYL-dock-float-b-0);
-            right: var(--QYL-dock-float-r-0) !important;
             border-radius: 0;
+            &:not([style*="translateX"]) {
+                right: var(--QYL-dock-float-r-0) !important;
+            }
         }
         .layout--float.layout__dockb {
             border-radius: 0;
+        }
+        .QYLbarWorkspaceFloatHidden {
+            opacity: 0;
         }
         /* 页签需向下偏移 */
         #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
