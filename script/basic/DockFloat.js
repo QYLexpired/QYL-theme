@@ -42,4 +42,38 @@
     }
   }
   tryFindDockBottom();
+  let dockL = null;
+  let barWorkspace = null;
+  let retryDockLCount = 0;
+  const MAX_DOCKL_RETRY = 15;
+  const RETRY_DOCKL_INTERVAL = 100;
+  function handleDockLFloatChange() {
+    if (!dockL || !barWorkspace) return;
+    const hasFloat = dockL.classList.contains('layout--float');
+    const hasTransform = dockL.style.transform && dockL.style.transform !== '';
+    if (hasFloat && !hasTransform) {
+      barWorkspace.classList.add('QYLbarWorkspaceFloatHidden');
+    } else {
+      barWorkspace.classList.remove('QYLbarWorkspaceFloatHidden');
+    }
+  }
+  function observeDockLClassChange(target) {
+    if (!target) return;
+    const observer = new MutationObserver(handleDockLFloatChange);
+    observer.observe(target, { attributes: true, attributeFilter: ['class', 'style'] });
+  }
+  function tryFindDockLAndBarWorkspace() {
+    dockL = document.querySelector('.layout__dockl');
+    barWorkspace = document.getElementById('barWorkspace');
+    if (dockL && barWorkspace) {
+      handleDockLFloatChange();
+      observeDockLClassChange(dockL);
+      const styleObserver = new MutationObserver(handleDockLFloatChange);
+      styleObserver.observe(dockL, { attributes: true, attributeFilter: ['style'] });
+    } else if (retryDockLCount < MAX_DOCKL_RETRY) {
+      retryDockLCount++;
+      setTimeout(tryFindDockLAndBarWorkspace, RETRY_DOCKL_INTERVAL);
+    }
+  }
+  tryFindDockLAndBarWorkspace();
 })();
