@@ -1,6 +1,7 @@
 .protyle-icons.QYLImgMaskButton {
     left: 4px;
     filter: saturate(0);
+    width: fit-content;
     &.QYLImgMaskButtonActive {
         filter: saturate(1);
     }
