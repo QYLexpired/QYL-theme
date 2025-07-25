@@ -220,7 +220,7 @@ export async function initImgMask() {
         });
         for (const blockId in blockImgsMap) {
             let maskDataList = await loadImgMaskData(blockId);
-            let dragModeMap = { value: false };
+            
             blockImgsMap[blockId].forEach(img => {
                 let ancestor = img.parentElement;
                 while (ancestor && !ancestor.hasAttribute('data-node-id')) {
@@ -230,26 +230,26 @@ export async function initImgMask() {
                 const span = document.createElement('span');
                 span.className = 'protyle-action protyle-icons protyle-custom QYLImgMaskButton';
                 span.innerHTML = '<span class="protyle-icon protyle-icon--only"><svg class="svg"><use xlink:href="#iconRiffCard"></use></svg></span>';
-                setupCreateMaskHandler(img, ancestor, maskDataList, () => dragModeMap.value, () => {});
-                renderMasksForImg(img, ancestor, maskDataList, () => dragModeMap.value, () => {});
+                
+                let dragMode = { value: false };
+                setupCreateMaskHandler(img, ancestor, maskDataList, () => dragMode.value, () => {});
+                renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 span.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    dragModeMap.value = !dragModeMap.value;
-                    if (dragModeMap.value) {
+                    dragMode.value = !dragMode.value;
+                    if (dragMode.value) {
                         span.classList.add('QYLImgMaskButtonActive');
                         img.style.userSelect = 'none';
-                        img.style.webkitUserSelect = 'none';
                         img.style.pointerEvents = '';
                         img.draggable = false;
                     } else {
                         span.classList.remove('QYLImgMaskButtonActive');
                         img.style.userSelect = '';
-                        img.style.webkitUserSelect = '';
                         img.style.pointerEvents = '';
                         img.draggable = true;
                     }
-                    renderMasksForImg(img, ancestor, maskDataList, () => dragModeMap.value, () => {});
+                    renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 });
                 const parent = img.parentNode;
                 if (parent.firstChild) {
@@ -258,7 +258,7 @@ export async function initImgMask() {
                     parent.appendChild(span);
                 }
                 const resizeObserver = new ResizeObserver(() => {
-                    renderMasksForImg(img, ancestor, maskDataList, () => dragModeMap.value, () => {});
+                    renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 });
                 resizeObserver.observe(img);
                 if (typeof window !== 'undefined') {
@@ -274,7 +274,6 @@ export function removeImgMask() {
     document.querySelectorAll('.QYLImgMaskButton').forEach(el => el.remove());
     document.querySelectorAll('img').forEach(img => {
         img.style.userSelect = '';
-        img.style.webkitUserSelect = '';
         img.style.pointerEvents = '';
         img.draggable = true;
         if (img.parentNode && img.parentNode._QYLImgMaskBind) {
