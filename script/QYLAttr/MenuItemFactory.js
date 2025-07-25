@@ -1,4 +1,40 @@
 import { MenuData } from './MenuData.js';
+const QYLAttrHighlightManager = {
+    items: new Set(), 
+    register(el, selectid, attrName, updateFn) {
+        this.items.add({ el, selectid, attrName, updateFn });
+    },
+    unregister(el) {
+        for (const item of this.items) {
+            if (item.el === el) {
+                this.items.delete(item);
+                break;
+            }
+        }
+    },
+    async refreshAll() {
+        const idAttrMap = {};
+        for (const item of this.items) {
+            if (!idAttrMap[item.selectid]) idAttrMap[item.selectid] = new Set();
+            idAttrMap[item.selectid].add(item.attrName);
+        }
+        const allResults = {};
+        const api = this.items.size > 0 ? (this.items.values().next().value.el._QYLAttrAPI || null) : null;
+        if (!api) return;
+        for (const [selectid, attrSet] of Object.entries(idAttrMap)) {
+            try {
+                const attrs = await api.getBlockAttributes(selectid, Array.from(attrSet));
+                allResults[selectid] = attrs || {};
+            } catch {
+                allResults[selectid] = {};
+            }
+        }
+        for (const item of this.items) {
+            const attrs = allResults[item.selectid] || {};
+            item.updateFn(attrs[item.attrName]);
+        }
+    }
+};
 export class MenuItemFactory {
     constructor(i18n, api) {
         this.i18n = i18n;
@@ -49,7 +85,50 @@ export class MenuItemFactory {
         if (group) {
             button.innerHTML += `<span class="b3-menu__accelerator">${group}</span>`;
         }
-        button.onclick = this.QYLcustomattrset.bind(this);
+        const attrFullName = 'custom-' + attrName;
+        const updateActiveClass = (currentValue) => {
+            if (
+                attrValue !== "" &&
+                currentValue === attrValue
+            ) {
+                button.classList.add('QYLAttrActive');
+            } else {
+                button.classList.remove('QYLAttrActive');
+            }
+            let ancestor = button.parentElement;
+            while (ancestor && !ancestor.classList.contains('b3-menu__item')) {
+                ancestor = ancestor.parentElement;
+            }
+            if (ancestor && ancestor !== button) {
+                if (ancestor.querySelector('.QYLAttrActive')) {
+                    ancestor.classList.add('QYLAttrActiveMenu');
+                } else {
+                    ancestor.classList.remove('QYLAttrActiveMenu');
+                }
+            }
+        };
+        button._QYLAttrUpdateActiveClass = updateActiveClass;
+        button._QYLAttrAPI = this.api;
+        QYLAttrHighlightManager.register(button, selectid, attrFullName, updateActiveClass);
+        const selfRemoveObserver = new MutationObserver(() => {
+            if (!button.isConnected) {
+                QYLAttrHighlightManager.unregister(button);
+                selfRemoveObserver.disconnect();
+            }
+        });
+        selfRemoveObserver.observe(document.body, { subtree: true, childList: true });
+        button._QYLAttrSelfRemoveObserver = selfRemoveObserver;
+        button.onclick = async (e) => {
+            const isActive = button.classList.contains('QYLAttrActive');
+            const id = button.getAttribute("data-node-id");
+            const attrNameFull = 'custom-' + button.getAttribute("custom-attr-name");
+            if (isActive) {
+                await this.api.setCustomAttribute(id, attrNameFull, '');
+            } else {
+                await this.QYLcustomattrset(e);
+            }
+            await QYLAttrHighlightManager.refreshAll();
+        };
         return button;
     }
     createCSSItem(selectid) {
@@ -72,6 +151,24 @@ export class MenuItemFactory {
         textarea.setAttribute("custom-attr-name", "css");
         textarea.value = "";
         textarea.placeholder = this.i18n.CSSplaceholder;
+        const updateCSSActiveClass = (currentValue) => {
+            let ancestor = textarea.parentElement;
+            while (ancestor && !ancestor.classList.contains('b3-menu__item')) {
+                ancestor = ancestor.parentElement;
+            }
+            if (currentValue && currentValue.trim() !== "") {
+                if (ancestor && ancestor !== textarea) {
+                    ancestor.classList.add('QYLAttrActiveMenu');
+                }
+            } else {
+                if (ancestor && ancestor !== textarea) {
+                    ancestor.classList.remove('QYLAttrActiveMenu');
+                }
+            }
+        };
+        textarea._QYLCSSUpdateActiveClass = updateCSSActiveClass;
+        textarea._QYLAttrAPI = this.api;
+        QYLAttrHighlightManager.register(textarea, selectid, 'custom-css', updateCSSActiveClass);
         this.api.queryCSSAttribute(selectid).then(customcssvalue => {
             if (customcssvalue) {
                 textarea.value = customcssvalue;
@@ -79,13 +176,22 @@ export class MenuItemFactory {
             } else {
                 textarea.setAttribute("custom-attr-value", "");
             }
-        }).catch(err => {
+            updateCSSActiveClass(customcssvalue);
         });
-        textarea.addEventListener('blur', (e) => {
+        textarea.addEventListener('blur', async (e) => {
             const value = e.target.value;
             e.target.setAttribute("custom-attr-value", value);
-            this.QYLcustomattrset({ currentTarget: e.target });
+            await this.QYLcustomattrset({ currentTarget: e.target });
+            await QYLAttrHighlightManager.refreshAll();
         });
+        const selfRemoveObserver = new MutationObserver(() => {
+            if (!textarea.isConnected) {
+                QYLAttrHighlightManager.unregister(textarea);
+                selfRemoveObserver.disconnect();
+            }
+        });
+        selfRemoveObserver.observe(document.body, { subtree: true, childList: true });
+        textarea._QYLCSSSelfRemoveObserver = selfRemoveObserver;
         div.appendChild(textarea);
         return div;
     }
@@ -302,7 +408,7 @@ export class MenuItemFactory {
             ),
             ...this.menuData.calloutSpecialOptions.map(option => {
                 const btn = this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid);
-                if (option.label === 'removecallout') {
+                if (option.label === 'attrsdelete') {
                     const config = this.menuData.clearButtonConfig.callout;
                     btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
                 }
@@ -312,25 +418,69 @@ export class MenuItemFactory {
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);
     }
-    QYLcustomattrset(event) {
+    async QYLcustomattrset(event) {
         let id = event.currentTarget.getAttribute("data-node-id");
         let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name");
         let attrValue = event.currentTarget.getAttribute("custom-attr-value");
         let clearList = event.currentTarget.getAttribute('data-attr-clear-list');
         let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
         if (clearList) {
-            clearList.split(',').forEach(attr => {
+            for (const attr of clearList.split(',')) {
                 let fullAttr = 'custom-' + attr;
                 if (blocks) {
                     blocks.forEach(block => block.removeAttribute(fullAttr));
                 }
-                this.api.setCustomAttribute(id, fullAttr, '');
-            });
+                await this.api.setCustomAttribute(id, fullAttr, '');
+            }
         } else {
             if (blocks) {
                 blocks.forEach(block => block.setAttribute(attrName, attrValue));
             }
-            this.api.setCustomAttribute(id, attrName, attrValue);
+            await this.api.setCustomAttribute(id, attrName, attrValue);
         }
     }
+}
+export function destroyMenuObservers(menuRoot) {
+    if (!menuRoot) return;
+    menuRoot.querySelectorAll('button').forEach(btn => {
+        if (btn._QYLAttrSelfRemoveObserver) {
+            btn._QYLAttrSelfRemoveObserver.disconnect();
+            btn._QYLAttrSelfRemoveObserver = null;
+        }
+        QYLAttrHighlightManager.unregister(btn);
+    });
+    menuRoot.querySelectorAll('textarea.QYLcssinput').forEach(textarea => {
+        if (textarea._QYLCSSSelfRemoveObserver) {
+            textarea._QYLCSSSelfRemoveObserver.disconnect();
+            textarea._QYLCSSSelfRemoveObserver = null;
+        }
+        QYLAttrHighlightManager.unregister(textarea);
+    });
+}
+(function autoDestroyQYLAttrObservers() {
+    const setupObserver = () => {
+        const menuRoot = document.getElementById('QYLattr');
+        if (menuRoot && menuRoot.parentNode) {
+            const parent = menuRoot.parentNode;
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach(mutation => {
+                    mutation.removedNodes.forEach(node => {
+                        if (node === menuRoot) {
+                            destroyMenuObservers(menuRoot);
+                            observer.disconnect();
+                            setTimeout(setupObserver, 0);
+                        }
+                    });
+                });
+            });
+            observer.observe(parent, { childList: true });
+        } else {
+            setTimeout(setupObserver, 300);
+        }
+    };
+    setupObserver();
+})();
+export async function QYLAttrInitialUpdateAll(menuRoot) {
+    if (!menuRoot) return;
+    await QYLAttrHighlightManager.refreshAll();
 }

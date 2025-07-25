@@ -37,16 +37,40 @@ class QYLAttr {
             timeout = setTimeout(() => func.apply(this, args), delay);
         };
     }
-    initQYLattr() {
+    initQYLattr(e) {
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
         this.initTimeout = setTimeout(() => {
+            const node_list = document.querySelectorAll('.protyle-wysiwyg--select');
             const selectinfo = this.getBlockSelected();
             if (selectinfo) {
                 this.insertTimeout = setTimeout(() => {
                     this.menu.insertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
                     this.api.queryCSSAttribute(selectinfo.id);
                 }, 200);
+            } else if (node_list.length > 1) {
+                let lang = (window.siyuan && window.siyuan.config && window.siyuan.config.lang) || 'zh_CN';
+                let msg = '';
+                switch (lang) {
+                    case 'zh_CN':
+                        msg = this.i18n.QYLAttrMultiSelectWarn || '其他文档存在选中的块，QYL自定义属性菜单无法创建';
+                        break;
+                    case 'zh_TW':
+                    case 'zh_CHT':
+                        msg = this.i18n.QYLAttrMultiSelectWarn || '其他文件存在選中的塊，QYL自定義屬性菜單無法創建';
+                        break;
+                    case 'en_US':
+                    default:
+                        msg = this.i18n.QYLAttrMultiSelectWarn || 'Custom attribute menu cannot be created when blocks are selected in multiple documents.';
+                        break;
+                }
+                if (e && e.target && e.target.closest && e.target.closest('.protyle-gutters')) {
+                    fetch('/api/notification/pushMsg', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ msg, timeout: 3000 })
+                    });
+                }
             }
         }, 0);
     }

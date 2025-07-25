@@ -62,4 +62,21 @@ export class QYLAttrAPI {
         attrs[attrName] = attrValue;
         return this.setBlockAttributes(id, attrs);
     }
+    static async saveImgMaskData(blockId, maskDataList) {
+        const attrValue = JSON.stringify(maskDataList || []);
+        const api = new QYLAttrAPI();
+        return api.setCustomAttribute(blockId, 'QYLImgMaskData', attrValue);
+    }
+    static async loadImgMaskData(blockId) {
+        const api = new QYLAttrAPI();
+        const attrs = await api.getBlockAttributes(blockId, ['QYLImgMaskData']);
+        if (attrs && attrs.QYLImgMaskData) {
+            try {
+                return JSON.parse(attrs.QYLImgMaskData);
+            } catch {
+                return [];
+            }
+        }
+        return [];
+    }
 }

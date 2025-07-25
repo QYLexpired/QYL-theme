@@ -1,4 +1,5 @@
 import { MenuItemFactory } from './MenuItemFactory.js';
+import { QYLAttrInitialUpdateAll } from './MenuItemFactory.js';
 import { MenuData } from './MenuData.js';
 export class QYLAttrMenu {
     constructor(i18n, api) {
@@ -21,6 +22,7 @@ export class QYLAttrMenu {
             } else {
                 menu.appendChild(this.createMenuSeparator());
             }
+            QYLAttrInitialUpdateAll(QYLBtn);
         }
     }
     insertQYLattrforfile(selectid, selecttype) {
@@ -34,6 +36,7 @@ export class QYLAttrMenu {
             const QYLBtn = this.createQYLattrItem(selectid, selecttype);
             menu.appendChild(QYLBtn);
             menu.insertBefore(this.createMenuSeparator(), QYLBtn);
+            QYLAttrInitialUpdateAll(QYLBtn);
         }
     }
     getCommonMenu() {
@@ -157,5 +160,16 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid)
         ];
         return this.factory.createSubmenu("QYLanyblocksub", items);
+    }
+    getFileBlockSelected() {
+        const docRoot = document.querySelector('.protyle-wysiwyg[data-node-id]');
+        if (docRoot) {
+            return {
+                id: docRoot.dataset.nodeId,
+                type: 'navigation-file', 
+                subtype: docRoot.dataset.subtype,
+            };
+        }
+        return null;
     }
 }

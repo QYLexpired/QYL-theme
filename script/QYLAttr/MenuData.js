@@ -15,6 +15,7 @@ export class MenuData {
         ];
         this.calloutColorOptions = [
             { value: "主题色", label: "themecolor", icon: "#iconQuote", group: "group1" },
+            { value: "背景色", label: "bgcolor", icon: "#iconQuote", group: "group1" },
             { value: "红色", label: "red", icon: "#iconQuote", group: "group1" },
             { value: "橙色", label: "orange", icon: "#iconQuote", group: "group1" },
             { value: "黄色", label: "yellow", icon: "#iconQuote", group: "group1" },
@@ -24,7 +25,7 @@ export class MenuData {
             { value: "紫色", label: "purple", icon: "#iconQuote", group: "group1" },
             { value: "粉色", label: "pink", icon: "#iconQuote", group: "group1" },
             { value: "黑色", label: "black", icon: "#iconQuote", group: "group1" },
-            { value: "灰色", label: "gray", icon: "#iconQuote", group: "group1" }
+            { value: "灰色", label: "gray", icon: "#iconQuote", group: "group1" },
         ];
         this.colsBGapOptions = [
             { value: "水平连续排列", label: "colsblianxu", icon: "#iconSuper", group: "group1" },
@@ -156,8 +157,9 @@ export class MenuData {
         this.calloutSpecialOptions = [
             { value: "启用", label: "recovercallout", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
             { value: "启用2", label: "recovercallout2", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
+            { value: "启用4", label: "recovercallout4", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
             { value: "启用3", label: "recovercallout3", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
-            { value: "", label: "removecallout", icon: "#iconClose", attrName: "bq-callout", group: "group2", isWarning: true }
+            { value: "", label: "attrsdelete", icon: "#iconClose", attrName: "bq-callout", group: "group2", isWarning: true }
         ];
         this.submenuConfig = {
             noteSubmenu: { group: "group1" },
@@ -241,7 +243,7 @@ export class MenuData {
             listView: {
                 group: null,
                 attrName: "list-view",
-                clearList: ["list-view"]
+                clearList: ["list-view", "list-style"]
             },
             blankBlockRemind: {
                 group: null,
