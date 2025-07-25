@@ -251,11 +251,14 @@ export async function initImgMask() {
                     }
                     renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 });
-                const parent = img.parentNode;
-                if (parent.firstChild) {
-                    parent.insertBefore(span, parent.firstChild);
-                } else {
-                    parent.appendChild(span);
+                
+                if (!img.parentNode.querySelector('.QYLImgMaskButton')) {
+                    const parent = img.parentNode;
+                    if (parent.firstChild) {
+                        parent.insertBefore(span, parent.firstChild);
+                    } else {
+                        parent.appendChild(span);
+                    }
                 }
                 const resizeObserver = new ResizeObserver(() => {
                     renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
