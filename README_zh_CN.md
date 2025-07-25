@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.1.10</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>的部分细节，并修复相关错误<br>• 优化浮动侧栏样式</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：启用后在图片左上角出现遮罩编辑按钮，点击后进入编辑模式，可创建图片遮罩用于闪卡复习，长按遮罩可删除；再次点击按钮退出编辑模式，单击遮罩可使遮罩透明<br>• 优化QYL自定义属性菜单交互：已激活的属性会高亮提示，再次点击可直接取消该属性<br>• 微调顶栏融合时页签位置<br>• 优化手机端部分细节<br>• 修复行内备注被折叠时，侧边备注无法定位的问题</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -15,8 +15,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在图片左上角出现按钮，可切换遮罩编辑模式<br>编辑模式：拖拽创建遮罩，长按删除遮罩<br>非编辑模式：单击遮罩使其透明</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转<br>点击备注的标题部分可直接打开编辑窗口</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>
@@ -27,8 +31,8 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后位于左上角的文档栏页签将垂直排列，可展示更多页签<br>可通过CSS代码片段来自定义垂直页签栏的宽度<span data-type="code">:root { --QYL-vertical-width: 125px !important;/* 更改此数值，默认为125px */ }</span></p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">引述块自定义Callout</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需开启QYL自定义属性样式<br>通过块菜单-QYL自定义属性-引述块Callout-启用Callout样式来开启，引述块内第一个子块会作为标题</p>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">QYL自定义属性样式</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL设置窗口开启QYL自定义属性样式后，块/文档菜单出现相应选项<br>不同类型的块具有不同的属性选项</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">专注编辑模式</summary>
@@ -44,7 +48,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">主题还支持以下功能</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">顶栏融合、撞色布局、全高界面、隐藏页签和面包屑、动画效果、毛玻璃效果、多彩文档树、网格化搜索列表、编辑器全宽显示、聚焦块高亮、列表子弹线、大量自定义属性样式等</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">顶栏融合、撞色布局、全高界面、隐藏页签和面包屑、动画效果、毛玻璃效果、多彩文档树、网格化搜索列表、编辑器全宽显示、聚焦块高亮、列表子弹线等</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">致谢</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">制作QYL主题时参考了大量集市主题和其他内容创作者，在此表示感谢，包括但不限于（排名不分先后）</p>
