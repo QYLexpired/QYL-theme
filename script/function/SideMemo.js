@@ -22,6 +22,23 @@ function generateMemoUid(memoEl, idx) {
     }
     return uid;
 }
+function getMemoPositionElement(memoEl) {
+    if (memoEl && memoEl.offsetParent !== null) return memoEl;
+    let node = memoEl ? memoEl.parentElement : null;
+    while (node) {
+        if (
+            node.hasAttribute &&
+            node.hasAttribute('data-node-id') &&
+            node.getAttribute('fold') === '1'
+        ) {
+            if (node.offsetParent !== null) {
+                return node;
+            }
+        }
+        node = node.parentElement;
+    }
+    return null;
+}
 const BottomMemoModule = {
     renderBlockMemo(block) {
     block.classList.remove('QYLmemoBlock');
@@ -304,8 +321,9 @@ const RightMemoModule = {
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
         const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
-        if (targetMemoEl) {
-            const targetRect = targetMemoEl.getBoundingClientRect();
+        const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
+        if (positionEl) {
+            const targetRect = positionEl.getBoundingClientRect();
             const wysiwygRect = wysiwyg.getBoundingClientRect();
             const relativeTop = targetRect.top - wysiwygRect.top;
             const offset = 8; 
@@ -340,12 +358,13 @@ const RightMemoModule = {
                 });
             }
             const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
-            if (targetMemoEl) {
-                const targetRect = targetMemoEl.getBoundingClientRect();
+            const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
+            if (positionEl) {
+                const targetRect = positionEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
                 const threshold = isMobile ? 150 : 500;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    positionEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         });
@@ -394,8 +413,9 @@ const RightMemoModule = {
         memoElements.forEach(div => {
             const memoUid = div.getAttribute('data-memo-uid');
             const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + memoUid + '"]');
-            if (targetMemoEl) {
-                const targetRect = targetMemoEl.getBoundingClientRect();
+            const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
+            if (positionEl) {
+                const targetRect = positionEl.getBoundingClientRect();
                 const relativeTop = targetRect.top - wysiwygRect.top;
                 div.style.top = `${relativeTop - offset}px`;
             }
