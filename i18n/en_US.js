@@ -75,7 +75,7 @@ export default {
     "group3": "Group 3",
     "group4": "Group 4",
 
-    "calloutcolor": "Quote block callout",
+    "calloutcolor": "Quote block style",
     "red": "Red",
     "orange": "Orange",
     "yellow": "Yellow",
@@ -88,9 +88,10 @@ export default {
     "gray": "Gray",
     "themecolor": "Theme color",
     "removecallout": "Remove callout",
-    "recovercallout": "Enable callout type1",
-    "recovercallout2": "Enable callout type2",
-    "recovercallout3": "Enable callout type3(Timeline)",
+    "recovercallout": "tcolorbox style",
+    "recovercallout2": "Left border style (with title)",
+    "recovercallout3": "Timeline style",
+    "recovercallout4": "Left border style (no title)",
 
     "colsbgap": "Column super block gap",
     "colsblianxu": "0",
@@ -190,4 +191,8 @@ export default {
     "SideMemoLeft": "Switched to left side memo",
     "SideMemoBottom": "Switched to bottom memo",
     "SideMemoMobileNotSupported": "Mobile devices only support bottom memo, not side memo",
+    "QYLAttrMultiSelectWarn": "Custom attribute menu cannot be created when blocks are selected in multiple documents.",
+    "bgcolor": "Background color",
+    "QYLImgMaskTooSmall": "Mask size must be at least 15px in both width and height.",
+    "ImgMask": "Enable Image Mask",
 }; 
