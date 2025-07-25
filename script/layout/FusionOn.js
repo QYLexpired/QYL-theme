@@ -58,6 +58,16 @@ export function initFusionOn() {
             #drag {
                 opacity: 0;
             }
+            :root {
+                --QYL-FusionOn-Top-Transform: translateY(-1.5px);
+                --QYL-FusionOn-Not-Top-Transform: translateY(-2.5px);
+            }
+            .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+                transform: var(--QYL-FusionOn-Top-Transform);
+            }
+            .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child {
+                transform: var(--QYL-FusionOn-Not-Top-Transform);
+            }
             .layout__center:not(#layouts) {
                 padding-top: 3.75px;
                 box-sizing: border-box;

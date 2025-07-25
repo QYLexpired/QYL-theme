@@ -116,8 +116,12 @@ export function initColorBlock() {
             opacity: 0;
         }
         /* 页签需向下偏移 */
-        #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
-            transform: translateY(5.5px);
+        .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+            --QYL-FusionOn-Top-Transform: translateY(5.5px);
+            margin-bottom: 4.5px;
+        }
+        .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child {
+            --QYL-FusionOn-Not-Top-Transform: translateY(2.5px);
             margin-bottom: 4.5px;
         }
         /* 取消扁平化风格的边框 */
