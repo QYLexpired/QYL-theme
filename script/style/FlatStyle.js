@@ -313,6 +313,14 @@ export function initFlatStyle() {
         [data-theme-mode="dark"] .tooltip {
             border: 1px solid var(--b3-theme-surface-lighter);
         }
+        #QYLattr .QYLAttrActiveMenu.b3-menu__item--show {
+            & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+                color: var(--b3-theme-on-primary);
+            }
+        }
+        #QYLattr.b3-menu__item--show > .b3-menu__icon:first-child {
+            color: var(--b3-theme-on-primary);
+        }
 `;
     document.head.appendChild(style);
 }
