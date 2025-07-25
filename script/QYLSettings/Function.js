@@ -14,6 +14,7 @@ let listBulletOnModule = null;
 let fixedToolModule = null;
 let focusEditingOnModule = null;
 let sideMemoModule = null;
+let imgMaskModule = null;
 async function loadMarktoBlankModule() {
     if (!marktoBlankModule) {
         try {
@@ -94,6 +95,15 @@ async function loadSideMemoModule() {
         }
     }
     return sideMemoModule;
+}
+async function loadImgMaskModule() {
+    if (!imgMaskModule) {
+        try {
+            imgMaskModule = await import('../function/ImgMask.js');
+        } catch (error) {
+        }
+    }
+    return imgMaskModule;
 }
 async function enableMarktoBlank() {
     const module = await loadMarktoBlankModule();
@@ -218,6 +228,19 @@ async function disableSideMemo() {
     const body = document.body;
     body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
 }
+async function enableImgMask() {
+    const module = await loadImgMaskModule();
+    if (module && module.initImgMask) {
+        module.initImgMask();
+    }
+}
+async function disableImgMask() {
+    const module = await loadImgMaskModule();
+    if (module && module.removeImgMask) {
+        module.removeImgMask();
+    }
+    imgMaskModule = null;
+}
 function getFunctionOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -256,6 +279,10 @@ function getFunctionOptions() {
         {
             id: 'SideMemo',
             label: i18n.SideMemo || '显示行内备注'
+        },
+        {
+            id: 'ImgMask',
+            label: i18n.ImgMask || '启用图片遮罩'
         }
     ];
     const darkModeOptions = [
@@ -294,6 +321,10 @@ function getFunctionOptions() {
         {
             id: 'SideMemo',
             label: i18n.SideMemo || '显示行内备注'
+        },
+        {
+            id: 'ImgMask',
+            label: i18n.ImgMask || '启用图片遮罩'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -382,6 +413,12 @@ async function createFunctionContent(config = null) {
                     await enableFocusEditingOn();
                 } else {
                     await disableFocusEditingOn();
+                }
+            } else if (option.id === 'ImgMask') {
+                if (newState) {
+                    await enableImgMask();
+                } else {
+                    await disableImgMask();
                 }
             }
             await flushBatchUpdate();
@@ -507,6 +544,10 @@ async function initializeFunctionStates(config = null) {
         } else if (option.id === 'FocusEditing') {
             if (currentState) {
                 await enableFocusEditingOn();
+            }
+        } else if (option.id === 'ImgMask') {
+            if (currentState) {
+                await enableImgMask();
             }
         }
     }
