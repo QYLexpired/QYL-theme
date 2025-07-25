@@ -27,9 +27,14 @@
 .QYLmobile .b3-menu--fullscreen .b3-menu {
     background-color: var(--b3-theme-background) !important;
 }
+.QYLmobile #commonMenu.b3-menu--fullscreen:not(.fn__none) {
+    height: 100vh !important;
+    transform: translateY(-100vh) !important;
+}
 .QYLmobile .b3-menu--fullscreen .b3-menu__items {
     padding: 0;
     background-color: var(--b3-theme-background) !important;
+    height: 100%;
 }
 .QYLmobile .b3-menu--fullscreen .b3-menu__item {
     background-color: var(--b3-theme-background) !important;
@@ -45,6 +50,7 @@
 }
 .QYLmobile .b3-menu--fullscreen .b3-menu__title {
     border-bottom: 1px solid var(--b3-theme-surface-lighter);
+    z-index: 2;
 }
 .QYLmobile .status {
     border-top: 1px solid var(--b3-theme-surface-lighter);
@@ -57,6 +63,7 @@
     box-shadow: inset 0 0 0 .6px var(--b3-theme-surface-lighter);
 }
 .QYLmobile .QYLcssinput {
+    margin-top: 10px;
     width: 100% !important;
-    height: 180px !important;
+    height: 350px !important;
 }

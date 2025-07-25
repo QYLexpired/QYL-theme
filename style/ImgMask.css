@@ -1,0 +1,30 @@
+.protyle-icons.QYLImgMaskButton {
+    left: 4px;
+    filter: saturate(0);
+    &.QYLImgMaskButtonActive {
+        filter: saturate(1);
+    }
+}
+.QYLImgMaskRect {
+    z-index: 1;
+    box-shadow: var(--b3-shadow-outside);
+    border: 2px solid var(--b3-theme-primary);
+    background: var(--b3-theme-primary);
+    box-sizing: border-box;
+    &.QYLImgMaskRectShow {
+        background: transparent;
+    }
+    &.QYLImgMaskRectEdit {
+        opacity: 0.5;
+    }
+}
+.QYLImgMaskDeleteProgress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--b3-theme-error);
+    z-index: 2;
+    pointer-events: none;
+}
