@@ -78,10 +78,6 @@ export function initFrostedGlass() {
                 & .protyle-breadcrumb {
                     background-color: rgba(255, 0, 0, 0);
                 }
-                &.fullscreen {
-                    background-color: var(--QYL-Aero-background);
-                    backdrop-filter: var(--QYL-Aero-filter);
-                }
             }
         }
         [data-key="dialog-opencard"] {
@@ -206,9 +202,6 @@ export function initFrostedGlass() {
                 & .protyle-breadcrumb {
                     background-color: rgba(255, 0, 0, 0);
                 }
-                &.fullscreen {
-                    backdrop-filter: var(--QYL-Aero-filter);
-                }
             }
         }
         /* 命令面板 */
@@ -224,8 +217,8 @@ export function initFrostedGlass() {
         }
         /* 全屏修复 */
         .fullscreen {
-            background-color: var(--QYL-Aero-background) !important;
-            backdrop-filter: var(--QYL-Aero-filter);
+            background-color: var(--b3-theme-background) !important;
+            backdrop-filter: none !important;
         }
     `;
     document.head.appendChild(style);
