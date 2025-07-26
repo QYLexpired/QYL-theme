@@ -67,3 +67,7 @@
     width: 100% !important;
     height: 350px !important;
 }
+.QYLmobile .b3-snackbars {
+    top: 45px;
+    right: 0;
+}

@@ -1,11 +1,3 @@
-.protyle-icons.QYLImgMaskButton {
-    left: 4px;
-    filter: saturate(0);
-    width: fit-content;
-    &.QYLImgMaskButtonActive {
-        filter: saturate(1);
-    }
-}
 .QYLImgMaskRect {
     z-index: 1;
     box-shadow: var(--b3-shadow-outside);
@@ -29,4 +21,56 @@
     filter: invert(1);
     z-index: 2;
     pointer-events: none;
+}
+.QYLImgEdit {
+    & > .protyle-icons:not(.QYLImgMaskButton) {
+        display: none;
+    }
+    & > .QYLImgMaskShowAll {
+        display: none;
+    }
+}
+body:not(.QYLmobile) .protyle-wysiwyg[contenteditable="false"] {
+    & .QYLImgMaskButton {
+        display: none;
+    }
+    & .QYLImgMaskShowAll {
+        left: 4px;
+    }
+    & .QYLImgMaskShowAll {
+        display: flex;
+    }
+}
+.QYLmobile .protyle-wysiwyg[data-readonly="true"] {
+    & .QYLImgMaskButton {
+        display: none;
+    }
+    & .QYLImgMaskShowAll {
+        left: 4px;
+    }
+    & .QYLImgMaskShowAll {
+        display: flex;
+    }
+}
+.QYLImgMaskButton, .QYLImgMaskShowAll {
+    z-index: 2;
+    transition: var(--b3-transition);
+    opacity: 0.5;
+    position: absolute;
+    display: flex;
+    top: 4px;
+    left: 4px;
+    filter: saturate(0);
+    width: fit-content;
+    &.QYLImgMaskShowAll {
+        left: 32px;
+    }
+    &.QYLImgMaskButtonActive {
+        opacity: 1;
+        filter: saturate(1);
+    }
+    &.QYLImgMaskShowAllActive {
+        opacity: 1;
+        filter: saturate(1);
+    }
 }
