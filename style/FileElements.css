@@ -205,6 +205,9 @@
 .b3-typography .code-block, .protyle-wysiwyg .code-block {
     background-color: var(--b3-theme-surface);
 }
+#preview .b3-typography .code-block, #preview .protyle-wysiwyg .code-block {
+    background-color: #f4f4f4;
+}
 .protyle-linenumber__rows>span::before {
     color: var(--b3-theme-primary);
 }
