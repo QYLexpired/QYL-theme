@@ -1,4 +1,13 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.3</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
+• 優化<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：非編輯模式下左鍵長按圖片非遮罩區域可直接隱藏/恢復所有遮罩<br>
+• 優化<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：適配移動端<br>
+• 優化QYL自定義屬性的效能<br>
+• 修復全螢幕下的樣式錯誤<br>
+• 優化自定義主題色：使明亮和暗黑模式具有不同的調節閾值
+</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的配色選擇</summary>
@@ -6,18 +15,18 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">效能說明</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能沒有任何影響</p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：九宮格排列、固定工具欄、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">圖片遮罩</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現按鈕，可切換遮罩編輯模式<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：單擊遮罩使其透明</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現按鈕，可切換遮罩編輯模式<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：單擊遮罩使其隱藏/恢復，長按圖片非遮罩區域隱藏/恢復所有遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隱藏頂欄</summary>
@@ -45,13 +54,13 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">主題還支援以下功能</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">頂欄融合、撞色佈局、全高介面、隱藏分頁和麵包屑、動畫效果、毛玻璃效果、多彩文件樹、網格化搜尋列表、編輯器全寬顯示、聚焦塊高亮、列表子彈線等</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">頂欄融合、撞色佈局、全高佈局、隱藏分頁和麵包屑、動畫效果、毛玻璃效果、多彩文件樹、網格化搜尋列表、編輯器全寬顯示、聚焦塊高亮、列表子彈線等</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">致謝</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">製作QYL主題時參考了大量集市主題和其他內容創作者，在此表示感謝，包括但不限於（排名不分先後）</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
 • <a href="https://github.com/royc01/notion-theme">Savor主題</a>：列表子彈線、頂欄融合、風格、斜杠菜單多列展示、連接思源API的方法<br>
-• <a href="https://github.com/mustakshif/Asri">Asri主題</a>：文件樹縮進線、風格、搜尋列表多行展示、狀態欄避讓、撞色佈局、全高介面<br>
+• <a href="https://github.com/mustakshif/Asri">Asri主題</a>：文件樹縮進線、風格、搜尋列表多行展示、狀態欄避讓、撞色佈局、全高佈局<br>
 • <a href="https://github.com/chenshinshi/OneNote">Onenote主題</a>：多彩文件樹<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主題</a>：風格<br>
 • <a href="https://github.com/TCOTC/Whisper">淺吟主題</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移動端判斷方法、圖片九宮格排列<br>

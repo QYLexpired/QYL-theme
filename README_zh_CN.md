@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：启用后在图片左上角出现遮罩编辑按钮，点击后进入编辑模式，可创建图片遮罩用于闪卡复习，长按遮罩可删除；再次点击按钮退出编辑模式，单击遮罩可使遮罩透明<br>• 优化QYL自定义属性菜单交互：已激活的属性会高亮提示，再次点击可直接取消该属性<br>• 微调顶栏融合时页签位置<br>• 优化手机端部分细节<br>• 修复行内备注被折叠时，侧边备注无法定位的问题</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.3</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：非编辑模式下左键长按图片非遮罩区域可直接隐藏/恢复所有遮罩<br>• 优化<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：适配移动端<br>• 优化QYL自定义属性的性能<br>• 修复全屏下的样式错误<br>• 优化自定义主题色：使明亮和暗黑模式具有不同的调节阈值</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -9,18 +9,18 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">性能说明</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未启用时，相应代码不会加载，因此对性能没有任何影响</p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若发现卡顿，按照功能对性能的消耗程度，推荐按顺序优先关闭：九宫格排列、固定工具栏、专注编辑模式、QYL自定义属性样式、主题动画、毛玻璃效果、顶栏融合</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未启用时，相应代码不会加载，因此对性能<span style="font-weight: bold; color: var(--b3-theme-primary)">没有任何影响</span></p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若发现卡顿，按照功能对性能的消耗程度，推荐按顺序优先关闭：九宫格排列、固定工具栏、显示行内备注、图片遮罩、专注编辑模式、QYL自定义属性样式、主题动画、毛玻璃效果、顶栏融合</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若设备性能不佳，或者文档比较复杂，建议不要开启过多功能，尤其建议不要同时开启九宫格排列和固定工具栏</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在图片左上角出现按钮，可切换遮罩编辑模式<br>编辑模式：拖拽创建遮罩，长按删除遮罩<br>非编辑模式：单击遮罩使其透明</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在图片左上角出现按钮，可切换遮罩编辑模式<br>编辑模式：拖拽创建遮罩，长按删除遮罩<br>非编辑模式：单击遮罩使其隐藏/恢复，长按图片非遮罩区域隐藏/恢复所有遮罩<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转<br>点击备注的标题部分可直接打开编辑窗口</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转<br>点击备注的标题部分可直接打开编辑窗口<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>
