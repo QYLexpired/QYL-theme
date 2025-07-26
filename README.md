@@ -1,13 +1,9 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.3</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
-• Optimized <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: In non-editing mode, long-pressing the non-mask area of an image with the left mouse button can directly hide/restore all masks<br>
-• Optimized <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: Adapted for mobile devices<br>
-• Optimized the performance of QYL Custom Attribute<br>
-• Fixed style errors in fullscreen mode<br>
-• Optimized custom theme color: different adjustment thresholds for light and dark mode
-</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.4</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Optimized <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: Click the "Mark" button to toggle edit mode, in non-edit mode click the "Lightning" button to hide/restore all masks<br>• Optimized the performance of QYL Custom Attribute<br>• Fixed style errors in fullscreen mode<br>• Optimized custom theme color: different adjustment thresholds for light and dark mode</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Added feature option <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: When enabled, mask editing buttons appear at the top left of images. Click to enter edit mode, where you can create image masks for flashcard review. Long press masks to delete them. Click the button again to exit edit mode. Click masks to make them transparent<br>• Optimized QYL Custom Attribute menu interaction: activated attributes are highlighted, clicking again directly cancels the attribute<br>• Fine-tuned tab position when top bar is fused<br>• Optimized some mobile details<br>• Fixed issue where side memos couldn't be located when inline memos were collapsed</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Color Options</summary>
@@ -22,7 +18,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a button appears at the top left of the image to toggle mask editing mode.<br>Editing mode: drag to create a mask, long press to delete a mask.<br>Non-editing mode: click the mask to hide/restore it, long press on non-mask areas of the image to hide/restore all masks.<br>This feature has some performance impact, please disable when not necessary.</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo</summary>
