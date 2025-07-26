@@ -56,8 +56,8 @@ export class ColorPick {
         this.brightnessSlider.className = 'QYLBrightnessSlider';
         this.brightnessInput = document.createElement('input');
         this.brightnessInput.type = 'range';
-        this.brightnessInput.min = '-3';
-        this.brightnessInput.max = '1.5';
+        this.brightnessInput.min = ThemeMode.isDarkMode() ? '-3' : '-5';
+        this.brightnessInput.max = ThemeMode.isDarkMode() ? '3' : '1.5';
         this.brightnessInput.step = '0.01';
         this.brightnessInput.value = initialBrightness.toString();
         this.brightnessInput.className = 'QYLBrightnessInput';
