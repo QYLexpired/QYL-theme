@@ -25,7 +25,8 @@
     top: 0;
     height: 100%;
     width: 0;
-    background: var(--b3-theme-error);
+    background: var(--b3-theme-primary);
+    filter: invert(1);
     z-index: 2;
     pointer-events: none;
 }

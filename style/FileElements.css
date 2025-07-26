@@ -204,23 +204,6 @@
 /* 代码块 */
 .b3-typography .code-block, .protyle-wysiwyg .code-block {
     background-color: var(--b3-theme-surface);
-    background-color: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.015) calc(0.034 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-}
-#preview .b3-typography .code-block, #preview .protyle-wysiwyg .code-block {
-    background-color: rgba(224, 224, 224, 0.3);
-}
-[data-theme-mode="dark"] .b3-typography .code-block, 
-[data-theme-mode="dark"] .protyle-wysiwyg .code-block {
-    background-color: var(--b3-theme-surface);
-    background-color: oklch(calc(0.3 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-}
-[data-theme-mode="dark"].QYLDarkRevert.QYLCustomColor .b3-typography .code-block, 
-[data-theme-mode="dark"].QYLDarkRevert.QYLCustomColor .protyle-wysiwyg .code-block {
-    background-color: var(--b3-theme-surface);
-    background-color: oklch(calc(0.25 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-}
-[data-theme-mode]:not(.QYLCustomColor) .b3-typography .code-block, [data-theme-mode]:not(.QYLCustomColor) .protyle-wysiwyg .code-block {
-    background-color: var(--b3-theme-surface);
 }
 .protyle-linenumber__rows>span::before {
     color: var(--b3-theme-primary);

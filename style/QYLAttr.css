@@ -1,0 +1,44 @@
+#QYLattrcsssub .b3-menu__items {
+    padding: 0;
+}
+#QYLattr .b3-menu__icon--arrow {
+    margin-right: 2px;
+}
+.QYLmobile #QYLattr .b3-menu__icon--arrow {
+    height: 17px !important;
+    width: 17px !important;
+    margin: 0 16px 0 8px !important;
+    line-height: 17px !important;
+}
+#QYLattr .QYLAttrActive {
+    background-color: var(--b3-theme-primary);
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+        color: var(--b3-theme-on-primary);
+    }
+    &:hover {
+        background-color: var(--b3-theme-primary);
+    }
+}
+#QYLattr .QYLAttrActiveMenu {
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+        color: var(--b3-theme-primary);
+    }
+}
+.QYLmobile #QYLattr .QYLAttrActive {
+    background-color: var(--b3-theme-background);
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+        color: var(--b3-theme-primary);
+    }
+    &:hover {
+        background-color: var(--b3-theme-background);
+    }
+}
+.QYLmobile #QYLattr .QYLAttrActiveMenu {
+    background-color: var(--b3-theme-background);
+    & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator) {
+        color: var(--b3-theme-primary);
+    }
+    &:hover {
+        background-color: var(--b3-theme-background);
+    }
+}

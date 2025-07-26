@@ -49,6 +49,17 @@
         height: 11px !important;
     }
 }
+.toolbar__window .toolbar__item#pinWindow {
+    border-radius: var(--b3-border-radius);
+    padding: 8px;
+    margin: 4px;
+    width: 28px;
+    height: 26px;
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+}
 #barWorkspace {
     background-color: var(--QYL-tab-item-focus);
     border-radius: 8px;

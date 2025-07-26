@@ -15,6 +15,7 @@
     & .b3-list-item__text {
         flex-basis: calc(100% - 44px);
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         line-height: 1.5;
     }
     & .b3-list-item__meta--ellipsis {
@@ -122,9 +123,6 @@
     background-color: var(--b3-highlight-background);
     color: white;
     box-shadow: none;
-}
-#searchPreview.search__preview.protyle.fullscreen .protyle-breadcrumb {
-    padding-right: 130px;
 }
 .search__drag::after {
     visibility: hidden;

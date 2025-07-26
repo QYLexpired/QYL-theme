@@ -1,0 +1,12 @@
+#windowControls {
+    z-index: 1 !important;
+}
+body.body--win32 .fullscreen>.protyle-breadcrumb, body.body--win32 .fullscreen>.block__icons {
+    padding-right: 10px;
+}
+.fullscreen {
+    margin: 0 !important;
+    & > .protyle-breadcrumb {
+        background-color: var(--b3-theme-surface) !important;
+    }
+}
