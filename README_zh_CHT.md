@@ -1,6 +1,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.4</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 優化<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：點擊「標記」按鈕開啟/關閉編輯模式，非編輯模式點擊「閃電」按鈕隱藏/恢復所有遮罩<br>• 優化QYL自訂屬性的效能<br>• 修復全螢幕下的樣式錯誤<br>• 優化自訂主題色：使明亮和暗黑模式具有不同的調節閾值</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能選項<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：啟用後在圖片左上角出現遮罩編輯按鈕，點擊後進入編輯模式，可建立圖片遮罩用於閃卡複習，長按遮罩可刪除；再次點擊按鈕退出編輯模式，單擊遮罩可使遮罩透明<br>• 優化QYL自訂屬性選單互動：已啟動的屬性會高亮提示，再次點擊可直接取消該屬性<br>• 微調頂欄融合時分頁位置<br>• 優化手機端部分細節<br>• 修復行內備註被摺疊時，側邊備註無法定位的問題</p>
