@@ -23,12 +23,27 @@ class QYLAttr {
     startClickMonitor() {
         if (this.isClickMonitorActive) return;
         this.isClickMonitorActive = true;
-        this.handleEvent = this.debounce((e) => {
+        this.handleBlockEvent = this.debounce((e) => {
             this.initQYLattr(e);
+        }, 100);
+        this.handleFileEvent = this.debounce((e) => {
             this.initQYLattrforfile(e);
         }, 100);
-        window.addEventListener('mouseup', this.handleEvent);
-        window.addEventListener('keyup', this.handleEvent);
+        this.handleMouseEvent = (e) => {
+            if (e.target.closest('.protyle-gutters')) {
+                this.handleBlockEvent(e);
+            }
+            if (e.target.closest('.b3-list-item')) {
+                this.handleFileEvent(e);
+            }
+        };
+        this.handleKeyEvent = (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                this.handleBlockEvent(e);
+            }
+        };
+        window.addEventListener('mouseup', this.handleMouseEvent);
+        window.addEventListener('keyup', this.handleKeyEvent);
     }
     debounce(func, delay) {
         let timeout;
@@ -41,36 +56,12 @@ class QYLAttr {
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
         this.initTimeout = setTimeout(() => {
-            const node_list = document.querySelectorAll('.protyle-wysiwyg--select');
             const selectinfo = this.getBlockSelected();
             if (selectinfo) {
                 this.insertTimeout = setTimeout(() => {
                     this.menu.insertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
                     this.api.queryCSSAttribute(selectinfo.id);
                 }, 200);
-            } else if (node_list.length > 1) {
-                let lang = (window.siyuan && window.siyuan.config && window.siyuan.config.lang) || 'zh_CN';
-                let msg = '';
-                switch (lang) {
-                    case 'zh_CN':
-                        msg = this.i18n.QYLAttrMultiSelectWarn || '其他文档存在选中的块，QYL自定义属性菜单无法创建';
-                        break;
-                    case 'zh_TW':
-                    case 'zh_CHT':
-                        msg = this.i18n.QYLAttrMultiSelectWarn || '其他文件存在選中的塊，QYL自定義屬性菜單無法創建';
-                        break;
-                    case 'en_US':
-                    default:
-                        msg = this.i18n.QYLAttrMultiSelectWarn || 'Custom attribute menu cannot be created when blocks are selected in multiple documents.';
-                        break;
-                }
-                if (e && e.target && e.target.closest && e.target.closest('.protyle-gutters')) {
-                    fetch('/api/notification/pushMsg', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ msg, timeout: 3000 })
-                    });
-                }
             }
         }, 0);
     }
@@ -113,11 +104,14 @@ class QYLAttr {
     cleanup() {
         cleanupQYLcustomattrCSS();
         cleanupCustomCSS();
-        if (this.isClickMonitorActive && this.handleEvent) {
-            window.removeEventListener('mouseup', this.handleEvent);
-            window.removeEventListener('keyup', this.handleEvent);
+        if (this.isClickMonitorActive) {
+            window.removeEventListener('mouseup', this.handleMouseEvent);
+            window.removeEventListener('keyup', this.handleKeyEvent);
             this.isClickMonitorActive = false;
-            this.handleEvent = null;
+            this.handleBlockEvent = null;
+            this.handleFileEvent = null;
+            this.handleMouseEvent = null;
+            this.handleKeyEvent = null;
         }
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
