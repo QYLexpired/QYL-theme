@@ -191,7 +191,6 @@ export default {
     "SideMemoLeft": "Switched to left side memo",
     "SideMemoBottom": "Switched to bottom memo",
     "SideMemoMobileNotSupported": "Mobile devices only support bottom memo, not side memo",
-    "QYLAttrMultiSelectWarn": "Custom attribute menu cannot be created when blocks are selected in multiple documents.",
     "bgcolor": "Background color",
     "QYLImgMaskTooSmall": "Mask size must be at least 15px in both width and height.",
     "ImgMask": "Enable Image Mask",

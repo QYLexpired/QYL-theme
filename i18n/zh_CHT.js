@@ -175,7 +175,6 @@ export default {
     "SideMemoLeft": "已切換為左側備註",
     "SideMemoBottom": "已切換為底部備註",
     "SideMemoMobileNotSupported": "手機端僅支援底部備註，不支援側邊備註",
-    "QYLAttrMultiSelectWarn": "其他文件存在選中的塊，QYL自定義屬性菜單無法創建",
     "bgcolor": "背景色",
     "QYLImgMaskTooSmall": "遮罩長寬不能低於15px",
     "ImgMask": "啟用圖片遮罩",
