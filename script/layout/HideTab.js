@@ -24,7 +24,7 @@ export function initHideTab() {
             }
             & + .layout-tab-container {
                 border-radius: var(--b3-border-radius);
-                & > .fn__flex-1.protyle .protyle-breadcrumb {/* 只隐藏protyle的面包屑 */
+                & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {/* 只隐藏protyle的面包屑 */
                     opacity: 0;
                     padding-top: 46.5px;
                     margin-bottom: -76.5px;
