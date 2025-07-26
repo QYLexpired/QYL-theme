@@ -12,7 +12,7 @@
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Performance Notes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is <span style="font-weight: bold; color: var(--b3-theme-primary)">no impact on performance</span></p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If your device has poor performance or the document is complex, it is recommended not to enable too many features, especially avoid enabling Nine Grid Layout and Fixed Toolbar simultaneously.</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>

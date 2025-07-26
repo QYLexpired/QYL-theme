@@ -12,7 +12,7 @@
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">效能說明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
