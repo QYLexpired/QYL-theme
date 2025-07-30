@@ -541,11 +541,7 @@ function renderSideMemo(wysiwyg) {
     const isRMode = document.body.classList.contains('QYLmemoR');
     const isLMode = document.body.classList.contains('QYLmemoL');
     if (isRMode || isLMode) {
-        // 检查宽度，低于400px时不显示备注
-        const wysiwygWidth = wysiwyg.offsetWidth;
-        if (wysiwygWidth >= 400) {
-            RightMemoModule.renderWysiwyg(wysiwyg);
-        }
+        RightMemoModule.renderWysiwyg(wysiwyg);
     } else {
         BottomMemoModule.renderWysiwyg(wysiwyg);
     }
