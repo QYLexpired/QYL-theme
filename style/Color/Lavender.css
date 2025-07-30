@@ -12,7 +12,7 @@
     --b3-theme-background-light: rgb(229, 207, 245);
 
     /* 面板背景色 */
-    --b3-theme-surface: rgb(239, 228, 255);
+    --b3-theme-surface: #efe4ff;
     --b3-theme-surface-light: rgba(239, 228, 255, 0.8);
     --b3-theme-surface-lighter: rgb(215, 203, 232);
 

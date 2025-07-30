@@ -8,11 +8,11 @@
     --b3-theme-primary-lightest: rgba(182, 193, 222, 0.12);
 
     /* 编辑器背景色 */
-    --b3-theme-background: rgb(40, 44, 52);
+    --b3-theme-background: #282c34;
     --b3-theme-background-light: rgb(72, 77, 88);
 
     /* 面板背景色 */
-    --b3-theme-surface: rgb(30, 34, 39);
+    --b3-theme-surface: #1e2227;
     --b3-theme-surface-light: rgba(30, 34, 39, 0.8);
     --b3-theme-surface-lighter: rgb(52, 59, 68);
 

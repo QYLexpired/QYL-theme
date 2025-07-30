@@ -41,7 +41,7 @@
 
     /* 提示 */
     --b3-tooltips-background: var(--b3-theme-background);
-    --b3-tooltips-color: var(--b3-the极-on-surface);
+    --b3-tooltips-color: var(--b3-theme-on-surface);
     --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
     --b3-tooltips-shadow: var(--b3-point-shadow);
 
