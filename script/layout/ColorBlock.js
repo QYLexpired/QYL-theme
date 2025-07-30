@@ -102,9 +102,11 @@ export function initColorBlock() {
             }
         }
         .layout--float.layout__dockr {
-            top: 38px;
+            top: 0px;
+            padding-top: 30px;
             bottom: var(--QYL-dock-float-b-0);
             border-radius: 0;
+            box-shadow: 0 40px 0 0 var(--b3-theme-background) inset;
             &:not([style*="translateX"]) {
                 right: var(--QYL-dock-float-r-0) !important;
             }
@@ -113,6 +115,9 @@ export function initColorBlock() {
             border-radius: 0;
         }
         .QYLbarWorkspaceFloatHidden {
+            opacity: 0;
+        }
+        .QYLCloseWindowHidden {
             opacity: 0;
         }
         /* 页签需向下偏移 */
