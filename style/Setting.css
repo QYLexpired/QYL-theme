@@ -1,9 +1,9 @@
+.config__tab-wrap {
+    height: calc(100% - 12px);
+    margin: 6px 6px 0px 0px;
+    border-radius: var(--b3-border-radius);
+}
 [data-key="dialog-setting"] {
-    & .config__tab-wrap {
-        height: calc(100% - 12px);
-        margin: 6px 6px 0px 0px;
-        border-radius: var(--b3-border-radius);
-    }
     & .b3-tab-bar {
         width: 150px;
     }

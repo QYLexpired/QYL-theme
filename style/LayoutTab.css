@@ -63,6 +63,9 @@
 .layout-tab-bar .item + .item {
     margin-left: 0px;
 }
+.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar {
+    overflow-y: hidden;
+}
 /* 钉住 */
 .layout-tab-bar .item--pin {
     min-width: 20px;

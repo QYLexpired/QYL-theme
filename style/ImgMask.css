@@ -1,11 +1,10 @@
 .QYLImgMaskRect {
     z-index: 1;
     box-shadow: var(--b3-shadow-outside);
-    border: 2px solid var(--b3-theme-primary);
     background: var(--b3-theme-primary);
     box-sizing: border-box;
     &.QYLImgMaskRectShow {
-        background: transparent;
+        opacity: 0.3;
     }
     &.QYLImgMaskRectEdit {
         opacity: 0.5;
@@ -73,4 +72,7 @@ body:not(.QYLmobile) .protyle-wysiwyg[contenteditable="false"] {
         opacity: 1;
         filter: saturate(1);
     }
+}
+span:not(:hover) > :is(.QYLImgMaskButton, .QYLImgMaskShowAll) {
+    opacity: 0;
 }

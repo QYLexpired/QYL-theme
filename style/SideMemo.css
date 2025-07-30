@@ -14,6 +14,12 @@
         color: var(--b3-theme-on-primary) !important;
     }
 }
+:is(.QYLmemoR, .QYLmemoL) .protyle-wysiwyg.QYLmemoProtyle {
+    min-width: 200px;
+}
+:is(.QYLmemoR, .QYLmemoL) .protyle-content {
+    overflow-x: hidden;
+}
 /* 底部 */
 .QYLmemoB .QYL-inline-memo-box {
     display: grid;

@@ -174,3 +174,10 @@
         opacity: 0;
     }
 }
+.search__layout--row #searchList + .search__drag.fn__none {
+    display: block !important;
+    pointer-events: none;
+}
+.search__layout:not(.search__layout--row) .search__list {
+    border-top: none;
+}
