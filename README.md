@@ -1,5 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Important update: QYL Custom Attributes now include <span data-type="code" style="padding: 0 0.4em">Self-Configured Attributes</span>, allowing custom attribute values. See theme description for specific methods<br>• Optimized <span data-type="code" style="padding: 0 0.4em">Show Inline Memo</span>: Hide all bottom/side memos when blocks are collapsed; bottom/side memos no longer display in database card view<br>• Optimized image mask styles<br>• Redesigned <span data-type="code" style="padding: 0 0.4em">Focus Editing Mode</span>: Significantly improved performance, support right-click button to cancel block blur<br>• Added two focus block highlight styles, switchable via right-click on the feature button</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Optimized <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: Click the "Mark" button to toggle edit mode, in non-edit mode click the "Lightning" button to hide/restore all masks<br>• Optimized the performance of QYL Custom Attribute<br>• Fixed style errors in fullscreen mode<br>• Optimized custom theme color: different adjustment thresholds for light and dark mode</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
@@ -37,8 +39,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">After enabling QYL custom attribute styles in the QYL settings window, corresponding options will appear in the block/document menu.<br>Different types of blocks have different attribute options.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Focus Editing</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Keeps the currently edited block vertically centered in the editor and blurs unedited blocks to highlight the current one.</p>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires QYL Custom Attributes to be enabled.<br>Add a CSS snippet named <span data-type="code">QYLselfconfigattr</span> and enable it. Format: <span data-type="code">attribute1:value1/value2/value3...;attribute2:value1/value2/value3...</span>, i.e., use <span data-type="code">/</span> to separate different values of the same attribute, use <span data-type="code">;</span> to separate different attributes. Must use half-width symbols.<br>For example: <span data-type="code">color:red/blue;task:todo/done</span><br>You can add <span data-type="code">-block/-file</span> suffix to attribute names to restrict them to block menu/document menu only, such as <span data-type="code">color-block:red/blue</span><br>You can add <span data-type="code">=any text</span> suffix to attribute names/values to set notes for attribute names and values, such as <span data-type="code">color=Color:red=Red/blue=Blue</span><br>Note on attribute naming conventions: Must start with English letters, only allow Arabic numerals/English letters/hyphens <span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">After setting up the code snippet, you must reload SiYuan</span></p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Focus Editing Mode</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Keeps the currently edited block vertically centered in the editor and blurs unedited blocks to highlight the current one.<br>Right-click the Focus Editing Mode button to cancel block blur.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Fixed Toolbar</summary>

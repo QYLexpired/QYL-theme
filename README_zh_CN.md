@@ -1,9 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 优化<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：点击“标记”按钮开启/关闭编辑模式，非编辑模式点击“闪电”按钮隐藏/恢复所有遮罩<br>• 优化QYL自定义属性的性能<br>• 修复全屏下的样式错误<br>• 优化自定义主题色：使明亮和暗黑模式具有不同的调节阈值</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能选项<span data-type="code" style="padding: 0 0.4em">启用图片遮罩</span>：启用后在图片左上角出现遮罩编辑按钮，点击后进入编辑模式，可创建图片遮罩用于闪卡复习，长按遮罩可删除；再次点击按钮退出编辑模式，单击遮罩可使遮罩透明<br>• 优化QYL自定义属性菜单交互：已激活的属性会高亮提示，再次点击可直接取消该属性<br>• 微调顶栏融合时页签位置<br>• 优化手机端部分细节<br>• 修复行内备注被折叠时，侧边备注无法定位的问题</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 重要更新：QYL自定义属性增加<span data-type="code" style="padding: 0 0.4em">自配置属性</span>，可自定义属性值，具体方法参看主题说明<br>• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>：块被折叠时，隐藏所有底部/侧边备注；数据库卡片视图下不再显示底部/侧边备注<br>• 优化图片遮罩样式<br>• 重做<span data-type="code" style="padding: 0 0.4em">专注编辑模式</span>：大幅提升性能、支持右键点击按钮取消块模糊<br>• 增加两种聚焦块高亮样式，可通过右键点击该功能按钮切换</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -37,8 +35,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL设置窗口开启QYL自定义属性样式后，块/文档菜单出现相应选项<br>不同类型的块具有不同的属性选项</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置属性</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需开启QYL自定义属性<br>在CSS代码片段添加名为<span data-type="code">QYLselfconfigattr</span>的代码片段并启用，格式为：<span data-type="code">属性1:属性值1/属性值2/属性值3...;属性2:属性值1/属性值2属性值3...</span>，即用<span data-type="code">/</span>分隔同一属性的不同值，用<span data-type="code">;</span>分隔不同属性，必须使用半角符号<br>比如<span data-type="code">color:red/blue;task:todo/done</span><br>可在属性名后加上<span data-type="code">-block/-file</span>后缀来限制只出现在块菜单/文档菜单，如<span data-type="code">color-block:red/blue</span><br>可在属性名/属性值后加上<span data-type="code">=任意字符</span>后缀来设置属性名和属性值的备注，如<span data-type="code">color=颜色:red=红色/blue=蓝色</span><br>注意属性名的命名规范：必须以英文字母开头、仅允许存在阿拉伯数字/英文字母/连字符<span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">代码片段设定完毕后必须重载思源</span></p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">专注编辑模式</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使当前编辑的块自动保持在编辑器的垂直中心，且模糊未编辑的块来突出当前编辑的块</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使当前编辑的块自动保持在编辑器的垂直中心，且模糊未编辑的块来突出当前编辑的块<br>右键点击专注编辑模式可取消模糊效果</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">固定工具栏</summary>

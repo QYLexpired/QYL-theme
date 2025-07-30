@@ -1,5 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 重要更新：QYL自訂屬性增加<span data-type="code" style="padding: 0 0.4em">自配置屬性</span>，可自訂屬性值，具體方法參看主題說明<br>• 優化<span data-type="code" style="padding: 0 0.4em">顯示行內備註</span>：塊被摺疊時，隱藏所有底部/側邊備註；資料庫卡片視圖下不再顯示底部/側邊備註<br>• 優化圖片遮罩樣式<br>• 重做<span data-type="code" style="padding: 0 0.4em">專注編輯模式</span>：大幅提升效能、支援右鍵點擊按鈕取消塊模糊<br>• 增加兩種聚焦塊高亮樣式，可通過右鍵點擊該功能按鈕切換</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 優化<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：點擊「標記」按鈕開啟/關閉編輯模式，非編輯模式點擊「閃電」按鈕隱藏/恢復所有遮罩<br>• 優化QYL自訂屬性的效能<br>• 修復全螢幕下的樣式錯誤<br>• 優化自訂主題色：使明亮和暗黑模式具有不同的調節閾值</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
@@ -37,8 +39,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL設定視窗開啟QYL自訂屬性樣式後，塊/文件選單出現相應選項<br>不同類型的塊具有不同的屬性選項</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置屬性</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需開啟QYL自訂屬性<br>在CSS程式碼片段添加名為<span data-type="code">QYLselfconfigattr</span>的程式碼片段並啟用，格式為：<span data-type="code">屬性1:屬性值1/屬性值2/屬性值3...;屬性2:屬性值1/屬性值2/屬性值3...</span>，即用<span data-type="code">/</span>分隔同一屬性的不同值，用<span data-type="code">;</span>分隔不同屬性，必須使用半角符號<br>比如<span data-type="code">color:red/blue;task:todo/done</span><br>可在屬性名後加上<span data-type="code">-block/-file</span>後綴來限制只出現在塊選單/文件選單，如<span data-type="code">color-block:red/blue</span><br>可在屬性名/屬性值後加上<span data-type="code">=任意字符</span>後綴來設定屬性名和屬性值的備註，如<span data-type="code">color=顏色:red=紅色/blue=藍色</span><br>注意屬性名的命名規範：必須以英文字母開頭、僅允許存在阿拉伯數字/英文字母/連字符<span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">程式碼片段設定完畢後必須重載思源</span></p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">專注編輯模式</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使當前編輯的塊自動保持在編輯器的垂直中心，且模糊未編輯的塊來突出當前編輯的塊</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使當前編輯的塊自動保持在編輯器的垂直中心，且模糊未編輯的塊來突出當前編輯的塊<br>右鍵點擊專注編輯模式按鈕可取消塊模糊</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">固定工具欄</summary>
