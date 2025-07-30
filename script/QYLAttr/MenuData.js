@@ -42,8 +42,7 @@ export class MenuData {
         this.listViewOptions = [
             { value: "脑图", label: "listviewmindmap", icon: "#iconGlobalGraph", group: "group1" },
             { value: "看板", label: "listviewkanban", icon: "#iconMenu", group: "group1" },
-            { value: "表格", label: "listviewtable", icon: "#iconTable", group: "group1" },
-            { value: "默认", label: "listviewdefault", icon: "#iconList", group: "group1" }
+            { value: "表格", label: "listviewtable", icon: "#iconTable", group: "group1" }
         ];
         this.lineHeightOptions = [
             { value: "单倍行距", label: "lineheight1", icon: "#iconContract", group: "group1" },
@@ -151,15 +150,13 @@ export class MenuData {
             { value: "灰左边框", label: "gray", icon: "#iconTheme", group: "group1" }
         ];
         this.listStyleSpecialOptions = [
-            { value: "隐藏序标", label: "liststylehide", icon: "#iconList", attrName: "list-style", group: "group2" },
-            { value: "恢复序标", label: "liststylerecover", icon: "#iconList", attrName: "list-style", group: "group2" }
+            { value: "隐藏序标", label: "liststylehide", icon: "#iconList", attrName: "list-style", group: "group2" }
         ];
         this.calloutSpecialOptions = [
             { value: "启用", label: "recovercallout", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
             { value: "启用2", label: "recovercallout2", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
             { value: "启用4", label: "recovercallout4", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
-            { value: "启用3", label: "recovercallout3", icon: "#iconQuote", attrName: "bq-callout", group: "group2" },
-            { value: "", label: "attrsdelete", icon: "#iconClose", attrName: "bq-callout", group: "group2", isWarning: true }
+            { value: "启用3", label: "recovercallout3", icon: "#iconQuote", attrName: "bq-callout", group: "group2" }
         ];
         this.submenuConfig = {
             noteSubmenu: { group: "group1" },
@@ -189,82 +186,8 @@ export class MenuData {
             calloutRecover2: "启用2",
             calloutRecover3: "启用3"
         };
-        this.clearButtonConfig = {
-            colsBGap: { 
-                group: "group1", 
-                attrName: "sb-colgap",
-                clearList: ["sb-colgap"]
-            },
-            rowsBGap: { 
-                group: "group1", 
-                attrName: "sb-rowgap",
-                clearList: ["sb-rowgap"]
-            },
-            lineHeight: { 
-                group: null, 
-                attrName: "line-height",
-                clearList: ["line-height"]
-            },
-            tableStyle: { 
-                group: null, 
-                attrName: "table-style",
-                clearList: ["table-style", "table-style-thead", "table-width", "table-color"]
-            },
-            headingStyle: { 
-                group: null, 
-                attrName: "h-style",
-                clearList: ["h-style", "h-style-u", "h-style-l"]
-            },
-            imgStyle: { 
-                group: null, 
-                attrName: "img-border",
-                clearList: ["img-border", "img-shadow", "img-invert", "img-display"]
-            },
-            height: { 
-                group: null, 
-                attrName: "height",
-                clearList: ["height"]
-            },
-            fileStyle: { 
-                group: null, 
-                attrName: "style",
-                clearList: ["style"]
-            },
-            blockStyle: { 
-                group: null, 
-                attrName: "style",
-                clearList: ["style", "style-flashcard"]
-            },
-            fontFamily: { 
-                group: null, 
-                attrName: "font-family",
-                clearList: ["font-family"]
-            },
-            listView: {
-                group: null,
-                attrName: "list-view",
-                clearList: ["list-view", "list-style"]
-            },
-            blankBlockRemind: {
-                group: null,
-                attrName: "blankblock-remind",
-                clearList: ["blankblock-remind"]
-            },
-            callout: {
-                group: null,
-                attrName: "bq-callout",
-                clearList: ["bq-callout", "bq-callout-color"]
-            }
-        };
         this.blankBlockRemindOptions = [
-            { value: "开启", label: "blankblockremindon", icon: "#iconSelect", group: null },
-            { value: "", label: "blankblockremindoff", icon: "#iconClose", group: null, isWarning: true }
+            { value: "开启", label: "blankblockremindon", icon: "#iconSelect", group: null }
         ];
-        this.deleteButtonConfig = {
-            label: "attrsdelete",  
-            icon: "#iconClose",
-            group: null,
-            isWarning: true
-        };
     }
 }

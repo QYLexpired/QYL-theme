@@ -58,8 +58,8 @@ class QYLAttr {
         this.initTimeout = setTimeout(() => {
             const selectinfo = this.getBlockSelected();
             if (selectinfo) {
-                this.insertTimeout = setTimeout(() => {
-                    this.menu.insertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
+                this.insertTimeout = setTimeout(async () => {
+                    await this.menu.insertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
                     this.api.queryCSSAttribute(selectinfo.id);
                 }, 200);
             }
@@ -71,8 +71,8 @@ class QYLAttr {
         this.fileInitTimeout = setTimeout(() => {
             const selectinfo = this.getFileBlockSelected();
             if (selectinfo) {
-                this.fileInsertTimeout = setTimeout(() => {
-                    this.menu.insertQYLattrforfile(selectinfo.id, selectinfo.type);
+                this.fileInsertTimeout = setTimeout(async () => {
+                    await this.menu.insertQYLattrforfile(selectinfo.id, selectinfo.type);
                     this.api.queryCSSAttribute(selectinfo.id);
                 }, 200);
             }

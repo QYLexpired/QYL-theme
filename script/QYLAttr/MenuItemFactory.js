@@ -1,6 +1,8 @@
 import { MenuData } from './MenuData.js';
+import { getFile } from '../basic/API.js';
 const QYLAttrHighlightManager = {
-    items: new Set(), 
+    items: new Set(),
+    refreshTimeouts: new Map(), 
     register(el, selectid, attrName, updateFn) {
         this.items.add({ el, selectid, attrName, updateFn });
     },
@@ -12,26 +14,93 @@ const QYLAttrHighlightManager = {
             }
         }
     },
+    clearBySelectId(selectid) {
+        const itemsToRemove = [];
+        for (const item of this.items) {
+            if (item.selectid === selectid) {
+                itemsToRemove.push(item);
+            }
+        }
+        itemsToRemove.forEach(item => this.items.delete(item));
+        if (this.refreshTimeouts.has(selectid)) {
+            clearTimeout(this.refreshTimeouts.get(selectid));
+            this.refreshTimeouts.delete(selectid);
+        }
+    },
+    clearAll() {
+        this.items.clear();
+        this.refreshTimeouts.forEach(timeout => clearTimeout(timeout));
+        this.refreshTimeouts.clear();
+    },
+    async refreshBySelectId(selectid) {
+        if (this.refreshTimeouts.has(selectid)) {
+            clearTimeout(this.refreshTimeouts.get(selectid));
+        }
+        const timeoutId = setTimeout(async () => {
+            const itemsForSelectId = Array.from(this.items).filter(item => item.selectid === selectid);
+            if (itemsForSelectId.length === 0) return;
+            const attrSet = new Set();
+            itemsForSelectId.forEach(item => attrSet.add(item.attrName));
+            const api = itemsForSelectId[0].el._QYLAttrAPI || null;
+            if (!api) return;
+            try {
+                const attrs = await api.getBlockAttributes(selectid, Array.from(attrSet));
+                const results = attrs || {};
+                itemsForSelectId.forEach(item => {
+                    try {
+                        item.updateFn(results[item.attrName]);
+                    } catch (error) {
+                    }
+                });
+            } catch (error) {
+            }
+            this.refreshTimeouts.delete(selectid);
+        }, 50); 
+        this.refreshTimeouts.set(selectid, timeoutId);
+    },
+    async refreshBySelectIdImmediate(selectid) {
+        const itemsForSelectId = Array.from(this.items).filter(item => item.selectid === selectid);
+        if (itemsForSelectId.length === 0) return;
+        const attrSet = new Set();
+        itemsForSelectId.forEach(item => attrSet.add(item.attrName));
+        const api = itemsForSelectId[0].el._QYLAttrAPI || null;
+        if (!api) return;
+        try {
+            const attrs = await api.getBlockAttributes(selectid, Array.from(attrSet));
+            const results = attrs || {};
+            itemsForSelectId.forEach(item => {
+                try {
+                    item.updateFn(results[item.attrName]);
+                } catch (error) {
+                }
+            });
+        } catch (error) {
+        }
+    },
     async refreshAll() {
+        if (this.items.size === 0) return;
         const idAttrMap = {};
         for (const item of this.items) {
             if (!idAttrMap[item.selectid]) idAttrMap[item.selectid] = new Set();
             idAttrMap[item.selectid].add(item.attrName);
         }
         const allResults = {};
-        const api = this.items.size > 0 ? (this.items.values().next().value.el._QYLAttrAPI || null) : null;
+        const api = this.items.values().next().value.el._QYLAttrAPI || null;
         if (!api) return;
         for (const [selectid, attrSet] of Object.entries(idAttrMap)) {
             try {
                 const attrs = await api.getBlockAttributes(selectid, Array.from(attrSet));
                 allResults[selectid] = attrs || {};
-            } catch {
+            } catch (error) {
                 allResults[selectid] = {};
             }
         }
         for (const item of this.items) {
-            const attrs = allResults[item.selectid] || {};
-            item.updateFn(attrs[item.attrName]);
+            try {
+                const attrs = allResults[item.selectid] || {};
+                item.updateFn(attrs[item.attrName]);
+            } catch (error) {
+            }
         }
     }
 };
@@ -40,6 +109,9 @@ export class MenuItemFactory {
         this.i18n = i18n;
         this.api = api;
         this.menuData = new MenuData();
+        this.selfConfigAttrCache = null;
+        this.selfConfigAttrCacheTime = 0;
+        QYLAttrHighlightManager.clearAll();
     }
     createSubmenu(id, items) {
         const div = document.createElement("div");
@@ -127,7 +199,7 @@ export class MenuItemFactory {
             } else {
                 await this.QYLcustomattrset(e);
             }
-            await QYLAttrHighlightManager.refreshAll();
+            await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
         };
         return button;
     }
@@ -182,7 +254,8 @@ export class MenuItemFactory {
             const value = e.target.value;
             e.target.setAttribute("custom-attr-value", value);
             await this.QYLcustomattrset({ currentTarget: e.target });
-            await QYLAttrHighlightManager.refreshAll();
+            const selectid = e.target.getAttribute("data-node-id");
+            await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
         });
         const selfRemoveObserver = new MutationObserver(() => {
             if (!textarea.isConnected) {
@@ -199,13 +272,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.colsBGapOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.colsBGap, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.colsBGap;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrcolsbgapsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.colsbgap, "#iconSuper", submenu);
@@ -214,13 +281,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.rowsBGapOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.rowsBGap, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.rowsBGap;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrrowsbgapsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.rowsbgap, "#iconSuper", submenu);
@@ -232,13 +293,7 @@ export class MenuItemFactory {
             ),
             ...this.menuData.listStyleSpecialOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.listView;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrlistviewsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.listview, "#iconList", submenu);
@@ -247,27 +302,16 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.lineHeightOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.lineHeight, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.lineHeight;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrlineheightsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.lineheight, "#iconContract", submenu);
     }
     createBlankBlockRemindItem(selectid) {
         const items = [
-            ...this.menuData.blankBlockRemindOptions.map(option => {
-                const btn = this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.blankBlockRemind, option.value, option.group ? this.i18n[option.group] : null, option.isWarning || false, selectid);
-                if (option.isWarning) {
-                    const config = this.menuData.clearButtonConfig.blankBlockRemind;
-                    btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                }
-                return btn;
-            })
+            ...this.menuData.blankBlockRemindOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.blankBlockRemind, option.value, option.group ? this.i18n[option.group] : null, false, selectid)
+            )
         ];
         const submenu = this.createSubmenu("QYLattrblankblockremindsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blankblockremind, "#iconInfo", submenu);
@@ -279,13 +323,7 @@ export class MenuItemFactory {
             ),
             ...this.menuData.tableColorOptions.map(color => 
                 this.createMenuItem(this.i18n[color.label], color.icon, this.menuData.attrNameConfig.tableColor, color.value, this.i18n[color.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.tableStyle;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrtablestylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.tablestyle, "#iconTable", submenu);
@@ -294,13 +332,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.headingStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.headingStyle;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrhstylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.headingstyle, "#iconHeadings", submenu);
@@ -309,13 +341,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.imgStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.imgStyle;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrimgsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.imgstyle, "#iconImage", submenu);
@@ -324,13 +350,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.heightOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.height, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.height;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrheightsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.maxheight, "#iconContract", submenu);
@@ -339,13 +359,7 @@ export class MenuItemFactory {
         const items = [
             ...this.menuData.fileStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.fileStyle;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrfilestylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.fileblockstyle, "#iconTheme", submenu);
@@ -359,13 +373,7 @@ export class MenuItemFactory {
             this.createLeftBorderSubmenu(selectid),
             ...this.menuData.flashcardStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, "style-flashcard", option.value, this.i18n[option.group], false, selectid)
-            ),
-            (() => {
-                const config = this.menuData.clearButtonConfig.blockStyle;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            )
         ];
         const submenu = this.createSubmenu("QYLattrstylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstyle, "#iconTheme", submenu);
@@ -390,13 +398,7 @@ export class MenuItemFactory {
                 const button = this.createMenuItem(option.label, "#iconFont", this.menuData.attrNameConfig.fontFamily, option.value, this.i18n[option.group], false, selectid);
                 button.style.fontFamily = option.fontFamily;
                 return button;
-            }),
-            (() => {
-                const config = this.menuData.clearButtonConfig.fontFamily;
-                const btn = this.createMenuItem(this.i18n[this.menuData.deleteButtonConfig.label], this.menuData.deleteButtonConfig.icon, config.attrName, "", this.menuData.deleteButtonConfig.group ? this.i18n[this.menuData.deleteButtonConfig.group] : null, this.menuData.deleteButtonConfig.isWarning, selectid);
-                btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                return btn;
-            })()
+            })
         ];
         const submenu = this.createSubmenu("QYLattrfontfamilysub", items);
         return this.createMenuItemWithSubmenu(this.i18n.fontfamily, "#iconFont", submenu);
@@ -408,46 +410,207 @@ export class MenuItemFactory {
             ),
             ...this.menuData.calloutSpecialOptions.map(option => {
                 const btn = this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid);
-                if (option.label === 'attrsdelete') {
-                    const config = this.menuData.clearButtonConfig.callout;
-                    btn.setAttribute('data-attr-clear-list', config.clearList.join(','));
-                }
                 return btn;
             })
         ];
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);
     }
+    async parseSelfConfigAttr() {
+        const now = Date.now();
+        if (this.selfConfigAttrCache && (now - this.selfConfigAttrCacheTime) < 300000) {
+            return this.selfConfigAttrCache;
+        }
+        try {
+            const configContent = await getFile('/data/snippets/conf.json');
+            if (!configContent) {
+                this.selfConfigAttrCache = null;
+                this.selfConfigAttrCacheTime = now;
+                return null;
+            }
+            const config = JSON.parse(configContent);
+            const selfConfigItem = config.find(item => 
+                item.name && item.name.toLowerCase() === 'qylselfconfigattr' && item.enabled
+            );
+            if (!selfConfigItem || !selfConfigItem.content) {
+                this.selfConfigAttrCache = null;
+                this.selfConfigAttrCacheTime = now;
+                return null;
+            }
+            const parsedConfig = {};
+            const attrGroups = selfConfigItem.content.split(';');
+            for (const group of attrGroups) {
+                if (!group.trim()) continue;
+                const [attrNamePart, values] = group.split(':');
+                if (!attrNamePart || !values) continue;
+                const attrNameMatch = attrNamePart.trim().match(/^([^=]+)(?:=(.+))?$/);
+                if (!attrNameMatch) continue;
+                const actualAttrName = attrNameMatch[1].trim();
+                const attrNote = attrNameMatch[2] ? attrNameMatch[2].trim() : null;
+                const valueList = values.split('/').filter(v => v.trim());
+                if (valueList.length > 0) {
+                    if (actualAttrName) {
+                        const parsedValues = valueList.map(v => {
+                            const valueMatch = v.trim().match(/^([^=]+)(?:=(.+))?$/);
+                            if (valueMatch) {
+                                return {
+                                    value: valueMatch[1].trim(),
+                                    note: valueMatch[2] ? valueMatch[2].trim() : null
+                                };
+                            } else {
+                                return {
+                                    value: v.trim(),
+                                    note: null
+                                };
+                            }
+                        });
+                        parsedConfig[actualAttrName] = {
+                            attrNote: attrNote,
+                            values: parsedValues
+                        };
+                    }
+                }
+            }
+            this.selfConfigAttrCache = parsedConfig;
+            this.selfConfigAttrCacheTime = now;
+            return parsedConfig;
+        } catch (error) {
+            this.selfConfigAttrCache = null;
+            this.selfConfigAttrCacheTime = now;
+            return null;
+        }
+    }
+    async createSelfConfigAttrItem(selectid, menuType = 'all') {
+        const selfConfig = await this.parseSelfConfigAttr();
+        const items = [];
+        const selfConfigAttrNames = []; 
+        if (!selfConfig || Object.keys(selfConfig).length === 0) {
+            const noConfigButton = document.createElement("button");
+            noConfigButton.className = "b3-menu__item";
+            noConfigButton.disabled = true;
+            noConfigButton.style.opacity = "0.5";
+            noConfigButton.style.cursor = "not-allowed";
+            noConfigButton.innerHTML = `
+                <svg class="b3-menu__icon" style=""><use xlink:href="#iconSettings"></use></svg>
+                <span class="b3-menu__label">${this.i18n.noconfig}</span>
+            `;
+            items.push(noConfigButton);
+        } else {
+            for (const [attrName, configData] of Object.entries(selfConfig)) {
+                const originalAttrName = attrName;
+                const hasBlockSuffix = originalAttrName.endsWith('-block');
+                const hasFileSuffix = originalAttrName.endsWith('-file');
+                if (hasBlockSuffix && menuType !== 'block') {
+                    continue; 
+                }
+                if (hasFileSuffix && menuType !== 'file') {
+                    continue; 
+                }
+                let actualAttrName = attrName;
+                if (hasBlockSuffix) {
+                    actualAttrName = attrName.slice(0, -6); 
+                } else if (hasFileSuffix) {
+                    actualAttrName = attrName.slice(0, -5); 
+                }
+                if (!/^[a-zA-Z][a-zA-Z0-9-]*$/.test(actualAttrName)) {
+                    continue; 
+                }
+                selfConfigAttrNames.push(actualAttrName);
+                const values = configData.values;
+                const attrNote = configData.attrNote;
+                if (values.length === 1) {
+                    const valueData = values[0];
+                    const displayLabel = attrNote ? attrNote : actualAttrName;
+                    const valueLabel = valueData.note ? valueData.note : valueData.value;
+                    const label = `${displayLabel}: ${valueLabel}`;
+                    items.push(this.createMenuItem(label, "#iconSettings", actualAttrName, valueData.value, null, false, selectid));
+                } else {
+                    const subItems = values.map(valueData => {
+                        const valueLabel = valueData.note ? valueData.note : valueData.value;
+                        return this.createMenuItem(valueLabel, "#iconSettings", actualAttrName, valueData.value, null, false, selectid);
+                    });
+                    const submenu = this.createSubmenu(`QYLattrselfconfig${actualAttrName}sub`, subItems);
+                    const displayLabel = attrNote ? attrNote : actualAttrName;
+                    items.push(this.createMenuItemWithSubmenu(displayLabel, "#iconSettings", submenu));
+                }
+            }
+        }
+        const submenu = this.createSubmenu("QYLattrselfconfigsub", items);
+        const selfConfigButton = this.createMenuItemWithSubmenu(this.i18n.selfconfigattr, "#iconSettings", submenu);
+        if (selfConfigAttrNames.length > 0) {
+            selfConfigButton._QYLSelfConfigActiveAttrs = new Set();
+            const updateSelfConfigActiveClass = async () => {
+                try {
+                    const attrNames = selfConfigAttrNames.map(name => `custom-${name}`);
+                    const attrValues = await this.api.getBlockAttributes(selectid, attrNames);
+                    const hasActiveAttr = attrNames.some(attrName => {
+                        const value = attrValues && attrValues[attrName];
+                        return value && value.trim() !== '';
+                    });
+                    if (hasActiveAttr) {
+                        selfConfigButton.classList.add('QYLAttrActiveMenu');
+                    } else {
+                        selfConfigButton.classList.remove('QYLAttrActiveMenu');
+                    }
+                } catch (error) {
+                }
+            };
+            for (const attrName of selfConfigAttrNames) {
+                const attrFullName = `custom-${attrName}`;
+                const updateFn = (currentValue) => {
+                    updateSelfConfigActiveClass();
+                };
+                QYLAttrHighlightManager.register(selfConfigButton, selectid, attrFullName, updateFn);
+            }
+            const selfRemoveObserver = new MutationObserver(() => {
+                if (!selfConfigButton.isConnected) {
+                    QYLAttrHighlightManager.unregister(selfConfigButton);
+                    selfRemoveObserver.disconnect();
+                }
+            });
+            selfRemoveObserver.observe(document.body, { subtree: true, childList: true });
+            selfConfigButton._QYLAttrSelfRemoveObserver = selfRemoveObserver;
+            selfConfigButton._QYLSelfConfigAttrNames = selfConfigAttrNames;
+        }
+        return selfConfigButton;
+    }
     async QYLcustomattrset(event) {
         let id = event.currentTarget.getAttribute("data-node-id");
         let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name");
         let attrValue = event.currentTarget.getAttribute("custom-attr-value");
-        let clearList = event.currentTarget.getAttribute('data-attr-clear-list');
         let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
-        if (clearList) {
-            for (const attr of clearList.split(',')) {
-                let fullAttr = 'custom-' + attr;
-                if (blocks) {
-                    blocks.forEach(block => block.removeAttribute(fullAttr));
-                }
-                await this.api.setCustomAttribute(id, fullAttr, '');
-            }
-        } else {
-            if (blocks) {
-                blocks.forEach(block => block.setAttribute(attrName, attrValue));
-            }
-            await this.api.setCustomAttribute(id, attrName, attrValue);
+        if (blocks) {
+            blocks.forEach(block => block.setAttribute(attrName, attrValue));
         }
+        await this.api.setCustomAttribute(id, attrName, attrValue);
+        await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
     }
 }
 export function destroyMenuObservers(menuRoot) {
     if (!menuRoot) return;
+    const selectIds = new Set();
+    menuRoot.querySelectorAll('button, textarea').forEach(el => {
+        const selectid = el.getAttribute('data-node-id');
+        if (selectid) {
+            selectIds.add(selectid);
+        }
+    });
+    selectIds.forEach(selectid => {
+        QYLAttrHighlightManager.clearBySelectId(selectid);
+    });
     menuRoot.querySelectorAll('button').forEach(btn => {
         if (btn._QYLAttrSelfRemoveObserver) {
             btn._QYLAttrSelfRemoveObserver.disconnect();
             btn._QYLAttrSelfRemoveObserver = null;
         }
         QYLAttrHighlightManager.unregister(btn);
+        if (btn._QYLSelfConfigAttrNames) {
+            btn._QYLSelfConfigAttrNames = null;
+        }
+        if (btn._QYLSelfConfigActiveAttrs) {
+            btn._QYLSelfConfigActiveAttrs.clear();
+            btn._QYLSelfConfigActiveAttrs = null;
+        }
     });
     menuRoot.querySelectorAll('textarea.QYLcssinput').forEach(textarea => {
         if (textarea._QYLCSSSelfRemoveObserver) {
@@ -482,5 +645,27 @@ export function destroyMenuObservers(menuRoot) {
 })();
 export async function QYLAttrInitialUpdateAll(menuRoot) {
     if (!menuRoot) return;
-    await QYLAttrHighlightManager.refreshAll();
+    setTimeout(async () => {
+        try {
+            await QYLAttrHighlightManager.refreshAll();
+        } catch (error) {
+        }
+    }, 100);
+}
+export async function QYLAttrRefreshBySelectId(selectid) {
+    await QYLAttrHighlightManager.refreshBySelectId(selectid);
+}
+export async function QYLAttrRefreshBySelectIdImmediate(selectid) {
+    await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
+}
+export function QYLAttrClearBySelectId(selectid) {
+    QYLAttrHighlightManager.clearBySelectId(selectid);
+}
+export function QYLAttrGlobalCleanup() {
+    QYLAttrHighlightManager.clearAll();
+}
+if (typeof window !== 'undefined') {
+    window.addEventListener('beforeunload', () => {
+        QYLAttrGlobalCleanup();
+    });
 }
