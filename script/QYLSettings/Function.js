@@ -498,6 +498,79 @@ async function createFunctionContent(config = null) {
                 }
             });
         }
+        if (option.id === 'FocusBlockHighlight') {
+            button.addEventListener('contextmenu', async (e) => {
+                e.preventDefault();
+                if (!button.classList.contains('active')) {
+                    return;
+                }
+                try {
+                    const module = await loadFocusBlockHighlightModule();
+                    if (module && module.toggleFocusBlockHighlightMode) {
+                        const newStyleType = await module.toggleFocusBlockHighlightMode();
+                        if (newStyleType !== undefined) {
+                            await batchUpdateConfig({ FocusBlockHighlightStyle: newStyleType });
+                            let msg = i18n.FocusBlockHighlightStyle || '聚焦块高亮样式切换成功';
+                            if (msg) {
+                                try {
+                                    await fetch('/api/notification/pushMsg', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            msg: msg,
+                                            timeout: 3000
+                                        })
+                                    });
+                                } catch (error) {
+                                }
+                            }
+                        }
+                    }
+                } catch (error) {
+                }
+            });
+        }
+        if (option.id === 'FocusEditing') {
+            button.addEventListener('contextmenu', async (e) => {
+                e.preventDefault();
+                if (!button.classList.contains('active')) {
+                    return;
+                }
+                try {
+                    const module = await loadFocusEditingOnModule();
+                    if (module && module.toggleFocusEditingMode) {
+                        const newShowAll = await module.toggleFocusEditingMode();
+                        if (newShowAll !== undefined) {
+                            await batchUpdateConfig({ FocusEditingShowAll: newShowAll });
+                            let msg = '';
+                            if (newShowAll) {
+                                msg = i18n.FocusEditingShowAll || '已切换为显示所有模式';
+                            } else {
+                                msg = i18n.FocusEditingDefault || '已切换为默认模式';
+                            }
+                            if (msg) {
+                                try {
+                                    await fetch('/api/notification/pushMsg', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            msg: msg,
+                                            timeout: 3000
+                                        })
+                                    });
+                                } catch (error) {
+                                }
+                            }
+                        }
+                    }
+                } catch (error) {
+                }
+            });
+        }
         container.appendChild(optionElement);
     }
     return container;
