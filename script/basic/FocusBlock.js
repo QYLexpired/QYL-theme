@@ -1,96 +1,113 @@
-class FocusBlock {
-    constructor() {
-        this.currentFocusElement = null;
-        this.debounceTimer = null;
-        this.eventHandlers = {};
-        this.init();
+let cursorObserver = null;
+let isEnabled = false;
+let currentFocusBlock = null;
+let lastCursorElement = null;
+function getCursorElement() {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return null;
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    if (container.nodeType === Node.TEXT_NODE) {
+        return container.parentElement;
     }
-    init() {
-        this.eventHandlers.selectionChange = () => {
-            this.debounceUpdateFocusBlock();
-        };
-        this.eventHandlers.keyup = () => {
-            this.debounceUpdateFocusBlock();
-        };
-        this.eventHandlers.click = () => {
-            this.debounceUpdateFocusBlock();
-        };
-        document.addEventListener('selectionchange', this.eventHandlers.selectionChange);
-        document.addEventListener('keyup', this.eventHandlers.keyup);
-        document.addEventListener('click', this.eventHandlers.click);
+    return container.nodeType === Node.ELEMENT_NODE ? container : null;
+}
+function findNearestNodeIdElement(element) {
+    if (!element) return null;
+    let current = element;
+    while (current && current !== document.body) {
+        if (current.hasAttribute && current.hasAttribute('data-node-id')) {
+            return current;
+        }
+        current = current.parentElement;
     }
-    debounceUpdateFocusBlock() {
-        if (this.debounceTimer) {
-            clearTimeout(this.debounceTimer);
-        }
-        this.debounceTimer = setTimeout(() => {
-            this.updateFocusBlock();
-        }, 300);
+    return null;
+}
+function updateFocusBlockHighlight(cursorElement) {
+    if (currentFocusBlock) {
+        currentFocusBlock.classList.remove('QYLFocusBlock');
+        currentFocusBlock = null;
     }
-    updateFocusBlock() {
-        this.clearPreviousFocus();
-        const selection = window.getSelection();
-        if (!selection || selection.rangeCount === 0) {
-            return;
-        }
-        const range = selection.getRangeAt(0);
-        const container = range.commonAncestorContainer;
-        if (!this.isInProtyleWysiwyg(container)) {
-            return;
-        }
-        const focusElement = this.findNodeIdParent(container);
-        if (focusElement) {
-            this.currentFocusElement = focusElement;
-            focusElement.classList.add('QYLFocusBlock');
-        }
-    }
-    isInProtyleWysiwyg(element) {
-        let current = element.nodeType === Node.ELEMENT_NODE ? element : element.parentElement;
-        while (current) {
-            if (current.classList && current.classList.contains('protyle-wysiwyg')) {
-                return true;
-            }
-            current = current.parentElement;
-        }
-        return false;
-    }
-    findNodeIdParent(element) {
-        let current = element.nodeType === Node.ELEMENT_NODE ? element : element.parentElement;
-        while (current) {
-            if (current.hasAttribute && current.hasAttribute('data-node-id')) {
-                return current;
-            }
-            current = current.parentElement;
-        }
-        return null;
-    }
-    clearPreviousFocus() {
-        if (this.currentFocusElement) {
-            this.currentFocusElement.classList.remove('QYLFocusBlock');
-            this.currentFocusElement = null;
-        }
-    }
-    destroy() {
-        if (this.eventHandlers.selectionChange) {
-            document.removeEventListener('selectionchange', this.eventHandlers.selectionChange);
-        }
-        if (this.eventHandlers.keyup) {
-            document.removeEventListener('keyup', this.eventHandlers.keyup);
-        }
-        if (this.eventHandlers.click) {
-            document.removeEventListener('click', this.eventHandlers.click);
-        }
-        if (this.debounceTimer) {
-            clearTimeout(this.debounceTimer);
-            this.debounceTimer = null;
-        }
-        this.clearPreviousFocus();
-        const elements = document.querySelectorAll('[data-node-id].QYLFocusBlock');
-        elements.forEach(element => {
-            element.classList.remove('QYLFocusBlock');
-        });
-        this.eventHandlers = {};
-        this.currentFocusElement = null;
+    const nodeIdElement = findNearestNodeIdElement(cursorElement);
+    if (nodeIdElement) {
+        nodeIdElement.classList.add('QYLFocusBlock');
+        currentFocusBlock = nodeIdElement;
     }
 }
-export default FocusBlock; 
+function observeCursorPosition() {
+    const checkCursorPosition = () => {
+        if (!isEnabled) return;
+        const currentCursorElement = getCursorElement();
+        if (currentCursorElement !== lastCursorElement) {
+            lastCursorElement = currentCursorElement;
+            if (currentCursorElement) {
+                updateFocusBlockHighlight(currentCursorElement);
+            } else {
+                updateFocusBlockHighlight(null);
+            }
+        }
+    };
+    document.addEventListener('selectionchange', checkCursorPosition);
+    document.addEventListener('keydown', checkCursorPosition);
+    document.addEventListener('keyup', checkCursorPosition);
+    document.addEventListener('click', checkCursorPosition);
+    const intervalId = setInterval(checkCursorPosition, 100);
+    return {
+        destroy: () => {
+            document.removeEventListener('selectionchange', checkCursorPosition);
+            document.removeEventListener('keydown', checkCursorPosition);
+            document.removeEventListener('keyup', checkCursorPosition);
+            document.removeEventListener('click', checkCursorPosition);
+            clearInterval(intervalId);
+        }
+    };
+}
+class FocusBlock {
+    constructor() {
+        this.init();
+        this.boundBeforeUnload = this.destroy.bind(this);
+        window.addEventListener('beforeunload', this.boundBeforeUnload);
+    }
+    init() {
+        if (cursorObserver) {
+            this.destroy();
+        }
+        isEnabled = true;
+        cursorObserver = observeCursorPosition();
+    }
+    destroy() {
+        isEnabled = false;
+        document.querySelectorAll('.QYLFocusBlock').forEach(element => {
+            element.classList.remove('QYLFocusBlock');
+        });
+        currentFocusBlock = null;
+        lastCursorElement = null;
+        if (cursorObserver) {
+            cursorObserver.destroy();
+            cursorObserver = null;
+        }
+        if (this.boundBeforeUnload) {
+            window.removeEventListener('beforeunload', this.boundBeforeUnload);
+            this.boundBeforeUnload = null;
+        }
+        if (window.gc) {
+            window.gc();
+        }
+    }
+}
+FocusBlock.cleanup = function() {
+    isEnabled = false;
+    document.querySelectorAll('.QYLFocusBlock').forEach(element => {
+        element.classList.remove('QYLFocusBlock');
+    });
+    currentFocusBlock = null;
+    lastCursorElement = null;
+    if (cursorObserver) {
+        cursorObserver.destroy();
+        cursorObserver = null;
+    }
+    if (window.gc) {
+        window.gc();
+    }
+};
+export default FocusBlock;

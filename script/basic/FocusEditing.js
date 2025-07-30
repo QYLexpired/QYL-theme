@@ -1,125 +1,167 @@
-import FocusBlock from './FocusBlock.js';
-let observerMap = new WeakMap();
-let protyleContentObserver = null;
-let focusBlockInstance = null;
-function setupProtyleContent(container) {
-    let currentFocusBlock = null;
-    const innerObserver = new MutationObserver(mutations => {
-        let focusChanged = false;
-        mutations.forEach(mutation => {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                const wasFocus = mutation.oldValue?.includes('QYLFocusBlock') || false;
-                const isFocus = mutation.target.classList.contains('QYLFocusBlock');
-                if (wasFocus !== isFocus) focusChanged = true;
+let cursorObserver = null;
+let isEnabled = false;
+let currentFocusBlock = null;
+let isMousePressed = false;
+let mousePressTimer = null;
+let isLongPress = false; 
+const LONG_PRESS_DURATION = 500; 
+function getCursorElement() {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return null;
+    const range = selection.getRangeAt(0);
+    const container = range.commonAncestorContainer;
+    let element;
+    if (container.nodeType === Node.TEXT_NODE) {
+        element = container.parentElement;
+    } else {
+        element = container.nodeType === Node.ELEMENT_NODE ? container : null;
+    }
+    if (element) {
+        let current = element;
+        while (current && current !== document.body) {
+            if (current.hasAttribute && current.hasAttribute('contenteditable')) {
+                return element;
             }
-        });
-        if (focusChanged) {
-            const newFocus = focusBlockInstance?.currentFocusElement;
-            if (newFocus && container.contains(newFocus)) {
-                if (newFocus !== currentFocusBlock) {
-                    currentFocusBlock = newFocus;
-                    scrollFocusBlockToCenter(container, currentFocusBlock);
-                }
-            } else {
-                currentFocusBlock = null;
-            }
+            current = current.parentElement;
         }
-    });
-    observerMap.set(container, {
-        innerObserver
-    });
-    innerObserver.observe(container, {
-        attributes: true,
-        attributeOldValue: true,
-        subtree: true,
-        attributeFilter: ['class']
-    });
-    const initialFocus = focusBlockInstance?.currentFocusElement;
-    if (initialFocus && container.contains(initialFocus)) {
-        currentFocusBlock = initialFocus;
-        scrollFocusBlockToCenter(container, currentFocusBlock);
+    }
+    return null;
+}
+function findNearestNodeIdElement(element) {
+    if (!element) return null;
+    let current = element;
+    while (current && current !== document.body) {
+        if (current.hasAttribute && current.hasAttribute('data-node-id')) {
+            return current;
+        }
+        current = current.parentElement;
+    }
+    return null;
+}
+function updateFocusBlockHighlight(cursorElement) {
+    if (currentFocusBlock) {
+        currentFocusBlock.classList.remove('QYLFocusBlock');
+        currentFocusBlock = null;
+    }
+    const nodeIdElement = findNearestNodeIdElement(cursorElement);
+    if (nodeIdElement) {
+        nodeIdElement.classList.add('QYLFocusBlock');
+        currentFocusBlock = nodeIdElement;
     }
 }
-function cleanupProtyleContent(container) {
-    const data = observerMap.get(container);
-    if (data) {
-        data.innerObserver.disconnect();
-        observerMap.delete(container);
-    }
-}
-function scrollFocusBlockToCenter(container, element) {
-    const containerRect = container.getBoundingClientRect();
+function shouldScroll(element) {
+    if (!element) return false;
     const elementRect = element.getBoundingClientRect();
-    const relativeTop = elementRect.top - containerRect.top;
-    const visiblePosition = relativeTop + container.scrollTop;
-    const targetScroll = visiblePosition - container.clientHeight / 2 + elementRect.height / 2;
-    const startScroll = container.scrollTop;
-    const distance = targetScroll - startScroll;
-    const duration = 300; 
-    const startTime = performance.now();
-    function easeOutQuad(t) {
-        return 1 - (1 - t) * (1 - t);
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+    const elementCenterY = elementRect.top + elementRect.height / 2;
+    const elementCenterX = elementRect.left + elementRect.width / 2;
+    const windowCenterY = windowHeight / 2;
+    const windowCenterX = windowWidth / 2;
+    const scrollY = Math.abs(elementCenterY - windowCenterY);
+    const scrollX = Math.abs(elementCenterX - windowCenterX);
+    return scrollY > 5 || scrollX > 5;
+}
+function scrollToElementCenter(element) {
+    if (!element) return;
+    if (!shouldScroll(element)) {
+        return;
     }
-    function animate(now) {
-        const elapsed = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = easeOutQuad(progress);
-        container.scrollTop = startScroll + distance * eased;
-        if (progress < 1) {
-            requestAnimationFrame(animate);
+    element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center',
+        inline: 'center'
+    });
+}
+function observeCursorPosition() {
+    let lastCursorElement = null;
+    const checkCursorPosition = () => {
+        if (!isEnabled || isMousePressed || isLongPress) return; 
+        const currentCursorElement = getCursorElement();
+        if (currentCursorElement !== lastCursorElement) {
+            lastCursorElement = currentCursorElement;
+            if (currentCursorElement) {
+                updateFocusBlockHighlight(currentCursorElement);
+                setTimeout(() => {
+                    scrollToElementCenter(currentCursorElement);
+                }, 50);
+            } else {
+                updateFocusBlockHighlight(null);
+            }
         }
-    }
-    requestAnimationFrame(animate);
+    };
+    const handleMouseDown = () => {
+        isMousePressed = true;
+        isLongPress = false; 
+        if (currentFocusBlock) {
+            currentFocusBlock.classList.remove('QYLFocusBlock');
+            currentFocusBlock = null;
+        }
+        mousePressTimer = setTimeout(() => {
+            isLongPress = true; 
+        }, LONG_PRESS_DURATION);
+    };
+    const handleMouseUp = () => {
+        isMousePressed = false;
+        if (mousePressTimer) {
+            clearTimeout(mousePressTimer);
+            mousePressTimer = null;
+        }
+        if (isLongPress) {
+            setTimeout(() => {
+                isLongPress = false;
+            }, 200); 
+        } else {
+            setTimeout(checkCursorPosition, 10);
+        }
+    };
+    const handleMouseLeave = () => {
+        isMousePressed = false;
+        isLongPress = false; 
+        if (mousePressTimer) {
+            clearTimeout(mousePressTimer);
+            mousePressTimer = null;
+        }
+    };
+    document.addEventListener('selectionchange', checkCursorPosition);
+    document.addEventListener('keydown', checkCursorPosition);
+    document.addEventListener('keyup', checkCursorPosition);
+    document.addEventListener('click', checkCursorPosition);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return {
+        destroy: () => {
+            document.removeEventListener('selectionchange', checkCursorPosition);
+            document.removeEventListener('keydown', checkCursorPosition);
+            document.removeEventListener('keyup', checkCursorPosition);
+            document.removeEventListener('click', checkCursorPosition);
+            document.removeEventListener('mousedown', handleMouseDown);
+            document.removeEventListener('mouseup', handleMouseUp);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+            if (mousePressTimer) {
+                clearTimeout(mousePressTimer);
+                mousePressTimer = null;
+            }
+        }
+    };
 }
 function initFocusEditing() {
-    if (!focusBlockInstance) {
-        focusBlockInstance = new FocusBlock();
+    if (cursorObserver) {
+        removeFocusEditing();
     }
-    if (!protyleContentObserver) {
-        protyleContentObserver = new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-                mutation.addedNodes.forEach(node => {
-                    if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.matches && node.matches('.protyle-content')) {
-                            setupProtyleContent(node);
-                        }
-                        if (node.querySelectorAll) {
-                            node.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
-                        }
-                    }
-                });
-                mutation.removedNodes.forEach(node => {
-                    if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.matches && node.matches('.protyle-content')) {
-                            cleanupProtyleContent(node);
-                        }
-                        if (node.querySelectorAll) {
-                            node.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
-                        }
-                    }
-                });
-            });
-        });
-        const targetNode = document.querySelector('.layout__center') || document.querySelector('#editor') || document.body;
-        if (targetNode) {
-            protyleContentObserver.observe(targetNode, {
-                childList: true,
-                subtree: true
-            });
-            targetNode.querySelectorAll('.protyle-content').forEach(setupProtyleContent);
-        }
-    }
+    isEnabled = true;
+    cursorObserver = observeCursorPosition();
 }
 function removeFocusEditing() {
-    if (protyleContentObserver) {
-        document.querySelectorAll('.protyle-content').forEach(cleanupProtyleContent);
-        observerMap = new WeakMap();
-        protyleContentObserver.disconnect();
-        protyleContentObserver = null;
-    }
-    if (focusBlockInstance) {
-        focusBlockInstance.destroy();
-        focusBlockInstance = null;
+    isEnabled = false;
+    document.querySelectorAll('.QYLFocusBlock').forEach(element => {
+        element.classList.remove('QYLFocusBlock');
+    });
+    currentFocusBlock = null;
+    if (cursorObserver) {
+        cursorObserver.destroy();
+        cursorObserver = null;
     }
 }
 export { initFocusEditing, removeFocusEditing };
