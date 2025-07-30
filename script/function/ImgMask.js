@@ -56,11 +56,36 @@ function renderMasksForImg(img, ancestor, maskDataList, getDragMode, onDataChang
         if (getDragMode()) mask.classList.add('QYLImgMaskRectEdit');
         img.parentNode.appendChild(mask);
     });
+    const showAllButton = img.parentNode.querySelector('.QYLImgMaskShowAll');
+    if (showAllButton) {
+        const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
+        if (masks.length > 0) {
+            const allShown = Array.from(masks).every(mask => mask.classList.contains('QYLImgMaskRectShow'));
+            if (allShown) {
+                showAllButton.classList.add('QYLImgMaskShowAllActive');
+            } else {
+                showAllButton.classList.remove('QYLImgMaskShowAllActive');
+            }
+        }
+    }
 }
 function handleMaskClick(e, mask, getDragMode) {
     if (e.button !== 0) return;
     if (!getDragMode()) {
         mask.classList.toggle('QYLImgMaskRectShow');
+        const img = mask.parentNode.querySelector('img');
+        if (img) {
+            const showAllButton = img.parentNode.querySelector('.QYLImgMaskShowAll');
+            if (showAllButton) {
+                const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
+                const allShown = Array.from(masks).every(m => m.classList.contains('QYLImgMaskRectShow'));
+                if (allShown) {
+                    showAllButton.classList.add('QYLImgMaskShowAllActive');
+                } else {
+                    showAllButton.classList.remove('QYLImgMaskShowAllActive');
+                }
+            }
+        }
     }
 }
 function handleMaskMouseDown(e, mask, getDragMode, img, ancestor, maskDataList, refreshMasks, onDataChange) {
@@ -79,6 +104,12 @@ function handleMaskMouseDown(e, mask, getDragMode, img, ancestor, maskDataList, 
         setMasksForSrc(maskDataList, img.dataset.src, masks);
         await saveImgMaskData(ancestor.getAttribute('data-node-id'), maskDataList);
         refreshMasks();
+        if (masks.length === 0) {
+            const showAllButton = img.parentNode.querySelector('.QYLImgMaskShowAll');
+            if (showAllButton) {
+                showAllButton.remove();
+            }
+        }
         if (onDataChange) onDataChange();
     }, 1000);
     function clear() {
@@ -105,6 +136,43 @@ function setupCreateMaskHandler(img, ancestor, maskDataList, getDragMode, onData
         });
         img.parentNode._QYLImgMaskBind = true;
     }
+}
+function createShowAllButton(img, dragMode) {
+    const showAllSpan = document.createElement('span');
+    showAllSpan.className = 'protyle-custom QYLImgMaskShowAll';
+    showAllSpan.innerHTML = '<span class="protyle-icon protyle-icon--only"><svg class="svg"><use xlink:href="#iconRiffCard"></use></svg></span>';
+    setTimeout(() => {
+        const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
+        if (masks.length > 0) {
+            const allShown = Array.from(masks).every(mask => mask.classList.contains('QYLImgMaskRectShow'));
+            if (allShown) {
+                showAllSpan.classList.add('QYLImgMaskShowAllActive');
+            } else {
+                showAllSpan.classList.remove('QYLImgMaskShowAllActive');
+            }
+        }
+    }, 0);
+    showAllSpan.addEventListener('click', function(e) {
+        if (e.button !== 0) return;
+        if (!dragMode.value) {
+            const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
+            if (masks.length === 0) return;
+            const allShown = Array.from(masks).every(mask => mask.classList.contains('QYLImgMaskRectShow'));
+            masks.forEach(mask => {
+                if (allShown) {
+                    mask.classList.remove('QYLImgMaskRectShow');
+                } else {
+                    mask.classList.add('QYLImgMaskRectShow');
+                }
+            });
+            if (allShown) {
+                showAllSpan.classList.remove('QYLImgMaskShowAllActive');
+            } else {
+                showAllSpan.classList.add('QYLImgMaskShowAllActive');
+            }
+        }
+    });
+    return showAllSpan;
 }
 function handleCreateMaskDrag(e, img, ancestor, maskDataList, getDragMode, onDataChange) {
     if (e.button !== 0) return;
@@ -133,6 +201,7 @@ function handleCreateMaskDrag(e, img, ancestor, maskDataList, getDragMode, onDat
             dragging = true;
             mask = document.createElement('div');
             mask.className = 'QYLImgMaskRect protyle-custom';
+            if (getDragMode()) mask.classList.add('QYLImgMaskRectEdit');
             mask.style.position = 'absolute';
             mask.style.left = startX + 'px';
             mask.style.top = startY + 'px';
@@ -197,6 +266,16 @@ function handleCreateMaskDrag(e, img, ancestor, maskDataList, getDragMode, onDat
         setMasksForSrc(maskDataList, src, masks);
         saveImgMaskData(ancestor.getAttribute('data-node-id'), maskDataList);
         renderMasksForImg(img, ancestor, maskDataList, getDragMode, onDataChange);
+        if (masks.length === 1) { 
+            const existingShowAllButton = img.parentNode.querySelector('.QYLImgMaskShowAll');
+            if (!existingShowAllButton) {
+                const showAllSpan = createShowAllButton(img, getDragMode);
+                const existingButton = img.parentNode.querySelector('.QYLImgMaskButton');
+                if (existingButton) {
+                    img.parentNode.insertBefore(showAllSpan, existingButton.nextSibling);
+                }
+            }
+        }
         if (onDataChange) onDataChange();
     }
     document.addEventListener('mousemove', onMouseMove);
@@ -229,20 +308,13 @@ export async function initImgMask() {
                 const span = document.createElement('span');
                 span.className = 'protyle-custom QYLImgMaskButton';
                 span.innerHTML = '<span class="protyle-icon protyle-icon--only"><svg class="svg"><use xlink:href="#iconMark"></use></svg></span>';
-                const showAllSpan = document.createElement('span');
-                showAllSpan.className = 'protyle-custom QYLImgMaskShowAll';
-                showAllSpan.innerHTML = '<span class="protyle-icon protyle-icon--only"><svg class="svg"><use xlink:href="#iconRiffCard"></use></svg></span>';
                 let dragMode = { value: false };
                 setupCreateMaskHandler(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
-                const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
-                if (masks.length > 0) {
-                    const allShown = Array.from(masks).every(mask => mask.classList.contains('QYLImgMaskRectShow'));
-                    if (allShown) {
-                        showAllSpan.classList.add('QYLImgMaskShowAllActive');
-                    } else {
-                        showAllSpan.classList.remove('QYLImgMaskShowAllActive');
-                    }
+                const masksForThisImg = getMasksForSrc(maskDataList, img.dataset.src);
+                let showAllSpan = null;
+                if (masksForThisImg.length > 0) {
+                    showAllSpan = createShowAllButton(img, dragMode);
                 }
                 span.addEventListener('click', function(e) {
                     dragMode.value = !dragMode.value;
@@ -261,37 +333,15 @@ export async function initImgMask() {
                     }
                     renderMasksForImg(img, ancestor, maskDataList, () => dragMode.value, () => {});
                 });
-                showAllSpan.addEventListener('click', function(e) {
-                    if (e.button !== 0) return;
-                    if (!dragMode.value) {
-                        const masks = img.parentNode.querySelectorAll('.QYLImgMaskRect');
-                        if (masks.length === 0) return;
-                        const allShown = Array.from(masks).every(mask => mask.classList.contains('QYLImgMaskRectShow'));
-                        masks.forEach(mask => {
-                            if (allShown) {
-                                mask.classList.remove('QYLImgMaskRectShow');
-                            } else {
-                                mask.classList.add('QYLImgMaskRectShow');
-                            }
-                        });
-                        if (allShown) {
-                            showAllSpan.classList.remove('QYLImgMaskShowAllActive');
-                        } else {
-                            showAllSpan.classList.add('QYLImgMaskShowAllActive');
-                        }
-                    }
-                });
                 if (!img.parentNode.querySelector('.QYLImgMaskButton')) {
                     const parent = img.parentNode;
                     if (parent.firstChild) {
                         parent.insertBefore(span, parent.firstChild);
-                        parent.insertBefore(showAllSpan, span.nextSibling);
                     } else {
                         parent.appendChild(span);
-                        parent.appendChild(showAllSpan);
                     }
                 }
-                if (!img.parentNode.querySelector('.QYLImgMaskShowAll')) {
+                if (!img.parentNode.querySelector('.QYLImgMaskShowAll') && showAllSpan) {
                     const parent = img.parentNode;
                     const existingButton = parent.querySelector('.QYLImgMaskButton');
                     if (existingButton) {
@@ -395,7 +445,7 @@ function observeImgChanges() {
                     initImgMask();
                 }
             };
-            debounceTimer = setTimeout(checkImgsLoaded, 200);
+            debounceTimer = setTimeout(checkImgsLoaded, 100);
         }
     });
     observer.observe(document.body, { childList: true, subtree: true });

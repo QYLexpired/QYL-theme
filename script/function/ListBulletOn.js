@@ -190,9 +190,6 @@ export function removeListBulletOn() {
         } catch (e) {
         }
     }
-    if (listBulletOnModule) {
-        listBulletOnModule = null;
-    }
 }
 export function isListBulletOnEnabled() {
     return isEnabled;

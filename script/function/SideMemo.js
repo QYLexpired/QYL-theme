@@ -4,8 +4,34 @@ let enabled = false;
 let observeTimeout = null;
 let memoContentChangeTimeout = null; 
 import { isMobile } from '../basic/Device.js';
+function isInFoldedBlock(element) {
+    let node = element;
+    while (node && node !== document) {
+        if (node.hasAttribute && node.getAttribute('fold') === '1') {
+            return true;
+        }
+        node = node.parentElement;
+    }
+    return false;
+}
 function hasMemo(wysiwyg) {
-    return wysiwyg.querySelectorAll('[data-inline-memo-content]').length > 0;
+    const avGalleryContent = wysiwyg.querySelector('.av__gallery-content');
+    if (avGalleryContent) {
+        const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+        for (const memoEl of memoElements) {
+            if (!avGalleryContent.contains(memoEl) && !isInFoldedBlock(memoEl)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+    for (const memoEl of memoElements) {
+        if (!isInFoldedBlock(memoEl)) {
+            return true;
+        }
+    }
+    return false;
 }
 function updateMemoProtyleClass(wysiwyg) {
     if (hasMemo(wysiwyg)) {
@@ -22,23 +48,6 @@ function generateMemoUid(memoEl, idx) {
     }
     return uid;
 }
-function getMemoPositionElement(memoEl) {
-    if (memoEl && memoEl.offsetParent !== null) return memoEl;
-    let node = memoEl ? memoEl.parentElement : null;
-    while (node) {
-        if (
-            node.hasAttribute &&
-            node.hasAttribute('data-node-id') &&
-            node.getAttribute('fold') === '1'
-        ) {
-            if (node.offsetParent !== null) {
-                return node;
-            }
-        }
-        node = node.parentElement;
-    }
-    return null;
-}
 const BottomMemoModule = {
     renderBlockMemo(block) {
     block.classList.remove('QYLmemoBlock');
@@ -47,9 +56,16 @@ const BottomMemoModule = {
         block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         return;
     }
+    const avGalleryContent = block.querySelector('.av__gallery-content');
     block.classList.add('QYLmemoBlock');
     const memoList = [];
     memoElements.forEach((memoEl, idx) => {
+        if (isInFoldedBlock(memoEl)) {
+            return;
+        }
+        if (avGalleryContent && avGalleryContent.contains(memoEl)) {
+            return;
+        }
         const memoContent = memoEl.getAttribute('data-inline-memo-content');
         if (!memoContent) return;
         const memoText = memoEl.innerText || memoEl.textContent || '';
@@ -202,13 +218,17 @@ const BottomMemoModule = {
         });
     },
     handleObserverChanges(mutations, wysiwyg) {
+        const hasFoldChange = mutations.some(mutation => 
+            mutation.type === 'attributes' && mutation.attributeName === 'fold'
+        );
         if (memoContentChangeTimeout) {
             clearTimeout(memoContentChangeTimeout);
         }
+        const delay = hasFoldChange ? 100 : 1000;
         memoContentChangeTimeout = setTimeout(() => {
             this.renderWysiwyg(wysiwyg);
             updateMemoProtyleClass(wysiwyg);
-        }, 1000);
+        }, delay);
     }
 };
 const RightMemoModule = {
@@ -228,8 +248,15 @@ const RightMemoModule = {
         titleElement.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
         if (memoElements.length === 0) return;
+        const avGalleryContent = wysiwyg.querySelector('.av__gallery-content');
         const memoList = [];
         memoElements.forEach((memoEl, idx) => {
+            if (isInFoldedBlock(memoEl)) {
+                return;
+            }
+            if (avGalleryContent && avGalleryContent.contains(memoEl)) {
+                return;
+            }
             const memoContent = memoEl.getAttribute('data-inline-memo-content');
             if (!memoContent) return;
             const memoText = memoEl.innerText || memoEl.textContent || '';
@@ -321,9 +348,8 @@ const RightMemoModule = {
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
         const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
-        const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
-        if (positionEl) {
-            const targetRect = positionEl.getBoundingClientRect();
+        if (targetMemoEl) {
+            const targetRect = targetMemoEl.getBoundingClientRect();
             const wysiwygRect = wysiwyg.getBoundingClientRect();
             const relativeTop = targetRect.top - wysiwygRect.top;
             const offset = 8; 
@@ -358,13 +384,12 @@ const RightMemoModule = {
                 });
             }
             const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
-            const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
-            if (positionEl) {
-                const targetRect = positionEl.getBoundingClientRect();
+            if (targetMemoEl) {
+                const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
                 const threshold = isMobile ? 150 : 500;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    positionEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         });
@@ -375,13 +400,17 @@ const RightMemoModule = {
         this.updateMemoPositions(wysiwyg);
     },
     handleObserverChanges(mutations, wysiwyg) {
+        const hasFoldChange = mutations.some(mutation => 
+            mutation.type === 'attributes' && mutation.attributeName === 'fold'
+        );
         if (memoContentChangeTimeout) {
             clearTimeout(memoContentChangeTimeout);
         }
+        const delay = hasFoldChange ? 100 : 1000;
         memoContentChangeTimeout = setTimeout(() => {
             this.renderWysiwyg(wysiwyg);
             updateMemoProtyleClass(wysiwyg);
-        }, 1000);
+        }, delay);
     },
     updateMemoPositions(wysiwyg) {
         let protyleContent = wysiwyg.parentElement;
@@ -413,9 +442,8 @@ const RightMemoModule = {
         memoElements.forEach(div => {
             const memoUid = div.getAttribute('data-memo-uid');
             const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + memoUid + '"]');
-            const positionEl = targetMemoEl ? getMemoPositionElement(targetMemoEl) : null;
-            if (positionEl) {
-                const targetRect = positionEl.getBoundingClientRect();
+            if (targetMemoEl) {
+                const targetRect = targetMemoEl.getBoundingClientRect();
                 const relativeTop = targetRect.top - wysiwygRect.top;
                 div.style.top = `${relativeTop - offset}px`;
             }
@@ -477,14 +505,25 @@ const RightMemoModule = {
 function getWysiwygDirectBlock(memoEl) {
     let node = memoEl;
     let wysiwyg = null;
+    let avGalleryContent = null;
     while (node && node !== document) {
         if (node.classList && node.classList.contains('protyle-wysiwyg')) {
             wysiwyg = node;
             break;
         }
+        if (node.classList && node.classList.contains('av__gallery-content')) {
+            avGalleryContent = node;
+        }
         node = node.parentElement;
     }
     if (!wysiwyg) return null;
+    if (avGalleryContent) {
+        for (const child of avGalleryContent.children) {
+            if (child.contains(memoEl)) {
+                return child;
+            }
+        }
+    }
     for (const child of wysiwyg.children) {
         if (child.hasAttribute && child.hasAttribute('data-node-id') && child.contains(memoEl)) {
             return child;
@@ -502,7 +541,11 @@ function renderSideMemo(wysiwyg) {
     const isRMode = document.body.classList.contains('QYLmemoR');
     const isLMode = document.body.classList.contains('QYLmemoL');
     if (isRMode || isLMode) {
-        RightMemoModule.renderWysiwyg(wysiwyg);
+        // 检查宽度，低于400px时不显示备注
+        const wysiwygWidth = wysiwyg.offsetWidth;
+        if (wysiwygWidth >= 400) {
+            RightMemoModule.renderWysiwyg(wysiwyg);
+        }
     } else {
         BottomMemoModule.renderWysiwyg(wysiwyg);
     }
@@ -523,7 +566,7 @@ function bindWysiwygMemoObserver(wysiwyg) {
         childList: true,
         subtree: true,
         attributes: true,
-        attributeFilter: ['data-inline-memo-content']
+        attributeFilter: ['data-inline-memo-content', 'fold']
     });
     wysiwygObserverMap.set(wysiwyg, observer);
     setTimeout(() => {
@@ -573,18 +616,6 @@ export function removeSideMemo() {
         cleanupAllDirections(wysiwyg);
     });
     document.querySelectorAll('[data-inline-memo-content]').forEach(memoEl => {
-        if (memoEl._QYL_memo_mouseenter) {
-            memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
-            delete memoEl._QYL_memo_mouseenter;
-        }
-        if (memoEl._QYL_memo_mouseleave) {
-            memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
-            delete memoEl._QYL_memo_mouseleave;
-        }
-        if (memoEl._QYL_memo_click) {
-            memoEl.removeEventListener('click', memoEl._QYL_memo_click);
-            delete memoEl._QYL_memo_click;
-        }
         if (memoEl._QYL_memo_mouseenter) {
             memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
             delete memoEl._QYL_memo_mouseenter;
