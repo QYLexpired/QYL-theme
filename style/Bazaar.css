@@ -76,3 +76,9 @@
 .config-bazaar__title {
     margin-bottom: 16px;
 }
+[data-name="bazaar"] .layout-tab-bar :is([data-type="downloaded"], [data-type="plugin"], [data-type="theme"], [data-type="icon"], [data-type="template"], [data-type="widget"]) {
+    min-width: fit-content;
+}
+.b3-button:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]) {
+    min-width: fit-content;
+}

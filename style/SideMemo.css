@@ -1,6 +1,3 @@
-:is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .tooltip.tooltip--memo {
-    display: none;
-}
 :is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .b3-typography span[data-type~=inline-memo],
 :is(.QYLmemoB, .QYLmemoR, .QYLmemoL) .protyle-wysiwyg span[data-type~=inline-memo] {
     transition: 0.2s;

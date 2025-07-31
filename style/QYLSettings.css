@@ -1,3 +1,6 @@
+#QYLButton {
+    display: flex !important;
+}
 #QYLSettingsWindow {
     padding-bottom: 0;
 }
