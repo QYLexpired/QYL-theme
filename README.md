@@ -1,11 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Important update: QYL Custom Attributes now include <span data-type="code" style="padding: 0 0.4em">Self-Configured Attributes</span>, allowing custom attribute values. See theme description for specific methods<br>• Optimized <span data-type="code" style="padding: 0 0.4em">Show Inline Memo</span>: Hide all bottom/side memos when blocks are collapsed; bottom/side memos no longer display in database card view<br>• Optimized image mask styles<br>• Redesigned <span data-type="code" style="padding: 0 0.4em">Focus Editing Mode</span>: Significantly improved performance, support right-click button to cancel block blur<br>• Added two focus block highlight styles, switchable via right-click on the feature button</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Optimized <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: Click the "Mark" button to toggle edit mode, in non-edit mode click the "Lightning" button to hide/restore all masks<br>• Optimized the performance of QYL Custom Attribute<br>• Fixed style errors in fullscreen mode<br>• Optimized custom theme color: different adjustment thresholds for light and dark mode</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Added feature option <span data-type="code" style="padding: 0 0.4em">Enable Image Mask</span>: When enabled, mask editing buttons appear at the top left of images. Click to enter edit mode, where you can create image masks for flashcard review. Long press masks to delete them. Click the button again to exit edit mode. Click masks to make them transparent<br>• Optimized QYL Custom Attribute menu interaction: activated attributes are highlighted, clicking again directly cancels the attribute<br>• Fine-tuned tab position when top bar is fused<br>• Optimized some mobile details<br>• Fixed issue where side memos couldn't be located when inline memos were collapsed</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.7</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Fixed some errors in displaying inline memos</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Color Options</summary>
@@ -19,11 +15,11 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, inline memos will be displayed on the side or bottom of the block.<br>How to toggle: Right-click the Show Inline Memo button.<br>Supports HTML parsing, allowing any type of inline memo, such as formulas, images, videos, or any HTML.<br>When the memo is far from the main text, clicking the main text or memo will automatically jump to it.<br>Clicking the title part of the memo will directly open the editing window.<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
@@ -39,7 +35,7 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">After enabling QYL custom attribute styles in the QYL settings window, corresponding options will appear in the block/document menu.<br>Different types of blocks have different attribute options.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires QYL Custom Attributes to be enabled.<br>Add a CSS snippet named <span data-type="code">QYLselfconfigattr</span> and enable it. Format: <span data-type="code">attribute1:value1/value2/value3...;attribute2:value1/value2/value3...</span>, i.e., use <span data-type="code">/</span> to separate different values of the same attribute, use <span data-type="code">;</span> to separate different attributes. Must use half-width symbols.<br>For example: <span data-type="code">color:red/blue;task:todo/done</span><br>You can add <span data-type="code">-block/-file</span> suffix to attribute names to restrict them to block menu/document menu only, such as <span data-type="code">color-block:red/blue</span><br>You can add <span data-type="code">=any text</span> suffix to attribute names/values to set notes for attribute names and values, such as <span data-type="code">color=Color:red=Red/blue=Blue</span><br>Note on attribute naming conventions: Must start with English letters, only allow Arabic numerals/English letters/hyphens <span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">After setting up the code snippet, you must reload SiYuan</span></p>
 </details>
 <details style="padding-left: 1em">

@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 重要更新：QYL自定义属性增加<span data-type="code" style="padding: 0 0.4em">自配置属性</span>，可自定义属性值，具体方法参看主题说明<br>• 优化<span data-type="code" style="padding: 0 0.4em">显示行内备注</span>：块被折叠时，隐藏所有底部/侧边备注；数据库卡片视图下不再显示底部/侧边备注<br>• 优化图片遮罩样式<br>• 重做<span data-type="code" style="padding: 0 0.4em">专注编辑模式</span>：大幅提升性能、支持右键点击按钮取消块模糊<br>• 增加两种聚焦块高亮样式，可通过右键点击该功能按钮切换</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.7</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修复显示行内备注的部分错误</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -15,11 +15,11 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在图片左上角出现标记按钮和闪电按钮<br>标记按钮：开启/关闭遮罩编辑模式<br>闪电按钮：隐藏/恢复所有遮罩<br>编辑模式：拖拽创建遮罩，长按删除遮罩<br>非编辑模式：点击遮罩使其隐藏/恢复<br>移动端暂时不支持创建遮罩<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转<br>点击备注的标题部分可直接打开编辑窗口<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
@@ -35,7 +35,7 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL设置窗口开启QYL自定义属性样式后，块/文档菜单出现相应选项<br>不同类型的块具有不同的属性选项</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置属性</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置属性<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需开启QYL自定义属性<br>在CSS代码片段添加名为<span data-type="code">QYLselfconfigattr</span>的代码片段并启用，格式为：<span data-type="code">属性1:属性值1/属性值2/属性值3...;属性2:属性值1/属性值2属性值3...</span>，即用<span data-type="code">/</span>分隔同一属性的不同值，用<span data-type="code">;</span>分隔不同属性，必须使用半角符号<br>比如<span data-type="code">color:red/blue;task:todo/done</span><br>可在属性名后加上<span data-type="code">-block/-file</span>后缀来限制只出现在块菜单/文档菜单，如<span data-type="code">color-block:red/blue</span><br>可在属性名/属性值后加上<span data-type="code">=任意字符</span>后缀来设置属性名和属性值的备注，如<span data-type="code">color=颜色:red=红色/blue=蓝色</span><br>注意属性名的命名规范：必须以英文字母开头、仅允许存在阿拉伯数字/英文字母/连字符<span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">代码片段设定完毕后必须重载思源</span></p>
 </details>
 <details style="padding-left: 1em">

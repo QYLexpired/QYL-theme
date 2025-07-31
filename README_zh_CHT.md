@@ -1,11 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.6</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 重要更新：QYL自訂屬性增加<span data-type="code" style="padding: 0 0.4em">自配置屬性</span>，可自訂屬性值，具體方法參看主題說明<br>• 優化<span data-type="code" style="padding: 0 0.4em">顯示行內備註</span>：塊被摺疊時，隱藏所有底部/側邊備註；資料庫卡片視圖下不再顯示底部/側邊備註<br>• 優化圖片遮罩樣式<br>• 重做<span data-type="code" style="padding: 0 0.4em">專注編輯模式</span>：大幅提升效能、支援右鍵點擊按鈕取消塊模糊<br>• 增加兩種聚焦塊高亮樣式，可通過右鍵點擊該功能按鈕切換</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.5</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 優化<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：點擊「標記」按鈕開啟/關閉編輯模式，非編輯模式點擊「閃電」按鈕隱藏/恢復所有遮罩<br>• 優化QYL自訂屬性的效能<br>• 修復全螢幕下的樣式錯誤<br>• 優化自訂主題色：使明亮和暗黑模式具有不同的調節閾值</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 增加功能選項<span data-type="code" style="padding: 0 0.4em">啟用圖片遮罩</span>：啟用後在圖片左上角出現遮罩編輯按鈕，點擊後進入編輯模式，可建立圖片遮罩用於閃卡複習，長按遮罩可刪除；再次點擊按鈕退出編輯模式，單擊遮罩可使遮罩透明<br>• 優化QYL自訂屬性選單互動：已啟動的屬性會高亮提示，再次點擊可直接取消該屬性<br>• 微調頂欄融合時分頁位置<br>• 優化手機端部分細節<br>• 修復行內備註被摺疊時，側邊備註無法定位的問題</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.7</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 修復顯示行內備註的部分錯誤</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的配色選擇</summary>
@@ -19,11 +15,11 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">圖片遮罩</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">圖片遮罩<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現標記按鈕和閃電按鈕<br>標記按鈕：開啟/關閉遮罩編輯模式<br>閃電按鈕：隱藏/恢復所有遮罩<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：點擊遮罩使其隱藏/恢復<br>移動端暫時不支援建立遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
@@ -39,7 +35,7 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL設定視窗開啟QYL自訂屬性樣式後，塊/文件選單出現相應選項<br>不同類型的塊具有不同的屬性選項</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置屬性</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置屬性<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需開啟QYL自訂屬性<br>在CSS程式碼片段添加名為<span data-type="code">QYLselfconfigattr</span>的程式碼片段並啟用，格式為：<span data-type="code">屬性1:屬性值1/屬性值2/屬性值3...;屬性2:屬性值1/屬性值2/屬性值3...</span>，即用<span data-type="code">/</span>分隔同一屬性的不同值，用<span data-type="code">;</span>分隔不同屬性，必須使用半角符號<br>比如<span data-type="code">color:red/blue;task:todo/done</span><br>可在屬性名後加上<span data-type="code">-block/-file</span>後綴來限制只出現在塊選單/文件選單，如<span data-type="code">color-block:red/blue</span><br>可在屬性名/屬性值後加上<span data-type="code">=任意字符</span>後綴來設定屬性名和屬性值的備註，如<span data-type="code">color=顏色:red=紅色/blue=藍色</span><br>注意屬性名的命名規範：必須以英文字母開頭、僅允許存在阿拉伯數字/英文字母/連字符<span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">程式碼片段設定完畢後必須重載思源</span></p>
 </details>
 <details style="padding-left: 1em">
