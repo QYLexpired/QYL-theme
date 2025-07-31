@@ -454,4 +454,4 @@ function observeImgChanges() {
 setTimeout(() => {
     initImgMask();
     observeImgChanges();
-}, 1500);
+}, 2500);

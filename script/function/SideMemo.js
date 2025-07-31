@@ -15,11 +15,18 @@ function isInFoldedBlock(element) {
     return false;
 }
 function hasMemo(wysiwyg) {
-    const avGalleryContent = wysiwyg.querySelector('.av__gallery-content');
-    if (avGalleryContent) {
+    const avGalleryContents = wysiwyg.querySelectorAll('.av__gallery-content');
+    if (avGalleryContents.length > 0) {
         const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
         for (const memoEl of memoElements) {
-            if (!avGalleryContent.contains(memoEl) && !isInFoldedBlock(memoEl)) {
+            let isInGallery = false;
+            for (const galleryContent of avGalleryContents) {
+                if (galleryContent.contains(memoEl)) {
+                    isInGallery = true;
+                    break;
+                }
+            }
+            if (!isInGallery && !isInFoldedBlock(memoEl)) {
                 return true;
             }
         }
@@ -56,14 +63,21 @@ const BottomMemoModule = {
         block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         return;
     }
-    const avGalleryContent = block.querySelector('.av__gallery-content');
+    const avGalleryContents = block.querySelectorAll('.av__gallery-content');
     block.classList.add('QYLmemoBlock');
     const memoList = [];
     memoElements.forEach((memoEl, idx) => {
         if (isInFoldedBlock(memoEl)) {
             return;
         }
-        if (avGalleryContent && avGalleryContent.contains(memoEl)) {
+        let isInGallery = false;
+        for (const galleryContent of avGalleryContents) {
+            if (galleryContent.contains(memoEl)) {
+                isInGallery = true;
+                break;
+            }
+        }
+        if (isInGallery) {
             return;
         }
         const memoContent = memoEl.getAttribute('data-inline-memo-content');
@@ -248,13 +262,20 @@ const RightMemoModule = {
         titleElement.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
         if (memoElements.length === 0) return;
-        const avGalleryContent = wysiwyg.querySelector('.av__gallery-content');
+        const avGalleryContents = wysiwyg.querySelectorAll('.av__gallery-content');
         const memoList = [];
         memoElements.forEach((memoEl, idx) => {
             if (isInFoldedBlock(memoEl)) {
                 return;
             }
-            if (avGalleryContent && avGalleryContent.contains(memoEl)) {
+            let isInGallery = false;
+            for (const galleryContent of avGalleryContents) {
+                if (galleryContent.contains(memoEl)) {
+                    isInGallery = true;
+                    break;
+                }
+            }
+            if (isInGallery) {
                 return;
             }
             const memoContent = memoEl.getAttribute('data-inline-memo-content');
