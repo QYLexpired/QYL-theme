@@ -271,7 +271,7 @@ export class MenuItemFactory {
     createColsBGapItem(selectid) {
         const items = [
             ...this.menuData.colsBGapOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.colsBGap, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrcolsbgapsub", items);
@@ -280,7 +280,7 @@ export class MenuItemFactory {
     createRowsBGapItem(selectid) {
         const items = [
             ...this.menuData.rowsBGapOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.rowsBGap, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrrowsbgapsub", items);
@@ -289,10 +289,7 @@ export class MenuItemFactory {
     createListViewItem(selectid) {
         const items = [
             ...this.menuData.listViewOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.listView, option.value, this.i18n[option.group], false, selectid)
-            ),
-            ...this.menuData.listStyleSpecialOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrlistviewsub", items);
@@ -301,7 +298,7 @@ export class MenuItemFactory {
     createLineHeightItem(selectid) {
         const items = [
             ...this.menuData.lineHeightOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.lineHeight, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrlineheightsub", items);
@@ -310,19 +307,25 @@ export class MenuItemFactory {
     createBlankBlockRemindItem(selectid) {
         const items = [
             ...this.menuData.blankBlockRemindOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.blankBlockRemind, option.value, option.group ? this.i18n[option.group] : null, false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group ? this.i18n[option.group] : null, false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrblankblockremindsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blankblockremind, "#iconInfo", submenu);
     }
+    createFlashCardItem(selectid) {
+        const items = [
+            ...this.menuData.flashCardOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group ? this.i18n[option.group] : null, false, selectid)
+            )
+        ];
+        const submenu = this.createSubmenu("QYLattrflashcardsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.flashcard, "#iconRiffCard", submenu);
+    }
     createTableStyleItem(selectid) {
         const items = [
-            ...this.menuData.tableStyleOptions.map(option => 
+            ...this.menuData.tableOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
-            ),
-            ...this.menuData.tableColorOptions.map(color => 
-                this.createMenuItem(this.i18n[color.label], color.icon, this.menuData.attrNameConfig.tableColor, color.value, this.i18n[color.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrtablestylesub", items);
@@ -349,7 +352,7 @@ export class MenuItemFactory {
     createHeightItem(selectid) {
         const items = [
             ...this.menuData.heightOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.height, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrheightsub", items);
@@ -358,7 +361,7 @@ export class MenuItemFactory {
     createFileStyleItem(selectid) {
         const items = [
             ...this.menuData.fileStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             )
         ];
         const submenu = this.createSubmenu("QYLattrfilestylesub", items);
@@ -367,27 +370,24 @@ export class MenuItemFactory {
     createBlockStyleItem(selectid) {
         const items = [
             ...this.menuData.blockStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
             ),
             this.createNoteSubmenu(selectid),
-            this.createLeftBorderSubmenu(selectid),
-            ...this.menuData.flashcardStyleOptions.map(option => 
-                this.createMenuItem(this.i18n[option.label], option.icon, "style-flashcard", option.value, this.i18n[option.group], false, selectid)
-            )
+            this.createLeftBorderSubmenu(selectid)
         ];
         const submenu = this.createSubmenu("QYLattrstylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstyle, "#iconTheme", submenu);
     }
     createNoteSubmenu(selectid) {
         const items = this.menuData.noteColorOptions.map(option => 
-            this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
         );
         const submenu = this.createSubmenu("QYLstylenotesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstylenote, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.noteSubmenu.group]);
     }
     createLeftBorderSubmenu(selectid) {
         const items = this.menuData.leftBorderColorOptions.map(option => 
-            this.createMenuItem(this.i18n[option.label], option.icon, this.menuData.attrNameConfig.style, option.value, this.i18n[option.group], false, selectid)
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
         );
         const submenu = this.createSubmenu("QYLstyleleftbordersub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstyleleftborder, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.leftBorderSubmenu.group]);
@@ -395,7 +395,7 @@ export class MenuItemFactory {
     createFontFamilyItem(selectid) {
         const items = [
             ...this.menuData.fontOptions.map(option => {
-                const button = this.createMenuItem(option.label, "#iconFont", this.menuData.attrNameConfig.fontFamily, option.value, this.i18n[option.group], false, selectid);
+                const button = this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid);
                 button.style.fontFamily = option.fontFamily;
                 return button;
             })
@@ -405,13 +405,9 @@ export class MenuItemFactory {
     }
     createCalloutColorItem(selectid) {
         const items = [
-            ...this.menuData.calloutColorOptions.map(color => 
-                this.createMenuItem(this.i18n[color.label], color.icon, this.menuData.attrNameConfig.calloutColor, color.value, this.i18n[color.group], false, selectid)
-            ),
-            ...this.menuData.calloutSpecialOptions.map(option => {
-                const btn = this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], option.isWarning || false, selectid);
-                return btn;
-            })
+            ...this.menuData.calloutOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, this.i18n[option.group], false, selectid)
+            )
         ];
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);

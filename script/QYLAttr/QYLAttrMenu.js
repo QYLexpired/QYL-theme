@@ -79,7 +79,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -94,7 +95,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -111,7 +113,8 @@ export class QYLAttrMenu {
             this.factory.createTableStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createBlankBlockRemindItem(selectid)
+            this.factory.createBlankBlockRemindItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'file');
         if (selfConfigItem) {
@@ -126,7 +129,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -141,7 +145,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -156,7 +161,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -171,7 +177,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
@@ -185,7 +192,8 @@ export class QYLAttrMenu {
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
-            this.factory.createHeightItem(selectid)
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {
