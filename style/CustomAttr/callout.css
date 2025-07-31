@@ -592,4 +592,11 @@ max-width: 100%;
             }
         }
     }
-    }
+}
+.protyle-wysiwyg blockquote[custom-bq-callout-transparent="transparent"], .protyle-wysiwyg .bq[custom-bq-callout-transparent="transparent"] {
+    background-color: transparent !important;
+    &>[data-node-id]:first-child {
+        color: var(--b3-theme-on-background);
+        background-color: transparent !important;
+    } 
+}
