@@ -1,6 +1,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.9</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.10</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Completely restructured self-configured attributes: No longer implemented through code snippets, can be directly adjusted in QYL Custom Attributes - Self-Configured Attributes - Edit Configuration menu<br>• Added feature: Right-click QYL theme settings button to hide theme options</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">

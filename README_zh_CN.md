@@ -1,6 +1,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.9</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.10</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 完全重构自配置属性：不再通过代码片段实现，可在QYL自定义属性-自配置属性-编辑配置菜单中直接调整<br>• 增加功能：鼠标右键点击QYL主题设置按钮可隐藏主题选项</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
