@@ -249,5 +249,37 @@ export const addRightClickListener = (element) => {
             document.body.appendChild(window);
         }
     };
+    let longPressTimer = null;
+    const longPressDelay = 500; 
+    let hasMoved = false;
+    const handleTouchStart = (event) => {
+        hasMoved = false;
+        longPressTimer = setTimeout(async () => {
+            if (!hasMoved) {
+                event.preventDefault();
+                event.stopPropagation();
+                const window = await createQYLSettingsHiddenWindow();
+                document.body.appendChild(window);
+            }
+        }, longPressDelay);
+    };
+    const handleTouchEnd = (event) => {
+        if (longPressTimer) {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        }
+        hasMoved = false;
+    };
+    const handleTouchMove = (event) => {
+        hasMoved = true;
+        if (longPressTimer) {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        }
+    };
     element.addEventListener('contextmenu', handleRightClick);
+    element.addEventListener('touchstart', handleTouchStart, { passive: false });
+    element.addEventListener('touchend', handleTouchEnd);
+    element.addEventListener('touchmove', handleTouchMove);
+    element.addEventListener('touchcancel', handleTouchEnd);
 };
