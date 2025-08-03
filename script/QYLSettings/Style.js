@@ -242,8 +242,11 @@ async function createStyleContent(config = null) {
         const optionElement = document.createElement('div');
         optionElement.className = 'QYL-style-option';
         const currentState = config[option.id] || false;
+        const selectKey = `QYLSettingsSelect_${option.id}`;
+        const selectState = config[selectKey] !== undefined ? config[selectKey] : true; 
+        const hiddenClass = selectState ? '' : 'hidden';
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-style-button ${currentState ? 'active' : ''}">
+            <button type="button" id="${option.id}" class="QYL-style-button ${currentState ? 'active' : ''} ${hiddenClass}">
                 ${option.label}
             </button>
         `;

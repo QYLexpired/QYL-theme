@@ -5,19 +5,40 @@ import { createLayoutContent } from './Layout.js';
 import { createElementContent } from './Element.js';
 import { createColorContent } from './Color.js';
 import { configManager } from './InitQYLSettings.js';
+function shouldHideTab(tabId, config) {
+    if (tabId === 'color') return false;
+    const optionGroups = {
+        layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab'],
+        style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'FlatStyle', 'InkMode', 'ColorfulTabs'],
+        function: ['MarktoBlank', 'EditorFullWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'ImgMask'],
+        element: ['ColorfulHeading', 'QYLAttrOn', 'NineGridSquares', 'MultilevelList', 'ColorfulTags', 'LinkStyle']
+    };
+    const options = optionGroups[tabId];
+    if (!options) return false;
+    return options.every(optionId => {
+        const selectKey = `QYLSettingsSelect_${optionId}`;
+        return config[selectKey] === false;
+    });
+}
 export async function createQYLSettingsContent() {
     const settingsContent = document.createElement('div');
     settingsContent.id = 'QYLSettingsContent';
     settingsContent.className = 'b3-menu__items';
     const tabContainer = document.createElement('div');
     const tabs = [
-        { id: 'layout', name: i18n.Layout, active: true },
+        { id: 'layout', name: i18n.Layout, active: false },
         { id: 'style', name: i18n.Style, active: false },
         { id: 'function', name: i18n.Function, active: false },
         { id: 'element', name: i18n.Element, active: false },
         { id: 'color', name: i18n.Color, active: false }
     ];
-    tabs.forEach(tab => {
+    const config = await configManager.getConfig();
+    if (!config) {
+        throw new Error('Failed to load configuration');
+    }
+    const visibleTabs = tabs.filter(tab => !shouldHideTab(tab.id, config));
+    visibleTabs[0].active = true;
+    visibleTabs.forEach(tab => {
         const tabElement = document.createElement('div');
         tabElement.textContent = tab.name;
         tabElement.dataset.tab = tab.id;
@@ -30,32 +51,27 @@ export async function createQYLSettingsContent() {
         tabContainer.appendChild(tabElement);
     });
     const contentContainer = document.createElement('div');
-    const config = await configManager.getConfig();
-    for (const tab of tabs) {
+    for (const tab of visibleTabs) {
         const contentElement = document.createElement('div');
         contentElement.id = `QYL-content-${tab.id}`;
         contentElement.style.display = tab.active ? 'block' : 'none';
-        if (tab.active) {
-            if (tab.id === 'layout') {
-                const layoutContent = await createLayoutContent(config);
-                contentElement.appendChild(layoutContent);
-            } else if (tab.id === 'function') {
-                const functionContent = await createFunctionContent(config);
-                contentElement.appendChild(functionContent);
-            } else if (tab.id === 'style') {
-                const styleContent = await createStyleContent(config);
-                contentElement.appendChild(styleContent);
-            } else if (tab.id === 'element') {
-                const elementContent = await createElementContent(config);
-                contentElement.appendChild(elementContent);
-            } else if (tab.id === 'color') {
-                const colorContent = await createColorContent(config);
-                contentElement.appendChild(colorContent);
-            } else {
-                contentElement.textContent = `${tab.name}${i18n.SettingsContent}`;
-            }
+        if (tab.id === 'layout') {
+            const layoutContent = await createLayoutContent(config);
+            contentElement.appendChild(layoutContent);
+        } else if (tab.id === 'function') {
+            const functionContent = await createFunctionContent(config);
+            contentElement.appendChild(functionContent);
+        } else if (tab.id === 'style') {
+            const styleContent = await createStyleContent(config);
+            contentElement.appendChild(styleContent);
+        } else if (tab.id === 'element') {
+            const elementContent = await createElementContent(config);
+            contentElement.appendChild(elementContent);
+        } else if (tab.id === 'color') {
+            const colorContent = await createColorContent(config);
+            contentElement.appendChild(colorContent);
         } else {
-            contentElement.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--b3-theme-on-surface-light);">加载中...</div>';
+            contentElement.textContent = `${tab.name}${i18n.SettingsContent}`;
         }
         contentContainer.appendChild(contentElement);
     }
@@ -76,27 +92,6 @@ async function switchTab(activeTabId) {
     for (const panel of contentPanels) {
         if (panel.id === `QYL-content-${activeTabId}`) {
             panel.style.display = 'block';
-            if (panel.querySelector('div[style*="text-align: center"]')) {
-                panel.innerHTML = ''; 
-                configManager.clearCache();
-                const config = await configManager.getConfig();
-                if (activeTabId === 'layout') {
-                    const layoutContent = await createLayoutContent(config);
-                    panel.appendChild(layoutContent);
-                } else if (activeTabId === 'function') {
-                    const functionContent = await createFunctionContent(config);
-                    panel.appendChild(functionContent);
-                } else if (activeTabId === 'style') {
-                    const styleContent = await createStyleContent(config);
-                    panel.appendChild(styleContent);
-                } else if (activeTabId === 'element') {
-                    const elementContent = await createElementContent(config);
-                    panel.appendChild(elementContent);
-                } else if (activeTabId === 'color') {
-                    const colorContent = await createColorContent(config);
-                    panel.appendChild(colorContent);
-                }
-            }
         } else {
             panel.style.display = 'none';
         }

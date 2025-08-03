@@ -274,8 +274,15 @@ async function createElementContent(config = null) {
         
         const currentState = config[option.id] || false;
         
+        
+        const selectKey = `QYLSettingsSelect_${option.id}`;
+        const selectState = config[selectKey] !== undefined ? config[selectKey] : true; 
+        
+        
+        const hiddenClass = selectState ? '' : 'hidden';
+        
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''}">
+            <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''} ${hiddenClass}">
                 ${option.label}
             </button>
         `;
