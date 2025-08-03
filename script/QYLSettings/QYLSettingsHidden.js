@@ -1,7 +1,5 @@
 import i18n from '../../i18n/i18n.js';
 import { putFile, getFile } from '../basic/API.js';
-let pressTimer = null;
-let isLongPress = false;
 export const createQYLSettingsHiddenWindow = async () => {
     const existingWindow = document.querySelector('[data-key="QYLSettingsHidden"]');
     if (existingWindow) {
@@ -197,7 +195,6 @@ export const createQYLSettingsHiddenWindow = async () => {
             try {
                 existingConfig = JSON.parse(existingConfigContent);
             } catch (error) {
-                // 静默处理错误
             }
         }
         const optionButtons = dialogContainer.querySelectorAll('.QYL-option-button');
@@ -224,7 +221,6 @@ export const createQYLSettingsHiddenWindow = async () => {
             await putFile('/conf/QYL-Config.json', JSON.stringify(mergedConfig, null, 2));
             window.location.reload();
         } catch (error) {
-            // 静默处理错误
         }
     });
     return dialogContainer;
@@ -243,33 +239,15 @@ export const removeQYLSettingsHiddenWindow = () => {
         existingWindow.remove();
     }
 };
-export const addLongPressListener = (element) => {
+export const addRightClickListener = (element) => {
     if (!element) return;
-    const startLongPress = (event) => {
-        if (event.button !== 0) return; 
-        isLongPress = false;
-        pressTimer = setTimeout(async () => {
-            isLongPress = true;
+    const handleRightClick = async (event) => {
+        if (event.button === 2) { 
+            event.preventDefault();
+            event.stopPropagation();
             const window = await createQYLSettingsHiddenWindow();
             document.body.appendChild(window);
-        }, 500); 
-    };
-    const endLongPress = (event) => {
-        if (event.button !== 0) return;
-        if (pressTimer) {
-            clearTimeout(pressTimer);
-            pressTimer = null;
         }
     };
-    const cancelLongPress = () => {
-        if (pressTimer) {
-            clearTimeout(pressTimer);
-            pressTimer = null;
-        }
-        isLongPress = false;
-    };
-    element.addEventListener('mousedown', startLongPress);
-    element.addEventListener('mouseup', endLongPress);
-    element.addEventListener('mouseleave', cancelLongPress);
-    element.addEventListener('contextmenu', (e) => e.preventDefault()); 
+    element.addEventListener('contextmenu', handleRightClick);
 };
