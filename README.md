@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.7</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Fixed some errors in displaying inline memos</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.8</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Completely restructured self-configured attributes: No longer implemented through code snippets, can be directly adjusted in QYL Custom Attributes - Self-Configured Attributes - Edit Configuration menu<br>• Added feature: Long press QYL theme settings button to hide theme options</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Color Options</summary>
@@ -15,6 +15,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hidden Options<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Long press the theme settings button to enter the settings window and hide unwanted options.</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
@@ -24,7 +28,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hide Top Bar</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, the top bar is hidden. Hover your mouse over either side of the top of the page to reveal it again.<br>If you cannot bring up the top bar in windowed mode, you can restore it by pressing <span data-type="kbd">Ctrl + Q three times</span>.<br>Hiding the top bar will not take effect on tablets (to prevent the top bar from being unrecoverable).</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, the top bar is hidden. Hover your mouse over either side of the top of the page to reveal it again.<br>If you cannot bring up the top bar in windowed mode, you can restore it by pressing <span data-type="kbd">Q three times</span>.<br>Hiding the top bar will not take effect on tablets (to prevent the top bar from being unrecoverable).</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Vertical Tab</summary>
@@ -36,7 +40,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires QYL Custom Attributes to be enabled.<br>Add a CSS snippet named <span data-type="code">QYLselfconfigattr</span> and enable it. Format: <span data-type="code">attribute1:value1/value2/value3...;attribute2:value1/value2/value3...</span>, i.e., use <span data-type="code">/</span> to separate different values of the same attribute, use <span data-type="code">;</span> to separate different attributes. Must use half-width symbols.<br>For example: <span data-type="code">color:red/blue;task:todo/done</span><br>You can add <span data-type="code">-block/-file</span> suffix to attribute names to restrict them to block menu/document menu only, such as <span data-type="code">color-block:red/blue</span><br>You can add <span data-type="code">=any text</span> suffix to attribute names/values to set notes for attribute names and values, such as <span data-type="code">color=Color:red=Red/blue=Blue</span><br>Note on attribute naming conventions: Must start with English letters, only allow Arabic numerals/English letters/hyphens <span data-type="code">-</span><br><span style="font-weight: bold; color: var(--b3-theme-primary)">After setting up the code snippet, you must reload SiYuan</span></p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires QYL Custom Attributes to be enabled.<br>Configure through QYL Custom Attributes - Self-Configured Attributes - Edit Configuration menu.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Focus Editing Mode</summary>
