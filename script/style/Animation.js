@@ -653,6 +653,32 @@ export function initAnimation() {
             transform: rotateY(180deg);
             color: var(--b3-theme-primary);
         }
+        [data-key="QYLSettingsHidden"] .b3-dialog__container {
+            animation: QYLSettingsHidden 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+        }
+        [data-key="QYLSelfConfigAttrEdit"] .b3-dialog__container {
+            animation: QYLSettingsHidden 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+        }
+        @keyframes QYLSettingsHidden {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+              }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes QYLSettingsHidden {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+              }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     `;
     document.head.appendChild(style);
 }
