@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.8</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 完全重構自配置屬性：不再通過程式碼片段實現，可在QYL自訂屬性-自配置屬性-編輯配置選單中直接調整<br>• 增加功能：長按QYL主題設定按鈕可隱藏主題選項</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.9</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 完全重構自配置屬性：不再通過程式碼片段實現，可在QYL自訂屬性-自配置屬性-編輯配置選單中直接調整<br>• 增加功能：滑鼠右鍵點擊QYL主題設定按鈕可隱藏主題選項</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的配色選擇</summary>
@@ -16,7 +16,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隱藏選項<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">長按主題設定按鈕可進入設定視窗隱藏不需要的選項</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">滑鼠右鍵點擊主題設定按鈕可進入設定視窗隱藏不需要的選項</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註<span style="color: var(--b3-theme-primary)">NEW</span></summary>
