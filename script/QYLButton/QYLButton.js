@@ -1,6 +1,6 @@
 import { isMobile } from '../basic/Device.js';
 import { createQYLSettingsWindow, removeQYLSettingsWindow } from '../QYLSettings/QYLSettingsWindow.js';
-import { addLongPressListener } from '../QYLSettings/QYLSettingsHidden.js';
+import { addRightClickListener } from '../QYLSettings/QYLSettingsHidden.js';
 import i18n from '../../i18n/i18n.js';
 if (isMobile) {
     const createMobileQYLButton = () => {
@@ -27,7 +27,7 @@ if (isMobile) {
                 }
             });
             breadcrumb.insertBefore(QYLButton, firstIcon);
-            addLongPressListener(QYLButton);
+            addRightClickListener(QYLButton);
         }
     };
     createMobileQYLButton();
@@ -61,6 +61,6 @@ if (isMobile) {
             }
         });
         targetElement.parentNode.insertBefore(QYLButton, targetElement);
-        addLongPressListener(QYLButton);
+        addRightClickListener(QYLButton);
     }
 }
