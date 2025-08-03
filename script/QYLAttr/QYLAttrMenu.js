@@ -63,6 +63,18 @@ export class QYLAttrMenu {
             button.appendChild(await this.createListSubmenu(selectid));
         } else if (selecttype === "NodeBlockquote") {
             button.appendChild(await this.createBlockquoteSubmenu(selectid));
+        } else if (selecttype === "NodeParagraph") {
+            button.appendChild(await this.createParagraphSubmenu(selectid));
+        } else if (selecttype === "NodeCodeBlock") {
+            button.appendChild(await this.createCodeBlockSubmenu(selectid));
+        } else if (selecttype === "NodeBlockQueryEmbed") {
+            button.appendChild(await this.createEmbedSubmenu(selectid));
+        } else if (selecttype === "NodeHTMLBlock") {
+            button.appendChild(await this.createHTMLBlockSubmenu(selectid));
+        } else if (selecttype === "NodeMathBlock") {
+            button.appendChild(await this.createMathBlockSubmenu(selectid));
+        } else if (selecttype === "NodeIFrame") {
+            button.appendChild(await this.createIFrameSubmenu(selectid));
         } else if (selecttype === "NodeSuperBlock" && selectsbLayout === "col") {
             button.appendChild(await this.createSuperBlockColSubmenu(selectid));
         } else if (selecttype === "NodeSuperBlock" && selectsbLayout === "row") {
@@ -82,7 +94,7 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'heading');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
@@ -98,7 +110,7 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'table');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
@@ -132,7 +144,7 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'list');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
@@ -148,7 +160,7 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'blockquote');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
@@ -164,7 +176,7 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
@@ -180,11 +192,101 @@ export class QYLAttrMenu {
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid)
         ];
-        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
         if (selfConfigItem) {
             items.unshift(selfConfigItem);
         }
         return this.factory.createSubmenu("QYLNodeSuperBlocksub", items);
+    }
+    async createParagraphSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'paragraph');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeParagraphsub", items);
+    }
+    async createCodeBlockSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'codeblock');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeCodeBlocksub", items);
+    }
+    async createEmbedSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'embed');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeEmbedsub", items);
+    }
+    async createHTMLBlockSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'htmlblock');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeHTMLBlocksub", items);
+    }
+    async createMathBlockSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'mathblock');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeMathBlocksub", items);
+    }
+    async createIFrameSubmenu(selectid) {
+        const items = [
+            this.factory.createCSSItem(selectid),
+            this.factory.createBlockStyleItem(selectid),
+            this.factory.createImgStyleItem(selectid),
+            this.factory.createFontFamilyItem(selectid),
+            this.factory.createHeightItem(selectid),
+            this.factory.createFlashCardItem(selectid)
+        ];
+        const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'iframe');
+        if (selfConfigItem) {
+            items.unshift(selfConfigItem);
+        }
+        return this.factory.createSubmenu("QYLNodeIFramesub", items);
     }
     async createAnyBlockSubmenu(selectid) {
         const items = [

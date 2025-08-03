@@ -121,6 +121,15 @@ class QYLAttr {
         if (this.api) {
             this.api.commonMenuCache = { elem: null, timestamp: 0 };
         }
+        if (window.QYLAttrMenuFactory && window.QYLAttrMenuFactory.selfConfigAttr) {
+            window.QYLAttrMenuFactory.selfConfigAttr.closeQYLSelfConfigAttr();
+        }
+        if (window.QYLAttrMenuFactory) {
+            window.QYLAttrMenuFactory = null;
+        }
+        if (window.QYLAttrInstance) {
+            window.QYLAttrInstance = null;
+        }
     }
     cleanupMenuElements() {
         const QYLAttrElements = document.querySelectorAll('#QYLattr');
@@ -133,6 +142,22 @@ class QYLAttr {
             if (nextElement && nextElement.id === 'QYLattr') {
                 separator.remove();
             }
+        });
+        const qylMenuItems = document.querySelectorAll('[data-custom-attr-name]');
+        qylMenuItems.forEach(item => {
+            if (item.parentNode) {
+                item.parentNode.removeChild(item);
+            }
+        });
+        const qylSubmenus = document.querySelectorAll('[id*="QYLattr"]');
+        qylSubmenus.forEach(menu => {
+            if (menu.parentNode) {
+                menu.parentNode.removeChild(menu);
+            }
+        });
+        const qylStyleElements = document.querySelectorAll('.QYLAttrActive, .QYLAttrActiveMenu');
+        qylStyleElements.forEach(element => {
+            element.classList.remove('QYLAttrActive', 'QYLAttrActiveMenu');
         });
     }
 }

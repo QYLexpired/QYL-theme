@@ -1,5 +1,6 @@
 import { MenuData } from './MenuData.js';
 import { getFile } from '../basic/API.js';
+import { QYLSelfConfigAttr } from './QYLSelfConfigAttr.js';
 const QYLAttrHighlightManager = {
     items: new Set(),
     refreshTimeouts: new Map(), 
@@ -109,9 +110,11 @@ export class MenuItemFactory {
         this.i18n = i18n;
         this.api = api;
         this.menuData = new MenuData();
-        this.selfConfigAttrCache = null;
-        this.selfConfigAttrCacheTime = 0;
+        this.selfConfigAttr = new QYLSelfConfigAttr(i18n, api, QYLAttrHighlightManager);
         QYLAttrHighlightManager.clearAll();
+        if (typeof window !== 'undefined') {
+            window.QYLAttrMenuFactory = this;
+        }
     }
     createSubmenu(id, items) {
         const div = document.createElement("div");
@@ -197,7 +200,7 @@ export class MenuItemFactory {
             if (isActive) {
                 await this.api.setCustomAttribute(id, attrNameFull, '');
             } else {
-                await this.QYLcustomattrset(e);
+                await this.selfConfigAttr.QYLcustomattrset(e);
             }
             await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
         };
@@ -253,7 +256,7 @@ export class MenuItemFactory {
         textarea.addEventListener('blur', async (e) => {
             const value = e.target.value;
             e.target.setAttribute("custom-attr-value", value);
-            await this.QYLcustomattrset({ currentTarget: e.target });
+            await this.selfConfigAttr.QYLcustomattrset({ currentTarget: e.target });
             const selectid = e.target.getAttribute("data-node-id");
             await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
         });
@@ -412,174 +415,8 @@ export class MenuItemFactory {
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);
     }
-    async parseSelfConfigAttr() {
-        const now = Date.now();
-        if (this.selfConfigAttrCache && (now - this.selfConfigAttrCacheTime) < 300000) {
-            return this.selfConfigAttrCache;
-        }
-        try {
-            const configContent = await getFile('/data/snippets/conf.json');
-            if (!configContent) {
-                this.selfConfigAttrCache = null;
-                this.selfConfigAttrCacheTime = now;
-                return null;
-            }
-            const config = JSON.parse(configContent);
-            const selfConfigItem = config.find(item => 
-                item.name && item.name.toLowerCase() === 'qylselfconfigattr' && item.enabled
-            );
-            if (!selfConfigItem || !selfConfigItem.content) {
-                this.selfConfigAttrCache = null;
-                this.selfConfigAttrCacheTime = now;
-                return null;
-            }
-            const parsedConfig = {};
-            const attrGroups = selfConfigItem.content.split(';');
-            for (const group of attrGroups) {
-                if (!group.trim()) continue;
-                const [attrNamePart, values] = group.split(':');
-                if (!attrNamePart || !values) continue;
-                const attrNameMatch = attrNamePart.trim().match(/^([^=]+)(?:=(.+))?$/);
-                if (!attrNameMatch) continue;
-                const actualAttrName = attrNameMatch[1].trim();
-                const attrNote = attrNameMatch[2] ? attrNameMatch[2].trim() : null;
-                const valueList = values.split('/').filter(v => v.trim());
-                if (valueList.length > 0) {
-                    if (actualAttrName) {
-                        const parsedValues = valueList.map(v => {
-                            const valueMatch = v.trim().match(/^([^=]+)(?:=(.+))?$/);
-                            if (valueMatch) {
-                                return {
-                                    value: valueMatch[1].trim(),
-                                    note: valueMatch[2] ? valueMatch[2].trim() : null
-                                };
-                            } else {
-                                return {
-                                    value: v.trim(),
-                                    note: null
-                                };
-                            }
-                        });
-                        parsedConfig[actualAttrName] = {
-                            attrNote: attrNote,
-                            values: parsedValues
-                        };
-                    }
-                }
-            }
-            this.selfConfigAttrCache = parsedConfig;
-            this.selfConfigAttrCacheTime = now;
-            return parsedConfig;
-        } catch (error) {
-            this.selfConfigAttrCache = null;
-            this.selfConfigAttrCacheTime = now;
-            return null;
-        }
-    }
     async createSelfConfigAttrItem(selectid, menuType = 'all') {
-        const selfConfig = await this.parseSelfConfigAttr();
-        const items = [];
-        const selfConfigAttrNames = []; 
-        if (!selfConfig || Object.keys(selfConfig).length === 0) {
-            const noConfigButton = document.createElement("button");
-            noConfigButton.className = "b3-menu__item";
-            noConfigButton.disabled = true;
-            noConfigButton.style.opacity = "0.5";
-            noConfigButton.style.cursor = "not-allowed";
-            noConfigButton.innerHTML = `
-                <svg class="b3-menu__icon" style=""><use xlink:href="#iconSettings"></use></svg>
-                <span class="b3-menu__label">${this.i18n.noconfig}</span>
-            `;
-            items.push(noConfigButton);
-        } else {
-            for (const [attrName, configData] of Object.entries(selfConfig)) {
-                const originalAttrName = attrName;
-                const hasBlockSuffix = originalAttrName.endsWith('-block');
-                const hasFileSuffix = originalAttrName.endsWith('-file');
-                if (hasBlockSuffix && menuType !== 'block') {
-                    continue; 
-                }
-                if (hasFileSuffix && menuType !== 'file') {
-                    continue; 
-                }
-                let actualAttrName = attrName;
-                if (hasBlockSuffix) {
-                    actualAttrName = attrName.slice(0, -6); 
-                } else if (hasFileSuffix) {
-                    actualAttrName = attrName.slice(0, -5); 
-                }
-                if (!/^[a-zA-Z][a-zA-Z0-9-]*$/.test(actualAttrName)) {
-                    continue; 
-                }
-                selfConfigAttrNames.push(actualAttrName);
-                const values = configData.values;
-                const attrNote = configData.attrNote;
-                if (values.length === 1) {
-                    const valueData = values[0];
-                    const displayLabel = attrNote ? attrNote : actualAttrName;
-                    const valueLabel = valueData.note ? valueData.note : valueData.value;
-                    const label = `${displayLabel}: ${valueLabel}`;
-                    items.push(this.createMenuItem(label, "#iconSettings", actualAttrName, valueData.value, null, false, selectid));
-                } else {
-                    const subItems = values.map(valueData => {
-                        const valueLabel = valueData.note ? valueData.note : valueData.value;
-                        return this.createMenuItem(valueLabel, "#iconSettings", actualAttrName, valueData.value, null, false, selectid);
-                    });
-                    const submenu = this.createSubmenu(`QYLattrselfconfig${actualAttrName}sub`, subItems);
-                    const displayLabel = attrNote ? attrNote : actualAttrName;
-                    items.push(this.createMenuItemWithSubmenu(displayLabel, "#iconSettings", submenu));
-                }
-            }
-        }
-        const submenu = this.createSubmenu("QYLattrselfconfigsub", items);
-        const selfConfigButton = this.createMenuItemWithSubmenu(this.i18n.selfconfigattr, "#iconSettings", submenu);
-        if (selfConfigAttrNames.length > 0) {
-            selfConfigButton._QYLSelfConfigActiveAttrs = new Set();
-            const updateSelfConfigActiveClass = async () => {
-                try {
-                    const attrNames = selfConfigAttrNames.map(name => `custom-${name}`);
-                    const attrValues = await this.api.getBlockAttributes(selectid, attrNames);
-                    const hasActiveAttr = attrNames.some(attrName => {
-                        const value = attrValues && attrValues[attrName];
-                        return value && value.trim() !== '';
-                    });
-                    if (hasActiveAttr) {
-                        selfConfigButton.classList.add('QYLAttrActiveMenu');
-                    } else {
-                        selfConfigButton.classList.remove('QYLAttrActiveMenu');
-                    }
-                } catch (error) {
-                }
-            };
-            for (const attrName of selfConfigAttrNames) {
-                const attrFullName = `custom-${attrName}`;
-                const updateFn = (currentValue) => {
-                    updateSelfConfigActiveClass();
-                };
-                QYLAttrHighlightManager.register(selfConfigButton, selectid, attrFullName, updateFn);
-            }
-            const selfRemoveObserver = new MutationObserver(() => {
-                if (!selfConfigButton.isConnected) {
-                    QYLAttrHighlightManager.unregister(selfConfigButton);
-                    selfRemoveObserver.disconnect();
-                }
-            });
-            selfRemoveObserver.observe(document.body, { subtree: true, childList: true });
-            selfConfigButton._QYLAttrSelfRemoveObserver = selfRemoveObserver;
-            selfConfigButton._QYLSelfConfigAttrNames = selfConfigAttrNames;
-        }
-        return selfConfigButton;
-    }
-    async QYLcustomattrset(event) {
-        let id = event.currentTarget.getAttribute("data-node-id");
-        let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name");
-        let attrValue = event.currentTarget.getAttribute("custom-attr-value");
-        let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
-        if (blocks) {
-            blocks.forEach(block => block.setAttribute(attrName, attrValue));
-        }
-        await this.api.setCustomAttribute(id, attrName, attrValue);
-        await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
+        return await this.selfConfigAttr.createSelfConfigAttrItem(selectid, menuType);
     }
 }
 export function destroyMenuObservers(menuRoot) {
