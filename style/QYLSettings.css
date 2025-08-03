@@ -11,6 +11,7 @@
     display: flex;
     border-bottom: 2px solid var(--QYL-tab-item-focus);
     padding-bottom: 8px;
+    min-width: 225px;
     & > div {
         display: flex;
         flex-direction: column;
@@ -34,6 +35,9 @@
             background-color: var(--QYL-tab-item-focus);
         }
     }
+}
+html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-child {
+    min-width: 320px;
 }
 :is(#QYL-content-layout, #QYL-content-style, #QYL-content-function, #QYL-content-element, #QYL-content-color) {
     padding: 8px 2px 0 2px;
@@ -61,6 +65,9 @@
                 }
                 &:hover {
                     background-color: var(--QYL-tab-item-focus);
+                }
+                &.hidden {
+                    display: none;
                 }
             }
         }
@@ -107,4 +114,56 @@
     pointer-events: none;
     color: var(--b3-theme-on-surface-light) !important;
     background-color: var(--QYL-tab-item) !important;
+}
+[data-key="QYLSettingsHidden"] .b3-dialog__container {
+    max-width: 95vw;
+    max-height: 95vh;
+}
+[data-key="QYLSettingsHidden"] .QYL-settings-hidden-tip {
+    color: var(--b3-theme-primary);
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+[data-key="QYLSettingsHidden"] .QYL-option-section {
+    margin-bottom: 16px;
+}
+[data-key="QYLSettingsHidden"] .QYL-option-section h4 {
+    margin: 0 0 8px 0;
+    color: var(--b3-theme-on-background);
+    font-size: 13px;
+    font-weight: 600;
+}
+[data-key="QYLSettingsHidden"] .QYL-option-section > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    border-radius: var(--b3-border-radius);
+    min-height: auto;
+    align-items: start;
+}
+@media (max-width: 768px) {
+    [data-key="QYLSettingsHidden"] .QYL-option-section > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+[data-key="QYLSettingsHidden"] .QYL-option-button {
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: none;
+    background: var(--b3-theme-background);
+    color: var(--b3-theme-on-background);
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover {
+        background-color: var(--QYL-tab-item-focus);
+    }
+    &.selected {
+        background: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
 }
