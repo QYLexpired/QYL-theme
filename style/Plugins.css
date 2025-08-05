@@ -1,0 +1,46 @@
+/* 代码片段管理插件 */
+#commonMenu[data-name=PluginSnippets] .jcsm-top-container .jcsm-tabs {
+    background: var(--b3-theme-surface) !important;
+}
+#commonMenu[data-name=PluginSnippets] .jcsm-top-container .jcsm-tabs .jcsm-glider {
+    background: var(--b3-theme-primary) !important;
+}
+#commonMenu[data-name=PluginSnippets] .jcsm-top-container .jcsm-tabs .jcsm-tab .jcsm-tab-count {
+    color: var(--b3-theme-on-primary) !important;
+    background: var(--b3-theme-primary) !important;
+}
+#commonMenu[data-name=PluginSnippets] .jcsm-top-container[data-type="css"] .jcsm-tabs .jcsm-tab[for="jcsm-radio-css"] {
+    & .jcsm-tab-text {
+        color: var(--b3-theme-on-primary) !important;
+    }
+    & .jcsm-tab-count {
+        color: var(--b3-theme-primary) !important;
+        background: var(--b3-theme-on-primary) !important;
+    }
+}
+#commonMenu[data-name=PluginSnippets] .jcsm-top-container[data-type="js"] .jcsm-tabs .jcsm-tab[for="jcsm-radio-js"] {
+    & .jcsm-tab-text {
+        color: var(--b3-theme-on-primary) !important;
+    }
+    & .jcsm-tab-count {
+        color: var(--b3-theme-primary) !important;
+        background: var(--b3-theme-on-primary) !important;
+    }
+}
+.b3-dialog--open[data-key=jcsm-snippet-dialog] .jcsm-dialog-container {
+    & > .fn__flex:first-child {
+        padding: 10px 0;
+    }
+    & .jcsm-dialog-name {
+        box-shadow: 0 0 0 1px var(--QYL-tab-item-focus) !important;
+        &:focus, &:hover {
+            box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%) !important;
+        }
+    }
+}
+.b3-dialog--open[data-key=jcsm-snippet-dialog] .jcsm-dialog-content .cm-editor .cm-gutters {
+    background-color: var(--b3-theme-background) !important;
+}
+.b3-dialog--open[data-key=jcsm-snippet-dialog] .jcsm-dialog-content .cm-editor .cm-activeLine {
+    background-color: var(--QYL-tab-item-focus) !important;
+}
