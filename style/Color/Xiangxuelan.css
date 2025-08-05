@@ -60,3 +60,7 @@
     /* 行级代码 */
     --QYL-inline-code: var(--b3-theme-primary);
 }
+/* 细节调整 */
+:root {
+    --b3-theme-primary-fix: #78a92b;
+}

@@ -61,6 +61,9 @@
     --QYL-inline-code: var(--b3-theme-primary);
 }
 /* 细节调整 */
+:root {
+    --b3-theme-primary-fix: #7f65ba;
+}
 .QYLColorBlock[data-theme-mode="light"] {
     --b3-theme-surface: #f6eee6;
 }
