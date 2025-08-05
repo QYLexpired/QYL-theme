@@ -61,6 +61,10 @@ export function initFlatStyle() {
             & .b3-list-item__text {
                 color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
             }
+            & > :is(.b3-switch:checked) {
+                filter: brightness(0.9);
+                outline: 0.5px solid var(--b3-theme-on-primary);
+            }
             & .b3-list-item__meta {
                 color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
             }
@@ -70,6 +74,10 @@ export function initFlatStyle() {
             & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
                 color: var(--b3-theme-on-primary);
             }
+            & > :is(.b3-switch:checked) {
+                filter: brightness(0.9);
+                outline: 0.5px solid var(--b3-theme-on-primary);
+            }
             &.b3-menu__item--warning {
                 background-color: var(--b3-theme-error);
             }
@@ -78,6 +86,10 @@ export function initFlatStyle() {
             background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
             & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
                 color: var(--b3-theme-on-primary);
+            }
+            & > :is(.b3-switch:checked) {
+                filter: brightness(0.9);
+                outline: 0.5px solid var(--b3-theme-on-primary);
             }
             &.b3-menu__item--warning {
                 background-color: var(--b3-theme-error);
@@ -98,6 +110,10 @@ export function initFlatStyle() {
             & .b3-menu__icon, .b3-menu__label, .b3-menu__accelerator {
                 color: var(--b3-theme-on-primary);
             }
+            & > :is(.b3-switch:checked) {
+                filter: brightness(0.9);
+                outline: 0.5px solid var(--b3-theme-on-primary);
+            }
             &[data-type="remove"] {
                 background-color: var(--b3-theme-error);
             }
@@ -106,6 +122,10 @@ export function initFlatStyle() {
             background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
             & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked, .fn__flex-center) {
                 color: var(--b3-theme-on-primary);
+            }
+            & > :is(.b3-switch:checked) {
+                filter: brightness(0.9);
+                outline: 0.5px solid var(--b3-theme-on-primary);
             }
             &[data-type="removeCol"] {
                 background-color: var(--b3-theme-error);
@@ -400,6 +420,21 @@ export function initFlatStyle() {
         .protyle-breadcrumb__item--active :is(svg, .protyle-breadcrumb__text):hover {
             background: transparent !important;
             color: var(--b3-theme-primary-fix, var(--b3-theme-primary)) !important;
+        }
+        /* 适配代码片段管理插件 */
+        #commonMenu[data-name=PluginSnippets] .jcsm-snippets-container .jcsm-snippet-item {
+            &.b3-menu__item--current, &:hover {
+                & .jcsm-snippet-name {
+                    color: var(--b3-theme-on-primary) !important;
+                }
+                & .block__icon {
+                    color: var(--b3-theme-on-primary) !important;
+                    &:hover {
+                        color: var(--b3-theme-primary) !important;
+                        background-color: var(--b3-theme-on-primary) !important;
+                    }
+                }
+            }
         }
 `;
     document.head.appendChild(style);
