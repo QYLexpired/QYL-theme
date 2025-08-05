@@ -52,19 +52,29 @@
   }
   tryFindDockBottom();
   let dockL = null;
-  let barWorkspace = null;
+  let toolbar = null;
   let retryDockLCount = 0;
   const MAX_DOCKL_RETRY = 15;
   const RETRY_DOCKL_INTERVAL = 100;
   function handleDockLFloatChange() {
-    if (!dockL || !barWorkspace) return;
+    if (!dockL || !toolbar || !dockLeft) return;
     const hasFloat = dockL.classList.contains('layout--float');
     const hasTransform = dockL.style.transform && dockL.style.transform !== '';
     const shouldHide = hasFloat && !hasTransform;
-    if (shouldHide && !barWorkspace.classList.contains('QYLbarWorkspaceFloatHidden')) {
-      barWorkspace.classList.add('QYLbarWorkspaceFloatHidden');
-    } else if (!shouldHide && barWorkspace.classList.contains('QYLbarWorkspaceFloatHidden')) {
-      barWorkspace.classList.remove('QYLbarWorkspaceFloatHidden');
+    if (shouldHide && !toolbar.classList.contains('QYLtoolbarlefthidden')) {
+      toolbar.classList.add('QYLtoolbarlefthidden');
+    } else if (!shouldHide && toolbar.classList.contains('QYLtoolbarlefthidden')) {
+      toolbar.classList.remove('QYLtoolbarlefthidden');
+    }
+    if (shouldHide && !dockLeft.classList.contains('QYLDockLeftHidden')) {
+      dockLeft.classList.add('QYLDockLeftHidden');
+    } else if (!shouldHide && dockLeft.classList.contains('QYLDockLeftHidden')) {
+      dockLeft.classList.remove('QYLDockLeftHidden');
+    }
+    if (hasFloat && !dockLeft.classList.contains('QYLDockLeftFloat')) {
+      dockLeft.classList.add('QYLDockLeftFloat');
+    } else if (!hasFloat && dockLeft.classList.contains('QYLDockLeftFloat')) {
+      dockLeft.classList.remove('QYLDockLeftFloat');
     }
   }
   function observeDockLClassChange(target) {
@@ -72,32 +82,36 @@
     const observer = new MutationObserver(handleDockLFloatChange);
     observer.observe(target, { attributes: true, attributeFilter: ['class', 'style'] });
   }
-  function tryFindDockLAndBarWorkspace() {
+  function tryFindDockLAndToolbar() {
     dockL = document.querySelector('.layout__dockl');
-    barWorkspace = document.getElementById('barWorkspace');
-    if (dockL && barWorkspace) {
+    toolbar = document.getElementById('toolbar');
+    if (dockL && toolbar) {
       handleDockLFloatChange();
       observeDockLClassChange(dockL);
     } else if (retryDockLCount < MAX_DOCKL_RETRY) {
       retryDockLCount++;
-      setTimeout(tryFindDockLAndBarWorkspace, RETRY_DOCKL_INTERVAL);
+      setTimeout(tryFindDockLAndToolbar, RETRY_DOCKL_INTERVAL);
     }
   }
-  tryFindDockLAndBarWorkspace();
+  tryFindDockLAndToolbar();
   let dockR = null;
-  let closeWindow = null;
-  let retryCloseWindowCount = 0;
-  const MAX_CLOSEWINDOW_RETRY = 15;
-  const RETRY_CLOSEWINDOW_INTERVAL = 100;
+  let retryDockRCount = 0;
+  const MAX_DOCKR_RETRY = 15;
+  const RETRY_DOCKR_INTERVAL = 100;
   function handleDockRFloatChange() {
-    if (!dockR || !closeWindow) return;
+    if (!dockR || !toolbar || !dockRight) return;
     const hasFloat = dockR.classList.contains('layout--float');
     const hasTransform = dockR.style.transform && dockR.style.transform !== '';
     const shouldHide = hasFloat && !hasTransform;
-    if (shouldHide && !closeWindow.classList.contains('QYLCloseWindowHidden')) {
-      closeWindow.classList.add('QYLCloseWindowHidden');
-    } else if (!shouldHide && closeWindow.classList.contains('QYLCloseWindowHidden')) {
-      closeWindow.classList.remove('QYLCloseWindowHidden');
+    if (shouldHide && !toolbar.classList.contains('QYLtoolbarrighthidden')) {
+      toolbar.classList.add('QYLtoolbarrighthidden');
+    } else if (!shouldHide && toolbar.classList.contains('QYLtoolbarrighthidden')) {
+      toolbar.classList.remove('QYLtoolbarrighthidden');
+    }
+    if (shouldHide && !dockRight.classList.contains('QYLDockRightHidden')) {
+      dockRight.classList.add('QYLDockRightHidden');
+    } else if (!shouldHide && dockRight.classList.contains('QYLDockRightHidden')) {
+      dockRight.classList.remove('QYLDockRightHidden');
     }
   }
   function observeDockRClassChange(target) {
@@ -105,16 +119,15 @@
     const observer = new MutationObserver(handleDockRFloatChange);
     observer.observe(target, { attributes: true, attributeFilter: ['class', 'style'] });
   }
-  function tryFindDockRAndCloseWindow() {
+  function tryFindDockRAndToolbar() {
     dockR = document.querySelector('.layout__dockr');
-    closeWindow = document.getElementById('closeWindow');
-    if (dockR && closeWindow) {
+    if (dockR && toolbar) {
       handleDockRFloatChange();
       observeDockRClassChange(dockR);
-    } else if (retryCloseWindowCount < MAX_CLOSEWINDOW_RETRY) {
-      retryCloseWindowCount++;
-      setTimeout(tryFindDockRAndCloseWindow, RETRY_CLOSEWINDOW_INTERVAL);
+    } else if (retryDockRCount < MAX_DOCKR_RETRY) {
+      retryDockRCount++;
+      setTimeout(tryFindDockRAndToolbar, RETRY_DOCKR_INTERVAL);
     }
   }
-  tryFindDockRAndCloseWindow();
+  tryFindDockRAndToolbar();
 })();
