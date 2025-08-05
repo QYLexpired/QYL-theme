@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.3.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.3.1</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式<br>• 适配代码片段管理器插件</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
