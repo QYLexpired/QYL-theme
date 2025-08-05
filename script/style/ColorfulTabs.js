@@ -9,10 +9,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+2) {
@@ -20,10 +18,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+3) {
@@ -31,10 +27,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+4) {
@@ -42,10 +36,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+5) {
@@ -53,10 +45,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+6) {
@@ -64,10 +54,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+7) {
@@ -75,10 +63,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+8) {
@@ -86,10 +72,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+9) {
@@ -97,10 +81,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+10) {
@@ -108,10 +90,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+11) {
@@ -119,10 +99,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+12) {
@@ -130,23 +108,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg)),
-                    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
-                }
-            }
-            &.item--focus {
-                padding-left: 20px;
-                box-sizing: border-box;
-                &::after {
-                    display: block !important;
-                    left: 5px;
-                    height: 18px;
-                    width: 18px;
-                    border-radius: 50%;
-                    top: 50%;
-                    transform: translateY(-50%);
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg) / 0.75);
                 }
             }
         }
@@ -156,10 +119,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+2) {
@@ -167,10 +128,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+3) {
@@ -178,10 +137,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+4) {
@@ -189,10 +146,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 240deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+5) {
@@ -200,10 +155,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 300deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+6) {
@@ -211,10 +164,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 360deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+7) {
@@ -222,10 +173,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+8) {
@@ -233,10 +182,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+9) {
@@ -244,10 +191,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 150deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+10) {
@@ -255,10 +200,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+11) {
@@ -266,10 +209,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg)));
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.75);
                 }
             }
             &:nth-of-type(12n+12) {
@@ -277,23 +218,8 @@ export function initColorfultabs() {
                 &.item--focus .item__text {
                     color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg));
                 }
-                &.item--focus::after {
-                    background: linear-gradient(to right bottom, 
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg)),
-                    oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
-                }
-            }
-            &.item--focus {
-                padding-left: 20px;
-                box-sizing: border-box;
-                &::after {
-                    display: block !important;
-                    left: 5px;
-                    height: 18px;
-                    width: 18px;
-                    border-radius: 50%;
-                    top: 50%;
-                    transform: translateY(-50%);
+                &.item--focus {
+                    box-shadow: inset 0 0 0 2px oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 330deg) / 0.75);
                 }
             }
         }
