@@ -342,9 +342,13 @@ async function createFunctionContent(config = null) {
         const currentState = config[option.id] || false;
         const selectKey = `QYLSettingsSelect_${option.id}`;
         const selectState = config[selectKey] !== undefined ? config[selectKey] : true; 
-        const hiddenClass = selectState ? '' : 'hidden';
+        if (!selectState) {
+            optionElement.classList.add('hidden');
+        }
+        const hasRightClick = ['SideMemo', 'FocusBlockHighlight', 'FocusEditing'].includes(option.id);
+        const rightClickClass = hasRightClick ? 'QYLButtonRightClick' : '';
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-function-button ${currentState ? 'active' : ''} ${hiddenClass}">
+            <button type="button" id="${option.id}" class="QYL-function-button ${currentState ? 'active' : ''} ${rightClickClass}">
                 ${option.label}
             </button>
         `;

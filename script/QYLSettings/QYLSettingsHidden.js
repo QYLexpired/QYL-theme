@@ -1,5 +1,22 @@
 import i18n from '../../i18n/i18n.js';
 import { putFile, getFile } from '../basic/API.js';
+function reloadUI(mode) {
+    if(window.siyuan.ws.app.plugins?.length === 0) {
+        if (mode) window.location.pathname = `stage/build/${mode}/`;
+        else fetch('/api/ui/reloadUI', { method: 'POST' });
+        return;
+    }
+    const plugin = window.siyuan.ws.app.plugins[0];
+    if(!plugin?.saveLayout) {
+        if (mode) window.location.pathname = `stage/build/${mode}/`;
+        else fetch('/api/ui/reloadUI', { method: 'POST' });
+        return;
+    }
+    plugin.saveLayout(() => {
+        if (mode) window.location.pathname = `stage/build/${mode}/`;
+        else window.location.reload();
+    });
+}
 export const createQYLSettingsHiddenWindow = async () => {
     const existingWindow = document.querySelector('[data-key="QYLSettingsHidden"]');
     if (existingWindow) {
@@ -77,7 +94,7 @@ export const createQYLSettingsHiddenWindow = async () => {
     content.className = 'b3-dialog__content';
     const tipElement = document.createElement('div');
     tipElement.className = 'QYL-settings-hidden-tip';
-    tipElement.textContent = i18n.QYLSettingsHiddenTip;
+    tipElement.innerHTML = i18n.QYLSettingsHiddenTip.replace(/\n/g, '<br>');
     content.appendChild(tipElement);
     const createOptionSection = async (title, options) => {
         const section = document.createElement('div');
@@ -187,6 +204,14 @@ export const createQYLSettingsHiddenWindow = async () => {
     cancelButton.addEventListener('click', () => {
         removeQYLSettingsHiddenWindow();
     });
+    const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+            removeQYLSettingsHiddenWindow();
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    dialogContainer._keydownHandler = handleKeyDown;
     confirmButton.addEventListener('click', async () => {
         const config = {};
         const existingConfigContent = await getFile('/conf/QYL-Config.json');
@@ -219,7 +244,7 @@ export const createQYLSettingsHiddenWindow = async () => {
         const mergedConfig = { ...existingConfig, ...config };
         try {
             await putFile('/conf/QYL-Config.json', JSON.stringify(mergedConfig, null, 2));
-            window.location.reload();
+            reloadUI();
         } catch (error) {
         }
     });
@@ -230,11 +255,15 @@ export const removeQYLSettingsHiddenWindow = () => {
     if (existingWindow) {
         const mousemoveHandler = existingWindow._mousemoveHandler;
         const mouseupHandler = existingWindow._mouseupHandler;
+        const keydownHandler = existingWindow._keydownHandler;
         if (mousemoveHandler) {
             document.removeEventListener('mousemove', mousemoveHandler);
         }
         if (mouseupHandler) {
             document.removeEventListener('mouseup', mouseupHandler);
+        }
+        if (keydownHandler) {
+            document.removeEventListener('keydown', keydownHandler);
         }
         existingWindow.remove();
     }

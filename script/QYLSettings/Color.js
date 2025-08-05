@@ -27,7 +27,8 @@ const lightColorMainGroup = [
     'QYLMint',
     'QYLAmber',
     'QYLBiwan',
-    'QYLWarm'
+    'QYLWarm',
+    'QYLWoodAsh'
 ];
 const darkColorMainGroup = [
     'QYLDarkClassic',
@@ -42,7 +43,8 @@ const darkColorMainGroup = [
     'QYLLatte',
     'QYLWinter',
     'QYLXingqiong',
-    'QYLWildness'
+    'QYLWildness',
+    'QYLMarsh'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -87,7 +89,9 @@ let darkClassicModule = null;
 let colorSwitchTimeModule = null;
 let darkRevertModule = null;
 let wildnessModule = null;
+let marshModule = null;
 let warmModule = null;
+let woodAshModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -909,6 +913,18 @@ async function disableWildness() {
         module.removeWildness();
     }
 }
+async function enableMarsh() {
+    const module = await loadMarshModule();
+    if (module && module.initMarsh) {
+        module.initMarsh();
+    }
+}
+async function disableMarsh() {
+    const module = await loadMarshModule();
+    if (module && module.removeMarsh) {
+        module.removeMarsh();
+    }
+}
 async function enableWarm() {
     const module = await loadWarmModule();
     if (module && module.initWarm) {
@@ -919,6 +935,18 @@ async function disableWarm() {
     const module = await loadWarmModule();
     if (module && module.removeWarm) {
         module.removeWarm();
+    }
+}
+async function enableWoodAsh() {
+    const module = await loadWoodAshModule();
+    if (module && module.initWoodAsh) {
+        module.initWoodAsh();
+    }
+}
+async function disableWoodAsh() {
+    const module = await loadWoodAshModule();
+    if (module && module.removeWoodAsh) {
+        module.removeWoodAsh();
     }
 }
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
@@ -1041,6 +1069,8 @@ async function handleDisableById(id) {
         await disableMint();
     } else if (id === 'QYLAmber') {
         await disableAmber();
+    } else if (id === 'QYLWoodAsh') {
+        await disableWoodAsh();
     } else if (id === 'QYLBiwan') {
         await disableBiwan();
     } else if (id === 'QYLBurgundy') {
@@ -1071,6 +1101,8 @@ async function handleDisableById(id) {
         await disableDarkRevert();
     } else if (id === 'QYLWildness') {
         await disableWildness();
+    } else if (id === 'QYLMarsh') {
+        await disableMarsh();
     } else if (id === 'QYLWarm') {
         await disableWarm();
     }
@@ -1173,6 +1205,10 @@ function getColorOptions() {
         {
             id: 'QYLWarm',
             label: i18n.QYLWarm
+        },
+        {
+            id: 'QYLWoodAsh',
+            label: i18n.QYLWoodAsh
         }
     ];
     const darkModeOptions = [
@@ -1239,6 +1275,10 @@ function getColorOptions() {
         {
             id: 'QYLWildness',
             label: i18n.QYLWildness
+        },
+        {
+            id: 'QYLMarsh',
+            label: i18n.QYLMarsh
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1426,9 +1466,17 @@ async function createColorContent(config = null) {
                         enableFunction = enableWildness;
                         disableFunction = disableWildness;
                         break;
+                    case 'QYLMarsh':
+                        enableFunction = enableMarsh;
+                        disableFunction = disableMarsh;
+                        break;
                     case 'QYLWarm':
                         enableFunction = enableWarm;
                         disableFunction = disableWarm;
+                        break;
+                    case 'QYLWoodAsh':
+                        enableFunction = enableWoodAsh;
+                        disableFunction = disableWoodAsh;
                         break;
                 }
             }
@@ -1547,8 +1595,12 @@ async function initializeColorStates(config = null) {
             await enableDarkClassic();
         } else if (firstActiveColor === 'QYLWildness') {
             await enableWildness();
+        } else if (firstActiveColor === 'QYLMarsh') {
+            await enableMarsh();
         } else if (firstActiveColor === 'QYLWarm') {
             await enableWarm();
+        } else if (firstActiveColor === 'QYLWoodAsh') {
+            await enableWoodAsh();
         }
     }
     ThemeMode.addModeChangeListener(async (newMode) => {
@@ -1640,8 +1692,12 @@ async function initializeColorStates(config = null) {
                 await enableDarkClassic();
             } else if (newFirstActiveColor === 'QYLWildness') {
                 await enableWildness();
+            } else if (newFirstActiveColor === 'QYLMarsh') {
+                await enableMarsh();
             } else if (newFirstActiveColor === 'QYLWarm') {
                 await enableWarm();
+            } else if (newFirstActiveColor === 'QYLWoodAsh') {
+                await enableWoodAsh();
             }
         }
     });
@@ -1677,6 +1733,15 @@ async function loadWildnessModule() {
     }
     return wildnessModule;
 }
+async function loadMarshModule() {
+    if (!marshModule) {
+        try {
+            marshModule = await import('../color/Marsh.js');
+        } catch (error) {
+        }
+    }
+    return marshModule;
+}
 async function loadWarmModule() {
     if (!warmModule) {
         try {
@@ -1685,5 +1750,14 @@ async function loadWarmModule() {
         }
     }
     return warmModule;
+}
+async function loadWoodAshModule() {
+    if (!woodAshModule) {
+        try {
+            woodAshModule = await import('../color/WoodAsh.js');
+        } catch (error) {
+        }
+    }
+    return woodAshModule;
 }
 export { getColorOptions, createColorContent, initializeColorStates };

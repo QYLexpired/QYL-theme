@@ -11,7 +11,6 @@ let borderFileTreeModule = null;
 let gridSearchListModule = null;
 let flatStyleModule = null;
 let inkModeModule = null;
-let galleryItemModule = null;
 let colorfulTabsModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
@@ -85,14 +84,6 @@ async function loadInkModeModule() {
     }
     return inkModeModule;
 }
-async function loadGalleryItemModule() {
-    if (!galleryItemModule) {
-        try {
-            galleryItemModule = await import('../basic/GalleryItem.js');
-        } catch (error) {}
-    }
-    return galleryItemModule;
-}
 async function loadColorfulTabsModule() {
     if (!colorfulTabsModule) {
         try {
@@ -131,19 +122,11 @@ async function enableAnimation() {
     if (module && module.initAnimation) {
         module.initAnimation();
     }
-    const galleryModule = await loadGalleryItemModule();
-    if (galleryModule && galleryModule.initGalleryItem) {
-        galleryModule.initGalleryItem();
-    }
 }
 async function disableAnimation() {
     const module = await loadAnimationModule();
     if (module && module.removeAnimation) {
         module.removeAnimation();
-    }
-    const galleryModule = await loadGalleryItemModule();
-    if (galleryModule && galleryModule.removeGalleryItem) {
-        galleryModule.removeGalleryItem();
     }
 }
 async function enableColorfulFileTree() {
@@ -244,9 +227,11 @@ async function createStyleContent(config = null) {
         const currentState = config[option.id] || false;
         const selectKey = `QYLSettingsSelect_${option.id}`;
         const selectState = config[selectKey] !== undefined ? config[selectKey] : true; 
-        const hiddenClass = selectState ? '' : 'hidden';
+        if (!selectState) {
+            optionElement.classList.add('hidden');
+        }
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-style-button ${currentState ? 'active' : ''} ${hiddenClass}">
+            <button type="button" id="${option.id}" class="QYL-style-button ${currentState ? 'active' : ''}">
                 ${option.label}
             </button>
         `;

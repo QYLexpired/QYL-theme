@@ -205,9 +205,11 @@ async function createLayoutContent(config = null) {
         const currentState = config[option.id] || false;
         const selectKey = `QYLSettingsSelect_${option.id}`;
         const selectState = config[selectKey] !== undefined ? config[selectKey] : true; 
-        const hiddenClass = selectState ? '' : 'hidden';
+        if (!selectState) {
+            optionElement.classList.add('hidden');
+        }
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-layout-button ${currentState ? 'active' : ''} ${hiddenClass}">
+            <button type="button" id="${option.id}" class="QYL-layout-button ${currentState ? 'active' : ''}">
                 ${option.label}
             </button>
         `;
