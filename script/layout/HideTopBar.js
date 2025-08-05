@@ -3,6 +3,9 @@ let isTopBarHidden = false;
 let qKeyPressCount = 0;
 let qKeyPressTimer = null;
 export function initHideTopBar() {
+    if (document.body.classList.contains('QYLmobile')) {
+        return;
+    }
     if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
         try {
             fetch('/api/notification/pushMsg', {
@@ -17,9 +20,6 @@ export function initHideTopBar() {
             });
         } catch (error) {
         }
-        return;
-    }
-    if (document.body.classList.contains('QYLmobile')) {
         return;
     }
     const style = document.createElement('style');
