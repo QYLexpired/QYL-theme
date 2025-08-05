@@ -28,9 +28,6 @@ export function initColorBlock() {
             border-left: 0.5px solid var(--b3-theme-surface-lighter);
             clip-path: inset(45px 0 0 0);
             background-color: var(--b3-theme-background);
-            &:has(.dock__item--active) {
-                border-left: none;
-            }
         }
         .dock#dockBottom {
             border-top: 0.5px solid var(--b3-theme-surface-lighter);
@@ -42,6 +39,31 @@ export function initColorBlock() {
             & > .layout-tab-container {
             border-radius: 0 !important;
             }
+        }
+        #toolbar.QYLtoolbarlefthidden::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 42px;
+            height: 32px;
+            background-color: var(--b3-theme-surface);
+            z-index: 1;
+        }
+        #toolbar.QYLtoolbarrighthidden::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 42px;
+            height: 32px;
+            background-color: var(--b3-theme-background);
+            z-index: 1;
+        }
+        .dock#dockLeft.QYLDockLeftFloat:not(.QYLDockLeftHidden) {
+            background-color: var(--b3-theme-background);
+            border-right: 0.5px solid var(--b3-theme-surface-lighter);
+            clip-path: inset(45px 0 0 0);   
         }
         .layout__empty {
             border-radius: 0 !important;
@@ -113,12 +135,6 @@ export function initColorBlock() {
         }
         .layout--float.layout__dockb {
             border-radius: 0;
-        }
-        .QYLbarWorkspaceFloatHidden {
-            opacity: 0;
-        }
-        .QYLCloseWindowHidden {
-            opacity: 0;
         }
         /* 页签需向下偏移 */
         .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {

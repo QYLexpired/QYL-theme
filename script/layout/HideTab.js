@@ -95,6 +95,17 @@ export function initHideTab() {
         .protyle-toolbar {
             --QYL-fixedtoolbar-fix: 75px;
         }
+        /* 预览模式 */
+        .protyle-preview {
+            margin-top: 63.5px
+        }
+        .fullscreen .protyle-preview {
+            margin-top: 0;
+        }
+        /* 适配伪文档面包屑插件 */
+        .og-fake-doc-breadcrumb-container.protyle-breadcrumb {
+            transform: translateY(30px);
+        }
     `;
     document.head.appendChild(style);
 }
