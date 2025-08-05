@@ -9,7 +9,7 @@
 }
 #QYLSettingsContent > div:first-child {
     display: flex;
-    border-bottom: 2px solid var(--QYL-tab-item-focus);
+    border-bottom: 2px solid var(--b3-theme-surface-lighter);
     padding-bottom: 8px;
     min-width: 225px;
     & > div {
@@ -28,11 +28,12 @@
         white-space: nowrap;
         margin: 0 2px;
         transition: 0.3s;
-        &.active {
-            background-color: var(--QYL-tab-item-focus);
-        }
         &:hover {
             background-color: var(--QYL-tab-item-focus);
+        }
+        &.active {
+            background-color: var(--b3-theme-primary);
+            color: var(--b3-theme-on-primary);
         }
     }
 }
@@ -44,30 +45,43 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
     & > :is(.QYL-layout-container, .QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
         & > :is(.QYL-layout-option, .QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
             margin-bottom: 6px;
+            &.hidden {
+                display: none;
+            }
             & > button {
                 user-select: none;
                 width: 100%;
                 text-align: left;
                 border-radius: var(--b3-border-radius);
                 border: none;
+                outline: 1px solid var(--b3-theme-surface-lighter);
                 font-size: 13px;
                 padding: 4px 12px;
-                background-color: var(--QYL-tab-item);
+                background-color: transparent;
                 color: var(--b3-theme-on-surface-light);
                 font-weight: bold;
                 transition: 0.3s;
-                &.active {
-                    background-color: var(--b3-theme-primary-light);
-                    color: var(--b3-theme-on-primary);
-                    &:hover {
-                        background-color: var(--b3-theme-primary-light);
-                    }
-                }
+                position: relative;
                 &:hover {
                     background-color: var(--QYL-tab-item-focus);
                 }
-                &.hidden {
-                    display: none;
+                &.active {
+                    background-color: var(--b3-theme-primary);
+                    color: var(--b3-theme-on-primary);
+                    outline: 1px solid var(--b3-theme-primary);
+                    &.QYLButtonRightClick {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: 8px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 8px;
+                            height: 8px;
+                            background-color: var(--b3-theme-on-primary);
+                            border-radius: 50%;
+                        }
+                    }
                 }
             }
         }
@@ -150,8 +164,9 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
     padding: 4px 6px;
     border-radius: 6px;
     border: none;
-    background: var(--b3-theme-background);
-    color: var(--b3-theme-on-background);
+    background: transparent;
+    color: var(--b3-theme-on-surface-light);
+    outline: 1px solid var(--b3-theme-surface-lighter);
     font-size: 12px;
     cursor: pointer;
     white-space: nowrap;
@@ -163,6 +178,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
         background-color: var(--QYL-tab-item-focus);
     }
     &.selected {
+        outline: 1px solid var(--b3-theme-primary);
         background: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
     }

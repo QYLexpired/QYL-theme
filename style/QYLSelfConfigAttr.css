@@ -20,7 +20,7 @@
     }
 }
 [data-key="QYLSelfConfigAttrEdit"] .b3-dialog__container {
-    min-width: 300px;
+    min-width: min(90vw, 400px);
 }
 #QYL-attributes-container {
     display: flex;
@@ -113,7 +113,7 @@
     gap: 2px;
     padding: 4px;
     box-shadow: 0 0 0 1px var(--QYL-tab-item-focus);
-    background-color: var(--QYL-tab-item);
+    background: transparent;
     border-radius: var(--b3-border-radius);
     min-height: 48px;
     align-items: center;
@@ -131,8 +131,9 @@
         padding: 1px 2px;
         border-radius: 6px;
         border: none;
-        background: var(--b3-theme-background);
-        color: var(--b3-theme-on-background);
+        outline: 1px solid var(--b3-theme-surface-lighter);
+        background: transparent;
+        color: var(--b3-theme-on-surface-light);
         font-size: 11px;
         cursor: pointer;
         white-space: nowrap;
@@ -146,6 +147,7 @@
         &.selected {
             background: var(--b3-theme-primary);
             color: var(--b3-theme-on-primary);
+            outline: 1px solid var(--b3-theme-primary);
         }
     }
 }
