@@ -1,7 +1,7 @@
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>点个⭐小星星</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新内容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.10</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 完全重构自配置属性：不再通过代码片段实现，可在QYL自定义属性-自配置属性-编辑配置菜单中直接调整<br>• 增加功能：鼠标右键点击QYL主题设置按钮可隐藏主题选项</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.3.0</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的配色选择</summary>
@@ -28,7 +28,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隐藏顶栏</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">  连按三次Q</span>来恢复顶栏<br>平板端隐藏顶栏不会生效（防止无法呼出顶栏）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后顶栏被隐藏，通过鼠标悬停在页面最上方的两侧来重新呼出<br>若发现在窗口状态无法呼出顶栏，可通过快捷键<span data-type="kbd">连按三次Q</span>来恢复顶栏<br>平板端隐藏顶栏不会生效（防止无法呼出顶栏）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">垂直页签</summary>
@@ -66,6 +66,6 @@
 • <a href="https://github.com/chenshinshi/OneNote">Onenote主题</a>：多彩文档树<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主题</a>：风格<br>
 • <a href="https://github.com/TCOTC/Whisper">浅吟主题</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移动端判断方法、图片九宫格排列<br>
-• <a href="https://ld246.com/member/wilsons">wilsons</a>：状态栏浮动<br>
+• <a href="https://ld246.com/member/wilsons">wilsons</a>：状态栏浮动、重载方法<br>
 • <a href="https://github.com/svchord/Rem-Craft">Rem-Craft主题</a>：扁平化风格<br>
 </p>

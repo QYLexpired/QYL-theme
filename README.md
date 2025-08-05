@@ -1,7 +1,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">Github</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Content</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.2.10</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Completely restructured self-configured attributes: No longer implemented through code snippets, can be directly adjusted in QYL Custom Attributes - Self-Configured Attributes - Edit Configuration menu<br>• Added feature: Right-click QYL theme settings button to hide theme options</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.3.0</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• Added preset color scheme for dark mode: Marsh<br>• Added preset color scheme for light mode: Wood Ash<br>• QYL custom attributes now include time attributes for adding current time attributes to any block<br>• Optimized flat style with extensive detail improvements<br>• Removed 3D effects from database card view when theme animation is enabled<br>• Optimized floating sidebar in color block layout<br>• Changed reload mechanism, referencing <a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">method provided by wilsons</a><br>• Full height layout/hide tab and breadcrumb now adapt to export preview interface and pseudo-document breadcrumb plugin<br>• Added tooltips for buttons with right-click functionality in QYL theme settings window<br>• Redesigned focused tab style under colorful tabs</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Color Options</summary>
@@ -19,12 +19,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the theme settings button to enter the settings window and hide unwanted options.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
-</details>
-<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, inline memos will be displayed on the side or bottom of the block.<br>How to toggle: Right-click the Show Inline Memo button.<br>Supports HTML parsing, allowing any type of inline memo, such as formulas, images, videos, or any HTML.<br>When the memo is far from the main text, clicking the main text or memo will automatically jump to it.<br>Clicking the title part of the memo will directly open the editing window.<br>This feature has some performance impact, please disable when not necessary.</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hide Top Bar</summary>
@@ -55,8 +55,8 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Marked text will appear hollowed out, and the text will be restored on mouse hover.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Other Supported Features</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Top bar fusion, color block layout, full height layout, hide tab and breadcrumb, animation effects, frosted glass effect, colorful file tree, grid search list, editor full width, focus block highlight, list bullet line, etc.</p>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Theme also supports the following features</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Top bar fusion, color block layout, full height interface, hide tab and breadcrumb, animation effects, frosted glass effect, colorful file tree, grid search list, editor full width display, focus block highlight, list bullet line, etc.</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Acknowledgements</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">A lot of marketplace themes and other content creators were referenced when making the QYL theme. Thanks to all, including but not limited to (in no particular order):</p>
@@ -66,6 +66,6 @@
 • <a href="https://github.com/chenshinshi/OneNote">Onenote Theme</a>: Colorful file tree<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room Theme</a>: Style<br>
 • <a href="https://github.com/TCOTC/Whisper">Whisper Theme</a>, <a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>: Mobile detection method, image nine-grid layout<br>
-• <a href="https://ld246.com/member/wilsons">wilsons</a>: Floating status bar<br>
+• <a href="https://ld246.com/member/wilsons">wilsons</a>: Floating status bar, reload method<br>
 • <a href="https://github.com/svchord/Rem-Craft">Rem-Craft Theme</a>: Flat style<br>
 </p>
