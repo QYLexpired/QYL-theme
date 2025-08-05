@@ -92,7 +92,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'heading');
         if (selfConfigItem) {
@@ -108,7 +109,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'table');
         if (selfConfigItem) {
@@ -126,7 +128,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createBlankBlockRemindItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'file');
         if (selfConfigItem) {
@@ -142,7 +145,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'list');
         if (selfConfigItem) {
@@ -158,7 +162,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'blockquote');
         if (selfConfigItem) {
@@ -174,7 +179,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
         if (selfConfigItem) {
@@ -190,7 +196,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
         if (selfConfigItem) {
@@ -205,7 +212,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'paragraph');
         if (selfConfigItem) {
@@ -220,7 +228,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'codeblock');
         if (selfConfigItem) {
@@ -235,7 +244,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'embed');
         if (selfConfigItem) {
@@ -250,7 +260,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'htmlblock');
         if (selfConfigItem) {
@@ -265,7 +276,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'mathblock');
         if (selfConfigItem) {
@@ -280,7 +292,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'iframe');
         if (selfConfigItem) {
@@ -295,7 +308,8 @@ export class QYLAttrMenu {
             this.factory.createImgStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
-            this.factory.createFlashCardItem(selectid)
+            this.factory.createFlashCardItem(selectid),
+            this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');
         if (selfConfigItem) {

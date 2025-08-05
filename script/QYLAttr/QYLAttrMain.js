@@ -143,20 +143,20 @@ class QYLAttr {
                 separator.remove();
             }
         });
-        const qylMenuItems = document.querySelectorAll('[data-custom-attr-name]');
-        qylMenuItems.forEach(item => {
+        const QYLMenuItems = document.querySelectorAll('[data-custom-attr-name]');
+        QYLMenuItems.forEach(item => {
             if (item.parentNode) {
                 item.parentNode.removeChild(item);
             }
         });
-        const qylSubmenus = document.querySelectorAll('[id*="QYLattr"]');
-        qylSubmenus.forEach(menu => {
+        const QYLSubmenus = document.querySelectorAll('[id*="QYLattr"]');
+        QYLSubmenus.forEach(menu => {
             if (menu.parentNode) {
                 menu.parentNode.removeChild(menu);
             }
         });
-        const qylStyleElements = document.querySelectorAll('.QYLAttrActive, .QYLAttrActiveMenu');
-        qylStyleElements.forEach(element => {
+        const QYLStyleElements = document.querySelectorAll('.QYLAttrActive, .QYLAttrActiveMenu');
+        QYLStyleElements.forEach(element => {
             element.classList.remove('QYLAttrActive', 'QYLAttrActiveMenu');
         });
     }

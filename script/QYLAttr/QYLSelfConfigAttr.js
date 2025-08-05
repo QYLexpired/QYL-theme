@@ -111,7 +111,7 @@ export class QYLSelfConfigAttr {
             button.className += " b3-menu__item--warning";
             button.style.color = "var(--b3-theme-error)";
         }
-        button.setAttribute("data-node-id", selectid);
+        button.setAttribute("data-QYL-attr-id", selectid);
         button.setAttribute("custom-attr-name", attrName);
         button.setAttribute("custom-attr-value", attrValue);
         button.innerHTML = `
@@ -160,15 +160,26 @@ export class QYLSelfConfigAttr {
         button._QYLAttrSelfRemoveObserver = selfRemoveObserver;
         button.onclick = async (e) => {
             const isActive = button.classList.contains('QYLAttrActive');
-            const id = button.getAttribute("data-node-id");
+            const id = button.getAttribute("data-QYL-attr-id");
             const attrNameFull = 'custom-' + button.getAttribute("custom-attr-name");
-            if (isActive) {
-                await this.api.setCustomAttribute(id, attrNameFull, '');
-            } else {
-                await this.QYLcustomattrset(e);
-            }
-            if (this.highlightManager) {
-                await this.highlightManager.refreshBySelectIdImmediate(id);
+            try {
+                if (isActive) {
+                    await this.api.setCustomAttribute(id, attrNameFull, '');
+                    try {
+                        await this.showNotification(this.i18n.attrCanceled);
+                    } catch (error) {
+                    }
+                } else {
+                    await this.QYLcustomattrset(e);
+                    try {
+                        await this.showNotification(this.i18n.attrSetSuccess);
+                    } catch (error) {
+                    }
+                }
+                if (this.highlightManager) {
+                    await this.highlightManager.refreshBySelectIdImmediate(id);
+                }
+            } catch (error) {
             }
         };
         return button;
@@ -271,7 +282,7 @@ export class QYLSelfConfigAttr {
         return selfConfigButton;
     }
     async QYLcustomattrset(event) {
-        let id = event.currentTarget.getAttribute("data-node-id");
+        let id = event.currentTarget.getAttribute("data-QYL-attr-id");
         let attrName = 'custom-' + event.currentTarget.getAttribute("custom-attr-name");
         let attrValue = event.currentTarget.getAttribute("custom-attr-value");
         let blocks = document.querySelectorAll(`.protyle-wysiwyg [data-node-id="${id}"]`);
@@ -406,7 +417,7 @@ export class QYLSelfConfigAttr {
             const barWorkspace = document.querySelector('#barWorkspace');
             if (barWorkspace) {
                 barWorkspace.click();
-                const retryWithTimeout = (selector, action, maxRetries = 50, interval = 5) => {
+                const retryWithTimeout = (selector, action, maxRetries = 500, interval = 1) => {
                     let retryCount = 0;
                     const tryAction = () => {
                         const element = document.querySelector(selector);
@@ -430,6 +441,12 @@ export class QYLSelfConfigAttr {
                             codeSnippetBtn.click();
                             retryWithTimeout('[data-key="dialog-snippets"]', (dialogSnippets) => {
                                 dialogSnippets.style.zIndex = '50';
+                                retryWithTimeout('#barWorkspace', (barWorkspace) => {
+                                    barWorkspace.click();
+                                    retryWithTimeout('[data-id="config"]', (configBtn) => {
+                                        configBtn.click();
+                                    });
+                                });
                             });
                         });
                     });
@@ -689,6 +706,14 @@ export class QYLSelfConfigAttr {
             this.cleanupAllQYLContent();
         };
         scrim.addEventListener('click', closeDialog);
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                closeDialog();
+                document.removeEventListener('keydown', handleKeyDown);
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown);
+        dialog._keydownHandler = handleKeyDown;
         return dialog;
     }
     scrollToAttributeRow(attrName) {
@@ -798,11 +823,15 @@ export class QYLSelfConfigAttr {
         if (!dialog) return;
         const mousemoveHandler = dialog._mousemoveHandler;
         const mouseupHandler = dialog._mouseupHandler;
+        const keydownHandler = dialog._keydownHandler;
         if (mousemoveHandler) {
             document.removeEventListener('mousemove', mousemoveHandler);
         }
         if (mouseupHandler) {
             document.removeEventListener('mouseup', mouseupHandler);
+        }
+        if (keydownHandler) {
+            document.removeEventListener('keydown', keydownHandler);
         }
         const allInputs = dialog.querySelectorAll('input, textarea, select');
         allInputs.forEach(input => {
@@ -839,25 +868,25 @@ export class QYLSelfConfigAttr {
         }
     }
     cleanupAllQYLContent() {
-        const qylMenuItems = document.querySelectorAll('[data-custom-attr-name]');
-        qylMenuItems.forEach(item => {
+        const QYLMenuItems = document.querySelectorAll('[data-custom-attr-name]');
+        QYLMenuItems.forEach(item => {
             const newItem = item.cloneNode(true);
             if (item.parentNode) {
                 item.parentNode.replaceChild(newItem, item);
             }
         });
-        const qylMenus = document.querySelectorAll('[id*="QYLattrselfconfig"]');
-        qylMenus.forEach(menu => {
+        const QYLMenus = document.querySelectorAll('[id*="QYLattrselfconfig"]');
+        QYLMenus.forEach(menu => {
             if (menu.parentNode) {
                 menu.parentNode.removeChild(menu);
             }
         });
-        const qylDialogs = document.querySelectorAll('[data-key*="QYL"]');
-        qylDialogs.forEach(dialog => {
+        const QYLDialogs = document.querySelectorAll('[data-key*="QYL"]');
+        QYLDialogs.forEach(dialog => {
             this.cleanupDialog(dialog);
         });
-        const qylElements = document.querySelectorAll('.QYL-attr-row, .QYL-multi-select, .QYLAttrActiveMenu');
-        qylElements.forEach(element => {
+        const QYLElements = document.querySelectorAll('.QYL-attr-row, .QYL-multi-select, .QYLAttrActiveMenu');
+        QYLElements.forEach(element => {
             if (element.parentNode) {
                 element.parentNode.removeChild(element);
             }

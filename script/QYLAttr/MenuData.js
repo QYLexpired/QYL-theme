@@ -160,5 +160,14 @@ export class MenuData {
             { attrName: "flashcard-blockmask", value: "blockmask", label: "blockmask", icon: "#iconRiffCard", group: "group1" },
             { attrName: "flashcard-marktoblank", value: "marktoblank", label: "MarktoBlank", icon: "#iconRiffCard", group: "group2" }
         ];
+        this.timeOptions = [
+            { attrName: "QYL-date", value: "dynamic", label: "insertDate", icon: "#iconClock", group: null },
+            { attrName: "QYL-time", value: "dynamic", label: "insertTime", icon: "#iconClock", group: null },
+            { attrName: "QYL-date-time", value: "dynamic", label: "insertDateTime", icon: "#iconClock", group: null }
+        ];
+        this.timeUpdateOptions = [
+            { attrName: "QYL-manual", value: "manual", label: "manualSetTime", icon: "#iconEdit", group: null },
+            { attrName: "QYL-update", value: "update", label: "updateToCurrentTime", icon: "#iconRefresh", group: null }
+        ];
     }
 }

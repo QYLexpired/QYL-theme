@@ -1,7 +1,8 @@
 import { MenuData } from './MenuData.js';
 import { getFile } from '../basic/API.js';
 import { QYLSelfConfigAttr } from './QYLSelfConfigAttr.js';
-const QYLAttrHighlightManager = {
+import { QYLTimeAttr } from './QYLTimeAttr.js';
+export const QYLAttrHighlightManager = {
     items: new Set(),
     refreshTimeouts: new Map(), 
     register(el, selectid, attrName, updateFn) {
@@ -111,6 +112,8 @@ export class MenuItemFactory {
         this.api = api;
         this.menuData = new MenuData();
         this.selfConfigAttr = new QYLSelfConfigAttr(i18n, api, QYLAttrHighlightManager);
+        this.timeAttr = new QYLTimeAttr(i18n, api, this.selfConfigAttr);
+        this.timeAttr.setMenuData(this.menuData);
         QYLAttrHighlightManager.clearAll();
         if (typeof window !== 'undefined') {
             window.QYLAttrMenuFactory = this;
@@ -150,7 +153,7 @@ export class MenuItemFactory {
             button.className += " b3-menu__item--warning";
             button.style.color = "var(--b3-theme-error)";
         }
-        button.setAttribute("data-node-id", selectid);
+        button.setAttribute("data-QYL-attr-id", selectid);
         button.setAttribute("custom-attr-name", attrName);
         button.setAttribute("custom-attr-value", attrValue);
         button.innerHTML = `
@@ -195,14 +198,25 @@ export class MenuItemFactory {
         button._QYLAttrSelfRemoveObserver = selfRemoveObserver;
         button.onclick = async (e) => {
             const isActive = button.classList.contains('QYLAttrActive');
-            const id = button.getAttribute("data-node-id");
+            const id = button.getAttribute("data-QYL-attr-id");
             const attrNameFull = 'custom-' + button.getAttribute("custom-attr-name");
-            if (isActive) {
-                await this.api.setCustomAttribute(id, attrNameFull, '');
-            } else {
-                await this.selfConfigAttr.QYLcustomattrset(e);
+            try {
+                if (isActive) {
+                    await this.api.setCustomAttribute(id, attrNameFull, '');
+                    try {
+                        await this.selfConfigAttr.showNotification(this.i18n.attrCanceled);
+                    } catch (error) {
+                    }
+                } else {
+                    await this.selfConfigAttr.QYLcustomattrset(e);
+                    try {
+                        await this.selfConfigAttr.showNotification(this.i18n.attrSetSuccess);
+                    } catch (error) {
+                    }
+                }
+                await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
+            } catch (error) {
             }
-            await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
         };
         return button;
     }
@@ -222,7 +236,7 @@ export class MenuItemFactory {
         textarea.style.width = "550px";
         textarea.style.color = "var(--b3-theme-on-surface)";
         textarea.setAttribute("spellcheck", "false");
-        textarea.setAttribute("data-node-id", selectid);
+        textarea.setAttribute("data-QYL-attr-id", selectid);
         textarea.setAttribute("custom-attr-name", "css");
         textarea.value = "";
         textarea.placeholder = this.i18n.CSSplaceholder;
@@ -255,10 +269,24 @@ export class MenuItemFactory {
         });
         textarea.addEventListener('blur', async (e) => {
             const value = e.target.value;
+            const originalValue = e.target.getAttribute("custom-attr-value");
             e.target.setAttribute("custom-attr-value", value);
-            await this.selfConfigAttr.QYLcustomattrset({ currentTarget: e.target });
-            const selectid = e.target.getAttribute("data-node-id");
-            await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
+            try {
+                await this.selfConfigAttr.QYLcustomattrset({ currentTarget: e.target });
+                if (value !== originalValue) {
+                    try {
+                        if (value.trim() === '') {
+                            await this.selfConfigAttr.showNotification(this.i18n.cssAttrCanceled);
+                        } else {
+                            await this.selfConfigAttr.showNotification(this.i18n.cssAttrSetSuccess);
+                        }
+                    } catch (error) {
+                    }
+                }
+                const selectid = e.target.getAttribute("data-QYL-attr-id");
+                await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
+            } catch (error) {
+            }
         });
         const selfRemoveObserver = new MutationObserver(() => {
             if (!textarea.isConnected) {
@@ -415,6 +443,11 @@ export class MenuItemFactory {
         const submenu = this.createSubmenu("QYLattrbqcalloutcolorsub", items);
         return this.createMenuItemWithSubmenu(this.i18n.calloutcolor, "#iconQuote", submenu);
     }
+    createTimeItem(selectid) {
+        const items = this.timeAttr.createTimeItem(selectid, this.menuData);
+        const submenu = this.createSubmenu("QYLattrtimesub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.time, "#iconClock", submenu);
+    }
     async createSelfConfigAttrItem(selectid, menuType = 'all') {
         return await this.selfConfigAttr.createSelfConfigAttrItem(selectid, menuType);
     }
@@ -423,7 +456,7 @@ export function destroyMenuObservers(menuRoot) {
     if (!menuRoot) return;
     const selectIds = new Set();
     menuRoot.querySelectorAll('button, textarea').forEach(el => {
-        const selectid = el.getAttribute('data-node-id');
+        const selectid = el.getAttribute('data-QYL-attr-id');
         if (selectid) {
             selectIds.add(selectid);
         }
