@@ -15,6 +15,7 @@ const lightColorMainGroup = [
     'QYLYunwu',
     'QYLYunyan',
     'QYLYuncang',
+    'QYLYunjin',
     'QYLShuanghe',
     'QYLLime',
     'QYLHuique',
@@ -61,6 +62,7 @@ let lavenderModule = null;
 let yunwuModule = null;
 let yunyanModule = null;
 let yuncangModule = null;
+let yunjinModule = null;
 let shuangheModule = null;
 let limeModule = null;
 let huiqueModule = null;
@@ -247,6 +249,15 @@ async function loadYuncangModule() {
         }
     }
     return yuncangModule;
+}
+async function loadYunjinModule() {
+    if (!yunjinModule) {
+        try {
+            yunjinModule = await import('../color/Yunjin.js');
+        } catch (error) {
+        }
+    }
+    return yunjinModule;
 }
 async function loadShuangheModule() {
     if (!shuangheModule) {
@@ -599,6 +610,18 @@ async function disableYuncang() {
     const module = await loadYuncangModule();
     if (module && module.removeYuncang) {
         module.removeYuncang();
+    }
+}
+async function enableYunjin() {
+    const module = await loadYunjinModule();
+    if (module && module.initYunjin) {
+        module.initYunjin();
+    }
+}
+async function disableYunjin() {
+    const module = await loadYunjinModule();
+    if (module && module.removeYunjin) {
+        module.removeYunjin();
     }
 }
 async function enableShuanghe() {
@@ -1047,6 +1070,8 @@ async function handleDisableById(id) {
         await disableYunyan();
     } else if (id === 'QYLYuncang') {
         await disableYuncang();
+    } else if (id === 'QYLYunjin') {
+        await disableYunjin();
     } else if (id === 'QYLShuanghe') {
         await disableShuanghe();
     } else if (id === 'QYLLime') {
@@ -1153,6 +1178,10 @@ function getColorOptions() {
         {
             id: 'QYLYuncang',
             label: i18n.QYLYuncang
+        },
+        {
+            id: 'QYLYunjin',
+            label: i18n.QYLYunjin
         },
         {
             id: 'QYLShuanghe',
@@ -1301,10 +1330,6 @@ async function createColorContent(config = null) {
         `;
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('mousedown', function(e) {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            document.documentElement.style.setProperty('--circle-x', `${x}%`);
-            document.documentElement.style.setProperty('--circle-y', `${y}%`);
         });
         if (option.id === 'CustomColorPickLight' || option.id === 'CustomColorPickDark') {
             button.addEventListener('contextmenu', async (e) => {
@@ -1361,6 +1386,10 @@ async function createColorContent(config = null) {
                     case 'QYLYuncang':
                         enableFunction = enableYuncang;
                         disableFunction = disableYuncang;
+                        break;
+                    case 'QYLYunjin':
+                        enableFunction = enableYunjin;
+                        disableFunction = disableYunjin;
                         break;
                     case 'QYLShuanghe':
                         enableFunction = enableShuanghe;
@@ -1545,6 +1574,8 @@ async function initializeColorStates(config = null) {
             await enableYunyan();
         } else if (firstActiveColor === 'QYLYuncang') {
             await enableYuncang();
+        } else if (firstActiveColor === 'QYLYunjin') {
+            await enableYunjin();
         } else if (firstActiveColor === 'QYLShuanghe') {
             await enableShuanghe();
         } else if (firstActiveColor === 'QYLLime') {
@@ -1642,6 +1673,8 @@ async function initializeColorStates(config = null) {
                 await enableYunyan();
             } else if (newFirstActiveColor === 'QYLYuncang') {
                 await enableYuncang();
+            } else if (newFirstActiveColor === 'QYLYunjin') {
+                await enableYunjin();
             } else if (newFirstActiveColor === 'QYLShuanghe') {
                 await enableShuanghe();
             } else if (newFirstActiveColor === 'QYLLime') {

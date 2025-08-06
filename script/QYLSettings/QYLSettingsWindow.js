@@ -1,9 +1,52 @@
 import { createQYLSettingsContent } from './QYLSettingsContent.js';
+function setupCommonMenuListener() {
+    if (window.QYLCommonMenuObserver) {
+        window.QYLCommonMenuObserver.disconnect();
+        window.QYLCommonMenuObserver = null;
+    }
+    let retryCount = 0;
+    const maxRetries = 15;
+    function findAndSetupCommonMenu() {
+        const commonMenu = document.getElementById('commonMenu');
+        if (commonMenu) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const target = mutation.target;
+                        const hasFnNone = target.classList.contains('fn__none');
+                        if (!hasFnNone) {
+                            const settingsWindow = document.getElementById('QYLSettingsWindow');
+                            if (settingsWindow) {
+                                removeQYLSettingsWindow();
+                            }
+                        }
+                    }
+                });
+            });
+            observer.observe(commonMenu, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+            window.QYLCommonMenuObserver = observer;
+        } else if (retryCount < maxRetries) {
+            retryCount++;
+            setTimeout(findAndSetupCommonMenu, 100);
+        }
+    }
+    findAndSetupCommonMenu();
+}
+function cleanupCommonMenuListener() {
+    if (window.QYLCommonMenuObserver) {
+        window.QYLCommonMenuObserver.disconnect();
+        window.QYLCommonMenuObserver = null;
+    }
+}
 export async function createQYLSettingsWindow() {
     removeQYLSettingsWindow();
     if (window.QYLConfigManager) {
         window.QYLConfigManager.clearCache();
     }
+    setupCommonMenuListener();
     const settingsWindow = document.createElement('div');
     settingsWindow.id = 'QYLSettingsWindow';
     settingsWindow.className = 'b3-menu';
@@ -16,6 +59,10 @@ export async function createQYLSettingsWindow() {
         settingsWindow.style.left = `${buttonRect.right}px`;
         settingsWindow.style.top = `${buttonRect.bottom + 5}px`;
         settingsWindow.style.transform = 'translateX(-100%)';
+    }
+    const commonMenu = document.getElementById('commonMenu');
+    if (commonMenu && !commonMenu.classList.contains('fn__none')) {
+        commonMenu.classList.add('fn__none');
     }
     const settingsContent = await createQYLSettingsContent();
     settingsWindow.appendChild(settingsContent);
@@ -64,4 +111,6 @@ export function removeQYLSettingsWindow() {
         }
         settingsWindow.remove();
     }
+    cleanupCommonMenuListener();
 }
+export { cleanupCommonMenuListener };
