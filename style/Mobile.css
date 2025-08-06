@@ -39,12 +39,27 @@
 .QYLmobile .b3-menu--fullscreen .b3-menu__item {
     background-color: var(--b3-theme-background) !important;
     border-bottom: none;
+    margin: 0 8px;
+    width: calc(100% - 16px);
+    border-radius: var(--b3-border-radius);
     &:first-child {
         border-top: none;
+        margin-top: 8px;
+    }
+    &:last-child {
+        margin-bottom: 8px;
+    }
+    &:active, &:hover {
+        background-color: var(--b3-theme-primary) !important;
+        & > * {
+            color: var(--b3-theme-on-primary) !important;
+        }
     }
 }
 .QYLmobile .b3-menu--fullscreen .b3-menu__separator {
     height: 0;
+    margin: 4px 12px;
+    width: calc(100% - 24px);
     background-color: var(--b3-theme-background);
     border-bottom: 1px solid var(--b3-theme-surface-lighter);
 }
@@ -70,4 +85,7 @@
 .QYLmobile .b3-snackbars {
     top: 45px;
     right: 0;
+}
+.QYLmobile {
+    -webkit-tap-highlight-color: transparent;
 }

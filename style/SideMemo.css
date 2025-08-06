@@ -51,6 +51,8 @@
             background-color: var(--QYL-tab-item-focus) !important;
         }
         & > div:first-child {
+            color: var(--b3-theme-on-background);
+            font-weight: bold;
             &:before {
                 content: '';
                 display: inline-block;

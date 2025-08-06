@@ -49,6 +49,9 @@
     border: 1px solid var(--b3-theme-on-background);
     background-color: rgba(255, 0, 0, 0);
 }
+.b3-typography table thead th, .b3-typography table thead td, .protyle-wysiwyg table thead th, .protyle-wysiwyg table thead td {
+    font-weight: unset;
+}
 /* 行级代码 */
 :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
     border-radius: 6px;

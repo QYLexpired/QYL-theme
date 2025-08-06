@@ -1,34 +1,27 @@
-@keyframes QYL-theme-circle-wipe-dark {
+@keyframes QYL-theme-fade-out {
     from {
-        clip-path: circle(0% at var(--circle-x, 50%) var(--circle-y, 50%));
-        filter: saturate(2.5) brightness(1.3);
-    }
-    to {
-        clip-path: circle(150% at 50% 50%);
-        filter: saturate(1) brightness(1);
         opacity: 1;
     }
+    to {
+        opacity: 0;
+    }
 }
-@keyframes QYL-theme-circle-wipe-light {
+@keyframes QYL-theme-fade-in {
     from {
-        clip-path: circle(0% at var(--circle-x, 50%) var(--circle-y, 50%));
-        filter: saturate(3) brightness(0.8);
+        opacity: 0;
     }
     to {
-        clip-path: circle(150% at 50% 50%);
-        filter: saturate(1) brightness(1);
         opacity: 1;
     }
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
-    animation-duration: 0.8s;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.9 , 1);
+    animation-duration: 0.7s;
     animation-fill-mode: both;
 }
-[data-theme-mode="dark"]::view-transition-new(root) {
-    animation-name: QYL-theme-circle-wipe-dark;
+::view-transition-old(root) {
+    animation-name: QYL-theme-fade-out;
 }
-[data-theme-mode="light"]::view-transition-new(root) {
-    animation-name: QYL-theme-circle-wipe-light;
+::view-transition-new(root) {
+    animation-name: QYL-theme-fade-in;
 }
