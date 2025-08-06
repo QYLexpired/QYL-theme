@@ -1,6 +1,9 @@
 export class MenuData {
     constructor() {
         this.tableOptions = [
+            { attrName: "table-style", value: "三线表", label: "threeline", icon: "#iconTable", group: "group1" },
+            { attrName: "table-style-thead", value: "强化表头", label: "theadhl", icon: "#iconTable", group: "group2" },
+            { attrName: "table-width", value: "全宽表格", label: "tablewidth100", icon: "#iconTable", group: "group3" },
             { attrName: "table-color", value: "主题色", label: "themecolor", icon: "#iconTheme", group: "group4" },
             { attrName: "table-color", value: "红色", label: "red", icon: "#iconTheme", group: "group4" },
             { attrName: "table-color", value: "橙色", label: "orange", icon: "#iconTheme", group: "group4" },
@@ -11,28 +14,25 @@ export class MenuData {
             { attrName: "table-color", value: "紫色", label: "purple", icon: "#iconTheme", group: "group4" },
             { attrName: "table-color", value: "粉色", label: "pink", icon: "#iconTheme", group: "group4" },
             { attrName: "table-color", value: "黑色", label: "black", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "灰色", label: "gray", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-style", value: "三线表", label: "threeline", icon: "#iconTable", group: "group1" },
-            { attrName: "table-style-thead", value: "强化表头", label: "theadhl", icon: "#iconTable", group: "group2" },
-            { attrName: "table-width", value: "全宽表格", label: "tablewidth100", icon: "#iconTable", group: "group3" }
+            { attrName: "table-color", value: "灰色", label: "gray", icon: "#iconTheme", group: "group4" }
         ];
         this.calloutOptions = [
-            { attrName: "bq-callout-color", value: "主题色", label: "themecolor", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "红色", label: "red", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "橙色", label: "orange", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "黄色", label: "yellow", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "绿色", label: "green", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "青色", label: "cyan", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "蓝色", label: "blue", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "紫色", label: "purple", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "粉色", label: "pink", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "黑色", label: "black", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout-color", value: "灰色", label: "gray", icon: "#iconQuote", group: "group1" },
-            { attrName: "bq-callout", value: "启用", label: "recovercallout", icon: "#iconQuote", group: "group2" },
-            { attrName: "bq-callout", value: "启用2", label: "recovercallout2", icon: "#iconQuote", group: "group2" },
-            { attrName: "bq-callout", value: "启用4", label: "recovercallout4", icon: "#iconQuote", group: "group2" },
-            { attrName: "bq-callout", value: "启用3", label: "recovercallout3", icon: "#iconQuote", group: "group2" },
-            { attrName: "bq-callout-transparent", value: "transparent", label: "transparentbackground", icon: "#iconQuote", group: "group3" }
+            { attrName: "bq-callout", value: "启用", label: "recovercallout", icon: "#iconQuote", group: "group1" },
+            { attrName: "bq-callout", value: "启用2", label: "recovercallout2", icon: "#iconQuote", group: "group1" },
+            { attrName: "bq-callout", value: "启用4", label: "recovercallout4", icon: "#iconQuote", group: "group1" },
+            { attrName: "bq-callout", value: "启用3", label: "recovercallout3", icon: "#iconQuote", group: "group1" },
+            { attrName: "bq-callout-transparent", value: "transparent", label: "transparentbackground", icon: "#iconQuote", group: "group2" },
+            { attrName: "bq-callout-color", value: "主题色", label: "themecolor", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "红色", label: "red", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "橙色", label: "orange", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "黄色", label: "yellow", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "绿色", label: "green", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "青色", label: "cyan", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "蓝色", label: "blue", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "紫色", label: "purple", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "粉色", label: "pink", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "黑色", label: "black", icon: "#iconQuote", group: "group3" },
+            { attrName: "bq-callout-color", value: "灰色", label: "gray", icon: "#iconQuote", group: "group3" }
         ];
         this.colsBGapOptions = [
             { attrName: "sb-colgap", value: "水平连续排列", label: "colsblianxu", icon: "#iconSuper", group: "group1" },

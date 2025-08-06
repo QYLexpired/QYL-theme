@@ -81,7 +81,7 @@ export class QYLSelfConfigAttr {
         const div = document.createElement("div");
         div.id = id;
         div.className = "b3-menu__submenu";
-        div.appendChild(this.createSubmenuItems(items));
+        div.appendChild(this.createSubmenuItemsWithSeparators(items));
         return div;
     }
     createSubmenuItems(items) {
@@ -89,6 +89,50 @@ export class QYLSelfConfigAttr {
         div.className = "b3-menu__items";
         items.forEach(item => div.appendChild(item));
         return div;
+    }
+    createSeparator() {
+        const separator = document.createElement("button");
+        separator.className = "b3-menu__separator";
+        separator.disabled = true;
+        return separator;
+    }
+    createSubmenuItemsWithSeparators(items) {
+        const div = document.createElement("div");
+        div.className = "b3-menu__items";
+        const sortedItems = this.sortItemsByGroup(items);
+        let currentGroup = null;
+        sortedItems.forEach((item, index) => {
+            const itemGroup = item.getAttribute('data-group');
+            if (itemGroup && itemGroup !== currentGroup && currentGroup !== null) {
+                div.appendChild(this.createSeparator());
+            }
+            div.appendChild(item);
+            currentGroup = itemGroup;
+        });
+        return div;
+    }
+    sortItemsByGroup(items) {
+        const groupOrder = [
+            'group1', 'group2', 'group3', 'group4', 'group5', 'group6', 'group7', 'group8', 'group9', 'group10',
+            'config-options', 'edit-config' 
+        ];
+        return items.sort((a, b) => {
+            const groupA = a.getAttribute('data-group');
+            const groupB = b.getAttribute('data-group');
+            if (!groupA && !groupB) {
+                return 0;
+            }
+            if (!groupA) return 1;
+            if (!groupB) return -1;
+            const indexA = groupOrder.indexOf(groupA);
+            const indexB = groupOrder.indexOf(groupB);
+            if (indexA === -1 && indexB === -1) {
+                return groupA.localeCompare(groupB);
+            }
+            if (indexA === -1) return 1;
+            if (indexB === -1) return -1;
+            return indexA - indexB;
+        });
     }
     createMenuItemWithSubmenu(label, icon, submenu, group = null) {
         const button = document.createElement("button");
@@ -114,6 +158,9 @@ export class QYLSelfConfigAttr {
         button.setAttribute("data-QYL-attr-id", selectid);
         button.setAttribute("custom-attr-name", attrName);
         button.setAttribute("custom-attr-value", attrValue);
+        if (group) {
+            button.setAttribute("data-group", group);
+        }
         button.innerHTML = `
             <svg class="b3-menu__icon" style="${isWarning ? 'color: var(--b3-theme-error);' : ''}"><use xlink:href="${icon}"></use></svg>
             <span class="b3-menu__label">${label}</span>
@@ -225,7 +272,9 @@ export class QYLSelfConfigAttr {
                 const submenu = this.createSubmenu(`QYLattrselfconfig${attrName}sub`, subItems);
                 const hasAttrNote = config.note && config.note.trim() !== '';
                 const displayLabel = hasAttrNote ? `${attrName}(${config.note})` : attrName;
-                items.push(this.createMenuItemWithSubmenu(displayLabel, "#iconSettings", submenu));
+                const menuItem = this.createMenuItemWithSubmenu(displayLabel, "#iconSettings", submenu);
+                menuItem.setAttribute("data-group", "config-options");
+                items.push(menuItem);
             }
         }
         const editConfigButton = document.createElement("button");
@@ -237,6 +286,9 @@ export class QYLSelfConfigAttr {
         editConfigButton.onclick = () => {
             this.showEditDialog();
         };
+        if (items.length > 0) {
+            editConfigButton.setAttribute("data-group", "edit-config");
+        }
         items.push(editConfigButton);
         const submenu = this.createSubmenu("QYLattrselfconfigsub", items);
         const selfConfigButton = this.createMenuItemWithSubmenu(this.i18n.selfconfigattr, "#iconSettings", submenu);

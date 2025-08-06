@@ -221,6 +221,10 @@ export class QYLTimeAttr {
         }
     }
     showManualTimeSetDialog(selectid) {
+        const existingDialog = document.querySelector('[data-key="QYLtimemanualset"]');
+        if (existingDialog) {
+            existingDialog.remove();
+        }
         const dialog = document.createElement('div');
         dialog.className = 'b3-dialog--open';
         dialog.setAttribute('data-key', 'QYLtimemanualset');
@@ -368,7 +372,6 @@ export class QYLTimeAttr {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
                 closeDialog();
-                document.removeEventListener('keydown', handleKeyDown);
             }
         };
         document.addEventListener('keydown', handleKeyDown);

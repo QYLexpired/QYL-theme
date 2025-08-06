@@ -13,7 +13,12 @@ class QYLAttr {
         this.insertTimeout = null;
         this.fileInitTimeout = null;
         this.fileInsertTimeout = null;
-        this.handleEvent = null; 
+        this.handleEvent = null;
+        this.touchStartTime = 0;
+        this.touchStartTarget = null;
+        this.touchStartX = 0;
+        this.touchStartY = 0;
+        this.longPressDelay = 500; 
     }
     init() {
         initQYLcustomattrCSS();
@@ -42,8 +47,53 @@ class QYLAttr {
                 this.handleBlockEvent(e);
             }
         };
+        this.handleTouchStart = (e) => {
+            if (e.touches.length === 1) {
+                const touch = e.touches[0];
+                this.touchStartTime = Date.now();
+                this.touchStartTarget = e.target;
+                this.touchStartX = touch.clientX;
+                this.touchStartY = touch.clientY;
+            }
+        };
+        this.handleTouchEnd = (e) => {
+            if (this.touchStartTime && this.touchStartTarget) {
+                const pressDuration = Date.now() - this.touchStartTime;
+                if (pressDuration >= this.longPressDelay) {
+                    this.handleLongPress(e);
+                }
+            }
+            this.touchStartTime = 0;
+            this.touchStartTarget = null;
+            this.touchStartX = 0;
+            this.touchStartY = 0;
+        };
+        this.handleTouchMove = (e) => {
+            if (this.touchStartTarget) {
+                const touch = e.touches[0];
+                const moveDistance = Math.sqrt(
+                    Math.pow(touch.clientX - this.touchStartX, 2) + 
+                    Math.pow(touch.clientY - this.touchStartY, 2)
+                );
+                if (moveDistance > 10) { 
+                    this.touchStartTime = 0;
+                    this.touchStartTarget = null;
+                }
+            }
+        };
+        this.handleLongPress = (e) => {
+            if (e.target.closest('.protyle-gutters')) {
+                this.handleBlockEvent(e);
+            }
+            if (e.target.closest('.b3-list-item')) {
+                this.handleFileEvent(e);
+            }
+        };
         window.addEventListener('mouseup', this.handleMouseEvent);
         window.addEventListener('keyup', this.handleKeyEvent);
+        window.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+        window.addEventListener('touchend', this.handleTouchEnd, { passive: false });
+        window.addEventListener('touchmove', this.handleTouchMove, { passive: false });
     }
     debounce(func, delay) {
         let timeout;
@@ -107,12 +157,23 @@ class QYLAttr {
         if (this.isClickMonitorActive) {
             window.removeEventListener('mouseup', this.handleMouseEvent);
             window.removeEventListener('keyup', this.handleKeyEvent);
+            window.removeEventListener('touchstart', this.handleTouchStart);
+            window.removeEventListener('touchend', this.handleTouchEnd);
+            window.removeEventListener('touchmove', this.handleTouchMove);
             this.isClickMonitorActive = false;
             this.handleBlockEvent = null;
             this.handleFileEvent = null;
             this.handleMouseEvent = null;
             this.handleKeyEvent = null;
+            this.handleTouchStart = null;
+            this.handleTouchEnd = null;
+            this.handleTouchMove = null;
+            this.handleLongPress = null;
         }
+        this.touchStartTime = 0;
+        this.touchStartTarget = null;
+        this.touchStartX = 0;
+        this.touchStartY = 0;
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
         clearTimeout(this.fileInitTimeout);
