@@ -168,7 +168,7 @@ const BottomMemoModule = {
             if (e.target === firstDiv && e.button === 0) {
                 e.preventDefault();
                 e.stopPropagation();
-                block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                block.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
                     const evt = new MouseEvent('contextmenu', {
                         bubbles: true,
                         cancelable: true,
@@ -181,7 +181,7 @@ const BottomMemoModule = {
                     memoEl.dispatchEvent(evt);
                 });
             }
-            const targetMemoEl = block.querySelector('[data-memo-uid="' + uid + '"]');
+            const targetMemoEl = block.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
@@ -368,7 +368,7 @@ const RightMemoModule = {
         div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
-        const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
+        const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
         if (targetMemoEl) {
             const targetRect = targetMemoEl.getBoundingClientRect();
             const wysiwygRect = wysiwyg.getBoundingClientRect();
@@ -391,7 +391,7 @@ const RightMemoModule = {
             if (e.target === firstDiv && e.button === 0) {
                 e.preventDefault();
                 e.stopPropagation();
-                wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                wysiwyg.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
                     const evt = new MouseEvent('contextmenu', {
                         bubbles: true,
                         cancelable: true,
@@ -404,7 +404,7 @@ const RightMemoModule = {
                     memoEl.dispatchEvent(evt);
                 });
             }
-            const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + uid + '"]');
+            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
@@ -462,7 +462,7 @@ const RightMemoModule = {
         const offset = 8; 
         memoElements.forEach(div => {
             const memoUid = div.getAttribute('data-memo-uid');
-            const targetMemoEl = wysiwyg.querySelector('[data-memo-uid="' + memoUid + '"]');
+            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + memoUid + '"]');
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const relativeTop = targetRect.top - wysiwygRect.top;
