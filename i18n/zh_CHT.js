@@ -42,6 +42,7 @@ export default {
     "QYLYunwu": "雲霧",
     "QYLYunyan": "雲嫣",
     "QYLYuncang": "雲蒼",
+    "QYLYunjin": "雲堇",
     "QYLShuanghe": "霜禾",
     "QYLLime": "青檸",
     "QYLHuique": "灰鵲",

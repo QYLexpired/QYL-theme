@@ -42,6 +42,7 @@ export default {
     "QYLYunwu": "Mist",
     "QYLYunyan": "Yunyan",
     "QYLYuncang": "Yuncang",
+    "QYLYunjin": "Yunjin",
     "QYLShuanghe": "Shuanghe",
     "QYLLime": "Lime",
     "QYLHuique": "Huique",
