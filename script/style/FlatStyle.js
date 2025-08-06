@@ -435,6 +435,9 @@ export function initFlatStyle() {
                     }
                 }
             }
+            &[data-type=new] {
+                color: var(--b3-theme-on-primary) !important;
+            }
         }
 `;
     document.head.appendChild(style);
