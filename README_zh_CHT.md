@@ -1,7 +1,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新內容</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 15px">V4.3.0</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">最近更新</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的配色選擇</summary>
@@ -19,12 +18,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">滑鼠右鍵點擊主題設定按鈕可進入設定視窗隱藏不需要的選項</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
-</details>
-<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">圖片遮罩<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現標記按鈕和閃電按鈕<br>標記按鈕：開啟/關閉遮罩編輯模式<br>閃電按鈕：隱藏/恢復所有遮罩<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：點擊遮罩使其隱藏/恢復<br>移動端暫時不支援建立遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隱藏頂欄</summary>

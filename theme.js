@@ -15,6 +15,11 @@ import('./index.js');
         html.classList.remove('QYLCustomColor');
         html.classList.remove('QYLDarkRevert');
         document.getElementById('QYLButton')?.classList.remove('QYLbuttonActive');
+        import('./script/QYLSettings/QYLSettingsWindow.js').then(module => {
+          if (typeof module.cleanupCommonMenuListener === 'function') {
+            module.cleanupCommonMenuListener();
+          }
+        });
         import('./script/color/ColorSwitchTime.js').then(module => {
           if (typeof module.stopColorSwitch === 'function') {
             module.stopColorSwitch();
@@ -48,8 +53,6 @@ import('./index.js');
     let parent = menuItem.parentElement;
     while (parent) {
       if (parent.matches && parent.matches('[data-name="barmode"]')) {
-        document.documentElement.style.setProperty('--circle-x', e.clientX + 'px');
-        document.documentElement.style.setProperty('--circle-y', e.clientY + 'px');
         if (document.startViewTransition) {
           document.startViewTransition(() => {
           });
@@ -72,4 +75,11 @@ import('./script/QYLSettings/Color.js').then(module => {
     });
   }
   refreshColorVarsOnThemeChange();
+});
+window.addEventListener('beforeunload', () => {
+  import('./script/QYLSettings/QYLSettingsWindow.js').then(module => {
+    if (typeof module.cleanupCommonMenuListener === 'function') {
+      module.cleanupCommonMenuListener();
+    }
+  });
 });
