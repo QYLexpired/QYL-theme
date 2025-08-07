@@ -8,6 +8,9 @@ export function initColorBlock() {
         #layouts {
             background-color: var(--b3-theme-background);
             padding: 0;
+            &.layout__center {
+                padding-top: 0 !important;
+            }
         }
         :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
             border-radius: 0;

@@ -68,12 +68,12 @@ export function initFusionOn() {
             .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child {
                 transform: var(--QYL-FusionOn-Not-Top-Transform);
             }
-            .layout__center:not(#layouts) {
+            .layout__center {
                 padding-top: 3.75px;
                 box-sizing: border-box;
-            }
-            .layout__center#layouts {
-                background-color: var(--b3-theme-background);
+                &#layouts {
+                    padding-top: 3.75px;
+                }
             }
             .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar {
                 background-color: transparent;
@@ -105,8 +105,9 @@ export function initFusionOn() {
                 -webkit-app-region: no-drag;
                 app-region: no-drag;
             }
-            .layout__empty {
-                box-shadow: 0 33.75px 0 0 var(--b3-theme-surface) inset;
+            .layout__center [data-type="wnd"] > .fn__flex:first-child.fn__none + .layout-tab-container {/* layout__empty */
+                height: calc(100% - 34px);
+                margin-top: 34px;
             }
             #dockLeft {
                 padding-top: 38px;
