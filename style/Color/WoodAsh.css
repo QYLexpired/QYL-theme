@@ -37,10 +37,6 @@
     --b3-tooltips-shadow: var(--b3-point-shadow);
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
-    /* 高亮 */
-    --b3-highlight-color: white;
-    --b3-highlight-background: rgb(255, 0, 238);
-    --b3-highlight-current-background: rgb(179, 0, 255);
     /* switch */
     --b3-switch-background: #bfc4ab;
     /* 行级代码背景色 */
@@ -61,7 +57,7 @@
     --QYL-inline-code: var(--b3-theme-primary);
 }
 /* 细节调整 */
-:root {
+:root[data-theme-mode="light"] {
     --b3-theme-primary-fix: #596fdc;
 }
 .b3-typography h1, .b3-typography .h1, .protyle-wysiwyg h1, .protyle-wysiwyg .h1,

@@ -1,21 +1,17 @@
 [data-theme-mode="dark"] {
     --QYL-custom-primary-main: 88deg;
-
     /* 主色 */
     --b3-theme-primary: #877b5d;
     --b3-theme-primary-light: rgba(135, 123, 93, 0.5);
     --b3-theme-primary-lighter: rgba(135, 123, 93, 0.35);
     --b3-theme-primary-lightest: rgba(135, 123, 93, 0.1);
-
     /* 编辑器背景色 */
     --b3-theme-background: #2f2f2f;
     --b3-theme-background-light: #444444;
-
     /* 面板背景色 */
     --b3-theme-surface: #383838;
     --b3-theme-surface-light: rgba(56, 56, 56, 0.86);
     --b3-theme-surface-lighter: rgba(92, 92, 92, 0.5);
-
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
@@ -23,47 +19,34 @@
     --b3-theme-on-background: #dddddd;
     --b3-theme-on-surface: #b9bdc0;
     --b3-theme-on-surface-light: #aaafb2;
-
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #4e4e4e;
     --b3-toolbar-color: var(--b3-theme-on-surface);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
-
     /* 滚动条 */
     --b3-scroll-color: rgb(90, 85, 79);
-
     /* 悬停 */
     --b3-list-hover: rgba(121, 116, 86, 0.6);
     --b3-list-icon-hover: rgba(121, 116, 86, 0.6);
-
     /* 菜单 */
     --b3-menu-background: var(--b3-theme-background);
-
     /* 提示 */
     --b3-tooltips-background: var(--b3-theme-background);
     --b3-tooltips-color: var(--b3-theme-on-surface);
     --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
     --b3-tooltips-shadow: var(--b3-point-shadow);
-
-    /* 高亮 */
-    --b3-highlight-color: white;
-    --b3-highlight-background: rgb(255, 0, 238);
-    --b3-highlight-current-background: rgb(179, 0, 255);
-
     /* switch */
     --b3-switch-background: rgb(75, 73, 67);
-
     /* 行级代码背景色 */
     --b3-protyle-code-background: var(--b3-theme-surface);
-
     /* 页签 */
     --QYL-tab-item: rgba(121, 116, 86, 0.1);
     --QYL-tab-item-focus: rgba(121, 116, 86, 0.6);
-
+    /* 状态栏 */
+    --QYL-status-background: var(--b3-theme-background);
     /* 毛玻璃 */
     --QYL-Aero-background: rgba(46, 46, 46, 0.7);
     --QYL-Aero-background-wrap: rgb(62 61 59 / 70%);
-
     /* 引述块 */
     --QYL-blockquote-background: rgb(63, 62, 59);
     --QYL-blockquote-svg: rgb(88, 86, 82);
