@@ -112,7 +112,7 @@ export function initFusionTop() {
         });
         layoutObserver.observe(layoutCenter, {
             childList: true,
-            subtree: false,
+            subtree: true,
             attributes: false
         });
     }
