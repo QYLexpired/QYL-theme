@@ -2,19 +2,21 @@ export class MenuData {
     constructor() {
         this.tableOptions = [
             { attrName: "table-style", value: "三线表", label: "threeline", icon: "#iconTable", group: "group1" },
-            { attrName: "table-style-thead", value: "强化表头", label: "theadhl", icon: "#iconTable", group: "group2" },
-            { attrName: "table-width", value: "全宽表格", label: "tablewidth100", icon: "#iconTable", group: "group3" },
-            { attrName: "table-color", value: "主题色", label: "themecolor", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "红色", label: "red", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "橙色", label: "orange", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "黄色", label: "yellow", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "绿色", label: "green", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "青色", label: "cyan", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "蓝色", label: "blue", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "紫色", label: "purple", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "粉色", label: "pink", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "黑色", label: "black", icon: "#iconTheme", group: "group4" },
-            { attrName: "table-color", value: "灰色", label: "gray", icon: "#iconTheme", group: "group4" }
+            { attrName: "table-style", value: "圆角", label: "tableround", icon: "#iconTable", group: "group1" },
+            { attrName: "table-even-color", value: "层次", label: "level", icon: "#iconTable", group: "group2" },
+            { attrName: "table-style-thead", value: "强化表头", label: "theadhl", icon: "#iconTable", group: "group3" },
+            { attrName: "table-width", value: "全宽表格", label: "tablewidth100", icon: "#iconTable", group: "group4" },
+            { attrName: "table-color", value: "主题色", label: "themecolor", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "红色", label: "red", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "橙色", label: "orange", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "黄色", label: "yellow", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "绿色", label: "green", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "青色", label: "cyan", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "蓝色", label: "blue", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "紫色", label: "purple", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "粉色", label: "pink", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "黑色", label: "black", icon: "#iconTheme", group: "group5" },
+            { attrName: "table-color", value: "灰色", label: "gray", icon: "#iconTheme", group: "group5" }
         ];
         this.calloutOptions = [
             { attrName: "bq-callout", value: "启用", label: "recovercallout", icon: "#iconQuote", group: "group1" },
@@ -71,6 +73,8 @@ export class MenuData {
             { attrName: "img-border", value: "圆形", label: "imgstylecircle", icon: "#iconImage", group: "group1" },
             { attrName: "img-shadow", value: "立体", label: "imgstyleshadow", icon: "#iconImage", group: "group2" },
             { attrName: "img-invert", value: "反色", label: "imgstyleinvert", icon: "#iconImage", group: "group3" },
+            { attrName: "img-invert", value: "反色-dark", label: "imgstyleinvert-dark", icon: "#iconImage", group: "group3" },
+            { attrName: "img-invert", value: "反色-light", label: "imgstyleinvert-light", icon: "#iconImage", group: "group3" },
             { attrName: "img-display", value: "九宫格排列", label: "imgstyle33grid", icon: "#iconImage", group: "group4" }
         ];
         this.heightOptions = [
