@@ -1,6 +1,13 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">最近更新</p>
-<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修復隱藏停靠欄時狀態欄位置未更新的問題<br>• 優化墨水屏模式，完善大量細節<br>• 圖片樣式增加：反色（僅暗黑模式）、反色（僅明亮模式）<br>• 表格樣式增加：層次、圓角<br>• 修復頂欄融合時部分情況下頂部分頁位置不更新的問題</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式<br>• 修復同時開啟頂欄融合與全高佈局/扁平化風格/墨水屏模式，且不打開任何分頁時的樣式異常<br>• 修復開啟頂欄融合時將分頁在新視窗打開時分頁位置異常的問題<br>• 修復開啟扁平化風格/墨水屏模式後，將分頁在新視窗打開並切換全螢幕時麵包屑無法點擊的問題</p>
+</details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的配色選擇</summary>
@@ -27,7 +34,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隱藏頂欄</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後頂欄被隱藏，通過滑鼠懸停在頁面最上方的兩側來重新呼出<br>若發現在視窗狀態無法呼出頂欄，可通過快捷鍵<span data-type="kbd">  連按三次Q</span>來恢復頂欄<br>平板端隱藏頂欄不會生效（防止無法呼出頂欄）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後頂欄被隱藏，通過滑鼠懸停在頁面最上方的兩側來重新呼出<br>若發現在視窗狀態無法呼出頂欄，可通過快捷鍵<span data-type="kbd">連按三次Q</span>來恢復頂欄<br>平板端隱藏頂欄不會生效（防止無法呼出頂欄）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">垂直分頁</summary>
