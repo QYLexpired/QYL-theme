@@ -14,3 +14,11 @@
     filter: invert(100%);
     transition: filter 0.3s ease;
 }
+[data-theme-mode="dark"] .protyle-wysiwyg[custom-img-invert="反色-dark"] img, [data-theme-mode="dark"] .protyle-wysiwyg [custom-img-invert="反色-dark"] img {
+    filter: invert(100%);
+    transition: filter 0.3s ease;
+}
+[data-theme-mode="light"] .protyle-wysiwyg[custom-img-invert="反色-light"] img, [data-theme-mode="light"] .protyle-wysiwyg [custom-img-invert="反色-light"] img {
+    filter: invert(100%);
+    transition: filter 0.3s ease;
+}

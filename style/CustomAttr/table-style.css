@@ -208,3 +208,156 @@
     display: table !important;
     width: 100%;
 }
+/* 层次 */
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"] table th {
+    --QYL-table-even-color: var(--QYL-tab-item);
+    background-color: var(--QYL-table-even-color);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="红色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="红色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="红色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="红色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-red-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="橙色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="橙色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="橙色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="橙色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-orange-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="黄色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="黄色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="黄色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="黄色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-yellow-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="绿色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="绿色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="绿色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="绿色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-green-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="青色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="青色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="青色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="青色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-cyan-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="蓝色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="蓝色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="蓝色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="蓝色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-blue-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="紫色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="紫色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="紫色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="紫色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-purple-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="粉色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="粉色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="粉色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="粉色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-pink-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="黑色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="黑色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="黑色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="黑色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-black-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="灰色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="灰色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="灰色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="灰色"] table th {
+    --QYL-table-even-color: var(--QYL-custom-gray-background);
+}
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="主题色"] table tr:nth-child(even) td,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="主题色"] table tr:nth-child(even) td,
+.protyle-wysiwyg [data-node-id][custom-table-even-color="层次"][custom-table-color="主题色"] table th,
+.protyle-wysiwyg[data-node-id][custom-table-even-color="层次"][custom-table-color="主题色"] table th {
+    --QYL-table-even-color: var(--QYL-tab-item);
+}
+/* 圆角 */
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"] table {
+    border-radius: 12px;
+    border: 1px solid var(--b3-theme-on-background);
+    & thead th {
+        border-top: none;
+        &:first-child {
+            border-left: none;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+    & tbody tr {
+        & td:first-child {
+            border-left: none;
+        }
+        & td:last-child {
+            border-right: none;
+        }
+        &:last-child {
+            & td {
+                border-bottom: none;
+            }
+        }
+    }
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-width="全宽表格"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-width="全宽表格"] table {
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-width: 1.5px !important;
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="红色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="红色"] table {
+    border: 1px solid var(--QYL-custom-red);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="橙色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="橙色"] table {
+    border: 1px solid var(--QYL-custom-orange);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="黄色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="黄色"] table {
+    border: 1px solid var(--QYL-custom-yellow);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="绿色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="绿色"] table {
+    border: 1px solid var(--QYL-custom-green);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="青色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="青色"] table {
+    border: 1px solid var(--QYL-custom-cyan);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="蓝色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="蓝色"] table {
+    border: 1px solid var(--QYL-custom-blue);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="紫色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="紫色"] table {
+    border: 1px solid var(--QYL-custom-purple);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="粉色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="粉色"] table {
+    border: 1px solid var(--QYL-custom-pink);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="黑色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="黑色"] table {
+    border: 1px solid var(--QYL-custom-black);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="灰色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="灰色"] table {
+    border: 1px solid var(--QYL-custom-gray);
+}
+.protyle-wysiwyg [data-node-id][custom-table-style="圆角"][custom-table-color="主题色"] table,
+.protyle-wysiwyg[data-node-id][custom-table-style="圆角"][custom-table-color="主题色"] table {
+    border: 1px solid var(--b3-theme-primary);
+}
