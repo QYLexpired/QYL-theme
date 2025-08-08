@@ -14,6 +14,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">The theme provides a custom theme color feature, allowing you to mix and match your favorite effects by selecting hue, saturation, and brightness.<br>The theme also comes with over 30 preset day and night color schemes.<br>Note: Custom theme colors will not work on some mobile devices due to lack of OKLCH color space support.<br>Since there are many preset color schemes, not all can be guaranteed to be perfect. If you find any issues, feedback is welcome.</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Rich Style Options</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">You can combine layouts and styles like building blocks to create your preferred overall appearance.</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Performance Notes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is <span style="font-weight: bold; color: var(--b3-theme-primary)">no impact on performance</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>

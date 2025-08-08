@@ -14,6 +14,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主題提供自訂主題色功能，通過選取色相、飽和度、亮度來搭配出你喜歡的效果<br>主題還額外內建了超過30種預設日夜配色<br>注意：由於部分移動設備不支援OKLCH色彩空間，因此自訂主題色不會生效<br>由於預設配色較多，無法保證全部完善，有任何問題歡迎反饋</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">豐富的風格選擇</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">可通過選擇佈局、風格，像搭積木一樣組合出你喜歡的整體樣式</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">效能說明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>

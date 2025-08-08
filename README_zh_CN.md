@@ -14,6 +14,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题还额外内置了超过30种预设日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效<br>由于预设配色较多，无法保证全部完善，有任何问题欢迎反馈</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">丰富的风格选择</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">可通过选择布局、风格，像搭积木一样组合出你喜欢的整体样式</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">性能说明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未启用时，相应代码不会加载，因此对性能<span style="font-weight: bold; color: var(--b3-theme-primary)">没有任何影响</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若发现卡顿，按照功能对性能的消耗程度，推荐按顺序优先关闭：主题色随时间变化、九宫格排列、固定工具栏、显示行内备注、图片遮罩、专注编辑模式、QYL自定义属性样式、主题动画、毛玻璃效果、顶栏融合</p>
