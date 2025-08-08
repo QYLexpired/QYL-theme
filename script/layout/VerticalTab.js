@@ -97,7 +97,7 @@ export function initVerticalTab() {
         .layout__center:not(#layouts) .QYLWndTopLeft {
             --QYL-wnd-border-none: none;
             --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);
-            --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);
+            --QYL-wnd-container-border-ink: 1.5px solid var(--b3-theme-primary);
             flex-direction: row;
             height: 100%;
             & > .fn__flex:first-child {

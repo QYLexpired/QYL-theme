@@ -37,9 +37,9 @@ export function initFusionOn() {
         styleElement.id = 'QYL-FusionOn';
         styleElement.textContent = `
             :root {
-                --QYL-wnd-border-none: none; /* 适配扁平化、墨水屏 */
-                --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter); /* 适配扁平化 */
-                --QYL-wnd-container-border-ink: 2px solid var(--b3-theme-primary);/* 适配墨水屏 */
+                --QYL-wnd-border-none: none; 
+                --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter); 
+                --QYL-wnd-container-border-ink: 1.5px solid var(--b3-theme-primary);
             }
             #toolbar {
                 background-color: transparent;
@@ -105,7 +105,7 @@ export function initFusionOn() {
                 -webkit-app-region: no-drag;
                 app-region: no-drag;
             }
-            .layout__center [data-type="wnd"] > .fn__flex:first-child.fn__none + .layout-tab-container {/* layout__empty */
+            .layout__center [data-type="wnd"] > .fn__flex:first-child.fn__none + .layout-tab-container {
                 height: calc(100% - 34px);
                 margin-top: 34px;
             }
@@ -231,6 +231,10 @@ export function initFusionOn() {
                         if (target.querySelector && target.querySelector('.QYLFusionTop')) {
                             shouldAdjust = true;
                         }
+                    } else if (mutation.type === 'childList') {
+                        if (mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0) {
+                            shouldAdjust = true;
+                        }
                     }
                 });
                 if (shouldAdjust) {
@@ -241,6 +245,7 @@ export function initFusionOn() {
             if (layoutCenter) {
                 fusionTopClassObserver.observe(layoutCenter, {
                     attributes: true,
+                    childList: true,  
                     subtree: true,
                     attributeFilter: ['class', 'style'],
                     attributeOldValue: true 
