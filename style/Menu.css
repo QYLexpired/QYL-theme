@@ -1,6 +1,10 @@
 .b3-menu__item {
     line-height: 24px;
 }
+.b3-list mark {
+    background-color: var(--b3-highlight-background);
+    color: var(--b3-highlight-color);
+}
 /* 阴影 */
 [data-theme-mode="dark"] :is(.b3-menu, .b3-menu__submenu,.b3-dialog__container, #message .b3-snackbar__content, .protyle-toolbar, .protyle-hint.hint--menu, .protyle-util, .protyle-hint) {
     border: 1px solid var(--b3-theme-surface);
