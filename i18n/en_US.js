@@ -71,13 +71,12 @@ export default {
     "QYLDarkClassic": "Dark Classic",
     "QYLDarkRevert": "Revert",
     "ColorSwitchTime": "Theme color changes with time",
-
     "QYLcustomattr": "QYL-theme block settings",
     "group1": "Group 1",
     "group2": "Group 2",
     "group3": "Group 3",
     "group4": "Group 4",
-
+    "group5": "Group 5",
     "calloutcolor": "Quote block style",
     "red": "Red",
     "orange": "Orange",
@@ -95,42 +94,38 @@ export default {
     "recovercallout2": "Left border style (with title)",
     "recovercallout3": "Timeline style",
     "recovercallout4": "Left border style (no title)",
-
     "colsbgap": "Column super block gap",
     "colsblianxu": "0",
     "colsbjincou": "0.5em",
     "colsbjiaojincou": "1em",
     "colsbjiaokuansong": "2em",
     "colsbkuansong": "2.5em",
-
     "rowsbgap": "Row super block gap",
     "rowsblianxu": "0",
     "rowsbkuansong": "1em",
     "rowsbruanhuanhang": "Soft wrap​",
-
     "listview": "List view",
     "listviewmindmap": "Mind map",
     "listviewkanban": "Kanban",
     "listviewtable": "Table",
     "liststylehide": "Hide the order",
-
     "lineheight": "Line height",
     "lineheight1": "1",
     "lineheight15": "1.5",
     "lineheight18": "1.8",
     "lineheight2": "2",
-
     "blankblockremind": "Empty block reminder",
     "blankblockremindon": "on",
     "flashcard": "Flash Card",
     "flashcardon": "on",
     "blockmask": "Block Mask",
-
     "tablestyle": "Table style",
     "threeline": "Three line table",
+    "tableround": "Rounded corners",
     "theadhl": "Enhance Headers",
+    "tableevencolor": "Banding",
+    "level": "Level",
     "tablewidth100": "Full width table",
-
     "headingstyle": "Heading style",
     "headingstylecolorful": "Colorful",
     "headingstyleglitch": "Glitch",
@@ -138,16 +133,15 @@ export default {
     "headingstyleunderline": "Underline",
     "headingstyleleftborder": "Left border",
     "headingstylelevel": "Level",
-
     "CSSplaceholder": "Input CSS code here, no need to wrap with { } at the beginning and end, supports & nested selectors\nExample 1: Input color: red; border: 1px solid red makes the text inside the block turn red and the block have a red border.\nExample 2: Inputting span[data-type~=block-ref]:not(.av__celltext) { border-bottom: none } to remove the dotted underline from all block reference links within blocks.\nExample 3: Input &.protyle-top .protyle-background__icon {margin-bottom: 8px;& :is(img, svg) {max-width:100px;min-width:100px;width:100px;height:100px;}} to adjust the size of custom emojis in your document.",
-
     "imgstyle": "Image style",
     "imgstyleroundedcorners": "Rounded corners",
     "imgstylecircle": "Circle",
     "imgstyleshadow": "Shadow",
     "imgstyleinvert": "Invert",
+    "imgstyleinvert-dark": "Invert (Dark mode only)",
+    "imgstyleinvert-light": "Invert (Light mode only)",
     "imgstyle33grid": "3x3 grid",
-
     "maxheight": "Max height",
     "maxheight50": "50px",
     "maxheight100": "100px",
@@ -156,12 +150,10 @@ export default {
     "maxheight300": "300px",
     "maxheight400": "400px",
     "maxheight500": "500px",
-
     "fileblockstyle": "File block style",
     "fileblockstylesajinzhi": "Sajin paper",
     "fileblockstylegrid": "Grid",
     "fileblockstyledot": "Dot",
-
     "blockstyle": "Block style",
     "blockstylewarning": "Warning",
     "blockstyletip": "Tip",
@@ -177,7 +169,6 @@ export default {
     "blockstyleleftborder": "Left border",
     "blockstyledot": "Dot",
     "blockstyleflashcard": "Flashcard",
-
     "fontfamily": "Font",
     "simsun": "SimSun",
     "youyuan": "YouYuan",
@@ -201,7 +192,6 @@ export default {
     "fzshuti": "FZShuTi",
     "times_new_roman": "Times New Roman",
     "transparentbackground": "Transparent Background",
-
     "FlatStyle": "Flat Style",
     "InkMode": "Ink Screen Mode",
     "ColorfulTabs": "Colorful Tabs",
