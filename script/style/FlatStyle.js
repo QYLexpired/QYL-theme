@@ -1,5 +1,6 @@
 export function initFlatStyle() {
     if (document.body.classList.contains('QYLmobile')) return;
+    document.documentElement.classList.add('QYLFlatStyle');
     const style = document.createElement('style');
     style.id = 'QYL-FlatStyle';
     style.textContent = `
@@ -164,6 +165,12 @@ export function initFlatStyle() {
         .tooltip {
             box-shadow: none;
             color: var(--b3-theme-on-surface);
+        }
+        #message .b3-snackbar__content {
+            box-shadow: none;
+        }
+        .b3-tooltips::after {
+            box-shadow: none;
         }
         /* 集市 */
         .config-bazaar__panel .b3-card {
@@ -443,6 +450,7 @@ export function initFlatStyle() {
     document.head.appendChild(style);
 }
 export function removeFlatStyle() {
+    document.documentElement.classList.remove('QYLFlatStyle');
     const style = document.getElementById('QYL-FlatStyle');
     if (style) {
         style.remove();

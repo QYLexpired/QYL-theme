@@ -4,6 +4,10 @@ export function initFrostedGlass() {
     style.textContent = `
         :root {
             --QYL-Aero-filter: blur(40px) saturate(2.8);
+            --QYL-Aero-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+            &.QYLFlatStyle {
+                --QYL-Aero-shadow: none;
+            }
         }
         /* 菜单 */
         .b3-menu, .b3-menu__submenu {
@@ -24,7 +28,7 @@ export function initFrostedGlass() {
                 left: 0;
                 right: 0;
                 border-radius: inherit;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                box-shadow: var(--QYL-Aero-shadow);
                 backdrop-filter: var(--QYL-Aero-filter);
                 z-index: -1;
             }
@@ -54,7 +58,7 @@ export function initFrostedGlass() {
                 left: 0;
                 right: 0;
                 border-radius: inherit;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                box-shadow: var(--QYL-Aero-shadow);
                 backdrop-filter: var(--QYL-Aero-filter);
                 z-index: -1;
             }
@@ -99,7 +103,7 @@ export function initFrostedGlass() {
                     left: 0;
                     right: 0;
                     border-radius: inherit;
-                    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                    box-shadow: var(--QYL-Aero-shadow);
                     backdrop-filter: var(--QYL-Aero-filter);
                     z-index: -1;
                 }
@@ -139,7 +143,7 @@ export function initFrostedGlass() {
                 left: 0;
                 right: 0;
                 border-radius: inherit;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                box-shadow: var(--QYL-Aero-shadow);
                 backdrop-filter: var(--QYL-Aero-filter);
                 z-index: -1;
             }
@@ -158,7 +162,7 @@ export function initFrostedGlass() {
                 left: 0;
                 right: 0;
                 border-radius: inherit;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                box-shadow: var(--QYL-Aero-shadow);
                 backdrop-filter: var(--QYL-Aero-filter);
                 z-index: -1;
             }
@@ -184,7 +188,7 @@ export function initFrostedGlass() {
                 left: 0;
                 right: 0;
                 border-radius: inherit;
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+                box-shadow: var(--QYL-Aero-shadow);
                 backdrop-filter: var(--QYL-Aero-filter);
                 z-index: -1;
             }
