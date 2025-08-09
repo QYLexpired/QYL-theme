@@ -1,12 +1,12 @@
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">Github</a>點個⭐小星星</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修復隱藏停靠欄時狀態欄位置未更新的問題<br>• 優化墨水屏模式，完善大量細節<br>• 圖片樣式增加：反色（僅暗黑模式）、反色（僅明亮模式）<br>• 表格樣式增加：層次、圓角<br>• 修復頂欄融合時部分情況下頂部分頁位置不更新的問題</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 取消斜杠菜單展開時的分組機制<br>• 斜杠菜單選項可透過方向鍵切換，參考Savor主題<br>• 修復主題設定視窗與公共選單的衝突<br>• 優化任務清單摺疊樣式<br>• 優化邊框文件樹顏色</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式<br>• 修復同時開啟頂欄融合與全高佈局/扁平化風格/墨水屏模式，且不打開任何分頁時的樣式異常<br>• 修復開啟頂欄融合時將分頁在新視窗打開時分頁位置異常的問題<br>• 修復開啟扁平化風格/墨水屏模式後，將分頁在新視窗打開並切換全螢幕時麵包屑無法點擊的問題</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修復隱藏停靠欄時狀態欄位置未更新的問題<br>• 優化墨水屏模式，完善大量細節<br>• 圖片樣式增加：反色（僅暗黑模式）、反色（僅明亮模式）<br>• 表格樣式增加：層次、圓角<br>• 修復頂欄融合時部分情況下頂部分頁位置不更新的問題<br>• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式<br>• 修復同時開啟頂欄融合與全高佈局/扁平化風格/墨水屏模式，且不打開任何分頁時的樣式異常<br>• 修復開啟頂欄融合時將分頁在新視窗打開時分頁位置異常的問題<br>• 修復開啟扁平化風格/墨水屏模式後，將分頁在新視窗打開並切換全螢幕時麵包屑無法點擊的問題</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
@@ -73,7 +73,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
 • <a href="https://github.com/royc01/notion-theme">Savor主題</a>：列表子彈線、頂欄融合、風格、斜杠菜單多列展示、連接思源API的方法<br>
 • <a href="https://github.com/mustakshif/Asri">Asri主題</a>：文件樹縮進線、風格、搜尋列表多行展示、狀態欄避讓、撞色佈局、全高介面<br>
-• <a href="https://github.com/chenshinshi/OneNote">Onenote主題</a>：多彩文件樹<br>
+• <a href="https://github.com/chenshinshi/OneNote">OneNote主題</a>：多彩文件樹<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主題</a>：風格<br>
 • <a href="https://github.com/TCOTC/Whisper">淺吟主題</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移動端判斷方法、圖片九宮格排列<br>
 • <a href="https://ld246.com/member/wilsons">wilsons</a>：狀態欄浮動、重載方法<br>

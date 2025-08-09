@@ -2,11 +2,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修复隐藏停靠栏时状态栏位置未更新的问题<br>• 优化墨水屏模式，完善大量细节<br>• 图片样式增加：反色（仅暗黑模式）、反色（仅明亮模式）<br>• 表格样式增加：层次、圆角<br>• 修复顶栏融合时部分情况下顶部页签位置不更新的问题</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 取消斜杠菜单展开时的分组机制<br>• 斜杠菜单选项可通过方向键切换，参考Savor主题<br>• 修复主题设置窗口与公共菜单的冲突<br>• 优化任务列表折叠样式<br>• 优化边框文档树颜色</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰、云堇<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式<br>• 适配代码片段管理器插件<br>• 优化暗黑模式多彩文档树效果<br>• 修复开启备注显示在底部时的部分错误<br>• 为QYL自定义属性菜单中不同组别属性增加分隔线，优化移动端交互<br>• 简化配色切换动画<br>• 表格表头不再默认加粗，优化三线表样式<br>• 优化主题设置窗口的关闭逻辑<br>• 优化手机端菜单样式<br>• 修复同时开启顶栏融合与全高布局/扁平化风格/墨水屏模式，且不打开任何页签时的样式异常<br>• 修复开启顶栏融合时将页签在新窗口打开时页签位置异常的问题<br>• 修复开启扁平化风格/墨水屏模式后，将页签在新窗口打开并切换全屏时面包屑无法点击的问题</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修复隐藏停靠栏时状态栏位置未更新的问题<br>• 优化墨水屏模式，完善大量细节<br>• 图片样式增加：反色（仅暗黑模式）、反色（仅明亮模式）<br>• 表格样式增加：层次、圆角<br>• 修复顶栏融合时部分情况下顶部页签位置不更新的问题<br>• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰、云堇<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式<br>• 适配代码片段管理器插件<br>• 优化暗黑模式多彩文档树效果<br>• 修复开启备注显示在底部时的部分错误<br>• 为QYL自定义属性菜单中不同组别属性增加分隔线，优化移动端交互<br>• 简化配色切换动画<br>• 表格表头不再默认加粗，优化三线表样式<br>• 优化主题设置窗口的关闭逻辑<br>• 优化手机端菜单样式<br>• 修复同时开启顶栏融合与全高布局/扁平化风格/墨水屏模式，且不打开任何页签时的样式异常<br>• 修复开启顶栏融合时将页签在新窗口打开时页签位置异常的问题<br>• 修复开启扁平化风格/墨水屏模式后，将页签在新窗口打开并切换全屏时面包屑无法点击的问题</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
@@ -71,7 +71,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">致谢</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">制作QYL主题时参考了大量集市主题和其他内容创作者，在此表示感谢，包括但不限于（排名不分先后）</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
-• <a href="https://github.com/royc01/notion-theme">Savor主题</a>：列表子弹线、顶栏融合、风格、斜杠菜单多列展示、连接思源API的方法<br>
+• <a href="https://github.com/royc01/notion-theme">Savor主题</a>：列表子弹线、顶栏融合、风格、斜杠菜单多列展示及选项左右切换、连接思源API的方法<br>
 • <a href="https://github.com/mustakshif/Asri">Asri主题</a>：文档树缩进线、风格、搜索列表多行展示、状态栏避让、撞色布局、全高界面<br>
 • <a href="https://github.com/chenshinshi/OneNote">Onenote主题</a>：多彩文档树<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主题</a>：风格<br>
