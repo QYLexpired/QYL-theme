@@ -63,6 +63,10 @@ export async function createQYLSettingsWindow() {
     const commonMenu = document.getElementById('commonMenu');
     if (commonMenu && !commonMenu.classList.contains('fn__none')) {
         commonMenu.classList.add('fn__none');
+        const attributesToRemove = Array.from(commonMenu.attributes)
+            .map(attr => attr.name)
+            .filter(name => name !== 'id' && name !== 'class');
+        attributesToRemove.forEach(name => commonMenu.removeAttribute(name));
     }
     const settingsContent = await createQYLSettingsContent();
     settingsWindow.appendChild(settingsContent);
