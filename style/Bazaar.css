@@ -82,3 +82,6 @@
 .b3-button:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]) {
     min-width: fit-content;
 }
+#configBazaarReadme > .item__main {
+    border-radius: var(--b3-border-radius);
+}

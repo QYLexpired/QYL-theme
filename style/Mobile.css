@@ -35,6 +35,12 @@
     padding: 0;
     background-color: var(--b3-theme-background) !important;
     height: 100%;
+    & >:first-child {
+        margin-top: 8px;
+    }
+    & >:last-child {
+        margin-bottom: 8px;
+    }
 }
 .QYLmobile .b3-menu--fullscreen .b3-menu__item {
     background-color: var(--b3-theme-background) !important;
@@ -51,6 +57,9 @@
     }
     &:active, &:hover {
         background-color: var(--b3-theme-primary) !important;
+        &.b3-menu__item--warning {
+            background-color: var(--b3-theme-error) !important;
+        }
         & > * {
             color: var(--b3-theme-on-primary) !important;
         }

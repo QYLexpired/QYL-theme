@@ -44,3 +44,20 @@
 .b3-dialog--open[data-key=jcsm-snippet-dialog] .jcsm-dialog-content .cm-editor .cm-activeLine {
     background-color: var(--QYL-tab-item-focus) !important;
 }
+.QYLFlatStyle #commonMenu[data-name=PluginSnippets] .jcsm-snippets-container .jcsm-snippet-item {
+    &.b3-menu__item--current, &:hover {
+        & .jcsm-snippet-name {
+            color: var(--b3-theme-on-primary) !important;
+        }
+        & .block__icon {
+            color: var(--b3-theme-on-primary) !important;
+            &:hover {
+                color: var(--b3-theme-primary) !important;
+                background-color: var(--b3-theme-on-primary) !important;
+            }
+        }
+    }
+    &[data-type=new] {
+        color: var(--b3-theme-on-primary) !important;
+    }
+}
