@@ -428,24 +428,6 @@ export function initFlatStyle() {
             background: transparent !important;
             color: var(--b3-theme-primary-fix, var(--b3-theme-primary)) !important;
         }
-        /* 适配代码片段管理插件 */
-        #commonMenu[data-name=PluginSnippets] .jcsm-snippets-container .jcsm-snippet-item {
-            &.b3-menu__item--current, &:hover {
-                & .jcsm-snippet-name {
-                    color: var(--b3-theme-on-primary) !important;
-                }
-                & .block__icon {
-                    color: var(--b3-theme-on-primary) !important;
-                    &:hover {
-                        color: var(--b3-theme-primary) !important;
-                        background-color: var(--b3-theme-on-primary) !important;
-                    }
-                }
-            }
-            &[data-type=new] {
-                color: var(--b3-theme-on-primary) !important;
-            }
-        }
 `;
     document.head.appendChild(style);
 }
