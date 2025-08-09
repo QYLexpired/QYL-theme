@@ -35,7 +35,10 @@ class QYLAttr {
             this.initQYLattrforfile(e);
         }, 100);
         this.handleMouseEvent = (e) => {
-            if (e.target.closest('.protyle-gutters')) {
+            if (
+                e.target.closest('.protyle-gutters') ||
+                e.target.closest('.keyboard__action[data-type="block"]')
+            ) {
                 this.handleBlockEvent(e);
             }
             if (e.target.closest('.b3-list-item')) {
