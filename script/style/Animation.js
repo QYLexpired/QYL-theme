@@ -659,6 +659,15 @@ export function initAnimation() {
         [data-key="QYLSelfConfigAttrEdit"] .b3-dialog__container {
             animation: QYLSettingsHidden 0.4s cubic-bezier(0.8, 0, 0.9, 1);
         }
+        [data-key="QYLCustomFontStyle"] .b3-dialog__container {
+            animation: QYLCustomFontStyle 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+        }
+        @keyframes QYLCustomFontStyle {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+        }
         @keyframes QYLSettingsHidden {
             0% {
                 transform: scale(0.9);
