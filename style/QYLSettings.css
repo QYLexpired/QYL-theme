@@ -133,7 +133,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
     max-width: 95vw;
     max-height: 95vh;
 }
-[data-key="QYLSettingsHidden"] .QYL-settings-hidden-tip {
+.QYL-settings-hidden-tip {
     color: var(--b3-theme-primary);
     font-weight: bold;
     margin-bottom: 16px;
@@ -182,4 +182,12 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
         background: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
     }
+}
+.QYL-settings-test-text {
+    font-size: 18px;
+    width: fit-content;
+    box-sizing: border-box;
+}
+[data-key="QYLCustomFontStyle"] button[data-color-type="background"] {
+    color: transparent;
 }

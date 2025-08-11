@@ -150,6 +150,85 @@
                 vertical-align: -1px;
             };
         }
+        & > div:last-child {
+            /* Markdown样式 */
+            & h1, & h2, & h3, & h4, & h5, & h6 {
+                margin: 0.5em 0 0.2em 0;
+                font-weight: bold;
+                line-height: 1.2;
+            }
+            & h1 { font-size: 1.2em; }
+            & h2 { font-size: 1.1em; }
+            & h3 { font-size: 1em; }
+            & h4, & h5, & h6 { font-size: 0.9em; }
+            & p {
+                margin: 0.3em 0;
+                line-height: 1.4;
+            }
+            & ul, & ol {
+                margin: 0.3em 0;
+                padding-left: 1.5em;
+            }
+            & li {
+                margin: 0.1em 0;
+            }
+            & blockquote {
+                margin: 0.3em 0;
+                padding-left: 0.8em;
+                border-left: 3px solid var(--b3-theme-primary);
+                color: var(--b3-theme-on-surface-light);
+            }
+            & code {
+                background-color: var(--b3-theme-surface);
+                padding: 0.1em 0.3em;
+                border-radius: 3px;
+                font-family: monospace;
+                font-size: 0.9em;
+            }
+            & pre {
+                background-color: var(--b3-theme-surface);
+                padding: 0.5em;
+                border-radius: 4px;
+                overflow-x: auto;
+                margin: 0.3em 0;
+                & code {
+                    background: none;
+                    padding: 0;
+                }
+            }
+            & strong {
+                font-weight: bold;
+            }
+            & em {
+                font-style: italic;
+            }
+            & a {
+                color: var(--b3-theme-primary);
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            & table {
+                border-collapse: collapse;
+                width: 100%;
+                margin: 0.3em 0;
+                & th, & td {
+                    border: 1px solid var(--b3-theme-on-background);
+                    padding: 0.2em 0.4em;
+                    text-align: left;
+                }
+                & th {
+                    background-color: var(--b3-theme-surface);
+                    font-weight: bold;
+                }
+            }
+            & hr {
+                border: none;
+                border-top: 1px solid var(--b3-theme-on-background);
+                margin: 0.5em 0;
+            }
+        }
     }
 }
 /* 左侧 */
@@ -238,6 +317,87 @@
                 margin-right: 0.2em;
                 vertical-align: -1px;
             };
+        }
+    }
+}
+.QYL-inline-memo {
+    & > div:last-child {
+        & h1, & h2, & h3, & h4, & h5, & h6 {
+            margin: 0.5em 0 0.2em 0;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        & h1 { font-size: 1.2em; }
+        & h2 { font-size: 1.1em; }
+        & h3 { font-size: 1em; }
+        & h4, & h5, & h6 { font-size: 0.9em; }
+        & p {
+            margin: 0.3em 0;
+            line-height: 1.4;
+        }
+        & ul, & ol {
+            margin: 0.3em 0;
+            padding-left: 1.5em;
+        }
+        & li {
+            margin: 0.1em 0;
+        }
+        & blockquote {
+            margin: 0.3em 0;
+            padding: 0.5em 0 0.5em 0.8em;
+            border-left: 3px solid var(--b3-theme-primary);
+            background-color: var(--b3-theme-surface);
+            color: var(--b3-theme-on-surface-light);
+        }
+        & code {
+            background-color: var(--b3-theme-surface);
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        & pre {
+            background-color: var(--b3-theme-surface);
+            padding: 0.5em;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 0.3em 0;
+            & code {
+                background: none;
+                padding: 0;
+            }
+        }
+        & strong {
+            font-weight: bold;
+        }
+        & em {
+            font-style: italic;
+        }
+        & a {
+            color: var(--b3-theme-primary);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        & table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0.3em 0;
+            & th, & td {
+                border: 1px solid var(--b3-theme-on-background);
+                padding: 0.2em 0.4em;
+                text-align: left;
+            }
+            & th {
+                background-color: var(--b3-theme-surface);
+                font-weight: bold;
+            }
+        }
+        & hr {
+            border: none;
+            border-top: 1px solid var(--b3-theme-on-background);
+            margin: 0.5em 0;
         }
     }
 }
