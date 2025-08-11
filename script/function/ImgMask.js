@@ -387,21 +387,14 @@ export function removeImgMask() {
 }
 function observeImgChanges() {
     let debounceTimer = null;
-    let retryCount = 0;
-    const MAX_RETRIES = 50; 
     const observer = new MutationObserver(mutations => {
         let imgChanged = false;
-        let addedImgs = [];
         for (const mutation of mutations) {
             if (mutation.type === 'childList') {
                 mutation.addedNodes.forEach(node => {
                     if (node.nodeType === 1) {
-                        if (node.matches('img')) {
+                        if (node.matches('img') || (node.querySelectorAll && node.querySelectorAll('img').length > 0)) {
                             imgChanged = true;
-                            addedImgs.push(node);
-                        } else if (node.querySelectorAll && node.querySelectorAll('img').length > 0) {
-                            imgChanged = true;
-                            addedImgs.push(...node.querySelectorAll('img'));
                         }
                     }
                 });
@@ -414,38 +407,9 @@ function observeImgChanges() {
         }
         if (imgChanged) {
             if (debounceTimer) clearTimeout(debounceTimer);
-            const checkImgsLoaded = () => {
-                retryCount++;
-                let allLoaded = true;
-                for (const img of addedImgs) {
-                    if (!img.complete || img.naturalWidth === 0) {
-                        allLoaded = false;
-                        break;
-                    }
-                    if (img.offsetWidth === 0 || img.offsetHeight === 0) {
-                        allLoaded = false;
-                        break;
-                    }
-                    let ancestor = img.parentElement;
-                    while (ancestor && !ancestor.hasAttribute('data-node-id')) {
-                        ancestor = ancestor.parentElement;
-                    }
-                    if (!ancestor || !ancestor.getAttribute('data-node-id')) {
-                        allLoaded = false;
-                        break;
-                    }
-                }
-                if (allLoaded) {
-                    retryCount = 0; 
-                    initImgMask();
-                } else if (retryCount < MAX_RETRIES) {
-                    debounceTimer = setTimeout(checkImgsLoaded, 100);
-                } else {
-                    retryCount = 0;
-                    initImgMask();
-                }
-            };
-            debounceTimer = setTimeout(checkImgsLoaded, 100);
+            debounceTimer = setTimeout(() => {
+                initImgMask();
+            }, 100);
         }
     });
     observer.observe(document.body, { childList: true, subtree: true });

@@ -3,7 +3,98 @@ let wysiwygObserverMap = new WeakMap();
 let enabled = false;
 let observeTimeout = null;
 let memoContentChangeTimeout = null; 
+let isRenderingMemo = false; 
 import { isMobile } from '../basic/Device.js';
+function detectContentType(content) {
+    if (!content || typeof content !== 'string') {
+        return 'text';
+    }
+    const trimmedContent = content.trim();
+    const htmlPatterns = [
+        /<[^>]+>/, 
+        /&[a-zA-Z]+;/, 
+        /&#\d+;/, 
+        /&#[xX][0-9a-fA-F]+;/ 
+    ];
+    const markdownPatterns = [
+        /^#{1,6}\s/, 
+        /^\s*[-*+]\s/, 
+        /^\s*\d+\.\s/, 
+        /^\s*>\s/, 
+        /^\s*```/,
+        /^\s*\|.*\|.*\|/, 
+        /^\s*[-*_]{3,}\s*$/, 
+        /\*\*[^*]+\*\*/, 
+        /\*[^*]+\*/, 
+        /`[^`]+`/,
+        /\[[^\]]+\]\([^)]+\)/, 
+        /!\[[^\]]+\]\([^)]+\)/, 
+        /~~[^~]+~~/, 
+        /^\s*\[[ xX]\]\s/, 
+        /^\s*[A-Z][^.!?]*\n\s*[=]{3,}\s*$/m, 
+        /^\s*[A-Z][^.!?]*\n\s*[-]{3,}\s*$/m, 
+    ];
+    const hasHtmlFeatures = htmlPatterns.some(pattern => pattern.test(trimmedContent));
+    const hasMarkdownFeatures = markdownPatterns.some(pattern => pattern.test(trimmedContent));
+    if (hasHtmlFeatures) {
+        return 'html';
+    } else if (hasMarkdownFeatures) {
+        return 'markdown';
+    } else {
+        return 'text';
+    }
+}
+function parseContent(content, type) {
+    if (!content || typeof content !== 'string') {
+        return '';
+    }
+    if (!window._QYL_memo_temp_div) {
+        window._QYL_memo_temp_div = document.createElement('div');
+    }
+    switch (type) {
+        case 'html':
+            return content;
+        case 'markdown':
+            try {
+                if (typeof marked !== 'undefined') {
+                    let html = marked.parse(content);
+                    const tempDiv = window._QYL_memo_temp_div;
+                    tempDiv.innerHTML = html;
+                    const blockElements = tempDiv.querySelectorAll('p, div, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, table, hr');
+                    blockElements.forEach(element => {
+                        if (element.previousSibling && element.previousSibling.nodeType === Node.TEXT_NODE) {
+                            element.previousSibling.textContent = element.previousSibling.textContent.replace(/\n\s*\n?$/, '');
+                        }
+                        if (element.nextSibling && element.nextSibling.nodeType === Node.TEXT_NODE) {
+                            element.nextSibling.textContent = element.nextSibling.textContent.replace(/^\n?\s*\n/, '');
+                        }
+                    });
+                    html = tempDiv.innerHTML
+                        .replace(/>\s*\n\s*</g, '><') 
+                        .replace(/\n\s*\n/g, '\n') 
+                        .replace(/^\s*\n\s*/, '') 
+                        .replace(/\s*\n\s*$/, '') 
+                        .replace(/\s+</g, '<') 
+                        .replace(/>\s+/g, '>'); 
+                    return html;
+                } else {
+                    return content;
+                }
+            } catch (error) {
+                console.warn('Markdown parsing failed:', error);
+                return content;
+            }
+        case 'text':
+        default:
+            return content
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/\n/g, '<br>');
+    }
+}
 function isInFoldedBlock(element) {
     let node = element;
     while (node && node !== document) {
@@ -95,13 +186,40 @@ const BottomMemoModule = {
     if (oldBox) {
         const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-uid'));
         const newMemos = memoList.map(m => m.uid);
-        if (oldMemos.length === newMemos.length && oldMemos.every((v, i) => v === newMemos[i])) {
+        let shouldSkip = oldMemos.length === newMemos.length && oldMemos.every((v, i) => v === newMemos[i]);
+        if (shouldSkip) {
+            const oldMemoDivs = oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom');
+            shouldSkip = memoList.every((memo, index) => {
+                const oldDiv = oldMemoDivs[index];
+                if (!oldDiv) return false;
+                const oldContent = oldDiv.querySelector('div:last-child').getAttribute('data-original-content') || 
+                                 oldDiv.querySelector('div:last-child').textContent;
+                return oldContent === memo.memoContent;
+            });
+        }
+        if (shouldSkip) {
             return;
         }
         oldBox.remove();
     }
-    const box = this.createMemoBox(memoList, block);
-    block.appendChild(box);
+    const wysiwyg = block.closest('.protyle-wysiwyg');
+    const observer = wysiwygObserverMap.get(wysiwyg);
+    if (observer) {
+        observer.disconnect();
+    }
+    try {
+        const box = this.createMemoBox(memoList, block);
+        block.appendChild(box);
+    } finally {
+        if (observer) {
+            observer.observe(wysiwyg, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['data-inline-memo-content', 'fold']
+            });
+        }
+    }
     },
     bindMemoEvents(memoEl, uid, block) {
         memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
@@ -150,9 +268,12 @@ const BottomMemoModule = {
     createMemoDiv(memoContent, memoText, uid, block) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
-        div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
+        const contentType = detectContentType(memoContent);
+        const parsedContent = parseContent(memoContent, contentType);
+        div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div>`;
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
+        div.setAttribute('data-content-type', contentType);
         div.addEventListener('mouseenter', () => {
             block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
                 memoEl.classList.add('QYLinlinememoActive');
@@ -194,16 +315,22 @@ const BottomMemoModule = {
         return div;
     },
     renderWysiwyg(wysiwyg) {
-    wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
-            this.renderBlockMemo(block);
-    });
-    const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
-    const blocks = new Set();
-    memoElements.forEach(memoEl => {
-        const block = getWysiwygDirectBlock(memoEl);
-        if (block) blocks.add(block);
-    });
-        blocks.forEach(block => this.renderBlockMemo(block));
+        if (isRenderingMemo) return; 
+        isRenderingMemo = true;
+        try {
+            wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
+                this.renderBlockMemo(block);
+            });
+            const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+            const blocks = new Set();
+            memoElements.forEach(memoEl => {
+                const block = getWysiwygDirectBlock(memoEl);
+                if (block) blocks.add(block);
+            });
+            blocks.forEach(block => this.renderBlockMemo(block));
+        } finally {
+            isRenderingMemo = false;
+        }
     },
     cleanup(wysiwyg) {
         wysiwyg.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
@@ -232,6 +359,7 @@ const BottomMemoModule = {
         });
     },
     handleObserverChanges(mutations, wysiwyg) {
+        if (isRenderingMemo) return; 
         const hasFoldChange = mutations.some(mutation => 
             mutation.type === 'attributes' && mutation.attributeName === 'fold'
         );
@@ -286,8 +414,23 @@ const RightMemoModule = {
             this.bindMemoEvents(memoEl, uid, titleElement);
         });
         if (memoList.length === 0) return;
-        const box = this.createMemoBox(memoList, wysiwyg);
-        titleElement.appendChild(box);
+        const observer = wysiwygObserverMap.get(wysiwyg);
+        if (observer) {
+            observer.disconnect();
+        }
+        try {
+            const box = this.createMemoBox(memoList, wysiwyg);
+            titleElement.appendChild(box);
+        } finally {
+            if (observer) {
+                observer.observe(wysiwyg, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['data-inline-memo-content', 'fold']
+                });
+            }
+        }
     },
     bindMemoEvents(memoEl, uid, titleElement) {
         memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
@@ -365,9 +508,12 @@ const RightMemoModule = {
     createMemoDiv(memoContent, memoText, uid, wysiwyg) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
-        div.innerHTML = `<div>${memoText}</div><div>${memoContent}</div>`;
+        const contentType = detectContentType(memoContent);
+        const parsedContent = parseContent(memoContent, contentType);
+        div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div>`;
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
+        div.setAttribute('data-content-type', contentType);
         const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
         if (targetMemoEl) {
             const targetRect = targetMemoEl.getBoundingClientRect();
@@ -421,6 +567,7 @@ const RightMemoModule = {
         this.updateMemoPositions(wysiwyg);
     },
     handleObserverChanges(mutations, wysiwyg) {
+        if (isRenderingMemo) return; 
         const hasFoldChange = mutations.some(mutation => 
             mutation.type === 'attributes' && mutation.attributeName === 'fold'
         );
@@ -670,6 +817,9 @@ export function removeSideMemo() {
     }
     document.body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
     wysiwygObserverMap = new WeakMap();
+    if (window._QYL_memo_temp_div) {
+        delete window._QYL_memo_temp_div;
+    }
 }
 function observeWysiwygs() {
     if (!enabled) return;
