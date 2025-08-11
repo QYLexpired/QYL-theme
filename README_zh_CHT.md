@@ -1,8 +1,8 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>點個⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
-<details style="padding-left: 1em">
+<details style="padding-left: 1em" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 取消斜杠菜單展開時的分組機制<br>• 斜杠菜單選項可透過方向鍵切換，參考Savor主題<br>• 修復主題設定視窗與公共選單的衝突<br>• 優化任務清單摺疊樣式<br>• 優化邊框文件樹顏色</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-自訂文字樣式，啟用後右鍵點擊按鈕出現文字樣式配置選單（類似配色方案外掛，匯出時生效）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：顯示行內備註支援解析基礎Markdown<br>• 優化QYL自訂屬性選單項目載入速度<br>• 優化圖片遮罩功能的穩定性</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
@@ -33,8 +33,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現標記按鈕和閃電按鈕<br>標記按鈕：開啟/關閉遮罩編輯模式<br>閃電按鈕：隱藏/恢復所有遮罩<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：點擊遮罩使其隱藏/恢復<br>移動端暫時不支援建立遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自訂文字樣式<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">滑鼠右鍵點擊自訂文字樣式按鈕可進入設定視窗來進行配置，支援多端同步</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">顯示行內備註<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後行內備註將顯示在塊的側邊或底部<br>切換方法：右鍵點擊顯示行內備註按鈕<br>支援解析基礎Markdown<br>支援解析HTML，藉此可實現任意類型的行內備註，如公式、圖片、影片、任意HTML<br>當備註與正文距離較遠時，點擊正文/備註，可自動跳轉<br>點擊備註的標題部分可直接打開編輯視窗<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">隱藏頂欄</summary>

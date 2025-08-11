@@ -1,8 +1,8 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">GitHub</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
-<details style="padding-left: 1em">
+<details style="padding-left: 1em" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Removed grouping when the slash menu expands<br>• Slash menu options can be navigated with arrow keys (referencing the Savor theme)<br>• Fixed conflict between the theme settings window and the common menu<br>• Optimized collapsed style of task list<br>• Optimized colors of the Border File Tree</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">Major Update</span>: Added Element Options - Custom Text Styles. When enabled, right-clicking the button will show a text style configuration menu (similar to color scheme plugin, effective when exporting)<br>• <span style="color: var(--b3-theme-primary)">Major Update</span>: Show Inline Memo now supports basic Markdown parsing<br>• Optimized QYL Custom Attributes menu item loading speed<br>• Optimized stability of Image Mask feature</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Recent Updates</summary>
@@ -33,8 +33,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the Custom Text Styles button to enter the settings window for configuration. Supports multi-device synchronization.</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, inline memos will be displayed on the side or bottom of the block.<br>How to toggle: Right-click the Show Inline Memo button.<br>Supports HTML parsing, allowing any type of inline memo, such as formulas, images, videos, or any HTML.<br>When the memo is far from the main text, clicking the main text or memo will automatically jump to it.<br>Clicking the title part of the memo will directly open the editing window.<br>This feature has some performance impact, please disable when not necessary.</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, inline memos will be displayed on the side or bottom of the block.<br>How to toggle: Right-click the Show Inline Memo button.<br>Supports basic Markdown parsing.<br>Supports HTML parsing, allowing any type of inline memo, such as formulas, images, videos, or any HTML.<br>When the memo is far from the main text, clicking the main text or memo will automatically jump to it.<br>Clicking the title part of the memo will directly open the editing window.<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hide Top Bar</summary>
