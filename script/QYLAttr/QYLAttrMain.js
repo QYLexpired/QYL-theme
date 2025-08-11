@@ -18,7 +18,9 @@ class QYLAttr {
         this.touchStartTarget = null;
         this.touchStartX = 0;
         this.touchStartY = 0;
-        this.longPressDelay = 500; 
+        this.longPressDelay = 500;
+        this.retryCount = 0;
+        this.fileRetryCount = 0; 
     }
     init() {
         initQYLcustomattrCSS();
@@ -64,6 +66,8 @@ class QYLAttr {
                 const pressDuration = Date.now() - this.touchStartTime;
                 if (pressDuration >= this.longPressDelay) {
                     this.handleLongPress(e);
+                } else {
+                    this.handleTouchClick(e);
                 }
             }
             this.touchStartTime = 0;
@@ -85,7 +89,21 @@ class QYLAttr {
             }
         };
         this.handleLongPress = (e) => {
-            if (e.target.closest('.protyle-gutters')) {
+            if (
+                e.target.closest('.protyle-gutters') ||
+                e.target.closest('.keyboard__action[data-type="block"]')
+            ) {
+                this.handleBlockEvent(e);
+            }
+            if (e.target.closest('.b3-list-item')) {
+                this.handleFileEvent(e);
+            }
+        };
+        this.handleTouchClick = (e) => {
+            if (
+                e.target.closest('.protyle-gutters') ||
+                e.target.closest('.keyboard__action[data-type="block"]')
+            ) {
                 this.handleBlockEvent(e);
             }
             if (e.target.closest('.b3-list-item')) {
@@ -108,28 +126,64 @@ class QYLAttr {
     initQYLattr(e) {
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
-        this.initTimeout = setTimeout(() => {
+        this.retryCount = 0;
+        this.maxRetries = 10;
+        this.retryDelay = 50;
+        const tryInsert = async () => {
             const selectinfo = this.getBlockSelected();
             if (selectinfo) {
-                this.insertTimeout = setTimeout(async () => {
+                try {
                     await this.menu.insertQYLattr(selectinfo.id, selectinfo.type, selectinfo.sbLayout);
                     this.api.queryCSSAttribute(selectinfo.id);
-                }, 200);
+                    return { success: true, reason: 'inserted' }; 
+                } catch (error) {
+                    return { success: false, reason: 'error' }; 
+                }
             }
-        }, 0);
+            return { success: false, reason: 'no-selection' }; 
+        };
+        const attemptInsert = async () => {
+            const result = await tryInsert();
+            if (result.success) {
+                return; 
+            }
+            if (result.reason === 'error' && this.retryCount < this.maxRetries) {
+                this.retryCount++;
+                this.insertTimeout = setTimeout(attemptInsert, this.retryDelay);
+            }
+        };
+        attemptInsert();
     }
     initQYLattrforfile() {
         clearTimeout(this.fileInitTimeout);
         clearTimeout(this.fileInsertTimeout);
-        this.fileInitTimeout = setTimeout(() => {
+        this.fileRetryCount = 0;
+        this.fileMaxRetries = 10;
+        this.fileRetryDelay = 50;
+        const tryInsertFile = async () => {
             const selectinfo = this.getFileBlockSelected();
             if (selectinfo) {
-                this.fileInsertTimeout = setTimeout(async () => {
+                try {
                     await this.menu.insertQYLattrforfile(selectinfo.id, selectinfo.type);
                     this.api.queryCSSAttribute(selectinfo.id);
-                }, 200);
+                    return { success: true, reason: 'inserted' }; 
+                } catch (error) {
+                    return { success: false, reason: 'error' }; 
+                }
             }
-        }, 0);
+            return { success: false, reason: 'no-selection' }; 
+        };
+        const attemptFileInsert = async () => {
+            const result = await tryInsertFile();
+            if (result.success) {
+                return; 
+            }
+            if (result.reason === 'error' && this.fileRetryCount < this.fileMaxRetries) {
+                this.fileRetryCount++;
+                this.fileInsertTimeout = setTimeout(attemptFileInsert, this.fileRetryDelay);
+            }
+        };
+        attemptFileInsert();
     }
     getBlockSelected() {
         const node_list = document.querySelectorAll('.protyle-wysiwyg--select');
@@ -172,11 +226,14 @@ class QYLAttr {
             this.handleTouchEnd = null;
             this.handleTouchMove = null;
             this.handleLongPress = null;
+            this.handleTouchClick = null;
         }
         this.touchStartTime = 0;
         this.touchStartTarget = null;
         this.touchStartX = 0;
         this.touchStartY = 0;
+        this.retryCount = 0;
+        this.fileRetryCount = 0;
         clearTimeout(this.initTimeout);
         clearTimeout(this.insertTimeout);
         clearTimeout(this.fileInitTimeout);
