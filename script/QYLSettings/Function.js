@@ -431,7 +431,7 @@ async function createFunctionContent(config = null) {
             await flushBatchUpdate();
         });
         if (option.id === 'SideMemo') {
-            button.addEventListener('contextmenu', async (e) => {
+            const handleRightClick = async (e) => {
                 e.preventDefault();
                 if (isMobile) {
                     try {
@@ -503,10 +503,11 @@ async function createFunctionContent(config = null) {
                         module.forceReRenderAllWysiwygs();
                     }
                 }
-            });
+            };
+            button.addEventListener('contextmenu', handleRightClick);
         }
         if (option.id === 'FocusBlockHighlight') {
-            button.addEventListener('contextmenu', async (e) => {
+            const handleRightClick = async (e) => {
                 e.preventDefault();
                 if (!button.classList.contains('active')) {
                     return;
@@ -537,10 +538,11 @@ async function createFunctionContent(config = null) {
                     }
                 } catch (error) {
                 }
-            });
+            };
+            button.addEventListener('contextmenu', handleRightClick);
         }
         if (option.id === 'FocusEditing') {
-            button.addEventListener('contextmenu', async (e) => {
+            const handleRightClick = async (e) => {
                 e.preventDefault();
                 if (!button.classList.contains('active')) {
                     return;
@@ -576,7 +578,8 @@ async function createFunctionContent(config = null) {
                     }
                 } catch (error) {
                 }
-            });
+            };
+            button.addEventListener('contextmenu', handleRightClick);
         }
         container.appendChild(optionElement);
     }

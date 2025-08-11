@@ -323,7 +323,46 @@ async function createElementContent(config = null) {
                     }
                 }
             };
+            let longPressTimer = null;
+            const longPressDelay = 500; 
+            let hasMoved = false;
+            const handleTouchStart = (event) => {
+                hasMoved = false;
+                longPressTimer = setTimeout(async () => {
+                    if (!hasMoved) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        const currentState = config[option.id] || false;
+                        if (!currentState) {
+                            return; 
+                        }
+                        try {
+                            const { showCustomFontStyleDialog } = await import('../element/CustomFontStyle.js');
+                            showCustomFontStyleDialog();
+                        } catch (error) {
+                        }
+                    }
+                }, longPressDelay);
+            };
+            const handleTouchEnd = (event) => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+                hasMoved = false;
+            };
+            const handleTouchMove = (event) => {
+                hasMoved = true;
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
             button.addEventListener('contextmenu', handleRightClick);
+            button.addEventListener('touchstart', handleTouchStart, { passive: false });
+            button.addEventListener('touchend', handleTouchEnd);
+            button.addEventListener('touchmove', handleTouchMove);
+            button.addEventListener('touchcancel', handleTouchEnd);
         }
         container.appendChild(optionElement);
     }
