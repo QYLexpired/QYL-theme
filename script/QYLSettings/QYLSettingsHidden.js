@@ -155,7 +155,8 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'NineGridSquares', label: i18n.NineGridSquares },
         { id: 'MultilevelList', label: i18n.MultilevelList },
         { id: 'ColorfulTags', label: i18n.ColorfulTags },
-        { id: 'LinkStyle', label: i18n.LinkStyle }
+        { id: 'LinkStyle', label: i18n.LinkStyle },
+        { id: 'CustomFontStyle', label: i18n.CustomFontStyle }
     ];
     const styleOptions = [
         { id: 'FileTreeIndent', label: i18n.FileTreeIndent },

@@ -10,6 +10,7 @@ let nineGridSquaresModule = null;
 let multilevelListModule = null;
 let colorfulTagsModule = null;
 let linkStyleModule = null;
+let customFontStyleModule = null;
 async function loadColorfulHeadingModule() {
     if (!colorfulHeadingModule) {
         try {
@@ -63,6 +64,18 @@ async function loadLinkStyleModule() {
         }
     }
     return linkStyleModule;
+}
+async function loadCustomFontStyleModule() {
+    if (!customFontStyleModule) {
+        try {
+            if (!window.Pickr) {
+                await import('../basic/Pickr.min.js');
+            }
+            customFontStyleModule = await import('../element/CustomFontStyle.js');
+        } catch (error) {
+        }
+    }
+    return customFontStyleModule;
 }
 async function enableColorfulHeading() {
     const module = await loadColorfulHeadingModule();
@@ -144,6 +157,18 @@ async function disableLinkStyle() {
         module.removeLinkStyle();
     }
 }
+async function enableCustomFontStyle() {
+    const module = await loadCustomFontStyleModule();
+    if (module && module.initCustomFontStyle) {
+        await module.initCustomFontStyle();
+    }
+}
+async function disableCustomFontStyle() {
+    const module = await loadCustomFontStyleModule();
+    if (module && module.removeCustomFontStyle) {
+        module.removeCustomFontStyle();
+    }
+}
 function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -170,6 +195,10 @@ function getElementOptions() {
         {
             id: 'LinkStyle',
             label: i18n.LinkStyle || '超链接图标'
+        },
+        {
+            id: 'CustomFontStyle',
+            label: i18n.CustomFontStyle || '自定义文字样式'
         }
     ];
     const darkModeOptions = [
@@ -196,6 +225,10 @@ function getElementOptions() {
         {
             id: 'LinkStyle',
             label: i18n.LinkStyle || '超链接图标'
+        },
+        {
+            id: 'CustomFontStyle',
+            label: i18n.CustomFontStyle || '自定义文字样式'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -216,8 +249,10 @@ async function createElementContent(config = null) {
         if (!selectState) {
             optionElement.classList.add('hidden');
         }
+        const hasRightClick = ['CustomFontStyle'].includes(option.id);
+        const rightClickClass = hasRightClick ? 'QYLButtonRightClick' : '';
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''}">
+            <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''} ${rightClickClass}">
                 ${option.label}
             </button>
         `;
@@ -263,9 +298,33 @@ async function createElementContent(config = null) {
                 } else {
                     await disableLinkStyle();
                 }
+            } else if (option.id === 'CustomFontStyle') {
+                if (newState) {
+                    await enableCustomFontStyle();
+                } else {
+                    await disableCustomFontStyle();
+                }
             }
             await flushBatchUpdate();
         });
+        if (option.id === 'CustomFontStyle') {
+            const handleRightClick = async (event) => {
+                if (event.button === 2) { 
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const currentState = config[option.id] || false;
+                    if (!currentState) {
+                        return; 
+                    }
+                    try {
+                        const { showCustomFontStyleDialog } = await import('../element/CustomFontStyle.js');
+                        showCustomFontStyleDialog();
+                    } catch (error) {
+                    }
+                }
+            };
+            button.addEventListener('contextmenu', handleRightClick);
+        }
         container.appendChild(optionElement);
     }
     return container;
@@ -301,6 +360,10 @@ async function initializeElementStates(config = null) {
             if (currentState) {
                 await enableLinkStyle();
             }
+        } else if (option.id === 'CustomFontStyle') {
+            if (currentState) {
+                await enableCustomFontStyle();
+            }
         }
     }
 }
@@ -309,5 +372,7 @@ export {
     createElementContent, 
     initializeElementStates,
     enableLinkStyle,
-    disableLinkStyle 
+    disableLinkStyle,
+    enableCustomFontStyle,
+    disableCustomFontStyle
 };
