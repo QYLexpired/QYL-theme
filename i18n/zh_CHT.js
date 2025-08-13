@@ -208,6 +208,7 @@ export default {
     "bgcolor": "背景色",
     "QYLImgMaskTooSmall": "遮罩長寬不能低於15px",
     "ImgMask": "啟用圖片遮罩",
+    "SbHandle": "超級塊寬度柄",
     "selfconfigattr": "自配置屬性",
     "noconfig": "未配置",
     "simsun": "宋體",

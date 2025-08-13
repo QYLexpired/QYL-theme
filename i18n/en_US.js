@@ -230,6 +230,7 @@ export default {
     "bgcolor": "Background color",
     "QYLImgMaskTooSmall": "Mask size must be at least 15px in both width and height.",
     "ImgMask": "Enable Image Mask",
+    "SbHandle": "Super Block Width Handle",
     "selfconfigattr": "Self Config Attributes",
     "noconfig": "Not Configured",
     "saveandclose": "Save & Close",
