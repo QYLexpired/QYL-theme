@@ -1,6 +1,6 @@
 .QYLSbWidthDrag {
     position: absolute;
-    height: calc(100% - 25px);
+    height: max(calc(100% - 25px), 20px);
     width: 6px;
     bottom: 0;
     border-radius: var(--b3-border-radius);
