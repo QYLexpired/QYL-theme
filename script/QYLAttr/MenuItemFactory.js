@@ -225,17 +225,25 @@ export class MenuItemFactory {
             } else {
                 button.classList.remove('QYLAttrActive');
             }
-            let ancestor = button.parentElement;
-            while (ancestor && !ancestor.classList.contains('b3-menu__item')) {
-                ancestor = ancestor.parentElement;
-            }
-            if (ancestor && ancestor !== button) {
-                if (ancestor.querySelector('.QYLAttrActive')) {
-                    ancestor.classList.add('QYLAttrActiveMenu');
-                } else {
-                    ancestor.classList.remove('QYLAttrActiveMenu');
+            const updateParentHighlights = (element) => {
+                let ancestor = element.parentElement;
+                while (ancestor) {
+                    if (ancestor.classList.contains('b3-menu__item') && ancestor.querySelector('.b3-menu__submenu')) {
+                        const submenu = ancestor.querySelector('.b3-menu__submenu');
+                        const hasActiveChild = submenu.querySelector('.QYLAttrActive') !== null || 
+                                             (submenu.querySelector('textarea.QYLcssinput') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value').trim() !== '');
+                        if (hasActiveChild) {
+                            ancestor.classList.add('QYLAttrActiveMenu');
+                        } else {
+                            ancestor.classList.remove('QYLAttrActiveMenu');
+                        }
+                    }
+                    ancestor = ancestor.parentElement;
                 }
-            }
+            };
+            updateParentHighlights(button);
         };
         button._QYLAttrUpdateActiveClass = updateActiveClass;
         button._QYLAttrAPI = this.api;
@@ -293,19 +301,25 @@ export class MenuItemFactory {
         textarea.value = "";
         textarea.placeholder = this.i18n.CSSplaceholder;
         const updateCSSActiveClass = (currentValue) => {
-            let ancestor = textarea.parentElement;
-            while (ancestor && !ancestor.classList.contains('b3-menu__item')) {
-                ancestor = ancestor.parentElement;
-            }
-            if (currentValue && currentValue.trim() !== "") {
-                if (ancestor && ancestor !== textarea) {
-                    ancestor.classList.add('QYLAttrActiveMenu');
+            const updateParentHighlights = (element) => {
+                let ancestor = element.parentElement;
+                while (ancestor) {
+                    if (ancestor.classList.contains('b3-menu__item') && ancestor.querySelector('.b3-menu__submenu')) {
+                        const submenu = ancestor.querySelector('.b3-menu__submenu');
+                        const hasActiveChild = submenu.querySelector('.QYLAttrActive') !== null || 
+                                             (submenu.querySelector('textarea.QYLcssinput') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value').trim() !== '');
+                        if (hasActiveChild) {
+                            ancestor.classList.add('QYLAttrActiveMenu');
+                        } else {
+                            ancestor.classList.remove('QYLAttrActiveMenu');
+                        }
+                    }
+                    ancestor = ancestor.parentElement;
                 }
-            } else {
-                if (ancestor && ancestor !== textarea) {
-                    ancestor.classList.remove('QYLAttrActiveMenu');
-                }
-            }
+            };
+            updateParentHighlights(textarea);
         };
         textarea._QYLCSSUpdateActiveClass = updateCSSActiveClass;
         textarea._QYLAttrAPI = this.api;
@@ -455,6 +469,14 @@ export class MenuItemFactory {
             ...this.menuData.blockStyleOptions.map(option => 
                 this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
             ),
+            this.createWarningSubmenu(selectid),
+            this.createTipSubmenu(selectid),
+            this.createInfoSubmenu(selectid),
+            this.createImportantSubmenu(selectid),
+            this.createCommentSubmenu(selectid),
+            this.createQuoteSubmenu(selectid),
+            this.createTodoSubmenu(selectid),
+            this.createDoneSubmenu(selectid),
             this.createNoteSubmenu(selectid),
             this.createLeftBorderSubmenu(selectid)
         ];
@@ -474,6 +496,62 @@ export class MenuItemFactory {
         );
         const submenu = this.createSubmenu("QYLstyleleftbordersub", items);
         return this.createMenuItemWithSubmenu(this.i18n.blockstyleleftborder, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.leftBorderSubmenu.group]);
+    }
+    createWarningSubmenu(selectid) {
+        const items = this.menuData.warningStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstylewarningsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstylewarning, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.warningSubmenu.group]);
+    }
+    createTipSubmenu(selectid) {
+        const items = this.menuData.tipStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstyletipsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyletip, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.tipSubmenu.group]);
+    }
+    createInfoSubmenu(selectid) {
+        const items = this.menuData.infoStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstyleinfosub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyleinfo, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.infoSubmenu.group]);
+    }
+    createImportantSubmenu(selectid) {
+        const items = this.menuData.importantStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstyleimportantsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyleimportant, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.importantSubmenu.group]);
+    }
+    createCommentSubmenu(selectid) {
+        const items = this.menuData.commentStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstylecommentsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstylecomment, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.commentSubmenu.group]);
+    }
+    createQuoteSubmenu(selectid) {
+        const items = this.menuData.quoteStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstylequotesub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstylequote, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.quoteSubmenu.group]);
+    }
+    createTodoSubmenu(selectid) {
+        const items = this.menuData.todoStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstyletodosub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyletodo, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.todoSubmenu.group]);
+    }
+    createDoneSubmenu(selectid) {
+        const items = this.menuData.doneStyleOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLstyledonesub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockstyledone, "#iconTheme", submenu, this.i18n[this.menuData.submenuConfig.doneSubmenu.group]);
     }
     createFontFamilyItem(selectid) {
         const items = [

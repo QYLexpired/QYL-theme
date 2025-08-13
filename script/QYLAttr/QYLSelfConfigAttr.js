@@ -178,17 +178,25 @@ export class QYLSelfConfigAttr {
             } else {
                 button.classList.remove('QYLAttrActive');
             }
-            let ancestor = button.parentElement;
-            while (ancestor && !ancestor.classList.contains('b3-menu__item')) {
-                ancestor = ancestor.parentElement;
-            }
-            if (ancestor && ancestor !== button) {
-                if (ancestor.querySelector('.QYLAttrActive')) {
-                    ancestor.classList.add('QYLAttrActiveMenu');
-                } else {
-                    ancestor.classList.remove('QYLAttrActiveMenu');
+            const updateParentHighlights = (element) => {
+                let ancestor = element.parentElement;
+                while (ancestor) {
+                    if (ancestor.classList.contains('b3-menu__item') && ancestor.querySelector('.b3-menu__submenu')) {
+                        const submenu = ancestor.querySelector('.b3-menu__submenu');
+                        const hasActiveChild = submenu.querySelector('.QYLAttrActive') !== null || 
+                                             (submenu.querySelector('textarea.QYLcssinput') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value') && 
+                                              submenu.querySelector('textarea.QYLcssinput').getAttribute('custom-attr-value').trim() !== '');
+                        if (hasActiveChild) {
+                            ancestor.classList.add('QYLAttrActiveMenu');
+                        } else {
+                            ancestor.classList.remove('QYLAttrActiveMenu');
+                        }
+                    }
+                    ancestor = ancestor.parentElement;
                 }
-            }
+            };
+            updateParentHighlights(button);
         };
         button._QYLAttrUpdateActiveClass = updateActiveClass;
         button._QYLAttrAPI = this.api;

@@ -92,17 +92,129 @@ export class MenuData {
             { attrName: "style", value: "格点", label: "fileblockstyledot", icon: "#iconTheme", group: "group1" }
         ];
         this.blockStyleOptions = [
-            { attrName: "style", value: "警告", label: "blockstylewarning", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "灵感", label: "blockstyletip", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "信息", label: "blockstyleinfo", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "重要", label: "blockstyleimportant", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "批注", label: "blockstylecomment", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "引用", label: "blockstylequote", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "待办", label: "blockstyletodo", icon: "#iconTheme", group: "group1" },
-            { attrName: "style", value: "完成", label: "blockstyledone", icon: "#iconTheme", group: "group1" },
             { attrName: "style", value: "洒金纸", label: "blockstylesajinzhi", icon: "#iconTheme", group: "group1" },
             { attrName: "style", value: "网格", label: "blockstylegrid", icon: "#iconTheme", group: "group1" },
             { attrName: "style", value: "格点", label: "blockstyledot", icon: "#iconTheme", group: "group1" }
+        ];
+        this.warningStyleOptions = [
+            { attrName: "style", value: "警告", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "警告2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "warning-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "warning-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.tipStyleOptions = [
+            { attrName: "style", value: "灵感", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "灵感2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "tip-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "tip-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.infoStyleOptions = [
+            { attrName: "style", value: "信息", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "信息2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "info-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "info-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.importantStyleOptions = [
+            { attrName: "style", value: "重要", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "重要2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "important-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "important-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.commentStyleOptions = [
+            { attrName: "style", value: "批注", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "批注2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "comment-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "comment-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.quoteStyleOptions = [
+            { attrName: "style", value: "引用", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "引用2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "quote-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "quote-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.todoStyleOptions = [
+            { attrName: "style", value: "待办", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "待办2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "todo-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "todo-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
+        ];
+        this.doneStyleOptions = [
+            { attrName: "style", value: "完成", label: "recovercallout", icon: "#iconTheme", group: "group1" },
+            { attrName: "style", value: "完成2", label: "blockstyleleftborder", icon: "#iconTheme", group: "group1" },
+            { attrName: "done-color", value: "themecolor", label: "themecolor", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "red", label: "red", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "orange", label: "orange", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "yellow", label: "yellow", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "green", label: "green", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "cyan", label: "cyan", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "blue", label: "blue", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "purple", label: "purple", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "pink", label: "pink", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "black", label: "black", icon: "#iconTheme", group: "group2" },
+            { attrName: "done-color", value: "gray", label: "gray", icon: "#iconTheme", group: "group2" }
         ];
         this.fontOptions = [
             { attrName: "font-family", value: "宋体", label: "simsun", icon: "#iconFont", group: "group1", fontFamily: "SimSun" },
@@ -155,7 +267,15 @@ export class MenuData {
         ];
         this.submenuConfig = {
             noteSubmenu: { group: "group1" },
-            leftBorderSubmenu: { group: "group1" }
+            leftBorderSubmenu: { group: "group1" },
+            warningSubmenu: { group: "group1" },
+            tipSubmenu: { group: "group1" },
+            infoSubmenu: { group: "group1" },
+            importantSubmenu: { group: "group1" },
+            commentSubmenu: { group: "group1" },
+            quoteSubmenu: { group: "group1" },
+            todoSubmenu: { group: "group1" },
+            doneSubmenu: { group: "group1" }
         };
         this.blankBlockRemindOptions = [
             { attrName: "blankblock-remind", value: "开启", label: "blankblockremindon", icon: "#iconSelect", group: null }
