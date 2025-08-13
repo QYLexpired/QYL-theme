@@ -1,0 +1,35 @@
+.QYLSbWidthDrag {
+    position: absolute;
+    height: calc(100% - 25px);
+    width: 6px;
+    bottom: 0;
+    border-radius: var(--b3-border-radius);
+    background: var(--b3-theme-primary);
+    cursor: col-resize;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+[data-sb-layout="col"]:hover > .QYLSbWidthDrag {
+    opacity: 0.3;
+    &:hover {
+        opacity: 1;
+    }
+}
+.protyle-wysiwyg[contenteditable="false"] .QYLSbWidthDrag {
+    display: none;
+}
+.QYLSbInsertBlock {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 23px;
+    height: 23px;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    & svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--b3-theme-primary);
+    }
+}
