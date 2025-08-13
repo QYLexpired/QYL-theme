@@ -15,6 +15,7 @@ let fixedToolModule = null;
 let focusEditingOnModule = null;
 let sideMemoModule = null;
 let imgMaskModule = null;
+let sbHandleModule = null;
 async function loadMarktoBlankModule() {
     if (!marktoBlankModule) {
         try {
@@ -104,6 +105,15 @@ async function loadImgMaskModule() {
         }
     }
     return imgMaskModule;
+}
+async function loadSbHandleModule() {
+    if (!sbHandleModule) {
+        try {
+            sbHandleModule = await import('../function/SbHandle.js');
+        } catch (error) {
+        }
+    }
+    return sbHandleModule;
 }
 async function enableMarktoBlank() {
     const module = await loadMarktoBlankModule();
@@ -241,6 +251,19 @@ async function disableImgMask() {
     }
     imgMaskModule = null;
 }
+async function enableSbHandle() {
+    const module = await loadSbHandleModule();
+    if (module && module.init) {
+        module.init();
+    }
+}
+async function disableSbHandle() {
+    const module = await loadSbHandleModule();
+    if (module && module.destroy) {
+        module.destroy();
+    }
+    sbHandleModule = null;
+}
 function getFunctionOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -283,6 +306,10 @@ function getFunctionOptions() {
         {
             id: 'ImgMask',
             label: i18n.ImgMask || '启用图片遮罩'
+        },
+        {
+            id: 'SbHandle',
+            label: i18n.SbHandle || '超级块宽度柄'
         }
     ];
     const darkModeOptions = [
@@ -325,6 +352,10 @@ function getFunctionOptions() {
         {
             id: 'ImgMask',
             label: i18n.ImgMask || '启用图片遮罩'
+        },
+        {
+            id: 'SbHandle',
+            label: i18n.SbHandle || '超级块宽度柄'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -426,6 +457,12 @@ async function createFunctionContent(config = null) {
                     await enableImgMask();
                 } else {
                     await disableImgMask();
+                }
+            } else if (option.id === 'SbHandle') {
+                if (newState) {
+                    await enableSbHandle();
+                } else {
+                    await disableSbHandle();
                 }
             }
             await flushBatchUpdate();
@@ -631,6 +668,10 @@ async function initializeFunctionStates(config = null) {
         } else if (option.id === 'ImgMask') {
             if (currentState) {
                 await enableImgMask();
+            }
+        } else if (option.id === 'SbHandle') {
+            if (currentState) {
+                await enableSbHandle();
             }
         }
     }

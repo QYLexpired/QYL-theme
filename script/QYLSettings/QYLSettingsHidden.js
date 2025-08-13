@@ -147,7 +147,8 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'FixedTool', label: i18n.FixedTool },
         { id: 'FocusEditing', label: i18n.FocusEditing },
         { id: 'SideMemo', label: i18n.SideMemo },
-        { id: 'ImgMask', label: i18n.ImgMask }
+        { id: 'ImgMask', label: i18n.ImgMask },
+        { id: 'SbHandle', label: i18n.SbHandle }
     ];
     const elementOptions = [
         { id: 'ColorfulHeading', label: i18n.ColorfulHeading },
