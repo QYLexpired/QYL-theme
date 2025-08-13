@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加元素选项-自定义文字样式，启用后右键点击按钮出现文字样式配置菜单（类似配色方案插件，导出时生效）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：显示行内备注支持解析基础Markdown<br>• 优化QYL自定义属性菜单项加载速度<br>• 优化图片遮罩功能的稳定性</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加元素选项-自定义文字样式，启用后右键点击按钮出现文字样式配置菜单（类似配色方案插件，导出时生效）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：显示行内备注支持解析基础Markdown<br>• 重做块样式菜单<br>• 优化QYL自定义属性菜单项加载速度<br>• 优化图片遮罩功能的稳定性</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
