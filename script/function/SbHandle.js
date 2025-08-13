@@ -45,7 +45,27 @@ async function createDragHandlesForLayout(colLayout) {
     const nodeElements = Array.from(colLayout.children).filter(child => 
         child.hasAttribute('data-node-id')
     );
-    await calculateAndSetInitialWidths(colLayout, nodeElements);
+    for (let i = 0; i < nodeElements.length - 1; i++) {
+        const dragHandle = createDragHandle();
+        colLayout.appendChild(dragHandle);
+    }
+    colLayout.addEventListener('mouseenter', handleMouseEnter);
+}
+async function recreateDragHandlesOnly(colLayout) {
+    const existingHandles = colLayout.querySelectorAll('.QYLSbWidthDrag');
+    existingHandles.forEach(handle => {
+        handle.removeEventListener('mousedown', handleMouseDown);
+        handle.removeEventListener('dblclick', handleDoubleClick);
+        const insertBlock = handle.querySelector('.QYLSbInsertBlock');
+        if (insertBlock) {
+            insertBlock.removeEventListener('click', handleInsertBlockClick);
+        }
+        handle.remove();
+    });
+    colLayout.removeEventListener('mouseenter', handleMouseEnter);
+    const nodeElements = Array.from(colLayout.children).filter(child => 
+        child.hasAttribute('data-node-id')
+    );
     for (let i = 0; i < nodeElements.length - 1; i++) {
         const dragHandle = createDragHandle();
         colLayout.appendChild(dragHandle);
@@ -82,9 +102,20 @@ function handleMouseDown(event) {
         const startX = event.clientX;
         const colRect = colLayout.getBoundingClientRect();
         const colWidth = colRect.width;
-        const leftWidth = getElementWidthPercentage(leftElement);
-        const rightWidth = getElementWidthPercentage(rightElement);
+        let leftWidth, rightWidth;
+        let isDragging = false;
+        let hasSetInitialStyle = false;
         const handleMouseMove = (moveEvent) => {
+            if (!isDragging) {
+                isDragging = true;
+                if (!hasSetInitialStyle) {
+                    leftWidth = getElementWidthPercentage(leftElement);
+                    rightWidth = getElementWidthPercentage(rightElement);
+                    setElementWidth(leftElement, leftWidth);
+                    setElementWidth(rightElement, rightWidth);
+                    hasSetInitialStyle = true;
+                }
+            }
             const deltaX = moveEvent.clientX - startX;
             const deltaPercent = (deltaX / colWidth) * 100;
             const totalWidth = leftWidth + rightWidth;
@@ -97,8 +128,10 @@ function handleMouseDown(event) {
         const handleMouseUp = async () => {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
-            await saveElementStyle(leftElement);
-            await saveElementStyle(rightElement);
+            if (isDragging) {
+                await saveElementStyle(leftElement);
+                await saveElementStyle(rightElement);
+            }
         };
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
@@ -119,7 +152,7 @@ async function handleDoubleClick(event) {
         await saveElementStyle(element);
     }
     requestAnimationFrame(async () => {
-        await createDragHandlesForLayout(colLayout);
+        await recreateDragHandlesOnly(colLayout);
         positionHandlesForLayout(colLayout);
     });
 }
@@ -151,12 +184,16 @@ async function handleInsertBlockClick(event) {
             });
             if (!response.ok) {
             } else {
-                setTimeout(() => {
-                    handleDoubleClick({ 
-                        preventDefault: () => {}, 
-                        stopPropagation: () => {},
-                        currentTarget: handle 
-                    });
+                setTimeout(async () => {
+                    const allNodeElements = Array.from(colLayout.children).filter(child => 
+                        child.hasAttribute('data-node-id')
+                    );
+                    for (const element of allNodeElements) {
+                        resetElementStyle(element);
+                        await saveElementStyle(element);
+                    }
+                    await recreateDragHandlesOnly(colLayout);
+                    positionHandlesForLayout(colLayout);
                 }, 100);
             }
         } catch (error) {
@@ -235,23 +272,6 @@ function resetElementStyle(element) {
         element.setAttribute('style', newStyle);
     } else {
         element.removeAttribute('style');
-    }
-}
-async function calculateAndSetInitialWidths(colLayout, nodeElements) {
-    if (nodeElements.length === 0) return;
-    const colRect = colLayout.getBoundingClientRect();
-    const colWidth = colRect.width;
-    const elementWidths = nodeElements.map(element => {
-        const rect = element.getBoundingClientRect();
-        const actualWidth = rect.width;
-        const percentage = (actualWidth / colWidth) * 100;
-        return { element, percentage };
-    });
-    elementWidths.forEach(({ element, percentage }) => {
-        setElementWidth(element, percentage);
-    });
-    for (const { element } of elementWidths) {
-        await saveElementStyle(element);
     }
 }
 function setupObserver() {
