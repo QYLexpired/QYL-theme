@@ -1,7 +1,9 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
-<details style="padding-left: 1em" open>
+<details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 优化超级块宽度柄</p>
+<div style="height: 1px; background-color: var(--b3-theme-on-surface); opacity: 0.3; margin: 5px 0 5px 10px; width: calc(100% - 10px)"></div>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加功能选项-超级块宽度柄，启用后可快速调整水平超级块的子块宽度，并快速添加子块，双击宽度柄可等分各子块<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加元素选项-自定义文字样式，启用后右键点击按钮出现文字样式配置菜单（类似配色方案插件，导出时生效）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：显示行内备注支持解析基础Markdown<br>• 重做块样式菜单<br>• 优化QYL自定义属性菜单项加载速度<br>• 优化图片遮罩功能的稳定性</p>
 </details>
 <details style="padding-left: 1em">
