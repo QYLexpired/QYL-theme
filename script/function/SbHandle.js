@@ -3,6 +3,7 @@ let retryCount = 0;
 let maxRetries = 15;
 let retryInterval = 100;
 let observer = null;
+let isGlobalDragging = false; 
 async function init() {
     if (document.body.classList.contains('QYLmobile')) return;
     await findCenterElement();
@@ -31,46 +32,49 @@ async function setupDragHandles() {
     }
 }
 async function createDragHandlesForLayout(colLayout) {
-    const existingHandles = colLayout.querySelectorAll('.QYLSbWidthDrag');
-    existingHandles.forEach(handle => {
-        handle.removeEventListener('mousedown', handleMouseDown);
-        handle.removeEventListener('dblclick', handleDoubleClick);
-        const insertBlock = handle.querySelector('.QYLSbInsertBlock');
-        if (insertBlock) {
-            insertBlock.removeEventListener('click', handleInsertBlockClick);
-        }
-        handle.remove();
-    });
-    colLayout.removeEventListener('mouseenter', handleMouseEnter);
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
-    );
-    for (let i = 0; i < nodeElements.length - 1; i++) {
-        const dragHandle = createDragHandle();
-        colLayout.appendChild(dragHandle);
-    }
-    colLayout.addEventListener('mouseenter', handleMouseEnter);
+    await cleanupDragHandles(colLayout);
+    await createNewDragHandles(colLayout);
+    addLayoutEventListeners(colLayout);
 }
 async function recreateDragHandlesOnly(colLayout) {
-    const existingHandles = colLayout.querySelectorAll('.QYLSbWidthDrag');
+    await cleanupDragHandles(colLayout);
+    await createNewDragHandles(colLayout);
+    addLayoutEventListeners(colLayout);
+}
+async function cleanupDragHandles(colLayout) {
+    const existingHandles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
     existingHandles.forEach(handle => {
-        handle.removeEventListener('mousedown', handleMouseDown);
-        handle.removeEventListener('dblclick', handleDoubleClick);
-        const insertBlock = handle.querySelector('.QYLSbInsertBlock');
-        if (insertBlock) {
-            insertBlock.removeEventListener('click', handleInsertBlockClick);
-        }
+        removeHandleEventListeners(handle);
         handle.remove();
     });
-    colLayout.removeEventListener('mouseenter', handleMouseEnter);
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
-    );
+    colLayout.removeEventListener('mouseenter', handleLayoutMouseEnter);
+}
+async function createNewDragHandles(colLayout) {
+    const nodeElements = getNodeElements(colLayout);
     for (let i = 0; i < nodeElements.length - 1; i++) {
         const dragHandle = createDragHandle();
         colLayout.appendChild(dragHandle);
     }
-    colLayout.addEventListener('mouseenter', handleMouseEnter);
+}
+function addLayoutEventListeners(colLayout) {
+    colLayout.addEventListener('mouseenter', handleLayoutMouseEnter);
+}
+function removeHandleEventListeners(handle) {
+    handle.removeEventListener('mousedown', handleMouseDown);
+    handle.removeEventListener('dblclick', handleDoubleClick);
+    handle.removeEventListener('mouseenter', handleMouseEnter);
+    handle.removeEventListener('mouseleave', handleMouseLeave);
+    const insertBlock = handle.querySelector('.QYLSbInsertBlock');
+    if (insertBlock) {
+        insertBlock.removeEventListener('click', handleInsertBlockClick);
+    }
+}
+function getNodeElements(colLayout) {
+    return Array.from(colLayout.children).filter(child => 
+        child.hasAttribute('data-node-id')
+    );
 }
 function createDragHandle() {
     const handle = document.createElement('div');
@@ -82,123 +86,9 @@ function createDragHandle() {
     handle.appendChild(insertBlock);
     handle.addEventListener('mousedown', handleMouseDown);
     handle.addEventListener('dblclick', handleDoubleClick);
+    handle.addEventListener('mouseenter', handleMouseEnter);
+    handle.addEventListener('mouseleave', handleMouseLeave);
     return handle;
-}
-function handleMouseEnter(event) {
-    positionHandlesForLayout(event.currentTarget);
-}
-function handleMouseDown(event) {
-    event.preventDefault();
-    const handle = event.currentTarget;
-    const colLayout = handle.parentElement;
-    const handles = Array.from(colLayout.querySelectorAll('.QYLSbWidthDrag'));
-    const handleIndex = handles.indexOf(handle);
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
-    );
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const leftElement = nodeElements[handleIndex];
-        const rightElement = nodeElements[handleIndex + 1];
-        const startX = event.clientX;
-        const colRect = colLayout.getBoundingClientRect();
-        const colWidth = colRect.width;
-        let leftWidth, rightWidth;
-        let isDragging = false;
-        let hasSetInitialStyle = false;
-        const handleMouseMove = (moveEvent) => {
-            if (!isDragging) {
-                isDragging = true;
-                if (!hasSetInitialStyle) {
-                    leftWidth = getElementWidthPercentage(leftElement);
-                    rightWidth = getElementWidthPercentage(rightElement);
-                    setElementWidth(leftElement, leftWidth);
-                    setElementWidth(rightElement, rightWidth);
-                    hasSetInitialStyle = true;
-                }
-            }
-            const deltaX = moveEvent.clientX - startX;
-            const deltaPercent = (deltaX / colWidth) * 100;
-            const totalWidth = leftWidth + rightWidth;
-            const newLeftWidth = Math.max(5, Math.min(totalWidth - 5, leftWidth + deltaPercent));
-            const newRightWidth = totalWidth - newLeftWidth;
-            setElementWidth(leftElement, newLeftWidth);
-            setElementWidth(rightElement, newRightWidth);
-            positionDragHandle(handle, leftElement, rightElement);
-        };
-        const handleMouseUp = async () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
-            if (isDragging) {
-                await saveElementStyle(leftElement);
-                await saveElementStyle(rightElement);
-            }
-        };
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
-    }
-}
-async function handleDoubleClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const handle = event.currentTarget;
-    const colLayout = handle.parentElement;
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
-    );
-    for (const element of nodeElements) {
-        resetElementStyle(element);
-    }
-    for (const element of nodeElements) {
-        await saveElementStyle(element);
-    }
-    requestAnimationFrame(async () => {
-        await recreateDragHandlesOnly(colLayout);
-        positionHandlesForLayout(colLayout);
-    });
-}
-async function handleInsertBlockClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const insertBlock = event.currentTarget;
-    const handle = insertBlock.parentElement;
-    const colLayout = handle.parentElement;
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
-    );
-    const handles = Array.from(colLayout.querySelectorAll('.QYLSbWidthDrag'));
-    const handleIndex = handles.indexOf(handle);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const nextElement = nodeElements[handleIndex + 1];
-        const nextID = nextElement.getAttribute('data-node-id');
-        try {
-            const response = await fetch('/api/block/insertBlock', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    dataType: 'markdown',
-                    data: '',
-                    nextID: nextID
-                })
-            });
-            if (!response.ok) {
-            } else {
-                setTimeout(async () => {
-                    const allNodeElements = Array.from(colLayout.children).filter(child => 
-                        child.hasAttribute('data-node-id')
-                    );
-                    for (const element of allNodeElements) {
-                        resetElementStyle(element);
-                        await saveElementStyle(element);
-                    }
-                    await recreateDragHandlesOnly(colLayout);
-                    positionHandlesForLayout(colLayout);
-                }, 100);
-            }
-        } catch (error) {
-        }
-    }
 }
 function positionDragHandle(handle, element1, element2) {
     requestAnimationFrame(() => {
@@ -211,19 +101,209 @@ function positionDragHandle(handle, element1, element2) {
     });
 }
 function positionHandlesForLayout(colLayout) {
-    const handles = colLayout.querySelectorAll('.QYLSbWidthDrag');
-    const nodeElements = Array.from(colLayout.children).filter(child => 
-        child.hasAttribute('data-node-id')
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
     );
+    const nodeElements = getNodeElements(colLayout);
     handles.forEach((handle, index) => {
         if (index < nodeElements.length - 1) {
             positionDragHandle(handle, nodeElements[index], nodeElements[index + 1]);
         }
     });
 }
+function handleLayoutMouseEnter(event) {
+    positionHandlesForLayout(event.currentTarget);
+}
+function handleMouseEnter(event) {
+    if (isGlobalDragging) return;
+    const handle = event.currentTarget;
+    const colLayout = handle.parentElement;
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
+    const handleIndex = handles.indexOf(handle);
+    const nodeElements = getNodeElements(colLayout);
+    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+        const leftElement = nodeElements[handleIndex];
+        const rightElement = nodeElements[handleIndex + 1];
+        leftElement.classList.add('QYLdragtip');
+        rightElement.classList.add('QYLdragtip');
+    }
+}
+function handleMouseLeave(event) {
+    if (isGlobalDragging) return;
+    const handle = event.currentTarget;
+    const colLayout = handle.parentElement;
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
+    const handleIndex = handles.indexOf(handle);
+    const nodeElements = getNodeElements(colLayout);
+    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+        const leftElement = nodeElements[handleIndex];
+        const rightElement = nodeElements[handleIndex + 1];
+        leftElement.classList.remove('QYLdragtip');
+        rightElement.classList.remove('QYLdragtip');
+    }
+}
+function handleMouseDown(event) {
+    event.preventDefault();
+    const handle = event.currentTarget;
+    const colLayout = handle.parentElement;
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
+    const handleIndex = handles.indexOf(handle);
+    const nodeElements = getNodeElements(colLayout);
+    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+        const leftElement = nodeElements[handleIndex];
+        const rightElement = nodeElements[handleIndex + 1];
+        startDragResize(handle, leftElement, rightElement, event);
+    }
+}
+function startDragResize(handle, leftElement, rightElement, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    const colLayout = handle.parentElement;
+    const startX = event.clientX;
+    const colRect = colLayout.getBoundingClientRect();
+    const colWidth = colRect.width;
+    let leftWidth, rightWidth;
+    let isDragging = false;
+    let hasSetInitialStyle = false;
+    const preventGlobalEvents = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+    };
+    const handleMouseMove = (moveEvent) => {
+        moveEvent.preventDefault();
+        moveEvent.stopPropagation();
+        moveEvent.stopImmediatePropagation();
+        if (!isDragging) {
+            isDragging = true;
+            isGlobalDragging = true; 
+            leftElement.classList.add('QYLdragtip');
+            rightElement.classList.add('QYLdragtip');
+            document.addEventListener('mousedown', preventGlobalEvents, true);
+            document.addEventListener('click', preventGlobalEvents, true);
+            document.addEventListener('dblclick', preventGlobalEvents, true);
+            document.addEventListener('contextmenu', preventGlobalEvents, true);
+            document.addEventListener('selectstart', preventGlobalEvents, true);
+            document.addEventListener('dragstart', preventGlobalEvents, true);
+            document.addEventListener('drop', preventGlobalEvents, true);
+            document.addEventListener('dragenter', preventGlobalEvents, true);
+            document.addEventListener('dragover', preventGlobalEvents, true);
+            document.addEventListener('dragleave', preventGlobalEvents, true);
+            document.body.style.userSelect = 'none';
+            document.body.style.webkitUserSelect = 'none';
+            document.body.style.mozUserSelect = 'none';
+            document.body.style.msUserSelect = 'none';
+            document.body.classList.add('QYL-dragging');
+            if (!hasSetInitialStyle) {
+                leftWidth = getElementWidthPercentage(leftElement);
+                rightWidth = getElementWidthPercentage(rightElement);
+                setElementWidth(leftElement, leftWidth);
+                setElementWidth(rightElement, rightWidth);
+                hasSetInitialStyle = true;
+            }
+        }
+        const deltaX = moveEvent.clientX - startX;
+        const deltaPercent = (deltaX / colWidth) * 100;
+        const totalWidth = leftWidth + rightWidth;
+        const newLeftWidth = Math.max(5, Math.min(totalWidth - 5, leftWidth + deltaPercent));
+        const newRightWidth = totalWidth - newLeftWidth;
+        setElementWidth(leftElement, newLeftWidth);
+        setElementWidth(rightElement, newRightWidth);
+        positionDragHandle(handle, leftElement, rightElement);
+    };
+    const handleMouseUp = async (upEvent) => {
+        if (upEvent) {
+            upEvent.preventDefault();
+            upEvent.stopPropagation();
+            upEvent.stopImmediatePropagation();
+        }
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.removeEventListener('mousedown', preventGlobalEvents, true);
+        document.removeEventListener('click', preventGlobalEvents, true);
+        document.removeEventListener('dblclick', preventGlobalEvents, true);
+        document.removeEventListener('contextmenu', preventGlobalEvents, true);
+        document.removeEventListener('selectstart', preventGlobalEvents, true);
+        document.removeEventListener('dragstart', preventGlobalEvents, true);
+        document.removeEventListener('drop', preventGlobalEvents, true);
+        document.removeEventListener('dragenter', preventGlobalEvents, true);
+        document.removeEventListener('dragover', preventGlobalEvents, true);
+        document.removeEventListener('dragleave', preventGlobalEvents, true);
+        document.body.style.userSelect = '';
+        document.body.style.webkitUserSelect = '';
+        document.body.style.mozUserSelect = '';
+        document.body.style.msUserSelect = '';
+        document.body.classList.remove('QYL-dragging');
+        leftElement.classList.remove('QYLdragtip');
+        rightElement.classList.remove('QYLdragtip');
+        isGlobalDragging = false; 
+        if (isDragging) {
+            await saveElementStyle(leftElement);
+            await saveElementStyle(rightElement);
+        }
+    };
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+}
+async function handleDoubleClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const handle = event.currentTarget;
+    const colLayout = handle.parentElement;
+    const nodeElements = getNodeElements(colLayout);
+    await Promise.all([
+        resetAllElementStyles(nodeElements),
+        updateDragHandlesAndPosition(colLayout)
+    ]);
+}
+async function handleInsertBlockClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const insertBlock = event.currentTarget;
+    const handle = insertBlock.parentElement;
+    const colLayout = handle.parentElement;
+    const nodeElements = getNodeElements(colLayout);
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
+    const handleIndex = handles.indexOf(handle);
+    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+        const nextElement = nodeElements[handleIndex + 1];
+        const nextID = nextElement.getAttribute('data-node-id');
+        await insertNewBlock(nextID, colLayout);
+    }
+}
+async function insertNewBlock(nextID, colLayout) {
+    try {
+        const response = await fetch('/api/block/insertBlock', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                dataType: 'markdown',
+                data: '',
+                nextID: nextID
+            })
+        });
+        if (response.ok) {
+            const allNodeElements = getNodeElements(colLayout);
+            await resetAllElementStyles(allNodeElements);
+        }
+    } catch (error) {
+    }
+}
 function getElementWidthPercentage(element) {
     const width = element.style.width;
-    if (width && width.includes('%')) {
+    if (width && width.includes('%') && !width.includes('calc(')) {
         return parseFloat(width);
     }
     const parentElement = element.parentElement;
@@ -265,7 +345,9 @@ function resetElementStyle(element) {
     const currentStyle = element.getAttribute('style') || '';
     const styleArray = currentStyle.split(';').filter(rule => {
         const trimmed = rule.trim();
-        return !trimmed.startsWith('flex') && !trimmed.startsWith('width');
+        return !trimmed.startsWith('flex') && 
+               !trimmed.startsWith('width') && 
+               !trimmed.includes('calc(');
     });
     const newStyle = styleArray.join(';').trim();
     if (newStyle) {
@@ -273,6 +355,18 @@ function resetElementStyle(element) {
     } else {
         element.removeAttribute('style');
     }
+}
+async function resetAllElementStyles(elements) {
+    for (const element of elements) {
+        resetElementStyle(element);
+    }
+    for (const element of elements) {
+        await saveElementStyle(element);
+    }
+}
+async function updateDragHandlesAndPosition(colLayout) {
+    await recreateDragHandlesOnly(colLayout);
+    positionHandlesForLayout(colLayout);
 }
 function setupObserver() {
     if (!centerElement) return;
@@ -282,7 +376,7 @@ function setupObserver() {
             if (mutation.type === 'childList') {
                 const addedNodes = Array.from(mutation.addedNodes);
                 const removedNodes = Array.from(mutation.removedNodes);
-                const hasRelevantChange = addedNodes.some(node => 
+                const hasLayoutChange = addedNodes.some(node => 
                     node.nodeType === Node.ELEMENT_NODE && 
                     (node.hasAttribute('data-sb-layout') || 
                      node.querySelector('[data-sb-layout="col"]'))
@@ -291,7 +385,18 @@ function setupObserver() {
                     (node.hasAttribute('data-sb-layout') || 
                      node.querySelector('[data-sb-layout="col"]'))
                 );
-                if (hasRelevantChange) {
+                const hasNodeIdChange = addedNodes.some(node => 
+                    node.nodeType === Node.ELEMENT_NODE && 
+                    node.hasAttribute('data-node-id')
+                ) || removedNodes.some(node => 
+                    node.nodeType === Node.ELEMENT_NODE && 
+                    node.hasAttribute('data-node-id')
+                );
+                const mutationTarget = mutation.target;
+                const isInColLayout = mutationTarget && 
+                    mutationTarget.hasAttribute('data-sb-layout') && 
+                    mutationTarget.getAttribute('data-sb-layout') === 'col';
+                if (hasLayoutChange || (hasNodeIdChange && isInColLayout)) {
                     shouldUpdate = true;
                 }
             }
@@ -314,26 +419,35 @@ function destroy() {
     if (centerElement) {
         const colLayouts = centerElement.querySelectorAll('[data-sb-layout="col"]');
         colLayouts.forEach(colLayout => {
-            colLayout.removeEventListener('mouseenter', handleMouseEnter);
-            const handles = colLayout.querySelectorAll('.QYLSbWidthDrag');
+            colLayout.removeEventListener('mouseenter', handleLayoutMouseEnter);
+            const handles = Array.from(colLayout.children).filter(child => 
+                child.classList.contains('QYLSbWidthDrag')
+            );
             handles.forEach(handle => {
-                handle.removeEventListener('mousedown', handleMouseDown);
-                handle.removeEventListener('dblclick', handleDoubleClick);
-                const insertBlock = handle.querySelector('.QYLSbInsertBlock');
-                if (insertBlock) {
-                    insertBlock.removeEventListener('click', handleInsertBlockClick);
-                }
+                removeHandleEventListeners(handle);
                 handle.remove();
             });
         });
     }
-    centerElement = null;
-    retryCount = 0;
+    if (document.body.classList.contains('QYL-dragging')) {
+        document.body.classList.remove('QYL-dragging');
+    }
+    document.body.style.userSelect = '';
+    document.body.style.webkitUserSelect = '';
+    document.body.style.mozUserSelect = '';
+    document.body.style.msUserSelect = '';
     document.querySelectorAll('.QYLSbWidthDrag').forEach(handle => {
+        removeHandleEventListeners(handle);
         handle.remove();
     });
     document.querySelectorAll('.QYLSbInsertBlock').forEach(insertBlock => {
         insertBlock.remove();
     });
+    document.querySelectorAll('.QYLdragtip').forEach(element => {
+        element.classList.remove('QYLdragtip');
+    });
+    isGlobalDragging = false;
+    centerElement = null;
+    retryCount = 0;
 }
 export { init, destroy };
