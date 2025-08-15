@@ -72,7 +72,6 @@ function addLayoutEventListeners(colLayout) {
 function removeHandleEventListeners(handle) {
     handle.removeEventListener('mousedown', handleMouseDown);
     handle.removeEventListener('click', handleTripleClick);
-    handle.removeEventListener('dblclick', handleDoubleClick);
     handle.removeEventListener('mouseenter', handleMouseEnter);
     handle.removeEventListener('mouseleave', handleMouseLeave);
     const insertBlock = handle.querySelector('.QYLSbInsertBlock');
@@ -95,7 +94,6 @@ function createDragHandle() {
     handle.appendChild(insertBlock);
     handle.addEventListener('mousedown', handleMouseDown);
     handle.addEventListener('click', handleTripleClick);
-    handle.addEventListener('dblclick', handleDoubleClick);
     handle.addEventListener('mouseenter', handleMouseEnter);
     handle.addEventListener('mouseleave', handleMouseLeave);
     return handle;
@@ -126,14 +124,12 @@ function hideRatioDisplay() {
     clearRatioDisplay();
 }
 function positionDragHandle(handle, element1, element2) {
-    requestAnimationFrame(() => {
-        const rect1 = element1.getBoundingClientRect();
-        const rect2 = element2.getBoundingClientRect();
-        const parentRect = handle.parentElement.getBoundingClientRect();
-        const centerX = (rect1.right + rect2.left) / 2;
-        const relativeX = centerX - parentRect.left;
-        handle.style.left = `${relativeX - 2}px`; 
-    });
+    const rect1 = element1.getBoundingClientRect();
+    const rect2 = element2.getBoundingClientRect();
+    const parentRect = handle.parentElement.getBoundingClientRect();
+    const centerX = (rect1.right + rect2.left) / 2;
+    const relativeX = centerX - parentRect.left;
+    handle.style.left = `${relativeX - 2}px`; 
 }
 function positionHandlesForLayout(colLayout) {
     const handles = Array.from(colLayout.children).filter(child => 
@@ -307,24 +303,35 @@ function handleTripleClick(event) {
         clearTimeout(clickTimer);
     }
     clickTimer = setTimeout(() => {
-        if (clickCount === 3) {
+        if (clickCount >= 3) {
             if (handle && handle.parentElement) {
                 const colLayout = handle.parentElement;
                 const nodeElements = getNodeElements(colLayout);
+                const originalTransitions = [];
+                nodeElements.forEach(element => {
+                    const computedStyle = window.getComputedStyle(element);
+                    originalTransitions.push(computedStyle.transition);
+                    element.style.transition = 'none';
+                });
                 for (const element of nodeElements) {
                     resetElementStyle(element);
                 }
                 positionHandlesForLayout(colLayout);
+                setTimeout(() => {
+                    nodeElements.forEach((element, index) => {
+                        element.style.transition = originalTransitions[index];
+                    });
+                    positionHandlesForLayout(colLayout);
+                }, 50);
                 Promise.all(nodeElements.map(element => saveElementStyle(element)));
             }
+        } else if (clickCount === 2) {
+            handleDoubleClickAction(handle);
         }
         clickCount = 0;
-    }, 250); 
+    }, 500); 
 }
-async function handleDoubleClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const handle = event.currentTarget;
+async function handleDoubleClickAction(handle) {
     const colLayout = handle.parentElement;
     const handles = Array.from(colLayout.children).filter(child => 
         child.classList.contains('QYLSbWidthDrag')
@@ -341,17 +348,35 @@ async function handleDoubleClick(event) {
         if (leftHasWidth && rightHasWidth) {
             const totalWidth = leftWidth + rightWidth;
             const averageWidth = totalWidth / 2;
+            const leftTransition = window.getComputedStyle(leftElement).transition;
+            const rightTransition = window.getComputedStyle(rightElement).transition;
+            leftElement.style.transition = 'none';
+            rightElement.style.transition = 'none';
             setElementWidth(leftElement, averageWidth);
             setElementWidth(rightElement, averageWidth);
             positionHandlesForLayout(colLayout);
+            setTimeout(() => {
+                leftElement.style.transition = leftTransition;
+                rightElement.style.transition = rightTransition;
+                positionHandlesForLayout(colLayout);
+            }, 50);
             Promise.all([
                 saveElementStyle(leftElement),
                 saveElementStyle(rightElement)
             ]);
         } else if (leftHasWidth || rightHasWidth) {
+            const leftTransition = window.getComputedStyle(leftElement).transition;
+            const rightTransition = window.getComputedStyle(rightElement).transition;
+            leftElement.style.transition = 'none';
+            rightElement.style.transition = 'none';
             resetElementStyle(leftElement);
             resetElementStyle(rightElement);
             positionHandlesForLayout(colLayout);
+            setTimeout(() => {
+                leftElement.style.transition = leftTransition;
+                rightElement.style.transition = rightTransition;
+                positionHandlesForLayout(colLayout);
+            }, 50);
             Promise.all([
                 saveElementStyle(leftElement),
                 saveElementStyle(rightElement)
