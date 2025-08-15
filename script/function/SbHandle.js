@@ -3,7 +3,15 @@ let retryCount = 0;
 let maxRetries = 15;
 let retryInterval = 100;
 let observer = null;
-let isGlobalDragging = false; 
+let isGlobalDragging = false;
+let clickCount = 0;
+let clickTimer = null; 
+function roundToEven(num) {
+    if (Math.abs(num - 33.3) < 0.1) {
+        return 33.3;
+    }
+    return Math.round(num * 2) / 2;
+}
 async function init() {
     if (document.body.classList.contains('QYLmobile')) return;
     await findCenterElement();
@@ -63,6 +71,7 @@ function addLayoutEventListeners(colLayout) {
 }
 function removeHandleEventListeners(handle) {
     handle.removeEventListener('mousedown', handleMouseDown);
+    handle.removeEventListener('click', handleTripleClick);
     handle.removeEventListener('dblclick', handleDoubleClick);
     handle.removeEventListener('mouseenter', handleMouseEnter);
     handle.removeEventListener('mouseleave', handleMouseLeave);
@@ -85,10 +94,36 @@ function createDragHandle() {
     insertBlock.addEventListener('click', handleInsertBlockClick);
     handle.appendChild(insertBlock);
     handle.addEventListener('mousedown', handleMouseDown);
+    handle.addEventListener('click', handleTripleClick);
     handle.addEventListener('dblclick', handleDoubleClick);
     handle.addEventListener('mouseenter', handleMouseEnter);
     handle.addEventListener('mouseleave', handleMouseLeave);
     return handle;
+}
+function clearRatioDisplay() {
+    document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
+        element.remove();
+    });
+}
+function updateRatioDisplay(colLayout) {
+    clearRatioDisplay();
+    const nodeElements = getNodeElements(colLayout);
+    let totalWidth = 0;
+    nodeElements.forEach(element => {
+        totalWidth += getElementWidthPercentage(element);
+    });
+    nodeElements.forEach((element, index) => {
+        const elementWidth = getElementWidthPercentage(element);
+        const ratioInTotal = totalWidth > 0 ? (elementWidth / totalWidth) * 100 : 0;
+        const ratio = roundToEven(ratioInTotal);
+        const ratioElement = document.createElement('div');
+        ratioElement.className = `QYLSbRatioItem QYLSbRatioItem${index} protyle-custom`;
+        ratioElement.textContent = `${ratio.toFixed(1)}%`;
+        element.appendChild(ratioElement);
+    });
+}
+function hideRatioDisplay() {
+    clearRatioDisplay();
 }
 function positionDragHandle(handle, element1, element2) {
     requestAnimationFrame(() => {
@@ -128,6 +163,7 @@ function handleMouseEnter(event) {
         const rightElement = nodeElements[handleIndex + 1];
         leftElement.classList.add('QYLdragtip');
         rightElement.classList.add('QYLdragtip');
+        updateRatioDisplay(colLayout);
     }
 }
 function handleMouseLeave(event) {
@@ -144,6 +180,7 @@ function handleMouseLeave(event) {
         const rightElement = nodeElements[handleIndex + 1];
         leftElement.classList.remove('QYLdragtip');
         rightElement.classList.remove('QYLdragtip');
+        hideRatioDisplay();
     }
 }
 function handleMouseDown(event) {
@@ -218,6 +255,7 @@ function startDragResize(handle, leftElement, rightElement, event) {
         setElementWidth(leftElement, newLeftWidth);
         setElementWidth(rightElement, newRightWidth);
         positionDragHandle(handle, leftElement, rightElement);
+        updateRatioDisplay(colLayout);
     };
     const handleMouseUp = async (upEvent) => {
         if (upEvent) {
@@ -245,7 +283,14 @@ function startDragResize(handle, leftElement, rightElement, event) {
         leftElement.classList.remove('QYLdragtip');
         rightElement.classList.remove('QYLdragtip');
         isGlobalDragging = false; 
+        hideRatioDisplay();
         if (isDragging) {
+            const currentLeftWidth = getElementWidthPercentage(leftElement);
+            const currentRightWidth = getElementWidthPercentage(rightElement);
+            const totalWidth = currentLeftWidth + currentRightWidth;
+            setElementWidth(leftElement, currentLeftWidth);
+            setElementWidth(rightElement, currentRightWidth);
+            positionDragHandle(handle, leftElement, rightElement);
             await saveElementStyle(leftElement);
             await saveElementStyle(rightElement);
         }
@@ -253,16 +298,66 @@ function startDragResize(handle, leftElement, rightElement, event) {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
 }
+function handleTripleClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const handle = event.currentTarget; 
+    clickCount++;
+    if (clickTimer) {
+        clearTimeout(clickTimer);
+    }
+    clickTimer = setTimeout(() => {
+        if (clickCount === 3) {
+            if (handle && handle.parentElement) {
+                const colLayout = handle.parentElement;
+                const nodeElements = getNodeElements(colLayout);
+                for (const element of nodeElements) {
+                    resetElementStyle(element);
+                }
+                positionHandlesForLayout(colLayout);
+                Promise.all(nodeElements.map(element => saveElementStyle(element)));
+            }
+        }
+        clickCount = 0;
+    }, 250); 
+}
 async function handleDoubleClick(event) {
     event.preventDefault();
     event.stopPropagation();
     const handle = event.currentTarget;
     const colLayout = handle.parentElement;
+    const handles = Array.from(colLayout.children).filter(child => 
+        child.classList.contains('QYLSbWidthDrag')
+    );
+    const handleIndex = handles.indexOf(handle);
     const nodeElements = getNodeElements(colLayout);
-    await Promise.all([
-        resetAllElementStyles(nodeElements),
-        updateDragHandlesAndPosition(colLayout)
-    ]);
+    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+        const leftElement = nodeElements[handleIndex];
+        const rightElement = nodeElements[handleIndex + 1];
+        const leftWidth = getElementWidthPercentage(leftElement);
+        const rightWidth = getElementWidthPercentage(rightElement);
+        const leftHasWidth = leftElement.style.width && leftElement.style.width.includes('%');
+        const rightHasWidth = rightElement.style.width && rightElement.style.width.includes('%');
+        if (leftHasWidth && rightHasWidth) {
+            const totalWidth = leftWidth + rightWidth;
+            const averageWidth = totalWidth / 2;
+            setElementWidth(leftElement, averageWidth);
+            setElementWidth(rightElement, averageWidth);
+            positionHandlesForLayout(colLayout);
+            Promise.all([
+                saveElementStyle(leftElement),
+                saveElementStyle(rightElement)
+            ]);
+        } else if (leftHasWidth || rightHasWidth) {
+            resetElementStyle(leftElement);
+            resetElementStyle(rightElement);
+            positionHandlesForLayout(colLayout);
+            Promise.all([
+                saveElementStyle(leftElement),
+                saveElementStyle(rightElement)
+            ]);
+        }
+    }
 }
 async function handleInsertBlockClick(event) {
     event.preventDefault();
@@ -446,8 +541,14 @@ function destroy() {
     document.querySelectorAll('.QYLdragtip').forEach(element => {
         element.classList.remove('QYLdragtip');
     });
+    hideRatioDisplay();
     isGlobalDragging = false;
     centerElement = null;
     retryCount = 0;
+    clickCount = 0;
+    if (clickTimer) {
+        clearTimeout(clickTimer);
+        clickTimer = null;
+    }
 }
 export { init, destroy };
