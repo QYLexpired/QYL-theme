@@ -311,6 +311,6 @@ export const addRightClickListener = (element) => {
     element.addEventListener('contextmenu', handleRightClick);
     element.addEventListener('touchstart', handleTouchStart, { passive: false });
     element.addEventListener('touchend', handleTouchEnd);
-    element.addEventListener('touchmove', handleTouchMove);
+    element.addEventListener('touchmove', handleTouchMove, { passive: true });
     element.addEventListener('touchcancel', handleTouchEnd);
 };
