@@ -9,6 +9,9 @@
     transition: opacity 0.3s;
     opacity: 0;
 }
+.QYLSbHandleCliking > [data-node-id] {
+    transition: none !important;
+}
 [data-sb-layout="col"]:hover > .QYLSbWidthDrag {
     opacity: 0.3;
     &:hover {
