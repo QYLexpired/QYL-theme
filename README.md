@@ -1,12 +1,12 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">GitHub</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
-<details style="padding-left: 1em" open>
+<details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">Major Update</span>: Added Element Options - Custom Text Styles. When enabled, right-clicking the button will show a text style configuration menu (similar to color scheme plugin, effective when exporting)<br>• <span style="color: var(--b3-theme-primary)">Major Update</span>: Show Inline Memo now supports basic Markdown parsing<br>• Optimized QYL Custom Attributes menu item loading speed<br>• Optimized stability of Image Mask feature</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Super Block Width Handle now displays width ratio<br>• Super Block Width Handle interaction optimization: double-click to evenly distribute front and back child blocks, triple-click to evenly distribute all child blocks</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Recent Updates</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Fixed issue where the status bar position was not updated when hiding the dock bar<br>• Optimized E‑ink mode with extensive detail improvements<br>• Added image styles: Invert (dark mode only), Invert (light mode only)<br>• Added table styles: Hierarchy, Rounded corners<br>• Fixed issue where the top tab position did not update in some cases when Top Bar Fusion was enabled<br>• Added preset color scheme for dark mode: Marsh<br>• Added preset color schemes for light mode: Wood Ash, Yunjin<br>• QYL Custom Attributes: added a Time attribute to add the current time to any block<br>• Optimized Flat Style with extensive detail improvements<br>• Removed 3D effects from database card view when Theme Animation is enabled<br>• Optimized floating sidebar in Color Block layout<br>• Changed reload mechanism, referencing <a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">method provided by wilsons</a><br>• Full Height layout/Hide Tab and Breadcrumb now adapt to the Export Preview interface and the pseudo-document breadcrumb plugin<br>• Added tooltips for buttons with right-click functionality in the QYL Theme Settings window<br>• Redesigned focused tab style under Colorful Tabs<br>• Adapted to the Code Snippet Manager plugin<br>• Optimized Colorful File Tree effect in Dark Mode<br>• Fixed some issues when enabling memo display at the bottom<br>• Added separators for different attribute groups in the QYL Custom Attributes menu; optimized mobile interaction<br>• Simplified color scheme switching animation<br>• Table headers are no longer bold by default; optimized Three-Line Table style<br>• Optimized Theme Settings window close logic<br>• Optimized mobile menu style<br>• Fixed style anomalies when enabling Top Bar Fusion together with Full Height layout/Flat Style/E‑ink mode and no tabs open<br>• Fixed tab position anomaly when opening tabs in a new window with Top Bar Fusion enabled<br>• Fixed issue where the breadcrumb could not be clicked after opening tabs in a new window and switching to full screen with Flat Style/E‑ink mode enabled</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added Function Options - Super Block Width Handle, when enabled, you can quickly adjust the width of child blocks in horizontal super blocks and quickly add child blocks, double-click the width handle to evenly distribute child blocks<br>• Added Element Options - Custom Text Styles, when enabled, right-clicking the button will show a text style configuration menu (similar to color scheme plugin, effective when exporting)<br>• Show Inline Memo now supports basic Markdown parsing<br>• Redesigned block style menu<br>• Optimized QYL Custom Attributes menu item loading speed<br>• Optimized stability of Image Mask feature<br>• Removed grouping mechanism when expanding slash menu<br>• Slash menu options can be switched with arrow keys, referencing Savor theme<br>• Fixed conflict between theme settings window and public menu<br>• Optimized task list collapse style<br>• Optimized border file tree color<br>• Fixed issue where the status bar position was not updated when hiding the dock bar<br>• Optimized E‑ink mode with extensive detail improvements<br>• Added image styles: Invert (dark mode only), Invert (light mode only)<br>• Added table styles: Hierarchy, Rounded corners<br>• Fixed issue where the top tab position did not update in some cases when Top Bar Fusion was enabled<br>• Added preset color scheme for dark mode: Marsh<br>• Added preset color schemes for light mode: Wood Ash, Yunjin<br>• QYL Custom Attributes: added a Time attribute to add the current time to any block<br>• Optimized Flat Style with extensive detail improvements<br>• Removed 3D effects from database card view when Theme Animation is enabled<br>• Optimized floating sidebar in Color Block layout<br>• Changed reload mechanism, referencing <a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">method provided by wilsons</a><br>• Full Height layout/Hide Tab and Breadcrumb now adapt to the Export Preview interface and the pseudo-document breadcrumb plugin<br>• Added tooltips for buttons with right-click functionality in the QYL Theme Settings window<br>• Redesigned focused tab style under Colorful Tabs<br>• Adapted to the Code Snippet Manager plugin<br>• Optimized Colorful File Tree effect in Dark Mode<br>• Fixed some issues when enabling memo display at the bottom<br>• Added separators for different attribute groups in the QYL Custom Attributes menu; optimized mobile interaction<br>• Simplified color scheme switching animation<br>• Table headers are no longer bold by default; optimized Three-Line Table style<br>• Optimized Theme Settings window close logic<br>• Optimized mobile menu style<br>• Fixed style anomalies when enabling Top Bar Fusion together with Full Height layout/Flat Style/E‑ink mode and no tabs open<br>• Fixed tab position anomaly when opening tabs in a new window with Top Bar Fusion enabled<br>• Fixed issue where the breadcrumb could not be clicked after opening tabs in a new window and switching to full screen with Flat Style/E‑ink mode enabled</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Theme Description</p>
 <details style="padding-left: 1em">
@@ -25,19 +25,23 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hidden Options<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the theme settings button to enter the settings window and hide unwanted options.</p>
-</details>
-<details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Super Block Width Handle<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, width adjustment handles appear between child blocks of horizontally arranged super blocks. Drag to adjust the width ratio of left and right child blocks<br>Double-click the width handle to evenly distribute front and back child blocks<br>Triple-click the width handle to evenly distribute all child blocks</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the Custom Text Styles button to enter the settings window for configuration. Supports multi-device synchronization.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hidden Options<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the theme settings button to enter the settings window and hide unwanted options.</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, a "Mark" button and a "Lightning" button appear at the top left of the image<br>Mark button: Toggle mask editing mode on/off<br>Lightning button: Hide/restore all masks<br>Edit mode: Drag to create masks, long press to delete masks<br>Non-edit mode: Click masks to hide/restore them<br>Mobile devices temporarily don't support creating masks<br>This feature has some performance impact, please disable when not necessary.</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Show Inline Memo</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, inline memos will be displayed on the side or bottom of the block.<br>How to toggle: Right-click the Show Inline Memo button.<br>Supports basic Markdown parsing.<br>Supports HTML parsing, allowing any type of inline memo, such as formulas, images, videos, or any HTML.<br>When the memo is far from the main text, clicking the main text or memo will automatically jump to it.<br>Clicking the title part of the memo will directly open the editing window.<br>This feature has some performance impact, please disable when not necessary.</p>
 </details>
 <details style="padding-left: 1em">
@@ -53,7 +57,7 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">After enabling QYL custom attribute styles in the QYL settings window, corresponding options will appear in the block/document menu.<br>Different types of blocks have different attribute options.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Self-Configured Attributes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Requires QYL Custom Attributes to be enabled.<br>Configure through QYL Custom Attributes - Self-Configured Attributes - Edit Configuration menu.</p>
 </details>
 <details style="padding-left: 1em">
@@ -75,11 +79,16 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Acknowledgements</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">A lot of marketplace themes and other content creators were referenced when making the QYL theme. Thanks to all, including but not limited to (in no particular order):</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
-• <a href="https://github.com/royc01/notion-theme">Savor Theme</a>: List bullet line, top bar fusion, style, multi-column slash menu, method to connect to SiYuan API<br>
+• <a href="https://github.com/royc01/notion-theme">Savor Theme</a>: List bullet line, top bar fusion, style, multi-column slash menu and option left-right switching, method to connect to SiYuan API<br>
 • <a href="https://github.com/mustakshif/Asri">Asri Theme</a>: File tree indent line, style, multi-line search list, status bar avoidance, color block layout, full height layout<br>
 • <a href="https://github.com/chenshinshi/OneNote">OneNote Theme</a>: Colorful file tree<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room Theme</a>: Style<br>
 • <a href="https://github.com/TCOTC/Whisper">Whisper Theme</a>, <a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>: Mobile detection method, image nine-grid layout<br>
 • <a href="https://ld246.com/member/wilsons">wilsons</a>: Floating status bar, reload method<br>
 • <a href="https://github.com/svchord/Rem-Craft">Rem-Craft Theme</a>: Flat style<br>
+</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Dependencies</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
+• <a href="https://github.com/Simonwep/pickr">Pickr</a><br>
+• <a href="https://github.com/markedjs/marked">Marked</a><br>
 </p>
