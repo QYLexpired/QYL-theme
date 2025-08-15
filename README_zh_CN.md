@@ -2,13 +2,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 优化超级块宽度柄</p>
-<div style="height: 1px; background-color: var(--b3-theme-on-surface); opacity: 0.3; margin: 5px 0 5px 10px; width: calc(100% - 10px)"></div>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加功能选项-超级块宽度柄，启用后可快速调整水平超级块的子块宽度，并快速添加子块，双击宽度柄可等分各子块<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：增加元素选项-自定义文字样式，启用后右键点击按钮出现文字样式配置菜单（类似配色方案插件，导出时生效）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span></summary>：显示行内备注支持解析基础Markdown<br>• 重做块样式菜单<br>• 优化QYL自定义属性菜单项加载速度<br>• 优化图片遮罩功能的稳定性</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 超级块宽度柄增加宽度比例显示<br>• 超级块宽度柄交互优化：双击宽度柄等分前后子块，三击宽度柄等分所有子块</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 取消斜杠菜单展开时的分组机制<br>• 斜杠菜单选项可通过方向键切换，参考Savor主题<br>• 修复主题设置窗口与公共菜单的冲突<br>• 优化任务列表折叠样式<br>• 优化边框文档树颜色<br>• 修复隐藏停靠栏时状态栏位置未更新的问题<br>• 优化墨水屏模式，完善大量细节<br>• 图片样式增加：反色（仅暗黑模式）、反色（仅明亮模式）<br>• 表格样式增加：层次、圆角<br>• 修复顶栏融合时部分情况下顶部页签位置不更新的问题<br>• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰、云堇<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式<br>• 适配代码片段管理器插件<br>• 优化暗黑模式多彩文档树效果<br>• 修复开启备注显示在底部时的部分错误<br>• 为QYL自定义属性菜单中不同组别属性增加分隔线，优化移动端交互<br>• 简化配色切换动画<br>• 表格表头不再默认加粗，优化三线表样式<br>• 优化主题设置窗口的关闭逻辑<br>• 优化手机端菜单样式<br>• 修复同时开启顶栏融合与全高布局/扁平化风格/墨水屏模式，且不打开任何页签时的样式异常<br>• 修复开启顶栏融合时将页签在新窗口打开时页签位置异常的问题<br>• 修复开启扁平化风格/墨水屏模式后，将页签在新窗口打开并切换全屏时面包屑无法点击的问题</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加功能选项-超级块宽度柄，启用后可快速调整水平超级块的子块宽度，并快速添加子块，双击宽度柄可等分各子块<br>• 增加元素选项-自定义文字样式，启用后右键点击按钮出现文字样式配置菜单（类似配色方案插件，导出时生效）<br>• 显示行内备注支持解析基础Markdown<br>• 重做块样式菜单<br>• 优化QYL自定义属性菜单项加载速度<br>• 优化图片遮罩功能的稳定性<br>• 取消斜杠菜单展开时的分组机制<br>• 斜杠菜单选项可通过方向键切换，参考Savor主题<br>• 修复主题设置窗口与公共菜单的冲突<br>• 优化任务列表折叠样式<br>• 优化边框文档树颜色<br>• 修复隐藏停靠栏时状态栏位置未更新的问题<br>• 优化墨水屏模式，完善大量细节<br>• 图片样式增加：反色（仅暗黑模式）、反色（仅明亮模式）<br>• 表格样式增加：层次、圆角<br>• 修复顶栏融合时部分情况下顶部页签位置不更新的问题<br>• 暗黑模式增加预设配色：沼泽<br>• 明亮模式增加预设配色：草木灰、云堇<br>• QYL自定义属性增加时间属性，用于为任意块添加当前时间属性<br>• 优化扁平化风格，完善大量细节<br>• 移除开启主题动画后数据库卡片视图的3D动效<br>• 优化撞色布局的浮动侧栏<br>• 更改重载机制，参考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高布局/隐藏页签和面包屑适配导出预览界面、伪文档面包屑插件<br>• 为QYL主题设置窗口具有鼠标右键点击功能的按钮增加提示<br>• 重做多彩页签下聚焦页签的样式<br>• 适配代码片段管理器插件<br>• 优化暗黑模式多彩文档树效果<br>• 修复开启备注显示在底部时的部分错误<br>• 为QYL自定义属性菜单中不同组别属性增加分隔线，优化移动端交互<br>• 简化配色切换动画<br>• 表格表头不再默认加粗，优化三线表样式<br>• 优化主题设置窗口的关闭逻辑<br>• 优化手机端菜单样式<br>• 修复同时开启顶栏融合与全高布局/扁平化风格/墨水屏模式，且不打开任何页签时的样式异常<br>• 修复开启顶栏融合时将页签在新窗口打开时页签位置异常的问题<br>• 修复开启扁平化风格/墨水屏模式后，将页签在新窗口打开并切换全屏时面包屑无法点击的问题</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
@@ -27,6 +25,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">超级块宽度柄<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在水平排列超级块的子块间出现宽度调节句柄，拖动即可调整左右子块的宽度比例<br>双击宽度柄可等分前后子块<br>三击宽度柄可等分全部子块</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自定义文字样式<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">鼠标右键点击自定义文字样式按钮可进入设置窗口来进行配置，支持多端同步</p>
 </details>
@@ -35,11 +37,11 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">鼠标右键点击主题设置按钮可进入设置窗口隐藏不需要的选项</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">图片遮罩</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在图片左上角出现标记按钮和闪电按钮<br>标记按钮：开启/关闭遮罩编辑模式<br>闪电按钮：隐藏/恢复所有遮罩<br>编辑模式：拖拽创建遮罩，长按删除遮罩<br>非编辑模式：点击遮罩使其隐藏/恢复<br>移动端暂时不支持创建遮罩<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">显示行内备注</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后行内备注将显示在块的侧边或底部<br>切换方法：右键点击显示行内备注按钮<br>支持解析基础Markdown<br>支持解析HTML，借此可实现任意类型的行内备注，如公式、图片、视频、任意HTML<br>当备注与正文距离较远时，点击正文/备注，可自动跳转<br>点击备注的标题部分可直接打开编辑窗口<br>此功能对性能有一定消耗，请在非必要时关闭</p>
 </details>
 <details style="padding-left: 1em">
@@ -55,7 +57,7 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">在QYL设置窗口开启QYL自定义属性样式后，块/文档菜单出现相应选项<br>不同类型的块具有不同的属性选项</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置属性<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">自配置属性</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">需开启QYL自定义属性<br>通过QYL自定义属性-自配置属性-编辑配置菜单进行配置</p>
 </details>
 <details style="padding-left: 1em">
