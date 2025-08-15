@@ -302,86 +302,70 @@ function handleTripleClick(event) {
     if (clickTimer) {
         clearTimeout(clickTimer);
     }
-    clickTimer = setTimeout(() => {
+    clickTimer = setTimeout(async () => {
         if (clickCount >= 3) {
             if (handle && handle.parentElement) {
                 const colLayout = handle.parentElement;
-                const nodeElements = getNodeElements(colLayout);
-                const originalTransitions = [];
-                nodeElements.forEach(element => {
-                    const computedStyle = window.getComputedStyle(element);
-                    originalTransitions.push(computedStyle.transition);
-                    element.style.transition = 'none';
-                });
-                for (const element of nodeElements) {
-                    resetElementStyle(element);
-                }
-                positionHandlesForLayout(colLayout);
-                setTimeout(() => {
-                    nodeElements.forEach((element, index) => {
-                        element.style.transition = originalTransitions[index];
-                    });
+                colLayout.classList.add('QYLSbHandleCliking');
+                try {
+                    const nodeElements = getNodeElements(colLayout);
+                    for (const element of nodeElements) {
+                        resetElementStyle(element);
+                    }
                     positionHandlesForLayout(colLayout);
-                }, 50);
-                Promise.all(nodeElements.map(element => saveElementStyle(element)));
+                    await Promise.all(nodeElements.map(element => saveElementStyle(element)));
+                } catch (error) {
+                    
+                } finally {
+                    colLayout.classList.remove('QYLSbHandleCliking');
+                }
             }
         } else if (clickCount === 2) {
-            handleDoubleClickAction(handle);
+            await handleDoubleClickAction(handle);
         }
         clickCount = 0;
     }, 500); 
 }
 async function handleDoubleClickAction(handle) {
     const colLayout = handle.parentElement;
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const handleIndex = handles.indexOf(handle);
-    const nodeElements = getNodeElements(colLayout);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const leftElement = nodeElements[handleIndex];
-        const rightElement = nodeElements[handleIndex + 1];
-        const leftWidth = getElementWidthPercentage(leftElement);
-        const rightWidth = getElementWidthPercentage(rightElement);
-        const leftHasWidth = leftElement.style.width && leftElement.style.width.includes('%');
-        const rightHasWidth = rightElement.style.width && rightElement.style.width.includes('%');
-        if (leftHasWidth && rightHasWidth) {
-            const totalWidth = leftWidth + rightWidth;
-            const averageWidth = totalWidth / 2;
-            const leftTransition = window.getComputedStyle(leftElement).transition;
-            const rightTransition = window.getComputedStyle(rightElement).transition;
-            leftElement.style.transition = 'none';
-            rightElement.style.transition = 'none';
-            setElementWidth(leftElement, averageWidth);
-            setElementWidth(rightElement, averageWidth);
-            positionHandlesForLayout(colLayout);
-            setTimeout(() => {
-                leftElement.style.transition = leftTransition;
-                rightElement.style.transition = rightTransition;
+    colLayout.classList.add('QYLSbHandleCliking');
+    try {
+        const handles = Array.from(colLayout.children).filter(child => 
+            child.classList.contains('QYLSbWidthDrag')
+        );
+        const handleIndex = handles.indexOf(handle);
+        const nodeElements = getNodeElements(colLayout);
+        if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
+            const leftElement = nodeElements[handleIndex];
+            const rightElement = nodeElements[handleIndex + 1];
+            const leftWidth = getElementWidthPercentage(leftElement);
+            const rightWidth = getElementWidthPercentage(rightElement);
+            const leftHasWidth = leftElement.style.width && leftElement.style.width.includes('%');
+            const rightHasWidth = rightElement.style.width && rightElement.style.width.includes('%');
+            if (leftHasWidth && rightHasWidth) {
+                const totalWidth = leftWidth + rightWidth;
+                const averageWidth = totalWidth / 2;
+                setElementWidth(leftElement, averageWidth);
+                setElementWidth(rightElement, averageWidth);
                 positionHandlesForLayout(colLayout);
-            }, 50);
-            Promise.all([
-                saveElementStyle(leftElement),
-                saveElementStyle(rightElement)
-            ]);
-        } else if (leftHasWidth || rightHasWidth) {
-            const leftTransition = window.getComputedStyle(leftElement).transition;
-            const rightTransition = window.getComputedStyle(rightElement).transition;
-            leftElement.style.transition = 'none';
-            rightElement.style.transition = 'none';
-            resetElementStyle(leftElement);
-            resetElementStyle(rightElement);
-            positionHandlesForLayout(colLayout);
-            setTimeout(() => {
-                leftElement.style.transition = leftTransition;
-                rightElement.style.transition = rightTransition;
+                await Promise.all([
+                    saveElementStyle(leftElement),
+                    saveElementStyle(rightElement)
+                ]);
+            } else if (leftHasWidth || rightHasWidth) {
+                resetElementStyle(leftElement);
+                resetElementStyle(rightElement);
                 positionHandlesForLayout(colLayout);
-            }, 50);
-            Promise.all([
-                saveElementStyle(leftElement),
-                saveElementStyle(rightElement)
-            ]);
+                await Promise.all([
+                    saveElementStyle(leftElement),
+                    saveElementStyle(rightElement)
+                ]);
+            }
         }
+    } catch (error) {
+        
+    } finally {
+        colLayout.classList.remove('QYLSbHandleCliking');
     }
 }
 async function handleInsertBlockClick(event) {
@@ -565,6 +549,9 @@ function destroy() {
     });
     document.querySelectorAll('.QYLdragtip').forEach(element => {
         element.classList.remove('QYLdragtip');
+    });
+    document.querySelectorAll('.QYLSbHandleCliking').forEach(element => {
+        element.classList.remove('QYLSbHandleCliking');
     });
     hideRatioDisplay();
     isGlobalDragging = false;
