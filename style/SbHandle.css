@@ -15,12 +15,6 @@
         opacity: 1;
     }
 }
-[data-sb-layout="col"]:hover > .QYLSbWidthDrag {
-    opacity: 0.3;
-    &:hover {
-        opacity: 1;
-    }
-}
 .protyle-wysiwyg[contenteditable="false"] .QYLSbWidthDrag {
     display: none;
 }
@@ -42,4 +36,16 @@
 [data-node-id].QYLdragtip {
     background: var(--b3-theme-primary-lightest) !important;
     transition: none !important;
+}
+.QYLSbRatioItem {
+    position: absolute;
+    background: var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
+    padding: 2px 6px;
+    border-radius: var(--b3-border-radius);
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    right: 0px;
+    top: 0px;
 }

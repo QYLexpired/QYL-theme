@@ -98,3 +98,9 @@
 :root {
     -webkit-tap-highlight-color: transparent;
 }
+.QYLmobile .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col] {
+    column-gap: 0;
+    & > [data-node-id] {
+        width: 100% !important;
+    }
+}
