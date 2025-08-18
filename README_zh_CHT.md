@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 超級塊寬度柄增加寬度比例顯示<br>• 超級塊寬度柄互動優化：雙擊寬度柄等分前後子塊，三擊寬度柄等分所有子塊</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修復開啟超級塊寬度柄時取消超級塊導致思源崩潰的問題<br>• 重做標籤樣式</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>

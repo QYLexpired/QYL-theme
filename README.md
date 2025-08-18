@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Super Block Width Handle now displays width ratio<br>• Super Block Width Handle interaction optimization: double-click to evenly distribute front and back child blocks, triple-click to evenly distribute all child blocks</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Fixed issue where canceling super blocks with Super Block Width Handle enabled caused SiYuan to crash<br>• Redesigned tag styles</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Recent Updates</summary>

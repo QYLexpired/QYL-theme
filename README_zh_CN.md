@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 超级块宽度柄增加宽度比例显示<br>• 超级块宽度柄交互优化：双击宽度柄等分前后子块，三击宽度柄等分所有子块</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修复开启超级块宽度柄时取消超级块导致思源崩溃的问题<br>• 重做标签样式</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
