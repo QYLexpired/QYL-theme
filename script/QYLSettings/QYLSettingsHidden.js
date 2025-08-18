@@ -168,7 +168,8 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'GridSearchList', label: i18n.GridSearchList },
         { id: 'FlatStyle', label: i18n.FlatStyle },
         { id: 'InkMode', label: i18n.InkMode },
-        { id: 'ColorfulTabs', label: i18n.ColorfulTabs }
+        { id: 'ColorfulTabs', label: i18n.ColorfulTabs },
+        { id: 'ImmersiveTopBar', label: i18n.ImmersiveTopBar }
     ];
     const layoutSection = await createOptionSection(i18n.Layout, layoutOptions);
     const styleSection = await createOptionSection(i18n.Style, styleOptions);

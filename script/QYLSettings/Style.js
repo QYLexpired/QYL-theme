@@ -12,6 +12,7 @@ let gridSearchListModule = null;
 let flatStyleModule = null;
 let inkModeModule = null;
 let colorfulTabsModule = null;
+let immersiveTopBarModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
         try {
@@ -92,6 +93,15 @@ async function loadColorfulTabsModule() {
         }
     }
     return colorfulTabsModule;
+}
+async function loadImmersiveTopBarModule() {
+    if (!immersiveTopBarModule) {
+        try {
+            immersiveTopBarModule = await import('../style/ImmersiveTopBar.js');
+        } catch (error) {
+        }
+    }
+    return immersiveTopBarModule;
 }
 async function enableFileTreeIndent() {
     const module = await loadFileTreeIndentModule();
@@ -201,6 +211,18 @@ async function disableColorfulTabs() {
         module.removeColorfultabs();
     }
 }
+async function enableImmersiveTopBar() {
+    const module = await loadImmersiveTopBarModule();
+    if (module && module.initImmersiveTopBar) {
+        module.initImmersiveTopBar();
+    }
+}
+async function disableImmersiveTopBar() {
+    const module = await loadImmersiveTopBarModule();
+    if (module && module.removeImmersiveTopBar) {
+        module.removeImmersiveTopBar();
+    }
+}
 function getStyleOptions() {
     return [
         { id: 'FileTreeIndent', label: i18n.FileTreeIndent || '文档树缩进线' },
@@ -212,6 +234,7 @@ function getStyleOptions() {
         { id: 'FlatStyle', label: i18n.FlatStyle || '扁平化风格' },
         { id: 'InkMode', label: i18n.InkMode || '墨水屏模式' },
         { id: 'ColorfulTabs', label: i18n.ColorfulTabs || '多彩页签' },
+        { id: 'ImmersiveTopBar', label: i18n.ImmersiveTopBar || '沉浸式顶栏' },
     ];
 }
 async function createStyleContent(config = null) {
@@ -267,6 +290,8 @@ async function createStyleContent(config = null) {
                     await enableGridSearchList();
                 } else if (option.id === 'ColorfulTabs') {
                     await enableColorfulTabs();
+                } else if (option.id === 'ImmersiveTopBar') {
+                    await enableImmersiveTopBar();
                 }
             } else {
                 if (option.id === 'FileTreeIndent') {
@@ -287,6 +312,8 @@ async function createStyleContent(config = null) {
                     await disableGridSearchList();
                 } else if (option.id === 'ColorfulTabs') {
                     await disableColorfulTabs();
+                } else if (option.id === 'ImmersiveTopBar') {
+                    await disableImmersiveTopBar();
                 }
             }
             await flushBatchUpdate();
@@ -320,6 +347,8 @@ async function initializeStyleStates(config = null) {
             await enableInkMode();
         } else if (option.id === 'ColorfulTabs' && currentState) {
             await enableColorfulTabs();
+        } else if (option.id === 'ImmersiveTopBar' && currentState) {
+            await enableImmersiveTopBar();
         }
     }
 }
