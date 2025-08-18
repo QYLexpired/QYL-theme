@@ -59,30 +59,21 @@
 }
 /* 标签 */
 .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
-    border-radius: var(--b3-border-radius);
+    border-radius: 6px;
     border: none;
+    color: var(--b3-theme-primary);
+    background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
     padding: 3px 5px;
     font-size: 80%;
-    color: var(--b3-theme-on-primary);
-    background-color: var(--b3-theme-primary);
     transition: var(--b3-transition);
     margin-left: 2px;
     margin-right: 2px;
     &:hover {
-        background-color: var(--b3-theme-success);
-        opacity: 1 !important;
+        filter: brightness(0.85);
     }
     &::before {
-        content: '';
-        display: inline-block;
-        width: 0.4em;
-        height: 0.4em;
-        top: -0.08em;
-        border-radius: 50%;
-        background-color: currentColor;
-        margin-right: 0.4em;
-        position: relative;
-        vertical-align: middle;
+        content: '#';
+        padding-right: 0.2em;
     }
 }
 /* 键盘元素 */
@@ -249,25 +240,25 @@
 }
 /* 文档标签 */
 .protyle-background .b3-chips__doctag .b3-chip {
-    border-radius: 12px;
-    background-color: transparent;
-    border: 1px solid var(--b3-theme-surface-lighter);
-    color: var(--b3-theme-on-surface);
-    font-weight: bold;
-    padding: 4px 12px;
-    align-self: center;
+    border-radius: 6px;
+    border: none !important;
+    outline: none !important;
+    color: var(--b3-theme-primary);
+    background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
+    padding: 3px 5px;
+    transition: var(--b3-transition);
+    margin-left: 2px;
+    margin-right: 2px;
     &:hover {
-        background-color: var(--b3-theme-primary);
-        color: var(--b3-theme-on-primary);
-        border-color: var(--b3-theme-primary);
+        filter: brightness(0.85);
         & .b3-chip__close {
             opacity: 1;
-            margin-left: 12px;
             margin-right: 0;
-            &:hover {
-                color: var(--b3-theme-error);
-            }
         }
+    }
+    &::before {
+        content: '#';
+        padding-right: 0.2em;
     }
     & .b3-chip__close {
         width: 16px;

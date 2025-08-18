@@ -3,16 +3,18 @@
     height: max(calc(100% - 25px), 20px);
     width: 6px;
     bottom: 0;
+    right: calc(-0.75em - 3px);
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-primary);
     cursor: col-resize;
     transition: opacity 0.3s;
     opacity: 0;
+    z-index: 10;
 }
 .QYLSbHandleCliking > [data-node-id] {
     transition: none !important;
 }
-[data-sb-layout="col"]:hover > .QYLSbWidthDrag {
+[data-sb-layout="col"]:hover > [data-node-id] > .QYLSbWidthDrag {
     opacity: 0.3;
     &:hover {
         opacity: 1;
@@ -30,6 +32,7 @@
     height: 23px;
     transition: opacity 0.3s;
     cursor: pointer;
+    z-index: 11;
     & svg {
         width: 100%;
         height: 100%;
