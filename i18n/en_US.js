@@ -215,6 +215,7 @@ export default {
     "FlatStyle": "Flat Style",
     "InkMode": "Ink Screen Mode",
     "ColorfulTabs": "Colorful Tabs",
+    "ImmersiveTopBar": "Immersive Top Bar",
     "QYLWildness": "Wildness",
     "QYLMarsh": "Marsh",
     "QYLWarm": "Warm Current",

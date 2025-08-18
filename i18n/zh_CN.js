@@ -189,6 +189,7 @@ export default {
     "FlatStyle": "扁平化风格",
     "InkMode": "墨水屏模式",
     "ColorfulTabs": "多彩页签",
+    "ImmersiveTopBar": "沉浸式顶栏",
     "QYLLightClassic": "经典",
     "QYLDarkClassic": "经典",
     "QYLDarkRevert": "反转",
