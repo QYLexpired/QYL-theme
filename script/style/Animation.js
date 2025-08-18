@@ -6,7 +6,7 @@ export function initAnimation() {
         .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) > .item {
             animation: QYLLayoutTab 0.5s;
             &:active {
-                scale: 0.9;
+                scale: 0.95;
             }
         }
         @keyframes QYLLayoutTab {

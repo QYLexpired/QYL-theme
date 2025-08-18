@@ -239,6 +239,9 @@ export function initFlatStyle() {
         div[data-key="dialog-commandpanel"] .b3-dialog__body .fn__flex-column .b3-list.b3-list--background.search__list {
             border: 1px solid var(--b3-theme-surface-lighter);
         }
+        div[data-key="dialog-commandpanel"] .search__header .b3-text-field {
+            border: 1px solid var(--b3-theme-surface-lighter);
+        }
         /* 搜索 */
         :is(div[data-key="dialog-globalsearch"], div[data-key="dialog-search"]) .b3-form__icon.search__header {
             border: 1px solid var(--b3-theme-surface-lighter);
