@@ -91,6 +91,10 @@ export function initFusionOn() {
                 -webkit-app-region: no-drag;
                 app-region: no-drag;
             }
+            .fullscreen > .protyle-breadcrumb {
+                -webkit-app-region: no-drag;
+                app-region: no-drag;
+            }
             .layout__center [data-type="wnd"] > .fn__flex:first-child + .layout-tab-container {
                 border-radius: var(--b3-border-radius);
             }
