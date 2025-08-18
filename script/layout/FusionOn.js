@@ -130,6 +130,7 @@ export function initFusionOn() {
             }
         `;
         document.head.appendChild(styleElement);
+        document.documentElement.classList.add('QYLFusionOn');
         const debounceDelay = 500;
         function getDragElement() {
             if (!cachedDragElement) {
@@ -291,6 +292,7 @@ export async function removeFusionOn() {
         styleElement.remove();
         styleElement = null;
     }
+    document.documentElement.classList.remove('QYLFusionOn');
     const layoutCenter = document.querySelector('.layout__center');
     if (layoutCenter) {
         const windows = layoutCenter.querySelectorAll('[data-type="wnd"]');

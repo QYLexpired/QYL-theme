@@ -1,5 +1,6 @@
 export function initFullHeightLayout() {
     if (document.body.classList.contains('QYLmobile')) return;
+    document.documentElement.classList.add('QYLFullHeight');
     const style = document.createElement('style');
     style.id = 'QYL-FullHeightLayout';
     style.textContent = `
@@ -19,6 +20,12 @@ export function initFullHeightLayout() {
         }
         [data-theme-mode="dark"] .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .protyle::before {
             background-color: var(--b3-theme-background);
+        }
+        :root {
+            --QYL-FullHeightLayout-breadcrumb-transformY: translateY(-9px);
+            &.QYLColorBlock {
+                --QYL-FullHeightLayout-breadcrumb-transformY: translateY(-3px);
+            }
         }
         .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
             background-color: transparent;
@@ -42,7 +49,7 @@ export function initFullHeightLayout() {
                     margin-bottom: -76.5px;
                     background-color: transparent;
                     z-index: 3;
-                    transform: translateY(-3px);
+                    transform: var(--QYL-FullHeightLayout-breadcrumb-transformY);
                     &:hover .protyle-breadcrumb__bar ~ .block__icon {
                         opacity: 1;
                     }
@@ -124,6 +131,7 @@ export function initFullHeightLayout() {
     document.head.appendChild(style);
 }
 export function removeFullHeightLayout() {
+    document.documentElement.classList.remove('QYLFullHeight');
     const style = document.getElementById('QYL-FullHeightLayout');
     if (style) {
         style.remove();

@@ -1,8 +1,15 @@
 export function initHideTab() {
     if (document.body.classList.contains('QYLmobile')) return;
+    document.documentElement.classList.add('QYLHideTab');
     const style = document.createElement('style');
     style.id = 'QYL-HideTab';
     style.textContent = `
+        :root {
+            --QYL-HideTab-breadcrumb-transformY: translateY(-9px);
+            &.QYLColorBlock {
+                --QYL-HideTab-breadcrumb-transformY: translateY(-3px);
+            }
+        }
         .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
             opacity: 0;
             background-color: transparent;
@@ -30,7 +37,7 @@ export function initHideTab() {
                     margin-bottom: -76.5px;
                     background-color: transparent;
                     z-index: 3;
-                    transform: translateY(-3px);
+                    transform: var(--QYL-HideTab-breadcrumb-transformY);
                     transition: var(--b3-transition);
                     &:hover {
                         opacity: 1;
@@ -110,6 +117,7 @@ export function initHideTab() {
     document.head.appendChild(style);
 }
 export function removeHideTab() {
+    document.documentElement.classList.remove('QYLHideTab');
     const style = document.getElementById('QYL-HideTab');
     if (style) {
         style.remove();
