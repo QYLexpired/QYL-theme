@@ -33,8 +33,6 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     & .QYL-inline-memo {
-        max-height: 500px;
-        overflow-y: scroll;
         cursor: pointer;
         user-select: none;
         white-space: break-spaces;
@@ -71,6 +69,10 @@
                 margin-right: 0.2em;
                 vertical-align: -1px;
             };
+        }
+        & > div:last-child {
+            max-height: 500px;
+            overflow-y: scroll;
         }
     }
 }
@@ -116,8 +118,6 @@
     margin-left: 10px;
     display: block;
     & .QYL-inline-memo {
-        max-height: 500px;
-        overflow-y: scroll;
         cursor: pointer;
         user-select: none;
         white-space: break-spaces;
@@ -165,6 +165,10 @@
                 margin-right: 0.2em;
                 vertical-align: -1px;
             };
+        }
+        & > div:last-child {
+            max-height: 500px;
+            overflow-y: scroll;
         }
     }
 }
@@ -213,8 +217,6 @@
     margin-right: 10px;
     display: block;
     & .QYL-inline-memo {
-        max-height: 500px;
-        overflow-y: scroll;
         cursor: pointer;
         user-select: none;
         white-space: break-spaces;
@@ -263,6 +265,10 @@
                 vertical-align: -1px;
             };
         }
+        & > div:last-child {
+            max-height: 500px;
+            overflow-y: scroll;
+        }
     }
 }
 .QYL-inline-memo {
@@ -295,11 +301,16 @@
             color: var(--b3-theme-on-surface-light);
         }
         & code {
-            background-color: var(--b3-theme-surface);
-            padding: 0.1em 0.3em;
-            border-radius: 3px;
-            font-family: monospace;
-            font-size: 0.9em;
+            padding: .2em .4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 6px;
+            font-family: var(--b3-font-family-code);
+            word-break: break-word;
+            background-size: 20px 20px;
+            white-space: pre-wrap;
+            background-color: var(--b3-protyle-code-background);
+            color: var(--QYL-inline-code);
         }
         & pre {
             background-color: var(--b3-theme-surface);
@@ -320,10 +331,7 @@
         }
         & a {
             color: var(--b3-theme-primary);
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
-            }
+            text-decoration: underline;
         }
         & table {
             border-collapse: collapse;
@@ -341,7 +349,7 @@
         }
         & hr {
             border: none;
-            border-top: 1px solid var(--b3-theme-on-background);
+            border-top: 1px solid var(--b3-theme-primary);
             margin: 0.5em 0;
         }
     }
