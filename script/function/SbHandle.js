@@ -42,12 +42,6 @@ async function setupDragHandles() {
 async function createDragHandlesForLayout(colLayout) {
     await cleanupDragHandles(colLayout);
     await createNewDragHandles(colLayout);
-    addLayoutEventListeners(colLayout);
-}
-async function recreateDragHandlesOnly(colLayout) {
-    await cleanupDragHandles(colLayout);
-    await createNewDragHandles(colLayout);
-    addLayoutEventListeners(colLayout);
 }
 async function cleanupDragHandles(colLayout) {
     const existingHandles = Array.from(colLayout.children).filter(child => 
@@ -57,17 +51,21 @@ async function cleanupDragHandles(colLayout) {
         removeHandleEventListeners(handle);
         handle.remove();
     });
-    colLayout.removeEventListener('mouseenter', handleLayoutMouseEnter);
+    const nodeElements = getNodeElements(colLayout);
+    nodeElements.forEach(element => {
+        const existingHandlesInNode = element.querySelectorAll('.QYLSbWidthDrag');
+        existingHandlesInNode.forEach(handle => {
+            removeHandleEventListeners(handle);
+            handle.remove();
+        });
+    });
 }
 async function createNewDragHandles(colLayout) {
     const nodeElements = getNodeElements(colLayout);
     for (let i = 0; i < nodeElements.length - 1; i++) {
         const dragHandle = createDragHandle();
-        colLayout.appendChild(dragHandle);
+        nodeElements[i].appendChild(dragHandle);
     }
-}
-function addLayoutEventListeners(colLayout) {
-    colLayout.addEventListener('mouseenter', handleLayoutMouseEnter);
 }
 function removeHandleEventListeners(handle) {
     handle.removeEventListener('mousedown', handleMouseDown);
@@ -120,43 +118,16 @@ function updateRatioDisplay(colLayout) {
         element.appendChild(ratioElement);
     });
 }
-function hideRatioDisplay() {
-    clearRatioDisplay();
-}
-function positionDragHandle(handle, element1, element2) {
-    const rect1 = element1.getBoundingClientRect();
-    const rect2 = element2.getBoundingClientRect();
-    const parentRect = handle.parentElement.getBoundingClientRect();
-    const centerX = (rect1.right + rect2.left) / 2;
-    const relativeX = centerX - parentRect.left;
-    handle.style.left = `${relativeX - 2}px`; 
-}
-function positionHandlesForLayout(colLayout) {
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const nodeElements = getNodeElements(colLayout);
-    handles.forEach((handle, index) => {
-        if (index < nodeElements.length - 1) {
-            positionDragHandle(handle, nodeElements[index], nodeElements[index + 1]);
-        }
-    });
-}
-function handleLayoutMouseEnter(event) {
-    positionHandlesForLayout(event.currentTarget);
-}
+const hideRatioDisplay = clearRatioDisplay;
 function handleMouseEnter(event) {
     if (isGlobalDragging) return;
     const handle = event.currentTarget;
-    const colLayout = handle.parentElement;
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const handleIndex = handles.indexOf(handle);
+    const leftElement = handle.parentElement; 
+    const colLayout = leftElement.parentElement;
     const nodeElements = getNodeElements(colLayout);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const leftElement = nodeElements[handleIndex];
-        const rightElement = nodeElements[handleIndex + 1];
+    const leftIndex = nodeElements.indexOf(leftElement);
+    if (leftIndex >= 0 && leftIndex < nodeElements.length - 1) {
+        const rightElement = nodeElements[leftIndex + 1];
         leftElement.classList.add('QYLdragtip');
         rightElement.classList.add('QYLdragtip');
         updateRatioDisplay(colLayout);
@@ -165,15 +136,12 @@ function handleMouseEnter(event) {
 function handleMouseLeave(event) {
     if (isGlobalDragging) return;
     const handle = event.currentTarget;
-    const colLayout = handle.parentElement;
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const handleIndex = handles.indexOf(handle);
+    const leftElement = handle.parentElement; 
+    const colLayout = leftElement.parentElement;
     const nodeElements = getNodeElements(colLayout);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const leftElement = nodeElements[handleIndex];
-        const rightElement = nodeElements[handleIndex + 1];
+    const leftIndex = nodeElements.indexOf(leftElement);
+    if (leftIndex >= 0 && leftIndex < nodeElements.length - 1) {
+        const rightElement = nodeElements[leftIndex + 1];
         leftElement.classList.remove('QYLdragtip');
         rightElement.classList.remove('QYLdragtip');
         hideRatioDisplay();
@@ -182,15 +150,12 @@ function handleMouseLeave(event) {
 function handleMouseDown(event) {
     event.preventDefault();
     const handle = event.currentTarget;
-    const colLayout = handle.parentElement;
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const handleIndex = handles.indexOf(handle);
+    const leftElement = handle.parentElement; 
+    const colLayout = leftElement.parentElement;
     const nodeElements = getNodeElements(colLayout);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const leftElement = nodeElements[handleIndex];
-        const rightElement = nodeElements[handleIndex + 1];
+    const leftIndex = nodeElements.indexOf(leftElement);
+    if (leftIndex >= 0 && leftIndex < nodeElements.length - 1) {
+        const rightElement = nodeElements[leftIndex + 1];
         startDragResize(handle, leftElement, rightElement, event);
     }
 }
@@ -198,7 +163,7 @@ function startDragResize(handle, leftElement, rightElement, event) {
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
-    const colLayout = handle.parentElement;
+    const colLayout = leftElement.parentElement; 
     const startX = event.clientX;
     const colRect = colLayout.getBoundingClientRect();
     const colWidth = colRect.width;
@@ -250,7 +215,6 @@ function startDragResize(handle, leftElement, rightElement, event) {
         const newRightWidth = totalWidth - newLeftWidth;
         setElementWidth(leftElement, newLeftWidth);
         setElementWidth(rightElement, newRightWidth);
-        positionDragHandle(handle, leftElement, rightElement);
         updateRatioDisplay(colLayout);
     };
     const handleMouseUp = async (upEvent) => {
@@ -286,7 +250,6 @@ function startDragResize(handle, leftElement, rightElement, event) {
             const totalWidth = currentLeftWidth + currentRightWidth;
             setElementWidth(leftElement, currentLeftWidth);
             setElementWidth(rightElement, currentRightWidth);
-            positionDragHandle(handle, leftElement, rightElement);
             await saveElementStyle(leftElement);
             await saveElementStyle(rightElement);
         }
@@ -305,17 +268,16 @@ function handleTripleClick(event) {
     clickTimer = setTimeout(async () => {
         if (clickCount >= 3) {
             if (handle && handle.parentElement) {
-                const colLayout = handle.parentElement;
+                const leftElement = handle.parentElement; 
+                const colLayout = leftElement.parentElement;
                 colLayout.classList.add('QYLSbHandleCliking');
                 try {
                     const nodeElements = getNodeElements(colLayout);
                     for (const element of nodeElements) {
                         resetElementStyle(element);
                     }
-                    positionHandlesForLayout(colLayout);
                     await Promise.all(nodeElements.map(element => saveElementStyle(element)));
                 } catch (error) {
-                    
                 } finally {
                     colLayout.classList.remove('QYLSbHandleCliking');
                 }
@@ -327,17 +289,14 @@ function handleTripleClick(event) {
     }, 500); 
 }
 async function handleDoubleClickAction(handle) {
-    const colLayout = handle.parentElement;
+    const leftElement = handle.parentElement; 
+    const colLayout = leftElement.parentElement;
     colLayout.classList.add('QYLSbHandleCliking');
     try {
-        const handles = Array.from(colLayout.children).filter(child => 
-            child.classList.contains('QYLSbWidthDrag')
-        );
-        const handleIndex = handles.indexOf(handle);
         const nodeElements = getNodeElements(colLayout);
-        if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-            const leftElement = nodeElements[handleIndex];
-            const rightElement = nodeElements[handleIndex + 1];
+        const leftIndex = nodeElements.indexOf(leftElement);
+        if (leftIndex >= 0 && leftIndex < nodeElements.length - 1) {
+            const rightElement = nodeElements[leftIndex + 1];
             const leftWidth = getElementWidthPercentage(leftElement);
             const rightWidth = getElementWidthPercentage(rightElement);
             const leftHasWidth = leftElement.style.width && leftElement.style.width.includes('%');
@@ -347,7 +306,6 @@ async function handleDoubleClickAction(handle) {
                 const averageWidth = totalWidth / 2;
                 setElementWidth(leftElement, averageWidth);
                 setElementWidth(rightElement, averageWidth);
-                positionHandlesForLayout(colLayout);
                 await Promise.all([
                     saveElementStyle(leftElement),
                     saveElementStyle(rightElement)
@@ -355,7 +313,6 @@ async function handleDoubleClickAction(handle) {
             } else if (leftHasWidth || rightHasWidth) {
                 resetElementStyle(leftElement);
                 resetElementStyle(rightElement);
-                positionHandlesForLayout(colLayout);
                 await Promise.all([
                     saveElementStyle(leftElement),
                     saveElementStyle(rightElement)
@@ -363,7 +320,6 @@ async function handleDoubleClickAction(handle) {
             }
         }
     } catch (error) {
-        
     } finally {
         colLayout.classList.remove('QYLSbHandleCliking');
     }
@@ -373,14 +329,12 @@ async function handleInsertBlockClick(event) {
     event.stopPropagation();
     const insertBlock = event.currentTarget;
     const handle = insertBlock.parentElement;
-    const colLayout = handle.parentElement;
+    const leftElement = handle.parentElement; 
+    const colLayout = leftElement.parentElement;
     const nodeElements = getNodeElements(colLayout);
-    const handles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    const handleIndex = handles.indexOf(handle);
-    if (handleIndex >= 0 && handleIndex < nodeElements.length - 1) {
-        const nextElement = nodeElements[handleIndex + 1];
+    const leftIndex = nodeElements.indexOf(leftElement);
+    if (leftIndex >= 0 && leftIndex < nodeElements.length - 1) {
+        const nextElement = nodeElements[leftIndex + 1];
         const nextID = nextElement.getAttribute('data-node-id');
         await insertNewBlock(nextID, colLayout);
     }
@@ -468,10 +422,6 @@ async function resetAllElementStyles(elements) {
         await saveElementStyle(element);
     }
 }
-async function updateDragHandlesAndPosition(colLayout) {
-    await recreateDragHandlesOnly(colLayout);
-    positionHandlesForLayout(colLayout);
-}
 function setupObserver() {
     if (!centerElement) return;
     observer = new MutationObserver((mutations) => {
@@ -503,6 +453,13 @@ function setupObserver() {
                 if (hasLayoutChange || (hasNodeIdChange && isInColLayout)) {
                     shouldUpdate = true;
                 }
+            } else if (mutation.type === 'attributes' && mutation.attributeName === 'data-sb-layout') {
+                const target = mutation.target;
+                const newValue = target.getAttribute('data-sb-layout');
+                const oldValue = mutation.oldValue;
+                if (newValue !== oldValue) {
+                    shouldUpdate = true;
+                }
             }
         });
         if (shouldUpdate) {
@@ -512,7 +469,10 @@ function setupObserver() {
     });
     observer.observe(centerElement, {
         childList: true,
-        subtree: true
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['data-sb-layout'],
+        attributeOldValue: true
     });
 }
 function destroy() {
@@ -523,13 +483,20 @@ function destroy() {
     if (centerElement) {
         const colLayouts = centerElement.querySelectorAll('[data-sb-layout="col"]');
         colLayouts.forEach(colLayout => {
-            colLayout.removeEventListener('mouseenter', handleLayoutMouseEnter);
             const handles = Array.from(colLayout.children).filter(child => 
                 child.classList.contains('QYLSbWidthDrag')
             );
             handles.forEach(handle => {
                 removeHandleEventListeners(handle);
                 handle.remove();
+            });
+            const nodeElements = getNodeElements(colLayout);
+            nodeElements.forEach(element => {
+                const existingHandlesInNode = element.querySelectorAll('.QYLSbWidthDrag');
+                existingHandlesInNode.forEach(handle => {
+                    removeHandleEventListeners(handle);
+                    handle.remove();
+                });
             });
         });
     }
@@ -552,6 +519,9 @@ function destroy() {
     });
     document.querySelectorAll('.QYLSbHandleCliking').forEach(element => {
         element.classList.remove('QYLSbHandleCliking');
+    });
+    document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
+        element.remove();
     });
     hideRatioDisplay();
     isGlobalDragging = false;
