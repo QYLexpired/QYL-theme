@@ -143,7 +143,7 @@ export function initFlatStyle() {
             border: 1px solid var(--b3-theme-surface-lighter);
             box-sizing: border-box;
         }
-        .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+        .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
             border: var(--QYL-wnd-border-none, 1px solid var(--b3-theme-surface-lighter));
             box-sizing: border-box;
             & > .layout-tab-container {
