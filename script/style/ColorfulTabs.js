@@ -3,6 +3,15 @@ export function initColorfultabs() {
     const style = document.createElement('style');
     style.id = 'QYL-Colorfultabs';
     style.textContent = `
+        .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) > .item:not(.item--focus) {
+            box-shadow: none !important;
+            outline: none !important;
+            border: none !important;
+        }
+        .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) > .item.item--focus {
+            outline: none !important;
+            border: none !important;
+        }
         .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) > .item {
             &:nth-of-type(12n+1) {
                 background-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg) / 0.35);
