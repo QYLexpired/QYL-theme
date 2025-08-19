@@ -290,4 +290,8 @@ export default {
     "setDateAttr": "设置日期属性",
     "setTimeAttr": "设置时间属性",
     "setDateTimeAttr": "设置日期时间属性",
+    "superblockstyle": "超级块样式",
+    "sbborder": "边框",
+    "sb3d": "立体",
+    "sbdivider": "分隔线",
 }; 

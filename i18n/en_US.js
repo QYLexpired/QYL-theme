@@ -290,4 +290,8 @@ export default {
     "setDateAttr": "Set Date Attribute",
     "setTimeAttr": "Set Time Attribute",
     "setDateTimeAttr": "Set Date-Time Attribute",
+    "superblockstyle": "Super Block Style",
+    "sbborder": "Border",
+    "sb3d": "3D",
+    "sbdivider": "Divider",
 }; 
