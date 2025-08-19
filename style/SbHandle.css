@@ -3,7 +3,7 @@
     height: max(calc(100% - 25px), 20px);
     width: 6px;
     bottom: 0;
-    right: calc(-0.75em - 3px);
+    right: calc(-0.5 * var(--QYL-sb-colgap) - 3px);
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-primary);
     cursor: col-resize;
@@ -78,7 +78,7 @@
     height: max(calc(100% - 25px), 20px);
     width: 6px;
     bottom: 0;
-    left: calc(-0.75em - 3px);
+    left: calc(-0.5 * var(--QYL-sb-colgap) - 3px);
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-primary);
     cursor: col-resize;
@@ -109,7 +109,7 @@
     height: max(calc(100% - 25px), 20px);
     width: 6px;
     bottom: 0;
-    right: calc(-0.75em - 3px);
+    right: calc(-0.5 * var(--QYL-sb-colgap) - 3px);
     border-radius: var(--b3-border-radius);
     background: var(--b3-theme-primary);
     cursor: col-resize;

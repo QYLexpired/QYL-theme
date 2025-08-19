@@ -5,7 +5,7 @@
 }
 [data-key="dialog-setting"] {
     & .b3-tab-bar {
-        width: 150px;
+        width: 200px;
     }
     & .config__tab-wrap .b3-label :where(.fn__flex-1,.fn__block,.fn__flex-center):not(.ft__on-surface,.b3-button,.b3-form__icon,.fn__size200,ul,input):first-child,& :where(.b3-label,.config__ite)::first-line{
         font-weight: bold;
@@ -21,35 +21,35 @@
 }   
 /* 多语言设置侧栏宽度调整 */
 [lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 160px;
+    width: 200px;
 }
 [lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 160px;
+    width: 200px;
 }
 [lang="ar_SA"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 160px;
+    width: 200px;
 }
 [lang="de_DE"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 190px;
+    width: 200px;
 }
 [lang="es_ES"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 240px;
+    width: 250px;
 }
 [lang="fr_FR"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 170px;
+    width: 200px;
 }
 [lang="he_IL"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 160px;
+    width: 200px;
 }
 [lang="it_IT"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 210px;
+    width: 250px;
 }
 [lang="ja_JP"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 180px;
+    width: 200px;
 }
 [lang="pl_PL"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 240px;
+    width: 250px;
 }
 [lang="ru_RU"] [data-key="dialog-setting"] .b3-tab-bar {
-    width: 220px;
+    width: 250px;
 }
