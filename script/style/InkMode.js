@@ -133,7 +133,6 @@ export function initInkMode() {
                 box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
                 & .b3-list-item__meta {
                     background-color: rgba(255, 0, 0, 0);
-                    box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
                 }
             }
             .b3-menu__item--show {
@@ -186,6 +185,9 @@ export function initInkMode() {
                 border: none;
                 box-shadow: none;
             }
+            :is(.sy__file, .sy__folder) .b3-list--background .b3-list-item:hover:not(.b3-list-item--focus):not(.dragover):not(.dragover__current):not(.dragover__top):not(.dragover__bottom), :is(.sy__file, .sy__folder) .b3-list--background .b3-list-item--focus {
+                background-color: var(--b3-theme-background);
+            }
             /* 状态栏 */
             @media (min-width: 630px) {
                 #status {
@@ -212,23 +214,19 @@ export function initInkMode() {
                 border-color: var(--b3-theme-primary-lighter);
                 box-shadow: inset 0 -2px 0 var(--b3-theme-primary);
             }
-            .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
-                background-color: rgba(255, 0, 0, 0);
-                box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
-                &::before {
-                    background-color: var(--b3-theme-primary);
-                }
-                & :is(blockquote, .bq) {
-                    background-color: rgba(255, 0, 0, 0);
-                    box-shadow: none;
-                    border-color: var(--b3-theme-primary);
-                }
-            }
             .b3-typography .code-block, .protyle-wysiwyg .code-block {
                 background-color: rgba(255, 0, 0, 0);
                 box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
             }
             /* tips */
+            .tooltip {
+                outline: none !important;
+                border: none !important;
+            }
+            .b3-tooltips::after {
+                outline: none !important;
+                border: none !important;
+            }
             .tooltip {
                 box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
             }

@@ -20,6 +20,10 @@ export function initImmersiveTopBar() {
             --b3-toolbar-color: var(--b3-theme-on-primary);
             & > * {
                 transform: translateY(0px);
+                &:hover {
+                    --b3-theme-primary: var(--b3-toolbar-color);
+                    --b3-theme-primary-fix: var(--b3-toolbar-color);
+                }
             }
             & #barWorkspace {
                 background-color: transparent;
@@ -31,6 +35,12 @@ export function initImmersiveTopBar() {
                     & .toolbar__text {
                         color: var(--QYL-Immersive-TopBar);
                     }
+                }
+            }
+            & #minWindow, #restoreWindow {
+                &:hover {
+                    color: var(--QYL-Immersive-TopBar);
+                    background-color: var(--b3-theme-on-primary);
                 }
             }
         }
@@ -44,6 +54,10 @@ export function initImmersiveTopBar() {
             --b3-toolbar-color: var(--b3-theme-on-primary);
             & > * {
                 transform: translateY(0px);
+                &:hover {
+                    --b3-theme-primary: var(--b3-toolbar-color);
+                    --b3-theme-primary-fix: var(--b3-toolbar-color);
+                }
             }
             & #barWorkspace {
                 background-color: transparent;
@@ -55,6 +69,12 @@ export function initImmersiveTopBar() {
                     & .toolbar__text {
                         color: var(--QYL-Immersive-TopBar);
                     }
+                }
+            }
+            & #minWindow, #restoreWindow {
+                &:hover {
+                    color: var(--QYL-Immersive-TopBar);
+                    background-color: var(--b3-theme-on-primary);
                 }
             }
         }
@@ -96,7 +116,7 @@ export function initImmersiveTopBar() {
                 height: 16px !important;
             }
         }
-        html:not(.QYLColorBlock):not(.QYLFullHeight):not(.QYLHideTab) #QYLButton {
+        html:not(.QYLColorBlock):not(.QYLFullHeight):not(.QYLHideTab) #QYLButton:not(:hover) {
             --b3-theme-primary: var(--b3-toolbar-color);
         }
     `;
