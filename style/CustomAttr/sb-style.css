@@ -1,21 +1,25 @@
 /* 自定义属性sb-colgap */
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout=col] {
+    --QYL-sb-colgap: 1.5em;
+    column-gap: var(--QYL-sb-colgap);
+}
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平连续排列"] {
-    column-gap: 0em;
+    --QYL-sb-colgap: 0em;
 }
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平紧凑排列"] {
-    column-gap: 0.5em;
+    --QYL-sb-colgap: 0.5em;
 }
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平较紧凑排列"] {
-    column-gap: 1em;
+    --QYL-sb-colgap: 1em;
 }
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平默认排列"] {
-    column-gap: 1.5em;
+    --QYL-sb-colgap: 1.5em;
 }
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平较宽松排列"] {
-    column-gap: 2em;
+    --QYL-sb-colgap: 2em;
 }
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout=col][custom-sb-colgap="水平宽松排列"] {
-    column-gap: 2.5em;
+    --QYL-sb-colgap: 2.5em;
 }
 /* 自定义属性sb-rowgap */
 .protyle-wysiwyg [data-node-id].sb[data-sb-layout="row"][custom-sb-rowgap="垂直连续排列"] [data-node-id] {
@@ -35,5 +39,33 @@
     & [data-node-id] {
         margin-top: 0;
         margin-bottom: 0;
+    }
+}
+.protyle-wysiwyg [data-node-id].sb[custom-sb-border="边框"],
+.protyle-wysiwyg[custom-sb-border="边框"] [data-node-id].sb {
+    & > [data-node-id] {
+        border: 2px solid var(--b3-theme-primary-light);
+    }
+}
+.protyle-wysiwyg [data-node-id].sb[custom-sb-border="立体"],
+.protyle-wysiwyg[custom-sb-border="立体"] [data-node-id].sb {
+    & > [data-node-id] {
+        box-shadow: var(--b3-point-shadow);
+    }
+}
+.protyle-wysiwyg [data-node-id].sb[data-sb-layout="col"][custom-sb-divider="分隔线"],
+.protyle-wysiwyg[custom-sb-divider="分隔线"] [data-node-id].sb[data-sb-layout="col"] {
+    & > [data-node-id] + [data-node-id] {
+        &::before {
+            content: '';
+            position: absolute;
+            height: 95%;
+            width: 2px;
+            background-color: var(--b3-theme-primary-light);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: calc(-0.5 * var(--QYL-sb-colgap) - 1px);
+        }
     }
 }
