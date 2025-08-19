@@ -44,19 +44,20 @@ async function createDragHandlesForLayout(colLayout) {
     await createNewDragHandles(colLayout);
 }
 async function cleanupDragHandles(colLayout) {
-    const existingHandles = Array.from(colLayout.children).filter(child => 
-        child.classList.contains('QYLSbWidthDrag')
-    );
-    existingHandles.forEach(handle => {
-        removeHandleEventListeners(handle);
-        handle.remove();
-    });
     const nodeElements = getNodeElements(colLayout);
     nodeElements.forEach(element => {
-        const existingHandlesInNode = element.querySelectorAll('.QYLSbWidthDrag');
-        existingHandlesInNode.forEach(handle => {
-            removeHandleEventListeners(handle);
-            handle.remove();
+        const directHandles = Array.from(element.children).filter(child => 
+            child.classList.contains('QYLSbWidthDrag') ||
+            child.classList.contains('QYLSbInsertBlockFirstBox') ||
+            child.classList.contains('QYLSbInsertBlockLastBox')
+        );
+        directHandles.forEach(handle => {
+            const handleParent = handle.parentElement; 
+            const handleGrandParent = handleParent.parentElement; 
+            if (handleGrandParent === colLayout) {
+                removeHandleEventListeners(handle);
+                handle.remove();
+            }
         });
     });
 }
@@ -65,6 +66,12 @@ async function createNewDragHandles(colLayout) {
     for (let i = 0; i < nodeElements.length - 1; i++) {
         const dragHandle = createDragHandle();
         nodeElements[i].appendChild(dragHandle);
+    }
+    if (nodeElements.length > 0) {
+        const firstInsertBox = createFirstInsertBox();
+        nodeElements[0].appendChild(firstInsertBox);
+        const lastInsertBox = createLastInsertBox();
+        nodeElements[nodeElements.length - 1].appendChild(lastInsertBox);
     }
 }
 function removeHandleEventListeners(handle) {
@@ -75,6 +82,14 @@ function removeHandleEventListeners(handle) {
     const insertBlock = handle.querySelector('.QYLSbInsertBlock');
     if (insertBlock) {
         insertBlock.removeEventListener('click', handleInsertBlockClick);
+    }
+    const insertBlockFirst = handle.querySelector('.QYLSbInsertBlockFirst');
+    if (insertBlockFirst) {
+        insertBlockFirst.removeEventListener('click', handleInsertBlockFirstClick);
+    }
+    const insertBlockLast = handle.querySelector('.QYLSbInsertBlockLast');
+    if (insertBlockLast) {
+        insertBlockLast.removeEventListener('click', handleInsertBlockLastClick);
     }
 }
 function getNodeElements(colLayout) {
@@ -96,13 +111,43 @@ function createDragHandle() {
     handle.addEventListener('mouseleave', handleMouseLeave);
     return handle;
 }
-function clearRatioDisplay() {
-    document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
-        element.remove();
-    });
+function createFirstInsertBox() {
+    const insertBox = document.createElement('div');
+    insertBox.className = 'QYLSbInsertBlockFirstBox protyle-custom';
+    const insertBlock = document.createElement('div');
+    insertBlock.className = 'QYLSbInsertBlockFirst';
+    insertBlock.innerHTML = '<svg t="1755094314177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11563" width="23" height="23"><path d="M760.832 256a385.536 385.536 0 1 0 112.64 272.384A382.464 382.464 0 0 0 760.832 256z m-79.872 299.008h-165.376v165.888a27.648 27.648 0 1 1-55.296 0v-165.888H295.424a27.648 27.648 0 0 1 0-55.296H460.8V333.824a27.648 27.648 0 1 1 55.296 0v165.888h164.864a27.648 27.648 0 0 1 0 55.296z" fill="" p-id="11564"></path></svg>';
+    insertBlock.addEventListener('click', handleInsertBlockFirstClick);
+    insertBox.appendChild(insertBlock);
+    return insertBox;
+}
+function createLastInsertBox() {
+    const insertBox = document.createElement('div');
+    insertBox.className = 'QYLSbInsertBlockLastBox protyle-custom';
+    const insertBlock = document.createElement('div');
+    insertBlock.className = 'QYLSbInsertBlockLast';
+    insertBlock.innerHTML = '<svg t="1755094314177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11563" width="23" height="23"><path d="M760.832 256a385.536 385.536 0 1 0 112.64 272.384A382.464 382.464 0 0 0 760.832 256z m-79.872 299.008h-165.376v165.888a27.648 27.648 0 1 1-55.296 0v-165.888H295.424a27.648 27.648 0 0 1 0-55.296H460.8V333.824a27.648 27.648 0 1 1 55.296 0v165.888h164.864a27.648 27.648 0 0 1 0 55.296z" fill="" p-id="11564"></path></svg>';
+    insertBlock.addEventListener('click', handleInsertBlockLastClick);
+    insertBox.appendChild(insertBlock);
+    return insertBox;
+}
+function clearRatioDisplay(colLayout = null) {
+    if (colLayout) {
+        const nodeElements = getNodeElements(colLayout);
+        nodeElements.forEach(element => {
+            const ratioElements = element.querySelectorAll('.QYLSbRatioItem');
+            ratioElements.forEach(ratioElement => {
+                ratioElement.remove();
+            });
+        });
+    } else {
+        document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
+            element.remove();
+        });
+    }
 }
 function updateRatioDisplay(colLayout) {
-    clearRatioDisplay();
+    clearRatioDisplay(colLayout);
     const nodeElements = getNodeElements(colLayout);
     let totalWidth = 0;
     nodeElements.forEach(element => {
@@ -118,7 +163,7 @@ function updateRatioDisplay(colLayout) {
         element.appendChild(ratioElement);
     });
 }
-const hideRatioDisplay = clearRatioDisplay;
+const hideRatioDisplay = (colLayout = null) => clearRatioDisplay(colLayout);
 function handleMouseEnter(event) {
     if (isGlobalDragging) return;
     const handle = event.currentTarget;
@@ -144,7 +189,7 @@ function handleMouseLeave(event) {
         const rightElement = nodeElements[leftIndex + 1];
         leftElement.classList.remove('QYLdragtip');
         rightElement.classList.remove('QYLdragtip');
-        hideRatioDisplay();
+        hideRatioDisplay(colLayout);
     }
 }
 function handleMouseDown(event) {
@@ -243,7 +288,7 @@ function startDragResize(handle, leftElement, rightElement, event) {
         leftElement.classList.remove('QYLdragtip');
         rightElement.classList.remove('QYLdragtip');
         isGlobalDragging = false; 
-        hideRatioDisplay();
+        hideRatioDisplay(colLayout);
         if (isDragging) {
             const currentLeftWidth = getElementWidthPercentage(leftElement);
             const currentRightWidth = getElementWidthPercentage(rightElement);
@@ -339,6 +384,32 @@ async function handleInsertBlockClick(event) {
         await insertNewBlock(nextID, colLayout);
     }
 }
+async function handleInsertBlockFirstClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const insertBlock = event.currentTarget;
+    const insertBox = insertBlock.parentElement;
+    const firstElement = insertBox.parentElement; 
+    const colLayout = firstElement.parentElement;
+    const nodeElements = getNodeElements(colLayout);
+    if (nodeElements.length > 0) {
+        const firstID = nodeElements[0].getAttribute('data-node-id');
+        await insertNewBlockFirst(firstID, colLayout);
+    }
+}
+async function handleInsertBlockLastClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const insertBlock = event.currentTarget;
+    const insertBox = insertBlock.parentElement;
+    const lastElement = insertBox.parentElement; 
+    const colLayout = lastElement.parentElement;
+    const nodeElements = getNodeElements(colLayout);
+    if (nodeElements.length > 0) {
+        const lastID = nodeElements[nodeElements.length - 1].getAttribute('data-node-id');
+        await insertNewBlockLast(lastID, colLayout);
+    }
+}
 async function insertNewBlock(nextID, colLayout) {
     try {
         const response = await fetch('/api/block/insertBlock', {
@@ -350,6 +421,46 @@ async function insertNewBlock(nextID, colLayout) {
                 dataType: 'markdown',
                 data: '',
                 nextID: nextID
+            })
+        });
+        if (response.ok) {
+            const allNodeElements = getNodeElements(colLayout);
+            await resetAllElementStyles(allNodeElements);
+        }
+    } catch (error) {
+    }
+}
+async function insertNewBlockFirst(firstID, colLayout) {
+    try {
+        const response = await fetch('/api/block/insertBlock', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                dataType: 'markdown',
+                data: '',
+                nextID: firstID
+            })
+        });
+        if (response.ok) {
+            const allNodeElements = getNodeElements(colLayout);
+            await resetAllElementStyles(allNodeElements);
+        }
+    } catch (error) {
+    }
+}
+async function insertNewBlockLast(lastID, colLayout) {
+    try {
+        const response = await fetch('/api/block/insertBlock', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                dataType: 'markdown',
+                data: '',
+                previousID: lastID
             })
         });
         if (response.ok) {
@@ -480,33 +591,6 @@ function destroy() {
         observer.disconnect();
         observer = null;
     }
-    if (centerElement) {
-        const colLayouts = centerElement.querySelectorAll('[data-sb-layout="col"]');
-        colLayouts.forEach(colLayout => {
-            const handles = Array.from(colLayout.children).filter(child => 
-                child.classList.contains('QYLSbWidthDrag')
-            );
-            handles.forEach(handle => {
-                removeHandleEventListeners(handle);
-                handle.remove();
-            });
-            const nodeElements = getNodeElements(colLayout);
-            nodeElements.forEach(element => {
-                const existingHandlesInNode = element.querySelectorAll('.QYLSbWidthDrag');
-                existingHandlesInNode.forEach(handle => {
-                    removeHandleEventListeners(handle);
-                    handle.remove();
-                });
-            });
-        });
-    }
-    if (document.body.classList.contains('QYL-dragging')) {
-        document.body.classList.remove('QYL-dragging');
-    }
-    document.body.style.userSelect = '';
-    document.body.style.webkitUserSelect = '';
-    document.body.style.mozUserSelect = '';
-    document.body.style.msUserSelect = '';
     document.querySelectorAll('.QYLSbWidthDrag').forEach(handle => {
         removeHandleEventListeners(handle);
         handle.remove();
@@ -514,16 +598,28 @@ function destroy() {
     document.querySelectorAll('.QYLSbInsertBlock').forEach(insertBlock => {
         insertBlock.remove();
     });
+    document.querySelectorAll('.QYLSbInsertBlockFirstBox').forEach(insertBox => {
+        insertBox.remove();
+    });
+    document.querySelectorAll('.QYLSbInsertBlockLastBox').forEach(insertBox => {
+        insertBox.remove();
+    });
+    document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
+        element.remove();
+    });
     document.querySelectorAll('.QYLdragtip').forEach(element => {
         element.classList.remove('QYLdragtip');
     });
     document.querySelectorAll('.QYLSbHandleCliking').forEach(element => {
         element.classList.remove('QYLSbHandleCliking');
     });
-    document.querySelectorAll('.QYLSbRatioItem').forEach(element => {
-        element.remove();
-    });
-    hideRatioDisplay();
+    if (document.body.classList.contains('QYL-dragging')) {
+        document.body.classList.remove('QYL-dragging');
+    }
+    document.body.style.userSelect = '';
+    document.body.style.webkitUserSelect = '';
+    document.body.style.mozUserSelect = '';
+    document.body.style.msUserSelect = '';
     isGlobalDragging = false;
     centerElement = null;
     retryCount = 0;
