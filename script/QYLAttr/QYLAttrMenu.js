@@ -126,6 +126,7 @@ export class QYLAttrMenu {
             this.factory.createHeadingStyleItem(selectid),
             this.factory.createTableStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
+            this.factory.createSuperBlockStyleItem(selectid),
             this.factory.createFontFamilyItem(selectid),
             this.factory.createBlankBlockRemindItem(selectid),
             this.factory.createFlashCardItem(selectid),
@@ -174,6 +175,7 @@ export class QYLAttrMenu {
     async createSuperBlockColSubmenu(selectid) {
         const items = [
             this.factory.createCSSItem(selectid),
+            this.factory.createSuperBlockStyleItem(selectid),
             this.factory.createColsBGapItem(selectid),
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),
@@ -191,6 +193,7 @@ export class QYLAttrMenu {
     async createSuperBlockRowSubmenu(selectid) {
         const items = [
             this.factory.createCSSItem(selectid),
+            this.factory.createSuperBlockStyleItem(selectid),
             this.factory.createRowsBGapItem(selectid),
             this.factory.createBlockStyleItem(selectid),
             this.factory.createImgStyleItem(selectid),

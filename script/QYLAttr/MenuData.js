@@ -293,5 +293,10 @@ export class MenuData {
             { attrName: "QYL-manual", value: "manual", label: "manualSetTime", icon: "#iconEdit", group: null },
             { attrName: "QYL-update", value: "update", label: "updateToCurrentTime", icon: "#iconRefresh", group: null }
         ];
+        this.superBlockStyleOptions = [
+            { attrName: "sb-border", value: "边框", label: "sbborder", icon: "#iconSuper", group: "group1" },
+            { attrName: "sb-border", value: "立体", label: "sb3d", icon: "#iconSuper", group: "group1" },
+            { attrName: "sb-divider", value: "分隔线", label: "sbdivider", icon: "#iconSuper", group: "group2" }
+        ];
     }
 }

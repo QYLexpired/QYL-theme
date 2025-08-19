@@ -464,6 +464,15 @@ export class MenuItemFactory {
         const submenu = this.createSubmenu("QYLattrfilestylesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.fileblockstyle, "#iconTheme", submenu);
     }
+    createSuperBlockStyleItem(selectid) {
+        const items = [
+            ...this.menuData.superBlockStyleOptions.map(option => 
+                this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+            )
+        ];
+        const submenu = this.createSubmenu("QYLattrsuperblockstylesub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.superblockstyle, "#iconSuper", submenu);
+    }
     createBlockStyleItem(selectid) {
         const items = [
             ...this.menuData.blockStyleOptions.map(option => 
