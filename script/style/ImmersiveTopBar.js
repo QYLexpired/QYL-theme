@@ -5,10 +5,14 @@ export function initImmersiveTopBar() {
     style.textContent = `
         :root {
             --QYL-Immersive-TopBar: var(--b3-theme-primary);
-            --QYL-Immersive-TopBar: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            &.QYLCustomColor {
+                --QYL-Immersive-TopBar: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            }
             &[data-theme-mode="dark"] {
                 --QYL-Immersive-TopBar: var(--b3-theme-primary);
-                --QYL-Immersive-TopBar: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.01) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+                &.QYLCustomColor {
+                    --QYL-Immersive-TopBar: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.01) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+                }
             }
         }
         html:not(.QYLFusionOn):not(.QYLColorBlock) #toolbar {
