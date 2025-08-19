@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加风格选项：沉浸式顶栏<br>• 优化超级块宽度柄，修复诸多问题<br>• 重做标签样式<br>• 优化显示行内备注Markdown样式</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加风格选项：沉浸式顶栏<br>• 优化超级块宽度柄，修复诸多问题<br>• 重做标签样式<br>• 优化显示行内备注Markdown样式<br>• 优化墨水屏模式细节<br>• QYL自定义属性增加-超级块样式：边框、立体、分隔线</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>

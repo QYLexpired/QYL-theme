@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加風格選項：沉浸式頂欄<br>• 修復開啟超級塊寬度柄時取消超級塊導致思源崩潰的問題<br>• 重做標籤樣式<br>• 優化顯示行內備註Markdown樣式</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加風格選項：沉浸式頂欄<br>• 優化超級塊寬度柄，修復諸多問題<br>• 重做標籤樣式<br>• 優化顯示行內備註Markdown樣式<br>• 優化墨水屏模式細節<br>• QYL自訂屬性增加-超級塊樣式：邊框、立體、分隔線</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">最近更新</summary>
@@ -20,7 +20,7 @@
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">效能說明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
@@ -81,7 +81,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
 • <a href="https://github.com/royc01/notion-theme">Savor主題</a>：列表子彈線、頂欄融合、風格、斜杠菜單多列展示及選項左右切換、連接思源API的方法<br>
 • <a href="https://github.com/mustakshif/Asri">Asri主題</a>：文件樹縮進線、風格、搜尋列表多行展示、狀態欄避讓、撞色佈局、全高介面<br>
-• <a href="https://github.com/chenshinshi/OneNote">OneNote主題</a>：多彩文件樹<br>
+• <a href="https://github.com/chenshinshi/OneNote">Onenote主題</a>：多彩文件樹<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主題</a>：風格<br>
 • <a href="https://github.com/TCOTC/Whisper">淺吟主題</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移動端判斷方法、圖片九宮格排列<br>
 • <a href="https://ld246.com/member/wilsons">wilsons</a>：狀態欄浮動、重載方法<br>

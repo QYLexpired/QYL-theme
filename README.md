@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added style option: Immersive Top Bar<br>• Fixed issue where canceling super blocks with Super Block Width Handle enabled caused SiYuan to crash<br>• Redesigned tag styles<br>• Optimized display of inline memo Markdown styles</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added style option: Immersive Top Bar<br>• Optimized Super Block Width Handle and fixed various issues<br>• Redesigned tag styles<br>• Optimized display of inline memo Markdown styles<br>• Optimized E‑ink mode details<br>• QYL Custom Attributes added - Super Block styles: Border, 3D, Separator</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Recent Updates</summary>
@@ -20,7 +20,7 @@
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Performance Notes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is <span style="font-weight: bold; color: var(--b3-theme-primary)">no impact on performance</span></p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Immersive Top Bar, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If your device has poor performance or the document is complex, it is recommended not to enable too many features, especially avoid enabling Nine Grid Layout and Fixed Toolbar simultaneously.</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>
@@ -29,12 +29,12 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, width adjustment handles appear between child blocks of horizontally arranged super blocks. Drag to adjust the width ratio of left and right child blocks<br>Double-click the width handle to evenly distribute front and back child blocks<br>Triple-click the width handle to evenly distribute all child blocks</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the Custom Text Styles button to enter the settings window for configuration. Supports multi-device synchronization.</p>
-</details>
-<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Hidden Options<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the theme settings button to enter the settings window and hide unwanted options.</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the Custom Text Styles button to enter the settings window for configuration. Supports multi-device synchronization.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px">Image Mask</summary>
