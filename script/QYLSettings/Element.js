@@ -11,6 +11,7 @@ let multilevelListModule = null;
 let colorfulTagsModule = null;
 let linkStyleModule = null;
 let customFontStyleModule = null;
+let blockFullWidthModule = null;
 async function loadColorfulHeadingModule() {
     if (!colorfulHeadingModule) {
         try {
@@ -76,6 +77,15 @@ async function loadCustomFontStyleModule() {
         }
     }
     return customFontStyleModule;
+}
+async function loadBlockFullWidthModule() {
+    if (!blockFullWidthModule) {
+        try {
+            blockFullWidthModule = await import('../element/BlockFullWidth.js');
+        } catch (error) {
+        }
+    }
+    return blockFullWidthModule;
 }
 async function enableColorfulHeading() {
     const module = await loadColorfulHeadingModule();
@@ -169,6 +179,18 @@ async function disableCustomFontStyle() {
         module.removeCustomFontStyle();
     }
 }
+async function enableBlockFullWidth() {
+    const module = await loadBlockFullWidthModule();
+    if (module && module.initBlockFullWidth) {
+        module.initBlockFullWidth();
+    }
+}
+async function disableBlockFullWidth() {
+    const module = await loadBlockFullWidthModule();
+    if (module && module.cleanupBlockFullWidth) {
+        module.cleanupBlockFullWidth();
+    }
+}
 function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -199,6 +221,10 @@ function getElementOptions() {
         {
             id: 'CustomFontStyle',
             label: i18n.CustomFontStyle || '自定义文字样式'
+        },
+        {
+            id: 'BlockFullWidth',
+            label: i18n.BlockFullWidth || '启用块全宽显示'
         }
     ];
     const darkModeOptions = [
@@ -229,6 +255,10 @@ function getElementOptions() {
         {
             id: 'CustomFontStyle',
             label: i18n.CustomFontStyle || '自定义文字样式'
+        },
+        {
+            id: 'BlockFullWidth',
+            label: i18n.BlockFullWidth || '启用块全宽显示'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -303,6 +333,12 @@ async function createElementContent(config = null) {
                     await enableCustomFontStyle();
                 } else {
                     await disableCustomFontStyle();
+                }
+            } else if (option.id === 'BlockFullWidth') {
+                if (newState) {
+                    await enableBlockFullWidth();
+                } else {
+                    await disableBlockFullWidth();
                 }
             }
             await flushBatchUpdate();
@@ -403,6 +439,10 @@ async function initializeElementStates(config = null) {
             if (currentState) {
                 await enableCustomFontStyle();
             }
+        } else if (option.id === 'BlockFullWidth') {
+            if (currentState) {
+                await enableBlockFullWidth();
+            }
         }
     }
 }
@@ -413,5 +453,7 @@ export {
     enableLinkStyle,
     disableLinkStyle,
     enableCustomFontStyle,
-    disableCustomFontStyle
+    disableCustomFontStyle,
+    enableBlockFullWidth,
+    disableBlockFullWidth
 };
