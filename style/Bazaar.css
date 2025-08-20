@@ -75,8 +75,6 @@
 }
 .config-bazaar__title {
     margin-bottom: 16px;
-    background-color: var(--b3-theme-background);
-    backdrop-filter: none;
 }
 [data-name="bazaar"] .layout-tab-bar :is([data-type="downloaded"], [data-type="plugin"], [data-type="theme"], [data-type="icon"], [data-type="template"], [data-type="widget"]) {
     min-width: fit-content;
