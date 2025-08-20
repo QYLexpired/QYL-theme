@@ -14,6 +14,7 @@ export default {
     "MultilevelList": "列表多级序号",
     "LinkStyle": "超链接图标",
     "CustomFontStyle": "自定义文字样式",
+    "BlockFullWidth": "启用块全宽显示",
     "Cancel": "取消",
     "SaveAndClose": "保存并关闭",
     "LeftClickToSetColor": "左键点击按钮设置颜色",
@@ -294,4 +295,6 @@ export default {
     "sbborder": "边框",
     "sb3d": "立体",
     "sbdivider": "分隔线",
+    "blockfullwidth": "全宽显示",
+    "enable": "启用",
 }; 

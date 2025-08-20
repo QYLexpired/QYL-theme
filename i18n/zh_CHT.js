@@ -14,6 +14,7 @@ export default {
     "MultilevelList": "列表多級序號",
     "LinkStyle": "超連結圖示",
     "CustomFontStyle": "自定義文字樣式",
+    "BlockFullWidth": "啟用塊全寬顯示",
     "Cancel": "取消",
     "SaveAndClose": "儲存並關閉",
     "LeftClickToSetColor": "左鍵點擊按鈕設定顏色",
@@ -294,4 +295,6 @@ export default {
     "sbborder": "邊框",
     "sb3d": "立體",
     "sbdivider": "分隔線",
+    "blockfullwidth": "全寬顯示",
+    "enable": "啟用",
 }; 

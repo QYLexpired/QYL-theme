@@ -14,6 +14,7 @@ export default {
     "MultilevelList": "Multilevel List Numbers",
     "LinkStyle": "Link Icons",
     "CustomFontStyle": "Custom Font Style",
+    "BlockFullWidth": "Enable Block Full Width Display",
     "Cancel": "Cancel",
     "SaveAndClose": "Save and Close",
     "LeftClickToSetColor": "Left click button to set color",
@@ -294,4 +295,6 @@ export default {
     "sbborder": "Border",
     "sb3d": "3D",
     "sbdivider": "Divider",
+    "blockfullwidth": "Full Width Display",
+    "enable": "Enable",
 }; 
