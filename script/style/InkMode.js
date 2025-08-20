@@ -205,6 +205,29 @@ export function initInkMode() {
                 box-sizing: border-box;
             }
             /* 排版元素 */
+            .protyle-wysiwyg blockquote:not([custom-bq-callout]), .protyle-wysiwyg .bq:not([custom-bq-callout]) {
+                background-color: rgba(255, 0, 0, 0);
+                box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
+                &::before {
+                    background-color: var(--b3-theme-primary);
+                }
+                & :is(blockquote, .bq) {
+                    background-color: rgba(255, 0, 0, 0);
+                    box-shadow: none;
+                    border-color: var(--b3-theme-primary);
+                }
+            }
+            .protyle-wysiwyg blockquote, .protyle-wysiwyg .bq {
+                & :is(blockquote, .bq) {
+                    background-color: rgba(255, 0, 0, 0);
+                    box-shadow: none;
+                    border-color: var(--b3-theme-primary);
+                }
+            }
+            .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+                background-color: rgba(255, 0, 0, 0) !important;
+                box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
+            }
             :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
                 background-color: rgba(255, 0, 0, 0);
                 box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
