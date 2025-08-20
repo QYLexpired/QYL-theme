@@ -4,21 +4,21 @@ export function initEditorFullWidth() {
     style.id = 'QYL-EditorFullWidth';
     style.textContent = `
         .protyle-wysiwyg {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
         }
         .protyle-title.protyle-wysiwyg--attr {
-            margin-left: 20px !important;
-            margin-right:20px !important;
+            margin-left: 10px !important;
+            margin-right:10px !important;
         }
         .protyle-title {
-            margin-left: 20px !important;
+            margin-left: 10px !important;
         }
         .protyle-background__ia {
-            margin-left: 20px !important;
+            margin-left: 10px !important;
         }
         .protyle-scroll {
-            right: 6px;
+            right: 16px;
         }
     `;
     document.head.appendChild(style);
