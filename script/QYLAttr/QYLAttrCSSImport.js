@@ -10,7 +10,8 @@ const cssFiles = [
     "style/CustomAttr/sb-style.css",
     "style/CustomAttr/line-height.css",
     "style/CustomAttr/callout.css",
-    "style/CustomAttr/flashcardattr.css"
+    "style/CustomAttr/flashcardattr.css",
+    "style/CustomAttr/blockfullwidth.css"
 ];
 let cssCache = new Map();
 let isInitialized = false;

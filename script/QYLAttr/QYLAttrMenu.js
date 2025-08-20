@@ -93,6 +93,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'heading');
@@ -110,6 +111,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'table');
@@ -147,6 +149,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'list');
@@ -164,6 +167,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'blockquote');
@@ -182,6 +186,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
@@ -200,6 +205,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'superblock');
@@ -216,6 +222,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'paragraph');
@@ -232,6 +239,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'codeblock');
@@ -248,6 +256,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'embed');
@@ -264,6 +273,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'htmlblock');
@@ -280,6 +290,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'mathblock');
@@ -296,6 +307,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'iframe');
@@ -312,6 +324,7 @@ export class QYLAttrMenu {
             this.factory.createFontFamilyItem(selectid),
             this.factory.createHeightItem(selectid),
             this.factory.createFlashCardItem(selectid),
+            this.factory.createBlockFullWidthItem(selectid),
             this.factory.createTimeItem(selectid)
         ];
         const selfConfigItem = await this.factory.createSelfConfigAttrItem(selectid, 'block');

@@ -587,6 +587,13 @@ export class MenuItemFactory {
         const submenu = this.createSubmenu("QYLattrtimesub", items);
         return this.createMenuItemWithSubmenu(this.i18n.time, "#iconClock", submenu);
     }
+    createBlockFullWidthItem(selectid) {
+        const items = this.menuData.blockFullWidthOptions.map(option => 
+            this.createMenuItem(this.i18n[option.label], option.icon, option.attrName, option.value, option.group, false, selectid)
+        );
+        const submenu = this.createSubmenu("QYLattrblockfullwidthsub", items);
+        return this.createMenuItemWithSubmenu(this.i18n.blockfullwidth, "#iconMax", submenu);
+    }
     async createSelfConfigAttrItem(selectid, menuType = 'all') {
         return await this.selfConfigAttr.createSelfConfigAttrItem(selectid, menuType);
     }

@@ -298,5 +298,8 @@ export class MenuData {
             { attrName: "sb-border", value: "立体", label: "sb3d", icon: "#iconSuper", group: "group1" },
             { attrName: "sb-divider", value: "分隔线", label: "sbdivider", icon: "#iconSuper", group: "group2" }
         ];
+        this.blockFullWidthOptions = [
+            { attrName: "blockfullwidth", value: "fullwidth", label: "enable", icon: "#iconSelect", group: null }
+        ];
     }
 }
