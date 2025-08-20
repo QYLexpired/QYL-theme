@@ -1,0 +1,36 @@
+.QYLBlockFullWidth .protyle-wysiwyg [data-node-id][custom-blockfullwidth="fullwidth"] {
+    margin-left: calc(-1 * var(--QYL-protyle-padding-left) + 10px) !important;
+    margin-right: calc(-1 * var(--QYL-protyle-padding-right) + 10px) !important;
+    width: calc(100% + var(--QYL-protyle-padding-left) + var(--QYL-protyle-padding-right) - 20px) !important;
+    max-width: calc(100% + var(--QYL-protyle-padding-left) + var(--QYL-protyle-padding-right) - 20px) !important;
+    & iframe {
+        width: 100% !important;
+    }
+    & .iframe-content {
+        width: 100% !important;
+    }
+    & video {
+        width: 100% !important;
+    }
+    & .img>span:nth-child(2) {
+        width: 100% !important;
+    }
+}
+.QYLBlockFullWidth .QYLEditorFullWidth .protyle-wysiwyg [data-node-id][custom-blockfullwidth="fullwidth"] {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    & iframe {
+        width: 100% !important;
+    }
+    & .iframe-content {
+        width: 100% !important;
+    }
+    & video {
+        width: 100% !important;
+    }
+    & .img>span:nth-child(2) {
+        width: 100% !important;
+    }
+}
