@@ -24,7 +24,7 @@
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
     /* 滚动条 */
-    --b3-scroll-color: #e6ecf4;
+    --b3-scroll-color: #d2dbe7;
     /* 悬停 */
     --b3-list-hover: rgba(255, 169, 229, 0.5);
     --b3-list-icon-hover: rgba(255, 169, 229, 0.5);

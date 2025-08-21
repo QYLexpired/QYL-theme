@@ -1,0 +1,60 @@
+[data-theme-mode="dark"] {
+    --QYL-custom-primary-main: 275deg;
+    /* 主色 */
+    --b3-theme-primary: #707bc2;
+    --b3-theme-primary-light: rgba(112, 123, 194, 0.5);
+    --b3-theme-primary-lighter: rgba(112, 123, 194, 0.35);
+    --b3-theme-primary-lightest: rgba(112, 123, 194, 0.25);
+    /* 编辑器背景色 */
+    --b3-theme-background: #31333c;
+    --b3-theme-background-light: #525560;
+    /* 面板背景色 */
+    --b3-theme-surface: #3a3c45;
+    --b3-theme-surface-light: rgba(58, 60, 69, 0.8);
+    --b3-theme-surface-lighter: #555867;
+    /* 文字颜色 */
+    --b3-theme-on-primary: #f3f3f3;
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
+    --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-background: #d3d5de;
+    --b3-theme-on-surface: #b5b7c1;
+    --b3-theme-on-surface-light: #a3a5ae;
+    /* 顶部工具栏 */
+    --b3-toolbar-blur-background: #4d4f57;
+    --b3-toolbar-color: var(--b3-theme-on-surface);
+    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    /* 滚动条 */
+    --b3-scroll-color: rgba(207, 213, 222, 0.2);
+    /* 悬停 */
+    --b3-list-hover: rgba(90, 93, 114, 0.5);
+    --b3-list-icon-hover: rgba(90, 93, 114, 0.5);
+    /* 菜单 */
+    --b3-menu-background: var(--b3-theme-background);
+    /* 提示 */
+    --b3-tooltips-background: var(--b3-theme-background);
+    --b3-tooltips-color: var(--b3-theme-on-surface);
+    --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-shadow: var(--b3-point-shadow);
+    /* 遮罩 */
+    --b3-mask-background: rgba(10, 10, 10, .4);
+    /* switch */
+    --b3-switch-background: rgb(84, 88, 107);
+    /* 行级代码背景色 */
+    --b3-protyle-code-background: var(--b3-theme-surface);
+    /* 页签 */
+    --QYL-tab-item: rgba(77, 83, 109, 0.2);
+    --QYL-tab-item-focus: rgba(95, 105, 147, 0.5);
+    /* 状态栏 */
+    --QYL-status-background: var(--b3-theme-background);
+    /* 毛玻璃 */
+    --QYL-Aero-background: rgba(44, 44, 47, 0.7);
+    --QYL-Aero-background-wrap: rgba(61, 61, 72, 0.7);
+    /* 引述块 */
+    --QYL-blockquote-background: rgb(58, 60, 69);
+    --QYL-blockquote-svg: rgb(90, 91, 99);
+    --QYL-blockquote: rgb(162, 167, 178);
+    /* 行级代码 */
+    --QYL-inline-code: var(--b3-theme-on-surface);
+    /* 标记 */
+    --b3-protyle-inline-mark-background: rgba(81, 150, 92, 0.8);
+}

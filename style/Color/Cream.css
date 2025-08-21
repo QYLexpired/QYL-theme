@@ -1,5 +1,5 @@
 [data-theme-mode="light"] {
-    --QYL-custom-primary-main: 263deg;
+    --QYL-custom-primary-main: 183deg;
     /* 主色 */
     --b3-theme-primary: #7db4ab;
     --b3-theme-primary-light: rgba(125, 180, 171, 0.5);
@@ -24,7 +24,7 @@
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
     /* 滚动条 */
-    --b3-scroll-color: #e8e5d7;
+    --b3-scroll-color: rgba(207, 203, 192, 0.5);
     /* 悬停 */
     --b3-list-hover: rgba(219, 211, 190, 0.5);
     --b3-list-icon-hover: rgba(219, 211, 190, 0.5);
