@@ -423,10 +423,6 @@ async function insertNewBlock(nextID, colLayout) {
                 nextID: nextID
             })
         });
-        if (response.ok) {
-            const allNodeElements = getNodeElements(colLayout);
-            await resetAllElementStyles(allNodeElements);
-        }
     } catch (error) {
     }
 }
@@ -443,10 +439,6 @@ async function insertNewBlockFirst(firstID, colLayout) {
                 nextID: firstID
             })
         });
-        if (response.ok) {
-            const allNodeElements = getNodeElements(colLayout);
-            await resetAllElementStyles(allNodeElements);
-        }
     } catch (error) {
     }
 }
@@ -463,10 +455,6 @@ async function insertNewBlockLast(lastID, colLayout) {
                 previousID: lastID
             })
         });
-        if (response.ok) {
-            const allNodeElements = getNodeElements(colLayout);
-            await resetAllElementStyles(allNodeElements);
-        }
     } catch (error) {
     }
 }
@@ -575,6 +563,53 @@ function setupObserver() {
         });
         if (shouldUpdate) {
             setupDragHandles().catch(error => {
+            });
+            const affectedCols = new Set(); 
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'childList') {
+                    const mutationTarget = mutation.target;
+                    if (mutationTarget && 
+                        mutationTarget.hasAttribute('data-sb-layout') && 
+                        mutationTarget.getAttribute('data-sb-layout') === 'col') {
+                        affectedCols.add(mutationTarget);
+                    } else {
+                        const addedNodes = Array.from(mutation.addedNodes);
+                        const removedNodes = Array.from(mutation.removedNodes);
+                        addedNodes.forEach(node => {
+                            if (node.nodeType === Node.ELEMENT_NODE && 
+                                node.hasAttribute('data-node-id')) {
+                                const parent = node.parentElement;
+                                if (parent && 
+                                    parent.hasAttribute('data-sb-layout') && 
+                                    parent.getAttribute('data-sb-layout') === 'col') {
+                                    affectedCols.add(parent);
+                                }
+                            }
+                        });
+                        removedNodes.forEach(node => {
+                            if (node.nodeType === Node.ELEMENT_NODE && 
+                                node.hasAttribute('data-node-id')) {
+                                const parent = node.parentElement;
+                                if (parent && 
+                                    parent.hasAttribute('data-sb-layout') && 
+                                    parent.getAttribute('data-sb-layout') === 'col') {
+                                    affectedCols.add(parent);
+                                }
+                            }
+                        });
+                    }
+                } else if (mutation.type === 'attributes' && mutation.attributeName === 'data-sb-layout') {
+                    const target = mutation.target;
+                    const newValue = target.getAttribute('data-sb-layout');
+                    if (newValue === 'col') {
+                        affectedCols.add(target);
+                    }
+                }
+            });
+            affectedCols.forEach((colLayout) => {
+                const allNodeElements = getNodeElements(colLayout);
+                resetAllElementStyles(allNodeElements).catch(error => {
+                });
             });
         }
     });
