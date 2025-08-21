@@ -46,7 +46,8 @@ const darkColorMainGroup = [
     'QYLWinter',
     'QYLXingqiong',
     'QYLWildness',
-    'QYLMarsh'
+    'QYLMarsh',
+    'QYLGleam'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -94,6 +95,7 @@ let colorSwitchTimeModule = null;
 let darkRevertModule = null;
 let wildnessModule = null;
 let marshModule = null;
+let gleamModule = null;
 let warmModule = null;
 let woodAshModule = null;
 async function loadColorModule1() {
@@ -971,6 +973,18 @@ async function disableMarsh() {
         module.removeMarsh();
     }
 }
+async function enableGleam() {
+    const module = await loadGleamModule();
+    if (module && module.initGleam) {
+        module.initGleam();
+    }
+}
+async function disableGleam() {
+    const module = await loadGleamModule();
+    if (module && module.removeGleam) {
+        module.removeGleam();
+    }
+}
 async function enableWarm() {
     const module = await loadWarmModule();
     if (module && module.initWarm) {
@@ -1153,6 +1167,8 @@ async function handleDisableById(id) {
         await disableWildness();
     } else if (id === 'QYLMarsh') {
         await disableMarsh();
+    } else if (id === 'QYLGleam') {
+        await disableGleam();
     } else if (id === 'QYLWarm') {
         await disableWarm();
     }
@@ -1337,6 +1353,10 @@ function getColorOptions() {
         {
             id: 'QYLMarsh',
             label: i18n.QYLMarsh
+        },
+        {
+            id: 'QYLGleam',
+            label: i18n.QYLGleam
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1532,6 +1552,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableMarsh;
                         disableFunction = disableMarsh;
                         break;
+                    case 'QYLGleam':
+                        enableFunction = enableGleam;
+                        disableFunction = disableGleam;
+                        break;
                     case 'QYLWarm':
                         enableFunction = enableWarm;
                         disableFunction = disableWarm;
@@ -1663,6 +1687,8 @@ async function initializeColorStates(config = null) {
             await enableWildness();
         } else if (firstActiveColor === 'QYLMarsh') {
             await enableMarsh();
+        } else if (firstActiveColor === 'QYLGleam') {
+            await enableGleam();
         } else if (firstActiveColor === 'QYLWarm') {
             await enableWarm();
         } else if (firstActiveColor === 'QYLWoodAsh') {
@@ -1764,6 +1790,8 @@ async function initializeColorStates(config = null) {
                 await enableWildness();
             } else if (newFirstActiveColor === 'QYLMarsh') {
                 await enableMarsh();
+            } else if (newFirstActiveColor === 'QYLGleam') {
+                await enableGleam();
             } else if (newFirstActiveColor === 'QYLWarm') {
                 await enableWarm();
             } else if (newFirstActiveColor === 'QYLWoodAsh') {
@@ -1811,6 +1839,15 @@ async function loadMarshModule() {
         }
     }
     return marshModule;
+}
+async function loadGleamModule() {
+    if (!gleamModule) {
+        try {
+            gleamModule = await import('../color/Gleam.js');
+        } catch (error) {
+        }
+    }
+    return gleamModule;
 }
 async function loadWarmModule() {
     if (!warmModule) {

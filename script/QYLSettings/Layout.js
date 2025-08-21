@@ -10,6 +10,7 @@ let hideTopBarModule = null;
 let colorBlockModule = null;
 let fullHeightLayoutModule = null;
 let hideTabModule = null;
+let cardLayoutModule = null;
 async function loadVerticalTabModule() {
     if (!verticalTabModule) {
         try {
@@ -63,6 +64,15 @@ async function loadHideTabModule() {
         }
     }
     return hideTabModule;
+}
+async function loadCardLayoutModule() {
+    if (!cardLayoutModule) {
+        try {
+            cardLayoutModule = await import('../layout/CardLayout.js');
+        } catch (error) {
+        }
+    }
+    return cardLayoutModule;
 }
 async function enableVerticalTab() {
     const module = await loadVerticalTabModule();
@@ -136,6 +146,18 @@ async function disableHideTab() {
         module.removeHideTab();
     }
 }
+async function enableCardLayout() {
+    const module = await loadCardLayoutModule();
+    if (module && module.initCardLayout) {
+        module.initCardLayout();
+    }
+}
+async function disableCardLayout() {
+    const module = await loadCardLayoutModule();
+    if (module && module.removeCardLayout) {
+        module.removeCardLayout();
+    }
+}
 function getLayoutOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
@@ -162,6 +184,10 @@ function getLayoutOptions() {
         {
             id: 'HideTab',
             label: i18n.HideTab || '隐藏页签和面包屑'
+        },
+        {
+            id: 'CardLayout',
+            label: i18n.CardLayout || '卡片式布局'
         }
     ];
     const darkModeOptions = [
@@ -188,6 +214,10 @@ function getLayoutOptions() {
         {
             id: 'HideTab',
             label: i18n.HideTab || '隐藏页签和面包屑'
+        },
+        {
+            id: 'CardLayout',
+            label: i18n.CardLayout || '卡片式布局'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -281,6 +311,15 @@ async function createLayoutContent(config = null) {
                         }
                     });
                 }
+                if (['CardLayout', 'ColorBlock'].includes(option.id)) {
+                    await excluSetting.handleExclusionBatch('cardLayoutColorBlockGroup', option.id, null, async (disabledId) => {
+                        if (disabledId === 'CardLayout') {
+                            await disableCardLayout();
+                        } else if (disabledId === 'ColorBlock') {
+                            await disableColorBlock();
+                        }
+                    });
+                }
                 if (option.id === 'ColorBlock') {
                     await bindSetting.handleBindingBatch('colorBlockFusionGroup', 'ColorBlock', async (buttonId) => {
                         if (buttonId === 'FusionOn') {
@@ -300,6 +339,8 @@ async function createLayoutContent(config = null) {
                     await enableColorBlock();
                 } else if (option.id === 'FusionOn') {
                     await enableFusionOn();
+                } else if (option.id === 'CardLayout') {
+                    await enableCardLayout();
                 }
             } else {
                 if (option.id === 'FusionOn') {
@@ -321,6 +362,8 @@ async function createLayoutContent(config = null) {
                     await disableColorBlock();
                 } else if (option.id === 'FusionOn') {
                     await disableFusionOn();
+                } else if (option.id === 'CardLayout') {
+                    await disableCardLayout();
                 }
             }
             await flushBatchUpdate();
@@ -340,6 +383,7 @@ async function initializeLayoutStates(config = null) {
     let colorBlockState = config['ColorBlock'] || false;
     let fullHeightLayoutState = config['FullHeightLayout'] || false;
     let hideTabState = config['HideTab'] || false;
+    let cardLayoutState = config['CardLayout'] || false;
     let needSave = false;
     if (verticalTabState && fusionOnState) {
         fusionOnState = false;
@@ -376,6 +420,11 @@ async function initializeLayoutStates(config = null) {
         config['FullHeightLayout'] = false;
         needSave = true;
     }
+    if (cardLayoutState && colorBlockState) {
+        colorBlockState = false;
+        config['ColorBlock'] = false;
+        needSave = true;
+    }
     if (needSave) {
         const { saveConfig } = await import('../basic/Storage.js');
         await saveConfig(config);
@@ -394,6 +443,8 @@ async function initializeLayoutStates(config = null) {
             currentState = fullHeightLayoutState;
         } else if (option.id === 'HideTab') {
             currentState = hideTabState;
+        } else if (option.id === 'CardLayout') {
+            currentState = cardLayoutState;
         }
         if (option.id === 'VerticalTab') {
             if (currentState) {
@@ -431,6 +482,12 @@ async function initializeLayoutStates(config = null) {
             } else {
                 await disableHideTab();
             }
+        } else if (option.id === 'CardLayout') {
+            if (currentState) {
+                await enableCardLayout();
+            } else {
+                await disableCardLayout();
+            }
         }
     }
 }
@@ -441,5 +498,6 @@ excluSetting.registerGroup('colorBlockHideTopBarGroup', ['ColorBlock', 'HideTopB
 excluSetting.registerGroup('fullHeightVerticalGroup', ['FullHeightLayout', 'VerticalTab']);
 excluSetting.registerGroup('hideTabVerticalGroup', ['HideTab', 'VerticalTab']);
 excluSetting.registerGroup('hideTabFullHeightGroup', ['HideTab', 'FullHeightLayout']);
+excluSetting.registerGroup('cardLayoutColorBlockGroup', ['CardLayout', 'ColorBlock']);
 bindSetting.registerGroup('colorBlockFusionGroup', 'ColorBlock', ['FusionOn']);
 export { getLayoutOptions, createLayoutContent, initializeLayoutStates };

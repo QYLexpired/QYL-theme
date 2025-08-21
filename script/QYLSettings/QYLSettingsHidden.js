@@ -135,7 +135,8 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'HideTopBar', label: i18n.HideTopBar },
         { id: 'ColorBlock', label: i18n.ColorBlock },
         { id: 'FullHeightLayout', label: i18n.FullHeightLayout },
-        { id: 'HideTab', label: i18n.HideTab }
+        { id: 'HideTab', label: i18n.HideTab },
+        { id: 'CardLayout', label: i18n.CardLayout }
     ];
     const functionOptions = [
         { id: 'MarktoBlank', label: i18n.MarktoBlank },

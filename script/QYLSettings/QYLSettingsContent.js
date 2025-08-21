@@ -8,7 +8,7 @@ import { configManager } from './InitQYLSettings.js';
 function shouldHideTab(tabId, config) {
     if (tabId === 'color') return false;
     const optionGroups = {
-        layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab'],
+        layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab', 'CardLayout'],
         style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'FlatStyle', 'InkMode', 'ColorfulTabs'],
         function: ['MarktoBlank', 'EditorFullWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'ImgMask', 'SbHandle'],
         element: ['ColorfulHeading', 'QYLAttrOn', 'MultilevelList', 'ColorfulTags', 'LinkStyle', 'CustomFontStyle', 'BlockFullWidth']
