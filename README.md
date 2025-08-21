@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added preset color scheme for light mode: Light Cream<br>• Redesigned image nine-grid layout feature, greatly optimized performance and no longer requires separate activation<br>• Optimized performance of Fixed Toolbar feature<br>• Added element option: Enable block full-width display, when enabled, you can apply full-width display to individual blocks through QYL custom attribute settings (such as long tables, databases, etc.)</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added layout option: Card layout (mutually exclusive with Color Block layout)<br>• Added preset color scheme for dark mode: Gleam<br>• Added preset color scheme for light mode: Light Cream<br>• Redesigned image nine-grid layout feature, greatly optimized performance and no longer requires separate activation<br>• Optimized performance of Fixed Toolbar feature<br>• Fixed database tag colors and colorful heading colors, no longer change with theme color<br>• Added element option: Enable block full-width display, when enabled, you can apply full-width display to individual blocks through QYL custom attribute settings (such as long tables, databases, etc.)</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Recent Updates</summary>

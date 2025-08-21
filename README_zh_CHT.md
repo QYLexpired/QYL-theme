@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加佈局選項：卡片式佈局（與撞色佈局互斥）<br>• 暗黑模式增加預設配色：微光<br>• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 固定資料庫標籤顏色和多彩標題顏色，不再隨主題色變化<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
