@@ -111,6 +111,7 @@ export function initVerticalTab() {
                 & > .layout-tab-bar:not(.layout-tab-bar--readonly) {
                     flex: 1;
                     flex-direction: column;
+                    overflow-y: scroll;
                     & .item {
                         align-self: center;
                         width: calc(100% - 12px);
