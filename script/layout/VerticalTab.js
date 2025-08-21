@@ -88,6 +88,7 @@ export function addResizeToWndTopLeft(element) {
 export function initVerticalTab() {
     if (isEnabled) return;
     if (document.body.classList.contains('QYLmobile')) return;
+    document.documentElement.classList.add('QYLVerticalTab');
     styleElement = document.createElement('style');
     styleElement.id = 'QYL-VerticalTab';
     styleElement.textContent = `
@@ -192,6 +193,7 @@ export function initVerticalTab() {
 }
 export function removeVerticalTab() {
     if (!isEnabled) return;
+    document.documentElement.classList.remove('QYLVerticalTab');
     const resizeElements = document.querySelectorAll('.layout__resize--lr.layout__resize');
     resizeElements.forEach(cleanupResizeElement);
     if (styleElement) {
