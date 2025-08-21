@@ -27,6 +27,7 @@ const lightColorMainGroup = [
     'QYLCoral',
     'QYLMint',
     'QYLAmber',
+    'QYLCream',
     'QYLBiwan',
     'QYLWarm',
     'QYLWoodAsh'
@@ -74,6 +75,7 @@ let ivoryModule = null;
 let coralModule = null;
 let mintModule = null;
 let amberModule = null;
+let creamModule = null;
 let biwanModule = null;
 let burgundyModule = null;
 let xuanqingModule = null;
@@ -357,6 +359,15 @@ async function loadAmberModule() {
         }
     }
     return amberModule;
+}
+async function loadCreamModule() {
+    if (!creamModule) {
+        try {
+            creamModule = await import('../color/Cream.js');
+        } catch (error) {
+        }
+    }
+    return creamModule;
 }
 async function loadBiwanModule() {
     if (!biwanModule) {
@@ -756,6 +767,18 @@ async function disableAmber() {
         module.removeAmber();
     }
 }
+async function enableCream() {
+    const module = await loadCreamModule();
+    if (module && module.initCream) {
+        module.initCream();
+    }
+}
+async function disableCream() {
+    const module = await loadCreamModule();
+    if (module && module.removeCream) {
+        module.removeCream();
+    }
+}
 async function enableBiwan() {
     const module = await loadBiwanModule();
     if (module && module.initBiwan) {
@@ -1094,6 +1117,8 @@ async function handleDisableById(id) {
         await disableMint();
     } else if (id === 'QYLAmber') {
         await disableAmber();
+    } else if (id === 'QYLCream') {
+        await disableCream();
     } else if (id === 'QYLWoodAsh') {
         await disableWoodAsh();
     } else if (id === 'QYLBiwan') {
@@ -1226,6 +1251,10 @@ function getColorOptions() {
         {
             id: 'QYLAmber',
             label: i18n.QYLAmber
+        },
+        {
+            id: 'QYLCream',
+            label: i18n.QYLCream
         },
         {
             id: 'QYLBiwan',
@@ -1435,6 +1464,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableAmber;
                         disableFunction = disableAmber;
                         break;
+                    case 'QYLCream':
+                        enableFunction = enableCream;
+                        disableFunction = disableCream;
+                        break;
                     case 'QYLBiwan':
                         enableFunction = enableBiwan;
                         disableFunction = disableBiwan;
@@ -1598,6 +1631,8 @@ async function initializeColorStates(config = null) {
             await enableMint();
         } else if (firstActiveColor === 'QYLAmber') {
             await enableAmber();
+        } else if (firstActiveColor === 'QYLCream') {
+            await enableCream();
         } else if (firstActiveColor === 'QYLBiwan') {
             await enableBiwan();
         } else if (firstActiveColor === 'QYLBurgundy') {
@@ -1697,6 +1732,8 @@ async function initializeColorStates(config = null) {
                 await enableMint();
             } else if (newFirstActiveColor === 'QYLAmber') {
                 await enableAmber();
+            } else if (newFirstActiveColor === 'QYLCream') {
+                await enableCream();
             } else if (newFirstActiveColor === 'QYLBiwan') {
                 await enableBiwan();
             } else if (newFirstActiveColor === 'QYLBurgundy') {

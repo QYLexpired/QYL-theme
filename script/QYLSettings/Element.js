@@ -6,7 +6,6 @@ import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 let colorfulHeadingModule = null;
 let QYLAttrModule = null;
-let nineGridSquaresModule = null;
 let multilevelListModule = null;
 let colorfulTagsModule = null;
 let linkStyleModule = null;
@@ -29,15 +28,6 @@ async function loadQYLAttrModule() {
         }
     }
     return QYLAttrModule;
-}
-async function loadNineGridSquaresModule() {
-    if (!nineGridSquaresModule) {
-        try {
-            nineGridSquaresModule = await import('../element/NineGridSquares.js');
-        } catch (error) {
-        }
-    }
-    return nineGridSquaresModule;
 }
 async function loadMultilevelListModule() {
     if (!multilevelListModule) {
@@ -119,18 +109,6 @@ async function disableQYLAttr() {
     } catch (error) {
     }
 }
-async function enableNineGridSquares() {
-    const module = await loadNineGridSquaresModule();
-    if (module && module.initNineGridSquares) {
-        module.initNineGridSquares();
-    }
-}
-async function disableNineGridSquares() {
-    const module = await loadNineGridSquaresModule();
-    if (module && module.removeNineGridSquares) {
-        module.removeNineGridSquares();
-    }
-}
 async function enableMultilevelList() {
     const module = await loadMultilevelListModule();
     if (module && module.initMultilevelList) {
@@ -203,10 +181,6 @@ function getElementOptions() {
             label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
         },
         {
-            id: 'NineGridSquares',
-            label: i18n.NineGridSquares || '启用图片九宫格排列'
-        },
-        {
             id: 'MultilevelList',
             label: i18n.MultilevelList || '列表多级序号'
         },
@@ -235,10 +209,6 @@ function getElementOptions() {
         {
             id: 'QYLAttrOn',
             label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
-        },
-        {
-            id: 'NineGridSquares',
-            label: i18n.NineGridSquares || '启用图片九宫格排列'
         },
         {
             id: 'MultilevelList',
@@ -303,12 +273,6 @@ async function createElementContent(config = null) {
                     await enableQYLAttr();
                 } else {
                     await disableQYLAttr();
-                }
-            } else if (option.id === 'NineGridSquares') {
-                if (newState) {
-                    await enableNineGridSquares();
-                } else {
-                    await disableNineGridSquares();
                 }
             } else if (option.id === 'MultilevelList') {
                 if (newState) {
@@ -418,10 +382,6 @@ async function initializeElementStates(config = null) {
         } else if (option.id === 'QYLAttrOn') {
             if (currentState) {
                 await enableQYLAttr();
-            }
-        } else if (option.id === 'NineGridSquares') {
-            if (currentState) {
-                await enableNineGridSquares();
             }
         } else if (option.id === 'MultilevelList') {
             if (currentState) {

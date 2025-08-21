@@ -153,7 +153,6 @@ export const createQYLSettingsHiddenWindow = async () => {
     const elementOptions = [
         { id: 'ColorfulHeading', label: i18n.ColorfulHeading },
         { id: 'QYLAttrOn', label: i18n.QYLAttrOn },
-        { id: 'NineGridSquares', label: i18n.NineGridSquares },
         { id: 'MultilevelList', label: i18n.MultilevelList },
         { id: 'ColorfulTags', label: i18n.ColorfulTags },
         { id: 'LinkStyle', label: i18n.LinkStyle },
