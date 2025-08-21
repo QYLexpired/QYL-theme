@@ -123,7 +123,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
         }
     }
 }
-.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar) {
+.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar) {
     opacity: 0.5;
     pointer-events: none;
     color: var(--b3-theme-on-surface-light) !important;
