@@ -193,7 +193,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
 }
 [data-key="QYLGlobalStyle"] .b3-dialog__content {
     max-height: 70vh;
-    max-width: 90vw;
+    max-width: 70vw;
     overflow-y: scroll;
     & .b3-label.fn__flex > .fn__block > div:first-child {
         font-weight: bold;
