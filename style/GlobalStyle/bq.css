@@ -1,0 +1,108 @@
+/* 左边框 */
+[qyl-quote-style="leftborder"] {
+    & .protyle-wysiwyg .bq {
+        padding: 0px 6px;
+        border-left: 5px solid var(--b3-theme-primary);
+        border-radius: 0;
+        background-color: var(--b3-theme-primary-lightest);
+        color: unset;
+        &::before {
+            display: none;
+        }
+        &[custom-bq-callout-color="背景色"] {
+            background-color: var(--b3-theme-background);
+            border-color: var(--b3-theme-primary);
+        }
+        &[custom-bq-callout-color="红色"] {
+            background-color: var(--QYL-custom-red-background);
+            border-color: var(--QYL-custom-red);
+        }
+        &[custom-bq-callout-color="橙色"] {
+            background-color: var(--QYL-custom-orange-background);
+            border-color: var(--QYL-custom-orange);
+        }
+        &[custom-bq-callout-color="黄色"] {
+            background-color: var(--QYL-custom-yellow-background);
+            border-color: var(--QYL-custom-yellow);
+        }
+        &[custom-bq-callout-color="绿色"] {
+            background-color: var(--QYL-custom-green-background);
+            border-color: var(--QYL-custom-green);
+        }
+        &[custom-bq-callout-color="青色"] {
+            background-color: var(--QYL-custom-cyan-background);
+            border-color: var(--QYL-custom-cyan);
+        }
+        &[custom-bq-callout-color="蓝色"] {
+            background-color: var(--QYL-custom-blue-background);
+            border-color: var(--QYL-custom-blue);
+        }
+        &[custom-bq-callout-color="紫色"] {
+            background-color: var(--QYL-custom-purple-background);
+            border-color: var(--QYL-custom-purple);
+        }
+        &[custom-bq-callout-color="粉色"] {
+            background-color: var(--QYL-custom-pink-background);
+            border-color: var(--QYL-custom-pink);
+        }
+        &[custom-bq-callout-color="黑色"] {
+            background-color: var(--QYL-custom-black-background);
+            border-color: var(--QYL-custom-black);
+        }
+        &[custom-bq-callout-color="灰色"] {
+            background-color: var(--QYL-custom-gray-background);
+            border-color: var(--QYL-custom-gray);
+        }
+        &[fold="1"] {
+            border-radius: var(--b3-border-radius);
+            &[custom-bq-callout-color="背景色"] {
+                background-color: var(--b3-theme-primary);
+            }
+            &[custom-bq-callout-color="红色"] {
+                background-color: var(--QYL-custom-red);
+            }
+            &[custom-bq-callout-color="橙色"] {
+                background-color: var(--QYL-custom-orange);
+            }
+            &[custom-bq-callout-color="黄色"] {
+                background-color: var(--QYL-custom-yellow);
+            }
+            &[custom-bq-callout-color="绿色"] {
+                background-color: var(--QYL-custom-green);
+            }
+            &[custom-bq-callout-color="青色"] {
+                background-color: var(--QYL-custom-cyan);
+            }
+            &[custom-bq-callout-color="蓝色"] {
+                background-color: var(--QYL-custom-blue);
+            }
+            &[custom-bq-callout-color="紫色"] {
+                background-color: var(--QYL-custom-purple);
+            }
+            &[custom-bq-callout-color="粉色"] {
+                background-color: var(--QYL-custom-pink);
+            }
+            &[custom-bq-callout-color="黑色"] {
+                background-color: var(--QYL-custom-black);
+            }
+            &[custom-bq-callout-color="灰色"] {
+                background-color: var(--QYL-custom-gray);
+            }
+            & >[data-node-id]:not(:first-child) {
+                display: none;
+            }
+            & >[data-node-id]:first-child {
+                opacity: 0.9 !important;
+                max-height: 26px;
+                font-size: 22px;
+                font-style: italic;
+                color: var(--b3-theme-on-primary);
+                background-color: transparent;
+                transform: translateY(10px) translateX(8px);
+                & >[contenteditable]>span[data-type*="strong"] {
+                    filter: brightness(1.5);
+                }
+            }
+        }
+    }
+}

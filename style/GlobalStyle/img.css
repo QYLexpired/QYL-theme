@@ -1,0 +1,11 @@
+/* 图片形状 */
+[qyl-image-shape="rounded"] {
+    & .protyle-wysiwyg img {
+        border-radius: 12px;
+    }
+}
+[qyl-image-shape="circle"] {
+    & .protyle-wysiwyg img {
+        border-radius: 50%;
+    }
+}
