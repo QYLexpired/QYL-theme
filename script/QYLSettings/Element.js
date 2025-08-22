@@ -4,22 +4,10 @@ import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdat
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
-let colorfulHeadingModule = null;
 let QYLAttrModule = null;
-let multilevelListModule = null;
-let colorfulTagsModule = null;
-let linkStyleModule = null;
 let customFontStyleModule = null;
 let blockFullWidthModule = null;
-async function loadColorfulHeadingModule() {
-    if (!colorfulHeadingModule) {
-        try {
-            colorfulHeadingModule = await import('../element/ColorfulHeading.js');
-        } catch (error) {
-        }
-    }
-    return colorfulHeadingModule;
-}
+let globalStyleModule = null;
 async function loadQYLAttrModule() {
     if (!QYLAttrModule) {
         try {
@@ -28,33 +16,6 @@ async function loadQYLAttrModule() {
         }
     }
     return QYLAttrModule;
-}
-async function loadMultilevelListModule() {
-    if (!multilevelListModule) {
-        try {
-            multilevelListModule = await import('../element/MultilevelList.js');
-        } catch (error) {
-        }
-    }
-    return multilevelListModule;
-}
-async function loadColorfulTagsModule() {
-    if (!colorfulTagsModule) {
-        try {
-            colorfulTagsModule = await import('../element/ColorfulTags.js');
-        } catch (error) {
-        }
-    }
-    return colorfulTagsModule;
-}
-async function loadLinkStyleModule() {
-    if (!linkStyleModule) {
-        try {
-            linkStyleModule = await import('../element/LinkStyle.js');
-        } catch (error) {
-        }
-    }
-    return linkStyleModule;
 }
 async function loadCustomFontStyleModule() {
     if (!customFontStyleModule) {
@@ -77,17 +38,14 @@ async function loadBlockFullWidthModule() {
     }
     return blockFullWidthModule;
 }
-async function enableColorfulHeading() {
-    const module = await loadColorfulHeadingModule();
-    if (module && module.initColorfulHeading) {
-        module.initColorfulHeading();
+async function loadGlobalStyleModule() {
+    if (!globalStyleModule) {
+        try {
+            globalStyleModule = await import('../element/GlobalStyle.js');
+        } catch (error) {
+        }
     }
-}
-async function disableColorfulHeading() {
-    const module = await loadColorfulHeadingModule();
-    if (module && module.removeColorfulHeading) {
-        module.removeColorfulHeading();
-    }
+    return globalStyleModule;
 }
 async function enableQYLAttr() {
     const module = await loadQYLAttrModule();
@@ -107,42 +65,6 @@ async function disableQYLAttr() {
         const { cleanupCustomCSS } = await import('../QYLAttr/CustomCSS.js');
         cleanupCustomCSS();
     } catch (error) {
-    }
-}
-async function enableMultilevelList() {
-    const module = await loadMultilevelListModule();
-    if (module && module.initMultilevelList) {
-        module.initMultilevelList();
-    }
-}
-async function disableMultilevelList() {
-    const module = await loadMultilevelListModule();
-    if (module && module.removeMultilevelList) {
-        module.removeMultilevelList();
-    }
-}
-async function enableColorfulTags() {
-    const module = await loadColorfulTagsModule();
-    if (module && module.initColorfulTags) {
-        module.initColorfulTags();
-    }
-}
-async function disableColorfulTags() {
-    const module = await loadColorfulTagsModule();
-    if (module && module.removeColorfulTags) {
-        module.removeColorfulTags();
-    }
-}
-async function enableLinkStyle() {
-    const module = await loadLinkStyleModule();
-    if (module && module.initLinkStyle) {
-        module.initLinkStyle();
-    }
-}
-async function disableLinkStyle() {
-    const module = await loadLinkStyleModule();
-    if (module && module.removeLinkStyle) {
-        module.removeLinkStyle();
     }
 }
 async function enableCustomFontStyle() {
@@ -169,28 +91,24 @@ async function disableBlockFullWidth() {
         module.cleanupBlockFullWidth();
     }
 }
+async function enableGlobalStyle() {
+    const module = await loadGlobalStyleModule();
+    if (module && module.initGlobalStyle) {
+        module.initGlobalStyle();
+    }
+}
+async function disableGlobalStyle() {
+    const module = await loadGlobalStyleModule();
+    if (module && module.removeGlobalStyle) {
+        module.removeGlobalStyle();
+    }
+}
 function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
         {
-            id: 'ColorfulHeading',
-            label: i18n.ColorfulHeading || '多彩标题&多彩大纲'
-        },
-        {
             id: 'QYLAttrOn',
             label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
-        },
-        {
-            id: 'MultilevelList',
-            label: i18n.MultilevelList || '列表多级序号'
-        },
-        {
-            id: 'ColorfulTags',
-            label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
-        },
-        {
-            id: 'LinkStyle',
-            label: i18n.LinkStyle || '超链接图标'
         },
         {
             id: 'CustomFontStyle',
@@ -199,28 +117,16 @@ function getElementOptions() {
         {
             id: 'BlockFullWidth',
             label: i18n.BlockFullWidth || '启用块全宽显示'
+        },
+        {
+            id: 'GlobalStyle',
+            label: i18n.GlobalStyle || '全局样式设置'
         }
     ];
     const darkModeOptions = [
         {
-            id: 'ColorfulHeading',
-            label: i18n.ColorfulHeading || '多彩标题&多彩大纲'
-        },
-        {
             id: 'QYLAttrOn',
             label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
-        },
-        {
-            id: 'MultilevelList',
-            label: i18n.MultilevelList || '列表多级序号'
-        },
-        {
-            id: 'ColorfulTags',
-            label: i18n.ColorfulTags || '多彩标签和多彩行级代码'
-        },
-        {
-            id: 'LinkStyle',
-            label: i18n.LinkStyle || '超链接图标'
         },
         {
             id: 'CustomFontStyle',
@@ -229,6 +135,10 @@ function getElementOptions() {
         {
             id: 'BlockFullWidth',
             label: i18n.BlockFullWidth || '启用块全宽显示'
+        },
+        {
+            id: 'GlobalStyle',
+            label: i18n.GlobalStyle || '全局样式设置'
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -249,7 +159,7 @@ async function createElementContent(config = null) {
         if (!selectState) {
             optionElement.classList.add('hidden');
         }
-        const hasRightClick = ['CustomFontStyle'].includes(option.id);
+        const hasRightClick = ['CustomFontStyle', 'GlobalStyle'].includes(option.id);
         const rightClickClass = hasRightClick ? 'QYLButtonRightClick' : '';
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-element-button ${currentState ? 'active' : ''} ${rightClickClass}">
@@ -262,35 +172,11 @@ async function createElementContent(config = null) {
             button.classList.toggle('active', newState);
             if (newState) {
             }
-            if (option.id === 'ColorfulHeading') {
-                if (newState) {
-                    await enableColorfulHeading();
-                } else {
-                    await disableColorfulHeading();
-                }
-            } else if (option.id === 'QYLAttrOn') {
+            if (option.id === 'QYLAttrOn') {
                 if (newState) {
                     await enableQYLAttr();
                 } else {
                     await disableQYLAttr();
-                }
-            } else if (option.id === 'MultilevelList') {
-                if (newState) {
-                    await enableMultilevelList();
-                } else {
-                    await disableMultilevelList();
-                }
-            } else if (option.id === 'ColorfulTags') {
-                if (newState) {
-                    await enableColorfulTags();
-                } else {
-                    await disableColorfulTags();
-                }
-            } else if (option.id === 'LinkStyle') {
-                if (newState) {
-                    await enableLinkStyle();
-                } else {
-                    await disableLinkStyle();
                 }
             } else if (option.id === 'CustomFontStyle') {
                 if (newState) {
@@ -303,6 +189,12 @@ async function createElementContent(config = null) {
                     await enableBlockFullWidth();
                 } else {
                     await disableBlockFullWidth();
+                }
+            } else if (option.id === 'GlobalStyle') {
+                if (newState) {
+                    await enableGlobalStyle();
+                } else {
+                    await disableGlobalStyle();
                 }
             }
             await flushBatchUpdate();
@@ -363,6 +255,62 @@ async function createElementContent(config = null) {
             button.addEventListener('touchend', handleTouchEnd);
             button.addEventListener('touchmove', handleTouchMove);
             button.addEventListener('touchcancel', handleTouchEnd);
+        } else if (option.id === 'GlobalStyle') {
+            const handleRightClick = async (event) => {
+                if (event.button === 2) { 
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const currentState = config[option.id] || false;
+                    if (!currentState) {
+                        return; 
+                    }
+                    try {
+                        const { showGlobalStyleDialog } = await import('../element/GlobalStyle.js');
+                        showGlobalStyleDialog();
+                    } catch (error) {
+                    }
+                }
+            };
+            let longPressTimer = null;
+            const longPressDelay = 500; 
+            let hasMoved = false;
+            const handleTouchStart = (event) => {
+                hasMoved = false;
+                longPressTimer = setTimeout(async () => {
+                    if (!hasMoved) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        const currentState = config[option.id] || false;
+                        if (!currentState) {
+                            return; 
+                        }
+                        try {
+                            const { showGlobalStyleDialog } = await import('../element/GlobalStyle.js');
+                            showGlobalStyleDialog();
+                        } catch (error) {
+                        }
+                    }
+                }, longPressDelay);
+            };
+            const handleTouchEnd = (event) => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+                hasMoved = false;
+            };
+            const handleTouchMove = (event) => {
+                hasMoved = true;
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
+            button.addEventListener('contextmenu', handleRightClick);
+            button.addEventListener('touchstart', handleTouchStart, { passive: false });
+            button.addEventListener('touchend', handleTouchEnd);
+            button.addEventListener('touchmove', handleTouchMove);
+            button.addEventListener('touchcancel', handleTouchEnd);
         }
         container.appendChild(optionElement);
     }
@@ -375,25 +323,9 @@ async function initializeElementStates(config = null) {
     }
     for (const option of options) {
         const currentState = config[option.id] || false;
-        if (option.id === 'ColorfulHeading') {
-            if (currentState) {
-                await enableColorfulHeading();
-            }
-        } else if (option.id === 'QYLAttrOn') {
+        if (option.id === 'QYLAttrOn') {
             if (currentState) {
                 await enableQYLAttr();
-            }
-        } else if (option.id === 'MultilevelList') {
-            if (currentState) {
-                await enableMultilevelList();
-            }
-        } else if (option.id === 'ColorfulTags') {
-            if (currentState) {
-                await enableColorfulTags();
-            }
-        } else if (option.id === 'LinkStyle') {
-            if (currentState) {
-                await enableLinkStyle();
             }
         } else if (option.id === 'CustomFontStyle') {
             if (currentState) {
@@ -403,6 +335,10 @@ async function initializeElementStates(config = null) {
             if (currentState) {
                 await enableBlockFullWidth();
             }
+        } else if (option.id === 'GlobalStyle') {
+            if (currentState) {
+                await enableGlobalStyle();
+            }
         }
     }
 }
@@ -410,10 +346,10 @@ export {
     getElementOptions, 
     createElementContent, 
     initializeElementStates,
-    enableLinkStyle,
-    disableLinkStyle,
     enableCustomFontStyle,
     disableCustomFontStyle,
     enableBlockFullWidth,
-    disableBlockFullWidth
+    disableBlockFullWidth,
+    enableGlobalStyle,
+    disableGlobalStyle
 };

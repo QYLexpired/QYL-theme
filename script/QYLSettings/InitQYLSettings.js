@@ -3,6 +3,7 @@ import { initializeLayoutStates } from './Layout.js';
 import { initializeStyleStates } from './Style.js';
 import { initializeElementStates } from './Element.js';
 import { initializeColorStates } from './Color.js';
+import { initGlobalStyle } from '../element/GlobalStyle.js';
 import { getStorageConfig } from '../basic/GetStorage.js';
 class ConfigManager {
     constructor() {
@@ -44,7 +45,8 @@ async function initQYLSettings() {
             initializeLayoutStates(config),
             initializeStyleStates(config),
             initializeElementStates(config),
-            initializeColorStates(config)
+            initializeColorStates(config),
+            initGlobalStyle()
         ]);
     } catch (error) {
     }
