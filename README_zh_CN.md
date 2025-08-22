@@ -25,15 +25,15 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法</summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法<span style="color: var(--b3-theme-primary); padding-left: 6px">必读！！！</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">左键点击顶栏（手机端为面包屑）的星月图标打开主题设置面板<br>右键点击星月图标可隐藏主题设置面板的选项<br>主题设置面板中，若启用的按钮右边有小圆点，代表可通过右键点击此按钮来切换功能/打开功能设置面板</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">超级块宽度柄<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">超级块宽度柄<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在水平排列超级块的子块间出现宽度调节句柄，拖动即可调整左右子块的宽度比例<br>双击宽度柄可等分前后子块<br>三击宽度柄可等分全部子块</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">自定义文字样式<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">自定义文字样式<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">鼠标右键点击自定义文字样式按钮可进入设置窗口来进行配置，支持多端同步</p>
 </details>
 <details style="padding-left: 1em">

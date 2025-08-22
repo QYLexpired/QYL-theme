@@ -31,7 +31,6 @@
 @import url('./style/ColorPick.css');
 @import url('./style/QYLSettings.css');
 @import url('./style/BackLink.css');
-@import url('./style/ProtyleImg.css');
 @import url('./style/ViewTransition.css');
 @import url('./style/Mobile.css');
 @import url('./style/Scroll.css');
@@ -55,3 +54,4 @@
 @import url('./style/GlobalStyle/list.css');
 @import url('./style/GlobalStyle/codeblock.css');
 @import url('./style/GlobalStyle/table.css');
+@import url('./style/GlobalStyle/headerimage.css');

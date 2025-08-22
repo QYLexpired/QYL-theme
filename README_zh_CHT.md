@@ -18,10 +18,6 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">可通過選擇佈局、風格，像搭積木一樣組合出你喜歡的整體樣式</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">左鍵點擊頂欄（手機端為麵包屑）的星月圖示打開主題設定面板<br>右鍵點擊星月圖示可隱藏主題設定面板的選項<br>主題設定面板中，若啟用的按鈕右邊有小圓點，代表可通過右鍵點擊此按鈕來切換功能/打開功能設定面板</p>
-</details>
-<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">效能說明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
@@ -29,16 +25,20 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">圖片遮罩</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現標記按鈕和閃電按鈕<br>標記按鈕：開啟/關閉遮罩編輯模式<br>閃電按鈕：隱藏/恢復所有遮罩<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：點擊遮罩使其隱藏/恢復<br>移動端暫時不支援建立遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法<span style="color: var(--b3-theme-primary); padding-left: 6px">必讀！！！</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">左鍵點擊頂欄（手機端為麵包屑）的星月圖示打開主題設定面板<br>右鍵點擊星月圖示可隱藏主題設定面板的選項<br>主題設定面板中，若啟用的按鈕右邊有小圓點，代表可通過右鍵點擊此按鈕來切換功能/打開功能設定面板</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">超級塊寬度柄<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">超級塊寬度柄<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在水平排列超級塊的子塊間出現寬度調節句柄，拖曳即可調整左右子塊的寬度比例<br>雙擊寬度柄可等分前後子塊<br>三擊寬度柄可等分全部子塊</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">自訂文字樣式<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">自訂文字樣式<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">滑鼠右鍵點擊自訂文字樣式按鈕可進入設定視窗來進行配置，支援多端同步</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">圖片遮罩</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">開啟後在圖片左上角出現標記按鈕和閃電按鈕<br>標記按鈕：開啟/關閉遮罩編輯模式<br>閃電按鈕：隱藏/恢復所有遮罩<br>編輯模式：拖曳建立遮罩，長按刪除遮罩<br>非編輯模式：點擊遮罩使其隱藏/恢復<br>移動端暫時不支援建立遮罩<br>此功能對效能有一定消耗，請在非必要時關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">顯示行內備註</summary>

@@ -18,10 +18,6 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">You can combine layouts and styles like building blocks to create your preferred overall appearance.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">How to Use</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Left-click the star-moon icon in the top bar (breadcrumb on mobile) to open the theme settings panel<br>Right-click the star-moon icon to hide options in the theme settings panel<br>In the theme settings panel, if there is a small dot to the right of an enabled button, it means you can right-click this button to toggle features/open feature settings panel</p>
-</details>
-<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Performance Notes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is <span style="font-weight: bold; color: var(--b3-theme-primary)">no impact on performance</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Immersive Top Bar, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
@@ -29,11 +25,15 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">In extreme cases, if the system freezes due to enabling too many features, you can force close by deleting the workspace <span data-type="code">\conf\QYL-Config.json</span> file.</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Super Block Width Handle<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">How to Use<span style="color: var(--b3-theme-primary); padding-left: 6px">MUST READ!!!</span></summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Left-click the star-moon icon in the top bar (breadcrumb on mobile) to open the theme settings panel<br>Right-click the star-moon icon to hide options in the theme settings panel<br>In the theme settings panel, if there is a small dot to the right of an enabled button, it means you can right-click this button to toggle features/open feature settings panel</p>
+</details>
+<details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Super Block Width Handle<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, width adjustment handles appear between child blocks of horizontally arranged super blocks. Drag to adjust the width ratio of left and right child blocks<br>Double-click the width handle to evenly distribute front and back child blocks<br>Triple-click the width handle to evenly distribute all child blocks</p>
 </details>
 <details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Custom Text Styles<span style="color: var(--b3-theme-primary); padding-left: 6px">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the Custom Text Styles button to enter the settings window for configuration. Supports multi-device synchronization.</p>
 </details>
 <details style="padding-left: 1em">
