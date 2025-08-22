@@ -175,19 +175,21 @@ export async function createCustomFontStyleDialog() {
         const hasInlineStyle = button.hasAttribute('style') && button.getAttribute('style').includes(property);
         if (hasInlineStyle) {
             const styleAttr = button.getAttribute('style');
-            const colorMatch = styleAttr.match(new RegExp(`${property}:\\s*var\\(--([^)]+)\\)`));
+            const colorMatch = styleAttr.match(new RegExp(`${property}:\\s*([^;]+)`));
             if (colorMatch) {
-                const cssVarName = colorMatch[1];
-                const cssVarValue = getComputedStyle(document.documentElement).getPropertyValue(`--${cssVarName}`).trim();
-                if (cssVarValue) {
-                    return cssVarValue;
+                const colorValue = colorMatch[1].trim();
+                if (!colorValue.startsWith('var(')) {
+                    return colorValue;
                 }
-            } else {
-                const computedStyle = window.getComputedStyle(button);
-                const computedColor = isBackground ? computedStyle.backgroundColor : computedStyle.color;
-                if (computedColor && computedColor !== 'rgba(0, 0, 0, 0)' && computedColor !== 'transparent') {
-                    return computedColor;
-                }
+            }
+        }
+        const colorIndex = button.getAttribute('data-color-index');
+        const colorType = button.getAttribute('data-color-type');
+        if (colorIndex && colorType) {
+            const cssVarName = colorType === 'font' ? `--b3-font-color${colorIndex}` : `--b3-font-background${colorIndex}`;
+            const cssVarValue = getComputedStyle(document.documentElement).getPropertyValue(cssVarName).trim();
+            if (cssVarValue) {
+                return cssVarValue;
             }
         }
         return defaultColor;

@@ -92,6 +92,14 @@ export async function initGlobalStyle(config = null) {
                 attribute: 'qyl-table-style',
                 values: ['hierarchical']
             },
+            'QYLHeaderImageStyle': {
+                attribute: 'qyl-header-image-style',
+                values: ['mask']
+            },
+            'QYLHeaderImageEffect': {
+                attribute: 'qyl-header-image-effect',
+                values: ['parallax']
+            },
         };
         Object.entries(attributeMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
@@ -106,7 +114,7 @@ export async function initGlobalStyle(config = null) {
     }
 }
 export function removeGlobalStyle() {
-    const attributes = ['qyl-heading-color', 'qyl-heading-enhance', 'qyl-heading-level', 'qyl-image-shape', 'qyl-link-style', 'qyl-superblock-general', 'qyl-superblock-horizontal', 'qyl-tag-color', 'qyl-tag-style', 'qyl-inline-code-color', 'qyl-quote-style', 'qyl-unordered-list', 'qyl-ordered-list', 'qyl-codeblock-style', 'qyl-table-shape', 'qyl-table-style'];
+    const attributes = ['qyl-heading-color', 'qyl-heading-enhance', 'qyl-heading-level', 'qyl-image-shape', 'qyl-link-style', 'qyl-superblock-general', 'qyl-superblock-horizontal', 'qyl-tag-color', 'qyl-tag-style', 'qyl-inline-code-color', 'qyl-quote-style', 'qyl-unordered-list', 'qyl-ordered-list', 'qyl-codeblock-style', 'qyl-table-shape', 'qyl-table-style', 'qyl-header-image-style', 'qyl-header-image-effect'];
     attributes.forEach(attr => {
         document.documentElement.removeAttribute(attr);
     });
@@ -199,6 +207,16 @@ export async function createGlobalStyleDialog() {
     body.className = 'b3-dialog__body';
     const content = document.createElement('div');
     content.className = 'b3-dialog__content';
+    const searchContainer = document.createElement('div');
+    searchContainer.style.marginBottom = '16px';
+    const searchInput = document.createElement('input');
+    searchInput.placeholder = i18n.Search || '搜索';
+    searchInput.className = 'b3-text-field fn__block';
+    searchContainer.appendChild(searchInput);
+    content.appendChild(searchContainer);
+    const configContainer = document.createElement('div');
+    configContainer.id = 'global-style-config-container';
+    content.appendChild(configContainer);
     const configGroups = [
         {
             title: i18n.HeadingStyle,
@@ -379,6 +397,27 @@ export async function createGlobalStyleDialog() {
                     ]
                 },
             ]
+        },
+        {
+            title: i18n.HeaderImageStyle,
+            items: [
+                {
+                    id: 'QYLHeaderImageStyle',
+                    label: i18n.HeaderImageStyleType,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'mask', label: i18n.Mask }
+                    ]
+                },
+                {
+                    id: 'QYLHeaderImageEffect',
+                    label: i18n.HeaderImageEffect,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'parallax', label: i18n.ParallaxScroll }
+                    ]
+                }
+            ]
         }
     ];
     const groupsHTML = configGroups.map(group => {
@@ -387,9 +426,11 @@ export async function createGlobalStyleDialog() {
                 `<option value="${option.value}">${option.label}</option>`
             ).join('');
             const separator = index > 0 ? '<div class="fn__hr"></div>' : '';
+            const optionsText = item.options.map(option => option.label).join(' ');
+            const searchText = `${group.title} ${item.label} ${optionsText}`;
             return `
                 ${separator}
-                <div class="fn__flex config__item">
+                <div class="fn__flex config__item" data-search-text="${searchText}">
                     <div class="fn__flex-center fn__flex-1 ft__on-surface">${item.label}</div>
                     <span class="fn__space"></span>
                     <select id="${item.id}" class="b3-select fn__size200">
@@ -398,8 +439,12 @@ export async function createGlobalStyleDialog() {
                 </div>
             `;
         }).join('');
+        const groupOptionsText = group.items.map(item => 
+            item.options.map(option => option.label).join(' ')
+        ).join(' ');
+        const groupSearchText = `${group.title} ${groupOptionsText}`;
         return `
-            <div class="b3-label fn__flex">
+            <div class="b3-label fn__flex config__group" data-search-text="${groupSearchText}">
                 <div class="fn__block">
                     <div>${group.title}</div>
                     <div class="fn__hr"></div>
@@ -408,10 +453,73 @@ export async function createGlobalStyleDialog() {
             </div>
         `;
     }).join('');
-    content.innerHTML = groupsHTML;
+    configContainer.innerHTML = groupsHTML;
+    const performSearch = (searchTerm) => {
+        if (!configContainer) return;
+        const groups = configContainer.querySelectorAll('.config__group');
+        const items = configContainer.querySelectorAll('.config__item');
+        if (groups.length === 0) return;
+        if (!searchTerm || searchTerm.trim() === '') {
+            groups.forEach(group => {
+                if (group && group.style) {
+                    group.style.display = 'block';
+                }
+            });
+            items.forEach(item => {
+                if (item && item.style) {
+                    item.style.display = 'flex';
+                }
+            });
+            return;
+        }
+        const term = searchTerm.toLowerCase().trim();
+        groups.forEach(group => {
+            if (!group) return;
+            const groupSearchText = group.getAttribute('data-search-text') || '';
+            const groupItems = group.querySelectorAll('.config__item');
+            let hasVisibleItems = false;
+            groupItems.forEach(item => {
+                if (!item) return;
+                const itemSearchText = item.getAttribute('data-search-text') || '';
+                const isMatch = itemSearchText.toLowerCase().includes(term);
+                if (isMatch) {
+                    item.style.display = 'flex';
+                    hasVisibleItems = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            if (hasVisibleItems) {
+                group.style.display = 'block';
+            } else {
+                group.style.display = 'none';
+            }
+        });
+    };
+    let searchTimeout = null;
+    let isComposing = false;
+    searchInput.addEventListener('input', (e) => {
+        if (isComposing) return;
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+        }
+        searchTimeout = setTimeout(() => {
+            performSearch(e.target.value);
+        }, 200);
+    });
+    searchInput.addEventListener('compositionstart', () => {
+        isComposing = true;
+    });
+    searchInput.addEventListener('compositionend', (e) => {
+        isComposing = false;
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+        }
+        performSearch(e.target.value);
+    });
     configGroups.forEach(group => {
         group.items.forEach(item => {
-            const select = content.querySelector(`#${item.id}`);
+            const select = configContainer.querySelector(`#${item.id}`);
             if (select) {
                 const currentValue = currentConfig[item.id] || 'default';
                 select.value = currentValue;
@@ -450,7 +558,7 @@ export async function createGlobalStyleDialog() {
         const newConfig = {};
         configGroups.forEach(group => {
             group.items.forEach(item => {
-                const select = content.querySelector(`#${item.id}`);
+                const select = configContainer.querySelector(`#${item.id}`);
                 if (select) {
                     const newValue = select.value;
                     if (newValue !== 'default') {
@@ -473,6 +581,7 @@ export async function createGlobalStyleDialog() {
     };
     document.addEventListener('keydown', handleKeyDown);
     dialog._keydownHandler = handleKeyDown;
+    dialog._searchTimeout = searchTimeout;
     return dialogContainer;
 }
 async function saveGlobalStyleConfig(config) {
@@ -501,6 +610,7 @@ export function removeGlobalStyleDialog() {
             const mousemoveHandler = dialog._mousemoveHandler;
             const mouseupHandler = dialog._mouseupHandler;
             const keydownHandler = dialog._keydownHandler;
+            const searchTimeout = dialog._searchTimeout;
             if (mousemoveHandler) {
                 document.removeEventListener('mousemove', mousemoveHandler);
             }
@@ -509,6 +619,9 @@ export function removeGlobalStyleDialog() {
             }
             if (keydownHandler) {
                 document.removeEventListener('keydown', keydownHandler);
+            }
+            if (searchTimeout) {
+                clearTimeout(searchTimeout);
             }
         }
         existingDialog.remove();
