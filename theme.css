@@ -44,3 +44,14 @@
 @import url('./style/Plugins.css');
 @import url('./style/Pickr.min.css');
 @import url('./style/SbHandle.css');
+/* 全局样式 */
+@import url('./style/GlobalStyle/heading.css');
+@import url('./style/GlobalStyle/img.css');
+@import url('./style/GlobalStyle/link.css');
+@import url('./style/GlobalStyle/sb.css');
+@import url('./style/GlobalStyle/tag.css');
+@import url('./style/GlobalStyle/inlinecode.css');
+@import url('./style/GlobalStyle/bq.css');
+@import url('./style/GlobalStyle/list.css');
+@import url('./style/GlobalStyle/codeblock.css');
+@import url('./style/GlobalStyle/table.css');

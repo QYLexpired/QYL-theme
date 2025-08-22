@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Added layout option: Card layout (mutually exclusive with Color Block layout)<br>• Added preset color scheme for dark mode: Gleam<br>• Added preset color scheme for light mode: Light Cream<br>• Redesigned image nine-grid layout feature, greatly optimized performance and no longer requires separate activation<br>• Optimized performance of Fixed Toolbar feature<br>• Fixed database tag colors and colorful heading colors, no longer change with theme color<br>• Added element option: Enable block full-width display, when enabled, you can apply full-width display to individual blocks through QYL custom attribute settings (such as long tables, databases, etc.)</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">Major Update</span>: Added Element Options - Global Style Settings, right-click this button to directly set global element styles in the window, while removing the following options: Colorful Headings and Outlines, Colorful Tags and Colorful Inline Code, Hyperlink Icons, Multi-level List Numbers (enable through Global Style Settings)<br>• Added layout option: Card layout (mutually exclusive with Color Block layout)<br>• Added preset color scheme for dark mode: Gleam<br>• Added preset color scheme for light mode: Light Cream<br>• Redesigned image nine-grid layout feature, greatly optimized performance and no longer requires separate activation<br>• Optimized performance of Fixed Toolbar feature<br>• Fixed database tag colors and colorful heading colors, no longer change with theme color<br>• Added element option: Enable block full-width display, when enabled, you can apply full-width display to individual blocks through QYL custom attribute settings (such as long tables, databases, etc.)</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Recent Updates</summary>
@@ -18,6 +18,10 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">You can combine layouts and styles like building blocks to create your preferred overall appearance.</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">How to Use</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Left-click the star-moon icon in the top bar (breadcrumb on mobile) to open the theme settings panel<br>Right-click the star-moon icon to hide options in the theme settings panel<br>In the theme settings panel, if there is a small dot to the right of an enabled button, it means you can right-click this button to toggle features/open feature settings panel</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Performance Notes</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When a feature is not enabled, the corresponding code will not load, so there is <span style="font-weight: bold; color: var(--b3-theme-primary)">no impact on performance</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">If you experience lag, it is recommended to disable features in the following order based on their performance impact: Theme Color Changes Over Time, Immersive Top Bar, Nine Grid Layout, Fixed Toolbar, Show Inline Memo, Image Mask, Focus Editing Mode, QYL Custom Attribute Styles, Theme Animation, Frosted Glass Effect, Top Bar Fusion.</p>
@@ -27,10 +31,6 @@
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Super Block Width Handle<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">When enabled, width adjustment handles appear between child blocks of horizontally arranged super blocks. Drag to adjust the width ratio of left and right child blocks<br>Double-click the width handle to evenly distribute front and back child blocks<br>Triple-click the width handle to evenly distribute all child blocks</p>
-</details>
-<details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Hidden Options<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">Right-click the theme settings button to enter the settings window and hide unwanted options.</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Custom Text Styles<span style="color: var(--b3-theme-primary)">NEW</span></summary>

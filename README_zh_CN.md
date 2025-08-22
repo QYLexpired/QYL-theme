@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加布局选项：卡片式布局（与撞色布局互斥）<br>• 暗黑模式增加预设配色：微光<br>• 明亮模式增加预设配色：淡奶油<br>• 重做图片九宫格排列功能，大幅优化性能且不再需要单独开启<br>• 优化固定工具栏功能的性能<br>• 固定数据库标签颜色和多彩标题颜色，不再随主题色变化<br>• 增加元素选项：启用块全宽显示，开启后，通过QYL自定义属性设置，可单独对某个块应用全宽显示（如长表格、数据库等）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用） <br>• 增加布局选项：卡片式布局（与撞色布局互斥）<br>• 暗黑模式增加预设配色：微光<br>• 明亮模式增加预设配色：淡奶油<br>• 重做图片九宫格排列功能，大幅优化性能且不再需要单独开启<br>• 优化固定工具栏功能的性能<br>• 固定数据库标签颜色和多彩标题颜色，不再随主题色变化<br>• 增加元素选项：启用块全宽显示，开启后，通过QYL自定义属性设置，可单独对某个块应用全宽显示（如长表格、数据库等）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
@@ -25,16 +25,16 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若极端情况下，由于开启过多功能导致卡死，可删除工作空间<span data-type="code">\conf\QYL-Config.json</span>文件强制关闭</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">左键点击顶栏（手机端为面包屑）的星月图标打开主题设置面板<br>右键点击星月图标可隐藏主题设置面板的选项<br>主题设置面板中，若启用的按钮右边有小圆点，代表可通过右键点击此按钮来切换功能/打开功能设置面板</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">超级块宽度柄<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">开启后在水平排列超级块的子块间出现宽度调节句柄，拖动即可调整左右子块的宽度比例<br>双击宽度柄可等分前后子块<br>三击宽度柄可等分全部子块</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">自定义文字样式<span style="color: var(--b3-theme-primary)">NEW</span></summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">鼠标右键点击自定义文字样式按钮可进入设置窗口来进行配置，支持多端同步</p>
-</details>
-<details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">隐藏选项<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">鼠标右键点击主题设置按钮可进入设置窗口隐藏不需要的选项</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">图片遮罩</summary>

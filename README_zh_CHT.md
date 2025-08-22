@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加佈局選項：卡片式佈局（與撞色佈局互斥）<br>• 暗黑模式增加預設配色：微光<br>• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 固定資料庫標籤顏色和多彩標題顏色，不再隨主題色變化<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）<br>• 增加佈局選項：卡片式佈局（與撞色佈局互斥）<br>• 暗黑模式增加預設配色：微光<br>• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 固定資料庫標籤顏色和多彩標題顏色，不再隨主題色變化<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
@@ -18,15 +18,15 @@
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">可通過選擇佈局、風格，像搭積木一樣組合出你喜歡的整體樣式</p>
 </details>
 <details style="padding-left: 1em">
+<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法</summary>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">左鍵點擊頂欄（手機端為麵包屑）的星月圖示打開主題設定面板<br>右鍵點擊星月圖示可隱藏主題設定面板的選項<br>主題設定面板中，若啟用的按鈕右邊有小圓點，代表可通過右鍵點擊此按鈕來切換功能/打開功能設定面板</p>
+</details>
+<details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">效能說明</summary>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄</p>
 <p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
-</details>
-<details style="padding-left: 1em">
-<summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">隱藏選項<span style="color: var(--b3-theme-primary)">NEW</span></summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">滑鼠右鍵點擊主題設定按鈕可進入設定視窗隱藏不需要的選項</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">圖片遮罩</summary>
