@@ -191,3 +191,12 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
 [data-key="QYLCustomFontStyle"] button[data-color-type="background"] {
     color: transparent;
 }
+[data-key="QYLGlobalStyle"] .b3-dialog__content {
+    max-height: 70vh;
+    max-width: 90vw;
+    overflow-y: scroll;
+    & .b3-label.fn__flex > .fn__block > div:first-child {
+        font-weight: bold;
+        color: var(--b3-theme-primary);
+    }
+}
