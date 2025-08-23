@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用） <br>• 增加布局选项：卡片式布局（与撞色布局互斥）<br>• 暗黑模式增加预设配色：微光<br>• 明亮模式增加预设配色：淡奶油<br>• 重做图片九宫格排列功能，大幅优化性能且不再需要单独开启<br>• 优化固定工具栏功能的性能<br>• 固定数据库标签颜色和多彩标题颜色，不再随主题色变化<br>• 增加元素选项：启用块全宽显示，开启后，通过QYL自定义属性设置，可单独对某个块应用全宽显示（如长表格、数据库等）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用）<br>• 优化同时开启顶栏融合与全高布局/隐藏页签与面包屑时的界面样式<br>• 图片遮罩可显示序号</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
