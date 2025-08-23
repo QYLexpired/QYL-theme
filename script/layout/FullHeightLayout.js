@@ -128,14 +128,14 @@ export function initFullHeightLayout() {
             transform: translateY(30px);
         }
         /* 顶栏融合但未开启撞色布局 */
-        .QYLFusionOn.QYLFullHeight:not(.QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child:not(.fn__none) {
+        .QYLFusionOn.QYLFullHeight:not(.QYLColorBlock) .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child:not(.fn__none) {
             & + .layout-tab-container {
                 height: calc(100% - 36.5px);
                 margin-top: 36.5px;
                 box-sizing: border-box;
                 & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {
-                    padding-top: 10px;
-                    margin-bottom: -40px;
+                    padding-top: 12px;
+                    margin-bottom: -42px;
                 }
                 & .protyle::before {
                     display: none;

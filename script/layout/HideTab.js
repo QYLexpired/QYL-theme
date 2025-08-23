@@ -115,25 +115,28 @@ export function initHideTab() {
             transform: translateY(30px);
         }
         /* 顶栏融合但未开启撞色布局 */
-        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"].QYLFusionTop > .fn__flex:first-child:not(.fn__none) {
+        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"].QYLFusionTop > .fn__flex:first-child:not(.fn__none) {
             & + .layout-tab-container {
                 height: calc(100% - 36.5px);
                 margin-top: 36.5px;
                 box-sizing: border-box;
                 & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {
-                    padding-top: 10px;
-                    margin-bottom: -40px;
+                    padding-top: 12px;
+                    margin-bottom: -42px;
                 }
                 & .protyle::before {
                     display: none;
                 }
             }
         }
-        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child:not(.fn__none) {
+        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child:not(.fn__none) {
             --QYL-FusionOn-Not-Top-Transform: translateY(0);
+            margin-bottom: -33.5px !important;
             & + .layout-tab-container {
                 & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {
                     --QYL-HideTab-breadcrumb-transformY: translateY(0);
+                    padding-top: 33.5px;
+                    margin-bottom: -63.5px;
                 }
             }
         }
