@@ -16,6 +16,7 @@ export function initHideTab() {
             z-index: 4;
             border: none;
             margin-bottom: -36.5px !important;
+            transition: opacity 0.3s ease-in-out;
             & > .layout-tab-bar {
                 border: none;
                 background-color: transparent;
@@ -38,7 +39,7 @@ export function initHideTab() {
                     background-color: transparent;
                     z-index: 3;
                     transform: var(--QYL-HideTab-breadcrumb-transformY);
-                    transition: var(--b3-transition);
+                    transition: opacity 0.3s ease-in-out;
                     &:hover {
                         opacity: 1;
                     }
@@ -112,6 +113,29 @@ export function initHideTab() {
         /* 适配伪文档面包屑插件 */
         .og-fake-doc-breadcrumb-container.protyle-breadcrumb {
             transform: translateY(30px);
+        }
+        /* 顶栏融合但未开启撞色布局 */
+        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"].QYLFusionTop > .fn__flex:first-child:not(.fn__none) {
+            & + .layout-tab-container {
+                height: calc(100% - 36.5px);
+                margin-top: 36.5px;
+                box-sizing: border-box;
+                & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {
+                    padding-top: 10px;
+                    margin-bottom: -40px;
+                }
+                & .protyle::before {
+                    display: none;
+                }
+            }
+        }
+        .QYLFusionOn.QYLHideTab:not(.QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"]:not(.QYLFusionTop) > .fn__flex:first-child:not(.fn__none) {
+            --QYL-FusionOn-Not-Top-Transform: translateY(0);
+            & + .layout-tab-container {
+                & > .fn__flex-1.protyle:not(.fullscreen) .protyle-breadcrumb {
+                    --QYL-HideTab-breadcrumb-transformY: translateY(0);
+                }
+            }
         }
     `;
     document.head.appendChild(style);
