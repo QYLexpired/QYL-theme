@@ -472,7 +472,21 @@ export async function createGlobalStyleDialog() {
             });
             return;
         }
-        const term = searchTerm.toLowerCase().trim();
+        const hasChinese = /[\u4e00-\u9fff]/.test(searchTerm);
+        let searchUnits;
+        if (hasChinese) {
+            const chineseChars = searchTerm.match(/[\u4e00-\u9fff]/g) || [];
+            const englishWords = searchTerm.toLowerCase().match(/[a-zA-Z]+/g) || [];
+            searchUnits = {
+                chinese: chineseChars,
+                english: englishWords
+            };
+        } else {
+            searchUnits = {
+                chinese: [],
+                english: searchTerm.toLowerCase().trim().split(/\s+/).filter(word => word.length > 0)
+            };
+        }
         groups.forEach(group => {
             if (!group) return;
             const groupSearchText = group.getAttribute('data-search-text') || '';
@@ -481,7 +495,15 @@ export async function createGlobalStyleDialog() {
             groupItems.forEach(item => {
                 if (!item) return;
                 const itemSearchText = item.getAttribute('data-search-text') || '';
-                const isMatch = itemSearchText.toLowerCase().includes(term);
+                const itemTextLower = itemSearchText.toLowerCase();
+                let isMatch;
+                if (hasChinese) {
+                    const chineseMatch = searchUnits.chinese.some(char => itemTextLower.includes(char));
+                    const englishMatch = searchUnits.english.some(word => itemTextLower.includes(word));
+                    isMatch = chineseMatch || englishMatch;
+                } else {
+                    isMatch = searchUnits.english.some(word => itemTextLower.includes(word));
+                }
                 if (isMatch) {
                     item.style.display = 'flex';
                     hasVisibleItems = true;
