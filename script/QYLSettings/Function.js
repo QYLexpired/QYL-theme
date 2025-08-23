@@ -470,6 +470,11 @@ async function createFunctionContent(config = null) {
         if (option.id === 'SideMemo') {
             const handleRightClick = async (e) => {
                 e.preventDefault();
+                const currentConfig = await getStorageConfig();
+                const currentState = currentConfig[option.id] || false;
+                if (!currentState) {
+                    return;
+                }
                 if (isMobile) {
                     try {
                         await fetch('/api/notification/pushMsg', {

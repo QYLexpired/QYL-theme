@@ -204,7 +204,8 @@ async function createElementContent(config = null) {
                 if (event.button === 2) { 
                     event.preventDefault();
                     event.stopPropagation();
-                    const currentState = config[option.id] || false;
+                    const currentConfig = await getStorageConfig();
+                    const currentState = currentConfig[option.id] || false;
                     if (!currentState) {
                         return; 
                     }
@@ -224,7 +225,8 @@ async function createElementContent(config = null) {
                     if (!hasMoved) {
                         event.preventDefault();
                         event.stopPropagation();
-                        const currentState = config[option.id] || false;
+                        const currentConfig = await getStorageConfig();
+                        const currentState = currentConfig[option.id] || false;
                         if (!currentState) {
                             return; 
                         }
@@ -260,7 +262,8 @@ async function createElementContent(config = null) {
                 if (event.button === 2) { 
                     event.preventDefault();
                     event.stopPropagation();
-                    const currentState = config[option.id] || false;
+                    const currentConfig = await getStorageConfig();
+                    const currentState = currentConfig[option.id] || false;
                     if (!currentState) {
                         return; 
                     }
@@ -280,7 +283,8 @@ async function createElementContent(config = null) {
                     if (!hasMoved) {
                         event.preventDefault();
                         event.stopPropagation();
-                        const currentState = config[option.id] || false;
+                        const currentConfig = await getStorageConfig();
+                        const currentState = currentConfig[option.id] || false;
                         if (!currentState) {
                             return; 
                         }

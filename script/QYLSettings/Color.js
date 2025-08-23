@@ -1383,7 +1383,8 @@ async function createColorContent(config = null) {
         if (option.id === 'CustomColorPickLight' || option.id === 'CustomColorPickDark') {
             button.addEventListener('contextmenu', async (e) => {
                 e.preventDefault(); 
-                const currentState = config[option.id] || false;
+                const currentConfig = await getStorageConfig();
+                const currentState = currentConfig[option.id] || false;
                 if (currentState) {
                     await showColorPanel1();
                 }
