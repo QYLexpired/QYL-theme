@@ -8,22 +8,16 @@ export function initInkMode() {
                 --QYL-wnd-layout-tab-border-ink: 1.5px solid var(--b3-theme-primary);/* 适配墨水屏 */
             }
             /* 主界面 */
-            :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+            :is(.layout__dockl, .layout__dockr, .layout__dockb):not(.layout--float) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
                 border: 1.5px solid var(--b3-theme-primary);
                 box-sizing: border-box;
             }
-            .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+            .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
                 border: var(--QYL-wnd-border-none, 1.5px solid var(--b3-theme-primary));
                 box-sizing: border-box;
                 & > .layout-tab-container {
                     border: var(--QYL-wnd-container-border-ink);
                     box-sizing: border-box;
-                }
-            }
-            :is(.layout__dockl, .layout__dockr, .layout__dockb).layout--float {
-                border: 1.5px solid var(--b3-theme-primary);
-                > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
-                    border: none;
                 }
             }
             /* 分割线 */

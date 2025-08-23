@@ -139,20 +139,15 @@ export function initFlatStyle() {
             background-color: transparent !important;
         }
         /* 主界面 */
-        :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+        :is(.layout__dockl, .layout__dockr, .layout__dockb):not(.layout--float) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
             border: 1px solid var(--b3-theme-surface-lighter);
             box-sizing: border-box;
         }
-        .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
+        .layout__center:not(#layouts) :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] {
             border: var(--QYL-wnd-border-none, 1px solid var(--b3-theme-surface-lighter));
             box-sizing: border-box;
             & > .layout-tab-container {
                 border: var(--QYL-wnd-container-border-flat);
-            }
-        }
-        :is(.layout__dockl, .layout__dockr, .layout__dockb).layout--float {
-            > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
-                border: none;
             }
         }
         /* 阴影 */
