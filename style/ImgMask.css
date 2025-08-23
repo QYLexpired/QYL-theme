@@ -76,3 +76,16 @@ body:not(.QYLmobile) .protyle-wysiwyg[contenteditable="false"] {
 span:not(:hover) > :is(.QYLImgMaskButton, .QYLImgMaskShowAll) {
     opacity: 0;
 }
+.QYLImgMaskRect {
+    counter-increment: mask-counter;
+    container-type: inline-size;
+    &::after {
+        content: counter(mask-counter);
+        position: absolute;
+        font-size: clamp(0.9em, 40cqw, 2.1em);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--b3-theme-on-primary);
+    }
+}
