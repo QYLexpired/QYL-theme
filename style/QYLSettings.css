@@ -102,6 +102,9 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
             &:nth-child(2) {
                 grid-column: span 2;
             }
+            &:nth-child(3) {
+                grid-column: span 2;
+            }
             & button {
                 height: 100%;
             }
@@ -120,10 +123,18 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
             &:nth-child(3) {
                 grid-column: span 2;
             }
+            &:nth-child(4) {
+                grid-column: span 2;
+            }
         }
     }
 }
-.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar) {
+.QYLColorSwitchImg .QYLHueSlider {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: saturate(0);
+}
+.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar, #ColorSwitchImg) {
     opacity: 0.5;
     pointer-events: none;
     color: var(--b3-theme-on-surface-light) !important;
