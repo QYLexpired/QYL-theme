@@ -2,11 +2,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）<br>• 增加佈局選項：卡片式佈局（與撞色佈局互斥）<br>• 暗黑模式增加預設配色：微光<br>• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 固定資料庫標籤顏色和多彩標題顏色，不再隨主題色變化<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加顏色選項-主題色隨題頭圖變化（注意：此功能需消耗一定性能，請按需啟用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）<br>• 優化同時開啟頂欄融合與全高佈局/隱藏分頁與麵包屑時的介面樣式<br>• 圖片遮罩可顯示序號</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加風格選項：沉浸式頂欄<br>• 優化超級塊寬度柄，修復諸多問題<br>• 重做標籤樣式<br>• 優化顯示行內備註Markdown樣式<br>• 優化墨水屏模式細節<br>• QYL自訂屬性增加-超級塊樣式：邊框、立體、分隔線<br>• 增加功能選項-超級塊寬度柄，啟用後可快速調整水平超級塊的子塊寬度，並快速添加子塊，雙擊寬度柄可等分各子塊<br>• 增加元素選項-自訂文字樣式，啟用後右鍵點擊按鈕出現文字樣式配置選單（類似配色方案外掛，匯出時生效）<br>• 顯示行內備註支援解析基礎Markdown<br>• 重做塊樣式選單<br>• 優化QYL自訂屬性選單項目載入速度<br>• 優化圖片遮罩功能的穩定性<br>• 取消斜杠選單展開時的分組機制<br>• 斜杠選單選項可通過方向鍵切換，參考Savor主題<br>• 修復主題設定視窗與公共選單的衝突<br>• 優化任務列表摺疊樣式<br>• 優化邊框文件樹顏色<br>• 修復隱藏停靠欄時狀態欄位置未更新的問題<br>• 優化墨水屏模式，完善大量細節<br>• 圖片樣式增加：反色（僅暗黑模式）、反色（僅明亮模式）<br>• 表格樣式增加：層次、圓角<br>• 修復頂欄融合時部分情況下頂部分頁位置不更新的問題<br>• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式<br>• 修復同時開啟頂欄融合與全高佈局/扁平化風格/墨水屏模式，且不打開任何分頁時的樣式異常<br>• 修復開啟頂欄融合時將分頁在新視窗打開時分頁位置異常的問題<br>• 修復開啟扁平化風格/墨水屏模式後，將分頁在新視窗打開並切換全螢幕時麵包屑無法點擊的問題</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 增加佈局選項：卡片式佈局（與撞色佈局互斥）<br>• 暗黑模式增加預設配色：微光<br>• 明亮模式增加預設配色：淡奶油<br>• 重做圖片九宮格排列功能，大幅優化效能且不再需要單獨開啟<br>• 優化固定工具欄功能的效能<br>• 固定資料庫標籤顏色和多彩標題顏色，不再隨主題色變化<br>• 增加元素選項：啟用塊全寬顯示，開啟後，通過QYL自訂屬性設定，可單獨對某個塊應用全寬顯示（如長表格、資料庫等）<br>• 增加風格選項：沉浸式頂欄<br>• 優化超級塊寬度柄，修復諸多問題<br>• 重做標籤樣式<br>• 優化顯示行內備註Markdown樣式<br>• 優化墨水屏模式細節<br>• QYL自訂屬性增加-超級塊樣式：邊框、立體、分隔線<br>• 增加功能選項-超級塊寬度柄，啟用後可快速調整水平超級塊的子塊寬度，並快速添加子塊，雙擊寬度柄可等分各子塊<br>• 增加元素選項-自訂文字樣式，啟用後右鍵點擊按鈕出現文字樣式配置選單（類似配色方案外掛，匯出時生效）<br>• 顯示行內備註支援解析基礎Markdown<br>• 重做塊樣式選單<br>• 優化QYL自訂屬性選單項目載入速度<br>• 優化圖片遮罩功能的穩定性<br>• 取消斜杠選單展開時的分組機制<br>• 斜杠選單選項可通過方向鍵切換，參考Savor主題<br>• 修復主題設定視窗與公共選單的衝突<br>• 優化任務列表摺疊樣式<br>• 優化邊框文件樹顏色<br>• 修復隱藏停靠欄時狀態欄位置未更新的問題<br>• 優化墨水屏模式，完善大量細節<br>• 圖片樣式增加：反色（僅暗黑模式）、反色（僅明亮模式）<br>• 表格樣式增加：層次、圓角<br>• 修復頂欄融合時部分情況下頂部分頁位置不更新的問題<br>• 暗黑模式增加預設配色：沼澤<br>• 明亮模式增加預設配色：草木灰、雲堇<br>• QYL自訂屬性增加時間屬性，用於為任意塊添加當前時間屬性<br>• 優化扁平化風格，完善大量細節<br>• 移除開啟主題動畫後資料庫卡片視圖的3D動效<br>• 優化撞色佈局的浮動側欄<br>• 更改重載機制，參考<a href="https://github.com/siyuan-note/siyuan/issues/15308#issuecomment-3083527368">wilsons提供的方法</a><br>• 全高佈局/隱藏分頁和麵包屑適配匯出預覽介面、偽文件麵包屑外掛<br>• 為QYL主題設定視窗具有滑鼠右鍵點擊功能的按鈕增加提示<br>• 重做多彩分頁下聚焦分頁的樣式<br>• 適配程式碼片段管理器外掛<br>• 優化暗黑模式多彩文件樹效果<br>• 修復開啟備註顯示在底部時的部分錯誤<br>• 為QYL自訂屬性選單中不同組別屬性增加分隔線，優化移動端互動<br>• 簡化配色切換動畫<br>• 表格表頭不再預設加粗，優化三線表樣式<br>• 優化主題設定視窗的關閉邏輯<br>• 優化手機端選單樣式<br>• 修復同時開啟頂欄融合與全高佈局/扁平化風格/墨水屏模式，且不打開任何分頁時的樣式異常<br>• 修復開啟頂欄融合時將分頁在新視窗打開時分頁位置異常的問題<br>• 修復開啟扁平化風格/墨水屏模式後，將分頁在新視窗打開並切換全螢幕時麵包屑無法點擊的問題</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
@@ -19,10 +19,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">效能說明</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span></p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合</p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄</p>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span><br>若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合<br>若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄<br>若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法<span style="color: var(--b3-theme-primary); padding-left: 6px">必讀！！！</span></summary>
@@ -62,11 +59,11 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">專注編輯模式</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使當前編輯的塊自動保持在編輯器的垂直中心，且模糊未編輯的塊來突出當前編輯的塊<br>右鍵點擊專注編輯模式按鈕可取消塊模糊</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">使當前編輯的塊自動保持在編輯器的垂直中心，且模糊未編輯的塊來突出當前編輯的塊<br>右鍵點擊專注編輯模式可取消模糊效果</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">固定工具欄</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">將文字工具欄固定在編輯器的上、左、下、右四個方向<br>通過滑鼠右鍵單擊工具欄來切換位置</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">將文字工具欄將固定在編輯器的上、左、下、右四個方向<br>通過滑鼠右鍵單擊工具欄來切換位置</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">標記挖空</summary>
@@ -91,4 +88,6 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 14px; padding-left: 1em">
 • <a href="https://github.com/Simonwep/pickr">Pickr</a><br>
 • <a href="https://github.com/markedjs/marked">Marked</a><br>
+• <a href="https://github.com/fast-average-color/fast-average-color">Fast Average Color</a><br>
+• <a href="https://github.com/Qix-/color">Color</a><br>
 </p> 

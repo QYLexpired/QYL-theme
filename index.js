@@ -3,6 +3,7 @@ if (isMobile) {
     document.body.classList.add('QYLmobile');
 }
 import './script/basic/marked.min.js';
+import './script/basic/ColorJs.js';
 import './script/QYLButton/QYLButton.js';
 import './script/basic/GetStorage.js';
 import './script/QYLSettings/InitQYLSettings.js';
