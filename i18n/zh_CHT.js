@@ -194,6 +194,7 @@ export default {
     "QYLDarkClassic": "經典",
     "QYLDarkRevert": "反轉",
     "ColorSwitchTime": "主題色隨時間變化",
+    "ColorSwitchImg": "主題色隨題頭圖變化",
     "QYLWildness": "曠野",
     "QYLMarsh": "沼澤",
     "QYLGleam": "微光",

@@ -83,6 +83,7 @@ export default {
     "QYLDarkClassic": "Dark Classic",
     "QYLDarkRevert": "Revert",
     "ColorSwitchTime": "Theme color changes with time",
+    "ColorSwitchImg": "Theme color changes with header image",
     "QYLcustomattr": "QYL-theme block settings",
     "group1": "Group 1",
     "group2": "Group 2",
