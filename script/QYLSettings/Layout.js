@@ -99,6 +99,22 @@ async function disableFusionOn() {
     }
 }
 async function enableHideTopBar() {
+    if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        try {
+            fetch('/api/notification/pushMsg', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    msg: i18n.HideTopBarTabletNotSupported || '当前设备不支持隐藏顶栏',
+                    timeout: 3000
+                })
+            });
+        } catch (error) {
+        }
+        return;
+    }
     const module = await loadHideTopBarModule();
     if (module && module.initHideTopBar) {
         module.initHideTopBar();
@@ -245,6 +261,24 @@ async function createLayoutContent(config = null) {
         `;
         const button = optionElement.querySelector(`#${option.id}`);
         button.addEventListener('click', async () => {
+            if (option.id === 'HideTopBar') {
+                if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                    try {
+                        fetch('/api/notification/pushMsg', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                msg: i18n.HideTopBarTabletNotSupported || '当前设备不支持隐藏顶栏',
+                                timeout: 3000
+                            })
+                        });
+                    } catch (error) {
+                    }
+                    return;
+                }
+            }
             const newState = await smartToggleButtonState(option.id);
             button.classList.toggle('active', newState);
             if (newState) {
@@ -385,6 +419,13 @@ async function initializeLayoutStates(config = null) {
     let hideTabState = config['HideTab'] || false;
     let cardLayoutState = config['CardLayout'] || false;
     let needSave = false;
+    if (hideTopBarState) {
+        if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            hideTopBarState = false;
+            config['HideTopBar'] = false;
+            needSave = true;
+        }
+    }
     if (verticalTabState && fusionOnState) {
         fusionOnState = false;
         config['FusionOn'] = false;

@@ -55,6 +55,8 @@ excluSetting.registerGroup('lightCustomColor', ['CustomColorPickLight', ...light
 excluSetting.registerGroup('darkCustomColor', ['CustomColorPickDark', ...darkColorMainGroup]);
 excluSetting.registerGroup('lightSwitchTime', ['ColorSwitchTimeLight', ...lightColorMainGroup]);
 excluSetting.registerGroup('darkSwitchTime', ['ColorSwitchTimeDark', ...darkColorMainGroup]);
+excluSetting.registerGroup('lightSwitchImg', ['ColorSwitchImgLight', ...lightColorMainGroup]);
+excluSetting.registerGroup('darkSwitchImg', ['ColorSwitchImgDark', ...darkColorMainGroup]);
 let colorModule1 = null;
 let sunsetModule = null;
 let forestModule = null;
@@ -92,6 +94,7 @@ let xingqiongModule = null;
 let lightClassicModule = null;
 let darkClassicModule = null;
 let colorSwitchTimeModule = null;
+let colorSwitchImgModule = null;
 let darkRevertModule = null;
 let wildnessModule = null;
 let marshModule = null;
@@ -515,6 +518,26 @@ async function disableColorSwitchTime() {
     const module = await loadColorSwitchTimeModule();
     if (module && module.stopColorSwitch) {
         module.stopColorSwitch();
+    }
+}
+async function loadColorSwitchImgModule() {
+    if (!colorSwitchImgModule) {
+        try {
+            colorSwitchImgModule = await import('../color/ColorSwitchImg.js');
+        } catch (error) {}
+    }
+    return colorSwitchImgModule;
+}
+async function enableColorSwitchImg() {
+    const module = await loadColorSwitchImgModule();
+    if (module && module.startColorSwitchImg) {
+        module.startColorSwitchImg();
+    }
+}
+async function disableColorSwitchImg() {
+    const module = await loadColorSwitchImgModule();
+    if (module && module.stopColorSwitchImg) {
+        module.stopColorSwitchImg();
     }
 }
 async function enableLightClassic() {
@@ -1016,8 +1039,10 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
         const mainGroupId = currentMode === 'light' ? 'lightColorMain' : 'darkColorMain';
         const customGroupId = currentMode === 'light' ? 'lightCustomColor' : 'darkCustomColor';
         const switchTimeGroupId = currentMode === 'light' ? 'lightSwitchTime' : 'darkSwitchTime';
+        const switchImgGroupId = currentMode === 'light' ? 'lightSwitchImg' : 'darkSwitchImg';
         const customColorPickId = currentMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
         const colorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+        const colorSwitchImgId = currentMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
         if (buttonId === 'CustomColorPickLight' || buttonId === 'CustomColorPickDark') {
             const currentState = await getButtonState(buttonId);
             if (currentState) {
@@ -1026,6 +1051,15 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
             }
         }
         if (buttonId === 'ColorSwitchTimeLight' || buttonId === 'ColorSwitchTimeDark') {
+            const customState = await getButtonState(customColorPickId);
+            if (!customState) {
+                await smartToggleButtonState(customColorPickId);
+                const customBtn = document.getElementById(customColorPickId);
+                if (customBtn) customBtn.classList.add('active');
+                await createColorPicker();
+            }
+        }
+        if (buttonId === 'ColorSwitchImgLight' || buttonId === 'ColorSwitchImgDark') {
             const customState = await getButtonState(customColorPickId);
             if (!customState) {
                 await smartToggleButtonState(customColorPickId);
@@ -1048,7 +1082,25 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
                     }
                 });
             } else if (buttonId === 'ColorSwitchTimeLight' || buttonId === 'ColorSwitchTimeDark') {
+                await setButtonState(colorSwitchImgId, false);
+                const switchImgBtnLight = document.getElementById('ColorSwitchImgLight');
+                if (switchImgBtnLight) switchImgBtnLight.classList.remove('active');
+                const switchImgBtnDark = document.getElementById('ColorSwitchImgDark');
+                if (switchImgBtnDark) switchImgBtnDark.classList.remove('active');
+                await disableColorSwitchImg();
                 await excluSetting.handleExclusionBatch(switchTimeGroupId, buttonId, async (id, state) => {}, async (id) => {
+                    if (id !== buttonId) {
+                        await handleDisableById(id);
+                    }
+                });
+            } else if (buttonId === 'ColorSwitchImgLight' || buttonId === 'ColorSwitchImgDark') {
+                await setButtonState(colorSwitchTimeId, false);
+                const switchBtnLight = document.getElementById('ColorSwitchTimeLight');
+                if (switchBtnLight) switchBtnLight.classList.remove('active');
+                const switchBtnDark = document.getElementById('ColorSwitchTimeDark');
+                if (switchBtnDark) switchBtnDark.classList.remove('active');
+                await disableColorSwitchTime();
+                await excluSetting.handleExclusionBatch(switchImgGroupId, buttonId, async (id, state) => {}, async (id) => {
                     if (id !== buttonId) {
                         await handleDisableById(id);
                     }
@@ -1059,6 +1111,7 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
                 });
                 await setButtonState(customColorPickId, false);
                 await setButtonState(colorSwitchTimeId, false);
+                await setButtonState(colorSwitchImgId, false);
                 const customBtnLight = document.getElementById('CustomColorPickLight');
                 if (customBtnLight) customBtnLight.classList.remove('active');
                 const customBtnDark = document.getElementById('CustomColorPickDark');
@@ -1067,8 +1120,13 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
                 if (switchBtnLight) switchBtnLight.classList.remove('active');
                 const switchBtnDark = document.getElementById('ColorSwitchTimeDark');
                 if (switchBtnDark) switchBtnDark.classList.remove('active');
+                const switchImgBtnLight = document.getElementById('ColorSwitchImgLight');
+                if (switchImgBtnLight) switchImgBtnLight.classList.remove('active');
+                const switchImgBtnDark = document.getElementById('ColorSwitchImgDark');
+                if (switchImgBtnDark) switchImgBtnDark.classList.remove('active');
                 await destroyColorPicker();
                 await disableColorSwitchTime();
+                await disableColorSwitchImg();
             }
         } else {
             if (disableFunction) {
@@ -1089,6 +1147,8 @@ async function handleDisableById(id) {
         await destroyColorPicker();
     } else if (id === 'ColorSwitchTimeLight' || id === 'ColorSwitchTimeDark') {
         await disableColorSwitchTime();
+    } else if (id === 'ColorSwitchImgLight' || id === 'ColorSwitchImgDark') {
+        await disableColorSwitchImg();
     } else if (id === 'QYLLightClassic') {
         await disableLightClassic();
     } else if (id === 'QYLSunset') {
@@ -1183,6 +1243,10 @@ function getColorOptions() {
         {
             id: 'ColorSwitchTimeLight',
             label: i18n.ColorSwitchTime
+        },
+        {
+            id: 'ColorSwitchImgLight',
+            label: i18n.ColorSwitchImg
         },
         {
             id: 'QYLLightClassic',
@@ -1299,6 +1363,10 @@ function getColorOptions() {
             label: i18n.ColorSwitchTime
         },
         {
+            id: 'ColorSwitchImgDark',
+            label: i18n.ColorSwitchImg
+        },
+        {
             id: 'QYLDarkClassic',
             label: i18n.QYLDarkClassic
         },
@@ -1399,6 +1467,9 @@ async function createColorContent(config = null) {
             } else if (option.id === 'ColorSwitchTimeLight' || option.id === 'ColorSwitchTimeDark') {
                 enableFunction = enableColorSwitchTime;
                 disableFunction = disableColorSwitchTime;
+            } else if (option.id === 'ColorSwitchImgLight' || option.id === 'ColorSwitchImgDark') {
+                enableFunction = enableColorSwitchImg;
+                disableFunction = disableColorSwitchImg;
             } else {
                 switch (option.id) {
                     case 'QYLLightClassic':
@@ -1584,6 +1655,7 @@ async function initializeColorStates(config = null) {
     const mainGroup = currentMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
     const customColorPickId = currentMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
     const colorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+    const colorSwitchImgId = currentMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
     if (!config) {
         config = await getStorageConfig();
     }
@@ -1599,6 +1671,14 @@ async function initializeColorStates(config = null) {
         }
         await loadColorFromConfig();
         await enableColorSwitchTime();
+        return;
+    }
+    if (config[colorSwitchImgId]) {
+        if (!config[customColorPickId]) {
+            config[customColorPickId] = true;
+        }
+        await loadColorFromConfig();
+        await enableColorSwitchImg();
         return;
     }
     if (config[customColorPickId]) {
@@ -1699,10 +1779,29 @@ async function initializeColorStates(config = null) {
     ThemeMode.addModeChangeListener(async (newMode) => {
         const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
         const config = await getStorageConfig();
+        const colorSwitchTimeId = newMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+        const colorSwitchImgId = newMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
+        const customColorPickId = newMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
         if (newMode === 'dark' && config['QYLDarkRevert']) {
             await enableDarkRevert();
         } else if (newMode === 'light' && config['QYLDarkRevert']) {
             await disableDarkRevert();
+        }
+        if (config[colorSwitchTimeId]) {
+            if (!config[customColorPickId]) {
+                config[customColorPickId] = true;
+            }
+            await loadColorFromConfig();
+            await enableColorSwitchTime();
+            return;
+        }
+        if (config[colorSwitchImgId]) {
+            if (!config[customColorPickId]) {
+                config[customColorPickId] = true;
+            }
+            await loadColorFromConfig();
+            await enableColorSwitchImg();
+            return;
         }
         let newFirstActiveColor = null;
         for (const colorId of newGroup) {
@@ -1717,6 +1816,8 @@ async function initializeColorStates(config = null) {
                 await loadColorFromConfig();
             } else if (newFirstActiveColor === 'ColorSwitchTimeLight' || newFirstActiveColor === 'ColorSwitchTimeDark') {
                 await enableColorSwitchTime();
+            } else if (newFirstActiveColor === 'ColorSwitchImgLight' || newFirstActiveColor === 'ColorSwitchImgDark') {
+                await enableColorSwitchImg();
             } else if (newFirstActiveColor === 'QYLLightClassic') {
                 await enableLightClassic();
             } else if (newFirstActiveColor === 'QYLSunset') {
