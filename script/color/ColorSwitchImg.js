@@ -1,4 +1,5 @@
 import '../basic/FastAverageColor.js';
+import '../basic/ColorJs.js';
 class ColorSwitchImg {
     constructor() {
         this.startTime = Date.now();
@@ -7,6 +8,9 @@ class ColorSwitchImg {
         this.observer = null;
         this.isActive = false;
         this.debounceTimer = null;
+        this.currentContainer = null; 
+        this.containerColorCache = new Map();
+        this.colorParseCache = new Map(); 
     }
     async waitForFastAverageColor() {
         let attempts = 0;
@@ -29,10 +33,16 @@ class ColorSwitchImg {
                 return null;
             }
             const color = new Color(rgbString);
-            const oklchColor = color.oklch;
-            const l = Math.round(oklchColor[0] * 1000) / 1000;
-            const c = Math.round(oklchColor[1] * 1000) / 1000;
-            const h = Math.round(oklchColor[2]);
+            const oklchColor = color.to('oklch');
+            if (!oklchColor || !Array.isArray(oklchColor.coords) || oklchColor.coords.some(val => isNaN(val) || !isFinite(val))) {
+                return null;
+            }
+            const l = Math.round(oklchColor.coords[0] * 1000) / 1000;
+            const c = Math.round(oklchColor.coords[1] * 1000) / 1000;
+            const h = Math.round(oklchColor.coords[2]);
+            if (isNaN(l) || isNaN(c) || isNaN(h)) {
+                return null;
+            }
             return `oklch(${l} ${c} ${h})`;
         } catch (error) {
             return null;
@@ -74,7 +84,7 @@ class ColorSwitchImg {
             if (hasRelevantChange) {
                 clearTimeout(this.debounceTimer);
                 this.debounceTimer = setTimeout(() => {
-                    this.findAndAnalyzeContainers();
+                    this.checkAndUpdateContainers();
                 }, 200);
             }
         });
@@ -86,19 +96,42 @@ class ColorSwitchImg {
         });
         this.findAndAnalyzeContainers();
     }
-    findAndAnalyzeContainers() {
-        let containers = document.querySelectorAll('.layout__center .layout__wnd--active > .layout-tab-container > .fn__flex-1:not(.fn__none) .protyle-background__img');
-        if (containers.length === 0 && this.startTime && (Date.now() - this.startTime) <= 2000) {
-            const fallbackContainer = document.querySelector('.layout__center [data-type="wnd"] > .layout-tab-container > .fn__flex-1:not(.fn__none) .protyle-background__img');
-            if (fallbackContainer) {
-                containers = [fallbackContainer];
-            }
+    checkAndUpdateContainers() {
+        const currentActiveContainer = this.getCurrentActiveContainer();
+        if (this.hasContainerChanged(currentActiveContainer)) {
+            this.currentContainer = currentActiveContainer;
+            this.findAndAnalyzeContainers();
         }
-        containers.forEach(container => {
+    }
+    getCurrentActiveContainer() {
+        const containers = document.querySelectorAll('.layout__center .layout__wnd--active > .layout-tab-container > .fn__flex-1:not(.fn__none) .protyle-background__img');
+        return containers.length > 0 ? containers[0] : null;
+    }
+    hasContainerChanged(newContainer) {
+        if (!this.currentContainer && newContainer) {
+            return true;
+        }
+        if (this.currentContainer && !newContainer) {
+            return true;
+        }
+        if (this.currentContainer && newContainer) {
+            return this.currentContainer !== newContainer;
+        }
+        return false;
+    }
+    findAndAnalyzeContainers() {
+        const container = this.getCurrentActiveContainer();
+        if (container) {
             this.processBackgroundContainer(container);
-        });
+        }
     }
     processBackgroundContainer(container) {
+        const containerId = this.generateContainerId(container);
+        if (this.containerColorCache.has(containerId)) {
+            const cachedColor = this.containerColorCache.get(containerId);
+            this.applyCachedColorToContainer(container, cachedColor);
+            return;
+        }
         const videos = container.querySelectorAll('video');
         if (videos.length > 0) {
             videos.forEach(video => {
@@ -110,9 +143,9 @@ class ColorSwitchImg {
                 images.forEach(img => {
                     const styleColor = this.extractColorFromStyle(img);
                     if (styleColor) {
-                        this.applyColorToContainer(container, styleColor);
+                        this.applyColorToContainer(container, styleColor, containerId);
                     } else {
-                        this.analyzeImageColor(img, container);
+                        this.analyzeImageColor(img, container, containerId);
                     }
                 });
             }
@@ -130,7 +163,8 @@ class ColorSwitchImg {
                 step: 1
             });
             if (result && !result.error) {
-                this.applyColorToContainer(container, result);
+                const containerId = this.generateContainerId(container);
+                this.applyColorToContainer(container, result, containerId);
             }
         } catch (error) {
         }
@@ -145,66 +179,138 @@ class ColorSwitchImg {
         return null;
     }
     getFirstValidColor(style) {
-        const colorProps = ['backgroundColor', 'background', 'color'];
-        for (const prop of colorProps) {
-            const value = style[prop];
-            if (value && value !== 'transparent' && value !== 'none' && value !== 'rgba(0, 0, 0, 0)') {
-                return value;
-            }
+        const backgroundColor = style.backgroundColor;
+        if (backgroundColor && backgroundColor !== 'transparent' && backgroundColor !== 'none' && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+            return backgroundColor;
         }
-        const styleString = style.cssText || '';
-        const colorMatch = styleString.match(/(?:background(?:-color)?|color)\s*:\s*([^;]+)/);
-        if (colorMatch) {
-            const value = colorMatch[1].trim();
-            if (value && value !== 'transparent' && value !== 'none') {
-                return value;
+        const background = style.background;
+        if (background && background !== 'transparent' && background !== 'none' && background !== 'rgba(0, 0, 0, 0)') {
+            const gradientMatch = background.match(/linear-gradient\([^)]+\)/);
+            if (gradientMatch) {
+                return this.extractMainColorFromGradient(background);
+            }
+            return background;
+        }
+        const backgroundImage = style.backgroundImage;
+        if (backgroundImage && backgroundImage !== 'none') {
+            const imageMatch = backgroundImage.match(/url\([^)]+\)/);
+            if (imageMatch) {
+                return null; 
+            }
+            const gradientMatch = backgroundImage.match(/linear-gradient\([^)]+\)/);
+            if (gradientMatch) {
+                return this.extractMainColorFromGradient(backgroundImage);
             }
         }
         return null;
     }
-    parseSimpleColor(colorValue) {
+    extractMainColorFromGradient(gradientString) {
         try {
-            const tempDiv = document.createElement('div');
-            tempDiv.style.color = colorValue;
-            document.body.appendChild(tempDiv);
-            const computedColor = getComputedStyle(tempDiv).color;
-            document.body.removeChild(tempDiv);
-            if (computedColor === 'rgba(0, 0, 0, 0)' || computedColor === 'transparent') {
+            const colorRegex = /(#[0-9a-fA-F]{3,6}|rgb\([^)]+\)|rgba\([^)]+\)|hsl\([^)]+\)|hsla\([^)]+\))/g;
+            const colors = [];
+            let colorMatch;
+            while ((colorMatch = colorRegex.exec(gradientString)) !== null) {
+                colors.push(colorMatch[1]);
+            }
+            if (colors.length === 0) {
                 return null;
             }
-            const rgbMatch = computedColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-            if (rgbMatch) {
-                const r = parseInt(rgbMatch[1]);
-                const g = parseInt(rgbMatch[2]);
-                const b = parseInt(rgbMatch[3]);
-                const a = rgbMatch[4] ? parseFloat(rgbMatch[4]) : 1;
-                const hex = this.rgbToHex(r, g, b);
-                const rgb = `rgb(${r},${g},${b})`;
-                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-                const isDark = brightness < 128;
-                return {
-                    hex: hex,
-                    rgb: rgb,
-                    rgba: `rgba(${r},${g},${b},${a})`,
-                    isDark: isDark,
-                    isLight: !isDark,
-                    value: [r, g, b, Math.round(a * 255)],
-                    error: null
-                };
+            let mostVibrantColor = colors[0];
+            let maxSaturation = 0;
+            colors.forEach(color => {
+                const rgb = this.parseColorToRGB(color);
+                if (rgb) {
+                    const saturation = this.calculateSaturation(rgb.r, rgb.g, rgb.b);
+                    if (saturation > maxSaturation) {
+                        maxSaturation = saturation;
+                        mostVibrantColor = color;
+                    }
+                }
+            });
+            return mostVibrantColor;
+        } catch (error) {
+            const firstColorMatch = gradientString.match(/(#[0-9a-fA-F]{3,6}|rgb\([^)]+\)|rgba\([^)]+\)|hsl\([^)]+\)|hsla\([^)]+\))/);
+            return firstColorMatch ? firstColorMatch[1] : null;
+        }
+    }
+    parseColorToRGB(colorString) {
+        const result = this.parseSimpleColor(colorString);
+        return result ? { r: result.value[0], g: result.value[1], b: result.value[2] } : null;
+    }
+    calculateSaturation(r, g, b) {
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        const delta = max - min;
+        return max === 0 ? 0 : delta / max;
+    }
+    generateContainerId(container) {
+        const images = container.querySelectorAll('img');
+        const videos = container.querySelectorAll('video');
+        let contentHash = '';
+        images.forEach((img, index) => {
+            const src = img.src || img.getAttribute('data-src') || '';
+            const style = img.style.cssText || '';
+            contentHash += `img_${index}_${src}_${style}`;
+        });
+        videos.forEach((video, index) => {
+            const src = video.src || video.getAttribute('data-src') || '';
+            const style = video.style.cssText || '';
+            contentHash += `video_${index}_${src}_${style}`;
+        });
+        const containerStyle = container.style.cssText || '';
+        contentHash += `container_${containerStyle}`;
+        let hash = 0;
+        for (let i = 0; i < contentHash.length; i++) {
+            const char = contentHash.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; 
+        }
+        return hash.toString();
+    }
+    parseSimpleColor(colorValue) {
+        if (this.colorParseCache.has(colorValue)) {
+            const cached = this.colorParseCache.get(colorValue);
+            if (cached && cached.hex) {
+                return cached;
             }
-            return null;
+        }
+        try {
+            if (typeof Color === 'undefined') {
+                return null;
+            }
+            const color = new Color(colorValue);
+            const rgb = color.coords;
+            const alpha = color.alpha;
+            if (!Array.isArray(rgb) || rgb.some(val => isNaN(val) || !isFinite(val))) {
+                return null;
+            }
+            if (alpha === 0) {
+                return null;
+            }
+            const r = Math.round(rgb[0] * 255);
+            const g = Math.round(rgb[1] * 255);
+            const b = Math.round(rgb[2] * 255);
+            const a = alpha;
+            const hex = color.toString({ format: 'hex' });
+            const rgbString = `rgb(${r},${g},${b})`;
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            const isDark = brightness < 128;
+            const result = {
+                hex: hex,
+                rgb: rgbString,
+                rgba: `rgba(${r},${g},${b},${a})`,
+                isDark: isDark,
+                isLight: !isDark,
+                value: [r, g, b, Math.round(a * 255)],
+                error: null
+            };
+            this.colorParseCache.set(colorValue, result);
+            return result;
         } catch (error) {
             return null;
         }
     }
-    rgbToHex(r, g, b) {
-        const toHex = (n) => {
-            const hex = n.toString(16);
-            return hex.length === 1 ? '0' + hex : hex;
-        };
-        return '#' + toHex(r) + toHex(g) + toHex(b);
-    }
-    async analyzeImageColor(img, container) {
+    async analyzeImageColor(img, container, containerId) {
         try {
             if (!img.complete) {
                 await new Promise((resolve) => {
@@ -216,23 +322,40 @@ class ColorSwitchImg {
                 step: 1
             });
             if (result && !result.error) {
-                this.applyColorToContainer(container, result);
+                this.applyColorToContainer(container, result, containerId);
             }
         } catch (error) {
         }
     }
-    applyColorToContainer(container, colorResult) {
+    applyColorToContainer(container, colorResult, containerId) {
         let finalColor = colorResult;
         if (colorResult.hex === '#000000') {
             if (this.lastNonBlackColor) {
                 finalColor = this.lastNonBlackColor;
             } else {
-                finalColor = this.createColorObject(76, 119, 210); 
+                finalColor = {
+                    hex: '#4c77d2',
+                    rgb: 'rgb(76,119,210)',
+                    rgba: 'rgba(76,119,210,1)',
+                    isDark: false,
+                    isLight: true,
+                    value: [76, 119, 210, 255],
+                    error: null
+                };
             }
         } else {
             this.lastNonBlackColor = colorResult;
         }
-        const oklchColor = this.rgbToOklch(finalColor.rgb);
+        if (containerId) {
+            this.containerColorCache.set(containerId, finalColor);
+        }
+        this.applyColorToDOM(container, finalColor);
+    }
+    applyCachedColorToContainer(container, cachedColor) {
+        this.applyColorToDOM(container, cachedColor);
+    }
+    applyColorToDOM(container, color) {
+        const oklchColor = this.rgbToOklch(color.rgb);
         if (oklchColor) {
             const oklchMatch = oklchColor.match(/oklch\(([^)]+)\)/);
             if (oklchMatch) {
@@ -250,31 +373,21 @@ class ColorSwitchImg {
         const event = new CustomEvent('videoThemeColorUpdated', {
             detail: {
                 container: container,
-                color: finalColor,
-                hex: finalColor.hex,
-                rgb: finalColor.rgb,
+                color: color,
+                hex: color.hex,
+                rgb: color.rgb,
                 oklch: oklchColor,
-                isDark: finalColor.isDark
+                isDark: color.isDark
             }
         });
         container.dispatchEvent(event);
     }
-    createColorObject(r, g, b) {
-        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        const isDark = brightness < 128;
-        return {
-            hex: this.rgbToHex(r, g, b),
-            rgb: `rgb(${r},${g},${b})`,
-            rgba: `rgba(${r},${g},${b},1)`,
-            isDark: isDark,
-            isLight: !isDark,
-            value: [r, g, b, 255],
-            error: null
-        };
-    }
     destroy() {
         this.isActive = false;
         this.startTime = null;
+        this.currentContainer = null; 
+        this.containerColorCache.clear();
+        this.colorParseCache.clear(); 
         if (this.observer) {
             this.observer.disconnect();
             this.observer = null;
@@ -292,27 +405,20 @@ class ColorSwitchImg {
         document.documentElement.style.removeProperty('--QYL-Img-H');
         this.lastNonBlackColor = null;
         document.documentElement.classList.remove('QYLColorSwitchImg');
-        const containers = document.querySelectorAll('.protyle-background__img');
-        containers.forEach(container => {
-            container.removeEventListener('videoThemeColorUpdated', this.handleColorUpdate);
-        });
     }
 }
 let colorSwitchImgInstance = null;
 export function startColorSwitchImg() {
-    if (!colorSwitchImgInstance) {
-        colorSwitchImgInstance = new ColorSwitchImg();
+    if (colorSwitchImgInstance) {
+        colorSwitchImgInstance.destroy();
+        colorSwitchImgInstance = null;
     }
+    colorSwitchImgInstance = new ColorSwitchImg();
     colorSwitchImgInstance.init();
 }
 export function stopColorSwitchImg() {
     if (colorSwitchImgInstance) {
         colorSwitchImgInstance.destroy();
         colorSwitchImgInstance = null;
-    } else {
-        document.documentElement.style.removeProperty('--QYL-Img-L');
-        document.documentElement.style.removeProperty('--QYL-Img-C');
-        document.documentElement.style.removeProperty('--QYL-Img-H');
-        document.documentElement.classList.remove('QYLColorSwitchImg');
     }
 }

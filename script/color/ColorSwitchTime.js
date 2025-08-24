@@ -42,7 +42,9 @@ function waitForCustomPrimaryVarAndStart() {
     }
 }
 export function startColorSwitch() {
-    if (animationFrameId) return; 
+    if (animationFrameId) {
+        stopColorSwitch();
+    }
     lastUpdate = null;
     retryCount = 0;
     waitForCustomPrimaryVarAndStart();
