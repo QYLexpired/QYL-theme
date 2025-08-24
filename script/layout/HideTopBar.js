@@ -1,25 +1,8 @@
-import i18n from '../../i18n/i18n.js';
 let isTopBarHidden = false;
 let qKeyPressCount = 0;
 let qKeyPressTimer = null;
 export function initHideTopBar() {
     if (document.body.classList.contains('QYLmobile')) {
-        return;
-    }
-    if (/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
-        try {
-            fetch('/api/notification/pushMsg', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    msg: i18n.HideTopBarTabletNotSupported || '当前设备不支持隐藏顶栏',
-                    timeout: 3000
-                })
-            });
-        } catch (error) {
-        }
         return;
     }
     const style = document.createElement('style');
