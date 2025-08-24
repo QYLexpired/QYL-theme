@@ -25,6 +25,11 @@ import('./index.js');
             module.stopColorSwitch();
           }
         });
+        import('./script/color/ColorSwitchImg.js').then(module => {
+          if (typeof module.stopColorSwitchImg === 'function') {
+            module.stopColorSwitchImg();
+          }
+        });
       };
     } else {
       delete window.destroyTheme;
@@ -65,16 +70,30 @@ import('./index.js');
 })();
 import('./script/QYLSettings/Color.js').then(module => {
   const { initializeColorStates } = module;
-  function refreshColorVarsOnThemeChange() {
-    const observer = new MutationObserver(() => {
-      initializeColorStates();
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme-mode']
-    });
-  }
-  refreshColorVarsOnThemeChange();
+  import('./script/basic/GetStorage.js').then(storageModule => {
+    const { clearConfigCache } = storageModule;
+    function refreshColorVarsOnThemeChange() {
+      const observer = new MutationObserver(async () => {
+        clearConfigCache();
+        import('./script/color/ColorSwitchTime.js').then(timeModule => {
+          if (typeof timeModule.stopColorSwitch === 'function') {
+            timeModule.stopColorSwitch();
+          }
+        });
+        import('./script/color/ColorSwitchImg.js').then(imgModule => {
+          if (typeof imgModule.stopColorSwitchImg === 'function') {
+            imgModule.stopColorSwitchImg();
+          }
+        });
+        await initializeColorStates();
+      });
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme-mode']
+      });
+    }
+    refreshColorVarsOnThemeChange();
+  });
 });
 window.addEventListener('beforeunload', () => {
   import('./script/QYLSettings/QYLSettingsWindow.js').then(module => {
