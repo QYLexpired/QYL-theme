@@ -1778,6 +1778,8 @@ async function initializeColorStates(config = null) {
     }
     ThemeMode.addModeChangeListener(async (newMode) => {
         const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
+        const { clearConfigCache } = await import('../basic/GetStorage.js');
+        clearConfigCache();
         const config = await getStorageConfig();
         const colorSwitchTimeId = newMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
         const colorSwitchImgId = newMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
