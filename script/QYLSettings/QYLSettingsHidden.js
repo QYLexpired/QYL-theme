@@ -154,7 +154,6 @@ export const createQYLSettingsHiddenWindow = async () => {
     const elementOptions = [
         { id: 'QYLAttrOn', label: i18n.QYLAttrOn },
         { id: 'CustomFontStyle', label: i18n.CustomFontStyle },
-        { id: 'BlockFullWidth', label: i18n.BlockFullWidth },
         { id: 'GlobalStyle', label: i18n.GlobalStyle }
     ];
     const styleOptions = [
