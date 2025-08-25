@@ -70,47 +70,25 @@
                 vertical-align: -1px;
             };
         }
-        & > div:last-child {
+        & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
         }
     }
 }
 /* 右侧 */
-.QYLmemoR:not(.QYLEditorFullWidth) .protyle-content[data-fullwidth="true"] {/* 非全宽 + 自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 250px) !important;
-    }
-    & .QYL-inline-memo-box {
-        width: 250px;
-        right: -50px;
-    }
+:root {
+    --QYLmemoR-box-width: 250px;
 }
-.QYLmemoR.QYLEditorFullWidth .protyle-content[data-fullwidth="true"] {/* 全宽 + 自适应宽度 */
+.QYLmemoR .protyle-content {
     & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 200px) !important;
+        padding-left: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoR-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
+        padding-right: max(var(--QYLmemoR-box-width), var(--QYL-protyle-padding-right)) !important;
     }
     & .QYL-inline-memo-box {
-        width: 200px;
-        right: -15px;
-    }
-}
-.QYLmemoR:not(.QYLEditorFullWidth) .protyle-content:not([data-fullwidth="true"]) {/* 非全宽 + 非自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: 100% !important;
-    }
-    & .QYL-inline-memo-box {
-        width: 200px;
-        right: -250px;
-    }
-}
-.QYLmemoR.QYLEditorFullWidth .protyle-content:not([data-fullwidth="true"]) {/* 全宽 + 非自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 200px) !important;
-    }
-    & .QYL-inline-memo-box {
-        width: 200px;
-        right: -15px;
+        width: calc(var(--QYLmemoR-box-width) - 40px);
+        max-width: max(var(--QYLmemoR-box-width), var(--QYL-protyle-padding-right));
+        right: calc(20px + var(--QYL-protyle-padding-left) * -1);
     }
 }
 .QYLmemoR .QYL-inline-memo-box {
@@ -131,14 +109,21 @@
         position: absolute;
         width: 100%;
         box-sizing: border-box;
-        &:before {
-            content: '';
+        & > .QYLSideMemoResize {
             height: 100%;
             width: 3px;
             position: absolute;
             left: -10px;
             top: 0;
             background-color: var(--b3-theme-surface-lighter);
+            cursor: col-resize;
+            transition: 0.3s;
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+            &.QYLSideMemoResizeDragging {
+                background-color: var(--b3-theme-primary);
+            }
         }   
         &.QYLmemoActive {
             background-color: var(--QYL-tab-item-focus);
@@ -166,50 +151,25 @@
                 vertical-align: -1px;
             };
         }
-        & > div:last-child {
+        & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
         }
     }
 }
 /* 左侧 */
-.QYLmemoL:not(.QYLEditorFullWidth) .protyle-content[data-fullwidth="true"] {/* 非全宽 + 自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 250px) !important;
-        margin-left: auto;
-    }
-    & .QYL-inline-memo-box {
-        width: 250px;
-        left: -50px;
-    }
+:root { 
+    --QYLmemoL-box-width: 250px;
 }
-.QYLmemoL.QYLEditorFullWidth .protyle-content[data-fullwidth="true"] {/* 全宽 + 自适应宽度 */
+.QYLmemoL .protyle-content {
     & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 200px) !important;
-        margin-left: auto;
+        padding-right: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoL-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
+        padding-left: max(var(--QYLmemoL-box-width), var(--QYL-protyle-padding-left)) !important;
     }
     & .QYL-inline-memo-box {
-        width: 200px;
-        left: -5px;
-    }
-}
-.QYLmemoL:not(.QYLEditorFullWidth) .protyle-content:not([data-fullwidth="true"]) {/* 非全宽 + 非自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: 100% !important;
-    }
-    & .QYL-inline-memo-box {
-        width: 200px;
-        left: -250px;
-    }
-}
-.QYLmemoL.QYLEditorFullWidth .protyle-content:not([data-fullwidth="true"]) {/* 全宽 + 非自适应宽度 */
-    & .protyle-wysiwyg.QYLmemoProtyle {
-        width: calc(100% - 200px) !important;
-        margin-left: auto;
-    }
-    & .QYL-inline-memo-box {
-        width: 200px;
-        left: -5px;
+        width: calc(var(--QYLmemoL-box-width) - 40px);
+        max-width: max(var(--QYLmemoL-box-width), var(--QYL-protyle-padding-left));
+        left: calc(20px + var(--QYL-protyle-padding-right) * -1);
     }
 }
 .QYLmemoL .QYL-inline-memo-box {
@@ -230,14 +190,21 @@
         position: absolute;
         width: 100%;
         box-sizing: border-box;
-        &:before {
-            content: '';
+        & > .QYLSideMemoResize {
             height: 100%;
             width: 3px;
             position: absolute;
-            left: -10px;
+            right: -10px;
             top: 0;
             background-color: var(--b3-theme-surface-lighter);
+            cursor: col-resize;
+            transition: 0.3s;
+            &:hover {
+                background-color: var(--b3-theme-primary);
+            }
+            &.QYLSideMemoResizeDragging {
+                background-color: var(--b3-theme-primary);
+            }
         }   
         &.QYLmemoActive {
             background-color: var(--QYL-tab-item-focus);
@@ -265,14 +232,14 @@
                 vertical-align: -1px;
             };
         }
-        & > div:last-child {
+        & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
         }
     }
 }
 .QYL-inline-memo {
-    & > div:last-child {
+    & > div:nth-child(2) {
         & h1, & h2, & h3, & h4, & h5, & h6 {
             margin: 0.5em 0 0.2em 0;
             font-weight: bold;
