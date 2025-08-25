@@ -3,7 +3,11 @@ let wysiwygObserverMap = new WeakMap();
 let enabled = false;
 let observeTimeout = null;
 let memoContentChangeTimeout = null; 
-let isRenderingMemo = false; 
+let isRenderingMemo = false;
+let resizeDragging = false;
+let resizeStartX = 0;
+let resizeStartWidth = 0;
+let resizeDirection = ''; 
 import { isMobile } from '../basic/Device.js';
 function detectContentType(content) {
     if (!content || typeof content !== 'string') {
@@ -192,8 +196,8 @@ const BottomMemoModule = {
             shouldSkip = memoList.every((memo, index) => {
                 const oldDiv = oldMemoDivs[index];
                 if (!oldDiv) return false;
-                const oldContent = oldDiv.querySelector('div:last-child').getAttribute('data-original-content') || 
-                                 oldDiv.querySelector('div:last-child').textContent;
+                const oldContent = oldDiv.querySelector('div:nth-child(2)').getAttribute('data-original-content') || 
+                                 oldDiv.querySelector('div:nth-child(2)').textContent;
                 return oldContent === memo.memoContent;
             });
         }
@@ -510,10 +514,14 @@ const RightMemoModule = {
         div.className = 'QYL-inline-memo protyle-custom';
         const contentType = detectContentType(memoContent);
         const parsedContent = parseContent(memoContent, contentType);
-        div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div>`;
+        div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div><div class="QYLSideMemoResize"></div>`;
         div.setAttribute('contenteditable', 'false');
         div.setAttribute('data-memo-uid', uid);
         div.setAttribute('data-content-type', contentType);
+        const resizeHandle = div.querySelector('.QYLSideMemoResize');
+        if (resizeHandle) {
+            this.bindResizeEvents(resizeHandle, document.body.classList.contains('QYLmemoR') ? 'R' : 'L');
+        }
         const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
         if (targetMemoEl) {
             const targetRect = targetMemoEl.getBoundingClientRect();
@@ -668,6 +676,70 @@ const RightMemoModule = {
         wysiwyg.querySelectorAll('.QYLmemoActive').forEach(el => {
             el.classList.remove('QYLmemoActive');
         });
+        wysiwyg.querySelectorAll('.QYLSideMemoResize').forEach(resizeHandle => {
+            if (resizeHandle._QYL_resize_mousedown) {
+                resizeHandle.removeEventListener('mousedown', resizeHandle._QYL_resize_mousedown);
+                delete resizeHandle._QYL_resize_mousedown;
+            }
+            if (resizeHandle._QYL_resize_dblclick) {
+                resizeHandle.removeEventListener('dblclick', resizeHandle._QYL_resize_dblclick);
+                delete resizeHandle._QYL_resize_dblclick;
+            }
+        });
+    },
+    bindResizeEvents(resizeHandle, direction) {
+        const handleMouseDown = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            resizeDragging = true;
+            resizeDirection = direction;
+            resizeStartX = e.clientX;
+            resizeStartWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue(`--QYLmemo${direction}-box-width`)) || 250;
+            resizeHandle.classList.add('QYLSideMemoResizeDragging');
+            document.body.style.cursor = 'col-resize';
+            document.body.style.userSelect = 'none';
+            const handleMouseMove = (e) => {
+                if (!resizeDragging) return;
+                const deltaX = e.clientX - resizeStartX;
+                let newWidth;
+                if (direction === 'R') {
+                    newWidth = Math.max(100, Math.min(800, resizeStartWidth - deltaX));
+                } else {
+                    newWidth = Math.max(100, Math.min(800, resizeStartWidth + deltaX));
+                }
+                if (handleMouseMove.lastWidth === newWidth) return;
+                handleMouseMove.lastWidth = newWidth;
+                if (!handleMouseMove.rafId) {
+                    handleMouseMove.rafId = requestAnimationFrame(() => {
+                        document.documentElement.style.setProperty(`--QYLmemo${direction}-box-width`, `${newWidth}px`);
+                        handleMouseMove.rafId = null;
+                    });
+                }
+            };
+            const handleMouseUp = () => {
+                resizeDragging = false;
+                resizeHandle.classList.remove('QYLSideMemoResizeDragging');
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+                if (handleMouseMove.rafId) {
+                    cancelAnimationFrame(handleMouseMove.rafId);
+                    handleMouseMove.rafId = null;
+                }
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+            };
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        };
+        resizeHandle._QYL_resize_mousedown = handleMouseDown;
+        resizeHandle.addEventListener('mousedown', handleMouseDown);
+        const handleDoubleClick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            document.documentElement.style.setProperty(`--QYLmemo${direction}-box-width`, '250px');
+        };
+        resizeHandle._QYL_resize_dblclick = handleDoubleClick;
+        resizeHandle.addEventListener('dblclick', handleDoubleClick);
     }
 };
 function getWysiwygDirectBlock(memoEl) {
@@ -795,6 +867,16 @@ export function removeSideMemo() {
     });
     document.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
     document.querySelectorAll('div.QYL-inline-memo.protyle-custom').forEach(div => div.remove());
+    document.querySelectorAll('.QYLSideMemoResize').forEach(resizeHandle => {
+        if (resizeHandle._QYL_resize_mousedown) {
+            resizeHandle.removeEventListener('mousedown', resizeHandle._QYL_resize_mousedown);
+            delete resizeHandle._QYL_resize_mousedown;
+        }
+        if (resizeHandle._QYL_resize_dblclick) {
+            resizeHandle.removeEventListener('dblclick', resizeHandle._QYL_resize_dblclick);
+            delete resizeHandle._QYL_resize_dblclick;
+        }
+    });
     document.querySelectorAll('.QYLmemoBlock').forEach(block => {
         block.classList.remove('QYLmemoBlock');
     });
