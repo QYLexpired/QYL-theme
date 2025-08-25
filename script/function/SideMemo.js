@@ -520,7 +520,11 @@ const RightMemoModule = {
         div.setAttribute('data-content-type', contentType);
         const resizeHandle = div.querySelector('.QYLSideMemoResize');
         if (resizeHandle) {
-            this.bindResizeEvents(resizeHandle, document.body.classList.contains('QYLmemoR') ? 'R' : 'L');
+            let protyleContent = wysiwyg.parentElement;
+            while (protyleContent && !protyleContent.classList.contains('protyle-content')) {
+                protyleContent = protyleContent.parentElement;
+            }
+            this.bindResizeEvents(resizeHandle, document.body.classList.contains('QYLmemoR') ? 'R' : 'L', protyleContent);
         }
         const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
         if (targetMemoEl) {
@@ -687,14 +691,15 @@ const RightMemoModule = {
             }
         });
     },
-    bindResizeEvents(resizeHandle, direction) {
+    bindResizeEvents(resizeHandle, direction, scopeEl) {
+        const targetEl = scopeEl || document.documentElement;
         const handleMouseDown = (e) => {
             e.preventDefault();
             e.stopPropagation();
             resizeDragging = true;
             resizeDirection = direction;
             resizeStartX = e.clientX;
-            resizeStartWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue(`--QYLmemo${direction}-box-width`)) || 250;
+            resizeStartWidth = parseInt(getComputedStyle(targetEl).getPropertyValue(`--QYLmemo${direction}-box-width`)) || 250;
             resizeHandle.classList.add('QYLSideMemoResizeDragging');
             document.body.style.cursor = 'col-resize';
             document.body.style.userSelect = 'none';
@@ -711,7 +716,7 @@ const RightMemoModule = {
                 handleMouseMove.lastWidth = newWidth;
                 if (!handleMouseMove.rafId) {
                     handleMouseMove.rafId = requestAnimationFrame(() => {
-                        document.documentElement.style.setProperty(`--QYLmemo${direction}-box-width`, `${newWidth}px`);
+                        targetEl.style.setProperty(`--QYLmemo${direction}-box-width`, `${newWidth}px`);
                         handleMouseMove.rafId = null;
                     });
                 }
@@ -736,7 +741,7 @@ const RightMemoModule = {
         const handleDoubleClick = (e) => {
             e.preventDefault();
             e.stopPropagation();
-            document.documentElement.style.setProperty(`--QYLmemo${direction}-box-width`, '250px');
+            targetEl.style.setProperty(`--QYLmemo${direction}-box-width`, '250px');
         };
         resizeHandle._QYL_resize_dblclick = handleDoubleClick;
         resizeHandle.addEventListener('dblclick', handleDoubleClick);
