@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加顏色選項-主題色隨題頭圖變化（注意：此功能需消耗一定性能，請按需啟用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）<br>• 優化同時開啟頂欄融合與全高佈局/隱藏分頁與麵包屑時的介面樣式<br>• 圖片遮罩可顯示序號</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 優化顯示行內備註：左右側備註可隨文件寬度自適應，並支援調整側邊備註寬度（拖曳側邊備註的垂直分隔線，雙擊可恢復預設寬度）<br>• 優化塊全寬顯示的效能，且不再需要單獨開啟<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加顏色選項-主題色隨題頭圖變化（注意：此功能需消耗一定性能，請按需啟用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）<br>• 優化同時開啟頂欄融合與全高佈局/隱藏分頁與麵包屑時的介面樣式<br>• 圖片遮罩可顯示序號</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>

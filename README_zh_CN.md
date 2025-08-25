@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加颜色选项-主题色随题头图变化（注意：此功能需消耗一定性能，请按需启用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用）<br>• 优化同时开启顶栏融合与全高布局/隐藏页签与面包屑时的界面样式<br>• 图片遮罩可显示序号</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 优化显示行内备注功能：右侧、左侧备注的显示效果可随文档宽度自适应，并支持调节侧边备注宽度（通过拖拽侧边备注的竖向线条，双击可恢复默认宽度）<br>• 优化块全宽显示的性能，且不再需要单独开启<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加颜色选项-主题色随题头图变化（注意：此功能需消耗一定性能，请按需启用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用）<br>• 优化同时开启顶栏融合与全高布局/隐藏页签与面包屑时的界面样式<br>• 图片遮罩可显示序号</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
