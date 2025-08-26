@@ -35,11 +35,10 @@ class ProtylePadding {
                     return;
                 }
                 this.retryCount++;
-                if (this.retryCount >= this.maxRetries) {
-                    console.warn(`ProtylePadding: 无法找到 ${this.targetSelector} 元素，已达到最大重试次数`);
-                    resolve();
-                    return;
-                }
+                        if (this.retryCount >= this.maxRetries) {
+            resolve();
+            return;
+        }
                 setTimeout(findElement, this.retryInterval);
             };
             findElement();
@@ -70,6 +69,7 @@ class ProtylePadding {
                 });
                 mutation.removedNodes && Array.from(mutation.removedNodes).forEach(node => {
                     this.collectProtyleFromNode(node, this.pendingProtyleToCleanup);
+                    this.scheduleElementCleanupCheck(node);
                 });
             }
         });
@@ -107,10 +107,37 @@ class ProtylePadding {
             list.forEach(el => bucket.add(el));
         }
     }
+    scheduleElementCleanupCheck(node) {
+        if (!node || node.nodeType !== 1) return;
+        const elementsToCheck = [];
+        if (node.matches && node.matches('.protyle-wysiwyg')) {
+            elementsToCheck.push(node);
+        }
+        if (node.querySelectorAll) {
+            const list = node.querySelectorAll('.protyle-wysiwyg');
+            elementsToCheck.push(...list);
+        }
+        elementsToCheck.forEach(element => {
+            setTimeout(() => {
+                this.checkElementStillExists(element);
+            }, 500);
+        });
+    }
+    checkElementStillExists(element) {
+        if (document.contains(element)) {
+            this.pendingProtyleToCleanup.delete(element);
+        } else {
+        }
+    }
     flushPendingProtyleChanges() {
         if (this.pendingProtyleToCleanup.size > 0) {
-            this.pendingProtyleToCleanup.forEach(element => {
-                this.cleanupSingleProtyle(element);
+            const elementsToCleanup = Array.from(this.pendingProtyleToCleanup);
+            elementsToCleanup.forEach(element => {
+                if (!document.contains(element)) {
+                    this.cleanupSingleProtyle(element);
+                } else {
+                    this.pendingProtyleToCleanup.delete(element);
+                }
             });
             this.pendingProtyleToCleanup.clear();
         }
