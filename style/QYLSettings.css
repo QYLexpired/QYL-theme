@@ -134,7 +134,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
     pointer-events: none;
     filter: saturate(0);
 }
-.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorFullWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar, #ColorSwitchImgLight, #ColorSwitchImgDark) {
+.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar, #ColorSwitchImgLight, #ColorSwitchImgDark) {
     opacity: 0.5;
     pointer-events: none;
     color: var(--b3-theme-on-surface-light) !important;
