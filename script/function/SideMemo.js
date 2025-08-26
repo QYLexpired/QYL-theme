@@ -86,7 +86,6 @@ function parseContent(content, type) {
                     return content;
                 }
             } catch (error) {
-                console.warn('Markdown parsing failed:', error);
                 return content;
             }
         case 'text':
