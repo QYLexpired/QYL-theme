@@ -6,7 +6,7 @@ import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 import { isMobile } from '../basic/Device.js';
 let marktoBlankModule = null;
-let editorFullWidthModule = null;
+let editorWidthModule = null;
 let focusBlockHighlightModule = null;
 let hoverBlockHighlightModule = null;
 let superBlockHighlightModule = null;
@@ -25,14 +25,14 @@ async function loadMarktoBlankModule() {
     }
     return marktoBlankModule;
 }
-async function loadEditorFullWidthModule() {
-    if (!editorFullWidthModule) {
+async function loadEditorWidthModule() {
+    if (!editorWidthModule) {
         try {
-            editorFullWidthModule = await import('../function/EditorFullWidth.js');
+            editorWidthModule = await import('../function/EditorWidth.js');
         } catch (error) {
         }
     }
-    return editorFullWidthModule;
+    return editorWidthModule;
 }
 async function loadFocusBlockHighlightModule() {
     if (!focusBlockHighlightModule) {
@@ -127,16 +127,16 @@ async function disableMarktoBlank() {
         module.removeMarktoBlank();
     }
 }
-async function enableEditorFullWidth() {
-    const module = await loadEditorFullWidthModule();
-    if (module && module.initEditorFullWidth) {
-        module.initEditorFullWidth();
+async function enableEditorWidth() {
+    const module = await loadEditorWidthModule();
+    if (module && module.initEditorWidth) {
+        await module.initEditorWidth();
     }
 }
-async function disableEditorFullWidth() {
-    const module = await loadEditorFullWidthModule();
-    if (module && module.removeEditorFullWidth) {
-        module.removeEditorFullWidth();
+async function disableEditorWidth() {
+    const module = await loadEditorWidthModule();
+    if (module && module.removeEditorWidth) {
+        module.removeEditorWidth();
     }
 }
 async function enableFocusBlockHighlight() {
@@ -272,8 +272,8 @@ function getFunctionOptions() {
             label: i18n.MarktoBlank || '标记挖空'
         },
         {
-            id: 'EditorFullWidth',
-            label: i18n.EditorFullWidth || '编辑器全宽显示'
+            id: 'EditorWidth',
+            label: i18n.EditorWidth || '编辑器宽度调整'
         },
         {
             id: 'FocusBlockHighlight',
@@ -318,8 +318,8 @@ function getFunctionOptions() {
             label: i18n.MarktoBlank || '标记挖空'
         },
         {
-            id: 'EditorFullWidth',
-            label: i18n.EditorFullWidth || '编辑器全宽显示'
+            id: 'EditorWidth',
+            label: i18n.EditorWidth || '编辑器宽度调整'
         },
         {
             id: 'FocusBlockHighlight',
@@ -376,7 +376,7 @@ async function createFunctionContent(config = null) {
         if (!selectState) {
             optionElement.classList.add('hidden');
         }
-        const hasRightClick = ['SideMemo', 'FocusBlockHighlight', 'FocusEditing'].includes(option.id);
+        const hasRightClick = ['SideMemo', 'FocusBlockHighlight', 'FocusEditing', 'EditorWidth'].includes(option.id);
         const rightClickClass = hasRightClick ? 'QYLButtonRightClick' : '';
         optionElement.innerHTML = `
             <button type="button" id="${option.id}" class="QYL-function-button ${currentState ? 'active' : ''} ${rightClickClass}">
@@ -410,11 +410,11 @@ async function createFunctionContent(config = null) {
                 } else {
                     await disableSideMemo();
                 }
-            } else if (option.id === 'EditorFullWidth') {
+            } else if (option.id === 'EditorWidth') {
                 if (newState) {
-                    await enableEditorFullWidth();
+                    await enableEditorWidth();
                 } else {
-                    await disableEditorFullWidth();
+                    await disableEditorWidth();
                 }
             } else if (option.id === 'FocusBlockHighlight') {
                 if (newState) {
@@ -623,6 +623,62 @@ async function createFunctionContent(config = null) {
             };
             button.addEventListener('contextmenu', handleRightClick);
         }
+        if (option.id === 'EditorWidth') {
+            const handleRightClick = async (e) => {
+                e.preventDefault();
+                if (!button.classList.contains('active')) {
+                    return;
+                }
+                try {
+                    const module = await loadEditorWidthModule();
+                    if (module && module.showEditorWidthSettingsDialog) {
+                        await module.showEditorWidthSettingsDialog();
+                    }
+                } catch (error) {
+                }
+            };
+            let longPressTimer = null;
+            const longPressDelay = 500;
+            let hasMoved = false;
+            const handleTouchStart = (event) => {
+                hasMoved = false;
+                longPressTimer = setTimeout(async () => {
+                    if (!hasMoved) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (!button.classList.contains('active')) {
+                            return;
+                        }
+                        try {
+                            const module = await loadEditorWidthModule();
+                            if (module && module.showEditorWidthSettingsDialog) {
+                                await module.showEditorWidthSettingsDialog();
+                            }
+                        } catch (error) {
+                        }
+                    }
+                }, longPressDelay);
+            };
+            const handleTouchEnd = (event) => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+                hasMoved = false;
+            };
+            const handleTouchMove = (event) => {
+                hasMoved = true;
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
+            button.addEventListener('contextmenu', handleRightClick);
+            button.addEventListener('touchstart', handleTouchStart, { passive: false });
+            button.addEventListener('touchend', handleTouchEnd);
+            button.addEventListener('touchmove', handleTouchMove);
+            button.addEventListener('touchcancel', handleTouchEnd);
+        }
         container.appendChild(optionElement);
     }
     return container;
@@ -642,9 +698,9 @@ async function initializeFunctionStates(config = null) {
             if (currentState) {
                 await enableSideMemo();
             }
-        } else if (option.id === 'EditorFullWidth') {
+        } else if (option.id === 'EditorWidth') {
             if (currentState) {
-                await enableEditorFullWidth();
+                await enableEditorWidth();
             }
         } else if (option.id === 'FocusBlockHighlight') {
             if (currentState) {

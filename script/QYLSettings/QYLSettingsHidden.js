@@ -140,7 +140,7 @@ export const createQYLSettingsHiddenWindow = async () => {
     ];
     const functionOptions = [
         { id: 'MarktoBlank', label: i18n.MarktoBlank },
-        { id: 'EditorFullWidth', label: i18n.EditorFullWidth },
+        { id: 'EditorWidth', label: i18n.EditorWidth },
         { id: 'FocusBlockHighlight', label: i18n.FocusBlockHighlight },
         { id: 'HoverBlockHighlight', label: i18n.HoverBlockHighlight },
         { id: 'SuperBlockHighlight', label: i18n.SuperBlockHighlight },
