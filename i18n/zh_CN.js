@@ -339,4 +339,7 @@ export default {
     "Mac": "mac",
     "Hierarchical": "层次",
     "Multilevel": "多级",
+    "HideMemo": "隐藏备注",
+    "ShowMemo": "显示备注",
+    "Memo": "备注",
 }; 

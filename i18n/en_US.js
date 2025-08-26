@@ -339,4 +339,7 @@ export default {
     "Mac": "Mac",
     "Hierarchical": "Hierarchical",
     "Multilevel": "Multilevel",
+    "HideMemo": "Hide Memo",
+    "ShowMemo": "Show Memo",
+    "Memo": "Memo",
 };
