@@ -665,6 +665,9 @@ export function initAnimation() {
         [data-key="QYLGlobalStyle"] .b3-dialog__container {
             animation: QYLGlobalStyle 0.4s cubic-bezier(0.8, 0, 0.9, 1);
         }
+        [data-key="QYLEditorWidthSettings"] .b3-dialog__container {
+            animation: QYLEditorWidthSettings 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+        }
         @keyframes QYLCustomFontStyle {
             0% {
                 transform: scale(0.9);
@@ -692,6 +695,16 @@ export function initAnimation() {
             }
         }
         @keyframes QYLGlobalStyle {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes QYLEditorWidthSettings {
             0% {
                 transform: scale(0.9);
                 opacity: 0;
