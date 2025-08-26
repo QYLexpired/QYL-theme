@@ -9,6 +9,7 @@ let resizeStartX = 0;
 let resizeStartWidth = 0;
 let resizeDirection = ''; 
 import { isMobile } from '../basic/Device.js';
+import i18n from '../../i18n/i18n.js';
 function detectContentType(content) {
     if (!content || typeof content !== 'string') {
         return 'text';
@@ -138,8 +139,67 @@ function hasMemo(wysiwyg) {
 function updateMemoProtyleClass(wysiwyg) {
     if (hasMemo(wysiwyg)) {
         wysiwyg.classList.add('QYLmemoProtyle');
+        addHideMemoButton(wysiwyg);
     } else {
         wysiwyg.classList.remove('QYLmemoProtyle');
+        removeHideMemoButton(wysiwyg);
+    }
+}
+function addHideMemoButton(wysiwyg) {
+    let parentElement = wysiwyg.parentElement;
+    let breadcrumb = null;
+    while (parentElement && parentElement !== document) {
+        const prevSibling = parentElement.previousElementSibling;
+        if (prevSibling && prevSibling.classList.contains('protyle-breadcrumb')) {
+            breadcrumb = prevSibling;
+            break;
+        }
+        parentElement = parentElement.parentElement;
+    }
+    if (!breadcrumb) return;
+    if (breadcrumb.querySelector('.QYL-hide-memo-btn')) return;
+    const firstIcon = breadcrumb.querySelector('.block__icon.fn__flex-center.ariaLabel');
+    if (!firstIcon) return;
+    const hideMemoBtn = document.createElement('button');
+    hideMemoBtn.className = 'block__icon fn__flex-center ariaLabel QYL-hide-memo-btn';
+    hideMemoBtn.setAttribute('aria-label', i18n.HideMemo);
+    hideMemoBtn.innerHTML = '<svg><use xlink:href="#iconEyeoff"></use></svg>';
+    hideMemoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (wysiwyg.classList.contains('QYLmemoHide')) {
+            wysiwyg.classList.remove('QYLmemoHide');
+            if (wysiwyg.parentElement) {
+                wysiwyg.parentElement.classList.remove('QYLmemoHide');
+            }
+            hideMemoBtn.innerHTML = '<svg><use xlink:href="#iconEyeoff"></use></svg>';
+            hideMemoBtn.setAttribute('aria-label', i18n.HideMemo);
+        } else {
+            wysiwyg.classList.add('QYLmemoHide');
+            if (wysiwyg.parentElement) {
+                wysiwyg.parentElement.classList.add('QYLmemoHide');
+            }
+            hideMemoBtn.innerHTML = '<svg><use xlink:href="#iconEye"></svg>';
+            hideMemoBtn.setAttribute('aria-label', i18n.ShowMemo);
+        }
+    });
+    firstIcon.parentNode.insertBefore(hideMemoBtn, firstIcon);
+}
+function removeHideMemoButton(wysiwyg) {
+    let parentElement = wysiwyg.parentElement;
+    let breadcrumb = null;
+    while (parentElement && parentElement !== document) {
+        const prevSibling = parentElement.previousElementSibling;
+        if (prevSibling && prevSibling.classList.contains('protyle-breadcrumb')) {
+            breadcrumb = prevSibling;
+            break;
+        }
+        parentElement = parentElement.parentElement;
+    }
+    if (!breadcrumb) return;
+    const hideMemoBtn = breadcrumb.querySelector('.QYL-hide-memo-btn');
+    if (hideMemoBtn) {
+        hideMemoBtn.remove();
     }
 }
 function generateMemoUid(memoEl, idx) {
@@ -361,6 +421,7 @@ const BottomMemoModule = {
         wysiwyg.querySelectorAll('.QYLmemoActive').forEach(el => {
             el.classList.remove('QYLmemoActive');
         });
+        removeHideMemoButton(wysiwyg);
     },
     handleObserverChanges(mutations, wysiwyg) {
         if (isRenderingMemo) return; 
@@ -690,6 +751,7 @@ const RightMemoModule = {
                 delete resizeHandle._QYL_resize_dblclick;
             }
         });
+        removeHideMemoButton(wysiwyg);
     },
     bindResizeEvents(resizeHandle, direction, scopeEl) {
         const targetEl = scopeEl || document.documentElement;
@@ -780,6 +842,11 @@ function cleanupAllDirections(wysiwyg) {
     BottomMemoModule.cleanup(wysiwyg);
     RightMemoModule.cleanup(wysiwyg);
     wysiwyg.classList.remove('QYLmemoProtyle');
+    wysiwyg.classList.remove('QYLmemoHide');
+    if (wysiwyg.parentElement) {
+        wysiwyg.parentElement.classList.remove('QYLmemoHide');
+    }
+    removeHideMemoButton(wysiwyg);
 }
 function renderSideMemo(wysiwyg) {
     cleanupAllDirections(wysiwyg);
@@ -894,6 +961,10 @@ export function removeSideMemo() {
     document.querySelectorAll('.QYLmemoProtyle').forEach(el => {
         el.classList.remove('QYLmemoProtyle');
     });
+    document.querySelectorAll('.QYLmemoHide').forEach(el => {
+        el.classList.remove('QYLmemoHide');
+    });
+    document.querySelectorAll('.QYL-hide-memo-btn').forEach(btn => btn.remove());
     if (window._QYL_memo_resize_handler) {
         window.removeEventListener('resize', window._QYL_memo_resize_handler);
         delete window._QYL_memo_resize_handler;
