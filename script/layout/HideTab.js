@@ -43,6 +43,10 @@ export function initHideTab() {
                     &:hover {
                         opacity: 1;
                     }
+                    & button[data-type="exit-focus"]:not(:hover) {
+                        background-color: rgb(from var(--b3-theme-background) r g b / 50%);
+                        backdrop-filter: blur(10px);
+                    }
                     & .protyle-breadcrumb__bar {
                         background-color: rgb(from var(--b3-theme-background) r g b / 50%);
                         border-radius: var(--b3-border-radius);
