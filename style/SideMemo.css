@@ -80,7 +80,7 @@
 :root {
     --QYLmemoR-box-width: 250px;
 }
-.QYLmemoR .protyle-content {
+.QYLmemoR .protyle-content:not(.QYLmemoHide) {
     & .protyle-wysiwyg.QYLmemoProtyle {
         padding-left: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoR-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
         padding-right: max(var(--QYLmemoR-box-width), var(--QYL-protyle-padding-right)) !important;
@@ -161,7 +161,7 @@
 :root { 
     --QYLmemoL-box-width: 250px;
 }
-.QYLmemoL .protyle-content {
+.QYLmemoL .protyle-content:not(.QYLmemoHide) {
     & .protyle-wysiwyg.QYLmemoProtyle {
         padding-right: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoL-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
         padding-left: max(var(--QYLmemoL-box-width), var(--QYL-protyle-padding-left)) !important;
@@ -320,4 +320,8 @@
             margin: 0.5em 0;
         }
     }
+}
+/* 隐藏备注 */
+.QYLmemoHide .QYL-inline-memo-box {
+    display: none !important;
 }
