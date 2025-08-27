@@ -498,3 +498,45 @@
         color: transparent;
     }
 }
+.av__gallery-item {
+    container-type: inline-size;
+    container-name: gallery-item;
+}
+@container gallery-item (min-width: 300px) {
+    .av__gallery-field.av__gallery-field--name {
+        display: flex;
+        flex-direction: row;
+        & .av__gallery-name {
+            flex-shrink: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 68px;
+            max-width: 68px;
+        }
+        & .av__cell {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: calc(100% - 68px);
+            max-width: calc(100% - 68px);
+        }
+    }
+}
+/* 分组 */
+.av__group-icon[data-type="av-group-fold"]:not(:has(.av__group-arrow--open)) {
+    color: var(--b3-theme-primary);
+    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    background-color: var(--QYL-tab-item-focus);
+}
+.av__group-counter {
+    margin-left: 4px;
+    line-height: 22px;
+    padding: 0 8px;
+    color: var(--b3-theme-on-surface-light);
+    border-radius: var(--b3-border-radius);
+    font-size: 12px;
+    user-select: none;
+    height: 22px;
+    background-color: var(--b3-theme-surface);
+}

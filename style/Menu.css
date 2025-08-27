@@ -1,6 +1,9 @@
 .b3-menu__item {
     line-height: 24px;
 }
+.av__panel .b3-menu__label {
+    min-height: 24px;
+}
 .b3-list mark {
     background-color: var(--b3-highlight-background);
     color: var(--b3-highlight-color);
