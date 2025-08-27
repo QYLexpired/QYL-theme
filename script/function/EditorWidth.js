@@ -28,6 +28,9 @@ export async function initEditorWidth() {
         if (configContent) {
             const parsedConfig = JSON.parse(configContent);
             config = { ...config, ...parsedConfig };
+            if (!config.editorPadding || config.editorPadding < 16) {
+                config.editorPadding = 16;
+            }
         }
     } catch (error) {
     }
@@ -35,13 +38,13 @@ export async function initEditorWidth() {
     style.id = 'QYL-EditorWidth';
             style.textContent = `
             :root {
-                ${config.editorPadding ? `--QYL-editor-padding: ${config.editorPadding}px;` : ''}
-                ${config.editorPadding ? `--QYL-editor-padding-value: max(16px, var(--QYL-editor-padding));` : ''}
+                --QYL-editor-padding: ${config.editorPadding}px;
+                --QYL-editor-padding-value: max(16px, var(--QYL-editor-padding));
                 ${config.editorWidth ? `--QYL-editor-width: ${config.editorWidth}px;` : ''}
                 ${config.editorWidth ? `--QYL-editor-width-value: calc(var(--QYL-editor-width) + var(--QYL-editor-padding-value) * 2);` : ''}
             }
         .protyle {
-            container-type: size;
+            container-type: inline-size;
         }
         .protyle-content {
             --QYL-protyle-padding-left: var(--QYL-editor-padding-value) !important;
@@ -98,6 +101,9 @@ export async function createEditorWidthSettingsDialog() {
             editorWidth: null,
             editorPadding: 16
         };
+    }
+    if (!currentConfig.editorPadding || currentConfig.editorPadding < 16) {
+        currentConfig.editorPadding = 16;
     }
     const dialogContainer = document.createElement('div');
     dialogContainer.setAttribute('data-key', 'QYLEditorWidthSettings');
@@ -177,6 +183,7 @@ export async function createEditorWidthSettingsDialog() {
     widthContainer.appendChild(widthLabel);
     const widthInputContainer = document.createElement('div');
     widthInputContainer.className = 'fn__flex config__item';
+    widthInputContainer.style.alignItems = 'center';
     const widthInput = document.createElement('input');
     widthInput.type = 'number';
     widthInput.min = '0';
@@ -184,23 +191,26 @@ export async function createEditorWidthSettingsDialog() {
     widthInput.value = currentConfig.editorWidth || '';
     widthInput.className = 'b3-text-field fn__flex-1';
     widthInput.style.width = '120px';
+    widthInput.style.height = '30px';
     widthInputContainer.appendChild(widthInput);
     widthContainer.appendChild(widthInputContainer);
     const paddingContainer = document.createElement('div');
     paddingContainer.className = 'b3-label fn__flex config__group';
     const paddingLabel = document.createElement('div');
     paddingLabel.className = 'fn__block';
-    paddingLabel.innerHTML = (i18n.EditorPadding || '编辑器内边距') + '<br><span style="font-size: 12px; color: var(--b3-theme-on-surface);">' + (i18n.EditorPaddingDesc || '固定编辑器的最小内边距，单位：px') + '</span>';
+    paddingLabel.innerHTML = (i18n.EditorPadding || '编辑器内边距') + '<br><span style="font-size: 12px; color: var(--b3-theme-on-surface);">' + (i18n.EditorPaddingDesc || '固定编辑器的最小内边距，单位：px（不能低于16px，不能留空）') + '</span>';
     paddingContainer.appendChild(paddingLabel);
     const paddingInputContainer = document.createElement('div');
     paddingInputContainer.className = 'fn__flex config__item';
+    paddingInputContainer.style.alignItems = 'center';
     const paddingInput = document.createElement('input');
     paddingInput.type = 'number';
-    paddingInput.min = '0';
+    paddingInput.min = '16';
     paddingInput.step = '1';
     paddingInput.value = currentConfig.editorPadding || 16;
     paddingInput.className = 'b3-text-field fn__flex-1';
     paddingInput.style.width = '120px';
+    paddingInput.style.height = '30px';
     paddingInputContainer.appendChild(paddingInput);
     paddingContainer.appendChild(paddingInputContainer);
     content.appendChild(widthContainer);
@@ -239,12 +249,12 @@ export async function createEditorWidthSettingsDialog() {
         if (widthValue && (isNaN(widthValue) || parseInt(widthValue) < 0)) {
             return;
         }
-        if (paddingValue && (isNaN(paddingValue) || parseInt(paddingValue) < 0)) {
+        if (!paddingValue || isNaN(paddingValue) || parseInt(paddingValue) < 16) {
             return;
         }
         const newConfig = {
             editorWidth: widthValue ? parseInt(widthValue) : null,
-            editorPadding: paddingValue ? parseInt(paddingValue) : null
+            editorPadding: parseInt(paddingValue)
         };
         const saveSuccess = await saveEditorWidthConfig(newConfig);
         if (saveSuccess) {
