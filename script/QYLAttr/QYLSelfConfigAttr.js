@@ -974,7 +974,7 @@ export class QYLSelfConfigAttr {
                 this.cleanupAllQYLContent();
                 await this.showNotification(this.i18n.saveSuccess || '配置保存成功');
             } else {
-                throw new Error(result?.msg || '保存失败');
+                throw new Error(result?.msg || this.i18n.saveError || '保存失败');
             }
         } catch (error) {
             await this.showNotification((this.i18n.saveError || '保存配置失败') + ': ' + error.message);
