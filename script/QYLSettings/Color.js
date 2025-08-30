@@ -1134,6 +1134,43 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
             }
         }
         await flushBatchUpdate();
+        try {
+            const config = await getStorageConfig();
+            const mainGroup = currentMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
+            const checkCustomColorPickId = currentMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
+            const checkColorSwitchTimeId = currentMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
+            const checkColorSwitchImgId = currentMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
+            let hasActiveColor = false;
+            if (config[checkCustomColorPickId] || config[checkColorSwitchTimeId] || config[checkColorSwitchImgId]) {
+                hasActiveColor = true;
+            }
+            if (!hasActiveColor) {
+                for (const colorId of mainGroup) {
+                    if (config[colorId]) {
+                        hasActiveColor = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasActiveColor) {
+                if (currentMode === 'light') {
+                    await enableLightClassic();
+                    const lightClassicBtn = document.getElementById('QYLLightClassic');
+                    if (lightClassicBtn) {
+                        lightClassicBtn.classList.add('active');
+                    }
+                    await setButtonState('QYLLightClassic', true);
+                } else {
+                    await enableDarkClassic();
+                    const darkClassicBtn = document.getElementById('QYLDarkClassic');
+                    if (darkClassicBtn) {
+                        darkClassicBtn.classList.add('active');
+                    }
+                    await setButtonState('QYLDarkClassic', true);
+                }
+            }
+        } catch (error) {
+        }
         updatePWAThemeColor();
     };
     if (useViewTransition) {
@@ -1775,6 +1812,22 @@ async function initializeColorStates(config = null) {
         } else if (firstActiveColor === 'QYLWoodAsh') {
             await enableWoodAsh();
         }
+    } else {
+        if (currentMode === 'light') {
+            await enableLightClassic();
+            const lightClassicBtn = document.getElementById('QYLLightClassic');
+            if (lightClassicBtn) {
+                lightClassicBtn.classList.add('active');
+            }
+            await setButtonState('QYLLightClassic', true);
+        } else {
+            await enableDarkClassic();
+            const darkClassicBtn = document.getElementById('QYLDarkClassic');
+            if (darkClassicBtn) {
+                darkClassicBtn.classList.add('active');
+            }
+            await setButtonState('QYLDarkClassic', true);
+        }
     }
     ThemeMode.addModeChangeListener(async (newMode) => {
         const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
@@ -1900,6 +1953,22 @@ async function initializeColorStates(config = null) {
                 await enableWarm();
             } else if (newFirstActiveColor === 'QYLWoodAsh') {
                 await enableWoodAsh();
+            }
+        } else {
+            if (newMode === 'light') {
+                await enableLightClassic();
+                const lightClassicBtn = document.getElementById('QYLLightClassic');
+                if (lightClassicBtn) {
+                    lightClassicBtn.classList.add('active');
+                }
+                await setButtonState('QYLLightClassic', true);
+            } else {
+                await enableDarkClassic();
+                const darkClassicBtn = document.getElementById('QYLDarkClassic');
+                if (darkClassicBtn) {
+                    darkClassicBtn.classList.add('active');
+                }
+                await setButtonState('QYLDarkClassic', true);
             }
         }
     });
