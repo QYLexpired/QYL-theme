@@ -444,10 +444,11 @@
     }
 }
 .av__row--util .b3-button {
-    border-radius: 12px;
+    border-radius: 36px;
     color: var(--b3-theme-primary);
-    border-color: var(--b3-theme-primary);
+    border-color: var(--b3-theme-surface-lighter);
     &:hover {
+        border-color: var(--b3-theme-primary);
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
     }

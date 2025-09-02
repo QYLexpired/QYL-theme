@@ -25,8 +25,8 @@
     display: none;
 }
 .b3-snackbars {
-    top: 50px;
-    right: 30px;
+    top: 36px;
+    right: 42px;
 }
 #message  .b3-snackbar--error .b3-snackbar__content {
     padding-left: 48px;

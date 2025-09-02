@@ -145,23 +145,28 @@ div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [d
     background-color: var(--b3-theme-primary);
     }
 }
+div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [data-type="-2"], [data-type="-1"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
+    border-radius: 36px;
+}
+.protyle-background__action .b3-button.b3-button--cancel {
+    border-radius: 36px;
+    border-color: var(--b3-theme-surface-lighter);
+    color: var(--b3-theme-primary);
+    &:hover, :focus {
+    border-color: var(--b3-theme-primary);
+    color: var(--b3-theme-on-primary);
+    background-color: var(--b3-theme-primary);
+    }
+}
 /* 兼容番茄工具箱 */
 .b3-button[tomatocardskipbtn="1"].b3-button--cancel:not(#findResultsCount, #findMsg)::before {
     display: none !important;
 }
 [tomatocarddelbtn="1"] .b3-button.b3-button--cancel:not(#findResultsCount, #findMsg) {
+    border-radius: 36px;
     line-height: 30px;
     padding: 8px 0;
     &::before {
     display: none !important;
-    }
-}
-.protyle-background__action .b3-button.b3-button--cancel {
-    border-radius: 12px;
-    border-color: var(--b3-theme-primary);
-    color: var(--b3-theme-primary);
-    &:hover, :focus {
-    color: var(--b3-theme-on-primary);
-    background-color: var(--b3-theme-primary);
     }
 }
