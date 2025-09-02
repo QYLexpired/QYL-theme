@@ -385,6 +385,7 @@ export async function createEditorWidthSettingsDialog() {
     const independentWidthContainer = document.createElement('div');
     independentWidthContainer.className = 'b3-label fn__flex config__group';
     independentWidthContainer.style.display = currentConfig.independentWindow ? 'flex' : 'none';
+    independentWidthContainer.style.borderBottom = 'none';
     const independentWidthLabel = document.createElement('div');
     independentWidthLabel.className = 'fn__block';
     independentWidthLabel.style.paddingRight = '20px';
@@ -521,6 +522,7 @@ export async function createEditorWidthSettingsDialog() {
     const popupWidthContainer = document.createElement('div');
     popupWidthContainer.className = 'b3-label fn__flex config__group';
     popupWidthContainer.style.display = currentConfig.popupWindow ? 'flex' : 'none';
+    popupWidthContainer.style.borderBottom = 'none';
     const popupWidthLabel = document.createElement('div');
     popupWidthLabel.className = 'fn__block';
     popupWidthLabel.style.paddingRight = '20px';
