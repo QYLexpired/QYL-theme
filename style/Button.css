@@ -136,13 +136,9 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-1"] {
     background-color: var(--b3-theme-primary);
     color: var(--b3-theme-on-primary);
 }
-div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
+div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [data-type="-2"], [data-type="-1"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
     &::before {
     display: none !important;
-    }
-    &:hover, :focus {
-    border-color: var(--b3-theme-primary);
-    background-color: var(--b3-theme-primary);
     }
 }
 .protyle-background__action .b3-button.b3-button--cancel {

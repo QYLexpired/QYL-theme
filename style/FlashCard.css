@@ -46,45 +46,87 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-3"] {
         color: var(--b3-theme-surface);
     }
 }
+div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-1"] {
+    &:hover, :focus {
+        filter: brightness(0.85);
+    }
+}
+[data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-1"] {
+    &:hover, :focus {
+        filter: brightness(0.75);
+    }
+}
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
     border-color: #d10e0e;
     background-color: #d10e0e;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #a80f0f;
+        background-color: #a80f0f;
+    }
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
     border-color: #ea601b;
     background-color: #ea601b;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #b9500e;
+        background-color: #b9500e;
+    }
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
     border-color: #188ec5;
     background-color: #188ec5;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #126e92;
+        background-color: #126e92;
+    }
 }
 div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
     border-color: #5ab203;
     background-color: #5ab203;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #499506;
+        background-color: #499506;
+    }
 }
 [data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="1"] {
     border-color: #d52f2f9e;
     background-color: #d52f2f9e;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #9419199e;
+        background-color: #9419199e;
+    }
 }
 [data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="2"] {
     border-color: #c94b0cbd;
     background-color: #c94b0cbd;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #86330abd;
+        background-color: #86330abd;
+    }
 }
 [data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="3"] {
     border-color: #0f89b1c4;
     background-color: #0f89b1c4;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #0e6987c4;
+        background-color: #0e6987c4;
+    }
 }
 [data-theme-mode="dark"] div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
     border-color: #4db715b5;
     background-color: #4db715b5;
     color: var(--b3-theme-on-primary) !important;
+    &:hover, :focus {
+        border-color: #3e8c13b5;
+        background-color: #3e8c13b5;
+    }
 }
 .card__action > div:nth-child(2) > span:first-child {
     color: #e21f1f;
