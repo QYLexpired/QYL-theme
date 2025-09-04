@@ -1,7 +1,7 @@
 /* 圆角表格 */
 [qyl-table-shape="rounded"] {
     & .protyle-wysiwyg [data-node-id] table {
-        border-radius: 12px;
+        border-radius: 8px;
         border: 1px solid var(--b3-theme-on-background);
         & thead th {
             border-top: none;
