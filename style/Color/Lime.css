@@ -9,7 +9,7 @@
     --b3-theme-background: #f7fff4;
     --b3-theme-background-light: #dbead6;
     /* 面板背景色 */
-    --b3-theme-surface: #eef9e7;
+    --b3-theme-surface: #edfae4;
     --b3-theme-surface-light: rgba(238, 249, 231, 0.8);
     --b3-theme-surface-lighter: #dbe7d4;
     /* 文字颜色 */
@@ -58,5 +58,5 @@
 }
 /* 细节调整 */
 .QYLColorBlock[data-theme-mode="light"] {
-    --b3-theme-surface: #e8ffd9;
+    --b3-theme-surface: #e1f4d6;
 }
