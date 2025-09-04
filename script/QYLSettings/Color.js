@@ -30,7 +30,8 @@ const lightColorMainGroup = [
     'QYLCream',
     'QYLBiwan',
     'QYLWarm',
-    'QYLWoodAsh'
+    'QYLWoodAsh',
+    'QYLAfterglow'
 ];
 const darkColorMainGroup = [
     'QYLDarkClassic',
@@ -47,7 +48,8 @@ const darkColorMainGroup = [
     'QYLXingqiong',
     'QYLWildness',
     'QYLMarsh',
-    'QYLGleam'
+    'QYLGleam',
+    'QYLYinJi'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -99,8 +101,10 @@ let darkRevertModule = null;
 let wildnessModule = null;
 let marshModule = null;
 let gleamModule = null;
+let yinJiModule = null;
 let warmModule = null;
 let woodAshModule = null;
+let afterglowModule = null;
 async function loadColorModule1() {
     if (!colorModule1) {
         try {
@@ -1008,6 +1012,18 @@ async function disableGleam() {
         module.removeGleam();
     }
 }
+async function enableYinJi() {
+    const module = await loadYinJiModule();
+    if (module && module.initYinJi) {
+        module.initYinJi();
+    }
+}
+async function disableYinJi() {
+    const module = await loadYinJiModule();
+    if (module && module.removeYinJi) {
+        module.removeYinJi();
+    }
+}
 async function enableWarm() {
     const module = await loadWarmModule();
     if (module && module.initWarm) {
@@ -1030,6 +1046,18 @@ async function disableWoodAsh() {
     const module = await loadWoodAshModule();
     if (module && module.removeWoodAsh) {
         module.removeWoodAsh();
+    }
+}
+async function enableAfterglow() {
+    const module = await loadAfterglowModule();
+    if (module && module.initAfterglow) {
+        module.initAfterglow();
+    }
+}
+async function disableAfterglow() {
+    const module = await loadAfterglowModule();
+    if (module && module.removeAfterglow) {
+        module.removeAfterglow();
     }
 }
 async function handleColorButtonClick(buttonId, enableFunction, disableFunction) {
@@ -1232,6 +1260,8 @@ async function handleDisableById(id) {
         await disableCream();
     } else if (id === 'QYLWoodAsh') {
         await disableWoodAsh();
+    } else if (id === 'QYLAfterglow') {
+        await disableAfterglow();
     } else if (id === 'QYLBiwan') {
         await disableBiwan();
     } else if (id === 'QYLBurgundy') {
@@ -1266,6 +1296,8 @@ async function handleDisableById(id) {
         await disableMarsh();
     } else if (id === 'QYLGleam') {
         await disableGleam();
+    } else if (id === 'QYLYinJi') {
+        await disableYinJi();
     } else if (id === 'QYLWarm') {
         await disableWarm();
     }
@@ -1384,6 +1416,10 @@ function getColorOptions() {
         {
             id: 'QYLWoodAsh',
             label: i18n.QYLWoodAsh
+        },
+        {
+            id: 'QYLAfterglow',
+            label: i18n.QYLAfterglow
         }
     ];
     const darkModeOptions = [
@@ -1462,6 +1498,10 @@ function getColorOptions() {
         {
             id: 'QYLGleam',
             label: i18n.QYLGleam
+        },
+        {
+            id: 'QYLYinJi',
+            label: i18n.QYLYinJi
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1665,6 +1705,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableGleam;
                         disableFunction = disableGleam;
                         break;
+                    case 'QYLYinJi':
+                        enableFunction = enableYinJi;
+                        disableFunction = disableYinJi;
+                        break;
                     case 'QYLWarm':
                         enableFunction = enableWarm;
                         disableFunction = disableWarm;
@@ -1672,6 +1716,10 @@ async function createColorContent(config = null) {
                     case 'QYLWoodAsh':
                         enableFunction = enableWoodAsh;
                         disableFunction = disableWoodAsh;
+                        break;
+                    case 'QYLAfterglow':
+                        enableFunction = enableAfterglow;
+                        disableFunction = disableAfterglow;
                         break;
                 }
             }
@@ -1807,10 +1855,14 @@ async function initializeColorStates(config = null) {
             await enableMarsh();
         } else if (firstActiveColor === 'QYLGleam') {
             await enableGleam();
+        } else if (firstActiveColor === 'QYLYinJi') {
+            await enableYinJi();
         } else if (firstActiveColor === 'QYLWarm') {
             await enableWarm();
         } else if (firstActiveColor === 'QYLWoodAsh') {
             await enableWoodAsh();
+        } else if (firstActiveColor === 'QYLAfterglow') {
+            await enableAfterglow();
         }
     } else {
         if (currentMode === 'light') {
@@ -1829,149 +1881,6 @@ async function initializeColorStates(config = null) {
             await setButtonState('QYLDarkClassic', true);
         }
     }
-    ThemeMode.addModeChangeListener(async (newMode) => {
-        const newGroup = newMode === 'light' ? lightColorMainGroup : darkColorMainGroup;
-        const { clearConfigCache } = await import('../basic/GetStorage.js');
-        clearConfigCache();
-        const config = await getStorageConfig();
-        const colorSwitchTimeId = newMode === 'light' ? 'ColorSwitchTimeLight' : 'ColorSwitchTimeDark';
-        const colorSwitchImgId = newMode === 'light' ? 'ColorSwitchImgLight' : 'ColorSwitchImgDark';
-        const customColorPickId = newMode === 'light' ? 'CustomColorPickLight' : 'CustomColorPickDark';
-        if (newMode === 'dark' && config['QYLDarkRevert']) {
-            await enableDarkRevert();
-        } else if (newMode === 'light' && config['QYLDarkRevert']) {
-            await disableDarkRevert();
-        }
-        if (config[colorSwitchTimeId]) {
-            if (!config[customColorPickId]) {
-                config[customColorPickId] = true;
-            }
-            await loadColorFromConfig();
-            await enableColorSwitchTime();
-            return;
-        }
-        if (config[colorSwitchImgId]) {
-            if (!config[customColorPickId]) {
-                config[customColorPickId] = true;
-            }
-            await loadColorFromConfig();
-            await enableColorSwitchImg();
-            return;
-        }
-        let newFirstActiveColor = null;
-        for (const colorId of newGroup) {
-            const currentState = config[colorId] || false;
-            if (currentState) {
-                newFirstActiveColor = colorId;
-                break;
-            }
-        }
-        if (newFirstActiveColor) {
-            if (newFirstActiveColor === 'CustomColorPickLight' || newFirstActiveColor === 'CustomColorPickDark') {
-                await loadColorFromConfig();
-            } else if (newFirstActiveColor === 'ColorSwitchTimeLight' || newFirstActiveColor === 'ColorSwitchTimeDark') {
-                await enableColorSwitchTime();
-            } else if (newFirstActiveColor === 'ColorSwitchImgLight' || newFirstActiveColor === 'ColorSwitchImgDark') {
-                await enableColorSwitchImg();
-            } else if (newFirstActiveColor === 'QYLLightClassic') {
-                await enableLightClassic();
-            } else if (newFirstActiveColor === 'QYLSunset') {
-                await enableSunset();
-            } else if (newFirstActiveColor === 'QYLForest') {
-                await enableForest();
-            } else if (newFirstActiveColor === 'QYLOcean') {
-                await enableOcean();
-            } else if (newFirstActiveColor === 'QYLSugar') {
-                await enableSugar();
-            } else if (newFirstActiveColor === 'QYLLavender') {
-                await enableLavender();
-            } else if (newFirstActiveColor === 'QYLYunwu') {
-                await enableYunwu();
-            } else if (newFirstActiveColor === 'QYLYunyan') {
-                await enableYunyan();
-            } else if (newFirstActiveColor === 'QYLYuncang') {
-                await enableYuncang();
-            } else if (newFirstActiveColor === 'QYLYunjin') {
-                await enableYunjin();
-            } else if (newFirstActiveColor === 'QYLShuanghe') {
-                await enableShuanghe();
-            } else if (newFirstActiveColor === 'QYLLime') {
-                await enableLime();
-            } else if (newFirstActiveColor === 'QYLHuique') {
-                await enableHuique();
-            } else if (newFirstActiveColor === 'QYLAutumn') {
-                await enableAutumn();
-            } else if (newFirstActiveColor === 'QYLMemory') {
-                await enableMemory();
-            } else if (newFirstActiveColor === 'QYLLake') {
-                await enableLake();
-            } else if (newFirstActiveColor === 'QYLXiangxuelan') {
-                await enableXiangxuelan();
-            } else if (newFirstActiveColor === 'QYLIvory') {
-                await enableIvory();
-            } else if (newFirstActiveColor === 'QYLCoral') {
-                await enableCoral();
-            } else if (newFirstActiveColor === 'QYLMint') {
-                await enableMint();
-            } else if (newFirstActiveColor === 'QYLAmber') {
-                await enableAmber();
-            } else if (newFirstActiveColor === 'QYLCream') {
-                await enableCream();
-            } else if (newFirstActiveColor === 'QYLBiwan') {
-                await enableBiwan();
-            } else if (newFirstActiveColor === 'QYLBurgundy') {
-                await enableBurgundy();
-            } else if (newFirstActiveColor === 'QYLXuanqing') {
-                await enableXuanqing();
-            } else if (newFirstActiveColor === 'QYLMocui') {
-                await enableMocui();
-            } else if (newFirstActiveColor === 'QYLHuimu') {
-                await enableHuimu();
-            } else if (newFirstActiveColor === 'QYLWumu') {
-                await enableWumu();
-            } else if (newFirstActiveColor === 'QYLMidnight') {
-                await enableMidnight();
-            } else if (newFirstActiveColor === 'QYLCangming') {
-                await enableCangming();
-            } else if (newFirstActiveColor === 'QYLSteam') {
-                await enableSteam();
-            } else if (newFirstActiveColor === 'QYLLatte') {
-                await enableLatte();
-            } else if (newFirstActiveColor === 'QYLWinter') {
-                await enableWinter();
-            } else if (newFirstActiveColor === 'QYLXingqiong') {
-                await enableXingqiong();
-            } else if (newFirstActiveColor === 'QYLDarkClassic') {
-                await enableDarkClassic();
-            } else if (newFirstActiveColor === 'QYLWildness') {
-                await enableWildness();
-            } else if (newFirstActiveColor === 'QYLMarsh') {
-                await enableMarsh();
-            } else if (newFirstActiveColor === 'QYLGleam') {
-                await enableGleam();
-            } else if (newFirstActiveColor === 'QYLWarm') {
-                await enableWarm();
-            } else if (newFirstActiveColor === 'QYLWoodAsh') {
-                await enableWoodAsh();
-            }
-        } else {
-            if (newMode === 'light') {
-                await enableLightClassic();
-                const lightClassicBtn = document.getElementById('QYLLightClassic');
-                if (lightClassicBtn) {
-                    lightClassicBtn.classList.add('active');
-                }
-                await setButtonState('QYLLightClassic', true);
-            } else {
-                await enableDarkClassic();
-                const darkClassicBtn = document.getElementById('QYLDarkClassic');
-                if (darkClassicBtn) {
-                    darkClassicBtn.classList.add('active');
-                }
-                await setButtonState('QYLDarkClassic', true);
-            }
-        }
-    });
 }
 async function loadColorFromConfig() {
     const module = await loadColorModule1();
@@ -2022,6 +1931,15 @@ async function loadGleamModule() {
     }
     return gleamModule;
 }
+async function loadYinJiModule() {
+    if (!yinJiModule) {
+        try {
+            yinJiModule = await import('../color/YinJi.js');
+        } catch (error) {
+        }
+    }
+    return yinJiModule;
+}
 async function loadWarmModule() {
     if (!warmModule) {
         try {
@@ -2039,5 +1957,14 @@ async function loadWoodAshModule() {
         }
     }
     return woodAshModule;
+}
+async function loadAfterglowModule() {
+    if (!afterglowModule) {
+        try {
+            afterglowModule = await import('../color/Afterglow.js');
+        } catch (error) {
+        }
+    }
+    return afterglowModule;
 }
 export { getColorOptions, createColorContent, initializeColorStates };
