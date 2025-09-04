@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 优化部分细节</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加预设配色-余辉<br>• 暗黑模式增加预设配色-隐迹<br>• 全局样式增加选项-标题颜色-多彩（随主题色变化）<br>• 修复切换明亮/暗黑模式时配色异常的问题<br>• 重做部分input组件样式</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
@@ -11,7 +11,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">丰富的配色选择</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题还额外内置了超过30种预设日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效<br>由于预设配色较多，无法保证全部完善，有任何问题欢迎反馈</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">主题提供自定义主题色功能，通过选取色相、饱和度、亮度来搭配出你喜欢的效果<br>主题还额外内置了超过40种预设日夜配色<br>注意：由于部分移动设备不支持OKLCH色彩空间，因此自定义主题色不会生效<br>由于预设配色较多，无法保证全部完善，有任何问题欢迎反馈</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">丰富的风格选择</summary>
