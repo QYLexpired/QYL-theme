@@ -30,7 +30,7 @@ export async function initGlobalStyle(config = null) {
         const attributeMapping = {
             'QYLHeadingColor': {
                 attribute: 'qyl-heading-color',
-                values: ['colorful']
+                values: ['colorful', 'colorful-dynamic']
             },
             'QYLHeadingEnhance': {
                 attribute: 'qyl-heading-enhance',
@@ -226,7 +226,8 @@ export async function createGlobalStyleDialog() {
                     label: i18n.HeadingColor,
                     options: [
                         { value: 'default', label: i18n.Default },
-                        { value: 'colorful', label: i18n.Colorful }
+                        { value: 'colorful', label: i18n.Colorful },
+                        { value: 'colorful-dynamic', label: i18n.ColorfulDynamic }
                     ]
                 },
                 {
