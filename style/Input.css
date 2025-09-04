@@ -1,0 +1,74 @@
+.b3-text-field, .pcr-app .pcr-interaction .pcr-result {
+    box-shadow: 0 0 0 1px var(--QYL-tab-item-focus);
+    background-color: var(--QYL-tab-item);
+}
+.b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {
+    box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%);
+    background-color: var(--QYL-tab-item);
+}
+.b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
+    box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%);
+    background-color: var(--QYL-tab-item);
+}
+.search__header .b3-form__icon-icon {
+    z-index: 10; /*临时修复毛玻璃部分输入框图标不可见 */
+}
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--b3-theme-on-surface-light);
+    transition: 0.1s all linear;
+    position: relative;
+    top: 4px;
+    &:checked {
+        border: 5px solid var(--b3-theme-primary);
+    }
+}
+input[type="range"] {
+    &::-webkit-slider-runnable-track {
+        height: 5px;
+        border-radius: 12px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 16px;
+        width: 16px;
+        margin-top: -6px;
+        background-color: var(--b3-theme-on-primary);
+        border: 1px solid var(--b3-theme-surface-lighter);
+        box-shadow: var(--b3-point-shadow);
+    }
+}
+[data-theme-mode="dark"] {
+    input[type="range"] {
+        &::-webkit-slider-thumb {
+            background-color: var(--b3-theme-on-background);
+        }
+    }
+}
+.protyle-scroll__bar input[type="range"].b3-slider {
+    &::-webkit-slider-runnable-track {
+        height: 3px;
+        border-radius: 12px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 14px;
+        width: 14px;
+        margin-top: -6px;
+        background-color: var(--b3-theme-on-primary);
+        border: 1px solid var(--b3-theme-surface-lighter);
+        box-shadow: var(--b3-point-shadow);
+    }
+}
+[data-theme-mode="dark"] {
+    .protyle-scroll__bar input[type="range"].b3-slider {
+        &::-webkit-slider-thumb {
+            background-color: var(--b3-theme-on-background);
+        }
+    }
+}

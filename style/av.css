@@ -444,7 +444,7 @@
     }
 }
 .av__row--util .b3-button {
-    border-radius: 36px;
+    border-radius: 12px;
     color: var(--b3-theme-primary);
     border-color: var(--b3-theme-surface-lighter);
     &:hover {
