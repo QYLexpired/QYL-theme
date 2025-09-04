@@ -285,7 +285,7 @@
 /* 圆角 */
 .protyle-wysiwyg [data-node-id][custom-table-style="圆角"] table,
 .protyle-wysiwyg[data-node-id][custom-table-style="圆角"] table {
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid var(--b3-theme-on-background);
     & thead th {
         border-top: none;
