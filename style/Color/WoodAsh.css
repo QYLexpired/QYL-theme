@@ -23,7 +23,7 @@
     --b3-toolbar-blur-background: #e7e6d3;
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
-    /* 滚动极 */
+    /* 滚动条 */
     --b3-scroll-color: #b9b8a3;
     /* 悬停 */
     --b3-list-hover: rgba(165, 163, 132, 0.5);
