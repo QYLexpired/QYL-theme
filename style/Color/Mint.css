@@ -1,33 +1,33 @@
 [data-theme-mode="light"] {
     --QYL-custom-primary-main: 173deg;
     /* 主色 */
-    --b3-theme-primary: #43b699;
+    --b3-theme-primary: #3dc4a2;
     --b3-theme-primary-light: rgba(67, 182, 153, 0.5);
     --b3-theme-primary-lighter: rgba(67, 182, 153, 0.3);
     --b3-theme-primary-lightest: rgba(67, 182, 153, 0.12);
     /* 编辑器背景色 */
-    --b3-theme-background: #edf3f1;
-    --b3-theme-background-light: #d6e1de;
+    --b3-theme-background: #fff7ef;
+    --b3-theme-background-light: #f4e9de;
     /* 面板背景色 */
-    --b3-theme-surface: #d5e3dd;
+    --b3-theme-surface: #e0ece7;
     --b3-theme-surface-light: rgba(213, 227, 221, 0.8);
-    --b3-theme-surface-lighter: #b6c9c1;
+    --b3-theme-surface-lighter: #cfdad5;
     /* 文字颜色 */
     --b3-theme-on-primary: #f6f6f6;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
-    --b3-theme-on-background: #1b4846;
-    --b3-theme-on-surface: #275a4f;
-    --b3-theme-on-surface-light: #35645a;
+    --b3-theme-on-background: #504d8b;
+    --b3-theme-on-surface: #777497;
+    --b3-theme-on-surface-light: #817ea3;
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #e3f2ec;
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
     /* 滚动条 */
-    --b3-scroll-color: #b9d8d0;
+    --b3-scroll-color: #c6dad2;
     /* 悬停 */
-    --b3-list-hover: rgba(152, 201, 185, 0.5);
-    --b3-list-icon-hover: rgba(152, 201, 185, 0.5);
+    --b3-list-hover: rgba(140, 232, 211, 0.5);
+    --b3-list-icon-hover: rgba(140, 232, 211, 0.5);
     /* 菜单 */
     --b3-menu-background: var(--b3-theme-background);
     /* 提示 */
@@ -38,21 +38,21 @@
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
     /* switch */
-    --b3-switch-background: #c0dedb;
+    --b3-switch-background: #dae4e4;
     /* 行级代码背景色 */
     --b3-protyle-code-background: var(--b3-theme-surface);
     /* 页签 */
-    --QYL-tab-item: rgba(152, 201, 185, 0.2);
-    --QYL-tab-item-focus: rgba(152, 201, 185, 0.5);
+    --QYL-tab-item: rgba(140, 232, 211, 0.2);
+    --QYL-tab-item-focus: rgba(101, 224, 196, 0.5);
     /* 状态栏 */
     --QYL-status-background: var(--b3-theme-background);
     /* 毛玻璃 */
-    --QYL-Aero-background: rgba(248, 255, 252, 0.7);
-    --QYL-Aero-background-wrap: rgba(248, 255, 252, 0.7);
+    --QYL-Aero-background: rgba(255, 253, 251, 0.75);
+    --QYL-Aero-background-wrap: rgba(255, 250, 243, 0.75);
     /* 引述块 */
-    --QYL-blockquote-background: #d9e4e2;
-    --QYL-blockquote-svg: #b7c6c3;
-    --QYL-blockquote: #727e7c;
+    --QYL-blockquote-background: #f3eae0;
+    --QYL-blockquote-svg: #ddd3c9;
+    --QYL-blockquote: #968f86;
     /* 行级代码 */
     --QYL-inline-code: var(--b3-theme-primary);
 }

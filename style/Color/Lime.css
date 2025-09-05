@@ -1,33 +1,33 @@
 [data-theme-mode="light"] {
-    --QYL-custom-primary-main: 134deg;
+    --QYL-custom-primary-main: 131deg;
     /* 主色 */
-    --b3-theme-primary: #89c95c;
-    --b3-theme-primary-light: rgba(137, 201, 92, 0.5);
-    --b3-theme-primary-lighter: rgba(137, 201, 92, 0.3);
-    --b3-theme-primary-lightest: rgba(137, 201, 92, 0.1);
+    --b3-theme-primary: #7fc900;
+    --b3-theme-primary-light: rgba(127, 201, 0, 0.5);
+    --b3-theme-primary-lighter: rgba(127, 201, 0, 0.3);
+    --b3-theme-primary-lightest: rgba(127, 201, 0, 0.12);
     /* 编辑器背景色 */
-    --b3-theme-background: #f7fff4;
-    --b3-theme-background-light: #dbead6;
+    --b3-theme-background: #f8ffff;
+    --b3-theme-background-light: #e0efef;
     /* 面板背景色 */
-    --b3-theme-surface: #edfae4;
-    --b3-theme-surface-light: rgba(238, 249, 231, 0.8);
-    --b3-theme-surface-lighter: #dbe7d4;
+    --b3-theme-surface: #e8f0f0;
+    --b3-theme-surface-light: rgba(232, 240, 240, 0.8);
+    --b3-theme-surface-lighter: #d7dfdf;
     /* 文字颜色 */
-    --b3-theme-on-primary: #f6f6f6;
+    --b3-theme-on-primary: #feffff;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
-    --b3-theme-on-background: #2b4c68;
-    --b3-theme-on-surface: #3e6078;
-    --b3-theme-on-surface-light: #53758e;
+    --b3-theme-on-background: #456b7d;
+    --b3-theme-on-surface: #577b8a;
+    --b3-theme-on-surface-light: #648a9a;
     /* 顶部工具栏 */
-    --b3-toolbar-blur-background: #f6fbf3;
-    --b3-toolbar-color: var(--b3-theme-on-surface-light);
+    --b3-toolbar-blur-background: #f8ffff;
+    --b3-toolbar-color: var(--b3-theme-on-surface);
     --b3-toolbar-hover: var(--QYL-tab-item-focus);
     /* 滚动条 */
-    --b3-scroll-color: #d9f0cb;
+    --b3-scroll-color: #cedbe0;
     /* 悬停 */
-    --b3-list-hover: rgba(182, 245, 81, 0.5);
-    --b3-list-icon-hover: rgba(182, 245, 81, 0.5);
+    --b3-list-hover: rgba(87, 236, 149, 0.35);
+    --b3-list-icon-hover: rgba(78, 237, 144, 0.35);
     /* 菜单 */
     --b3-menu-background: var(--b3-theme-background);
     /* 提示 */
@@ -38,25 +38,40 @@
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
     /* switch */
-    --b3-switch-background: #c4dec0;
+    --b3-switch-background: var(--b3-theme-surface-lighter);
     /* 行级代码背景色 */
     --b3-protyle-code-background: var(--b3-theme-surface);
     /* 页签 */
-    --QYL-tab-item: rgba(182, 245, 81, 0.1);
-    --QYL-tab-item-focus: rgba(182, 245, 81, 0.5);
+    --QYL-tab-item: rgba(189, 205, 196, 0.3);
+    --QYL-tab-item-focus: rgba(192, 240, 0, 0.6);
     /* 状态栏 */
     --QYL-status-background: var(--b3-theme-background);
     /* 毛玻璃 */
-    --QYL-Aero-background: rgba(250, 255, 247, 0.7);
-    --QYL-Aero-background-wrap: rgba(250, 255, 247, 0.7);
+    --QYL-Aero-background: rgba(255, 255, 255, 0.7);
+    --QYL-Aero-background-wrap: rgba(255, 255, 255, 0.7);
     /* 引述块 */
-    --QYL-blockquote-background: #e7f6e1;
-    --QYL-blockquote-svg: #bcd3b3;
-    --QYL-blockquote: #7c9670;
+    --QYL-blockquote: #8f9e9e;
+    --QYL-blockquote-background: #e9f5f5;
+    --QYL-blockquote-svg: #d2e0e0;
     /* 行级代码 */
     --QYL-inline-code: var(--b3-theme-primary);
 }
 /* 细节调整 */
-.QYLColorBlock[data-theme-mode="light"] {
-    --b3-theme-surface: #e1f4d6;
+.b3-select {
+    box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
+    background-color: rgba(207, 227, 216, 0.3);
+}
+.b3-text-field, .pcr-app .pcr-interaction .pcr-result {
+    box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
+    background-color: rgba(207, 227, 216, 0.3);
+}
+.config-bazaar__panel {
+    & .b3-card {
+        &:hover {
+            background-color: rgba(87, 236, 149, 0.5);
+        }
+        &.b3-card--current {
+            background-color: rgba(87, 236, 149, 0.5);
+        }
+    }
 }
