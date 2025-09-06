@@ -208,6 +208,7 @@ export default {
     "QYLMarsh": "沼泽",
     "QYLGleam": "微光",
     "QYLYinJi": "隐迹",
+    "QYLJinZun": "金樽",
     "QYLWarm": "暖流",
     "SideMemo": "显示行内备注",
     "SideMemoRight": "已切换为右侧备注",

@@ -230,6 +230,7 @@ export default {
     "QYLMarsh": "Marsh",
     "QYLGleam": "Gleam",
     "QYLYinJi": "Hidden Trace",
+    "QYLJinZun": "Golden Chalice",
     "QYLWarm": "Warm Current",
     "SideMemo": "Show Inline Memo",
     "SideMemoRight": "Switched to right side memo",
