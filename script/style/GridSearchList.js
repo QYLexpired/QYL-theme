@@ -10,6 +10,7 @@ export function initGridSearchList() {
             & > .b3-list-item:not([data-type="search-item"]) + div {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-auto-rows: max-content;
                 gap: 6px;
                 padding: 0 8px 12px 8px;
                 & > [data-type="search-item"] {
@@ -38,6 +39,7 @@ export function initGridSearchList() {
         #searchList:has(> .b3-list-item[data-type="search-item"]) {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: max-content;
             gap: 6px;
             padding: 6px;
             & > .b3-list-item {
@@ -79,6 +81,7 @@ export function initGridSearchList() {
         #searchAssetList {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: max-content;
             gap: 6px;
             padding: 6px;
             & > .b3-list-item {
