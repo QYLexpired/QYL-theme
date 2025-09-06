@@ -27,9 +27,6 @@
     --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
     --b3-tooltips-shadow: var(--b3-point-shadow);
     --b3-mask-background: rgba(220, 220, 220, 0.4);
-    --b3-highlight-color: white;
-    --b3-highlight-background: rgb(255, 0, 238);
-    --b3-highlight-current-background: rgb(179, 0, 255);
     --b3-switch-background: rgb(241, 205, 215);
     --b3-protyle-code-background: var(--b3-theme-surface);
     --QYL-tab-item: rgba(255, 182, 211, 0.2);

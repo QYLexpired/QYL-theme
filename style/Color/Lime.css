@@ -1,10 +1,10 @@
 [data-theme-mode="light"] {
     --QYL-custom-primary-main: 131deg;
     /* 主色 */
-    --b3-theme-primary: #7fc900;
-    --b3-theme-primary-light: rgba(127, 201, 0, 0.5);
-    --b3-theme-primary-lighter: rgba(127, 201, 0, 0.3);
-    --b3-theme-primary-lightest: rgba(127, 201, 0, 0.12);
+    --b3-theme-primary: #85d200;
+    --b3-theme-primary-light: rgba(152, 241, 0, 0.55);
+    --b3-theme-primary-lighter: rgba(156, 246, 0, 0.35);
+    --b3-theme-primary-lightest: rgba(154, 243, 0, 0.2);
     /* 编辑器背景色 */
     --b3-theme-background: #f8ffff;
     --b3-theme-background-light: #e0efef;
@@ -59,11 +59,17 @@
 /* 细节调整 */
 .b3-select {
     box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
-    background-color: rgba(207, 227, 216, 0.3);
+    background-color: rgba(225, 246, 234, 0.3);
 }
 .b3-text-field, .pcr-app .pcr-interaction .pcr-result {
     box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
-    background-color: rgba(207, 227, 216, 0.3);
+    background-color: rgba(225, 246, 234, 0.3);
+}
+.b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
+    background-color: rgba(225, 246, 234, 0.3);
+}
+.b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {
+    background-color: rgba(225, 246, 234, 0.3);
 }
 .config-bazaar__panel {
     & .b3-card {

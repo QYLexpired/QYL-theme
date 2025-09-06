@@ -1,0 +1,54 @@
+[data-theme-mode="dark"] {
+    --QYL-custom-primary-main: 28deg;
+    /* 主色 */
+    --b3-theme-primary: #cf5747;
+    --b3-theme-primary-light: rgba(215, 81, 69, 0.5);
+    --b3-theme-primary-lighter: rgba(236, 89, 75, 0.3);
+    --b3-theme-primary-lightest: rgba(236, 89, 75, 0.12);
+    /* 编辑器背景色 */
+    --b3-theme-background: #2b2833;
+    --b3-theme-background-light: #464350;
+    /* 面板背景色 */
+    --b3-theme-surface: #1c1827;
+    --b3-theme-surface-light: rgba(28, 24, 39, 0.8);
+    --b3-theme-surface-lighter: #474253;
+    /* 文字颜色 */
+    --b3-theme-on-primary: #e5ecf4;
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
+    --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-background: #dabcae;
+    --b3-theme-on-surface: #ba9f94;
+    --b3-theme-on-surface-light: #a7897c;
+    /* 顶部工具栏 */
+    --b3-toolbar-blur-background: #282335;
+    --b3-toolbar-color: var(--b3-theme-on-background);
+    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    /* 滚动条 */
+    --b3-scroll-color: rgba(216, 183, 162, 0.3);
+    /* 悬停 */
+    --b3-list-hover: rgba(216, 188, 162, 0.3);
+    --b3-list-icon-hover: rgba(216, 188, 162, 0.3);
+    /* 菜单 */
+    --b3-menu-background: var(--b3-theme-background);
+    /* 提示 */
+    --b3-tooltips-background: var(--b3-theme-background);
+    --b3-tooltips-color: var(--b3-theme-on-surface);
+    --b3-tooltips-second-color: var(--b3-theme-on-surface-light);
+    --b3-tooltips-shadow: var(--b3-point-shadow);
+    /* switch */
+    --b3-switch-background: #6f627e;
+    /* 行级代码背景色 */
+    --b3-protyle-code-background: var(--b3-theme-surface);
+    /* 页签 */
+    --QYL-tab-item: rgba(183, 162, 216, 0.15);
+    --QYL-tab-item-focus: rgba(194, 166, 228, 0.38);
+    /* 状态栏 */
+    --QYL-status-background: var(--b3-theme-background);
+    /* 毛玻璃 */
+    --QYL-Aero-background: rgba(32, 31, 33, 0.7);
+    --QYL-Aero-background-wrap: rgba(52, 50, 60, 0.7);
+    /* 引述块 */
+    --QYL-blockquote-background: #403c4b;
+    --QYL-blockquote-svg: #635c75;
+    --QYL-blockquote: #968eac;
+}
