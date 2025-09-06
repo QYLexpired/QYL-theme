@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加預設配色-餘輝<br>• 暗黑模式增加預設配色-隱跡<br>• 全域樣式增加選項-標題顏色-多彩（隨主題色變化）<br>• 修復切換明亮/暗黑模式時配色異常的問題<br>• 重做部分input組件樣式</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加預設配色-餘輝<br>• 暗黑模式增加預設配色-隱跡、金樽<br>• 重做青檸配色<br>• 重做薄荷配色<br>• 重做文件樹縮進線、多彩文件樹、邊框化文件樹及三者聯動效果<br>• 全域樣式增加選項-標題顏色-多彩（隨主題色變化）<br>• 修復切換明亮/暗黑模式時配色異常的問題<br>• 重做部分input組件樣式</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
@@ -19,7 +19,7 @@
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">效能說明</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span><br>若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、沉浸式頂欄、九宮格排列、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合<br>若設備效能不佳，或者文件比較複雜，建議不要開啟過多功能，尤其建議不要同時開啟九宮格排列和固定工具欄<br>若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">功能未啟用時，相應程式碼不會加載，因此對效能<span style="font-weight: bold; color: var(--b3-theme-primary)">沒有任何影響</span><br>若發現卡頓，按照功能對效能的消耗程度，推薦按順序優先關閉：主題色隨時間變化、主題色隨題頭圖變化、沉浸式頂欄、固定工具欄、顯示行內備註、圖片遮罩、專注編輯模式、QYL自訂屬性樣式、主題動畫、毛玻璃效果、頂欄融合<br>若設備效能不佳，或者文件比較複雜，建議不要同時開啟過多功能<br>若極端情況下，由於開啟過多功能導致卡死，可刪除工作空間<span data-type="code">\conf\QYL-Config.json</span>文件強制關閉</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">使用方法<span style="color: var(--b3-theme-primary); padding-left: 6px">必讀！！！</span></summary>
