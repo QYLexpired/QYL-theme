@@ -49,7 +49,8 @@ const darkColorMainGroup = [
     'QYLWildness',
     'QYLMarsh',
     'QYLGleam',
-    'QYLYinJi'
+    'QYLYinJi',
+    'QYLJinZun'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -102,6 +103,7 @@ let wildnessModule = null;
 let marshModule = null;
 let gleamModule = null;
 let yinJiModule = null;
+let jinZunModule = null;
 let warmModule = null;
 let woodAshModule = null;
 let afterglowModule = null;
@@ -1024,6 +1026,18 @@ async function disableYinJi() {
         module.removeYinJi();
     }
 }
+async function enableJinZun() {
+    const module = await loadJinZunModule();
+    if (module && module.initJinZun) {
+        module.initJinZun();
+    }
+}
+async function disableJinZun() {
+    const module = await loadJinZunModule();
+    if (module && module.removeJinZun) {
+        module.removeJinZun();
+    }
+}
 async function enableWarm() {
     const module = await loadWarmModule();
     if (module && module.initWarm) {
@@ -1200,6 +1214,7 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
         } catch (error) {
         }
         updatePWAThemeColor();
+        await updateDarkRevertClass();
     };
     if (useViewTransition) {
         document.startViewTransition(doSwitch);
@@ -1298,6 +1313,8 @@ async function handleDisableById(id) {
         await disableGleam();
     } else if (id === 'QYLYinJi') {
         await disableYinJi();
+    } else if (id === 'QYLJinZun') {
+        await disableJinZun();
     } else if (id === 'QYLWarm') {
         await disableWarm();
     }
@@ -1502,6 +1519,10 @@ function getColorOptions() {
         {
             id: 'QYLYinJi',
             label: i18n.QYLYinJi
+        },
+        {
+            id: 'QYLJinZun',
+            label: i18n.QYLJinZun
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1709,6 +1730,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableYinJi;
                         disableFunction = disableYinJi;
                         break;
+                    case 'QYLJinZun':
+                        enableFunction = enableJinZun;
+                        disableFunction = disableJinZun;
+                        break;
                     case 'QYLWarm':
                         enableFunction = enableWarm;
                         disableFunction = disableWarm;
@@ -1733,6 +1758,9 @@ async function createColorContent(config = null) {
         });
         container.appendChild(optionElement);
     }
+    setTimeout(async () => {
+        await updateDarkRevertClass();
+    }, 0);
     return container;
 }
 async function initializeColorStates(config = null) {
@@ -1750,6 +1778,7 @@ async function initializeColorStates(config = null) {
         const button = document.getElementById('QYLDarkRevert');
         if (button) button.classList.toggle('active', darkRevertState);
     }
+    await updateDarkRevertClass();
     if (config[colorSwitchTimeId]) {
         if (!config[customColorPickId]) {
             config[customColorPickId] = true;
@@ -1857,6 +1886,8 @@ async function initializeColorStates(config = null) {
             await enableGleam();
         } else if (firstActiveColor === 'QYLYinJi') {
             await enableYinJi();
+        } else if (firstActiveColor === 'QYLJinZun') {
+            await enableJinZun();
         } else if (firstActiveColor === 'QYLWarm') {
             await enableWarm();
         } else if (firstActiveColor === 'QYLWoodAsh') {
@@ -1940,6 +1971,15 @@ async function loadYinJiModule() {
     }
     return yinJiModule;
 }
+async function loadJinZunModule() {
+    if (!jinZunModule) {
+        try {
+            jinZunModule = await import('../color/JinZun.js');
+        } catch (error) {
+        }
+    }
+    return jinZunModule;
+}
 async function loadWarmModule() {
     if (!warmModule) {
         try {
@@ -1966,5 +2006,20 @@ async function loadAfterglowModule() {
         }
     }
     return afterglowModule;
+}
+async function updateDarkRevertClass() {
+    const currentMode = ThemeMode.getThemeMode();
+    if (currentMode === 'dark') {
+        const config = await getStorageConfig();
+        const customColorPickDarkState = config['CustomColorPickDark'] || false;
+        const darkRevertButton = document.getElementById('QYLDarkRevert');
+        if (darkRevertButton) {
+            if (customColorPickDarkState) {
+                darkRevertButton.classList.remove('QYLDarkRevertNone');
+            } else {
+                darkRevertButton.classList.add('QYLDarkRevertNone');
+            }
+        }
+    }
 }
 export { getColorOptions, createColorContent, initializeColorStates };
