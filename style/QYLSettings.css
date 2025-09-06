@@ -83,6 +83,13 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
                         }
                     }
                 }
+                &.QYLDarkRevertNone {
+                    background-color: transparent;
+                    color: var(--b3-theme-on-surface-light);
+                    outline: 1px solid var(--b3-theme-surface-lighter);
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
             }
         }
     }

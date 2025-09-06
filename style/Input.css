@@ -53,16 +53,23 @@ input[type="range"] {
     &::-webkit-slider-runnable-track {
         height: 3px;
         border-radius: 12px;
+        background-color: var(--b3-theme-primary-lighter);
     }
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
         height: 14px;
         width: 14px;
-        margin-top: -6px;
+        margin-top: -5.5px;
         background-color: var(--b3-theme-on-primary);
         border: 1px solid var(--b3-theme-surface-lighter);
         box-shadow: var(--b3-point-shadow);
+    }
+}
+.protyle-scroll__down, .protyle-scroll__up {
+    color: var(--b3-theme-primary-lighter);
+    &:hover {
+        color: var(--b3-theme-primary);
     }
 }
 [data-theme-mode="dark"] {

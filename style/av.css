@@ -541,3 +541,8 @@
     height: 22px;
     background-color: var(--b3-theme-surface);
 }
+.av__group-title:nth-last-child(2) {
+    & .av__group-name {
+        color: var(--b3-theme-primary);
+    }
+}
