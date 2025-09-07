@@ -100,6 +100,10 @@ export async function initGlobalStyle(config = null) {
                 attribute: 'qyl-header-image-effect',
                 values: ['parallax']
             },
+            'QYLSidebarColor': {
+                attribute: 'qyl-sidebar-color',
+                values: ['dock-consistent']
+            },
         };
         Object.entries(attributeMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
@@ -114,7 +118,7 @@ export async function initGlobalStyle(config = null) {
     }
 }
 export function removeGlobalStyle() {
-    const attributes = ['qyl-heading-color', 'qyl-heading-enhance', 'qyl-heading-level', 'qyl-image-shape', 'qyl-link-style', 'qyl-superblock-general', 'qyl-superblock-horizontal', 'qyl-tag-color', 'qyl-tag-style', 'qyl-inline-code-color', 'qyl-quote-style', 'qyl-unordered-list', 'qyl-ordered-list', 'qyl-codeblock-style', 'qyl-table-shape', 'qyl-table-style', 'qyl-header-image-style', 'qyl-header-image-effect'];
+    const attributes = ['qyl-heading-color', 'qyl-heading-enhance', 'qyl-heading-level', 'qyl-image-shape', 'qyl-link-style', 'qyl-superblock-general', 'qyl-superblock-horizontal', 'qyl-tag-color', 'qyl-tag-style', 'qyl-inline-code-color', 'qyl-quote-style', 'qyl-unordered-list', 'qyl-ordered-list', 'qyl-codeblock-style', 'qyl-table-shape', 'qyl-table-style', 'qyl-header-image-style', 'qyl-header-image-effect', 'qyl-sidebar-color'];
     attributes.forEach(attr => {
         document.documentElement.removeAttribute(attr);
     });
@@ -416,6 +420,19 @@ export async function createGlobalStyleDialog() {
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'parallax', label: i18n.ParallaxScroll }
+                    ]
+                }
+            ]
+        },
+        {
+            title: i18n.SidebarStyle,
+            items: [
+                {
+                    id: 'QYLSidebarColor',
+                    label: i18n.SidebarColor,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'dock-consistent', label: i18n.DockConsistent }
                     ]
                 }
             ]
