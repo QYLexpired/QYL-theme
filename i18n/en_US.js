@@ -363,4 +363,7 @@ export default {
     "HideMemo": "Hide Memo",
     "ShowMemo": "Show Memo",
     "Memo": "Memo",
+    "SidebarStyle": "Sidebar Style",
+    "SidebarColor": "Sidebar Color",
+    "DockConsistent": "Consistent with Dock",
 };

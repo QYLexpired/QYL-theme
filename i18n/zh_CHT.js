@@ -363,4 +363,7 @@ export default {
     "HideMemo": "隱藏備註",
     "ShowMemo": "顯示備註",
     "Memo": "備註",
+    "SidebarStyle": "側欄樣式",
+    "SidebarColor": "側欄顏色",
+    "DockConsistent": "與停靠欄一致",
 }; 
