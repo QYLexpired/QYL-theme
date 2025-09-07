@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加预设配色-余辉<br>• 暗黑模式增加预设配色-隐迹、金樽<br>• 重做青柠配色<br>• 重做薄荷配色<br>• 重做文档树缩进线、多彩文档树、边框化文档树及三者联动效果<br>• 全局样式增加选项-标题颜色-多彩（随主题色变化）<br>• 修复切换明亮/暗黑模式时配色异常的问题<br>• 重做部分input组件样式</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加预设配色-余辉<br>• 暗黑模式增加预设配色-隐迹、金樽<br>• 重做青柠配色<br>• 重做薄荷配色<br>• 重做文档树缩进线、多彩文档树、边框化文档树及三者联动效果<br>• 全局样式增加选项-侧栏颜色-与停靠栏一致<br>• 全局样式增加选项-标题颜色-多彩（随主题色变化）<br>• 修复切换明亮/暗黑模式时配色异常的问题<br>• 重做部分input组件样式</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
