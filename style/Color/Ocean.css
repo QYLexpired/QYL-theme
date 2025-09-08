@@ -8,7 +8,7 @@
     --b3-theme-background-light: rgb(198, 223, 249);
     --b3-theme-surface: #cce0f3;
     --b3-theme-surface-light: rgba(204, 224, 243, 0.8);
-    --b3-theme-surface-lighter: rgb(187, 209, 230);
+    --b3-theme-surface-lighter: rgba(159, 180, 200, 0.68);
     --b3-theme-on-primary: #f5f7fa;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);

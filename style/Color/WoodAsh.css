@@ -11,7 +11,7 @@
     /* 面板背景色 */
     --b3-theme-surface: rgb(206, 205, 180);
     --b3-theme-surface-light: rgba(198, 197, 179, 0.8);
-    --b3-theme-surface-lighter: #c3c2ad;
+    --b3-theme-surface-lighter: rgba(164, 162, 127, 0.68);
     /* 文字颜色 */
     --b3-theme-on-primary: #f6f6f6;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
@@ -73,22 +73,4 @@
 .sy__outline .b3-list--background .b3-list-item[data-subtype="h5"],
 .sy__outline .b3-list--background .b3-list-item[data-subtype="h6"] {
     filter: brightness(0.8);
-}
-[data-theme-mode="light"].QYLColorfulFileTree {
-    --colorful-file-1: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-    --colorful-file-background-1: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-    --colorful-file-2: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 45deg));
-    --colorful-file-background-2: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 45deg));
-    --colorful-file-3: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
-    --colorful-file-background-3: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
-    --colorful-file-4: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 135deg));
-    --colorful-file-background-4: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 135deg));
-    --colorful-file-5: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
-    --colorful-file-background-5: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
-    --colorful-file-6: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 225deg));
-    --colorful-file-background-6: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 225deg));
-    --colorful-file-7: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
-    --colorful-file-background-7: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
-    --colorful-file-8: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 315deg));
-    --colorful-file-background-8: oklch(calc(0.83 + var(--b3-theme-primary-brightness) * 0.015) calc(0.1 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 315deg));
 }

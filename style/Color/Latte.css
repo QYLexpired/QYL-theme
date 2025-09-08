@@ -11,7 +11,7 @@
     /* 面板背景色 */
     --b3-theme-surface: #221e1b;
     --b3-theme-surface-light: rgba(34, 30, 27, 0.8);
-    --b3-theme-surface-lighter: #46403a;
+    --b3-theme-surface-lighter: rgba(255, 245, 235, 0.15);
     /* 文字颜色 */
     --b3-theme-on-primary: #fbfdff;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
