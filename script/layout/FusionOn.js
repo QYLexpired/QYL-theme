@@ -126,7 +126,7 @@ export function initFusionOn() {
             #layouts .layout__resize.layout__resize--lr {
                 clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
             }
-            #layouts .layout--float.layout__dockb .layout__resize.layout__resize--lr {
+            #layouts .layout__dockb .layout__resize.layout__resize--lr {
                 clip-path: none;
             }
             .QYLFusionTop > .fn__flex:first-child {

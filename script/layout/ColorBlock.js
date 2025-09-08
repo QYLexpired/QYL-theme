@@ -172,14 +172,6 @@ export function initColorBlock() {
         :is(.layout__dockl, .layout__dockr):not(.layout--float) {
             padding-top: 37.5px !important;
         }
-        /* 反链面板兼容 */
-        :is(.layout__dockl, .layout__dockb) .sy__backlink .protyle,.sy__backlink .protyle-content {
-            background-color: rgba(0,0,0,0)
-        }
-        :is(.layout__dockl, .layout__dockb) .sy__backlink .b3-list--background .b3-list-item {
-            box-shadow: 0 6px 0 var(--b3-theme-surface), 0 -6px 0 var(--b3-theme-surface);
-            background-color: var(--b3-theme-background) !important;
-        }
         /* 状态栏回退 */
         @media (max-width: 630px) {
             #status {
