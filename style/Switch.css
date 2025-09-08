@@ -7,6 +7,7 @@
     left: 10px;
     width: 16px;
     height: 16px;
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.15, 1.8), width 0.6s cubic-bezier(0.25, 0.46, 0.15, 1.8), height 0.6s cubic-bezier(0.25, 0.46, 0.15, 1.8);
 }
 label:hover .b3-switch:not(:disabled)::before, .b3-switch:hover:not(:disabled)::before {
     display: none;
@@ -15,4 +16,12 @@ label:hover .b3-switch:not(:disabled)::before, .b3-switch:hover:not(:disabled)::
     left: 24px;
     width: 16px;
     height: 16px;
+}
+.b3-switch:active:not(:disabled)::after {
+    height: 22px;
+    width: 22px;
+}
+.b3-switch:checked:active:not(:disabled)::after {
+    height: 22px;
+    width: 22px;
 }

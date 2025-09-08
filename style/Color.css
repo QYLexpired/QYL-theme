@@ -89,7 +89,7 @@
         /* 面板背景色 */
         --b3-theme-surface: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-surface-light: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
-        --b3-theme-surface-lighter: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        --b3-theme-surface-lighter: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.68);
         /* 文字颜色 */
         --b3-theme-on-primary: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-secondary: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
@@ -158,7 +158,7 @@
     /* 面板背景色 */
     --b3-theme-surface: #262626;
     --b3-theme-surface-light: rgba(41, 42, 45, .86);
-    --b3-theme-surface-lighter: rgba(230, 230, 230, .06);
+    --b3-theme-surface-lighter: rgba(230, 230, 230, 0.15);
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
@@ -237,7 +237,6 @@
         /* 面板背景色 */
         --b3-theme-surface: oklch(calc(0.2 + var(--b3-theme-primary-brightness) * 0.03) calc(0.075 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-surface-light: oklch(calc(0.18 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
-        --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.1);
         /* 文字颜色 */
         --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
@@ -298,7 +297,7 @@
             /* 面板背景色 */
             --b3-theme-surface: oklch(calc(0.245 + var(--b3-theme-primary-brightness) * 0.02) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-surface-light: oklch(calc(0.22 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
-            --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.1);
+            --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
             --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
@@ -356,7 +355,7 @@
             /* 面板背景色 */
             --b3-theme-surface: oklch(calc(0.245 + var(--b3-theme-primary-brightness) * 0.02) calc(0.095 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-surface-light: oklch(calc(0.22 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
-            --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.1);
+            --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
             --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
@@ -424,46 +423,46 @@
     --b3-switch-checked-hover2: transparent;
 }
 [data-theme-mode="light"] {
-    --QYL-custom-red: #ed4545;
-    --QYL-custom-red-background: #ffe2e2;
-    --QYL-custom-orange: #ff8239;
-    --QYL-custom-orange-background: #ffedda;
-    --QYL-custom-yellow: #fff000;
-    --QYL-custom-yellow-background: #fff9c4;
-    --QYL-custom-green: #26c326;
-    --QYL-custom-green-background: #dbffd8;
-    --QYL-custom-cyan: #33d2c2;
-    --QYL-custom-cyan-background: #dffffc;
-    --QYL-custom-blue: #3575f0;
-    --QYL-custom-blue-background: #d1e1ff;
-    --QYL-custom-purple: #8938c0;
-    --QYL-custom-purple-background: #f6e8ff;
-    --QYL-custom-pink: #ff81b5;
-    --QYL-custom-pink-background: #fff1f5;
-    --QYL-custom-black: #393939;
-    --QYL-custom-black-background: #d7d7d7;
-    --QYL-custom-gray: #b8b8b8;
-    --QYL-custom-gray-background: #eaeaea;
-    --QYL-custom-red: oklch(0.68 0.22 25deg);
-    --QYL-custom-red-background: oklch(0.93 0.05 25deg);
-    --QYL-custom-orange: oklch(0.68 0.22 50deg);
-    --QYL-custom-orange-background: oklch(0.93 0.05 50deg);
-    --QYL-custom-yellow: oklch(0.9 0.22 107deg);
-    --QYL-custom-yellow-background: oklch(0.99 0.05 107deg);
-    --QYL-custom-green: oklch(0.68 0.22 147deg);
-    --QYL-custom-green-background: oklch(0.93 0.05 147deg);
-    --QYL-custom-cyan: oklch(0.68 0.22 180deg);
-    --QYL-custom-cyan-background: oklch(0.93 0.05 180deg);
-    --QYL-custom-blue: oklch(0.68 0.22 213deg);
-    --QYL-custom-blue-background: oklch(0.93 0.05 213deg);
-    --QYL-custom-purple: oklch(0.68 0.22 290deg);
-    --QYL-custom-purple-background: oklch(0.93 0.05 290deg);
-    --QYL-custom-pink: oklch(0.68 0.22 9deg);
-    --QYL-custom-pink-background: oklch(0.93 0.05 9deg);
-    --QYL-custom-black: oklch(0.3 0.05 25deg);
-    --QYL-custom-black-background: oklch(0.9 0 25deg);
-    --QYL-custom-gray: oklch(0.76 0 25deg);
-    --QYL-custom-gray-background: oklch(0.96 0 25deg);
+    --QYL-custom-red: rgba(237, 69, 69, 0.75);
+    --QYL-custom-red-background: rgba(255, 226, 226, 0.45);
+    --QYL-custom-orange: rgba(255, 130, 57, 0.75);
+    --QYL-custom-orange-background: rgba(255, 237, 218, 0.45);
+    --QYL-custom-yellow: rgba(255, 240, 0, 0.75);
+    --QYL-custom-yellow-background: rgba(255, 249, 196, 0.45);
+    --QYL-custom-green: rgba(38, 195, 38, 0.75);
+    --QYL-custom-green-background: rgba(219, 255, 216, 0.45);
+    --QYL-custom-cyan: rgba(51, 210, 194, 0.75);
+    --QYL-custom-cyan-background: rgba(223, 255, 252, 0.45);
+    --QYL-custom-blue: rgba(53, 117, 240, 0.75);
+    --QYL-custom-blue-background: rgba(209, 225, 255, 0.45);
+    --QYL-custom-purple: rgba(137, 56, 192, 0.75);
+    --QYL-custom-purple-background: rgba(246, 232, 255, 0.45);
+    --QYL-custom-pink: rgba(255, 129, 181, 0.75);
+    --QYL-custom-pink-background: rgba(255, 241, 245, 0.45);
+    --QYL-custom-black: rgba(57, 57, 57, 0.75);
+    --QYL-custom-black-background: rgba(215, 215, 215, 0.45);
+    --QYL-custom-gray: rgba(184, 184, 184, 0.75);
+    --QYL-custom-gray-background: rgba(234, 234, 234, 0.45);
+    --QYL-custom-red: oklch(0.68 0.22 25deg / 0.75);
+    --QYL-custom-red-background: oklch(0.93 0.05 25deg / 0.45);
+    --QYL-custom-orange: oklch(0.68 0.22 50deg / 0.75);
+    --QYL-custom-orange-background: oklch(0.93 0.05 50deg / 0.45);
+    --QYL-custom-yellow: oklch(0.9 0.22 107deg / 0.75);
+    --QYL-custom-yellow-background: oklch(0.99 0.05 107deg / 0.45);
+    --QYL-custom-green: oklch(0.68 0.22 147deg / 0.75);
+    --QYL-custom-green-background: oklch(0.93 0.05 147deg / 0.45);
+    --QYL-custom-cyan: oklch(0.68 0.22 180deg / 0.75);
+    --QYL-custom-cyan-background: oklch(0.93 0.05 180deg / 0.45);
+    --QYL-custom-blue: oklch(0.68 0.22 213deg / 0.75);
+    --QYL-custom-blue-background: oklch(0.93 0.05 213deg / 0.45);
+    --QYL-custom-purple: oklch(0.68 0.22 290deg / 0.75);
+    --QYL-custom-purple-background: oklch(0.93 0.05 290deg / 0.45);
+    --QYL-custom-pink: oklch(0.68 0.22 9deg / 0.75);
+    --QYL-custom-pink-background: oklch(0.93 0.05 9deg / 0.45);
+    --QYL-custom-black: oklch(0.3 0.05 25deg / 0.75);
+    --QYL-custom-black-background: oklch(0.9 0 25deg / 0.45);
+    --QYL-custom-gray: oklch(0.76 0 25deg / 0.75);
+    --QYL-custom-gray-background: oklch(0.96 0 25deg / 0.45);
 }
 [data-theme-mode="dark"] {
     --QYL-custom-red: rgba(196, 49, 49, 0.7);
@@ -486,6 +485,22 @@
     --QYL-custom-black-background: rgba(94, 94, 94, 0.2);
     --QYL-custom-gray: rgba(168, 168, 168, 0.7);
     --QYL-custom-gray-background: rgba(202, 202, 202, 0.3);
+    --QYL-custom-red: oklch(0.58 0.18 25deg / 0.7);
+    --QYL-custom-red-background: oklch(0.45 0.15 25deg / 0.3);
+    --QYL-custom-orange: oklch(0.58 0.18 50deg / 0.7);
+    --QYL-custom-orange-background: oklch(0.45 0.15 50deg / 0.3);
+    --QYL-custom-yellow: oklch(0.58 0.18 107deg / 0.7);
+    --QYL-custom-yellow-background: oklch(0.45 0.15 107deg / 0.3);
+    --QYL-custom-green: oklch(0.58 0.18 147deg / 0.7);
+    --QYL-custom-green-background: oklch(0.45 0.15 147deg / 0.3);
+    --QYL-custom-cyan: oklch(0.58 0.18 180deg / 0.7);
+    --QYL-custom-cyan-background: oklch(0.45 0.15 180deg / 0.3);
+    --QYL-custom-blue: oklch(0.58 0.18 213deg / 0.7);
+    --QYL-custom-blue-background: oklch(0.45 0.15 213deg / 0.3);
+    --QYL-custom-purple: oklch(0.58 0.18 290deg / 0.7);
+    --QYL-custom-purple-background: oklch(0.45 0.15 290deg / 0.3);
+    --QYL-custom-pink: oklch(0.58 0.18 9deg / 0.7);
+    --QYL-custom-pink-background: oklch(0.45 0.15 9deg / 0.3);
 }
 [data-theme-mode="light"] {
     /* PDF */
