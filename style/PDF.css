@@ -19,3 +19,12 @@
 #sidebarContainer {
     background-color: var(--b3-theme-background);
 }
+#dialogContainer>.dialog {
+    padding: 16px;
+    & > div > span:first-child {
+        color: var(--b3-theme-on-background);
+        & + p {
+            color: var(--b3-theme-on-surface-light);
+        }
+    }
+}

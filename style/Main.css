@@ -49,7 +49,7 @@
     }
     &::after {
         visibility: hidden;
-        width: 8px;
+        width: 6px;
         height: 100%;
         border-radius: var(--b3-border-radius-q);
         transition: none;
@@ -65,7 +65,7 @@
     }
     &::after {
         visibility: hidden;
-        height: 8px;
+        height: 6px;
         width: 100%;
         border-radius: var(--b3-border-radius-q);
         transform: translateY(-3px);

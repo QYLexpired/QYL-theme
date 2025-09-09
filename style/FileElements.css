@@ -46,7 +46,7 @@
 }
 /* 表格 */
 .b3-typography table td, .b3-typography table th, .protyle-wysiwyg table td, .protyle-wysiwyg table th, .b3-typography table tr:nth-child(even) td, .protyle-wysiwyg table tr:nth-child(even) td {
-    border: 1px solid var(--b3-theme-on-background);
+    border: 1px solid var(--b3-theme-surface-lighter);
     background-color: rgba(255, 0, 0, 0);
 }
 .b3-typography table thead th, .b3-typography table thead td, .protyle-wysiwyg table thead th, .protyle-wysiwyg table thead td {
@@ -70,6 +70,7 @@
     margin-right: 2px;
     &:hover {
         filter: brightness(0.85);
+        background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
     }
     &::before {
         content: '#';
@@ -105,6 +106,11 @@
     padding-bottom: 1.5px;
 }
 .tooltip.tooltip--memo {
+    font-size: 14px;
+    line-height: 20px;
+}
+/* 块属性 */
+.protyle-wysiwyg--attr .b3-tooltips::after {
     font-size: 14px;
     line-height: 20px;
 }
@@ -251,6 +257,7 @@
     margin-right: 2px;
     &:hover {
         filter: brightness(0.85);
+        background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
         & .b3-chip__close {
             opacity: 1;
             margin-right: 0;
@@ -329,25 +336,12 @@
         box-shadow: var(--b3-point-shadow);
     }
 }
-/* 块折叠 */
-.protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type=NodeHeading]) {
-    box-shadow: var(--b3-dialog-shadow);    
-    margin-bottom: 15px;
-    padding: 4px 10px 4px 1.5em;
-    opacity: 0.5;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0.2em;
-        width: 1em;
-        height: 1em;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 50%;
-        background: var(--b3-theme-primary);
-        background: linear-gradient(to right bottom, 
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 120deg)));
+/* 引用计数器 */
+.protyle-attr--refcount {
+    background-color: var(--QYL-tab-item-focus);
+    transition: var(--b3-transition);
+    &:hover {
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
     }
 }

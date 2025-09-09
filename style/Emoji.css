@@ -9,6 +9,9 @@
     font-size: 24px;
     margin-top: 10px;
     border-radius: var(--b3-border-radius);
+    &:hover {
+        background-color: var(--b3-list-hover);
+    }
 }
 .emojis__title {
     color: var(--b3-theme-primary);
