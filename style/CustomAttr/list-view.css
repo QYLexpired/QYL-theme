@@ -1,50 +1,40 @@
 /* https://ld246.com/article/1738025187336 & ref:Savor主题 */
-:root {
-	--b3-layout-resize: rgba(230, 229, 225,.9);
-	--QYL-naotu-border: 2px solid var(--b3-theme-primary); /* 脑图线条色 */
-	--QYL-naotu-background: var(--b3-theme-background); /* 脑图块背景 */
-	--kbline-boarditem-minwidth: 14rem;
-	--kb--li--background:#fff;
-    --QYL-table-border: var(--b3-theme-on-background); /* 列表边框色 */
-    --QYL-fold-border: var(--b3-theme-surface-lighter);
-    --QYL-list-background: var(--b3-theme-surface-light); /* 列表背景色 */
-}
 /* -----------------------------------------------列表转化为表格------------------------------------------- */
-.list[data-node-id][data-type="NodeList"][custom-list-view="表格"]{
-	display:grid;
+.list[data-node-id][data-type="NodeList"][custom-list-view="表格"] {
+	display: grid;
 	width: calc(100% - 8px);
-	padding:15px;
+	padding: 10px !important;
 	overflow-x: auto;
     & .li {
         display: flex;
-        outline:  1px solid var(--QYL-table-border);
+        outline:  1px solid var(--b3-theme-surface-lighter);
         background-color: var(--b3-theme-background);
         border-radius: 0px;
         flex-direction: unset;
         margin: 0;
-        &:before{
+        &:before {
             display: none!important;
         }
-        &>div {
+        & > div {
             margin-right: 20px;
         }
         & .list {
             padding: 0px;
             margin: 0px !important;
-            width:100%;
-            outline: 1px solid var(--QYL-table-border);
+            width: 100%;
+            outline: 1px solid var(--b3-theme-surface-lighter);
             border-radius: 0px;
-            &>.li:first-child:nth-last-child(2){
+            & > .li:first-child:nth-last-child(2) {
                 top: 50%;
                 transform: translate(0, -50%);
-                height:100%;
+                height: 100%;
             }
         }
         &>.protyle-action {
             position: absolute;
             top: 50%;
             transform: translate(0, -50%);
-            opacity:0.3;
+            opacity: 0.3;
         }
     }
     & [data-node-id].li>[data-node-id] {
@@ -52,46 +42,45 @@
     }
     & .p {
         flex: 1;
-        left:18px;
+        left: 18px;
         text-align: left;
         align-items: center;
         display: flex;
         min-width: 120px;
         min-height: 30px;
-        height:auto;
+        height: auto;
         margin: 0;
     }
     & .li>.list>.li {
         outline: none !important;
-        border-top:1px solid var(--QYL-table-border);
+        border-top: 1px solid var(--b3-theme-surface-lighter);
         &:first-of-type {
             border-top: none;
         }
     }
 }
-.protyle-wysiwyg *[custom-list-view="表格"] .li [data-type="NodeHeading"]>[spellcheck]:after{
-	display:none;
+.protyle-wysiwyg *[custom-list-view="表格"] .li [data-type="NodeHeading"]>[spellcheck]:after {
+	display: none;
 }
 .protyle-wysiwyg *[custom-list-view="表格"] .code-block {
-	width:calc(100% - 12px);
+	width: calc(100% - 12px);
 }
 /*————————————————————————列表转脑图————————————————————————*/
-.protyle-wysiwyg *[custom-list-view="脑图"] .li .list{
+.protyle-wysiwyg *[custom-list-view="脑图"] .li .list {
     padding: 0px;
     margin: 0px;
 	transition: all 0.5s;
 } 
-.protyle-wysiwyg *[custom-list-view="脑图"].list{
-	overflow-x:auto;
-	padding:60px 30px!important;
-	margin:10px 0px;
-	background: var(--QYL-list-background);
+.protyle-wysiwyg *[custom-list-view="脑图"].list {
+	overflow-x: auto;
+	padding: 10px !important;
+	background: var(--b3-theme-background);
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] [data-node-id].li>[data-node-id]{
+.protyle-wysiwyg *[custom-list-view="脑图"] [data-node-id].li>[data-node-id] {
     margin-left: 20px !important;
 	margin-right: -24px !important;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] [data-node-id].li>.list{
+.protyle-wysiwyg *[custom-list-view="脑图"] [data-node-id].li>.list {
 	padding-left: 20px;
 }
 .protyle-wysiwyg *[custom-list-view="脑图"] .li {
@@ -102,137 +91,133 @@
 .protyle-wysiwyg *[custom-list-view="脑图"] .li .p,.protyle-wysiwyg *[custom-list-view="脑图"] .li [data-type="NodeHeading"] {
 	display: flex;
 	align-items: center;
-	left:6px;
+	left: 6px;
     margin: 0;
-	flex-shrink:0;
+	flex-shrink: 0;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li [data-type="NodeHeading"]>[spellcheck]:after{
-	display:none;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li [data-type="NodeHeading"]>[spellcheck]:after {
+	display: none;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li div{
-	border-right:10px solid transparent;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li div {
+	border-right: 10px solid transparent;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li div>div[spellcheck]{
-	margin-left:-8px;
-	padding:5px 0 5px 10px;
-	margin-top:2px;
-	background-color:var(--QYL-naotu-background);
-	border-radius:8px;
-	box-shadow: var(--b3-theme-primary-lighter) 0px 0px 0px 1px, var(--b3-theme-primary-lighter) 0px 2px 4px;
-	max-width:15vw;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li div>div[spellcheck] {
+	margin-left: -8px;
+	padding: 5px 0 5px 10px;
+	margin-top: 2px;
+	background-color: var(--b3-theme-surface);
+	border-radius: 8px;
+    outline: 1px solid var(--b3-theme-surface-lighter);
+	max-width: 15vw;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"]>[data-node-id]>div[spellcheck]
-{
-	padding:5px 0px 5px 35px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"] > [data-node-id] > div[spellcheck] {
+	padding: 5px 0px 5px 35px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"]>[data-node-id]>div[spellcheck]
-{
-	padding:5px 10px 5px 25px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"] > [data-node-id] > div[spellcheck] {
+	padding: 5px 10px 5px 25px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"]>.code-block>.protyle-action{
-	padding:5px 0px 5px 30px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"] > .code-block > .protyle-action {
+	padding: 5px 0px 5px 30px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"]>[data-node-id]>div.hljs
-{
-	padding:30px 0px 22px 30px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"] > [data-node-id] > div.hljs {
+	padding: 30px 0px 22px 30px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"]>.code-block>.protyle-action{
-	padding:5px 0px 5px 30px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"] > .code-block > .protyle-action {
+	padding: 5px 0px 5px 30px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"]>[data-node-id]>div.hljs
-{
-	padding:30px 0px 22px 30px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="o"] > [data-node-id] > div.hljs {
+	padding: 30px 0px 22px 30px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li div>div.hljs{
-	padding:30px 10px 22px;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li div > div.hljs {
+	padding: 30px 10px 22px;
 	margin-left: 2px;
-	background-color:var(--b3-menu-background);
+	background-color: var(--b3-theme-background);
 }
-.list[custom-list-view="脑图"][data-node-id] .li>:before {
+.list[custom-list-view="脑图"][data-node-id] .li > :before {
     display: none;
 }
-.protyle-content *[custom-list-view~=脑图] [data-subtype="u"][data-node-id].li>div.protyle-action {
-	top:50%;
-	margin-left:-18px;
+.protyle-content *[custom-list-view~=脑图] [data-subtype="u"][data-node-id].li > div.protyle-action {
+	top: 50%;
+	margin-left: -18px;
 }
-.protyle-content *[custom-list-view~=脑图] [data-subtype="o"][data-node-id].li>div.protyle-action {
-	top:calc(50% + 1px);
-	margin-left:17px;
+.protyle-content *[custom-list-view~=脑图] [data-subtype="o"][data-node-id].li > div.protyle-action {
+	top: calc(50% + 1px);
+	margin-left: 17px;
 }
-.list[custom-list-view="脑图"][data-node-id] .li>.protyle-action{
-    top:calc(50% + 1px);
-	left:3px;
+.list[custom-list-view="脑图"][data-node-id] .li > .protyle-action{
+    top: calc(50% + 1px);
+	left: 3px;
     position: absolute;
     transform: translate(0, -50%);
     z-index: 2;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] [data-subtype="u"][data-node-id].li>.protyle-action:after{
-	left:37px;
+.protyle-wysiwyg *[custom-list-view="脑图"] [data-subtype="u"][data-node-id].li > .protyle-action:after {
+	left: 37px;
 }
-.list[custom-list-view="脑图"][data-node-id] .protyle-action svg{
-	left:20px;
+.list[custom-list-view="脑图"][data-node-id] .protyle-action svg {
+	left: 20px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li::before,.protyle-wysiwyg *[custom-list-view="脑图"] .li[fold="1"]::before{   
+.protyle-wysiwyg *[custom-list-view="脑图"] .li::before,.protyle-wysiwyg *[custom-list-view="脑图"] .li[fold="1"]::before {   
     content: '';   
     position: absolute;  
-	top: 50%!important;   
-    border-top:var(--QYL-naotu-border);    
+	top: 50% !important;   
+    border-top: 1.5px solid var(--b3-theme-surface-lighter);    
     width: 20px;  
-	height: 50%!important;      
+	height: 50% !important;      
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li::before{   
+.protyle-wysiwyg *[custom-list-view="脑图"] .li::before {   
     bottom: 50%;    
-    border-left:var(--QYL-naotu-border);  
+    border-left: 1.5px solid var(--b3-theme-surface-lighter);  
 	left: 0px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li:hover::before{   
-    border-left:var(--QYL-naotu-border);  
+.protyle-wysiwyg *[custom-list-view="脑图"] .li:hover::before {   
+    border-left: 1.5px solid var(--b3-theme-surface-lighter);  
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li::after{   
+.protyle-wysiwyg *[custom-list-view="脑图"] .li::after {   
     content: '';   
     position: absolute;   
-    border-left:var(--QYL-naotu-border);  
+    border-left: 1.5px solid var(--b3-theme-surface-lighter);  
     width: 20px;  
 	height: 50%; 
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .list>.li:first-child:nth-last-child(2)::after{   
-	border-radius:0px!important;
+.protyle-wysiwyg *[custom-list-view="脑图"] .list>.li:first-child:nth-last-child(2)::after {   
+	border-radius:0px !important;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .list>.li:first-child:nth-last-child(2){
+.protyle-wysiwyg *[custom-list-view="脑图"] .list>.li:first-child:nth-last-child(2) {
     top: 50%;
     transform: translate(0, -50%);
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li:first-child::after,.protyle-wysiwyg *[custom-list-view="脑图"]  .li:nth-last-child(2)::before{   
-    border:none!important;    
+.protyle-wysiwyg *[custom-list-view="脑图"] .li:first-child::after,.protyle-wysiwyg *[custom-list-view="脑图"]  .li:nth-last-child(2)::before {   
+    border:none !important;    
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li:first-child::before{   
-    border-radius:8px 0 0 0 ;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li:first-child::before {   
+    border-radius: 8px 0 0 0 ;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li:nth-last-child(2)::after{   
-    border-bottom:var(--QYL-naotu-border)!important;    
-    border-radius:0 0 0 8px!important;    
+.protyle-wysiwyg *[custom-list-view="脑图"] .li:nth-last-child(2)::after {   
+    border-bottom: 1.5px solid var(--b3-theme-surface-lighter) !important;    
+    border-radius: 0 0 0 8px !important;    
 }
-.list[custom-list-view="脑图"] .list::after{   
+.list[custom-list-view="脑图"] .list::after {   
     content: '';   
     position: absolute; 
 	left: -4px; 
 	top: 50%;   
-    border-top:var(--QYL-naotu-border);   
+    border-top: 1.5px solid var(--b3-theme-surface-lighter);   
     width: 25px; 
 	height: 0;  
 }
-div *[custom-list-view="脑图"]>[data-type="NodeListItem"]>[data-type="NodeParagraph"]>[spellcheck]{
-	min-width:50px;
+div *[custom-list-view="脑图"]>[data-type="NodeListItem"] > [data-type="NodeParagraph"] > [spellcheck] {
+	min-width: 50px;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li::before{
+.protyle-wysiwyg *[custom-list-view="脑图"] .li::before {
 	display: flex!important;
 }
-div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::before,
-div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{   
-	display: none!important;
+div *[custom-list-view="脑图"] > [data-type="NodeListItem"].li::before,
+div *[custom-list-view="脑图"] > [data-type="NodeListItem"].li::after {   
+	display: none !important;
 }
-.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="u"]>.protyle-action svg{
-	color:unset;
+.protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="u"]>.protyle-action svg {
+	color: unset;
 }
 .protyle-wysiwyg *[custom-list-view="脑图"] .li[data-subtype="t"]>.protyle-action--task svg {
     color: var(--b3-theme-primary) !important;
@@ -254,35 +239,32 @@ div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{
     display: grid;
     flex-direction: row;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin-bottom: 10px;
+    gap: 10px;
 }
-.protyle-wysiwyg *[custom-list-view="看板"]>.li{
+.protyle-wysiwyg *[custom-list-view="看板"] > .li{
     min-width: 200px;
-    background-color: var(--QYL-list-background);
-    padding: 8px;
-    margin-right: 10px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    background-color: var(--b3-theme-surface);
+    padding: 10px;
     border-radius: 8px;
+    margin: 0;
     >[data-node-id]{
         margin-left: 0px;
         margin-bottom: 8px;
     }
 }
-.protyle-wysiwyg *[custom-list-view="看板"]>.li>.list>.li{
+.protyle-wysiwyg *[custom-list-view="看板"] > .li > .list > .li {
     border-radius: 6px;
     padding: 0.4em 0.4em 0.4em 0 ;
     background-color: var(--b3-theme-background);
-    margin-bottom: 8px;
 }
 .protyle-wysiwyg *[custom-list-view="看板"] .li {
     display: flex;
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div > div:nth-child(2),
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div > div:nth-child(2) {
-	min-width: var(--kbline-boarditem-minwidth);
+	min-width: 14rem;
     border-radius: 3px;
-	padding:9px 10px 11px 38px;
+	padding: 9px 10px 11px 38px;
 }
 .list[custom-list-view="看板"] > [data-subtype="o"][data-type="NodeListItem"] {
     &::after {
@@ -292,70 +274,70 @@ div *[custom-list-view="脑图"]>[data-type="NodeListItem"].li::after{
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div > div:nth-child(2)[data-type="NodeHeading"],
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div > div:nth-child(2)[data-type="NodeHeading"] {
-	padding:9px 10px 7px 38px;
+	padding: 9px 10px 7px 38px;
 }
 .protyle-wysiwyg *[custom-list-view="看板"] .li [data-type="NodeHeading"]>[spellcheck]:after {
-	display:none;
+	display: none;
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-3) > .protyle-action,
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-3) > .protyle-action {
-    color:var(--b3-font-color1);
-    & + [data-node-id]{
-        background-color:var(--b3-font-background1);
+    color: var(--b3-font-color1);
+    & + [data-node-id] {
+        background-color: var(--b3-font-background1);
         border-radius: 6px;
     }
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-2) > .protyle-action,
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-2) > .protyle-action {
-    color:var(--b3-font-color2);
+    color: var(--b3-font-color2);
     & + [data-node-id]{
-        background-color:var(--b3-font-background2);
+        background-color: var(--b3-font-background2);
         border-radius: 6px;
     }
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-1) > .protyle-action,
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-1) > .protyle-action {
-    color:var(--b3-font-color3);
-    & + [data-node-id]{
-        background-color:var(--b3-font-background3);
+    color: var(--b3-font-color3);
+    & + [data-node-id] {
+        background-color: var(--b3-font-background3);
         border-radius: 6px;
     }
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n) > .protyle-action,
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n) > .protyle-action {
-    color:var(--b3-font-color4);
-    & + [data-node-id]{
-        background-color:var(--b3-font-background4);
+    color: var(--b3-font-color4);
+    & + [data-node-id] {
+        background-color: var(--b3-font-background4);
         border-radius: 6px;
     }
 }
 .protyle-wysiwyg .list[custom-list-view="看板"] > div > div:nth-child(1),
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div > div:nth-child(1) {
     transform: translate(8px, 13px);
-	z-index:2;
+	z-index: 2;
 }
 .list[custom-list-view="看板"][data-node-id] .li:before {
     display: none;
 }
-.protyle-wysiwyg *[custom-list-view="看板"]>.li>.list>.li>.protyle-action{
+.protyle-wysiwyg *[custom-list-view="看板"] > .li > .list > .li > .protyle-action {
     position: absolute;
     top: 5px;
     border-radius: 3px;
 }
-.list[custom-list-view="看板"] .protyle-attr--refcount{
+.list[custom-list-view="看板"] .protyle-attr--refcount {
 	height: 14px;
     width: 14px;
 	left:-44px;
-	top:9px;
+	top: 9px;
     padding: 0;
     line-height: 14px;
 	text-align: center;
 }
-.list[custom-list-view="看板"] .list .protyle-attr--refcount{
+.list[custom-list-view="看板"] .list .protyle-attr--refcount {
 	height: 14px;
     width: 14px;
-	left:-14px;
-	top:9px;
+	left: -14px;
+	top: 9px;
     padding: 0;
     line-height: 14px;
 	text-align: center;

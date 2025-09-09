@@ -1,4 +1,4 @@
-.protyle-wysiwyg blockquote[custom-bq-callout="启用"], .protyle-wysiwyg .bq[custom-bq-callout="启用"] {
+.protyle-wysiwyg blockquote[custom-bq-callout="启用"]:not([fold="1"]), .protyle-wysiwyg .bq[custom-bq-callout="启用"]:not([fold="1"]) {
     padding: 4px 6px 0 6px;
     border: 3px solid  var(--b3-theme-primary);
     border-radius: var(--b3-border-radius);
@@ -91,70 +91,15 @@
             background-color: var(--QYL-custom-gray);
         }
     }
-    &[fold="1"] {
-        border: none;
-        opacity: 0.5 !important;
-        height: 40px !important;
-        padding: 5px 10px !important;
-        background-color: var(--b3-theme-primary);
-        &[custom-bq-callout-color="背景色"] {
-            background-color: var(--b3-theme-surface);
-        }
-        &[custom-bq-callout-color="红色"] {
-            background-color: var(--QYL-custom-red);
-        }
-        &[custom-bq-callout-color="橙色"] {
-            background-color: var(--QYL-custom-orange);
-        }
-        &[custom-bq-callout-color="黄色"] {
-            background-color: var(--QYL-custom-yellow);
-        }
-        &[custom-bq-callout-color="绿色"] {
-            background-color: var(--QYL-custom-green);
-        }
-        &[custom-bq-callout-color="青色"] {
-            background-color: var(--QYL-custom-cyan);
-        }
-        &[custom-bq-callout-color="蓝色"] {
-            background-color: var(--QYL-custom-blue);
-        }
-        &[custom-bq-callout-color="紫色"] {
-            background-color: var(--QYL-custom-purple);
-        }
-        &[custom-bq-callout-color="粉色"] {
-            background-color: var(--QYL-custom-pink);
-        }
-        &[custom-bq-callout-color="黑色"] {
-            background-color: var(--QYL-custom-black);
-        }
-        &[custom-bq-callout-color="灰色"] {
-            background-color: var(--QYL-custom-gray);
-        }
-        & >[data-node-id]:not(:first-child) {
-            display: none;
-        }
-        & >[data-node-id]:first-child {
-            opacity: 0.9 !important;
-            max-height: 26px;
-            font-size: 22px;
-            font-style: italic;
-            padding: 0 !important;
-            background-color: transparent;
-            transform: translateY(15px) translateX(8px);
-            & >[contenteditable]>span[data-type*="strong"] {
-                filter: brightness(1.5);
-            }
-        }
 }
-}
-.protyle-wysiwyg .li > blockquote[custom-bq-callout*="启用"], .protyle-wysiwyg .li > .bq[custom-bq-callout*="启用"] {
+.protyle-wysiwyg .li > blockquote[custom-bq-callout*="启用"]:not([fold="1"]), .protyle-wysiwyg .li > .bq[custom-bq-callout*="启用"]:not([fold="1"]) {
 &>[data-node-id]:first-child {
     margin-right: 0;
     margin-top: -8px;
     top: 4px;
 }
 }
-.protyle-wysiwyg blockquote[custom-bq-callout="启用2"], .protyle-wysiwyg .bq[custom-bq-callout="启用2"] {
+.protyle-wysiwyg blockquote[custom-bq-callout="启用2"]:not([fold="1"]), .protyle-wysiwyg .bq[custom-bq-callout="启用2"]:not([fold="1"]) {
 padding: 0px 6px;
 border-left: 5px solid var(--b3-theme-primary);
 border-radius: 0;
@@ -245,59 +190,8 @@ color: unset;
         color: var(--QYL-custom-gray);
     }
 }
-&[fold="1"] {
-    border-radius: var(--b3-border-radius);
-    &[custom-bq-callout-color="背景色"] {
-        background-color: var(--b3-theme-primary);
-    }
-    &[custom-bq-callout-color="红色"] {
-        background-color: var(--QYL-custom-red);
-    }
-    &[custom-bq-callout-color="橙色"] {
-        background-color: var(--QYL-custom-orange);
-    }
-    &[custom-bq-callout-color="黄色"] {
-        background-color: var(--QYL-custom-yellow);
-    }
-    &[custom-bq-callout-color="绿色"] {
-        background-color: var(--QYL-custom-green);
-    }
-    &[custom-bq-callout-color="青色"] {
-        background-color: var(--QYL-custom-cyan);
-    }
-    &[custom-bq-callout-color="蓝色"] {
-        background-color: var(--QYL-custom-blue);
-    }
-    &[custom-bq-callout-color="紫色"] {
-        background-color: var(--QYL-custom-purple);
-    }
-    &[custom-bq-callout-color="粉色"] {
-        background-color: var(--QYL-custom-pink);
-    }
-    &[custom-bq-callout-color="黑色"] {
-        background-color: var(--QYL-custom-black);
-    }
-    &[custom-bq-callout-color="灰色"] {
-        background-color: var(--QYL-custom-gray);
-    }
-    & >[data-node-id]:not(:first-child) {
-        display: none;
-    }
-    & >[data-node-id]:first-child {
-        opacity: 0.9 !important;
-        max-height: 26px;
-        font-size: 22px;
-        font-style: italic;
-        color: var(--b3-theme-on-primary);
-        background-color: transparent;
-        transform: translateY(10px) translateX(8px);
-        & >[contenteditable]>span[data-type*="strong"] {
-            filter: brightness(1.5);
-        }
-    }
 }
-}
-.protyle-wysiwyg blockquote[custom-bq-callout="启用3"], .protyle-wysiwyg .bq[custom-bq-callout="启用3"] {
+.protyle-wysiwyg blockquote[custom-bq-callout="启用3"]:not([fold="1"]), .protyle-wysiwyg .bq[custom-bq-callout="启用3"]:not([fold="1"]) {
 padding: 0px 6px;
 border-left: 5px solid var(--b3-theme-primary);
 border-radius: 0;
@@ -430,65 +324,13 @@ overflow: visible;
         }
     }
 }
-&[fold="1"] {
-    border-radius: var(--b3-border-radius);
-    background-color: var(--b3-theme-primary);
-    &[custom-bq-callout-color="背景色"] {
-        background-color: var(--b3-theme-primary);
-    }
-    &[custom-bq-callout-color="红色"] {
-        background-color: var(--QYL-custom-red);
-    }
-    &[custom-bq-callout-color="橙色"] {
-        background-color: var(--QYL-custom-orange);
-    }
-    &[custom-bq-callout-color="黄色"] {
-        background-color: var(--QYL-custom-yellow);
-    }
-    &[custom-bq-callout-color="绿色"] {
-        background-color: var(--QYL-custom-green);
-    }
-    &[custom-bq-callout-color="青色"] {
-        background-color: var(--QYL-custom-cyan);
-    }
-    &[custom-bq-callout-color="蓝色"] {
-        background-color: var(--QYL-custom-blue);
-    }
-    &[custom-bq-callout-color="紫色"] {
-        background-color: var(--QYL-custom-purple);
-    }
-    &[custom-bq-callout-color="粉色"] {
-        background-color: var(--QYL-custom-pink);
-    }
-    &[custom-bq-callout-color="黑色"] {
-        background-color: var(--QYL-custom-black);
-    }
-    &[custom-bq-callout-color="灰色"] {
-        background-color: var(--QYL-custom-gray);
-    }
-    & >[data-node-id]:not(:first-child) {
-        display: none;
-    }
-    & >[data-node-id]:first-child {
-        opacity: 0.9 !important;
-        max-height: 26px;
-        font-size: 22px;
-        font-style: italic;
-        color: var(--b3-theme-on-primary);
-        background-color: transparent;
-        transform: translateY(10px) translateX(8px);
-        & >[contenteditable]>span[data-type*="strong"] {
-            filter: brightness(1.5);
-        }
-    }
 }
-}
-#preview .protyle-wysiwyg blockquote[custom-bq-callout="启用3"], #preview .protyle-wysiwyg .bq[custom-bq-callout="启用3"] {/* 导出修复 */
+#preview .protyle-wysiwyg blockquote[custom-bq-callout="启用3"]:not([fold="1"]), #preview .protyle-wysiwyg .bq[custom-bq-callout="启用3"]:not([fold="1"]) {/* 导出修复 */
 margin-left: 10px;
 box-sizing: border-box;
 max-width: 100%;
 }
-.protyle-wysiwyg blockquote[custom-bq-callout="启用4"], .protyle-wysiwyg .bq[custom-bq-callout="启用4"] {
+.protyle-wysiwyg blockquote[custom-bq-callout="启用4"]:not([fold="1"]), .protyle-wysiwyg .bq[custom-bq-callout="启用4"]:not([fold="1"]) {
     padding: 0px 6px;
     border-left: 5px solid var(--b3-theme-primary);
     border-radius: 0;
@@ -541,59 +383,8 @@ max-width: 100%;
         background-color: var(--QYL-custom-gray-background);
         border-color: var(--QYL-custom-gray);
     }
-    &[fold="1"] {
-        border-radius: var(--b3-border-radius);
-        &[custom-bq-callout-color="背景色"] {
-            background-color: var(--b3-theme-primary);
-        }
-        &[custom-bq-callout-color="红色"] {
-            background-color: var(--QYL-custom-red);
-        }
-        &[custom-bq-callout-color="橙色"] {
-            background-color: var(--QYL-custom-orange);
-        }
-        &[custom-bq-callout-color="黄色"] {
-            background-color: var(--QYL-custom-yellow);
-        }
-        &[custom-bq-callout-color="绿色"] {
-            background-color: var(--QYL-custom-green);
-        }
-        &[custom-bq-callout-color="青色"] {
-            background-color: var(--QYL-custom-cyan);
-        }
-        &[custom-bq-callout-color="蓝色"] {
-            background-color: var(--QYL-custom-blue);
-        }
-        &[custom-bq-callout-color="紫色"] {
-            background-color: var(--QYL-custom-purple);
-        }
-        &[custom-bq-callout-color="粉色"] {
-            background-color: var(--QYL-custom-pink);
-        }
-        &[custom-bq-callout-color="黑色"] {
-            background-color: var(--QYL-custom-black);
-        }
-        &[custom-bq-callout-color="灰色"] {
-            background-color: var(--QYL-custom-gray);
-        }
-        & >[data-node-id]:not(:first-child) {
-            display: none;
-        }
-        & >[data-node-id]:first-child {
-            opacity: 0.9 !important;
-            max-height: 26px;
-            font-size: 22px;
-            font-style: italic;
-            color: var(--b3-theme-on-primary);
-            background-color: transparent;
-            transform: translateY(10px) translateX(8px);
-            & >[contenteditable]>span[data-type*="strong"] {
-                filter: brightness(1.5);
-            }
-        }
-    }
 }
-.protyle-wysiwyg blockquote[custom-bq-callout-transparent="transparent"], .protyle-wysiwyg .bq[custom-bq-callout-transparent="transparent"] {
+.protyle-wysiwyg blockquote[custom-bq-callout-transparent="transparent"]:not([fold="1"]), .protyle-wysiwyg .bq[custom-bq-callout-transparent="transparent"]:not([fold="1"]) {
     background-color: transparent !important;
     &>[data-node-id]:first-child {
         color: var(--b3-theme-on-background);
