@@ -477,32 +477,6 @@ export function initAnimation() {
               transform: scale(1);
             }
         }
-        /* 表情 */
-        [data-key="dialog-emojis"] .b3-dialog__container {
-            animation: QYLEmoji 0.8s cubic-bezier(0.8, 0, 0.9, 1);
-        }
-        .emojis__item {
-            animation: QYLEmoji 0.8s cubic-bezier(0.8, 0, 0.9, 1);
-        }
-        @keyframes QYLEmoji {
-            0% {
-              transform: scale(0.8);
-              opacity: 0;
-            }
-            50% {
-              transform: scale(1.01);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.99);
-            }
-            85% {
-              transform: scale(1);
-            }
-            100% {
-              transform: scale(1);
-            }
-        }
         #QYLSettingsContent {
             animation: QYLSettingsContent 0.5s cubic-bezier(0.8, 0, 0.9, 1);
         }
@@ -595,7 +569,7 @@ export function initAnimation() {
               transform: scaleY(1);
             }
         }
-        .protyle-breadcrumb .block__icon[aria-label="取消临时解锁"] svg {
+        .protyle-breadcrumb .block__icon[aria-label="锁定编辑"] svg {
             animation: QYLLock 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }
@@ -616,7 +590,7 @@ export function initAnimation() {
                 transform: rotate(0deg);
             }
         }
-        .protyle-breadcrumb .block__icon[aria-label="临时解锁"] svg {
+        .protyle-breadcrumb .block__icon[aria-label="解除锁定"] svg {
             animation: QYLLockReverse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }

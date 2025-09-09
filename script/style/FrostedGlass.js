@@ -118,7 +118,7 @@ export function initFrostedGlass() {
         @media (min-width: 768px) {
             #status {
                 background-color: var(--QYL-Aero-background);
-                backdrop-filter: blur(40px) saturate(3) brightness(1.1);
+                backdrop-filter: var(--QYL-Aero-filter);
             }
         }
         /* 斜杠菜单 */
