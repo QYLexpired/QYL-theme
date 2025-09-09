@@ -2,7 +2,7 @@
 [qyl-table-shape="rounded"] {
     & .protyle-wysiwyg [data-node-id] table {
         border-radius: 8px;
-        border: 1px solid var(--b3-theme-on-background);
+        border: 1px solid var(--b3-theme-surface-lighter);
         & thead th {
             border-top: none;
             &:first-child {
