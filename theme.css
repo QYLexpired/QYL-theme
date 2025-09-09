@@ -42,6 +42,7 @@
 @import url('./style/Plugins.css');
 @import url('./style/Pickr.min.css');
 @import url('./style/SbHandle.css');
+@import url('./style/BlockFold.css');
 /* 全局样式 */
 @import url('./style/GlobalStyle/heading.css');
 @import url('./style/GlobalStyle/img.css');
