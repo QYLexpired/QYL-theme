@@ -1,7 +1,7 @@
 [data-theme-mode="light"] {
     --QYL-custom-primary-main: 125deg;
     /* 主色 */
-    --b3-theme-primary: #a1b385;
+    --b3-theme-primary: #859f5b;
     --b3-theme-primary-light: rgba(161, 179, 133, 0.56);
     --b3-theme-primary-lighter: rgba(161, 179, 133, 0.33);
     --b3-theme-primary-lightest: rgba(161, 179, 133, 0.12);
@@ -13,7 +13,7 @@
     --b3-theme-surface-light: rgba(217, 227, 201, 0.8);
     --b3-theme-surface-lighter: rgba(162, 172, 142, 0.68);
     /* 文字颜色 */
-    --b3-theme-on-primary: #e9e8eb;
+    --b3-theme-on-primary: #f3f3f3;
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
     --b3-theme-on-background: #3a3f32;
@@ -38,7 +38,7 @@
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
     /* switch */
-    --b3-switch-background: #c4cdb9;
+    --b3-switch-background: #d9e0d1;
     /* 行级代码背景色 */
     --b3-protyle-code-background: var(--b3-theme-surface);
     /* 页签 */
@@ -47,8 +47,8 @@
     /* 状态栏 */
     --QYL-status-background: var(--b3-theme-background);
     /* 毛玻璃 */
-    --QYL-Aero-background: rgb(255, 253, 248, 0.7);
-    --QYL-Aero-background-wrap: rgb(255, 253, 248, 0.7);
+    --QYL-Aero-background: rgb(241, 241, 241, 0.7);
+    --QYL-Aero-background-wrap: rgb(255, 252, 243, 0.7);
     /* 引述块 */
     --QYL-blockquote-background: #dde6d2;
     --QYL-blockquote-svg: #c5d0b8;
