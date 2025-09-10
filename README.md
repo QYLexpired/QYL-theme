@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Redesigned block fold effects<br>• Optimized list to mind map, kanban, and table styles<br>• Optimized numerous details</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL custom attributes added option - List view - Timeline<br>• Redesigned some theme animations<br>• Redesigned block fold effects<br>• Optimized list to mind map, kanban, and table styles<br>• Optimized numerous details</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Recent Updates</summary>

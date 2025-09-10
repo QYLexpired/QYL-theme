@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 重做塊摺疊效果<br>• 優化列表轉腦圖、看板、表格樣式<br>• 優化大量細節</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自訂屬性增加選項-列表視圖-時間軸<br>• 重做部分主題動畫<br>• 重做塊摺疊效果<br>• 優化列表轉腦圖、看板、表格樣式<br>• 優化大量細節</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
