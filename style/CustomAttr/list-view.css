@@ -362,3 +362,128 @@ div *[custom-list-view="脑图"] > [data-type="NodeListItem"].li::after {
         animation: none !important;
     }
 }
+/****************************** 无序列表转时间轴 ******************************/
+.protyle-wysiwyg [data-node-id].list[data-subtype="u"][custom-list-view="时间轴"] {
+    & > .li {
+        margin-top: 0;
+        margin-bottom: 0;
+        & > .protyle-action {
+            top: 0;
+            left: 109px;
+            color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+            transform: scale(1.5);
+            &::before {
+                background: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+            }
+            & + [data-node-id] {
+                margin-left: 0;
+                max-width: 120px;
+                color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+                font-weight: bold;
+                position: absolute;
+                left: 0px;
+                & ~ [data-node-id] {
+                    margin-left: 110px;
+                    margin-top: 0;
+                    & > .li {
+                        & > .protyle-action {
+                            opacity: 0;
+                        }
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &::before {
+            height: 100%;
+            border-left: 2px solid var(--b3-theme-surface-lighter);
+            top: 0;
+            left: 125px;
+        }
+    }
+}
+/****************************** 有序列表转时间轴 ******************************/
+.protyle-wysiwyg [data-node-id].list[data-subtype="o"][custom-list-view="时间轴"] {
+    & > .li {
+        margin-top: 0;
+        margin-bottom: 0;
+        & > .protyle-action {
+            top: 0;
+            left: 109px;
+            color: transparent;
+            &::after {
+                border-radius: 50%;
+                background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+                mix-blend-mode: normal;
+                width: 10px;
+                height: 10px;
+                top: 50%;
+                left: 50%;
+                margin: -5px;
+                color: transparent;
+            }
+            & + [data-node-id] {
+                margin-left: 0;
+                max-width: 120px;
+                color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+                font-weight: bold;
+                position: absolute;
+                left: 0px;
+                & ~ [data-node-id] {
+                    margin-left: 110px;
+                    margin-top: 0;
+                    & > .li {
+                        & > .protyle-action {
+                            opacity: 0;
+                        }
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &::before {
+            height: 100%;
+            border-left: 2px solid var(--b3-theme-surface-lighter);
+            top: 0;
+            left: 125px;
+        }
+    }
+}
+/****************************** 任务列表转时间轴 ******************************/
+.protyle-wysiwyg [data-node-id].list[data-subtype="t"][custom-list-view="时间轴"] {
+    & > .li {
+        margin-top: 0;
+        margin-bottom: 0;
+        & > .protyle-action {
+            top: 0;
+            left: 109px;
+            & + [data-node-id] {
+                margin-left: 0;
+                max-width: 120px;
+                color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+                font-weight: bold;
+                position: absolute;
+                left: 0px;
+                & ~ [data-node-id] {
+                    margin-left: 150px;
+                    margin-top: 0;
+                    & > .li {
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &::before {
+            height: 100%;
+            border-left: 2px solid var(--b3-theme-surface-lighter);
+            top: 0;
+            left: 125px;
+        }
+    }
+}
