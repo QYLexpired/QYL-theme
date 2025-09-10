@@ -130,6 +130,7 @@ export default {
     "listviewmindmap": "Mind map",
     "listviewkanban": "Kanban",
     "listviewtable": "Table",
+    "listviewtimeline": "Timeline",
     "liststylehide": "Hide the order",
     "lineheight": "Line height",
     "lineheight1": "1",

@@ -125,6 +125,7 @@ export default {
     "listviewmindmap": "腦圖",
     "listviewkanban": "看板",
     "listviewtable": "表格",
+    "listviewtimeline": "時間軸",
     "liststylehide": "隱藏序標",
     "lineheight": "文字行間距",
     "lineheight1": "單倍行距",
