@@ -9,3 +9,7 @@
 .b3-dialog__action {
     border-top: none;
 }
+.b3-dialog__container {
+    transform: translateY(-10%);
+    transition: opacity 100ms linear, transform 300ms 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
