@@ -58,15 +58,15 @@ export function initAnimation() {
             animation: QYLBazaarCard 0.6s cubic-bezier(0.8, 0, 0.9, 1);
         }
         .config__tab-wrap > div {
-            animation: QYLBazaarTab 0.2s;
+            animation: QYLBazaarTab 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLBazaarTab {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-10%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
         }
@@ -91,25 +91,16 @@ export function initAnimation() {
         }
         /* 搜索面板 */
         :is(#searchList, #searchAssetList, #searchUnRefList) .b3-list-item {
-            animation: QYLSearchList 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLSearchList 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLSearchList {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-40%);
               opacity: 0;
             }
-            50% {
-              transform: scale(1.01);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.99);
-            }
-            85% {
-                transform: scale(1);
-            }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         /* 退出聚焦 */
@@ -128,63 +119,63 @@ export function initAnimation() {
         }
         /* 文档标题 */
         .protyle-title__input {
-            animation: QYLFileTitle 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLFileTitle 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLFileTitle {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-40%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
         }
         /* 资源图片预览 */
         #preview > * {
-            animation: QYLPreview 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLPreview 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         #preview > * {
             border-radius: var(--b3-border-radius);
         }
         @keyframes QYLPreview {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-20%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
         }
         /* 菜单 */
         .b3-menu .b3-menu__item {
-            animation: QYLMenu 0.3s;
+            animation: QYLMenu 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         #commonMenu .b3-list-item {
-            animation: QYLMenu 0.3s;
+            animation: QYLMenu 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLMenu {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-40%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
         }
         /* list-item */
         .b3-list-item {
-            animation: QYLListItem 0.3s;
+            animation: QYLListItem 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLListItem {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-40%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
         }
@@ -370,11 +361,11 @@ export function initAnimation() {
         }
         /* 分割线 */
         .protyle-wysiwyg [data-node-id].hr {
-            animation: QYLHr 0.3s cubic-bezier(0.9, 0, 0.5, 1);
+            animation: QYLHr 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLHr {
             from {
-              transform: translateX(-100%);
+              transform: translateX(-50%);
             }
             to {
               transform: translateX(0%);
@@ -411,18 +402,28 @@ export function initAnimation() {
         }
         /* 编辑器工具栏 */
         .protyle-toolbar {
-            animation: QYLToolBar 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLToolBar 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .protyle-hint, .protyle-util {
-            animation: QYLToolBar 0.2s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLUtil 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLToolBar {
             0% {
-              transform: scale(0.95);
+              transform: translateY(-20%);
               opacity: 0;
             }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
+              opacity: 1;
+            }
+        }
+        @keyframes QYLUtil {
+            0% {
+              transform: translateY(-10%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
               opacity: 1;
             }
         }
@@ -452,51 +453,33 @@ export function initAnimation() {
         /* 面包屑 */
         .protyle-breadcrumb__bar {
             & .protyle-breadcrumb__item {
-                animation: QYLBreadcrumb 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+                animation: QYLBreadcrumb 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
             & .protyle-breadcrumb__arrow {
-                animation: QYLBreadcrumb 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+                animation: QYLBreadcrumb 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
         }
         @keyframes QYLBreadcrumb {
             0% {
-              transform: scale(0.7);
+              transform: translateY(-20%);
               opacity: 0;
             }
-            50% {
-              transform: scale(1.01);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.99);
-            }
-            85% {
-              transform: scale(1);
-            }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         #QYLSettingsContent {
-            animation: QYLSettingsContent 0.5s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLSettingsContent 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLSettingsContent {
             0% {
-              transform: scale(0.9);
+              transform: translateY(-10%);
               opacity: 0;
             }
-            50% {
-              transform: scale(1.01);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.99);
-            }
-            85% {
-              transform: scale(1);
-            }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         .QYLColorPickContainer {
@@ -569,7 +552,7 @@ export function initAnimation() {
               transform: scaleY(1);
             }
         }
-        .protyle-breadcrumb .block__icon[aria-label="锁定编辑"] svg {
+        .protyle-breadcrumb .block__icon:is([aria-label="锁定编辑"], [aria-label="取消临时解锁"]) svg {
             animation: QYLLock 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }
@@ -590,7 +573,7 @@ export function initAnimation() {
                 transform: rotate(0deg);
             }
         }
-        .protyle-breadcrumb .block__icon[aria-label="解除锁定"] svg {
+        .protyle-breadcrumb .block__icon:is([aria-label="解除锁定"], [aria-label="临时解锁"]) svg {
             animation: QYLLockReverse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }
@@ -628,64 +611,68 @@ export function initAnimation() {
             color: var(--b3-theme-primary);
         }
         [data-key="QYLSettingsHidden"] .b3-dialog__container {
-            animation: QYLSettingsHidden 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLSettingsHidden 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-key="QYLSelfConfigAttrEdit"] .b3-dialog__container {
-            animation: QYLSettingsHidden 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLSettingsHidden 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-key="QYLCustomFontStyle"] .b3-dialog__container {
-            animation: QYLCustomFontStyle 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLCustomFontStyle 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-key="QYLGlobalStyle"] .b3-dialog__container {
-            animation: QYLGlobalStyle 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLGlobalStyle 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-key="QYLEditorWidthSettings"] .b3-dialog__container {
-            animation: QYLEditorWidthSettings 0.4s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLEditorWidthSettings 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         @keyframes QYLCustomFontStyle {
             0% {
-                transform: scale(0.9);
-                opacity: 0;
+              transform: translateY(-10%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         @keyframes QYLSettingsHidden {
             0% {
-                transform: scale(0.9);
-                opacity: 0;
-              }
+              transform: translateY(-10%);
+              opacity: 0;
+            }
             100% {
-                transform: scale(1);
-                opacity: 1;
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         @keyframes QYLSettingsHidden {
             0% {
-                transform: scale(0.9);
-                opacity: 0;
-              }
+              transform: translateY(-10%);
+              opacity: 0;
+            }
             100% {
-                transform: scale(1);
-                opacity: 1;
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         @keyframes QYLGlobalStyle {
             0% {
-                transform: scale(0.9);
-                opacity: 0;
+              transform: translateY(-10%);
+              opacity: 0;
             }
             100% {
-                transform: scale(1);
-                opacity: 1;
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         @keyframes QYLEditorWidthSettings {
             0% {
-                transform: scale(0.9);
-                opacity: 0;
+              transform: translateY(-10%);
+              opacity: 0;
             }
             100% {
-                transform: scale(1);
-                opacity: 1;
+              transform: translateY(0);
+              opacity: 1;
             }
         }
     `;
