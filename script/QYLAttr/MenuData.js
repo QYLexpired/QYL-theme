@@ -52,6 +52,7 @@ export class MenuData {
             { attrName: "list-view", value: "脑图", label: "listviewmindmap", icon: "#iconGlobalGraph", group: "group1" },
             { attrName: "list-view", value: "看板", label: "listviewkanban", icon: "#iconMenu", group: "group1" },
             { attrName: "list-view", value: "表格", label: "listviewtable", icon: "#iconTable", group: "group1" },
+            { attrName: "list-view", value: "时间轴", label: "listviewtimeline", icon: "#iconClock", group: "group1" },
             { attrName: "list-style", value: "隐藏序标", label: "liststylehide", icon: "#iconList", group: "group2" }
         ];
         this.lineHeightOptions = [
