@@ -2,7 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自定义属性增加选项-列表视图-时间轴<br>• 重做部分主题动画<br>• 重做块折叠效果<br>• 优化列表转脑图、看板、表格样式<br>• 优化大量细节</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自定义属性增加选项-列表视图-时间轴<br>• 重做部分主题动画<br>• 重做块折叠效果<br>• 优化列表转脑图、看板、表格样式<br>• 优化大量细节<br>• 修复关闭QYL自定义属性再重新开启时，CSS自定义属性无法生效的问题<br>• 修复开启全高布局时非protyle窗口样式异常的问题</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
