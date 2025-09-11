@@ -88,7 +88,7 @@ export function initFullHeightLayout() {
                 }
             }
         }
-        .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
+        :is(html:not(.QYLFusionOn), .QYLColorBlock) .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] .layout-tab-container {
             background-color: var(--b3-theme-background);
             & > :not(.protyle) {
                 margin-top: 43.5px;
