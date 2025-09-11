@@ -88,5 +88,6 @@ function cleanupCustomCSS() {
     }
     QYLcssContainer = null;
     QYLcssDebouncedApplyCSS = null;
+    observerBound = false;
 }
 export { initCustomCSS, cleanupCustomCSS };
