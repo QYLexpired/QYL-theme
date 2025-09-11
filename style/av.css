@@ -55,6 +55,7 @@
     padding: 2px;
     & .item.item--focus {
         background-color: var(--b3-theme-background);
+        box-shadow: var(--b3-message-shadow);
         border: none;
         margin: 0;
         height: 25px;
@@ -101,7 +102,7 @@
     background-color: rgb(244, 183, 183) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color2)"], 
 .av__cell .b3-chip[style*="color2)"], 
@@ -113,7 +114,7 @@
     background-color: rgb(255, 218, 176) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color3)"], 
 .av__cell .b3-chip[style*="color3)"], 
@@ -125,7 +126,7 @@
     background-color: rgb(247, 247, 127) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color4)"], 
 .av__cell .b3-chip[style*="color4)"], 
@@ -137,7 +138,7 @@
     background-color: rgb(195, 241, 198) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color5)"], 
 .av__cell .b3-chip[style*="color5)"], 
@@ -149,7 +150,7 @@
     background-color: rgb(150, 239, 230) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color6)"], 
 .av__cell .b3-chip[style*="color6)"], 
@@ -161,7 +162,7 @@
     background-color: rgb(181, 222, 255) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color7)"], 
 .av__cell .b3-chip[style*="color7)"], 
@@ -173,7 +174,7 @@
     background-color: rgb(208, 201, 255) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
+    border: 1px solid oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color8)"], 
 .av__cell .b3-chip[style*="color8)"], 
@@ -185,7 +186,7 @@
     background-color: rgb(246, 200, 255) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg)) !important;
     background-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg) / 0.25) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color9)"], 
 .av__cell .b3-chip[style*="color9)"], 
@@ -197,7 +198,7 @@
     background-color: rgb(247, 144, 144) !important;
     color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.52 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color10)"], 
 .av__cell .b3-chip[style*="color10)"], 
@@ -209,7 +210,7 @@
     background-color: rgb(241, 151, 115) !important;
     color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.52 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color11)"], 
 .av__cell .b3-chip[style*="color11)"], 
@@ -221,7 +222,7 @@
     background-color: rgb(136, 216, 120) !important;
     color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.52 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color12)"], 
 .av__cell .b3-chip[style*="color12)"], 
@@ -233,7 +234,7 @@
     background-color: rgb(120, 172, 228) !important;
     color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.52 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color13)"], 
 .av__cell .b3-chip[style*="color13)"], 
@@ -245,7 +246,7 @@
     background-color: rgb(205, 146, 235) !important;
     color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.52 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
+    border: 1px solid oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.65);
 }
 .custom-attr__avvalue .b3-chip[style*="color14)"], 
 .av__cell .b3-chip[style*="color14)"], 
@@ -257,7 +258,7 @@
     background-color: rgb(77, 77, 77) !important;
     color: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg)) !important;
     background-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.015) calc(0.02 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.82 + var(--b3-theme-primary-brightness) * 0.015) calc(0.02 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+    border: 1px solid oklch(calc(0.82 + var(--b3-theme-primary-brightness) * 0.015) calc(0.02 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.65);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color1)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color1)"], 
@@ -269,7 +270,7 @@
     background-color: rgba(205, 63, 63, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color2)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color2)"], 
@@ -281,7 +282,7 @@
     background-color: rgba(225, 137, 74, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 45deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color3)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color3)"], 
@@ -293,7 +294,7 @@
     background-color: rgba(189, 189, 34, 0.55) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color4)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color4)"], 
@@ -305,7 +306,7 @@
     background-color: rgba(77, 227, 69, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 135deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color5)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color5)"], 
@@ -317,7 +318,7 @@
     background-color: rgba(69, 222, 207, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color6)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color6)"], 
@@ -329,7 +330,7 @@
     background-color: rgba(70, 140, 198, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 225deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color7)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color7)"], 
@@ -341,7 +342,7 @@
     background-color: rgba(138, 101, 224, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color8)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color8)"], 
@@ -353,7 +354,7 @@
     background-color: rgba(207, 108, 210, 0.5) !important;
     color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.45 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 315deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color9)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color9)"], 
@@ -365,7 +366,7 @@
     background-color: rgba(210, 76, 76, 0.3) !important;
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color10)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color10)"], 
@@ -377,7 +378,7 @@
     background-color: rgba(215, 101, 56, 0.3) !important;
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color11)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color11)"], 
@@ -389,7 +390,7 @@
     background-color: rgba(53, 216, 53, 0.3) !important;
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color12)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color12)"], 
@@ -401,7 +402,7 @@
     background-color: rgba(51, 87, 207, 0.3) !important;
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color13)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color13)"], 
@@ -413,7 +414,7 @@
     background-color: rgba(177, 96, 217, 0.3) !important;
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg)) !important;
     background-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.015) calc(0.42 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.4);
 }
 [data-theme-mode="dark"] .custom-attr__avvalue .b3-chip[style*="color14)"], 
 [data-theme-mode="dark"] .av__cell .b3-chip[style*="color14)"], 
@@ -425,7 +426,7 @@
     background-color: rgba(177, 96, 217, 0.3) !important;
     color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.02 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg)) !important;
     background-color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.015) calc(0.01 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.15) !important;
-    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.01 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+    border: 1px solid oklch(calc(0.62 + var(--b3-theme-primary-brightness) * 0.015) calc(0.01 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.4);
 }
 /* 细节修复 */
 .av__views > [data-type="av-search-icon"] + div > input:is([style*="width: 0"], [style*="width:0"]) {

@@ -96,8 +96,8 @@
 }
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type=NodeBlockQueryEmbed] {
-    box-shadow: var(--b3-point-shadow);
-    border: 1px solid var(--QYL-tab-item);
+    box-shadow: var(--b3-embed-shadow);
+    border: 1px solid var(--b3-theme-surface-lighter);
 }
 /* 行级备注 */
 .b3-typography span[data-type~=inline-memo], .protyle-wysiwyg span[data-type~=inline-memo] {
@@ -171,6 +171,12 @@
     opacity: 0.6;
 }
 /* 列表 */
+.protyle-wysiwyg [data-node-id].li::before {
+    border-color: var(--b3-theme-surface-lighter);
+}
+.protyle-wysiwyg [data-node-id].li:hover::before {
+    border-color: var(--b3-theme-surface-lighter);
+}
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
     color: var(--b3-theme-primary);
     color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));

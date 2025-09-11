@@ -2,6 +2,7 @@
 .protyle-toolbar {
     border-radius: 20px;
     border: 1px solid var(--b3-theme-surface-lighter);
+    box-shadow: var(--b3-toolbar-shadow);
     & .protyle-toolbar__item {
         margin: 3px 1px;
         border-radius: 20px;

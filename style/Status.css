@@ -17,7 +17,7 @@
         z-index: 4;
         border-radius: 12px;
         border: 1px solid var(--b3-theme-surface-lighter);
-        box-shadow: var(--b3-point-shadow);
+        box-shadow: var(--b3-status-shadow);
         right: 0;
         bottom: 6px;
         height: 27px;
