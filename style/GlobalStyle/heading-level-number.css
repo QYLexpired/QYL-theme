@@ -1,0 +1,81 @@
+html {
+    & .h1>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        width: 18px;
+        height: 18px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h1.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL//img/h1.svg') no-repeat center / contain;
+        pointer-events: none;
+        opacity: 0.5;
+        }
+    }
+    & .h2>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 11px;
+        width: 16px;
+        height: 16px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h2.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL/img/h2.svg') no-repeat center / contain;
+        opacity: 0.5;
+        }
+    }
+    & .h3>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        width: 14px;
+        height: 14px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h3.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL/img/h3.svg') no-repeat center / contain;
+        opacity: 0.5;
+        }
+    }
+    & .h4>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 9px;
+        width: 14px;
+        height: 14px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h4.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL/img/h4.svg') no-repeat center / contain;
+        opacity: 0.5;
+        }
+    }
+    & .h5>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        width: 12px;
+        height: 12px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h5.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL/img/h5.svg') no-repeat center / contain;
+        opacity: 0.5;
+        }
+    }
+    & .h6>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        width: 10px;
+        height: 10px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL/img/h6.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL/img/h6.svg') no-repeat center / contain;
+        opacity: 0.5;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+html {
+    & :is(.b3-typography,.protyle-wysiwyg) :is(.code-block,code.hljs) {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 1em;
+            width: 12px;
+            height: 12px;
+            background: #ff5f56;
+            border-radius: 50%;
+            box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+        }
+        & .protyle-action__language {
+            margin-left: 6em !important;
+        }
+    }
+}

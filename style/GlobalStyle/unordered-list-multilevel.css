@@ -1,0 +1,113 @@
+/* 无序多级序号 */
+html {
+    & .protyle-wysiwyg [data-node-id].li[data-subtype="u"] > .protyle-action svg {
+        color:transparent;
+    }
+    & .protyle-wysiwyg [data-node-id].li[data-subtype="u"] {
+        &[fold="1"]>.protyle-action::after {
+            animation: QYLlienterfixu 0.6s cubic-bezier(0.8, 0, 0.9, 1) forwards !important;
+            box-shadow: 0 0 0 0.2em var(--QYL-tab-item-focus);
+            transform-origin: center;
+        }
+        & > .protyle-action::before {
+            content: "";
+            display: inline-block;
+            width: 0.455em;
+            height: 0.455em;
+            background: var(--b3-theme-on-surface);
+            vertical-align: middle;
+            position: absolute;
+            border-radius: 50%;
+            transform: rotate(0deg);
+        }
+        &:is(.en_item_bullet_actived, [fold="1"]) {
+            & > .protyle-action::before {
+                background: var(--b3-theme-primary);
+                background: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            }
+        }
+        & .li[data-subtype="u"] {
+            & > .protyle-action::before {
+                width: 0.4em;
+                height: 0.4em;
+                border-radius: 0;
+                transform: rotate(0deg);
+            }
+            & .li[data-subtype="u"] {
+                & > .protyle-action::before {
+                    width: 0.4em;
+                    height: 0.4em;
+                    border-radius: 0;
+                    transform: rotate(45deg);
+                }
+                & .li[data-subtype="u"] {
+                    & > .protyle-action::before {
+                        width: 0.455em;
+                        height: 0.455em;
+                        border-radius: 50%;
+                        transform: rotate(0deg);
+                    }
+                    & .li[data-subtype="u"] {
+                        & > .protyle-action::before {
+                            width: 0.4em;
+                            height: 0.4em;
+                            border-radius: 0;
+                            transform: rotate(0deg);
+                        }
+                        & .li[data-subtype="u"] {
+                            & > .protyle-action::before {
+                                width: 0.4em;
+                                height: 0.4em;
+                                border-radius: 0;
+                                transform: rotate(45deg);
+                            }
+                            & .li[data-subtype="u"] {
+                                & > .protyle-action::before {
+                                    width: 0.455em;
+                                    height: 0.455em;
+                                    border-radius: 50%;
+                                    transform: rotate(0deg);
+                                }
+                                & .li[data-subtype="u"] {
+                                    & > .protyle-action::before {
+                                        width: 0.4em;
+                                        height: 0.4em;
+                                        border-radius: 0;
+                                        transform: rotate(0deg);
+                                    }
+                                    & .li[data-subtype="u"] {
+                                        & > .protyle-action::before {
+                                            width: 0.4em;
+                                            height: 0.4em;
+                                            border-radius: 0;
+                                            transform: rotate(45deg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@keyframes QYLlienterfixu {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    65% {
+        transform: scale(0.95);
+    }
+    85% {
+        transform: scale(1.12);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

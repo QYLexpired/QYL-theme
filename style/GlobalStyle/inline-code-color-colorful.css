@@ -1,0 +1,54 @@
+html {
+    & .fn__code, & .b3-typography code:not(.hljs), & .b3-typography span[data-type~=code], & .protyle-wysiwyg code:not(.hljs), & .protyle-wysiwyg span[data-type~=code] {
+        &:nth-of-type(6n+1) {
+            color: var(--QYL-custom-red);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            color: var(--QYL-custom-orange);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            color: var(--QYL-custom-green);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }
+        &:nth-of-type(6n+4) {
+            color: var(--QYL-custom-blue);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }
+        &:nth-of-type(6n+5) {
+            color: var(--QYL-custom-purple);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            color: var(--QYL-custom-pink);
+            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.55 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+    &[data-theme-mode="dark"] .fn__code, & .b3-typography code:not(.hljs), & .b3-typography span[data-type~=code], & .protyle-wysiwyg code:not(.hljs), & .protyle-wysiwyg span[data-type~=code] {
+        &:nth-of-type(6n+1) {
+            color: var(--QYL-custom-red);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            color: var(--QYL-custom-orange);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            color: var(--QYL-custom-green);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }
+        &:nth-of-type(6n+4) {
+            color: var(--QYL-custom-blue);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }
+        &:nth-of-type(6n+5) {
+            color: var(--QYL-custom-purple);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            color: var(--QYL-custom-pink);
+            color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+}

@@ -1,0 +1,41 @@
+html:not(.QYLColorBlock) {
+    & :is(.layout__dockl, .layout__dockr, .layout__dockb):not(.layout--float) {
+        & > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] {
+            & > .layout-tab-container {
+                background-color: var(--b3-theme-surface);
+                & .graph {
+                    background-color: var(--b3-theme-surface);
+                }
+                & .b3-text-field {
+                    background-color: var(--b3-theme-surface);
+                }
+                & .layout__tab--active .graph__svg, .layout__tab--active .inbox__list {
+                    background-color: var(--b3-theme-surface);
+                }
+            }
+        }
+        & .layout__resize:not(:hover):not(.layout__resize--lr) {
+            &::after {
+                visibility: visible;
+                height: 3px;
+                opacity: 0.5;
+            }
+        }
+        & .layout__resize.layout__resize--lr:not(:hover) {
+            &::after {
+                visibility: visible;
+                width: 3px;
+                opacity: 0.5;
+            }
+        }
+    }
+    & :is(.backlinkList, .backlinkMList) {
+        & > .b3-list--background {
+            & .b3-list-item {   
+                & + .protyle {
+                    background-color: var(--b3-theme-surface);
+                }
+            }
+        }
+    }
+}

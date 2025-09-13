@@ -1,0 +1,7 @@
+html {
+    & :is(.h1, .h2, .h3, .h4, .h5, .h6):not([fold="1"])>[spellcheck]:not(:empty) {
+        border-radius: 0px;
+        padding-left: 8px;
+        border-left: 8px solid currentColor;
+    }
+}

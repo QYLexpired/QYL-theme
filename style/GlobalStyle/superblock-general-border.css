@@ -1,0 +1,5 @@
+html {
+    & .protyle-wysiwyg > [data-node-id].sb > [data-node-id] {
+        border: 2px solid var(--b3-theme-surface-lighter);
+    }
+}

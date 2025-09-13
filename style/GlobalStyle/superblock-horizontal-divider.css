@@ -1,0 +1,17 @@
+html {
+    & .protyle-wysiwyg [data-node-id].sb[data-sb-layout="col"] {
+        & > [data-node-id] + [data-node-id] {
+            &::before {
+                content: '';
+                position: absolute;
+                height: 95%;
+                width: 2px;
+                background-color: var(--b3-theme-surface-lighter);
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: calc(-0.5 * var(--QYL-sb-colgap) - 1px);
+            }
+        }
+    }
+}

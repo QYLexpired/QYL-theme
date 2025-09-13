@@ -1,0 +1,33 @@
+html {
+    & .protyle-background__img {
+        & img {
+            height: 35vh;
+            filter: saturate(1.5);
+        }
+        &::after {/* ref Asri */
+            content: '';
+            position: absolute;
+            top: 3.5vh;
+            left: 0;
+            width: 100%;
+            height: 32vh;
+            background: linear-gradient(to top, var(--b3-theme-background) 2%, rgba(from var(--b3-theme-background) r g b/0.97) 9%, rgba(from var(--b3-theme-background) r g b/0.9) 18%, rgba(from var(--b3-theme-background) r g b/0.75) 33%, rgba(from var(--b3-theme-background) r g b/0.05) 92%, transparent 99%);
+            pointer-events: none;
+        }
+    }
+    & .protyle-background__icon {
+        transform: scale(1.3) translateY(-20px);
+        &[style*="margin-top"] {
+            margin-top: 38px !important;
+        }
+    }
+    & .QYLmobile .protyle-background__icon {
+        transform: scale(1.2);
+        &[style*="margin-top"] {
+            margin-top: 38px !important;
+        }
+    }
+    & .QYLmobile .protyle-background__img::after {
+        display: none;
+    }
+}

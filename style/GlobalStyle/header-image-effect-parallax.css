@@ -1,0 +1,41 @@
+html {
+  & .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .fn__flex:first-child {
+    & + .layout-tab-container {
+        & > .fn__flex-1.protyle .protyle-breadcrumb {
+            & + .protyle-content {
+              scroll-timeline-name: --QYL-protyle-scroller;
+                & .protyle-background__img {
+                  animation: QYLimgscroller linear;
+                  animation-timeline: --QYL-protyle-scroller;
+                  animation-range: 0 50vh;
+                  animation-duration: auto;
+              }
+              & .protyle-background__ia {
+                  animation: QYLiascroller linear;
+                  animation-timeline: --QYL-protyle-scroller;
+                  animation-range: 0 50vh;
+                  animation-duration: auto;
+              }
+            }
+        }
+    }
+}
+}
+@keyframes QYLimgscroller {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(45vh);
+      opacity: 0;
+    }
+}
+@keyframes QYLiascroller {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(calc(100%)));
+    opacity: 0;
+  }
+}

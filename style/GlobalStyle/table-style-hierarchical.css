@@ -1,0 +1,53 @@
+/* 层次表格 */
+html {
+    & .protyle-wysiwyg [data-node-id] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-tab-item);
+        background-color: var(--QYL-table-even-color);
+    }
+    & .protyle-wysiwyg [data-node-id] table th {
+        --QYL-table-even-color: var(--QYL-tab-item);
+        background-color: var(--QYL-table-even-color);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="红色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-red-background);
+    }
+    & .protyle-wysiwyg[data-node-id][custom-table-color="红色"] table th {
+        --QYL-table-even-color: var(--QYL-custom-red-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="橙色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-orange-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="黄色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-orange-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="绿色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-green-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="青色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-yellow-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="绿色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-green-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="青色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-cyan-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="蓝色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-blue-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="紫色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-purple-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="粉色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-pink-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="黑色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-black-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="灰色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-custom-gray-background);
+    }
+    & .protyle-wysiwyg [data-node-id][custom-table-color="主题色"] table tr:nth-child(even) td {
+        --QYL-table-even-color: var(--QYL-tab-item);
+    }
+}
