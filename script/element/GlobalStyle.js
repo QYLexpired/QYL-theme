@@ -27,100 +27,140 @@ export async function initGlobalStyle(config = null) {
             }
         } catch (error) {
         }
-        const attributeMapping = {
+        const styleMapping = {
             'QYLHeadingColor': {
-                attribute: 'qyl-heading-color',
+                styleId: 'snippet-heading-color',
                 values: ['colorful', 'colorful-dynamic']
             },
             'QYLHeadingEnhance': {
-                attribute: 'qyl-heading-enhance',
+                styleId: 'snippet-heading-enhance',
                 values: ['underline', 'leftborder']
             },
             'QYLHeadingLevel': {
-                attribute: 'qyl-heading-level',
+                styleId: 'snippet-heading-level',
                 values: ['number']
             },
             'QYLImageShape': {
-                attribute: 'qyl-image-shape',
+                styleId: 'snippet-image-shape',
                 values: ['rounded', 'circle']
             },
             'QYLLinkStyle': {
-                attribute: 'qyl-link-style',
+                styleId: 'snippet-link-style',
                 values: ['icon']
             },
             'QYLSuperBlockGeneral': {
-                attribute: 'qyl-superblock-general',
+                styleId: 'snippet-superblock-general',
                 values: ['border']
             },
             'QYLSuperBlockHorizontal': {
-                attribute: 'qyl-superblock-horizontal',
+                styleId: 'snippet-superblock-horizontal',
                 values: ['divider']
             },
             'QYLTagColor': {
-                attribute: 'qyl-tag-color',
+                styleId: 'snippet-tag-color',
                 values: ['colorful']
             },
             'QYLTagStyle': {
-                attribute: 'qyl-tag-style',
+                styleId: 'snippet-tag-style',
                 values: ['solid']
             },
             'QYLInlineCodeColor': {
-                attribute: 'qyl-inline-code-color',
+                styleId: 'snippet-inline-code-color',
                 values: ['colorful']
             },
             'QYLQuoteStyle': {
-                attribute: 'qyl-quote-style',
+                styleId: 'snippet-quote-style',
                 values: ['leftborder']
             },
             'QYLUnorderedList': {
-                attribute: 'qyl-unordered-list',
+                styleId: 'snippet-unordered-list',
                 values: ['multilevel']
             },
             'QYLOrderedList': {
-                attribute: 'qyl-ordered-list',
+                styleId: 'snippet-ordered-list',
                 values: ['multilevel']
             },
             'QYLCodeBlockStyle': {
-                attribute: 'qyl-codeblock-style',
+                styleId: 'snippet-codeblock-style',
                 values: ['mac']
             },
             'QYLTableShape': {
-                attribute: 'qyl-table-shape',
+                styleId: 'snippet-table-shape',
                 values: ['rounded']
             },
             'QYLTableStyle': {
-                attribute: 'qyl-table-style',
+                styleId: 'snippet-table-style',
                 values: ['hierarchical']
             },
             'QYLHeaderImageStyle': {
-                attribute: 'qyl-header-image-style',
+                styleId: 'snippet-header-image-style',
                 values: ['mask']
             },
             'QYLHeaderImageEffect': {
-                attribute: 'qyl-header-image-effect',
+                styleId: 'snippet-header-image-effect',
                 values: ['parallax']
             },
             'QYLSidebarColor': {
-                attribute: 'qyl-sidebar-color',
+                styleId: 'snippet-sidebar-color',
                 values: ['dock-consistent']
             },
         };
-        Object.entries(attributeMapping).forEach(([configKey, mapping]) => {
+        Object.entries(styleMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
             if (configValue && mapping.values.includes(configValue)) {
-                document.documentElement.setAttribute(mapping.attribute, configValue);
+                
+                const styleId = `${mapping.styleId}-${configValue}`;
+                let styleElement = document.getElementById(styleId);
+                if (!styleElement) {
+                    styleElement = document.createElement('style');
+                    styleElement.id = styleId;
+                    styleElement.textContent = `@import url("/appearance/themes/QYL/style/GlobalStyle/${mapping.styleId.replace('snippet-', '')}-${configValue}.css");`;
+                    document.head.appendChild(styleElement);
+                }
             } else {
-                document.documentElement.removeAttribute(mapping.attribute);
+                
+                mapping.values.forEach(value => {
+                    const styleId = `${mapping.styleId}-${value}`;
+                    const styleElement = document.getElementById(styleId);
+                    if (styleElement) {
+                        styleElement.remove();
+                    }
+                });
             }
         });
     } catch (error) {
-        document.documentElement.removeAttribute('qyl-headingcolor');
+        
+        removeGlobalStyle();
     }
 }
 export function removeGlobalStyle() {
-    const attributes = ['qyl-heading-color', 'qyl-heading-enhance', 'qyl-heading-level', 'qyl-image-shape', 'qyl-link-style', 'qyl-superblock-general', 'qyl-superblock-horizontal', 'qyl-tag-color', 'qyl-tag-style', 'qyl-inline-code-color', 'qyl-quote-style', 'qyl-unordered-list', 'qyl-ordered-list', 'qyl-codeblock-style', 'qyl-table-shape', 'qyl-table-style', 'qyl-header-image-style', 'qyl-header-image-effect', 'qyl-sidebar-color'];
-    attributes.forEach(attr => {
-        document.documentElement.removeAttribute(attr);
+    
+    const styleIds = [
+        'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
+        'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
+        'snippet-heading-level-number',
+        'snippet-image-shape-rounded', 'snippet-image-shape-circle',
+        'snippet-link-style-icon',
+        'snippet-superblock-general-border',
+        'snippet-superblock-horizontal-divider',
+        'snippet-tag-color-colorful',
+        'snippet-tag-style-solid',
+        'snippet-inline-code-color-colorful',
+        'snippet-quote-style-leftborder',
+        'snippet-unordered-list-multilevel',
+        'snippet-ordered-list-multilevel',
+        'snippet-codeblock-style-mac',
+        'snippet-table-shape-rounded',
+        'snippet-table-style-hierarchical',
+        'snippet-header-image-style-mask',
+        'snippet-header-image-effect-parallax',
+        'snippet-sidebar-color-dock-consistent'
+    ];
+    styleIds.forEach(styleId => {
+        const styleElement = document.getElementById(styleId);
+        if (styleElement) {
+            styleElement.remove();
+        }
     });
     const existingDialog = document.querySelector('[data-key="QYLGlobalStyle"]');
     if (existingDialog) {
