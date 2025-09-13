@@ -2,11 +2,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自定义属性增加选项-列表视图-时间轴<br>• 重做部分主题动画<br>• 重做块折叠效果<br>• 优化列表转脑图、看板、表格样式<br>• 优化大量细节<br>• 修复关闭QYL自定义属性再重新开启时，CSS自定义属性无法生效的问题<br>• 修复开启全高布局时非protyle窗口样式异常的问题</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 修复全局样式导出为PDF时不生效的问题</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加预设配色-余辉<br>• 暗黑模式增加预设配色-隐迹、金樽<br>• 重做青柠配色<br>• 重做薄荷配色<br>• 重做文档树缩进线、多彩文档树、边框化文档树及三者联动效果<br>• 全局样式增加选项-侧栏颜色-与停靠栏一致<br>• 全局样式增加选项-标题颜色-多彩（随主题色变化）<br>• 修复切换明亮/暗黑模式时配色异常的问题<br>• 重做部分input组件样式<br>• 简化反链面板样式并移除吸顶效果<br>• 优化所有配色的线条颜色<br>• 优化switch组件动画效果<br>• 适配数据库分组和卡片视图字段显示<br>• 重做编辑器全宽显示功能，更改为编辑器宽度调整（鼠标右键点击此按钮进行设置）<br>• 优化显示行内备注功能：<br>&nbsp;&nbsp;1.右侧、左侧备注的显示效果可随文档宽度自适应<br>&nbsp;&nbsp;2.支持调节侧边备注宽度（通过拖拽侧边备注的竖向线条调整，双击可恢复默认宽度）<br>&nbsp;&nbsp;3.可通过面包屑按钮来隐藏特定文档的备注<br>• 优化块全宽显示的性能，且不再需要单独开启<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加颜色选项-主题色随题头图变化（注意：此功能需消耗一定性能，请按需启用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自定义属性增加选项-列表视图-时间轴<br>• 重做部分主题动画<br>• 重做块折叠效果<br>• 优化列表转脑图、看板、表格样式<br>• 优化大量细节<br>• 修复关闭QYL自定义属性再重新开启时，CSS自定义属性无法生效的问题<br>• 修复开启全高布局时非protyle窗口样式异常的问题<br>• 明亮模式增加预设配色-余辉<br>• 暗黑模式增加预设配色-隐迹、金樽<br>• 重做青柠配色<br>• 重做薄荷配色<br>• 重做文档树缩进线、多彩文档树、边框化文档树及三者联动效果<br>• 全局样式增加选项-侧栏颜色-与停靠栏一致<br>• 全局样式增加选项-标题颜色-多彩（随主题色变化）<br>• 修复切换明亮/暗黑模式时配色异常的问题<br>• 重做部分input组件样式<br>• 简化反链面板样式并移除吸顶效果<br>• 优化所有配色的线条颜色<br>• 优化switch组件动画效果<br>• 适配数据库分组和卡片视图字段显示<br>• 重做编辑器全宽显示功能，更改为编辑器宽度调整（鼠标右键点击此按钮进行设置）<br>• 优化显示行内备注功能：<br>&nbsp;&nbsp;1.右侧、左侧备注的显示效果可随文档宽度自适应<br>&nbsp;&nbsp;2.支持调节侧边备注宽度（通过拖拽侧边备注的竖向线条调整，双击可恢复默认宽度）<br>&nbsp;&nbsp;3.可通过面包屑按钮来隐藏特定文档的备注<br>• 优化块全宽显示的性能，且不再需要单独开启<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加颜色选项-主题色随题头图变化（注意：此功能需消耗一定性能，请按需启用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素选项-全局样式设置，右键点击此按钮，可直接在窗口设置全局元素样式，同时删除以下选项：多彩标题和大纲、多彩标签和多彩行级代码、超链接图标、列表多级序号（通过全局样式设置来启用）</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主题说明</p>
 <details style="padding-left: 1em">
