@@ -2,13 +2,19 @@
     & .b3-card {
         box-shadow: var(--b3-point-shadow);
         background-color: rgba(255, 0, 0, 0);
+        &.b3-card--current {
+            background-color: transparent;
+            & .b3-card__info {
+                color: var(--b3-theme-primary);
+                & .ft__on-surface, .b3-card__desc {
+                    color: var(--b3-theme-primary);
+                }
+            }
+        }
         &:hover {
             background-color: var(--QYL-tab-item-focus);
             transform: scale(1.03) !important;
             filter: saturate(2.5) brightness(1.1);
-        }
-        &.b3-card--current {
-            background-color: var(--QYL-tab-item-focus);
         }
     }
 }
