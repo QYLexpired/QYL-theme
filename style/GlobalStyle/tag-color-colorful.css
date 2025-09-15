@@ -1,151 +1,259 @@
+/* 多彩 */
 html {
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
-        background-color: rgba(from var(--QYL-custom-red) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
-        color: var(--QYL-custom-red);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        --tag-colorful-background-1: rgba(from var(--QYL-custom-red) r g b/0.3);
+        --tag-colorful-background-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
+        --tag-colorful-color-1: var(--QYL-custom-red);
+        --tag-colorful-color-1: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
     }
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
-        background-color: rgba(from var(--QYL-custom-orange) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
-        color: var(--QYL-custom-orange);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        --tag-colorful-background-2: rgba(from var(--QYL-custom-orange) r g b/0.3);
+        --tag-colorful-background-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
+        --tag-colorful-color-2: var(--QYL-custom-orange);
+        --tag-colorful-color-2: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
     }
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
-        background-color: rgba(from var(--QYL-custom-green) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
-        color: var(--QYL-custom-green);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        --tag-colorful-background-3: rgba(from var(--QYL-custom-green) r g b/0.3);
+        --tag-colorful-background-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
+        --tag-colorful-color-3: var(--QYL-custom-green);
+        --tag-colorful-color-3: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
     }
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
-        background-color: rgba(from var(--QYL-custom-blue) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
-        color: var(--QYL-custom-blue);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        --tag-colorful-background-4: rgba(from var(--QYL-custom-blue) r g b/0.3);
+        --tag-colorful-background-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
+        --tag-colorful-color-4: var(--QYL-custom-blue);
+        --tag-colorful-color-4: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
     }
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
-        background-color: rgba(from var(--QYL-custom-purple) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
-        color: var(--QYL-custom-purple);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        --tag-colorful-background-5: rgba(from var(--QYL-custom-purple) r g b/0.3);
+        --tag-colorful-background-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
+        --tag-colorful-color-5: var(--QYL-custom-purple);
+        --tag-colorful-color-5: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
     }
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
-        background-color: rgba(from var(--QYL-custom-pink) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
-        color: var(--QYL-custom-pink);
-        color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        --tag-colorful-background-6: rgba(from var(--QYL-custom-pink) r g b/0.3);
+        --tag-colorful-background-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
+        --tag-colorful-color-6: var(--QYL-custom-pink);
+        --tag-colorful-color-6: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+1) {
-        background-color: rgba(from var(--QYL-custom-red) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
-        color: var(--QYL-custom-red);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        --tag-colorful-background-1: rgba(from var(--QYL-custom-red) r g b/0.3);
+        --tag-colorful-background-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
+        --tag-colorful-color-1: var(--QYL-custom-red);
+        --tag-colorful-color-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+2) {
-        background-color: rgba(from var(--QYL-custom-orange) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
-        color: var(--QYL-custom-orange);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        --tag-colorful-background-2: rgba(from var(--QYL-custom-orange) r g b/0.3);
+        --tag-colorful-background-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
+        --tag-colorful-color-2: var(--QYL-custom-orange);
+        --tag-colorful-color-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+3) {
-        background-color: rgba(from var(--QYL-custom-green) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
-        color: var(--QYL-custom-green);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        --tag-colorful-background-3: rgba(from var(--QYL-custom-green) r g b/0.3);
+        --tag-colorful-background-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
+        --tag-colorful-color-3: var(--QYL-custom-green);
+        --tag-colorful-color-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+4) {
-        background-color: rgba(from var(--QYL-custom-blue) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
-        color: var(--QYL-custom-blue);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        --tag-colorful-background-4: rgba(from var(--QYL-custom-blue) r g b/0.3);
+        --tag-colorful-background-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
+        --tag-colorful-color-4: var(--QYL-custom-blue);
+        --tag-colorful-color-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+5) {
-        background-color: rgba(from var(--QYL-custom-purple) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
-        color: var(--QYL-custom-purple);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        --tag-colorful-background-5: rgba(from var(--QYL-custom-purple) r g b/0.3);
+        --tag-colorful-background-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
+        --tag-colorful-color-5: var(--QYL-custom-purple);
+        --tag-colorful-color-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
     }
     &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag]:nth-of-type(6n+6) {
-        background-color: rgba(from var(--QYL-custom-pink) r g b/0.3);
-        background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
-        color: var(--QYL-custom-pink);
-        color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        --tag-colorful-background-6: rgba(from var(--QYL-custom-pink) r g b/0.3);
+        --tag-colorful-background-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
+        --tag-colorful-color-6: var(--QYL-custom-pink);
+        --tag-colorful-color-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
     }
     & .protyle-background .b3-chips__doctag .b3-chip {
         &:nth-of-type(6n+1) {
-            background-color: rgba(from var(--QYL-custom-red) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
-            color: var(--QYL-custom-red);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+            --tag-colorful-background-1: rgba(from var(--QYL-custom-red) r g b/0.3);
+            --tag-colorful-background-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
+            --tag-colorful-color-1: var(--QYL-custom-red);
+            --tag-colorful-color-1: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
         }
         &:nth-of-type(6n+2) {
-            background-color: rgba(from var(--QYL-custom-orange) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
-            color: var(--QYL-custom-orange);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+            --tag-colorful-background-2: rgba(from var(--QYL-custom-orange) r g b/0.3);
+            --tag-colorful-background-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
+            --tag-colorful-color-2: var(--QYL-custom-orange);
+            --tag-colorful-color-2: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
         }
         &:nth-of-type(6n+3) {
-            background-color: rgba(from var(--QYL-custom-green) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
-            color: var(--QYL-custom-green);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+            --tag-colorful-background-3: rgba(from var(--QYL-custom-green) r g b/0.3);
+            --tag-colorful-background-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
+            --tag-colorful-color-3: var(--QYL-custom-green);
+            --tag-colorful-color-3: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
         }
         &:nth-of-type(6n+4) {
-            background-color: rgba(from var(--QYL-custom-blue) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
-            color: var(--QYL-custom-blue);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+            --tag-colorful-background-4: rgba(from var(--QYL-custom-blue) r g b/0.3);
+            --tag-colorful-background-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
+            --tag-colorful-color-4: var(--QYL-custom-blue);
+            --tag-colorful-color-4: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
         }
         &:nth-of-type(6n+5) {
-            background-color: rgba(from var(--QYL-custom-purple) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
-            color: var(--QYL-custom-purple);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+            --tag-colorful-background-5: rgba(from var(--QYL-custom-purple) r g b/0.3);
+            --tag-colorful-background-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
+            --tag-colorful-color-5: var(--QYL-custom-purple);
+            --tag-colorful-color-5: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
         }
         &:nth-of-type(6n+6) {   
-            background-color: rgba(from var(--QYL-custom-pink) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
-            color: var(--QYL-custom-pink);
-            color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+            --tag-colorful-background-6: rgba(from var(--QYL-custom-pink) r g b/0.3);
+            --tag-colorful-background-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
+            --tag-colorful-color-6: var(--QYL-custom-pink);
+            --tag-colorful-color-6: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
         }
     }
     &[data-theme-mode="dark"] .protyle-background .b3-chips__doctag .b3-chip {
         color: var(--b3-theme-on-primary);
         &:nth-of-type(6n+1) {
-            background-color: rgba(from var(--QYL-custom-red) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
-            color: var(--QYL-custom-red);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+            --tag-colorful-background-1: rgba(from var(--QYL-custom-red) r g b/0.3);
+            --tag-colorful-background-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg) / 0.3);
+            --tag-colorful-color-1: var(--QYL-custom-red);
+            --tag-colorful-color-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
         }
         &:nth-of-type(6n+2) {
-            background-color: rgba(from var(--QYL-custom-orange) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
-            color: var(--QYL-custom-orange);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+            --tag-colorful-background-2: rgba(from var(--QYL-custom-orange) r g b/0.3);
+            --tag-colorful-background-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.3);
+            --tag-colorful-color-2: var(--QYL-custom-orange);
+            --tag-colorful-color-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
         }
         &:nth-of-type(6n+3) {
-            background-color: rgba(from var(--QYL-custom-green) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
-            color: var(--QYL-custom-green);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+            --tag-colorful-background-3: rgba(from var(--QYL-custom-green) r g b/0.3);
+            --tag-colorful-background-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg) / 0.3);
+            --tag-colorful-color-3: var(--QYL-custom-green);
+            --tag-colorful-color-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
         }
         &:nth-of-type(6n+4) {
-            background-color: rgba(from var(--QYL-custom-blue) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
-            color: var(--QYL-custom-blue);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+            --tag-colorful-background-4: rgba(from var(--QYL-custom-blue) r g b/0.3);
+            --tag-colorful-background-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg) / 0.3);
+            --tag-colorful-color-4: var(--QYL-custom-blue);
+            --tag-colorful-color-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
         }
         &:nth-of-type(6n+5) {
-            background-color: rgba(from var(--QYL-custom-purple) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
-            color: var(--QYL-custom-purple);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+            --tag-colorful-background-5: rgba(from var(--QYL-custom-purple) r g b/0.3);
+            --tag-colorful-background-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg) / 0.3);
+            --tag-colorful-color-5: var(--QYL-custom-purple);
+            --tag-colorful-color-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
         }
         &:nth-of-type(6n+6) {
-            background-color: rgba(from var(--QYL-custom-pink) r g b/0.3);
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
-            color: var(--QYL-custom-pink);
-            color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+            --tag-colorful-background-6: rgba(from var(--QYL-custom-pink) r g b/0.3);
+            --tag-colorful-background-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg) / 0.3);
+            --tag-colorful-color-6: var(--QYL-custom-pink);
+            --tag-colorful-color-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.25 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+}
+/* 实体多彩 */
+html {
+    & .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+        &:nth-of-type(6n+1) {
+            --tag-solid-colorful-1: rgba(from var(--QYL-custom-red) r g b/0.7);
+            --tag-solid-colorful-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            --tag-solid-colorful-2: rgba(from var(--QYL-custom-orange) r g b/0.7);
+            --tag-solid-colorful-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            --tag-solid-colorful-3: rgba(from var(--QYL-custom-green) r g b/0.7);
+            --tag-solid-colorful-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }
+        &:nth-of-type(6n+4) {
+            --tag-solid-colorful-4: rgba(from var(--QYL-custom-blue) r g b/0.7);
+            --tag-solid-colorful-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }
+        &:nth-of-type(6n+5) {
+            --tag-solid-colorful-5: rgba(from var(--QYL-custom-purple) r g b/0.7);
+            --tag-solid-colorful-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            --tag-solid-colorful-6: rgba(from var(--QYL-custom-pink) r g b/0.7);
+            --tag-solid-colorful-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+    &[data-theme-mode="dark"] .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+        &:nth-of-type(6n+1) {
+            --tag-solid-colorful-1: rgba(from var(--QYL-custom-red) r g b/0.7);
+            --tag-solid-colorful-1: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            --tag-solid-colorful-2: rgba(from var(--QYL-custom-orange) r g b/0.7);
+            --tag-solid-colorful-2: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            --tag-solid-colorful-3: rgba(from var(--QYL-custom-green) r g b/0.7);
+            --tag-solid-colorful-3: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }
+        &:nth-of-type(6n+4) {
+            --tag-solid-colorful-4: rgba(from var(--QYL-custom-blue) r g b/0.7);
+            --tag-solid-colorful-4: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }
+        &:nth-of-type(6n+5) {
+            --tag-solid-colorful-5: rgba(from var(--QYL-custom-purple) r g b/0.7);
+            --tag-solid-colorful-5: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            --tag-solid-colorful-6: rgba(from var(--QYL-custom-pink) r g b/0.7);
+            --tag-solid-colorful-6: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+    & .protyle-background .b3-chips__doctag .b3-chip {
+        &:nth-of-type(6n+1) {
+            --tag-solid-colorful-1: rgba(from var(--QYL-custom-red) r g b/0.7);
+            --tag-solid-colorful-1: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            --tag-solid-colorful-2: rgba(from var(--QYL-custom-orange) r g b/0.7);
+            --tag-solid-colorful-2: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            --tag-solid-colorful-3: rgba(from var(--QYL-custom-green) r g b/0.7);
+            --tag-solid-colorful-3: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }
+        &:nth-of-type(6n+4) {
+            --tag-solid-colorful-4: rgba(from var(--QYL-custom-blue) r g b/0.7);
+            --tag-solid-colorful-4: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }   
+        &:nth-of-type(6n+5) {
+            --tag-solid-colorful-5: rgba(from var(--QYL-custom-purple) r g b/0.7);
+            --tag-solid-colorful-5: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            --tag-solid-colorful-6: rgba(from var(--QYL-custom-pink) r g b/0.7);
+            --tag-solid-colorful-6: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
+        }
+    }
+    &[data-theme-mode="dark"] .protyle-background .b3-chips__doctag .b3-chip {
+        &:nth-of-type(6n+1) {
+            --tag-solid-colorful-1: rgba(from var(--QYL-custom-red) r g b/0.7);
+            --tag-solid-colorful-1: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 120deg));
+        }
+        &:nth-of-type(6n+2) {
+            --tag-solid-colorful-2: rgba(from var(--QYL-custom-orange) r g b/0.7);
+            --tag-solid-colorful-2: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
+        }
+        &:nth-of-type(6n+3) {
+            --tag-solid-colorful-3: rgba(from var(--QYL-custom-green) r g b/0.7);
+            --tag-solid-colorful-3: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 240deg));
+        }   
+        &:nth-of-type(6n+4) {
+            --tag-solid-colorful-4: rgba(from var(--QYL-custom-blue) r g b/0.7);
+            --tag-solid-colorful-4: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 300deg));
+        }
+        &:nth-of-type(6n+5) {
+            --tag-solid-colorful-5: rgba(from var(--QYL-custom-purple) r g b/0.7);
+            --tag-solid-colorful-5: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 360deg));
+        }
+        &:nth-of-type(6n+6) {
+            --tag-solid-colorful-6: rgba(from var(--QYL-custom-pink) r g b/0.7);
+            --tag-solid-colorful-6: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.35 * max(0.2, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 60deg));
         }
     }
 }

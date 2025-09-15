@@ -2,17 +2,18 @@ html {
     & .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
         border-radius: var(--b3-border-radius);
         border: none;
-        color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
         background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
         padding: 3px 5px;
         font-size: 80%;
-        color: var(--b3-theme-on-primary);
+        color: var(--b3-theme-on-primary) !important;
         background-color: var(--b3-theme-primary);
         transition: var(--b3-transition);
         margin-left: 2px;
         margin-right: 2px;
         &:hover {
-            filter: brightness(0.85);
+            background-color: var(--b3-theme-primary);
+            filter: brightness(0.95);
         }
         &::before {
             content: '';
@@ -34,13 +35,14 @@ html {
         color: var(--b3-theme-primary);
         background-color: rgba(from var(--b3-theme-primary) r g b/0.25);
         padding: 3px 5px;
-        color: var(--b3-theme-on-primary);
+        color: var(--b3-theme-on-primary) !important;
         background-color: var(--b3-theme-primary);
         transition: var(--b3-transition);
         margin-left: 2px;
         margin-right: 2px;
         &:hover {
-            filter: brightness(0.85);
+            background-color: var(--b3-theme-success);
+            filter: brightness(0.95);
             opacity: 1 !important;
         }
         &::before {
@@ -55,6 +57,49 @@ html {
             margin-right: 0.4em;
             position: relative;
             vertical-align: middle;
+        }
+    }
+}
+/* 实体多彩 */
+html {
+    & .protyle-wysiwyg [data-node-id] span[data-type~=tag] {
+        &:nth-of-type(6n+1) {
+            background-color: var(--tag-solid-colorful-1, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+2) {
+            background-color: var(--tag-solid-colorful-2, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+3) {
+            background-color: var(--tag-solid-colorful-3, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+4) {
+            background-color: var(--tag-solid-colorful-4, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+5) {
+            background-color: var(--tag-solid-colorful-5, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+6) {
+            background-color: var(--tag-solid-colorful-6, var(--b3-theme-primary));
+        }
+    }
+    & .protyle-background .b3-chips__doctag .b3-chip {
+        &:nth-of-type(6n+1) {
+            background-color: var(--tag-solid-colorful-1, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+2) {
+            background-color: var(--tag-solid-colorful-2, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+3) {
+            background-color: var(--tag-solid-colorful-3, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+4) {
+            background-color: var(--tag-solid-colorful-4, var(--b3-theme-primary));
+        }   
+        &:nth-of-type(6n+5) {
+            background-color: var(--tag-solid-colorful-5, var(--b3-theme-primary));
+        }
+        &:nth-of-type(6n+6) {
+            background-color: var(--tag-solid-colorful-6, var(--b3-theme-primary));
         }
     }
 }
