@@ -367,4 +367,7 @@ export default {
     "SidebarStyle": "侧栏样式",
     "SidebarColor": "侧栏颜色",
     "DockConsistent": "与停靠栏一致",
+    "MenuStyle": "菜单样式",
+    "MenuHoverColor": "选项悬停颜色",
+    "ThemeColor": "主题色",
 }; 

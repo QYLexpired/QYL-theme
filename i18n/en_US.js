@@ -367,4 +367,7 @@ export default {
     "SidebarStyle": "Sidebar Style",
     "SidebarColor": "Sidebar Color",
     "DockConsistent": "Consistent with Dock",
+    "MenuStyle": "Menu Style",
+    "MenuHoverColor": "Option Hover Color",
+    "ThemeColor": "Theme Color",
 };
