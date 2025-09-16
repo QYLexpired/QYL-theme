@@ -1,27 +1,36 @@
 .b3-switch {
-    width: 34px;
-    height: 20px;
+    width: 36px;
+    height: 22px;
+    border-radius: 18px;
     border: none;
-}
-.b3-switch::after {
-    left: 10px;
-    width: 16px;
-    height: 16px;
-    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.15, 1.8), width 0.6s cubic-bezier(0.25, 0.46, 0.15, 1.8), height 0.6s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    box-shadow: var(--b3-switch-shadow);
+    &::after {
+        left: 0;
+        top: 50%;
+        transform: translate(2px, -50%);
+        width: 18px;
+        height: 18px;
+        transition: transform 0.15s ease-in-out, width 0.1s ease-in-out, left 0.1s ease-in-out;
+        box-shadow: var(--b3-switch-after-shadow);
+    }
+    &:checked::after {
+        left: 0;
+        transform: translate(16px, -50%);
+        width: 18px;
+        height: 18px;
+    }
+    &:active:not(:disabled)::after {
+        width: 24px;
+        height: 18px;
+        border-radius: 18px;
+    }
+    &:checked:active:not(:disabled)::after {
+        left: -6px;
+        width: 24px;
+        height: 18px;
+        border-radius: 18px;
+    }
 }
 label:hover .b3-switch:not(:disabled)::before, .b3-switch:hover:not(:disabled)::before {
     display: none;
-}
-.b3-switch:checked::after {
-    left: 24px;
-    width: 16px;
-    height: 16px;
-}
-.b3-switch:active:not(:disabled)::after {
-    height: 22px;
-    width: 22px;
-}
-.b3-switch:checked:active:not(:disabled)::after {
-    height: 22px;
-    width: 22px;
 }

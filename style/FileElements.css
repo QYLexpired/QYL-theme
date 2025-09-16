@@ -40,6 +40,9 @@
     color: var(--b3-theme-primary); 
     transition: var(--b3-color-transition);
 }
+.protyle-title__icon:hover {
+    color: var(--b3-theme-primary); 
+}
 .protyle-title.protyle-wysiwyg--attr span.protyle-title__icon.ariaLabel:hover svg {
     color: var(--b3-theme-primary); 
     transition: var(--b3-color-transition);
