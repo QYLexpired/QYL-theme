@@ -27,10 +27,11 @@ export function initBorderFileTree() {
             & [data-type="navigation-file"] {
                 margin-left: 0;
                 margin-right: 0;
+                border-radius: 0;
             }
         }
         /* 缩进线修复 */
-        .file-tree > .fn__flex-1 > ul > ul,
+        .file-tree.sy__file > .fn__flex-1 > ul > ul,
         .QYLmobile #sidebar [data-type="sidebar-file"] > .fn__flex-1 > ul > ul {
             --QYL-indent-1: 12px !important;
             & > ul {
@@ -82,11 +83,15 @@ export function initBorderFileTree() {
                 margin-left: 5px;
                 border: 1px solid var(--QYL-colorful-file);
                 background-color: color-mix(in srgb, var(--QYL-colorful-file-background) 30%, transparent);
+                --b3-list-hover: var(--QYL-colorful-file-background);
+                --b3-list-icon-hover: var(--QYL-colorful-file-background);
             }
             & .QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 > ul.b3-list.b3-list--background {
                 margin-left: 5px;
                 border: 1px solid var(--QYL-colorful-file);
                 background-color: color-mix(in srgb, var(--QYL-colorful-file-background) 30%, transparent);
+                --b3-list-hover: var(--QYL-colorful-file-background);
+                --b3-list-icon-hover: var(--QYL-colorful-file-background);
             }
             &[data-theme-mode="dark"] {
                 & .sy__file ul.b3-list.b3-list--background {
