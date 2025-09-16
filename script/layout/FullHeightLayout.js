@@ -105,16 +105,7 @@ export function initFullHeightLayout() {
         }
         /* 数据库 */
         .av__row--header[style*="transform"] { 
-            top: 80px;
-            &::before {
-                content: "";
-                position: absolute;
-                top: -80px;
-                left: 0;
-                height: 80px;
-                width: 100%;
-                background-color: var(--b3-theme-background);
-            }
+            top: 40px;
         }
         /* 固定工具栏修复 */
         .protyle-toolbar {

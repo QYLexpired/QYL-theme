@@ -191,7 +191,7 @@ export function initColorBlock() {
             &:hover {
                 background-color: var(--b3-theme-primary) !important;
                 & span.toolbar__text {
-                    color: var(--b3-theme-background);
+                    color: var(--b3-theme-on-primary);
                 }
             }
         }
