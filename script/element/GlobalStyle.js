@@ -104,11 +104,14 @@ export async function initGlobalStyle(config = null) {
                 styleId: 'snippet-sidebar-color',
                 values: ['dock-consistent']
             },
+            'QYLMenuHoverColor': {
+                styleId: 'snippet-menu-hover-color',
+                values: ['theme']
+            },
         };
         Object.entries(styleMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
             if (configValue && mapping.values.includes(configValue)) {
-                
                 const styleId = `${mapping.styleId}-${configValue}`;
                 let styleElement = document.getElementById(styleId);
                 if (!styleElement) {
@@ -118,7 +121,6 @@ export async function initGlobalStyle(config = null) {
                     document.head.appendChild(styleElement);
                 }
             } else {
-                
                 mapping.values.forEach(value => {
                     const styleId = `${mapping.styleId}-${value}`;
                     const styleElement = document.getElementById(styleId);
@@ -129,12 +131,10 @@ export async function initGlobalStyle(config = null) {
             }
         });
     } catch (error) {
-        
         removeGlobalStyle();
     }
 }
 export function removeGlobalStyle() {
-    
     const styleIds = [
         'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
         'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
@@ -154,7 +154,8 @@ export function removeGlobalStyle() {
         'snippet-table-style-hierarchical',
         'snippet-header-image-style-mask',
         'snippet-header-image-effect-parallax',
-        'snippet-sidebar-color-dock-consistent'
+        'snippet-sidebar-color-dock-consistent',
+        'snippet-menu-hover-color-theme'
     ];
     styleIds.forEach(styleId => {
         const styleElement = document.getElementById(styleId);
@@ -473,6 +474,19 @@ export async function createGlobalStyleDialog() {
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'dock-consistent', label: i18n.DockConsistent }
+                    ]
+                }
+            ]
+        },
+        {
+            title: i18n.MenuStyle,
+            items: [
+                {
+                    id: 'QYLMenuHoverColor',
+                    label: i18n.MenuHoverColor,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'theme', label: i18n.ThemeColor }
                     ]
                 }
             ]
