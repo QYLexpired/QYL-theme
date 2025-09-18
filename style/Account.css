@@ -62,11 +62,17 @@
     }
     & > .b3-button {
         border-radius: 36px;
-        background-color: var(--b3-theme-primary);
-        border-color: var(--b3-theme-primary);
+        &:hover {
+            background-color: var(--b3-theme-primary);
+            border-color: var(--b3-theme-primary);
+        }
     }
     & .b3-chip--pink {
         border-radius: 36px;
+        &:hover {
+            background-color: var(--b3-theme-primary);
+            border-color: var(--b3-theme-primary);
+        }
     }
     & .b3-form__icon {
         & #activationCode {
