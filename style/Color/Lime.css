@@ -59,17 +59,11 @@
 /* 细节调整 */
 .b3-select {
     box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
-    background-color: rgba(225, 246, 234, 0.3);
+    background-color: rgba(225, 246, 234, 0.3) !important;
 }
 .b3-text-field, .pcr-app .pcr-interaction .pcr-result {
     box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
-    background-color: rgba(225, 246, 234, 0.3);
-}
-.b3-text-field:not(.b3-text-field--text):focus, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):focus {
-    background-color: rgba(225, 246, 234, 0.3);
-}
-.b3-text-field:not(.b3-text-field--text):hover, .pcr-app .pcr-interaction .pcr-result:not(.b3-text-field--text):hover {
-    background-color: rgba(225, 246, 234, 0.3);
+    background-color: rgba(225, 246, 234, 0.3) !important;
 }
 .config-bazaar__panel {
     & .b3-card {
