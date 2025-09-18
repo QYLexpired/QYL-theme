@@ -39,6 +39,7 @@ input[type="range"] {
     &::-webkit-slider-runnable-track {
         height: 5px;
         border-radius: 12px;
+        background-color: var(--b3-scroll-color);
     }
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -78,7 +79,7 @@ input[type="range"] {
     &::-webkit-slider-runnable-track {
         height: 3px;
         border-radius: 12px;
-        background-color: var(--b3-theme-primary-lighter);
+        background-color: var(--b3-scroll-color);
     }
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -108,8 +109,8 @@ input[type="range"] {
     }
 }
 .protyle-scroll__down, .protyle-scroll__up {
-    color: var(--b3-theme-primary-lighter);
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    color: var(--b3-scroll-color);
     &:hover {
         transform: scale(1.35);
         color: var(--b3-theme-primary);

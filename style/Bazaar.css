@@ -44,6 +44,11 @@
 #configBazaarReadme .block__icons {
     border-bottom: none;
 }
+.config-bazaar__readme {
+    opacity: 1;
+    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);;
+
+}
 .config-bazaar__readme .item__main {
     scroll-timeline-name: --QYL-bazaar-scroller;
 }

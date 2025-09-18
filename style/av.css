@@ -55,7 +55,7 @@
     padding: 2px;
     & .item.item--focus {
         background-color: var(--b3-theme-background);
-        box-shadow: var(--b3-message-shadow);
+        box-shadow: var(--b3-point-shadow);
         border: none;
         margin: 0;
         height: 25px;

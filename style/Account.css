@@ -1,27 +1,76 @@
-[data-name="account"] {
-    & .config__tab-container.config__tab-container--full {
-        margin: 50px 20px 50px 20px  !important;
+.config-account__center:not(.config-account__center--text) {
+    height: min(100%, 520px);
+    max-width: 360px;
+    border-radius: 36px;
+    align-self: center;
+    box-shadow: var(--b3-point-shadow);
+    margin: auto 50px;
+    & .config-account__bg {
+        margin-bottom: 120px;;
+        & .b3-chips {
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            & .b3-chip {
+                border-radius: 36px;
+                padding: 4px 12px;
+                background-color: transparent;
+                color: var(--b3-theme-on-surface-light);
+                box-shadow: var(--b3-point-shadow);
+            }
+        }
+
     }
-    & .config-account__center {
-        &:not(.config-account__center--text) {
-            border-radius: var(--b3-border-radius);
-            background-image: var(--QYL-account-background1);
-            margin: 20px 10px 4px 20px;
-        }
-        &.config-account__center--text {
-            border-radius: var(--b3-border-radius);
-            background-image: var(--QYL-account-background2);
-            margin: 20px 20px 4px 10px;
-            & .b3-form__icon-icon {
-                top: 8px;
+    & .config-account__info {
+        padding: 20px 50px;
+        margin-top: 0;
+        & > .fn__flex:first-child {
+            display: flex;
+            flex-direction: row;
+            & .b3-button {
+                min-width: calc(100% * 0.33333 - 5px);
+                line-height: 22px;
             }
-            & .b3-button.b3-button--text  {
-                top: 4.5px !important;
-                right: 3px !important;
+            & .fn__flex-1 {
+                display: none;
             }
         }
-        & .b3-text-field.fn__block.b3-form__icon-input {
-            padding: 7px 10px;
+        & > .fn__flex:last-child {
+            flex-direction: column;
+            gap: 8px;
+            & label {
+                position: relative;
+                & input {
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+.config-account__center--text {
+    background-color: transparent;
+    height: min(100%, 520px);
+    padding: 20px;
+    margin: auto 50px;
+    & .b3-chip.b3-chip--success {
+        border-radius: 36px;
+        padding: 4px 12px;
+        background-color: transparent;
+        color: var(--b3-theme-on-surface-light);
+        box-shadow: var(--b3-point-shadow);
+    }
+    & > .b3-button {
+        border-radius: 36px;
+        background-color: var(--b3-theme-primary);
+        border-color: var(--b3-theme-primary);
+    }
+    & .b3-chip--pink {
+        border-radius: 36px;
+    }
+    & .b3-form__icon {
+        & #activationCode {
+            display: none;
         }
     }
 }
