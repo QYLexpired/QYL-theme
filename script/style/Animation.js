@@ -55,7 +55,7 @@ export function initAnimation() {
         }
         /* 集市 */
         .config-bazaar__panel .b3-card {
-            animation: QYLBazaarCard 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLBazaarCard 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .config__tab-wrap > div {
             animation: QYLBazaarTab 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -72,21 +72,12 @@ export function initAnimation() {
         }
         @keyframes QYLBazaarCard {
             0% {
-              transform: scale(0.8);
+              transform: translateY(-10%);
               opacity: 0;
             }
-            50% {
-              transform: scale(1.01);
-              opacity: 1;
-            }
-            70% {
-              transform: scale(0.99);
-            }
-            85% {
-                transform: scale(1);
-            }
             100% {
-              transform: scale(1);
+              transform: translateY(0);
+              opacity: 1;
             }
         }
         /* 搜索面板 */

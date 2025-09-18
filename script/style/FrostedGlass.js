@@ -70,7 +70,7 @@ export function initFrostedGlass() {
         }
         /* 闪卡 */
         #cardPreview {
-            background-color: rgba(255, 0, 0, 0);
+            background-color: var(--QYL-Aero-background-wrap);
             & .protyle-breadcrumb {
                 background-color: rgba(255, 0, 0, 0);
             }
@@ -132,7 +132,7 @@ export function initFrostedGlass() {
             color: var(--b3-theme-on-background);
             backdrop-filter: var(--QYL-Aero-filter);
         }
-        #message .b3-snackbar__content {
+        #message.b3-snackbars .b3-snackbar__content {
             background-color: var(--QYL-Aero-background);
             color: var(--b3-theme-on-background);
             &::before {
@@ -144,7 +144,7 @@ export function initFrostedGlass() {
                 right: 0;
                 border-radius: inherit;
                 box-shadow: var(--QYL-Aero-shadow);
-                backdrop-filter: var(--QYL-Aero-filter);
+                backdrop-filter: blur(40px) saturate(3.2);
                 z-index: -1;
             }
         } 
