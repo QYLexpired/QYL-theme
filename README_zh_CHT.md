@@ -2,11 +2,11 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• QYL自訂屬性增加選項-列表視圖-時間軸<br>• 重做部分主題動畫<br>• 重做塊摺疊效果<br>• 優化列表轉腦圖、看板、表格樣式<br>• 優化大量細節</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加預設配色：薄靄<br>• 優化隱藏頂欄：使得視窗化時也可呼出頂欄，並可通過拖曳兩側停靠欄空白區域調整視窗位置<br>• 重做按鈕/分頁閃光動效</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 明亮模式增加預設配色-餘輝<br>• 暗黑模式增加預設配色-隱跡、金樽<br>• 重做青檸配色<br>• 重做薄荷配色<br>• 重做文件樹縮進線、多彩文件樹、邊框化文件樹及三者聯動效果<br>• 全域樣式增加選項-側欄顏色-與停靠欄一致<br>• 全域樣式增加選項-標題顏色-多彩（隨主題色變化）<br>• 修復切換明亮/暗黑模式時配色異常的問題<br>• 重做部分input組件樣式<br>• 簡化反鏈面板樣式並移除吸頂效果<br>• 優化所有配色的線條顏色<br>• 優化switch組件動畫效果<br>• 適配資料庫分組和卡片視圖欄位顯示<br>• 重做編輯器全寬顯示功能，更改為編輯器寬度調整（滑鼠右鍵點擊此按鈕進行設定）<br>• 優化顯示行內備註功能：<br>&nbsp;&nbsp;1.右側、左側備註的顯示效果可隨文件寬度自適應<br>&nbsp;&nbsp;2.支援調節側邊備註寬度（通過拖曳側邊備註的垂直線條調整，雙擊可恢復預設寬度）<br>&nbsp;&nbsp;3.可通過麵包屑按鈕來隱藏特定文件的備註<br>• 優化塊全寬顯示的效能，且不再需要單獨開啟<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加顏色選項-主題色隨題頭圖變化（注意：此功能需消耗一定性能，請按需啟用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 優化閃卡介面<br>• 優化帳號介面<br>• 全域樣式設定增加選項-選單選項懸停顏色-主題色<br>• 優化開關組件樣式<br>• 修復標籤設定為實體時的樣式錯誤<br>• 修復全域樣式匯出為PDF時不生效的問題<br>• QYL自定義屬性增加選項-列表視圖-時間軸<br>• 重做部分主題動畫<br>• 重做塊摺疊效果<br>• 優化列表轉腦圖、看板、表格樣式<br>• 優化大量細節<br>• 修復關閉QYL自定義屬性再重新開啟時，CSS自定義屬性無法生效的問題<br>• 修復開啟全高佈局時非protyle視窗樣式異常的問題<br>• 明亮模式增加預設配色-餘輝<br>• 暗黑模式增加預設配色-隱跡、金樽<br>• 重做青檸配色<br>• 重做薄荷配色<br>• 重做文件樹縮進線、多彩文件樹、邊框化文件樹及三者聯動效果<br>• 全域樣式增加選項-側欄顏色-與停靠欄一致<br>• 全域樣式增加選項-標題顏色-多彩（隨主題色變化）<br>• 修復切換明亮/暗黑模式時配色異常的問題<br>• 重做部分input組件樣式<br>• 簡化反鏈面板樣式並移除吸頂效果<br>• 優化所有配色的線條顏色<br>• 優化switch組件動畫效果<br>• 適配資料庫分組和卡片視圖欄位顯示<br>• 重做編輯器全寬顯示功能，更改為編輯器寬度調整（滑鼠右鍵點擊此按鈕進行設定）<br>• 優化顯示行內備註功能：<br>&nbsp;&nbsp;1.右側、左側備註的顯示效果可隨文件寬度自適應<br>&nbsp;&nbsp;2.支援調節側邊備註寬度（通過拖曳側邊備註的垂直線條調整，雙擊可恢復預設寬度）<br>&nbsp;&nbsp;3.可通過麵包屑按鈕來隱藏特定文件的備註<br>• 優化塊全寬顯示的效能，且不再需要單獨開啟<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加顏色選項-主題色隨題頭圖變化（注意：此功能需消耗一定性能，請按需啟用）<br>• <span style="color: var(--b3-theme-primary)">重大更新</span>：增加元素選項-全域樣式設定，右鍵點擊此按鈕，可直接在視窗設定全域元素樣式，同時刪除以下選項：多彩標題和大綱、多彩標籤和多彩行級程式碼、超連結圖示、列表多級序號（通過全域樣式設定來啟用）</p>
 </details>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">主題說明</p>
 <details style="padding-left: 1em">
