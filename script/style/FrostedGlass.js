@@ -12,11 +12,13 @@ export function initFrostedGlass() {
         /* 菜单 */
         .b3-menu, .b3-menu__submenu {
             background-color: var(--QYL-Aero-background);
-            & .b3-menu__items, .b3-menu__item {
-                &:not(.b3-menu__item--current:not(.b3-menu__item--readonly), .b3-menu__item--show):not(:hover) {
-                    background-color: rgba(255, 0, 0, 0); 
-                }
-                &.b3-menu__item--readonly:hover {
+            & .b3-menu__items {
+                background-color: rgba(255, 0, 0, 0); 
+            }
+            & .b3-menu__item {
+                &:not(.b3-menu__item:not(.b3-menu__item--readonly, [data-type="nobg"], [data-type="addColOptionOrCell"], [data-color]):hover,
+                .b3-menu__item--show:not(.b3-menu__item--readonly, [data-type="nobg"], [data-type="addColOptionOrCell"], [data-color]),
+                .b3-menu__item--current:not(.b3-menu__item--readonly, [data-type="nobg"], [data-type="addColOptionOrCell"], [data-color])) {
                     background-color: rgba(255, 0, 0, 0);
                 }
             }
