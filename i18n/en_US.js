@@ -232,6 +232,7 @@ export default {
     "QYLGleam": "Gleam",
     "QYLYinJi": "Hidden Trace",
     "QYLJinZun": "Golden Chalice",
+    "QYLBoAi": "Misty Haze",
     "QYLWarm": "Warm Current",
     "SideMemo": "Show Inline Memo",
     "SideMemoRight": "Switched to right side memo",

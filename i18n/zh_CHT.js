@@ -210,6 +210,7 @@ export default {
     "QYLGleam": "微光",
     "QYLYinJi": "隱跡",
     "QYLJinZun": "金樽",
+    "QYLBoAi": "薄靄",
     "QYLWarm": "暖流",
     "SideMemo": "顯示行內備註",
     "SideMemoRight": "已切換為右側備註",
