@@ -70,78 +70,26 @@ export function initFlatStyle() {
                 color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
             }
         }
-        .b3-menu__item--show {
-            background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
-            & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
-                color: var(--b3-theme-on-primary);
-                & > .b3-menu__icon {
-                    color: var(--b3-theme-on-primary);
-                }
-            }
-            & > :is(.b3-switch:checked) {
-                filter: brightness(0.9);
-                outline: 0.5px solid var(--b3-theme-on-primary);
-            }
-            &.b3-menu__item--warning {
-                background-color: var(--b3-theme-error);
-            }
-        }
-        .b3-menu__item--current:not(.b3-menu__item--readonly) {
-            background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
-            & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
-                color: var(--b3-theme-on-primary);
-                & > .b3-menu__icon {
-                    color: var(--b3-theme-on-primary);
-                }
-            }
-            & > :is(.b3-switch:checked) {
-                filter: brightness(0.9);
-                outline: 0.5px solid var(--b3-theme-on-primary);
-            }
-            &.b3-menu__item--warning {
-                background-color: var(--b3-theme-error);
-            }
-        }
         .file-tree .b3-list--background .b3-list-item--focus {
             background-color: rgba(255, 0, 0, 0);
             color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
         }
-        .secondaryToolbarButton:hover {
-            background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
-            & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked) {
-                color: var(--b3-theme-on-primary);
-            }
-        }
-        .pdf__util .b3-menu__item:hover {
-            background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
-            & .b3-menu__icon, .b3-menu__label, .b3-menu__accelerator {
-                color: var(--b3-theme-on-primary);
-                & > .b3-menu__icon {
-                    color: var(--b3-theme-on-primary);
-                }
-            }
-            & > :is(.b3-switch:checked) {
-                filter: brightness(0.9);
-                outline: 0.5px solid var(--b3-theme-on-primary);
-            }
-            &[data-type="remove"] {
-                background-color: var(--b3-theme-error);
-            }
-        }
-        .av__panel .b3-menu__item:not([data-type=nobg]):hover, .av__panel .b3-menu__item--current:not([data-type=nobg]) {
-            background-color: var(--b3-theme-primary-fix, var(--b3-theme-primary));
+        .b3-menu__item:hover,
+        .b3-menu__item--show,
+        .b3-menu__item--current:not(.b3-menu__item--readonly) {
+            background-color: var(--b3-theme-primary) !important;
             & > :is(.b3-menu__icon, .b3-menu__label, .b3-menu__accelerator, .b3-menu__action, .b3-menu__checked, .fn__flex-center) {
-                color: var(--b3-theme-on-primary);
+                color: var(--b3-theme-on-primary) !important;
                 & > .b3-menu__icon {
-                    color: var(--b3-theme-on-primary);
+                    color: var(--b3-theme-on-primary) !important;
                 }
             }
             & > :is(.b3-switch:checked) {
                 filter: brightness(0.9);
                 outline: 0.5px solid var(--b3-theme-on-primary);
             }
-            &[data-type="removeCol"] {
-                background-color: var(--b3-theme-error);
+            &:is(.b3-menu__item--warning, [data-type="remove"], [data-type="delete-view"]) {
+                background-color: var(--b3-theme-error) !important;
             }
         }
         [data-theme-mode="dark"] :is(#minWindow, #restoreWindow, #maxWindow):hover {
@@ -356,7 +304,7 @@ export function initFlatStyle() {
             }
         }
         #QYLattr.b3-menu__item--show > .b3-menu__icon:first-child {
-            color: var(--b3-theme-on-primary);
+            color: var(--b3-theme-on-primary) !important;
         }
         .layout-tab-bar .item {
             &:not(.item--readonly, .item.item--focus) {

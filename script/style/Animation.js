@@ -24,17 +24,53 @@ export function initAnimation() {
             }
         }
         /* DOCK */
-        :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
-            animation: QYLDockLogo 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+        .layout__dockl > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
+            animation: QYLDockLogoL 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .layout__dockr > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
+            animation: QYLDockLogoR 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .layout__dockb > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__logo {
+            animation: QYLDockLogoB 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__icons .block__icon {
             display: none;
         }
         :is(.layout__dockl, .layout__dockr, .layout__dockb) > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container .block__icons:hover .block__icon:not([disabled]) {
             display: unset;
-            animation: QYLDockLogo 0.6s cubic-bezier(0.8, 0, 0.9, 1);
+            animation: QYLDockIcon 0.6s cubic-bezier(0.8, 0, 0.9, 1);
         }
-        @keyframes QYLDockLogo {
+        @keyframes QYLDockLogoL {
+            0% {
+              transform: translateX(-30%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
+        }
+        @keyframes QYLDockLogoR {
+            0% {
+              transform: translateX(50%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
+        }
+        @keyframes QYLDockLogoB {
+            0% {
+              transform: translateY(70%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
+              opacity: 1;
+            }
+        }
+        @keyframes QYLDockIcon {
             0% {
               transform: scale(0.7);
               opacity: 0;
@@ -172,26 +208,30 @@ export function initAnimation() {
         }
         /* 页签悬浮闪光 */
         .layout-tab-bar .item:not(.layout-tab-bar .item--readonly) {
-            --translate-offset: 220%;
             &:before {
-                content: "";
-                background-color: rgba(255,255,255,0.8);
-                height: 100%;
-                width: 30%;
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: skewX(-45deg) translateX(calc(-1 * var(--translate-offset)));
+              --shine-width: max(50%, 80px);
+              content: "";
+              background: var(--QYL-shine-color);
+              height: 100%;
+              width: var(--shine-width);
+              transform: skewX(-45deg);
+              display: block;
+              position: absolute;
+              top: 0;
+              left: calc(-1.5 * var(--shine-width));
             }
             &:hover {
+              transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
               &::before {
-                  transition: 0.4s cubic-bezier(0.8, 0, 0.9, 1);
-                  transform: skewX(-45deg) translateX(calc(var(--translate-offset) + 270%));
+                  left: calc(100% + 0.5 * var(--shine-width));
+                  transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
               }
             }
         }
-        :is(.b3-button,.b3-chip--pink)::before {
+        html :is(.b3-button,.b3-chip--pink,#barWorkspace) {
+            --QYL-button-transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
+        }
+        html :is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
             display: block !important;
         }
         #barWorkspace::before {
