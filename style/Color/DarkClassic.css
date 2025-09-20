@@ -48,7 +48,7 @@
     --QYL-status-background: var(--b3-theme-background);
     /* 毛玻璃 */
     --QYL-Aero-background: rgba(26, 26, 26, 0.7);
-    --QYL-Aero-background-wrap: rgba(26, 26, 26, 0.7);
+    --QYL-Aero-background-wrap: rgba(0, 0, 0, 0.7);
     /* 引述块 */
     --QYL-blockquote-background: rgb(48, 48, 48);
     --QYL-blockquote-svg: rgb(111, 111, 111);
