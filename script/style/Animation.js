@@ -207,7 +207,7 @@ export function initAnimation() {
             }
         }
         /* 页签悬浮闪光 */
-        .layout-tab-bar .item:not(.layout-tab-bar .item--readonly) {
+        .layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar:not(.layout-tab-bar--readonly) > .item:not(.item--pin+.item) {
             &:before {
               --shine-width: max(50%, 80px);
               content: "";
