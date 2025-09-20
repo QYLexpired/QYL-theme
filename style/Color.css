@@ -111,7 +111,7 @@
         /* 提示 */
         --b3-tooltips-background: var(--b3-theme-background);
         --b3-tooltips-color: var(--b3-theme-on-surface);
-        --b3-tooltips-second-color: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.02) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        --b3-tooltips-second-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.02) calc(0.1 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-tooltips-shadow: var(--b3-point-shadow);
         /* 遮罩 */
         --b3-mask-background: oklch(calc(0.2 - var(--b3-theme-primary-brightness) * 0.02) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
@@ -258,7 +258,7 @@
         /* 提示 */
         --b3-tooltips-background: var(--b3-theme-background);
         --b3-tooltips-color: var(--b3-theme-on-surface);
-        --b3-tooltips-second-color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        --b3-tooltips-second-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-tooltips-shadow: var(--b3-point-shadow);
         /* 遮罩 */
         --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
@@ -319,7 +319,7 @@
             /* 提示 */
             --b3-tooltips-background: var(--b3-theme-background);
             --b3-tooltips-color: var(--b3-theme-on-surface);
-            --b3-tooltips-second-color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --b3-tooltips-second-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-tooltips-shadow: var(--b3-point-shadow);
             /* 遮罩 */
             --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
@@ -377,7 +377,7 @@
             /* 提示 */
             --b3-tooltips-background: var(--b3-theme-background);
             --b3-tooltips-color: var(--b3-theme-on-surface);
-            --b3-tooltips-second-color: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --b3-tooltips-second-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-tooltips-shadow: var(--b3-point-shadow);
             /* 遮罩 */
             --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);

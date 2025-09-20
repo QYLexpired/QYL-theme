@@ -1,34 +1,65 @@
 :is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
-    display: none;
+    display: none !important;
+}
+:root{ 
+    --QYL-shine-color: linear-gradient(-45deg, rgba(255,255,255,0.2),rgba(255,255,255,1), rgba(255,255,255,0.2));
 }
 .b3-button {
     padding: 2px 10px;
     color: var(--b3-theme-primary);
     background-color: transparent;
     border: 1px solid var(--b3-theme-primary);
-    transition: var(--b3-transition);
     position: relative;
     overflow: hidden;
-    --translate-offset: 220%;
+    transition: var(--b3-transition);
     &::before {
+        --shine-width: max(50%, 80px);
         content: "";
-        background-color: rgba(255,255,255,0.8);
+        background: var(--QYL-shine-color);
         height: 100%;
-        width: 30%;
+        width: var(--shine-width);
+        transform: skewX(-45deg);
         display: block;
         position: absolute;
         top: 0;
-        left: 0;
-        transform: skewX(-45deg) translateX(calc(-1 * var(--translate-offset)));
+        left: calc(-1.5 * var(--shine-width));
     }
     &:hover, &:focus  {
+        transition: var(--QYL-button-transition, var(--b3-transition));
         border: 1px solid var(--b3-theme-primary);
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
         box-shadow: var(--b3-button-shadow) !important;
         &::before {
-            transition: 0.4s cubic-bezier(0.8, 0, 0.9, 1);
-            transform: skewX(-45deg) translateX(calc(var(--translate-offset) + 270%));
+            left: calc(100% + 0.5 * var(--shine-width));
+            transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
+        }
+    }
+}
+#barWorkspace {
+    position: relative;
+    overflow: hidden;
+    transition: var(--b3-transition);
+    &::before {
+        --shine-width: max(50%, 80px);
+        content: "";
+        background: var(--QYL-shine-color);
+        height: 100%;
+        width: var(--shine-width);
+        transform: skewX(-45deg);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(-1.5 * var(--shine-width));
+    }
+    &:hover, &:focus  {
+        transition: var(--QYL-button-transition, var(--b3-transition));
+        &::before {
+            left: calc(100% + 0.5 * var(--shine-width));
+            transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
+        }
+        & .toolbar__text {
+            transition: var(--QYL-button-transition, var(--b3-transition));
         }
     }
 }

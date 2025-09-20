@@ -67,7 +67,8 @@
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 345deg) 95.83%, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 360deg) 100%);
 }
-.QYLHueInput::-webkit-slider-track {
+.QYLHueInput::-webkit-slider-runnable-track  {
+    background-color: transparent !important;
     background: linear-gradient(to right, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 0deg) 0%, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 15deg) 4.17%, 
@@ -98,6 +99,7 @@
     height: 10px;
 }
 .QYLHueInput::-moz-range-track {
+    background-color: transparent !important;
     background: linear-gradient(to right, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 0deg) 0%, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 15deg) 4.17%, 
@@ -127,7 +129,7 @@
     border-radius: 12px;
     height: 10px;
 }
-[data-theme-mode="dark"] .QYLHueInput::-webkit-slider-track {
+[data-theme-mode="dark"] .QYLHueInput::-webkit-slider-runnable-track {
     background: linear-gradient(to right, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 0deg) 0%, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) 15deg) 4.17%, 
@@ -238,7 +240,8 @@
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) 0.1 var(--b3-theme-primary-main)) 50%, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) 0.35 var(--b3-theme-primary-main)) 100%);
 }
-.QYLSaturationInput::-webkit-slider-track {
+.QYLSaturationInput::-webkit-slider-runnable-track {
+    background-color: transparent !important;
     background: linear-gradient(to right, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) 0 var(--b3-theme-primary-main)) 0%, 
         oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) 0.2 var(--b3-theme-primary-main)) 50%, 
@@ -255,7 +258,7 @@
     height: 10px;
     border: none;
 }
-[data-theme-mode="dark"] .QYLSaturationInput::-webkit-slider-track {
+[data-theme-mode="dark"] .QYLSaturationInput::-webkit-slider-runnable-track {
     background: linear-gradient(to right, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) 0 var(--b3-theme-primary-main)) 0%, 
         oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.02) 0.1 var(--b3-theme-primary-main)) 50%, 
@@ -324,7 +327,8 @@
         oklch(0.25 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 75%, 
         oklch(0.3 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 100%);
 }
-.QYLBrightnessInput::-webkit-slider-track {
+.QYLBrightnessInput::-webkit-slider-runnable-track {
+    background-color: transparent !important;
     background: linear-gradient(to right, 
     oklch(0.8 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 0%, 
     oklch(0.85 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 25%, 
@@ -345,7 +349,7 @@
     height: 10px;
     border: none;
 }
-[data-theme-mode="dark"] .QYLBrightnessInput::-webkit-slider-track {
+[data-theme-mode="dark"] .QYLBrightnessInput::-webkit-slider-runnable-track {
     background: linear-gradient(to right, 
     oklch(0.1 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 0%, 
     oklch(0.15 calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main)) 25%, 
