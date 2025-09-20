@@ -107,6 +107,9 @@ export function initFullHeightLayout() {
         .av__row--header[style*="transform"] { 
             top: 40px;
         }
+        .QYLColorBlock .av__row--header[style*="transform"] { 
+            top: 80px;
+        }
         /* 固定工具栏修复 */
         .protyle-toolbar {
             --QYL-fixedtoolbar-fix: 75px;
