@@ -588,41 +588,41 @@ async function updateCustomFontStyleCSS(config) {
         for (let i = 1; i <= 13; i++) {
             const fontColor = config[`fontcolor${i}-light`];
             if (fontColor && !fontColor.startsWith('var(')) {
-                cssVariables += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) { --b3-font-color${i}: ${fontColor} !important; }`;
+                cssVariables += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { --b3-font-color${i}: ${fontColor} !important; }`;
             }
             const cssFontColor = config[`cssfontcolor${i}-light`];
             if (cssFontColor) {
-                cssVariables += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) { ${cssFontColor} !important; }`;
+                cssVariables += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { ${cssFontColor} !important; }`;
             }
         }
         for (let i = 1; i <= 13; i++) {
             const backgroundColor = config[`fontbackground${i}-light`];
             if (backgroundColor && !backgroundColor.startsWith('var(')) {
-                cssVariables += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) { --b3-font-background${i}: ${backgroundColor} !important; }`;
+                cssVariables += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { --b3-font-background${i}: ${backgroundColor} !important; }`;
             }
             const cssFontBackground = config[`cssfontbackground${i}-light`];
             if (cssFontBackground) {
-                cssVariables += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) { ${cssFontBackground} !important; }`;
+                cssVariables += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { ${cssFontBackground} !important; }`;
             }
         }
         for (let i = 1; i <= 13; i++) {
             const fontColor = config[`fontcolor${i}-dark`];
             if (fontColor && !fontColor.startsWith('var(')) {
-                cssVariables += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) { --b3-font-color${i}: ${fontColor} !important; }`;
+                cssVariables += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { --b3-font-color${i}: ${fontColor} !important; }`;
             }
             const cssFontColor = config[`cssfontcolor${i}-dark`];
             if (cssFontColor) {
-                cssVariables += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) { ${cssFontColor} !important; }`;
+                cssVariables += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { ${cssFontColor} !important; }`;
             }
         }
         for (let i = 1; i <= 13; i++) {
             const backgroundColor = config[`fontbackground${i}-dark`];
             if (backgroundColor && !backgroundColor.startsWith('var(')) {
-                cssVariables += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) { --b3-font-background${i}: ${backgroundColor} !important; }`;
+                cssVariables += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { --b3-font-background${i}: ${backgroundColor} !important; }`;
             }
             const cssFontBackground = config[`cssfontbackground${i}-dark`];
             if (cssFontBackground) {
-                cssVariables += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) { ${cssFontBackground} !important; }`;
+                cssVariables += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { ${cssFontBackground} !important; }`;
             }
         }
         const existingStyle = document.getElementById('snippet-QYL-CustomFontStyle');
@@ -642,13 +642,13 @@ function generateCSSText(config) {
     for (let i = 1; i <= 13; i++) {
         const fontColor = config[`fontcolor${i}-light`];
         if (fontColor && !fontColor.startsWith('var(')) {
-            cssText += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  --b3-font-color${i}: ${fontColor} !important;\n`;
             cssText += `}\n`;
         }
         const cssFontColor = config[`cssfontcolor${i}-light`];
         if (cssFontColor) {
-            cssText += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="light"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  ${cssFontColor} !important;\n`;
             cssText += `}\n`;
         }
@@ -656,13 +656,13 @@ function generateCSSText(config) {
     for (let i = 1; i <= 13; i++) {
         const backgroundColor = config[`fontbackground${i}-light`];
         if (backgroundColor && !backgroundColor.startsWith('var(')) {
-            cssText += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  --b3-font-background${i}: ${backgroundColor} !important;\n`;
             cssText += `}\n`;
         }
         const cssFontBackground = config[`cssfontbackground${i}-light`];
         if (cssFontBackground) {
-            cssText += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="light"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  ${cssFontBackground} !important;\n`;
             cssText += `}\n`;
         }
@@ -671,13 +671,13 @@ function generateCSSText(config) {
     for (let i = 1; i <= 13; i++) {
         const fontColor = config[`fontcolor${i}-dark`];
         if (fontColor && !fontColor.startsWith('var(')) {
-            cssText += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  --b3-font-color${i}: ${fontColor} !important;\n`;
             cssText += `}\n`;
         }
         const cssFontColor = config[`cssfontcolor${i}-dark`];
         if (cssFontColor) {
-            cssText += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  ${cssFontColor} !important;\n`;
             cssText += `}\n`;
         }
@@ -685,13 +685,13 @@ function generateCSSText(config) {
     for (let i = 1; i <= 13; i++) {
         const backgroundColor = config[`fontbackground${i}-dark`];
         if (backgroundColor && !backgroundColor.startsWith('var(')) {
-            cssText += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  --b3-font-background${i}: ${backgroundColor} !important;\n`;
             cssText += `}\n`;
         }
         const cssFontBackground = config[`cssfontbackground${i}-dark`];
         if (cssFontBackground) {
-            cssText += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip) {\n`;
+            cssText += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {\n`;
             cssText += `  ${cssFontBackground} !important;\n`;
             cssText += `}\n`;
         }
