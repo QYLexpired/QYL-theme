@@ -50,7 +50,8 @@ const darkColorMainGroup = [
     'QYLMarsh',
     'QYLGleam',
     'QYLYinJi',
-    'QYLJinZun'
+    'QYLJinZun',
+    'QYLBoAi'
 ];
 excluSetting.registerGroup('lightColorMain', lightColorMainGroup);
 excluSetting.registerGroup('darkColorMain', darkColorMainGroup);
@@ -104,6 +105,7 @@ let marshModule = null;
 let gleamModule = null;
 let yinJiModule = null;
 let jinZunModule = null;
+let boAiModule = null;
 let warmModule = null;
 let woodAshModule = null;
 let afterglowModule = null;
@@ -1038,6 +1040,18 @@ async function disableJinZun() {
         module.removeJinZun();
     }
 }
+async function enableBoAi() {
+    const module = await loadBoAiModule();
+    if (module && module.initBoAi) {
+        module.initBoAi();
+    }
+}
+async function disableBoAi() {
+    const module = await loadBoAiModule();
+    if (module && module.removeBoAi) {
+        module.removeBoAi();
+    }
+}
 async function enableWarm() {
     const module = await loadWarmModule();
     if (module && module.initWarm) {
@@ -1315,6 +1329,8 @@ async function handleDisableById(id) {
         await disableYinJi();
     } else if (id === 'QYLJinZun') {
         await disableJinZun();
+    } else if (id === 'QYLBoAi') {
+        await disableBoAi();
     } else if (id === 'QYLWarm') {
         await disableWarm();
     }
@@ -1523,6 +1539,10 @@ function getColorOptions() {
         {
             id: 'QYLJinZun',
             label: i18n.QYLJinZun
+        },
+        {
+            id: 'QYLBoAi',
+            label: i18n.QYLBoAi
         }
     ];
     return currentMode === 'dark' ? darkModeOptions : lightModeOptions;
@@ -1734,6 +1754,10 @@ async function createColorContent(config = null) {
                         enableFunction = enableJinZun;
                         disableFunction = disableJinZun;
                         break;
+                    case 'QYLBoAi':
+                        enableFunction = enableBoAi;
+                        disableFunction = disableBoAi;
+                        break;
                     case 'QYLWarm':
                         enableFunction = enableWarm;
                         disableFunction = disableWarm;
@@ -1888,6 +1912,8 @@ async function initializeColorStates(config = null) {
             await enableYinJi();
         } else if (firstActiveColor === 'QYLJinZun') {
             await enableJinZun();
+        } else if (firstActiveColor === 'QYLBoAi') {
+            await enableBoAi();
         } else if (firstActiveColor === 'QYLWarm') {
             await enableWarm();
         } else if (firstActiveColor === 'QYLWoodAsh') {
@@ -1979,6 +2005,15 @@ async function loadJinZunModule() {
         }
     }
     return jinZunModule;
+}
+async function loadBoAiModule() {
+    if (!boAiModule) {
+        try {
+            boAiModule = await import('../color/BoAi.js');
+        } catch (error) {
+        }
+    }
+    return boAiModule;
 }
 async function loadWarmModule() {
     if (!warmModule) {
