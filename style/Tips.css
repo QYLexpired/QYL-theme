@@ -11,7 +11,7 @@
 }
 #message.b3-snackbars {
     & > .fn__flex-1 {
-        padding: 25px;
+        padding: 30px;
     }
     & .b3-snackbar__content {
         border-radius: 18px;

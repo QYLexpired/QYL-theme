@@ -33,19 +33,21 @@
     background-color: var(--b3-theme-primary);
 }
 /* 块标 */
-.protyle-gutters { 
-    transition: 0.15s; 
+.protyle-gutters button {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    &:hover {
+        transform: scale(1.2);
+        & svg {
+            color: var(--b3-theme-primary); 
+        }
+    }
 }
-.protyle-gutters button:hover svg {
-    color: var(--b3-theme-primary); 
-    transition: var(--b3-color-transition);
-}
-.protyle-title__icon:hover {
-    color: var(--b3-theme-primary); 
-}
-.protyle-title.protyle-wysiwyg--attr span.protyle-title__icon.ariaLabel:hover svg {
-    color: var(--b3-theme-primary); 
-    transition: var(--b3-color-transition);
+.protyle-title__icon {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    &:hover {
+        transform: scale(1.2);
+        color: var(--b3-theme-primary); 
+    }
 }
 /* 表格 */
 .b3-typography table td, .b3-typography table th, .protyle-wysiwyg table td, .protyle-wysiwyg table th, .b3-typography table tr:nth-child(even) td, .protyle-wysiwyg table tr:nth-child(even) td {

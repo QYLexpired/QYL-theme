@@ -92,3 +92,55 @@
         transform: none !important;
     }
 }
+/* 其他页签 */
+.layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
+    background-color: var(--QYL-tab-item);
+    border-radius: var(--b3-border-radius) !important;
+    max-width: fit-content;
+    padding: 3px;
+    justify-content: center;
+    margin: 6px auto;
+    box-sizing: border-box;
+    & .item:not(.fn__none) {
+        background-color: transparent;
+        margin: 0;
+        max-width: fit-content;
+        padding: 0 8px;
+        overflow: visible;
+        box-sizing: border-box;
+        transition: none;
+        &:not(:first-child) {
+            margin-left: 3px;
+            &:not(.item--focus):not(.item--focus + .item):not(.fn__none + .item):before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -2px;
+                transform: translateY(-50%);
+                width: 2px;
+                height: 18px;
+                background-color: var(--b3-theme-surface-lighter);
+                border-radius: var(--b3-border-radius);
+            }
+        }
+        &.item--focus {
+            background-color: var(--b3-theme-background);
+            box-shadow: var(--b3-point-shadow);
+        }
+        &:not(.item--focus) {
+            &:hover {
+                & .item__text {
+                    color: var(--b3-theme-primary);
+                }
+            }
+        }
+    }
+}
+[data-theme-mode="dark"] .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
+    & .item:not(.fn__none) {
+        &.item--focus {
+            background-color: var(--QYL-tab-item-focus);
+            box-shadow: var(--b3-point-shadow);
+        }
+    }
+}

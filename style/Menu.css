@@ -1,13 +1,9 @@
 .b3-menu__item {
     line-height: 24px;
-    & .b3-text-field:not(.fn__flex + .b3-text-field):not(.QYLcssinput) {
-        line-height: 10px;
-        padding: 2px 8px;
-        & + .b3-form__icona-icon {
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 2px;
-            border-radius: var(--b3-border-radius);
+    & > .b3-menu__label > .fn__flex {
+        padding: 3px 0 !important;
+        & .b3-text-field {
+            background-color: var(--b3-menu-background);
         }
     }
 }
