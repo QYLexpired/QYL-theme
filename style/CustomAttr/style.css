@@ -537,7 +537,7 @@
     background-color: var(--QYL-custom-gray);
 }
 [custom-style="洒金纸"], [custom-style="sajin paper"] {
-    background-image: url("/appearance/themes/QYL/img/sajinpaper.webp");
+    background-image: url("/appearance/themes/QYL-theme/img/sajinpaper.webp");
 }
 [custom-style="网格"], [custom-style="grid"] {
     background-image: linear-gradient(90deg,var(--b3-theme-primary-lightest) 3%,transparent 0),linear-gradient(1turn,var(--b3-theme-primary-lightest) 3%,transparent 0);
