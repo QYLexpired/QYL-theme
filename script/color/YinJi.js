@@ -6,7 +6,7 @@ export function initYinJi() {
     link.id = 'QYL-YinJi';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/YinJi.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/YinJi.css';
     document.head.appendChild(link);
 }
 export function removeYinJi() {

@@ -6,7 +6,7 @@ export function initHuique() {
     link.id = 'QYL-Huique';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Huique.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Huique.css';
     document.head.appendChild(link);
 }
 export function removeHuique() {

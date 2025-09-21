@@ -6,7 +6,7 @@ export function initMarsh() {
     link.id = 'QYL-Marsh';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Marsh.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Marsh.css';
     document.head.appendChild(link);
 }
 export function removeMarsh() {

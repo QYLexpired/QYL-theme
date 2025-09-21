@@ -6,7 +6,7 @@ export function initJinZun() {
     link.id = 'QYL-JinZun';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/JinZun.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/JinZun.css';
     document.head.appendChild(link);
 }
 export function removeJinZun() {

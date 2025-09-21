@@ -6,7 +6,7 @@ export function initHuimu() {
     link.id = 'QYL-Huimu';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Huimu.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Huimu.css';
     document.head.appendChild(link);
 }
 export function removeHuimu() {

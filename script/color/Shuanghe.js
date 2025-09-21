@@ -6,7 +6,7 @@ export function initShuanghe() {
     link.id = 'QYL-Shuanghe';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Shuanghe.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Shuanghe.css';
     document.head.appendChild(link);
 }
 export function removeShuanghe() {

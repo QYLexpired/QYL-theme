@@ -6,7 +6,7 @@ export function initSunset() {
     link.id = 'QYL-Sunset';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Sunset.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Sunset.css';
     document.head.appendChild(link);
 }
 export function removeSunset() {

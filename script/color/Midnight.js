@@ -6,7 +6,7 @@ export function initMidnight() {
     link.id = 'QYL-Midnight';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Midnight.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Midnight.css';
     document.head.appendChild(link);
 }
 export function removeMidnight() {

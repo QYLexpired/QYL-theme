@@ -6,7 +6,7 @@ export function initBiwan() {
     link.id = 'QYL-Biwan';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Biwan.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Biwan.css';
     document.head.appendChild(link);
 }
 export function removeBiwan() {

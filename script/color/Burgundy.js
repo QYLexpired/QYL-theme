@@ -6,7 +6,7 @@ export function initBurgundy() {
     link.id = 'QYL-Burgundy';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Burgundy.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Burgundy.css';
     document.head.appendChild(link);
 }
 export function removeBurgundy() {

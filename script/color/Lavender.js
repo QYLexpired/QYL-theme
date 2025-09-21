@@ -6,7 +6,7 @@ export function initLavender() {
     link.id = 'QYL-Lavender';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Lavender.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Lavender.css';
     document.head.appendChild(link);
 }
 export function removeLavender() {

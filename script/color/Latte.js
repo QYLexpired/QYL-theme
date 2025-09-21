@@ -6,7 +6,7 @@ export function initLatte() {
     link.id = 'QYL-Latte';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Latte.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Latte.css';
     document.head.appendChild(link);
 }
 export function removeLatte() {

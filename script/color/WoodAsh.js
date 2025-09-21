@@ -6,7 +6,7 @@ export function initWoodAsh() {
     link.id = 'QYL-WoodAsh';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/WoodAsh.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/WoodAsh.css';
     document.head.appendChild(link);
 }
 export function removeWoodAsh() {

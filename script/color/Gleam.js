@@ -6,7 +6,7 @@ export function initGleam() {
     link.id = 'QYL-Gleam';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Gleam.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Gleam.css';
     document.head.appendChild(link);
 }
 export function removeGleam() {

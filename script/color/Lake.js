@@ -6,7 +6,7 @@ export function initLake() {
     link.id = 'QYL-Lake';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Lake.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Lake.css';
     document.head.appendChild(link);
 }
 export function removeLake() {

@@ -6,7 +6,7 @@ export function initOcean() {
     link.id = 'QYL-Ocean';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Ocean.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Ocean.css';
     document.head.appendChild(link);
 }
 export function removeOcean() {

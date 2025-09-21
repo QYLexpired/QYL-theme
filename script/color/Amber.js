@@ -6,7 +6,7 @@ export function initAmber() {
     link.id = 'QYL-Amber';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Amber.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Amber.css';
     document.head.appendChild(link);
 }
 export function removeAmber() {

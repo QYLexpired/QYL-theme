@@ -6,7 +6,7 @@ export function initYunjin() {
     link.id = 'QYL-Yunjin';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Yunjin.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Yunjin.css';
     document.head.appendChild(link);
 }
 export function removeYunjin() {

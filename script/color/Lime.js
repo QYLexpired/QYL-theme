@@ -6,7 +6,7 @@ export function initLime() {
     link.id = 'QYL-Lime';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Lime.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Lime.css';
     document.head.appendChild(link);
 }
 export function removeLime() {

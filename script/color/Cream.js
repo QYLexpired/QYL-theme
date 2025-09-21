@@ -6,7 +6,7 @@ export function initCream() {
     link.id = 'QYL-Cream';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Cream.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Cream.css';
     document.head.appendChild(link);
 }
 export function removeCream() {

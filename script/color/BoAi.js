@@ -6,7 +6,7 @@ export function initBoAi() {
     link.id = 'QYL-BoAi';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/BoAi.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/BoAi.css';
     document.head.appendChild(link);
 }
 export function removeBoAi() {

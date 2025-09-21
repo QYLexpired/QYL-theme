@@ -6,7 +6,7 @@ export function initWildness() {
     link.id = 'QYL-Wildness';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Wilderness.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Wilderness.css';
     document.head.appendChild(link);
 }
 export function removeWildness() {

@@ -6,7 +6,7 @@ export function initYuncang() {
     link.id = 'QYL-Yuncang';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Yuncang.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Yuncang.css';
     document.head.appendChild(link);
 }
 export function removeYuncang() {

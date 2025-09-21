@@ -6,7 +6,7 @@ export function initSteam() {
     link.id = 'QYL-Steam';
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = '/appearance/themes/QYL/style/Color/Steam.css';
+    link.href = '/appearance/themes/QYL-theme/style/Color/Steam.css';
     document.head.appendChild(link);
 }
 export function removeSteam() {
