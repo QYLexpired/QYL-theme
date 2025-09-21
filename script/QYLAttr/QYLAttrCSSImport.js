@@ -16,7 +16,7 @@ const cssFiles = [
 let cssCache = new Map();
 let isInitialized = false;
 function getThemePath() {
-    return '/appearance/themes/QYL';
+    return '/appearance/themes/QYL-theme';
 }
 async function loadQYLcustomattrCSS() {
     if (isInitialized) {
