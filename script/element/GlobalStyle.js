@@ -117,7 +117,7 @@ export async function initGlobalStyle(config = null) {
                 if (!styleElement) {
                     styleElement = document.createElement('style');
                     styleElement.id = styleId;
-                    styleElement.textContent = `@import url("/appearance/themes/QYL/style/GlobalStyle/${mapping.styleId.replace('snippet-', '')}-${configValue}.css");`;
+                    styleElement.textContent = `@import url("/appearance/themes/QYL-theme/style/GlobalStyle/${mapping.styleId.replace('snippet-', '')}-${configValue}.css");`;
                     document.head.appendChild(styleElement);
                 }
             } else {
