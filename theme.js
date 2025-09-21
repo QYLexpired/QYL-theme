@@ -3,8 +3,8 @@ import('./index.js');
   function updateDestroyTheme() {
     const html = document.documentElement;
     if (
-      html.getAttribute('data-light-theme') === 'QYL' &&
-      html.getAttribute('data-dark-theme') === 'QYL'
+      html.getAttribute('data-light-theme') === 'QYL-theme' &&
+      html.getAttribute('data-dark-theme') === 'QYL-theme'
     ) {
       window.destroyTheme = () => {
         document.getElementById('QYLSettingsWindow')?.remove();
