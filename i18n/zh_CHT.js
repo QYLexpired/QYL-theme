@@ -88,7 +88,7 @@ export default {
     "QYLLatte": "拿鐵",
     "QYLWinter": "凜冬",
     "QYLXingqiong": "星穹",
-    "QYLcustomattr": "QYL自定義屬性",
+    "QYLcustomattr": "QYL主题",
     "group1": "組別1",
     "group2": "組別2",
     "group3": "組別3",
