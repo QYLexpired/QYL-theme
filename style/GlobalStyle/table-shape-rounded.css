@@ -26,43 +26,4 @@ html {
             }
         }
     }
-    & .protyle-wysiwyg [data-node-id][custom-table-width="全宽表格"] table {
-        border-collapse: separate;
-        border-spacing: 0;
-        overflow: hidden;
-        border-width: 1.5px !important;
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="红色"] table {
-        border: 1px solid var(--QYL-custom-red);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="橙色"] table {
-        border: 1px solid var(--QYL-custom-orange);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="黄色"] table {
-        border: 1px solid var(--QYL-custom-yellow);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="绿色"] table {
-        border: 1px solid var(--QYL-custom-green);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="青色"] table {
-        border: 1px solid var(--QYL-custom-cyan);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="蓝色"] table {
-        border: 1px solid var(--QYL-custom-blue);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="紫色"] table {
-        border: 1px solid var(--QYL-custom-purple);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="粉色"] table {
-        border: 1px solid var(--QYL-custom-pink);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="黑色"] table {
-        border: 1px solid var(--QYL-custom-black);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="灰色"] table {
-        border: 1px solid var(--QYL-custom-gray);
-    }
-    & .protyle-wysiwyg [data-node-id][custom-table-color="主题色"] table {
-        border: 1px solid var(--b3-theme-primary);
-    }
 }
