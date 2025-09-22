@@ -160,8 +160,3 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
 .protyle-wysiwyg [data-node-id][custom-riff-decks] {
     box-shadow: 3px 0 0 0 var(--b3-protyle-inline-mark-background) inset !important;
 }
-.protyle-wysiwyg [data-node-id][custom-style-flashcard="闪卡"][custom-riff-decks] {
-    &::after {
-        box-shadow: 3px 0 0 0 var(--b3-protyle-inline-mark-background) inset !important;
-    }
-}
