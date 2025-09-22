@@ -1,6 +1,5 @@
 import { getConfig, saveConfig } from './Storage.js';
 import ThemeMode from './ThemeMode.js';
-import { updatePWAThemeColor } from './PWA.js';
 export class ColorPick {
     constructor() {
         this.container = null;
@@ -77,7 +76,6 @@ export class ColorPick {
             if (callback) {
                 callback({ hue: value, saturation: currentSaturation, brightness: currentBrightness, type: 'hue' });
             }
-            updatePWAThemeColor();
         });
         this.saturationInput.addEventListener('input', async (e) => {
             const value = parseFloat(e.target.value);
@@ -95,7 +93,6 @@ export class ColorPick {
             if (callback) {
                 callback({ hue: currentHue, saturation: value, brightness: currentBrightness, type: 'saturation' });
             }
-            updatePWAThemeColor();
         });
         this.brightnessInput.addEventListener('input', async (e) => {
             const value = parseFloat(e.target.value);
@@ -113,7 +110,6 @@ export class ColorPick {
             if (callback) {
                 callback({ hue: currentHue, saturation: currentSaturation, brightness: value, type: 'brightness' });
             }
-            updatePWAThemeColor();
         });
         this.hueSlider.appendChild(this.hueInput);
         this.saturationSlider.appendChild(this.saturationInput);
