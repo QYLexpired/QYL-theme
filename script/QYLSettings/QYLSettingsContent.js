@@ -11,7 +11,7 @@ function shouldHideTab(tabId, config) {
         layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab', 'CardLayout'],
         style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'FlatStyle', 'InkMode', 'ColorfulTabs'],
         function: ['MarktoBlank', 'EditorWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'ImgMask', 'SbHandle'],
-        element: ['QYLAttrOn', 'CustomFontStyle']
+        element: ['CustomFontStyle']
     };
     const options = optionGroups[tabId];
     if (!options) return false;

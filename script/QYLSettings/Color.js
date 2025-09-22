@@ -4,7 +4,6 @@ import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdat
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
-import { updatePWAThemeColor } from '../basic/PWA.js';
 const lightColorMainGroup = [
     'QYLLightClassic',
     'QYLSunset',
@@ -1227,7 +1226,6 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
             }
         } catch (error) {
         }
-        updatePWAThemeColor();
         await updateDarkRevertClass();
     };
     if (useViewTransition) {

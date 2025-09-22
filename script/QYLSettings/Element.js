@@ -4,18 +4,8 @@ import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdat
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
-let QYLAttrModule = null;
 let customFontStyleModule = null;
 let globalStyleModule = null;
-async function loadQYLAttrModule() {
-    if (!QYLAttrModule) {
-        try {
-            QYLAttrModule = await import('../QYLAttr/QYLAttrMain.js');
-        } catch (error) {
-        }
-    }
-    return QYLAttrModule;
-}
 async function loadCustomFontStyleModule() {
     if (!customFontStyleModule) {
         try {
@@ -36,26 +26,6 @@ async function loadGlobalStyleModule() {
         }
     }
     return globalStyleModule;
-}
-async function enableQYLAttr() {
-    const module = await loadQYLAttrModule();
-    if (module && module.default) {
-        const QYLAttrClass = module.default;
-        const QYLAttrInstance = new QYLAttrClass();
-        QYLAttrInstance.init();
-        window.QYLAttrInstance = QYLAttrInstance;
-    }
-}
-async function disableQYLAttr() {
-    if (window.QYLAttrInstance) {
-        window.QYLAttrInstance.cleanup();
-        window.QYLAttrInstance = null;
-    }
-    try {
-        const { cleanupCustomCSS } = await import('../QYLAttr/CustomCSS.js');
-        cleanupCustomCSS();
-    } catch (error) {
-    }
 }
 async function enableCustomFontStyle() {
     const module = await loadCustomFontStyleModule();
@@ -85,10 +55,6 @@ function getElementOptions() {
     const currentMode = ThemeMode.getThemeMode();
     const lightModeOptions = [
         {
-            id: 'QYLAttrOn',
-            label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
-        },
-        {
             id: 'CustomFontStyle',
             label: i18n.CustomFontStyle || '自定义文字样式'
         },
@@ -98,10 +64,6 @@ function getElementOptions() {
         }
     ];
     const darkModeOptions = [
-        {
-            id: 'QYLAttrOn',
-            label: i18n.QYLAttrOn || '启用QYL自定义属性样式'
-        },
         {
             id: 'CustomFontStyle',
             label: i18n.CustomFontStyle || '自定义文字样式'
@@ -142,13 +104,7 @@ async function createElementContent(config = null) {
             button.classList.toggle('active', newState);
             if (newState) {
             }
-            if (option.id === 'QYLAttrOn') {
-                if (newState) {
-                    await enableQYLAttr();
-                } else {
-                    await disableQYLAttr();
-                }
-            } else if (option.id === 'CustomFontStyle') {
+            if (option.id === 'CustomFontStyle') {
                 if (newState) {
                     await enableCustomFontStyle();
                 } else {
@@ -291,11 +247,7 @@ async function initializeElementStates(config = null) {
     }
     for (const option of options) {
         const currentState = config[option.id] || false;
-        if (option.id === 'QYLAttrOn') {
-            if (currentState) {
-                await enableQYLAttr();
-            }
-        } else if (option.id === 'CustomFontStyle') {
+        if (option.id === 'CustomFontStyle') {
             if (currentState) {
                 await enableCustomFontStyle();
             }
