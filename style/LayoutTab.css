@@ -39,10 +39,6 @@
         &::after {
             display: none;
         }
-        & .item__text {
-            font-weight: 600;
-            color: var(--b3-theme-on-surface);
-        }
         &:hover {
             & .item__close {
                 opacity: 1;
