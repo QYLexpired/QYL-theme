@@ -38,8 +38,10 @@
 @import url('./style/ImgMask.css');
 @import url('./style/QYLAttr.css');
 @import url('./style/FullScreen.css');
-@import url('./style/QYLSelfConfigAttr.css');
 @import url('./style/Plugins.css');
 @import url('./style/Pickr.min.css');
 @import url('./style/SbHandle.css');
 @import url('./style/BlockFold.css');
+/* 自定义属性 */
+@import url('./style/CustomAttr/blockfullwidth.css');
+@import url('./style/CustomAttr/list-view.css');

@@ -1,8 +1,10 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜歡這個主題，歡迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>點個⭐小星星</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">在<a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">這裡</a>查看詳細的主題使用說明</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">主題已經刪除大量自定義屬性樣式，如需相容之前設定的樣式，請添加<a href="https://icnmjy02sv9g.feishu.cn/wiki/Ru1XwWtmtiyvf2k7IbiclwcUnph?from=from_copylink">這裡</a>的CSS程式碼片段</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加預設配色：薄靄<br>• 優化隱藏頂欄：使得視窗化時也可呼出頂欄，並可通過拖曳兩側停靠欄空白區域調整視窗位置<br>• 重做按鈕/分頁閃光動效</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">！破壞性更新 ！：為保證主題的可遷移性及減小主題的維護難度，移除大部分QYL自定義屬性內容，僅保留：CSS屬性、全寬顯示、列表視圖</span><br>• 移除PWA模組<br>• 暗黑模式增加預設配色：薄靄<br>• 優化隱藏頂欄：使得視窗化時也可呼出頂欄，並可通過拖曳兩側停靠欄空白區域調整視窗位置<br>• 重做按鈕/分頁閃光動效</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>

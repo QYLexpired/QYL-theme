@@ -1,9 +1,10 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>点个⭐小星星</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">在<a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">这里</a>查看详细的主题使用说明</p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">主题已经删除大量自定义属性样式，如需兼容之前设置的样式，请添加<a href="https://icnmjy02sv9g.feishu.cn/wiki/Ru1XwWtmtiyvf2k7IbiclwcUnph?from=from_copylink">这里</a>的CSS代码片段</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 暗黑模式增加预设配色：薄霭<br>• 优化隐藏顶栏：使得窗口化时也可呼出顶栏，并可通过拖拽两侧停靠栏空白区域调整窗口位置<br>• 重做按钮/页签闪光动效</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">！破坏性更新 ！：为保证主题的可迁移性并降低主题的维护难度，移除大部分QYL自定义属性内容，仅保留：CSS属性、全宽显示、列表视图</span><br>• 移除PWA模块<br>• 暗黑模式增加预设配色：薄霭<br>• 优化隐藏顶栏：使得窗口化时也可呼出顶栏，并可通过拖拽两侧停靠栏空白区域调整窗口位置<br>• 重做按钮/页签闪光动效</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
@@ -16,7 +17,7 @@
 • <a href="https://github.com/mustakshif/Asri">Asri主题</a>：文档树缩进线、风格、搜索列表多行展示、状态栏避让、撞色布局、全高界面<br>
 • <a href="https://github.com/chenshinshi/OneNote">Onenote主题</a>：多彩文档树<br>
 • <a href="https://github.com/StarDustSheep/pink-room">pink-room主题</a>：风格<br>
-• <a href="https://github.com/TCOTC/Whisper">浅吟主题</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移动端判断方法、图片九宫格排列<br>
+• <a href="https://github.com/TCOTC/Whisper">浅吟主题</a>、<a href="https://ld246.com/member/JeffreyChen">JeffreyChen</a>：移动端判断方法<br>
 • <a href="https://ld246.com/member/wilsons">wilsons</a>：状态栏浮动、重载方法<br>
 • <a href="https://github.com/svchord/Rem-Craft">Rem-Craft主题</a>：扁平化风格<br>
 </p>

@@ -1,8 +1,10 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">If you like this theme, feel free to give it a ⭐ star on <a href="https://github.com/QYLexpired/QYL-theme">GitHub</a></p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">View detailed theme usage instructions <a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">here</a></p>
+<p style="opacity: 0.7; font-weight: bold; font-size: 16px">The theme has removed a large number of custom attribute styles. If you need to maintain compatibility with previously set styles, please add the CSS code snippet <a href="https://icnmjy02sv9g.feishu.cn/wiki/Ru1XwWtmtiyvf2k7IbiclwcUnph?from=from_copylink">here</a></p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• Dark mode added preset color scheme: Misty Haze<br>• Optimized Hide Top Bar: now works in windowed mode, can call up top bar by dragging blank areas on both sides of dock bar to adjust window position<br>• Redesigned button/tab flash animation effects</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">！BREAKING UPDATE ！：To ensure theme portability and reduce maintenance difficulty, removed most QYL custom attribute content, only keeping: CSS attributes, full-width display, list view</span><br>• Removed PWA module<br>• Dark mode added preset color scheme: Misty Haze<br>• Optimized Hide Top Bar: now works in windowed mode, can call up top bar by dragging blank areas on both sides of dock bar to adjust window position<br>• Redesigned button/tab flash animation effects</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Recent Updates</summary>
