@@ -830,10 +830,12 @@ function getWysiwygDirectBlock(memoEl) {
             }
         }
     }
-    for (const child of wysiwyg.children) {
-        if (child.hasAttribute && child.hasAttribute('data-node-id') && child.contains(memoEl)) {
-            return child;
+    node = memoEl;
+    while (node && node !== wysiwyg) {
+        if (node.hasAttribute && node.hasAttribute('data-node-id')) {
+            return node;
         }
+        node = node.parentElement;
     }
     return null;
 }
