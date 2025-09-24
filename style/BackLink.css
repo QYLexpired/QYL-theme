@@ -4,9 +4,11 @@
             background-color: var(--b3-list-hover);
             & + .protyle {
                 & .protyle-wysiwyg {
-                    font-size: 0.95em;
+                    & > [data-node-id] {
+                        font-size: 0.85em;
+                    }
                     & .protyle-breadcrumb__bar {
-                        font-size: 0.95em;
+                        font-size: 0.85em;
                         min-height: 24px;
                         height: 24px;
                         opacity: 0.8;

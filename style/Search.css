@@ -22,15 +22,7 @@
         max-width: calc(100% - 22px);
     }
     & > .b3-list-item:not([data-type=search-item]) {
-        position: sticky;
-        top: 1px;
-        z-index: 1;
-        background-color: var(--b3-theme-surface);
-        box-shadow: 0 -10px 0 var(--b3-theme-background);
-        margin-bottom: 10px;
-        & .b3-list-item__graphic {
-            transform: translateY(40%);
-        }
+        background-color: var(--b3-list-hover);
     }
     & > .b3-list-item[data-type=search-item] .b3-list-item__meta {
         line-height: 16px;

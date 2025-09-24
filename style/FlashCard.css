@@ -124,6 +124,10 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="4"] {
     margin: 0 6px 6px 0;
     border-radius: var(--b3-border-radius);
 }
+.card__main .card__empty {
+    margin: 0 6px 6px 6px;
+    border-radius: var(--b3-border-radius);
+}
 .QYLmobile :is(#cardPreview, .card__empty) {
     margin: 0;
     border-radius: 0;

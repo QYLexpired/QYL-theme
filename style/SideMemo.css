@@ -82,7 +82,7 @@
 }
 .QYLmemoR .protyle-content:not(.QYLmemoHide) {
     & .protyle-wysiwyg.QYLmemoProtyle {
-        padding-left: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoR-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
+        padding-left: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoR-box-width) + 250px), var(--QYL-protyle-padding-left)), 16px) !important;
         padding-right: max(var(--QYLmemoR-box-width), var(--QYL-protyle-padding-right)) !important;
     }
     & .QYL-inline-memo-box {
@@ -163,7 +163,7 @@
 }
 .QYLmemoL .protyle-content:not(.QYLmemoHide) {
     & .protyle-wysiwyg.QYLmemoProtyle {
-        padding-right: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoL-box-width) + 250px), var(--QYL-protyle-padding-left)), 10px) !important;
+        padding-right: max(min(calc(var(--QYL-protyle-padding-left) - var(--QYLmemoL-box-width) + 250px), var(--QYL-protyle-padding-left)), 16px) !important;
         padding-left: max(var(--QYLmemoL-box-width), var(--QYL-protyle-padding-left)) !important;
     }
     & .QYL-inline-memo-box {
