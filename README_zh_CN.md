@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">！破坏性更新 ！：为保证主题的可迁移性并降低主题的维护难度，移除大部分QYL自定义属性内容，仅保留：CSS属性、全宽显示、列表视图</span><br>• 为菜单毛玻璃引入感光效果：将映射范围外的光源效果（实验性）<br>• 移除PWA模块<br>• 暗黑模式增加预设配色：薄霭<br>• 优化隐藏顶栏：使得窗口化时也可呼出顶栏，并可通过拖拽两侧停靠栏空白区域调整窗口位置<br>• 重做按钮/页签闪光动效</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">！破坏性更新 ！：为保证主题的可迁移性并降低主题的维护难度，移除大部分QYL自定义属性内容，仅保留：CSS属性、全宽显示、列表视图</span><br>• 为菜单毛玻璃引入感光效果：将映射范围外的光源效果（实验性）<br>• 移除PWA模块<br>• 暗黑模式增加预设配色：薄霭<br>• 优化隐藏顶栏：使得窗口化时也可呼出顶栏，并可通过拖拽两侧停靠栏空白区域调整窗口位置<br>• 重做按钮/页签闪光动效<br>• 移除搜素结果按文档分组时的吸顶效果<br>• 修复反链面板列表无法展开的问题</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
