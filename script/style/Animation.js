@@ -403,7 +403,7 @@ export function initAnimation() {
             }
         }
         /* 块标 */
-        .protyle-gutters button {
+        .protyle-gutters:not(:hover) button {
             animation: QYLGutters 0.3s cubic-bezier(0.8, 0, 0.9, 1);
         }
         .protyle-gutters button[data-type="fold"] svg {
@@ -583,7 +583,7 @@ export function initAnimation() {
               transform: scaleY(1);
             }
         }
-        .protyle-breadcrumb .block__icon:is([aria-label="锁定编辑"], [aria-label="取消临时解锁"]) svg {
+        .protyle-breadcrumb .block__icon[data-subtype="lock"] svg {
             animation: QYLLock 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }
@@ -604,7 +604,7 @@ export function initAnimation() {
                 transform: rotate(0deg);
             }
         }
-        .protyle-breadcrumb .block__icon:is([aria-label="解除锁定"], [aria-label="临时解锁"]) svg {
+        .protyle-breadcrumb .block__icon[data-subtype="unlock"] svg {
             animation: QYLLockReverse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: 50% 70%;
         }

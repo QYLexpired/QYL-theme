@@ -92,25 +92,6 @@ export function initFrostedGlass() {
                 backdrop-filter: blur(40px) saturate(0.9);
             }
         }
-        /* 侧栏钉住 */
-        .layout--float {
-            background-color: rgba(255, 0, 0, 0);
-            & > :is(.fn__flex-1, .fn__flex, .fn__flex-column) > [data-type="wnd"] > .layout-tab-container {
-                background-color: var(--QYL-Aero-background);
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    border-radius: inherit;
-                    box-shadow: var(--QYL-Aero-shadow);
-                    backdrop-filter: var(--QYL-Aero-filter);
-                    z-index: -1;
-                }
-            }
-        }
         /* 编辑器工具栏 */
         .protyle-toolbar, .protyle-util, .protyle-hint, .protyle-util .block__icons {
             background-color: var(--QYL-Aero-background);
