@@ -20,7 +20,7 @@
 /* 底部 */
 .QYLmemoB .QYL-inline-memo-box {
     display: grid;
-    padding: 10px;
+    padding: 10px 0;
     margin-top: 10px;
     border-top: 3px solid var(--b3-theme-surface-lighter);
     flex-basis: 100% !important;
