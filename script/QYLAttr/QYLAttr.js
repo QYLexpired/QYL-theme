@@ -81,8 +81,8 @@ class QYLAttr {
     async insertQYLattr(selectid, selecttype) {
         const menu = this.getCommonMenu();
         if (!menu) return;
-        const hasExport = menu.querySelector('[data-id="export"]');
-        const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
+        const hasExport = Array.from(menu.children).find(child => child.getAttribute('data-id') === 'export');
+        const hasUpdate = Array.from(menu.children).find(child => child.getAttribute('data-id') === 'updateAndCreatedAt');
         const attritem = menu.querySelector('#QYLattr');
         if (!hasExport && hasUpdate && !attritem) {
             const QYLBtn = await this.createQYLattrItem(selectid, selecttype);
@@ -99,9 +99,9 @@ class QYLAttr {
     async insertQYLattrforfile(selectid, selecttype) {
         const menu = this.getCommonMenu();
         if (!menu) return;
-        const hasExport = menu.querySelector('[data-id="export"]');
-        const hasUpdate = menu.querySelector('[data-id="updateAndCreatedAt"]');
-        const hasFileHistory = menu.querySelector('[data-id="fileHistory"]');
+        const hasExport = Array.from(menu.children).find(child => child.getAttribute('data-id') === 'export');
+        const hasUpdate = Array.from(menu.children).find(child => child.getAttribute('data-id') === 'updateAndCreatedAt');
+        const hasFileHistory = Array.from(menu.children).find(child => child.getAttribute('data-id') === 'fileHistory');
         const attritem = menu.querySelector('#QYLattr');
         if (hasExport && !hasUpdate && !attritem && hasFileHistory) {
             const QYLBtn = await this.createQYLattrItem(selectid, selecttype);

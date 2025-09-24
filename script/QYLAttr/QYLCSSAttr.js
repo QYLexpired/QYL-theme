@@ -16,24 +16,24 @@ function QYLcssApplyCustomCSS() {
             if (nodeId) {
                 cssRules.push(`${containerSelector} div[data-node-id="${nodeId}"] { ${cssValue} }`);
             } else {
-                let uid = element.getAttribute('data-css-uid');
+                let uid = element.getAttribute('data-custom-css-uid');
                 if (!uid) {
                     uid = `cssuid-${crypto.randomUUID().replace(/-/g, '')}`;
-                    element.setAttribute('data-css-uid', uid);
+                    element.setAttribute('data-custom-css-uid', uid);
                 }
                 const prevSibling = element.previousElementSibling;
                 if (prevSibling && prevSibling.classList.contains('protyle-top')) {
-                    prevSibling.setAttribute('data-css-uid', uid);
+                    prevSibling.setAttribute('data-custom-css-uid', uid);
                 }
-                cssRules.push(`${containerSelector} div[data-css-uid="${uid}"] { ${cssValue} }`);
+                cssRules.push(`${containerSelector} div[data-custom-css-uid="${uid}"] { ${cssValue} }`);
             }
         }
     });
-    const existingStyle = document.getElementById('snippet-QYLcss-dynamic-css');
+    const existingStyle = document.getElementById('snippet-QYL-custom-css');
     if (existingStyle) existingStyle.remove();
     if (cssRules.length > 0) {
         const style = document.createElement('style');
-        style.id = 'snippet-QYLcss-dynamic-css';
+        style.id = 'snippet-QYL-custom-css';
         style.textContent = cssRules.join('\n');
         document.head.appendChild(style);
     }
@@ -43,7 +43,7 @@ function QYLcssApplyCustomCSS() {
 }
 const QYLcssObserverConfig = {
     attributes: true,
-    attributeFilter: ['custom-css', 'data-node-id', 'data-css-uid'],
+    attributeFilter: ['custom-css', 'data-node-id', 'data-custom-css-uid'],
     subtree: true
 };
 function QYLcssDebounce(fn, delay) {
@@ -64,7 +64,7 @@ function initCustomCSS() {
                     if (mutation.type === 'attributes' && 
                         (mutation.attributeName === 'custom-css' || 
                          mutation.attributeName === 'data-node-id' ||
-                         mutation.attributeName === 'data-css-uid')) {
+                         mutation.attributeName === 'data-custom-css-uid')) {
                         QYLcssDebouncedApplyCSS();
                     }
                 });
