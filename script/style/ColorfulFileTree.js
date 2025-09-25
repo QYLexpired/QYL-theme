@@ -77,41 +77,49 @@ export function initColorfulFileTree() {
                 --QYL-colorful-file: var(--colorful-file-1);
                 --QYL-colorful-file-background: var(--colorful-file-background-1);
                 --QYL-indent-color: var(--colorful-file-1);
+                --b3-list-hover: var(--colorful-file-background-1);
             }
             &:nth-of-type(8n+2) {
                 --QYL-colorful-file: var(--colorful-file-2);
                 --QYL-colorful-file-background: var(--colorful-file-background-2);
                 --QYL-indent-color: var(--colorful-file-2);
+                --b3-list-hover: var(--colorful-file-background-2);
             }
             &:nth-of-type(8n+3) {
                 --QYL-colorful-file: var(--colorful-file-3);
                 --QYL-colorful-file-background: var(--colorful-file-background-3);
                 --QYL-indent-color: var(--colorful-file-3);
+                --b3-list-hover: var(--colorful-file-background-3);
             }
             &:nth-of-type(8n+4) {
                 --QYL-colorful-file: var(--colorful-file-4);
                 --QYL-colorful-file-background: var(--colorful-file-background-4);
                 --QYL-indent-color: var(--colorful-file-4);
+                --b3-list-hover: var(--colorful-file-background-4);
             }
             &:nth-of-type(8n+5) {
                 --QYL-colorful-file: var(--colorful-file-5);
                 --QYL-colorful-file-background: var(--colorful-file-background-5);
                 --QYL-indent-color: var(--colorful-file-5);
+                --b3-list-hover: var(--colorful-file-background-5);
             }
             &:nth-of-type(8n+6) {
                 --QYL-colorful-file: var(--colorful-file-6);
                 --QYL-colorful-file-background: var(--colorful-file-background-6);
                 --QYL-indent-color: var(--colorful-file-6);
+                --b3-list-hover: var(--colorful-file-background-6);
             }
             &:nth-of-type(8n+7) {
                 --QYL-colorful-file: var(--colorful-file-7);
                 --QYL-colorful-file-background: var(--colorful-file-background-7);
                 --QYL-indent-color: var(--colorful-file-7);
+                --b3-list-hover: var(--colorful-file-background-7);
             }
             &:nth-of-type(8n+8) {
                 --QYL-colorful-file: var(--colorful-file-8);
                 --QYL-colorful-file-background: var(--colorful-file-background-8);
                 --QYL-indent-color: var(--colorful-file-8);
+                --b3-list-hover: var(--colorful-file-background-8);
             }
             margin-left: 20px;
             border-left: 3px solid var(--QYL-colorful-file);
@@ -127,12 +135,15 @@ export function initColorfulFileTree() {
                     border-bottom-left-radius: 6px;
                     background-color: var(--QYL-colorful-file) !important;
                 }
-                & :is(.b3-list-item__toggle, [data-type="more-root"], [data-type="new"]):hover {
-                    background-color: color-mix(in srgb, var(--QYL-colorful-file) 25%, transparent); !important;
-                }
-                & :is(.b3-list-item__toggle .b3-list-item__arrow, [data-type="more-root"], [data-type="new"]) {
-                    color:var(--QYL-colorful-file) !important;
-                }
+            }
+            & :is(.b3-list-item__toggle, [data-type="more-root"], [data-type="more-file"], [data-type="new"], .counter):hover {
+                background-color: color-mix(in srgb, var(--QYL-colorful-file) 25%, transparent) !important;
+            }
+            & :is(.b3-list-item__toggle .b3-list-item__arrow, [data-type="more-root"], [data-type="more-file"], [data-type="new"], .counter) {
+                color:var(--QYL-colorful-file) !important;
+            }
+            & .b3-list-item__toggle.fn__hidden::before {
+                background-color:var(--QYL-colorful-file) !important;
             }
         }
         .QYLmobile #sidebar [data-type="sidebar-file"] .fn__flex-1 .b3-list.b3-list--background {
