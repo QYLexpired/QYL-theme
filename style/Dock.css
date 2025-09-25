@@ -1,5 +1,5 @@
 /* 文档树 */
-.b3-list-item.b3-list-item--hide-action .b3-list-item__toggle.fn__hidden::before {
+.b3-list-item__toggle.fn__hidden::before {
     content: "";
     width: 0.25em;
     height: 0.25em;
