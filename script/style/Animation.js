@@ -327,7 +327,7 @@ export function initAnimation() {
         }
         /* 任务列表 */
         .protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
-            background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary-lighter) 40%,var(--b3-theme-primary-lighter) 60%,transparent 75%);
+            background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary) 40%,oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)) 60%,transparent 75%);
             background-size: 200% 100%;
             background-position: 0 0;
             background-repeat: no-repeat;
