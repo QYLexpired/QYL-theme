@@ -108,7 +108,7 @@ export default {
     "QYLJinZun": "Golden Chalice",
     "QYLBoAi": "Misty Haze",
     "QYLWarm": "Warm Current",
-    "SideMemo": "Show Inline Memo",
+    "SideMemo": "Show Memo",
     "SideMemoRight": "Switched to right side memo",
     "SideMemoLeft": "Switched to left side memo",
     "SideMemoBottom": "Switched to bottom memo",

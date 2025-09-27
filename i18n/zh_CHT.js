@@ -108,7 +108,7 @@ export default {
     "QYLJinZun": "金樽",
     "QYLBoAi": "薄靄",
     "QYLWarm": "暖流",
-    "SideMemo": "顯示行內備註",
+    "SideMemo": "顯示備註",
     "SideMemoRight": "已切換為右側備註",
     "SideMemoLeft": "已切換為左側備註",
     "SideMemoBottom": "已切換為底部備註",
