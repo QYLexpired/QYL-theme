@@ -1,3 +1,5 @@
+import { isMobile } from '../basic/Device.js';
+import i18n from '../../i18n/i18n.js';
 let rootObserver = null;
 let wysiwygObserverMap = new WeakMap();
 let enabled = false;
@@ -7,9 +9,7 @@ let isRenderingMemo = false;
 let resizeDragging = false;
 let resizeStartX = 0;
 let resizeStartWidth = 0;
-let resizeDirection = ''; 
-import { isMobile } from '../basic/Device.js';
-import i18n from '../../i18n/i18n.js';
+let resizeDirection = '';
 function detectContentType(content) {
     if (!content || typeof content !== 'string') {
         return 'text';
@@ -22,20 +22,20 @@ function detectContentType(content) {
         /&#[xX][0-9a-fA-F]+;/ 
     ];
     const markdownPatterns = [
-        /^#{1,6}\s/, 
-        /^\s*[-*+]\s/, 
-        /^\s*\d+\.\s/, 
-        /^\s*>\s/, 
-        /^\s*```/,
-        /^\s*\|.*\|.*\|/, 
-        /^\s*[-*_]{3,}\s*$/, 
+        /^#{1,6}\s/m, 
+        /^\s*[-*+]\s/m, 
+        /^\s*\d+\.\s/m, 
+        /^\s*>\s/m, 
+        /^\s*```/m,
+        /^\s*\|.*\|.*\|/m, 
+        /^\s*[-*_]{3,}\s*$/m, 
         /\*\*[^*]+\*\*/, 
         /\*[^*]+\*/, 
         /`[^`]+`/,
         /\[[^\]]+\]\([^)]+\)/, 
         /!\[[^\]]+\]\([^)]+\)/, 
         /~~[^~]+~~/, 
-        /^\s*\[[ xX]\]\s/, 
+        /^\s*\[[ xX]\]\s/m, 
         /^\s*[A-Z][^.!?]*\n\s*[=]{3,}\s*$/m, 
         /^\s*[A-Z][^.!?]*\n\s*[-]{3,}\s*$/m, 
     ];
@@ -61,7 +61,7 @@ function parseContent(content, type) {
             return content;
         case 'markdown':
             try {
-                if (typeof marked !== 'undefined') {
+                if (typeof marked !== 'undefined' && marked.parse) {
                     let html = marked.parse(content);
                     const tempDiv = window._QYL_memo_temp_div;
                     tempDiv.innerHTML = html;
@@ -111,25 +111,24 @@ function isInFoldedBlock(element) {
 }
 function hasMemo(wysiwyg) {
     const avGalleryContents = wysiwyg.querySelectorAll('.av__gallery-content');
-    if (avGalleryContents.length > 0) {
-        const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
-        for (const memoEl of memoElements) {
-            let isInGallery = false;
-            for (const galleryContent of avGalleryContents) {
-                if (galleryContent.contains(memoEl)) {
-                    isInGallery = true;
-                    break;
-                }
-            }
-            if (!isInGallery && !isInFoldedBlock(memoEl)) {
-                return true;
-            }
+    const inlineMemoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+    for (const memoEl of inlineMemoElements) {
+        if (!isInFoldedBlock(memoEl) && !isInGallery(memoEl, avGalleryContents)) {
+            return true;
         }
-        return false;
     }
-    const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+    const memoElements = wysiwyg.querySelectorAll('[data-node-id]');
     for (const memoEl of memoElements) {
-        if (!isInFoldedBlock(memoEl)) {
+        const memoContent = memoEl.getAttribute('memo');
+        if (memoContent && memoContent.trim() && !isInFoldedBlock(memoEl) && !isInGallery(memoEl, avGalleryContents)) {
+            return true;
+        }
+    }
+    return false;
+}
+function isInGallery(element, avGalleryContents) {
+    for (const galleryContent of avGalleryContents) {
+        if (galleryContent.contains(element)) {
             return true;
         }
     }
@@ -209,42 +208,78 @@ function generateMemoUid(memoEl, idx) {
     }
     return uid;
 }
+function findMemoElementByUid(container, uid) {
+    let targetMemoEl = container.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
+    if (!targetMemoEl) {
+        targetMemoEl = container.querySelector('[data-node-id][data-memo-uid="' + uid + '"]');
+    }
+    if (!targetMemoEl && container.hasAttribute('memo')) {
+        const containerUid = generateMemoUid(container, 0);
+        if (containerUid === uid) {
+            targetMemoEl = container;
+        }
+    }
+    return targetMemoEl;
+}
+function isValidMemoContent(memoContent) {
+    return memoContent && memoContent.trim();
+}
+function cleanupMemoEvents(memoEl) {
+    if (memoEl._QYL_memo_mouseenter) {
+        memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
+        delete memoEl._QYL_memo_mouseenter;
+    }
+    if (memoEl._QYL_memo_mouseleave) {
+        memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
+        delete memoEl._QYL_memo_mouseleave;
+    }
+    if (memoEl._QYL_memo_click) {
+        memoEl.removeEventListener('click', memoEl._QYL_memo_click);
+        delete memoEl._QYL_memo_click;
+    }
+}
 const BottomMemoModule = {
     renderBlockMemo(block) {
     block.classList.remove('QYLmemoBlock');
-    const memoElements = block.querySelectorAll('[data-inline-memo-content]');
-    if (memoElements.length === 0) {
-        block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
-        return;
-    }
-    const avGalleryContents = block.querySelectorAll('.av__gallery-content');
-    block.classList.add('QYLmemoBlock');
     const memoList = [];
+    const avGalleryContents = block.querySelectorAll('.av__gallery-content');
+    const blockMemoContent = block.getAttribute('memo');
+    if (isValidMemoContent(blockMemoContent) && !isInFoldedBlock(block) && !isInGallery(block, avGalleryContents)) {
+        const memoText = block.innerText || block.textContent || '';
+        const uid = generateMemoUid(block, 0);
+        memoList.push({memoContent: blockMemoContent, memoText, memoEl: block, uid, type: MEMO_TYPES.BLOCK});
+    }
+    const memoElements = block.querySelectorAll('[data-node-id]');
+    let blockMemoCount = blockMemoContent ? 1 : 0;
     memoElements.forEach((memoEl, idx) => {
-        if (isInFoldedBlock(memoEl)) {
+        if (memoEl === block) return;
+        const memoContent = memoEl.getAttribute('memo');
+        if (!isValidMemoContent(memoContent) || isInFoldedBlock(memoEl) || isInGallery(memoEl, avGalleryContents)) {
             return;
         }
-        let isInGallery = false;
-        for (const galleryContent of avGalleryContents) {
-            if (galleryContent.contains(memoEl)) {
-                isInGallery = true;
-                break;
-            }
-        }
-        if (isInGallery) {
+        const memoText = memoEl.innerText || memoEl.textContent || '';
+        const uid = generateMemoUid(memoEl, blockMemoCount);
+        memoList.push({memoContent, memoText, memoEl, uid, type: MEMO_TYPES.BLOCK});
+        blockMemoCount++;
+        this.bindMemoEvents(memoEl, uid, block);
+    });
+    const inlineMemoElements = block.querySelectorAll('[data-inline-memo-content]');
+    inlineMemoElements.forEach((memoEl, idx) => {
+        if (isInFoldedBlock(memoEl) || isInGallery(memoEl, avGalleryContents)) {
             return;
         }
         const memoContent = memoEl.getAttribute('data-inline-memo-content');
         if (!memoContent) return;
         const memoText = memoEl.innerText || memoEl.textContent || '';
-        const uid = generateMemoUid(memoEl, idx);
-        memoList.push({memoContent, memoText, memoEl, uid});
+        const uid = generateMemoUid(memoEl, blockMemoCount + idx);
+        memoList.push({memoContent, memoText, memoEl, uid, type: MEMO_TYPES.INLINE});
         this.bindMemoEvents(memoEl, uid, block);
     });
     if (memoList.length === 0) {
         block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         return;
     }
+    block.classList.add('QYLmemoBlock');
     const oldBox = block.querySelector('div.QYL-inline-memo-box.protyle-custom');
     if (oldBox) {
         const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-uid'));
@@ -275,12 +310,7 @@ const BottomMemoModule = {
         block.appendChild(box);
     } finally {
         if (observer) {
-            observer.observe(wysiwyg, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['data-inline-memo-content', 'fold']
-            });
+            observer.observe(wysiwyg, OBSERVER_CONFIG);
         }
     }
     },
@@ -289,21 +319,35 @@ const BottomMemoModule = {
         memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
         memoEl.removeEventListener('click', memoEl._QYL_memo_click);
         memoEl._QYL_memo_mouseenter = () => {
-            block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
-                div.classList.add('QYLmemoActive');
-            });
+            const memoContent = memoEl.getAttribute('memo');
+            if (memoContent && isValidMemoContent(memoContent)) {
+                block.querySelectorAll('div.QYL-block-memo[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.add('QYLmemoActive');
+                });
+            } else {
+                block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.add('QYLmemoActive');
+                });
+            }
         };
         memoEl._QYL_memo_mouseleave = () => {
-            block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
-                div.classList.remove('QYLmemoActive');
-            });
+            const memoContent = memoEl.getAttribute('memo');
+            if (memoContent && isValidMemoContent(memoContent)) {
+                block.querySelectorAll('div.QYL-block-memo[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.remove('QYLmemoActive');
+                });
+            } else {
+                block.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.remove('QYLmemoActive');
+                });
+            }
         };
         memoEl._QYL_memo_click = (e) => {
             const targetDiv = block.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
             if (targetDiv) {
                 const targetRect = targetDiv.getBoundingClientRect();
                 const sourceRect = memoEl.getBoundingClientRect();
-                const threshold = isMobile ? 150 : 500;
+                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
                     targetDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
@@ -322,15 +366,18 @@ const BottomMemoModule = {
         box.classList.add('QYLmemoGrid');
     }
     box.setAttribute('contenteditable', 'false');
-    memoList.forEach(({memoContent, memoText, uid}) => {
-            const div = this.createMemoDiv(memoContent, memoText, uid, block);
+    memoList.forEach(({memoContent, memoText, uid, type}) => {
+            const div = this.createMemoDiv(memoContent, memoText, uid, block, type);
             box.appendChild(div);
         });
         return box;
     },
-    createMemoDiv(memoContent, memoText, uid, block) {
+    createMemoDiv(memoContent, memoText, uid, block, memoType = MEMO_TYPES.INLINE) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
+        if (memoType === MEMO_TYPES.BLOCK) {
+            div.classList.add('QYL-block-memo');
+        }
         const contentType = detectContentType(memoContent);
         const parsedContent = parseContent(memoContent, contentType);
         div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div>`;
@@ -338,18 +385,30 @@ const BottomMemoModule = {
         div.setAttribute('data-memo-uid', uid);
         div.setAttribute('data-content-type', contentType);
         div.addEventListener('mouseenter', () => {
-            block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
-                memoEl.classList.add('QYLinlinememoActive');
-            });
+            if (memoType === MEMO_TYPES.BLOCK) {
+                block.querySelectorAll('[data-node-id][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.add('QYLBlockmemoActive');
+                });
+            } else {
+                block.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.add('QYLinlinememoActive');
+                });
+            }
         });
         div.addEventListener('mouseleave', () => {
-            block.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
-                memoEl.classList.remove('QYLinlinememoActive');
-            });
+            if (memoType === MEMO_TYPES.BLOCK) {
+                block.querySelectorAll('[data-node-id][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.remove('QYLBlockmemoActive');
+                });
+            } else {
+                block.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.remove('QYLinlinememoActive');
+                });
+            }
         });
         div.addEventListener('click', (e) => {
             const firstDiv = div.querySelector('div:first-child');
-            if (e.target === firstDiv && e.button === 0) {
+            if (e.target === firstDiv) {
                 e.preventDefault();
                 e.stopPropagation();
                 block.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
@@ -364,12 +423,23 @@ const BottomMemoModule = {
                     });
                     memoEl.dispatchEvent(evt);
                 });
+                if (memoType === MEMO_TYPES.BLOCK) {
+                    const targetMemoEl = findMemoElementByUid(block, uid);
+                    if (targetMemoEl) {
+                        const memoAttr = targetMemoEl.querySelector('.protyle-attr--memo');
+                        if (memoAttr) {
+                            memoAttr.click();
+                        } else {
+                        }
+                    } else {
+                    }
+                }
             }
-            const targetMemoEl = block.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
+            const targetMemoEl = findMemoElementByUid(block, uid);
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
-                const threshold = isMobile ? 150 : 500;
+                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
                     targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
@@ -384,11 +454,18 @@ const BottomMemoModule = {
             wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
                 this.renderBlockMemo(block);
             });
-            const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
             const blocks = new Set();
-            memoElements.forEach(memoEl => {
+            const inlineMemoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+            inlineMemoElements.forEach(memoEl => {
                 const block = getWysiwygDirectBlock(memoEl);
                 if (block) blocks.add(block);
+            });
+            const memoElements = wysiwyg.querySelectorAll('[data-node-id]');
+            memoElements.forEach(memoEl => {
+                const memoContent = memoEl.getAttribute('memo');
+                if (isValidMemoContent(memoContent)) {
+                    blocks.add(memoEl);
+                }
             });
             blocks.forEach(block => this.renderBlockMemo(block));
         } finally {
@@ -400,22 +477,18 @@ const BottomMemoModule = {
         wysiwyg.querySelectorAll('.QYLmemoBlock').forEach(block => {
             block.classList.remove('QYLmemoBlock');
         });
-        wysiwyg.querySelectorAll('[data-inline-memo-content]').forEach(memoEl => {
-            if (memoEl._QYL_memo_mouseenter) {
-                memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
-                delete memoEl._QYL_memo_mouseenter;
-            }
-            if (memoEl._QYL_memo_mouseleave) {
-                memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
-                delete memoEl._QYL_memo_mouseleave;
-            }
-            if (memoEl._QYL_memo_click) {
-                memoEl.removeEventListener('click', memoEl._QYL_memo_click);
-                delete memoEl._QYL_memo_click;
+        wysiwyg.querySelectorAll('[data-inline-memo-content]').forEach(cleanupMemoEvents);
+        wysiwyg.querySelectorAll('[data-node-id]').forEach(memoEl => {
+            const memoContent = memoEl.getAttribute('memo');
+            if (isValidMemoContent(memoContent)) {
+                cleanupMemoEvents(memoEl);
             }
         });
         wysiwyg.querySelectorAll('.QYLinlinememoActive').forEach(el => {
             el.classList.remove('QYLinlinememoActive');
+        });
+        wysiwyg.querySelectorAll('.QYLBlockmemoActive').forEach(el => {
+            el.classList.remove('QYLBlockmemoActive');
         });
         wysiwyg.querySelectorAll('.QYLmemoActive').forEach(el => {
             el.classList.remove('QYLmemoActive');
@@ -452,29 +525,31 @@ const RightMemoModule = {
             return;
         }
         titleElement.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
-        const memoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
-        if (memoElements.length === 0) return;
-        const avGalleryContents = wysiwyg.querySelectorAll('.av__gallery-content');
         const memoList = [];
+        const avGalleryContents = wysiwyg.querySelectorAll('.av__gallery-content');
+        const memoElements = wysiwyg.querySelectorAll('[data-node-id]');
+        let blockMemoCount = 0;
         memoElements.forEach((memoEl, idx) => {
-            if (isInFoldedBlock(memoEl)) {
+            const memoContent = memoEl.getAttribute('memo');
+            if (!isValidMemoContent(memoContent) || isInFoldedBlock(memoEl) || isInGallery(memoEl, avGalleryContents)) {
                 return;
             }
-            let isInGallery = false;
-            for (const galleryContent of avGalleryContents) {
-                if (galleryContent.contains(memoEl)) {
-                    isInGallery = true;
-                    break;
-                }
-            }
-            if (isInGallery) {
+            const memoText = memoEl.innerText || memoEl.textContent || '';
+            const uid = generateMemoUid(memoEl, blockMemoCount);
+            memoList.push({memoContent, memoText, memoEl, uid, type: MEMO_TYPES.BLOCK});
+            blockMemoCount++;
+            this.bindMemoEvents(memoEl, uid, titleElement);
+        });
+        const inlineMemoElements = wysiwyg.querySelectorAll('[data-inline-memo-content]');
+        inlineMemoElements.forEach((memoEl, idx) => {
+            if (isInFoldedBlock(memoEl) || isInGallery(memoEl, avGalleryContents)) {
                 return;
             }
             const memoContent = memoEl.getAttribute('data-inline-memo-content');
             if (!memoContent) return;
             const memoText = memoEl.innerText || memoEl.textContent || '';
-            const uid = generateMemoUid(memoEl, idx);
-            memoList.push({memoContent, memoText, memoEl, uid});
+            const uid = generateMemoUid(memoEl, blockMemoCount + idx);
+            memoList.push({memoContent, memoText, memoEl, uid, type: MEMO_TYPES.INLINE});
             this.bindMemoEvents(memoEl, uid, titleElement);
         });
         if (memoList.length === 0) return;
@@ -486,14 +561,9 @@ const RightMemoModule = {
             const box = this.createMemoBox(memoList, wysiwyg);
             titleElement.appendChild(box);
         } finally {
-            if (observer) {
-                observer.observe(wysiwyg, {
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                    attributeFilter: ['data-inline-memo-content', 'fold']
-                });
-            }
+        if (observer) {
+            observer.observe(wysiwyg, OBSERVER_CONFIG);
+        }
         }
     },
     bindMemoEvents(memoEl, uid, titleElement) {
@@ -501,21 +571,35 @@ const RightMemoModule = {
         memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
         memoEl.removeEventListener('click', memoEl._QYL_memo_click);
         memoEl._QYL_memo_mouseenter = () => {
-            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
-                div.classList.add('QYLmemoActive');
-            });
+            const memoContent = memoEl.getAttribute('memo');
+            if (memoContent && isValidMemoContent(memoContent)) {
+                titleElement.querySelectorAll('div.QYL-block-memo[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.add('QYLmemoActive');
+                });
+            } else {
+                titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.add('QYLmemoActive');
+                });
+            }
         };
         memoEl._QYL_memo_mouseleave = () => {
-            titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
-                div.classList.remove('QYLmemoActive');
-            });
+            const memoContent = memoEl.getAttribute('memo');
+            if (memoContent && isValidMemoContent(memoContent)) {
+                titleElement.querySelectorAll('div.QYL-block-memo[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.remove('QYLmemoActive');
+                });
+            } else {
+                titleElement.querySelectorAll('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]').forEach(div => {
+                    div.classList.remove('QYLmemoActive');
+                });
+            }
         };
         memoEl._QYL_memo_click = (e) => {
             const targetDiv = titleElement.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
             if (targetDiv) {
                 const targetRect = targetDiv.getBoundingClientRect();
                 const sourceRect = memoEl.getBoundingClientRect();
-                const threshold = isMobile ? 150 : 500;
+                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
                     targetDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
@@ -537,8 +621,8 @@ const RightMemoModule = {
         const wysiwygRect = wysiwyg.getBoundingClientRect();
         const memoElements = [];
         const minSpacing = 10; 
-        memoList.forEach(({memoContent, memoText, uid}) => {
-            const div = this.createMemoDiv(memoContent, memoText, uid, wysiwyg);
+        memoList.forEach(({memoContent, memoText, uid, type}) => {
+            const div = this.createMemoDiv(memoContent, memoText, uid, wysiwyg, type);
             memoElements.push(div);
         });
         memoElements.forEach(div => {
@@ -569,9 +653,12 @@ const RightMemoModule = {
         });
         return box;
     },
-    createMemoDiv(memoContent, memoText, uid, wysiwyg) {
+    createMemoDiv(memoContent, memoText, uid, wysiwyg, memoType = MEMO_TYPES.INLINE) {
         const div = document.createElement('div');
         div.className = 'QYL-inline-memo protyle-custom';
+        if (memoType === MEMO_TYPES.BLOCK) {
+            div.classList.add('QYL-block-memo');
+        }
         const contentType = detectContentType(memoContent);
         const parsedContent = parseContent(memoContent, contentType);
         div.innerHTML = `<div>${memoText}</div><div data-original-content="${memoContent.replace(/"/g, '&quot;')}">${parsedContent}</div><div class="QYLSideMemoResize"></div>`;
@@ -586,47 +673,70 @@ const RightMemoModule = {
             }
             this.bindResizeEvents(resizeHandle, document.body.classList.contains('QYLmemoR') ? 'R' : 'L', protyleContent);
         }
-        const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
+        const targetMemoEl = findMemoElementByUid(wysiwyg, uid);
         if (targetMemoEl) {
             const targetRect = targetMemoEl.getBoundingClientRect();
             const wysiwygRect = wysiwyg.getBoundingClientRect();
             const relativeTop = targetRect.top - wysiwygRect.top;
-            const offset = 8; 
-            div.style.top = `${relativeTop - offset}px`;
+            div.style.top = `${relativeTop}px`;
         }
         div.addEventListener('mouseenter', () => {
-            wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
-                memoEl.classList.add('QYLinlinememoActive');
-            });
+            if (memoType === MEMO_TYPES.BLOCK) {
+                wysiwyg.querySelectorAll('[data-node-id][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.add('QYLBlockmemoActive');
+                });
+            } else {
+                wysiwyg.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.add('QYLinlinememoActive');
+                });
+            }
         });
         div.addEventListener('mouseleave', () => {
-            wysiwyg.querySelectorAll('[data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
-                memoEl.classList.remove('QYLinlinememoActive');
-            });
+            if (memoType === MEMO_TYPES.BLOCK) {
+                wysiwyg.querySelectorAll('[data-node-id][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.remove('QYLBlockmemoActive');
+                });
+            } else {
+                wysiwyg.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                    memoEl.classList.remove('QYLinlinememoActive');
+                });
+            }
         });
         div.addEventListener('click', (e) => {
             const firstDiv = div.querySelector('div:first-child');
             if (e.target === firstDiv && e.button === 0) {
                 e.preventDefault();
                 e.stopPropagation();
-                wysiwyg.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
-                    const evt = new MouseEvent('contextmenu', {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window,
-                        button: 2,
-                        buttons: 2,
-                        clientX: e.clientX,
-                        clientY: e.clientY
+                if (memoType === MEMO_TYPES.BLOCK) {
+                    const targetMemoEl = findMemoElementByUid(wysiwyg, uid);
+                    if (targetMemoEl) {
+                        const memoAttr = targetMemoEl.querySelector('.protyle-attr--memo');
+                        if (memoAttr) {
+                            memoAttr.click();
+                        } else {
+                        }
+                    } else {
+                    }
+                } else {
+                    wysiwyg.querySelectorAll('[data-inline-memo-content][data-memo-uid="' + uid + '"]')?.forEach(memoEl => {
+                        const evt = new MouseEvent('contextmenu', {
+                            bubbles: true,
+                            cancelable: true,
+                            view: window,
+                            button: 2,
+                            buttons: 2,
+                            clientX: e.clientX,
+                            clientY: e.clientY
+                        });
+                        memoEl.dispatchEvent(evt);
                     });
-                    memoEl.dispatchEvent(evt);
-                });
+                }
             }
-            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + uid + '"]');
+            const targetMemoEl = findMemoElementByUid(wysiwyg, uid);
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const sourceRect = div.getBoundingClientRect();
-                const threshold = isMobile ? 150 : 500;
+                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
                 if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
                     targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
@@ -677,15 +787,14 @@ const RightMemoModule = {
         const memoDivs = memoBox.querySelectorAll('.QYL-inline-memo');
         const wysiwygRect = wysiwyg.getBoundingClientRect();
         const minSpacing = 10;
-        const memoElements = Array.from(memoDivs);
-        const offset = 8; 
+        const memoElements = Array.from(memoDivs); 
         memoElements.forEach(div => {
             const memoUid = div.getAttribute('data-memo-uid');
-            const targetMemoEl = wysiwyg.querySelector('[data-inline-memo-content][data-memo-uid="' + memoUid + '"]');
+            const targetMemoEl = findMemoElementByUid(wysiwyg, memoUid);
             if (targetMemoEl) {
                 const targetRect = targetMemoEl.getBoundingClientRect();
                 const relativeTop = targetRect.top - wysiwygRect.top;
-                div.style.top = `${relativeTop - offset}px`;
+                div.style.top = `${relativeTop}px`;
             }
         });
         const sortedElements = Array.from(memoElements).sort((a, b) => {
@@ -720,22 +829,18 @@ const RightMemoModule = {
         if (titleElement && !wysiwyg.contains(titleElement)) {
             titleElement.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         }
-        wysiwyg.querySelectorAll('[data-inline-memo-content]').forEach(memoEl => {
-            if (memoEl._QYL_memo_mouseenter) {
-                memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
-                delete memoEl._QYL_memo_mouseenter;
-            }
-            if (memoEl._QYL_memo_mouseleave) {
-                memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
-                delete memoEl._QYL_memo_mouseleave;
-            }
-            if (memoEl._QYL_memo_click) {
-                memoEl.removeEventListener('click', memoEl._QYL_memo_click);
-                delete memoEl._QYL_memo_click;
+        wysiwyg.querySelectorAll('[data-inline-memo-content]').forEach(cleanupMemoEvents);
+        wysiwyg.querySelectorAll('[data-node-id]').forEach(memoEl => {
+            const memoContent = memoEl.getAttribute('memo');
+            if (isValidMemoContent(memoContent)) {
+                cleanupMemoEvents(memoEl);
             }
         });
         wysiwyg.querySelectorAll('.QYLinlinememoActive').forEach(el => {
             el.classList.remove('QYLinlinememoActive');
+        });
+        wysiwyg.querySelectorAll('.QYLBlockmemoActive').forEach(el => {
+            el.classList.remove('QYLBlockmemoActive');
         });
         wysiwyg.querySelectorAll('.QYLmemoActive').forEach(el => {
             el.classList.remove('QYLmemoActive');
@@ -809,6 +914,7 @@ const RightMemoModule = {
     }
 };
 function getWysiwygDirectBlock(memoEl) {
+    if (!memoEl) return null;
     let node = memoEl;
     let wysiwyg = null;
     let avGalleryContent = null;
@@ -842,8 +948,7 @@ function getWysiwygDirectBlock(memoEl) {
 function cleanupAllDirections(wysiwyg) {
     BottomMemoModule.cleanup(wysiwyg);
     RightMemoModule.cleanup(wysiwyg);
-    wysiwyg.classList.remove('QYLmemoProtyle');
-    wysiwyg.classList.remove('QYLmemoHide');
+    wysiwyg.classList.remove('QYLmemoProtyle', 'QYLmemoHide');
     if (wysiwyg.parentElement) {
         wysiwyg.parentElement.classList.remove('QYLmemoHide');
     }
@@ -851,32 +956,33 @@ function cleanupAllDirections(wysiwyg) {
 }
 function renderSideMemo(wysiwyg) {
     cleanupAllDirections(wysiwyg);
-    const isRMode = document.body.classList.contains('QYLmemoR');
-    const isLMode = document.body.classList.contains('QYLmemoL');
-    if (isRMode || isLMode) {
-        RightMemoModule.renderWysiwyg(wysiwyg);
-    } else {
-        BottomMemoModule.renderWysiwyg(wysiwyg);
-    }
+    const isSideMode = document.body.classList.contains('QYLmemoR') || document.body.classList.contains('QYLmemoL');
+    const module = isSideMode ? RightMemoModule : BottomMemoModule;
+    module.renderWysiwyg(wysiwyg);
     updateMemoProtyleClass(wysiwyg);
 }
+const OBSERVER_CONFIG = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-inline-memo-content', 'memo', 'fold']
+};
+const MEMO_TYPES = {
+    BLOCK: 'block',
+    INLINE: 'inline'
+};
+const SCROLL_THRESHOLD = {
+    MOBILE: 150,
+    DESKTOP: 500
+};
 function bindWysiwygMemoObserver(wysiwyg) {
     unbindWysiwygMemoObserver(wysiwyg);
     const observer = new MutationObserver(mutations => {
-        const isRMode = document.body.classList.contains('QYLmemoR');
-        const isLMode = document.body.classList.contains('QYLmemoL');
-        if (isRMode || isLMode) {
-            RightMemoModule.handleObserverChanges(mutations, wysiwyg);
-        } else {
-            BottomMemoModule.handleObserverChanges(mutations, wysiwyg);
-        }
+        const isSideMode = document.body.classList.contains('QYLmemoR') || document.body.classList.contains('QYLmemoL');
+        const module = isSideMode ? RightMemoModule : BottomMemoModule;
+        module.handleObserverChanges(mutations, wysiwyg);
     });
-    observer.observe(wysiwyg, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['data-inline-memo-content', 'fold']
-    });
+    observer.observe(wysiwyg, OBSERVER_CONFIG);
     wysiwygObserverMap.set(wysiwyg, observer);
     setTimeout(() => {
         renderSideMemo(wysiwyg);
@@ -924,18 +1030,11 @@ export function removeSideMemo() {
         unbindWysiwygMemoObserver(wysiwyg);
         cleanupAllDirections(wysiwyg);
     });
-    document.querySelectorAll('[data-inline-memo-content]').forEach(memoEl => {
-        if (memoEl._QYL_memo_mouseenter) {
-            memoEl.removeEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
-            delete memoEl._QYL_memo_mouseenter;
-        }
-        if (memoEl._QYL_memo_mouseleave) {
-            memoEl.removeEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
-            delete memoEl._QYL_memo_mouseleave;
-        }
-        if (memoEl._QYL_memo_click) {
-            memoEl.removeEventListener('click', memoEl._QYL_memo_click);
-            delete memoEl._QYL_memo_click;
+    document.querySelectorAll('[data-inline-memo-content]').forEach(cleanupMemoEvents);
+    document.querySelectorAll('[data-node-id]').forEach(memoEl => {
+        const memoContent = memoEl.getAttribute('memo');
+        if (isValidMemoContent(memoContent)) {
+            cleanupMemoEvents(memoEl);
         }
     });
     document.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
@@ -955,6 +1054,9 @@ export function removeSideMemo() {
     });
     document.querySelectorAll('.QYLinlinememoActive').forEach(el => {
         el.classList.remove('QYLinlinememoActive');
+    });
+    document.querySelectorAll('.QYLBlockmemoActive').forEach(el => {
+        el.classList.remove('QYLBlockmemoActive');
     });
     document.querySelectorAll('.QYLmemoActive').forEach(el => {
         el.classList.remove('QYLmemoActive');
