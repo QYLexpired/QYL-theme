@@ -89,6 +89,11 @@
     }
 }
 /* 其他页签 */
+.QYLFlatStyle .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
+    & .item {
+        outline: none;
+    }
+}
 .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
     background-color: var(--QYL-tab-item);
     border-radius: var(--b3-border-radius) !important;
