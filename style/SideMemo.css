@@ -17,6 +17,9 @@
 :is(.QYLmemoR, .QYLmemoL) .protyle-content {
     overflow-x: hidden;
 }
+.protyle-wysiwyg [data-node-id][memo].QYLBlockmemoActive {
+    background-color: var(--QYL-tab-item-focus) !important;
+}
 /* 底部 */
 .QYLmemoB .QYL-inline-memo-box {
     display: grid;
@@ -68,11 +71,20 @@
                 border-radius: 50%;
                 margin-right: 0.2em;
                 vertical-align: -1px;
-            };
+            }
         }
         & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
+        }
+        &.QYL-block-memo {
+            & > div:first-child {
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                &:before {
+                    filter: invert(1);
+                }
+            }
         }
     }
 }
@@ -149,11 +161,20 @@
                 border-radius: 50%;
                 margin-right: 0.2em;
                 vertical-align: -1px;
-            };
+            }
         }
         & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
+        }
+        &.QYL-block-memo {
+            & > div:first-child {
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                &:before {
+                    filter: invert(1);
+                }
+            }
         }
     }
 }
@@ -230,11 +251,20 @@
                 border-radius: 50%;
                 margin-right: 0.2em;
                 vertical-align: -1px;
-            };
+            }
         }
         & > div:nth-child(2) {
             max-height: 500px;
             overflow-y: scroll;
+        }
+        &.QYL-block-memo {
+            & > div:first-child {
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                &:before {
+                    filter: invert(1);
+                }
+            }
         }
     }
 }

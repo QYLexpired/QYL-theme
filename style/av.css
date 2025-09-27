@@ -82,6 +82,10 @@
         }
     }
 }
+.av__widthdrag {
+    width: 2px;
+    right: -1.5px;
+}
 /* 数据库页签 */
 .av__header .layout-tab-bar .item__graphic {
     padding: 10px 0 10px 8px;
@@ -91,7 +95,7 @@
 }
 /* 数据库被引主键 */
 .av__celltext--ref {
-    color: var(--b3-theme-primary);
+    color: var(--b3-theme-on-surface);
     transition: var(--b3-transition);
     border-bottom: 1px solid currentColor;
     &:hover {
