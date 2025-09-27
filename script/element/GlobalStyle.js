@@ -28,6 +28,14 @@ export async function initGlobalStyle(config = null) {
         } catch (error) {
         }
         const styleMapping = {
+            'QYLTextColor': {
+                styleId: 'snippet-text-color',
+                values: ['official', 'sevencolor']
+            },
+            'QYLDatabaseColor': {
+                styleId: 'snippet-database-option-color',
+                values: ['official']
+            },
             'QYLHeadingColor': {
                 styleId: 'snippet-heading-color',
                 values: ['colorful', 'colorful-dynamic']
@@ -136,6 +144,7 @@ export async function initGlobalStyle(config = null) {
 }
 export function removeGlobalStyle() {
     const styleIds = [
+        'snippet-text-color-official',
         'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
         'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
         'snippet-heading-level-number',
@@ -263,6 +272,33 @@ export async function createGlobalStyleDialog() {
     configContainer.id = 'global-style-config-container';
     content.appendChild(configContainer);
     const configGroups = [
+        {
+            title: i18n.TextStyle,
+            items: [
+                {
+                    id: 'QYLTextColor',
+                    label: i18n.TextColor,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'official', label: i18n.OfficialScheme },
+                        { value: 'sevencolor', label: i18n.SevenColorScheme }
+                    ]
+                }
+            ]
+        },
+        {
+            title: i18n.DatabaseStyle,
+            items: [
+                {
+                    id: 'QYLDatabaseColor',
+                    label: i18n.DatabaseColor,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'official', label: i18n.OfficialScheme }
+                    ]
+                }
+            ]
+        },
         {
             title: i18n.HeadingStyle,
             items: [
