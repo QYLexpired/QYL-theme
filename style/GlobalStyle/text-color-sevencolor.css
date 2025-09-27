@@ -109,30 +109,30 @@ html[data-theme-mode="dark"] {
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color8)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color8), 0px 0px 0.25em var(--b3-font-color8) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color9)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color9), 0px 0px 0.25em var(--b3-font-color9) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color10)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color10), 0px 0px 0.25em var(--b3-font-color10) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color11)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color11), 0px 0px 0.25em var(--b3-font-color11) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color12)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color12), 0px 0px 0.25em var(--b3-font-color12) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }
 [data-theme-mode="dark"] [style*="color"][style*="var(--b3-font-color13)"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) {
     color: var(--b3-theme-on-background) !important;
     text-shadow: 0px 0px 0.15em var(--b3-font-color13), 0px 0px 0.25em var(--b3-font-color13) !important;
-    filter: saturate(3.5);
+    filter: saturate(8.5);
 }

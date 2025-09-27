@@ -1,11 +1,11 @@
-:is([data-theme-mode="light"], [data-theme-mode="dark"]) {
+html[data-theme-mode="light"] {
     .custom-attr__avvalue .b3-chip[style*="color1)"], 
     .av__cell .b3-chip[style*="color1)"], 
     .av__panel .b3-chip[style*="color1)"], 
     [data-name="av-col-option"] .color__square[style*="color1)"], 
     .b3-menu__label .b3-chip[data-color="1"] {
-        color: var(--b3-font-color1) !important;
-        background-color: var(--b3-font-background1) !important;
+        color: #790600 !important;
+        background-color: #f5d1cf !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color2)"], 
@@ -13,8 +13,8 @@
     .av__panel .b3-chip[style*="color2)"], 
     [data-name="av-col-option"] .color__square[style*="color2)"], 
     .b3-menu__label .b3-chip[data-color="2"] {
-        color: var(--b3-font-color2) !important;
-        background-color: var(--b3-font-background2) !important;
+        color: #b16700 !important;
+        background-color: #ffe8c8 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color3)"], 
@@ -22,8 +22,8 @@
     .av__panel .b3-chip[style*="color3)"], 
     [data-name="av-col-option"] .color__square[style*="color3)"], 
     .b3-menu__label .b3-chip[data-color="3"] {
-        color: var(--b3-font-color3) !important;
-        background-color: var(--b3-font-background3) !important;
+        color: #005599 !important;
+        background-color: #d6eaf9 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color4)"], 
@@ -31,8 +31,8 @@
     .av__panel .b3-chip[style*="color4)"], 
     [data-name="av-col-option"] .color__square[style*="color4)"], 
     .b3-menu__label .b3-chip[data-color="4"] {
-        color: var(--b3-font-color4) !important;
-        background-color: var(--b3-font-background4) !important;
+        color: #008606 !important;
+        background-color: #d7eed8 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color5)"], 
@@ -40,8 +40,8 @@
     .av__panel .b3-chip[style*="color5)"], 
     [data-name="av-col-option"] .color__square[style*="color5)"], 
     .b3-menu__label .b3-chip[data-color="5"] {
-        color: var(--b3-font-color5) !important;
-        background-color: var(--b3-font-background5) !important;
+        color: #5f6368 !important;
+        background-color: #e2e3e4 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color6)"], 
@@ -49,8 +49,8 @@
     .av__panel .b3-chip[style*="color6)"], 
     [data-name="av-col-option"] .color__square[style*="color6)"], 
     .b3-menu__label .b3-chip[data-color="6"] {
-        color: var(--b3-font-color6) !important;
-        background-color: var(--b3-font-background6) !important;
+        color: #3575f0 !important;
+        background-color: #acd0fc !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color7)"], 
@@ -58,8 +58,8 @@
     .av__panel .b3-chip[style*="color7)"], 
     [data-name="av-col-option"] .color__square[style*="color7)"], 
     .b3-menu__label .b3-chip[data-color="7"] {
-        color: var(--b3-font-color7) !important;
-        background-color: var(--b3-font-background7) !important;
+        color: #ff9200 !important;
+        background-color: #fddaab !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color8)"], 
@@ -67,8 +67,8 @@
     .av__panel .b3-chip[style*="color8)"], 
     [data-name="av-col-option"] .color__square[style*="color8)"], 
     .b3-menu__label .b3-chip[data-color="8"] {
-        color: var(--b3-font-color8) !important;
-        background-color: var(--b3-font-background8) !important;
+        color: #d23f31 !important;
+        background-color: #ffb0a9 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color9)"], 
@@ -76,8 +76,8 @@
     .av__panel .b3-chip[style*="color9)"], 
     [data-name="av-col-option"] .color__square[style*="color9)"], 
     .b3-menu__label .b3-chip[data-color="9"] {
-        color: var(--b3-font-color9) !important;
-        background-color: var(--b3-font-background9) !important;
+        color: #f5539e !important;
+        background-color: #fdbfff !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color10)"], 
@@ -85,8 +85,8 @@
     .av__panel .b3-chip[style*="color10)"], 
     [data-name="av-col-option"] .color__square[style*="color10)"], 
     .b3-menu__label .b3-chip[data-color="10"] {
-        color: var(--b3-font-color10) !important;
-        background-color: var(--b3-font-background10) !important;
+        color: #00cdcd !important;
+        background-color: #b1ffff !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color11)"], 
@@ -94,8 +94,8 @@
     .av__panel .b3-chip[style*="color11)"], 
     [data-name="av-col-option"] .color__square[style*="color11)"], 
     .b3-menu__label .b3-chip[data-color="11"] {
-        color: var(--b3-font-color11) !important;
-        background-color: var(--b3-font-background11) !important;
+        color: #00b853 !important;
+        background-color: #affad1 !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color12)"], 
@@ -103,8 +103,8 @@
     .av__panel .b3-chip[style*="color12)"], 
     [data-name="av-col-option"] .color__square[style*="color12)"], 
     .b3-menu__label .b3-chip[data-color="12"] {
-        color: var(--b3-font-color12) !important;
-        background-color: var(--b3-font-background12) !important;
+        color: #9e9700 !important;
+        background-color: #fff88f !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color13)"], 
@@ -112,8 +112,136 @@
     .av__panel .b3-chip[style*="color13)"], 
     [data-name="av-col-option"] .color__square[style*="color13)"], 
     .b3-menu__label .b3-chip[data-color="13"] {
-        color: var(--b3-font-color13) !important;
-        background-color: var(--b3-font-background13) !important;
+        color: var(--b3-theme-background) !important;
+        background-color: var(--b3-theme-on-background) !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color14)"], 
+    .av__cell .b3-chip[style*="color14)"], 
+    .av__panel .b3-chip[style*="color14)"], 
+    [data-name="av-col-option"] .color__square[style*="color14)"], 
+    .b3-menu__label .b3-chip[data-color="14"] {
+        color: var(--b3-font-color14) !important;
+        background-color: var(--b3-font-background14) !important;
+        border: none !important;
+    }
+}
+html[data-theme-mode="dark"] {
+    .custom-attr__avvalue .b3-chip[style*="color1)"], 
+    .av__cell .b3-chip[style*="color1)"], 
+    .av__panel .b3-chip[style*="color1)"], 
+    [data-name="av-col-option"] .color__square[style*="color1)"], 
+    .b3-menu__label .b3-chip[data-color="1"] {
+        color: rgb(243, 153, 147) !important;
+        background-color: #442724 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color2)"], 
+    .av__cell .b3-chip[style*="color2)"], 
+    .av__panel .b3-chip[style*="color2)"], 
+    [data-name="av-col-option"] .color__square[style*="color2)"], 
+    .b3-menu__label .b3-chip[data-color="2"] {
+        color: rgb(255, 213, 153) !important;
+        background-color: #554636 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color3)"], 
+    .av__cell .b3-chip[style*="color3)"], 
+    .av__panel .b3-chip[style*="color3)"], 
+    [data-name="av-col-option"] .color__square[style*="color3)"], 
+    .b3-menu__label .b3-chip[data-color="3"] {
+        color: rgb(166, 213, 250) !important;
+        background-color: #28405c !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color4)"], 
+    .av__cell .b3-chip[style*="color4)"], 
+    .av__panel .b3-chip[style*="color4)"], 
+    [data-name="av-col-option"] .color__square[style*="color4)"], 
+    .b3-menu__label .b3-chip[data-color="4"] {
+        color: rgb(183, 223, 185) !important;
+        background-color: #425347 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color5)"], 
+    .av__cell .b3-chip[style*="color5)"], 
+    .av__panel .b3-chip[style*="color5)"], 
+    [data-name="av-col-option"] .color__square[style*="color5)"], 
+    .b3-menu__label .b3-chip[data-color="5"] {
+        color: #9aa0a6 !important;
+        background-color: #4c5257 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color6)"], 
+    .av__cell .b3-chip[style*="color6)"], 
+    .av__panel .b3-chip[style*="color6)"], 
+    [data-name="av-col-option"] .color__square[style*="color6)"], 
+    .b3-menu__label .b3-chip[data-color="6"] {
+        color: #3573f0 !important;
+        background-color: #08296c !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color7)"], 
+    .av__cell .b3-chip[style*="color7)"], 
+    .av__panel .b3-chip[style*="color7)"], 
+    [data-name="av-col-option"] .color__square[style*="color7)"], 
+    .b3-menu__label .b3-chip[data-color="7"] {
+        color: #f3a92f !important;
+        background-color: #593905 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color8)"], 
+    .av__cell .b3-chip[style*="color8)"], 
+    .av__panel .b3-chip[style*="color8)"], 
+    [data-name="av-col-option"] .color__square[style*="color8)"], 
+    .b3-menu__label .b3-chip[data-color="8"] {
+        color: #d23f31 !important;
+        background-color: #541812 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color9)"], 
+    .av__cell .b3-chip[style*="color9)"], 
+    .av__panel .b3-chip[style*="color9)"], 
+    [data-name="av-col-option"] .color__square[style*="color9)"], 
+    .b3-menu__label .b3-chip[data-color="9"] {
+        color: #f5539e !important;
+        background-color: #843473 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color10)"], 
+    .av__cell .b3-chip[style*="color10)"], 
+    .av__panel .b3-chip[style*="color10)"], 
+    [data-name="av-col-option"] .color__square[style*="color10)"], 
+    .b3-menu__label .b3-chip[data-color="10"] {
+        color: #00eeff !important;
+        background-color: #329096 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color11)"], 
+    .av__cell .b3-chip[style*="color11)"], 
+    .av__panel .b3-chip[style*="color11)"], 
+    [data-name="av-col-option"] .color__square[style*="color11)"], 
+    .b3-menu__label .b3-chip[data-color="11"] {
+        color: #74ff00 !important;
+        background-color: #568b2a !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color12)"], 
+    .av__cell .b3-chip[style*="color12)"], 
+    .av__panel .b3-chip[style*="color12)"], 
+    [data-name="av-col-option"] .color__square[style*="color12)"], 
+    .b3-menu__label .b3-chip[data-color="12"] {
+        color: #fff200 !important;
+        background-color: #8d8829 !important;
+        border: none !important;
+    }
+    .custom-attr__avvalue .b3-chip[style*="color13)"], 
+    .av__cell .b3-chip[style*="color13)"], 
+    .av__panel .b3-chip[style*="color13)"], 
+    [data-name="av-col-option"] .color__square[style*="color13)"], 
+    .b3-menu__label .b3-chip[data-color="13"] {
+        color: var(--b3-theme-background) !important;
+        background-color: var(--b3-theme-on-background) !important;
         border: none !important;
     }
     .custom-attr__avvalue .b3-chip[style*="color14)"], 
