@@ -301,7 +301,7 @@ function getFunctionOptions() {
         },
         {
             id: 'SideMemo',
-            label: i18n.SideMemo || '显示行内备注'
+            label: i18n.SideMemo || '显示备注'
         },
         {
             id: 'ImgMask',
@@ -347,7 +347,7 @@ function getFunctionOptions() {
         },
         {
             id: 'SideMemo',
-            label: i18n.SideMemo || '显示行内备注'
+            label: i18n.SideMemo || '显示备注'
         },
         {
             id: 'ImgMask',
