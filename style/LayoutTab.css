@@ -89,11 +89,6 @@
     }
 }
 /* 其他页签 */
-.QYLFlatStyle .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
-    & .item {
-        outline: none;
-    }
-}
 .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
     background-color: var(--QYL-tab-item);
     border-radius: var(--b3-border-radius) !important;
@@ -142,6 +137,25 @@
         &.item--focus {
             background-color: var(--QYL-tab-item-focus);
             box-shadow: var(--b3-point-shadow);
+        }
+    }
+}
+.QYLFlatStyle .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
+    & .item {
+        outline: none;
+        &.item--focus {
+            outline: 1px solid var(--b3-theme-surface-lighter);
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    }
+}
+.QYLInkMode .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
+    & .item {
+        box-shadow: none;
+        &.item--focus {
+            background-color: transparent !important;
+            box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary) !important;
         }
     }
 }
