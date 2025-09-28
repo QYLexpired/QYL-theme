@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">重大更新：顯示行內備註功能更名為顯示備註，並支援顯示塊級備註</span><br>• 全域樣式設定增加：文字配色-官方方案/七色方案、資料庫選項配色-官方方案<br>• 適配文件層級導航外掛程式<br>• 適配日曆面板外掛程式<br>• <span style="color: var(--b3-theme-error)">！破壞性更新 ！：為保證主題的可遷移性及減小主題的維護難度，移除大部分QYL自定義屬性內容，僅保留：CSS屬性、全寬顯示、列表視圖</span><br>• 使得顯示備註（底部）顯示在最近的塊元素下（而不是最外層的塊元素）<br>• 為選單毛玻璃引入感光效果：將映射範圍外的光源效果（實驗性）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">重大更新：顯示行內備註功能更名為顯示備註，並支援顯示塊級備註</span><br>• 全域樣式設定增加：文字配色-官方方案/七色方案、資料庫選項配色-官方方案/七色方案<br>• 適配文件層級導航外掛程式<br>• 適配日曆面板外掛程式<br>• <span style="color: var(--b3-theme-error)">！破壞性更新 ！：為保證主題的可遷移性及減小主題的維護難度，移除大部分QYL自定義屬性內容，僅保留：CSS屬性、全寬顯示、列表視圖</span><br>• 使得顯示備註（底部）顯示在最近的塊元素下（而不是最外層的塊元素）<br>• 為選單毛玻璃引入感光效果：將映射範圍外的光源效果（實驗性）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
