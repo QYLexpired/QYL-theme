@@ -38,9 +38,6 @@
         }
     }
 }
-#configBazaarDownloaded .b3-list--empty {
-    text-align: center;
-}
 #configBazaarReadme .block__icons {
     border-bottom: none;
 }
