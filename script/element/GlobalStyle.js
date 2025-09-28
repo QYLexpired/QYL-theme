@@ -34,7 +34,7 @@ export async function initGlobalStyle(config = null) {
             },
             'QYLDatabaseColor': {
                 styleId: 'snippet-database-option-color',
-                values: ['official']
+                values: ['official', 'sevencolor']
             },
             'QYLHeadingColor': {
                 styleId: 'snippet-heading-color',
@@ -144,7 +144,8 @@ export async function initGlobalStyle(config = null) {
 }
 export function removeGlobalStyle() {
     const styleIds = [
-        'snippet-text-color-official',
+        'snippet-text-color-official', 'snippet-text-color-sevencolor',
+        'snippet-database-option-color-official', 'snippet-database-option-color-sevencolor',
         'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
         'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
         'snippet-heading-level-number',
@@ -294,7 +295,8 @@ export async function createGlobalStyleDialog() {
                     label: i18n.DatabaseColor,
                     options: [
                         { value: 'default', label: i18n.Default },
-                        { value: 'official', label: i18n.OfficialScheme }
+                        { value: 'official', label: i18n.OfficialScheme },
+                        { value: 'sevencolor', label: i18n.SevenColorScheme }
                     ]
                 }
             ]
