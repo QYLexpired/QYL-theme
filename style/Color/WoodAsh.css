@@ -26,8 +26,8 @@
     /* 滚动条 */
     --b3-scroll-color: #b9b8a3;
     /* 悬停 */
-    --b3-list-hover: rgba(165, 163, 132, 0.5);
-    --b3-list-icon-hover: rgba(165, 163, 132, 0.5);
+    --b3-list-hover: rgba(190, 187, 153, 0.5);
+    --b3-list-icon-hover: rgba(190, 187, 153, 0.5);
     /* 菜单 */
     --b3-menu-background: var(--b3-theme-background);
     /* 提示 */
