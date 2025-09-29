@@ -343,15 +343,6 @@ const BottomMemoModule = {
             }
         };
         memoEl._QYL_memo_click = (e) => {
-            const targetDiv = block.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
-            if (targetDiv) {
-                const targetRect = targetDiv.getBoundingClientRect();
-                const sourceRect = memoEl.getBoundingClientRect();
-                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
-                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    targetDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
         };
         memoEl.addEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
         memoEl.addEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
@@ -433,15 +424,6 @@ const BottomMemoModule = {
                         }
                     } else {
                     }
-                }
-            }
-            const targetMemoEl = findMemoElementByUid(block, uid);
-            if (targetMemoEl) {
-                const targetRect = targetMemoEl.getBoundingClientRect();
-                const sourceRect = div.getBoundingClientRect();
-                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
-                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         });
@@ -595,15 +577,6 @@ const RightMemoModule = {
             }
         };
         memoEl._QYL_memo_click = (e) => {
-            const targetDiv = titleElement.querySelector('div.QYL-inline-memo.protyle-custom[data-memo-uid="' + uid + '"]');
-            if (targetDiv) {
-                const targetRect = targetDiv.getBoundingClientRect();
-                const sourceRect = memoEl.getBoundingClientRect();
-                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
-                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    targetDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
         };
         memoEl.addEventListener('mouseenter', memoEl._QYL_memo_mouseenter);
         memoEl.addEventListener('mouseleave', memoEl._QYL_memo_mouseleave);
@@ -730,15 +703,6 @@ const RightMemoModule = {
                         });
                         memoEl.dispatchEvent(evt);
                     });
-                }
-            }
-            const targetMemoEl = findMemoElementByUid(wysiwyg, uid);
-            if (targetMemoEl) {
-                const targetRect = targetMemoEl.getBoundingClientRect();
-                const sourceRect = div.getBoundingClientRect();
-                const threshold = isMobile ? SCROLL_THRESHOLD.MOBILE : SCROLL_THRESHOLD.DESKTOP;
-                if (Math.abs(targetRect.top - sourceRect.top) > threshold) {
-                    targetMemoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         });
