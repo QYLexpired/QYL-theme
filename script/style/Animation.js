@@ -403,8 +403,11 @@ export function initAnimation() {
             }
         }
         /* 块标 */
-        .protyle-gutters:not(:hover) button {
-            animation: QYLGutters 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+        .protyle-gutters {
+            transition: none;
+        }
+        .protyle-gutters button {
+            animation: QYLGutters 0.5s cubic-bezier(0.25, -0.5, 0.25, 1.5);
         }
         .protyle-gutters button[data-type="fold"] svg {
             transition: transform 0.3s cubic-bezier(0.28, -1.0, 0.6, 1.6);
@@ -414,18 +417,15 @@ export function initAnimation() {
         }
         @keyframes QYLGutters {
             0% {
-              transform: scale(0.3);
+              transform: scale(0.8);
               opacity: 0;
             }
-            50% {
+            40% {
               transform: scale(1.03);
               opacity: 1;
             }
             70% {
               transform: scale(0.98);
-            }
-            85% {
-              transform: scale(1.01);
             }
             100% {
               transform: scale(1);
