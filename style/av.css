@@ -58,7 +58,7 @@
     padding: 2px;
     box-sizing: border-box;
     & input {
-        box-shadow: 0 0 0 1px var(--QYL-tab-item-focus);
+        box-shadow: 0 0 0 1px var(--QYL-tab-item-focus) inset;
         background-color: var(--QYL-tab-item);
         border: 0;
         border-radius: var(--b3-border-radius);
@@ -73,11 +73,11 @@
         font-size: 14px;
         margin: 4px;
         &:hover {
-            box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%);
+            box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%) inset;
             background-color: var(--QYL-tab-item);
         }
         &:focus {
-            box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%);
+            box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%) inset;
             background-color: var(--QYL-tab-item);
         }
     }

@@ -33,10 +33,14 @@
     background-color: var(--b3-theme-primary);
 }
 /* 块标 */
+.protyle-gutters {
+    transition: top 0.2s, left 0.2s;
+}
 .protyle-gutters button {
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    transition: scale 0.5s cubic-bezier(0.25, 0.46, 0.15, 1.8);
+    transform-origin: right center;
     &:hover {
-        transform: scale(1.2);
+        scale: 1.2;
         & svg {
             color: var(--b3-theme-primary); 
         }
