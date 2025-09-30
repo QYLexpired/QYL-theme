@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">重大更新：显示行内备注功能更名为显示备注，并支持显示块级备注</span><br>• 全局样式设置增加：文字配色-官方方案/七色方案、数据库选项配色-官方方案/七色方案<br>• 适配文档层级导航插件<br>• 适配日历面板插件<br>• <span style="color: var(--b3-theme-error)">！破坏性更新 ！：为保证主题的可迁移性并降低主题的维护难度，移除大部分QYL自定义属性内容，仅保留：CSS属性、全宽显示、列表视图</span><br>• 使得显示备注（底部）显示在最近的块元素下（而不是最外层的块元素）<br>• 为菜单毛玻璃引入感光效果：将映射范围外的光源效果（实验性）</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 优化复选框样式<br>• 修复数据库分组时字段颜色不一致的问题<br>• 修复开启显示备注后，即使没有任何备注全宽显示也不生效的问题<br><span style="color: var(--b3-theme-error)">• 重大更新：显示行内备注功能更名为显示备注，并支持显示块级备注</span><br>• 全局样式设置增加：文字配色-官方方案/七色方案、数据库选项配色-官方方案/七色方案<br>• 适配文档层级导航插件<br>• 适配日历面板插件<br>• <span style="color: var(--b3-theme-error)">！破坏性更新 ！：为保证主题的可迁移性并降低主题的维护难度，移除大部分QYL自定义属性内容，仅保留：CSS属性、全宽显示、列表视图</span><br>• 使得显示备注（底部）显示在最近的块元素下（而不是最外层的块元素）<br>• 为菜单毛玻璃引入感光效果：将映射范围外的光源效果（实验性）</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
