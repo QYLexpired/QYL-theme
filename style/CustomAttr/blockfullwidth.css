@@ -1,4 +1,4 @@
-.protyle-wysiwyg:not(body:is(.QYLmemoL,.QYLmemoR) .protyle-wysiwyg:not(.QYLmemoHide)) [data-node-id][custom-blockfullwidth="fullwidth"] {
+.protyle-wysiwyg:not(:is(.QYLmemoL,.QYLmemoR) .protyle-wysiwyg.QYLmemoProtyle:not(.QYLmemoHide)) [data-node-id][custom-blockfullwidth="fullwidth"] {
     box-sizing: border-box;
     margin-left: calc(-1 * var(--QYL-protyle-padding-left) - var(--QYL-protyle-margin, 0px) + 16px) !important;
     margin-right: calc(-1 * var(--QYL-protyle-padding-right) - var(--QYL-protyle-margin, 0px) + 16px) !important;
