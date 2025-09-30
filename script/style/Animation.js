@@ -325,7 +325,29 @@ export function initAnimation() {
                 max-width: 100%;
             }
         }
-        /* 任务列表 */
+        /* 复选框 */
+        .av__row--select:not(.av__row--header) .av__colsticky .av__firstcol::before {
+            animation: QYLCheckbox1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .av__row:not(.av__row--select,.av__row--header) .av__colsticky .av__firstcol::before {
+            animation: QYLCheckbox2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        @keyframes QYLCheckbox1 {
+            0%,100% {
+                transform: none;
+            }
+            3% {
+                transform: scale(1.2);
+            }
+        }
+        @keyframes QYLCheckbox2 {
+            0%,100% {
+                transform: none;
+            }
+            3% {
+                transform: scale(1.2);
+            }
+        }
         .protyle-wysiwyg [data-node-id][data-subtype="t"].li.protyle-task--done {
             background-image: linear-gradient(105deg,transparent 25%,var(--b3-theme-primary) 40%,oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)) 60%,transparent 75%);
             background-size: 200% 100%;
@@ -351,7 +373,7 @@ export function initAnimation() {
         }
         @keyframes QYLtaskenter1 {
             0% {
-                transform: scale(0);
+                transform: scale(0.2);
                 opacity: 0;
             }
             50% {
@@ -373,7 +395,7 @@ export function initAnimation() {
         }
         @keyframes QYLtaskenter2 {
             0% {
-              transform: scale(0);
+              transform: scale(0.2);
               opacity: 0;
             }
             50% {
@@ -417,11 +439,11 @@ export function initAnimation() {
         }
         @keyframes QYLGutters {
             0% {
-              transform: scale(0.8);
+              transform: scale(0.65) translateX(3px);
               opacity: 0;
             }
             40% {
-              transform: scale(1.03);
+              transform: scale(1.03) translateX(0px);
               opacity: 1;
             }
             70% {
