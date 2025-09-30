@@ -42,7 +42,7 @@
     /* 行级代码背景色 */
     --b3-protyle-code-background: var(--b3-theme-surface);
     /* 页签 */
-    --QYL-tab-item: rgba(210, 194, 249, 0.25);
+    --QYL-tab-item: rgba(212, 221, 233, 0.3);
     --QYL-tab-item-focus: rgba(210, 194, 249, 0.8);
     /* 状态栏 */
     --QYL-status-background: var(--b3-theme-background);
