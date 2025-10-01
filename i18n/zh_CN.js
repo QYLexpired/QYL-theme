@@ -199,4 +199,5 @@ export default {
     "MenuStyle": "菜单样式",
     "MenuHoverColor": "选项悬停颜色",
     "ThemeColor": "主题色",
+    "InsertChildBlock": "在此处插入子块",
 }; 

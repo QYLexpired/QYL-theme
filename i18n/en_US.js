@@ -199,4 +199,5 @@ export default {
     "MenuStyle": "Menu Style",
     "MenuHoverColor": "Option Hover Color",
     "ThemeColor": "Theme Color",
+    "InsertChildBlock": "Insert child block here",
 };
