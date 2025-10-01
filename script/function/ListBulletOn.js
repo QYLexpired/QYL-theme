@@ -76,7 +76,7 @@ export function initListBulletOn() {
           top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="t"] > [data-subtype="t"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
-          width: 25px;
+          width: 28px;
           height: calc(var(--en-bullet-line-height) - 7px);
           top: calc(var(--en-bullet-line-height) * -1 + 25px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
@@ -96,7 +96,7 @@ export function initListBulletOn() {
           top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }
         [data-subtype="o"] > [data-subtype="t"] > .en_item_bullet_line:not(.protyle-wysiwyg--select)::after {
-          width: 27px;
+          width: 28px;
           height: calc(var(--en-bullet-line-height) - 9px);
           top: calc(var(--en-bullet-line-height) * -1 + 27px + ((var(--b3-font-size-editor) - 16px) * 0.75));
         }

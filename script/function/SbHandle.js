@@ -1,3 +1,4 @@
+import i18n from '../../i18n/i18n.js';
 let centerElement = null;
 let retryCount = 0;
 let maxRetries = 15;
@@ -101,7 +102,8 @@ function createDragHandle() {
     const handle = document.createElement('div');
     handle.className = 'QYLSbWidthDrag protyle-custom';
     const insertBlock = document.createElement('div');
-    insertBlock.className = 'QYLSbInsertBlock';
+    insertBlock.className = 'QYLSbInsertBlock b3-tooltips b3-tooltips__nw';
+    insertBlock.setAttribute('aria-label', i18n.InsertChildBlock);
     insertBlock.innerHTML = '<svg t="1755094314177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11563" width="23" height="23"><path d="M760.832 256a385.536 385.536 0 1 0 112.64 272.384A382.464 382.464 0 0 0 760.832 256z m-79.872 299.008h-165.376v165.888a27.648 27.648 0 1 1-55.296 0v-165.888H295.424a27.648 27.648 0 0 1 0-55.296H460.8V333.824a27.648 27.648 0 1 1 55.296 0v165.888h164.864a27.648 27.648 0 0 1 0 55.296z" fill="" p-id="11564"></path></svg>';
     insertBlock.addEventListener('click', handleInsertBlockClick);
     handle.appendChild(insertBlock);
@@ -115,7 +117,8 @@ function createFirstInsertBox() {
     const insertBox = document.createElement('div');
     insertBox.className = 'QYLSbInsertBlockFirstBox protyle-custom';
     const insertBlock = document.createElement('div');
-    insertBlock.className = 'QYLSbInsertBlockFirst';
+    insertBlock.className = 'QYLSbInsertBlockFirst b3-tooltips b3-tooltips__nw';
+    insertBlock.setAttribute('aria-label', i18n.InsertChildBlock);
     insertBlock.innerHTML = '<svg t="1755094314177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11563" width="23" height="23"><path d="M760.832 256a385.536 385.536 0 1 0 112.64 272.384A382.464 382.464 0 0 0 760.832 256z m-79.872 299.008h-165.376v165.888a27.648 27.648 0 1 1-55.296 0v-165.888H295.424a27.648 27.648 0 0 1 0-55.296H460.8V333.824a27.648 27.648 0 1 1 55.296 0v165.888h164.864a27.648 27.648 0 0 1 0 55.296z" fill="" p-id="11564"></path></svg>';
     insertBlock.addEventListener('click', handleInsertBlockFirstClick);
     insertBox.appendChild(insertBlock);
@@ -125,7 +128,8 @@ function createLastInsertBox() {
     const insertBox = document.createElement('div');
     insertBox.className = 'QYLSbInsertBlockLastBox protyle-custom';
     const insertBlock = document.createElement('div');
-    insertBlock.className = 'QYLSbInsertBlockLast';
+    insertBlock.className = 'QYLSbInsertBlockLast b3-tooltips b3-tooltips__nw';
+    insertBlock.setAttribute('aria-label', i18n.InsertChildBlock);
     insertBlock.innerHTML = '<svg t="1755094314177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11563" width="23" height="23"><path d="M760.832 256a385.536 385.536 0 1 0 112.64 272.384A382.464 382.464 0 0 0 760.832 256z m-79.872 299.008h-165.376v165.888a27.648 27.648 0 1 1-55.296 0v-165.888H295.424a27.648 27.648 0 0 1 0-55.296H460.8V333.824a27.648 27.648 0 1 1 55.296 0v165.888h164.864a27.648 27.648 0 0 1 0 55.296z" fill="" p-id="11564"></path></svg>';
     insertBlock.addEventListener('click', handleInsertBlockLastClick);
     insertBox.appendChild(insertBlock);
