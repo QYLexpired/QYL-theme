@@ -8,6 +8,10 @@ export function initFrostedGlass() {
             &.QYLFlatStyle {
                 --QYL-Aero-shadow: none;
             }
+            &[data-theme-mode="light"] {
+                --QYL-Aero-filter: blur(30px) saturate(3.2);
+                --QYL-Aero-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
+            }
         }
         /* 菜单 */
         .b3-menu, .b3-menu__submenu {
@@ -208,80 +212,82 @@ export function initFrostedGlass() {
             backdrop-filter: none !important;
         }
         /* 感光 */
-        .b3-menu, .b3-menu__submenu, #secondaryToolbar {
-            overflow: visible;
-            &::before {
-                backdrop-filter: blur(40px) saturate(2.8) !important;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                width: calc(100% + 100px);
-                height: calc(100% + 100px);
-                top: -50px;
-                left: -50px;
-                backdrop-filter: blur(50px) saturate(4.8) brightness(1.2);
-                z-index: -5;
-                --QYL-reflect-offset-top: 55px;
-                --QYL-reflect-offset-right: 55px;
-                --QYL-reflect-offset-bottom: 55px;
-                --QYL-reflect-offset-left: 55px;
-                --QYL-reflect-border-top: 2px;
-                --QYL-reflect-border-right: 2px;
-                --QYL-reflect-border-bottom: 2px;
-                --QYL-reflect-border-left: 2px;
-                -webkit-mask: 
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                var(--QYL-reflect-offset-top) 
-                / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-border-top) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                calc(100% - var(--QYL-reflect-offset-bottom))  
-                / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-border-bottom) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                var(--QYL-reflect-offset-top) 
-                / var(--QYL-reflect-border-left) 
-                calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                calc(100% - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-offset-top) 
-                / var(--QYL-reflect-border-right) 
-                calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
-                no-repeat;
-            mask: 
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                var(--QYL-reflect-offset-top) 
-                / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-border-top) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                calc(100% - var(--QYL-reflect-offset-bottom)) 
-                / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-border-bottom) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                var(--QYL-reflect-offset-left) 
-                var(--QYL-reflect-offset-top) 
-                / var(--QYL-reflect-border-left) 
-                calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
-                no-repeat,
-                linear-gradient(#000, #000) 
-                calc(100% - var(--QYL-reflect-offset-right)) 
-                var(--QYL-reflect-offset-top) 
-                / var(--QYL-reflect-border-right) 
-                calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
-                no-repeat;
-                box-sizing: border-box;
-                pointer-events: none;
+        [data-theme-mode="dark"] {
+            .b3-menu, .b3-menu__submenu, #secondaryToolbar {
+                overflow: visible;
+                &::before {
+                    backdrop-filter: blur(40px) saturate(2.8) !important;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: calc(100% + 100px);
+                    height: calc(100% + 100px);
+                    top: -50px;
+                    left: -50px;
+                    backdrop-filter: blur(50px) saturate(4.8) brightness(1.2);
+                    z-index: -5;
+                    --QYL-reflect-offset-top: 55px;
+                    --QYL-reflect-offset-right: 55px;
+                    --QYL-reflect-offset-bottom: 55px;
+                    --QYL-reflect-offset-left: 55px;
+                    --QYL-reflect-border-top: 2px;
+                    --QYL-reflect-border-right: 2px;
+                    --QYL-reflect-border-bottom: 2px;
+                    --QYL-reflect-border-left: 2px;
+                    -webkit-mask: 
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    var(--QYL-reflect-offset-top) 
+                    / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-border-top) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    calc(100% - var(--QYL-reflect-offset-bottom))  
+                    / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-border-bottom) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    var(--QYL-reflect-offset-top) 
+                    / var(--QYL-reflect-border-left) 
+                    calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    calc(100% - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-offset-top) 
+                    / var(--QYL-reflect-border-right) 
+                    calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
+                    no-repeat;
+                mask: 
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    var(--QYL-reflect-offset-top) 
+                    / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-border-top) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    calc(100% - var(--QYL-reflect-offset-bottom)) 
+                    / calc(100% - var(--QYL-reflect-offset-left) - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-border-bottom) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    var(--QYL-reflect-offset-left) 
+                    var(--QYL-reflect-offset-top) 
+                    / var(--QYL-reflect-border-left) 
+                    calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
+                    no-repeat,
+                    linear-gradient(#000, #000) 
+                    calc(100% - var(--QYL-reflect-offset-right)) 
+                    var(--QYL-reflect-offset-top) 
+                    / var(--QYL-reflect-border-right) 
+                    calc(100% - var(--QYL-reflect-offset-top) - var(--QYL-reflect-offset-bottom)) 
+                    no-repeat;
+                    box-sizing: border-box;
+                    pointer-events: none;
+                }
             }
         }
     `;

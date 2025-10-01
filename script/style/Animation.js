@@ -368,7 +368,7 @@ export function initAnimation() {
                 background-position: -100% 0;
               }
               to {
-                background-position: 150% 0;
+                background-position: 200% 0;
               }
         }
         @keyframes QYLtaskenter1 {
