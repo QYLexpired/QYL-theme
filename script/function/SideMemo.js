@@ -240,6 +240,7 @@ function cleanupMemoEvents(memoEl) {
 }
 const BottomMemoModule = {
     renderBlockMemo(block) {
+    block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
     block.classList.remove('QYLmemoBlock');
     const memoList = [];
     const avGalleryContents = block.querySelectorAll('.av__gallery-content');
@@ -276,30 +277,9 @@ const BottomMemoModule = {
         this.bindMemoEvents(memoEl, uid, block);
     });
     if (memoList.length === 0) {
-        block.querySelectorAll('div.QYL-inline-memo-box.protyle-custom').forEach(box => box.remove());
         return;
     }
     block.classList.add('QYLmemoBlock');
-    const oldBox = block.querySelector('div.QYL-inline-memo-box.protyle-custom');
-    if (oldBox) {
-        const oldMemos = Array.from(oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom')).map(div => div.getAttribute('data-memo-uid'));
-        const newMemos = memoList.map(m => m.uid);
-        let shouldSkip = oldMemos.length === newMemos.length && oldMemos.every((v, i) => v === newMemos[i]);
-        if (shouldSkip) {
-            const oldMemoDivs = oldBox.querySelectorAll('div.QYL-inline-memo.protyle-custom');
-            shouldSkip = memoList.every((memo, index) => {
-                const oldDiv = oldMemoDivs[index];
-                if (!oldDiv) return false;
-                const oldContent = oldDiv.querySelector('div:nth-child(2)').getAttribute('data-original-content') || 
-                                 oldDiv.querySelector('div:nth-child(2)').textContent;
-                return oldContent === memo.memoContent;
-            });
-        }
-        if (shouldSkip) {
-            return;
-        }
-        oldBox.remove();
-    }
     const wysiwyg = block.closest('.protyle-wysiwyg');
     const observer = wysiwygObserverMap.get(wysiwyg);
     if (observer) {
