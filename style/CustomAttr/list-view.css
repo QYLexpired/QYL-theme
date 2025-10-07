@@ -243,19 +243,66 @@ div *[custom-list-view="脑图"] > [data-type="NodeListItem"].li::after {
 }
 .protyle-wysiwyg *[custom-list-view="看板"] > .li{
     min-width: 200px;
-    background-color: var(--b3-theme-surface);
     padding: 10px;
     border-radius: 8px;
     margin: 0;
+    background-color: var(--b3-theme-surface);
     >[data-node-id]{
         margin-left: 0px;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
+    }
+    &:nth-child(6n+1) {
+        & > .protyle-action {
+            color: var(--b3-font-color1);
+            &  + [data-node-id] {
+                color: var(--b3-font-color1);
+            }
+        }
+    }
+    &:nth-child(6n+2) {
+        & > .protyle-action {
+            color: var(--b3-font-color2);
+            &  + [data-node-id] {
+            color: var(--b3-font-color2);
+            }
+        }
+    }
+    &:nth-child(6n+3) {
+        & > .protyle-action {
+            color: var(--b3-font-color3);
+            &  + [data-node-id] {
+            color: var(--b3-font-color3);
+            }
+        }
+    }
+    &:nth-child(6n+4) {
+        & > .protyle-action {
+            color: var(--b3-font-color4);
+            &  + [data-node-id] {
+            color: var(--b3-font-color4);
+            }
+        }
+    }
+    &:nth-child(6n+5) {
+        & > .protyle-action {
+            color: var(--b3-font-color5);
+            &  + [data-node-id] {
+            color: var(--b3-font-color5);
+            }
+        }
+    }
+    &:nth-child(6n+6) {
+        & > .protyle-action {
+            color: var(--b3-font-color6);
+            &  + [data-node-id] {
+            color: var(--b3-font-color6);
+            }
+        }
     }
 }
 .protyle-wysiwyg *[custom-list-view="看板"] > .li > .list > .li {
     border-radius: 6px;
     padding: 0.4em 0.4em 0.4em 0 ;
-    background-color: var(--b3-theme-background);
 }
 .protyle-wysiwyg *[custom-list-view="看板"] .li {
     display: flex;
@@ -279,41 +326,9 @@ div *[custom-list-view="脑图"] > [data-type="NodeListItem"].li::after {
 .protyle-wysiwyg *[custom-list-view="看板"] .li [data-type="NodeHeading"]>[spellcheck]:after {
 	display: none;
 }
-.protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-3) > .protyle-action,
-.protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-3) > .protyle-action {
-    color: var(--b3-font-color1);
-    & + [data-node-id] {
-        background-color: var(--b3-font-background1);
-        border-radius: 6px;
-    }
-}
-.protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-2) > .protyle-action,
-.protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-2) > .protyle-action {
-    color: var(--b3-font-color2);
-    & + [data-node-id]{
-        background-color: var(--b3-font-background2);
-        border-radius: 6px;
-    }
-}
-.protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n-1) > .protyle-action,
-.protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n-1) > .protyle-action {
-    color: var(--b3-font-color3);
-    & + [data-node-id] {
-        background-color: var(--b3-font-background3);
-        border-radius: 6px;
-    }
-}
-.protyle-wysiwyg .list[custom-list-view="看板"] > div:nth-child(4n) > .protyle-action,
-.protyle-wysiwyg .sb>*[custom-list-view="看板"] > div:nth-child(4n) > .protyle-action {
-    color: var(--b3-font-color4);
-    & + [data-node-id] {
-        background-color: var(--b3-font-background4);
-        border-radius: 6px;
-    }
-}
 .protyle-wysiwyg .list[custom-list-view="看板"] > div > div:nth-child(1),
 .protyle-wysiwyg .sb>*[custom-list-view="看板"] > div > div:nth-child(1) {
-    transform: translate(8px, 13px);
+    transform: translate(9.5px, 15px);
 	z-index: 2;
 }
 .list[custom-list-view="看板"][data-node-id] .li:before {
