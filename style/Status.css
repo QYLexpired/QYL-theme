@@ -25,7 +25,7 @@
         background: var(--QYL-status-background); 
         transition: transform 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
         transform: translateX(calc(-1 * var(--QYL-status-transformX) - 6px));
-        animation: QYLStatusSwitch1 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
+        animation: QYLStatusSwitch1 0.3s cubic-bezier(0.33, 1.7, 0.69, 0.99);
         transform-origin: right bottom;
         & #barDock {
             position: relative;
@@ -38,9 +38,9 @@
         }
         &.QYLStatusHidden {
             transform-origin: right bottom;
-            animation: QYLStatusSwitch2 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
+            animation: QYLStatusSwitch2 0.3s cubic-bezier(0.33, 1.7, 0.69, 0.99);
             &:hover { 
-                animation: QYLStatusSwitch3 0.25s cubic-bezier(0.33, 1.7, 0.69, 0.99);
+                animation: QYLStatusSwitch3 0.3s cubic-bezier(0.33, 1.7, 0.69, 0.99);
             }
         }
         &.QYLStatusHidden:not(:hover) {

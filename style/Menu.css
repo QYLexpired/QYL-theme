@@ -11,7 +11,7 @@
     min-height: 24px;
 }
 .b3-list mark {
-    background-color: var(--b3-highlight-background);
+    background: var(--b3-highlight-background);
     color: var(--b3-highlight-color);
 }
 /* 阴影 */

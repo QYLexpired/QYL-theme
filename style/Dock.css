@@ -13,63 +13,78 @@
     color: var(--b3-theme-on-surface-light);
 }
 /* 文档树缩进线修复 */
-.file-tree>.fn__flex-1>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 22px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 40px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 58px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 76px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 94px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 112px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 130px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {/* 第八层 */
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {/* 第八层 */
     padding-left: unset !important;
     padding-inline-start: 148px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 166px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 184px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 202px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 220px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 238px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 256px !important
 }
-.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
+.file-tree>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle,
+.QYLmobile #sidebar>.fn__flex-1>[data-type]>.fn__flex-1>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul>ul .b3-list-item>.b3-list-item__toggle {
     padding-left: unset !important;
     padding-inline-start: 274px !important
 }

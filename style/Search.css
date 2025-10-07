@@ -101,19 +101,13 @@
         }
     }
     .b3-list-item mark {
-        border-radius: 3px;
-        padding: 1px 2px;
-        margin: 0 1px;
-        background-color: var(--b3-highlight-background);
-        color: white;
+        background: var(--b3-highlight-background);
+        color: var(--b3-highlight-color);
     }
 }
 #searchAssetPreview mark {
-    border-radius: 3px;
-    padding: 1px 2px;
-    margin: 0 1px;
-    background-color: var(--b3-highlight-background);
-    color: white;
+    background: var(--b3-highlight-background);
+    color: var(--b3-highlight-color);
     box-shadow: none;
 }
 .search__drag::after {

@@ -217,4 +217,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
         font-weight: bold;
         color: var(--b3-theme-primary);
     }
+    & > div:first-child {
+        padding: 0px 20px;
+    }
 }
