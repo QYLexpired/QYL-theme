@@ -46,7 +46,7 @@ export async function initGlobalStyle(config = null) {
             },
             'QYLHeadingLevel': {
                 styleId: 'snippet-heading-level',
-                values: ['number']
+                values: ['number', 'dice']
             },
             'QYLImageShape': {
                 styleId: 'snippet-image-shape',
@@ -78,7 +78,7 @@ export async function initGlobalStyle(config = null) {
             },
             'QYLQuoteStyle': {
                 styleId: 'snippet-quote-style',
-                values: ['leftborder']
+                values: ['leftborder', 'transparent-border']
             },
             'QYLUnorderedList': {
                 styleId: 'snippet-unordered-list',
@@ -116,6 +116,10 @@ export async function initGlobalStyle(config = null) {
                 styleId: 'snippet-menu-hover-color',
                 values: ['theme']
             },
+            'QYLOutlineStyle': {
+                styleId: 'snippet-outline-style',
+                values: ['hidden','number']
+            },
         };
         Object.entries(styleMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
@@ -148,7 +152,7 @@ export function removeGlobalStyle() {
         'snippet-database-option-color-official', 'snippet-database-option-color-sevencolor',
         'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
         'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
-        'snippet-heading-level-number',
+        'snippet-heading-level-number', 'snippet-heading-level-dice',
         'snippet-image-shape-rounded', 'snippet-image-shape-circle',
         'snippet-link-style-icon',
         'snippet-superblock-general-border',
@@ -156,7 +160,7 @@ export function removeGlobalStyle() {
         'snippet-tag-color-colorful',
         'snippet-tag-style-solid',
         'snippet-inline-code-color-colorful',
-        'snippet-quote-style-leftborder',
+        'snippet-quote-style-leftborder', 'snippet-quote-style-transparent-border',
         'snippet-unordered-list-multilevel',
         'snippet-ordered-list-multilevel',
         'snippet-codeblock-style-mac',
@@ -166,6 +170,8 @@ export function removeGlobalStyle() {
         'snippet-header-image-effect-parallax',
         'snippet-sidebar-color-dock-consistent',
         'snippet-menu-hover-color-theme'
+        , 'snippet-outline-style-hidden'
+        , 'snippet-outline-style-number'
     ];
     styleIds.forEach(styleId => {
         const styleElement = document.getElementById(styleId);
@@ -274,7 +280,7 @@ export async function createGlobalStyleDialog() {
     content.appendChild(configContainer);
     const configGroups = [
         {
-            title: i18n.TextStyle,
+            title: i18n.Text,
             items: [
                 {
                     id: 'QYLTextColor',
@@ -288,7 +294,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.DatabaseStyle,
+            title: i18n.Database,
             items: [
                 {
                     id: 'QYLDatabaseColor',
@@ -302,7 +308,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.HeadingStyle,
+            title: i18n.Heading,
             items: [
                 {
                     id: 'QYLHeadingColor',
@@ -327,13 +333,14 @@ export async function createGlobalStyleDialog() {
                     label: i18n.HeadingLevel,
                     options: [
                         { value: 'default', label: i18n.Default },
-                        { value: 'number', label: i18n.Number }
+                        { value: 'number', label: i18n.Number },
+                        { value: 'dice', label: i18n.Dice }
                     ]
                 }
             ]
         },
         {
-            title: i18n.ImageStyle,
+            title: i18n.Image,
             items: [
                 {
                     id: 'QYLImageShape',
@@ -347,7 +354,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.LinkStyle,
+            title: i18n.Link,
             items: [
                 {
                     id: 'QYLLinkStyle',
@@ -360,7 +367,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.SuperBlockStyle,
+            title: i18n.SuperBlock,
             items: [
                 {
                     id: 'QYLSuperBlockGeneral',
@@ -381,7 +388,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.TagStyle,
+            title: i18n.Tag,
             items: [
                 {
                     id: 'QYLTagColor',
@@ -402,7 +409,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.InlineCodeStyle,
+            title: i18n.InlineCode,
             items: [
                 {
                     id: 'QYLInlineCodeColor',
@@ -415,20 +422,21 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.QuoteStyle,
+            title: i18n.Quote,
             items: [
                 {
                     id: 'QYLQuoteStyle',
                     label: i18n.QuoteStyle,
                     options: [
                         { value: 'default', label: i18n.Default },
-                        { value: 'leftborder', label: i18n.LeftBorder }
+                        { value: 'leftborder', label: i18n.LeftBorder },
+                        { value: 'transparent-border', label: i18n.TransparentBorder }
                     ]
                 }
             ]
         },
         {
-            title: i18n.ListStyle,
+            title: i18n.List,
             items: [
                 {
                     id: 'QYLUnorderedList',
@@ -449,7 +457,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.CodeBlockStyle,
+            title: i18n.CodeBlock,
             items: [
                 {
                     id: 'QYLCodeBlockStyle',
@@ -462,7 +470,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.TableStyle,
+            title: i18n.Table,
             items: [
                 {
                     id: 'QYLTableShape',
@@ -474,7 +482,7 @@ export async function createGlobalStyleDialog() {
                 },
                 {
                     id: 'QYLTableStyle',
-                    label: i18n.TableStyleHierarchical,
+                    label: i18n.TableStyle,
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'hierarchical', label: i18n.Hierarchical }
@@ -483,11 +491,11 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.HeaderImageStyle,
+            title: i18n.HeaderImage,
             items: [
                 {
                     id: 'QYLHeaderImageStyle',
-                    label: i18n.HeaderImageStyleType,
+                    label: i18n.HeaderImageStyle,
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'mask', label: i18n.Mask }
@@ -504,7 +512,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.SidebarStyle,
+            title: i18n.Sidebar,
             items: [
                 {
                     id: 'QYLSidebarColor',
@@ -517,7 +525,7 @@ export async function createGlobalStyleDialog() {
             ]
         },
         {
-            title: i18n.MenuStyle,
+            title: i18n.Menu,
             items: [
                 {
                     id: 'QYLMenuHoverColor',
@@ -525,6 +533,20 @@ export async function createGlobalStyleDialog() {
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'theme', label: i18n.ThemeColor }
+                    ]
+                }
+            ]
+        },
+        {
+            title: i18n.Outline,
+            items: [
+                {
+                    id: 'QYLOutlineStyle',
+                    label: i18n.HeadingLevel,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'hidden', label: i18n.Hidden },
+                        { value: 'number', label: i18n.Number }
                     ]
                 }
             ]
