@@ -66,11 +66,11 @@
 .b3-typography h4, .b3-typography .h4, .protyle-wysiwyg h4, .protyle-wysiwyg .h4,
 .b3-typography h5, .b3-typography .h5, .protyle-wysiwyg h5, .protyle-wysiwyg .h5,
 .b3-typography h6, .b3-typography .h6, .protyle-wysiwyg h6, .protyle-wysiwyg .h6,
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h1"],
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h2"],
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h3"],
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h4"],
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h5"],
-.sy__outline .b3-list--background .b3-list-item[data-subtype="h6"] {
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h1"],
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h2"],
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h3"],
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h4"],
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h5"],
+:is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) .b3-list--background .b3-list-item[data-subtype="h6"] {
     filter: brightness(0.8);
 }
