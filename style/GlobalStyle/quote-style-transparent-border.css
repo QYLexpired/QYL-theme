@@ -1,0 +1,13 @@
+html {
+    & .protyle-wysiwyg .bq {
+        padding: 0px 6px;
+        border-left: 5px solid var(--QYL-blockquote-svg);
+        border-radius: 0;
+        background-color: transparent !important;
+        color: var(--QYL-blockquote);
+        box-shadow: none !important;
+        &::before {
+            display: none;
+        }
+    }
+}

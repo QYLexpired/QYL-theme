@@ -1,0 +1,9 @@
+html{
+    & :is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) {
+        & .b3-list-item{
+            & .b3-list-item__graphic{
+                display: none;
+            }
+        }
+    }
+}

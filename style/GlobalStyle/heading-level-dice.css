@@ -1,0 +1,84 @@
+html {
+    & .h1>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice1.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme//img/dice1.svg') no-repeat center / contain;
+        pointer-events: none;
+        opacity: 0.7;
+        }
+    }
+    & .h2>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        width: 16px;
+        height: 16px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice2.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme/img/dice2.svg') no-repeat center / contain;
+        opacity: 0.7;
+        }
+    }
+    & .h3>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        width: 14px;
+        height: 14px;
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice3.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme/img/dice3.svg') no-repeat center / contain;
+        opacity: 0.7;
+        }
+    }
+    & .h4>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 11px;
+        width: 12px;
+        height: 12px;
+        transform: translateX(2px);
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice4.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme/img/dice4.svg') no-repeat center / contain;
+        opacity: 0.7;
+        }
+    }
+    & .h5>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        width: 12px;
+        height: 12px;
+        transform: translateX(2px);
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice5.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme/img/dice5.svg') no-repeat center / contain;
+        opacity: 0.7;
+        }
+    }
+    & .h6>[spellcheck]:not(:empty) {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        width: 12px;
+        height: 12px;
+        transform: translateX(1px);
+        background-color: currentColor;
+        mask: url('/appearance/themes/QYL-theme/img/dice6.svg') no-repeat center / contain;
+        -webkit-mask: url('/appearance/themes/QYL-theme/img/dice6.svg') no-repeat center / contain;
+        opacity: 0.7;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+html{
+    & :is(.sy__outline, .QYLmobile [data-type="sidebar-outline"]) {
+        & .b3-list-item{
+            & .b3-list-item__graphic{
+                opacity: 0;
+            }
+            & .b3-list-item__text {
+                &::before{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-52%);
+                    z-index: 0;
+                    opacity: 0.5;
+                    font-family: SF Pro;
+                    font-size: 1em;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h1"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❶';
+                    left: 24px;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h2"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❷';
+                    left: 42px;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h3"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❸';
+                    left: 60px;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h4"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❹';
+                    left: 78px;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h5"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❺';
+                    left: 96px;
+                }
+            }
+        }
+        & .b3-list-item[data-subtype="h6"] {
+            & .b3-list-item__text {
+                &::before{
+                    content: '❻';
+                    left: 112px;
+                }
+            }
+        }
+    }
+}
