@@ -4,6 +4,24 @@ html{
             & .b3-list-item__graphic {
                 opacity: 0;
             }
+            &[data-subtype="h1"] .b3-list-item__text::before{
+                content: '❶';
+            }
+            &[data-subtype="h2"] .b3-list-item__text::before{
+                content: '❷';
+            }
+            &[data-subtype="h3"] .b3-list-item__text::before{
+                content: '❸';
+            }
+            &[data-subtype="h4"] .b3-list-item__text::before{
+                content: '❹';
+            }
+            &[data-subtype="h5"] .b3-list-item__text::before{
+                content: '❺';
+            }
+            &[data-subtype="h6"] .b3-list-item__text::before{
+                content: '❻';
+            }
             & .b3-list-item__text {
                 &::before{
                     position: absolute;
@@ -25,7 +43,6 @@ html{
             & > .b3-list-item {
                 & .b3-list-item__text {
                     &::before{
-                        content: '❶';
                         left: 24px;
                     }
                 }
@@ -34,7 +51,6 @@ html{
                 & > .b3-list-item {
                     & .b3-list-item__text {
                         &::before{
-                            content: '❷';
                             left: 42px;
                         }
                     }
@@ -43,7 +59,6 @@ html{
                     & > .b3-list-item {
                         & .b3-list-item__text {
                             &::before{
-                                content: '❸';
                                 left: 60px;
                             }
                         }
@@ -52,7 +67,6 @@ html{
                         & > .b3-list-item {
                             & .b3-list-item__text {
                                 &::before{
-                                    content: '❹';
                                     left: 78px;
                                 }
                             }
@@ -61,7 +75,6 @@ html{
                             & > .b3-list-item {
                                 & .b3-list-item__text {
                                     &::before{
-                                        content: '❺';
                                         left: 96px;
                                     }
                                 }
@@ -70,7 +83,6 @@ html{
                                 & > .b3-list-item {
                                     & .b3-list-item__text {
                                         &::before{
-                                            content: '❻';
                                             left: 112px;
                                         }
                                     }
