@@ -6,9 +6,6 @@ html:not(.QYLColorBlock) {
                 & .graph {
                     background-color: var(--b3-theme-surface);
                 }
-                & .b3-text-field {
-                    background-color: var(--b3-theme-surface);
-                }
                 & .layout__tab--active .graph__svg, .layout__tab--active .inbox__list {
                     background-color: var(--b3-theme-surface);
                 }
@@ -37,5 +34,14 @@ html:not(.QYLColorBlock) {
                 }
             }
         }
+    }
+}
+/* 反链过滤面板插件 */
+.backlink-panel__area {
+    & .backlink-panel__header {
+        background-color: var(--b3-theme-surface) !important;
+    }
+    & .protyle-content {
+        background-color: var(--b3-theme-surface) !important;
     }
 }
