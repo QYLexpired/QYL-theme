@@ -192,3 +192,108 @@
         border: none !important;
     }
 }
+/* 反链过滤面板 */
+.backlink-panel__area {
+    & .backlink-panel__header {
+        background-color: var(--b3-theme-background) !important;
+        & .filter-panel__title, .backlink-panel__title {
+            &:hover {
+                background-color: transparent !important;
+            }
+        }
+        & .b3-text-field {
+            box-shadow: 0 0 0 1px var(--QYL-tab-item-focus) inset !important;
+            &:hover ,:focus {
+                box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%) inset !important;
+            }
+        }
+    }
+    & .protyle-content {
+        background-color: var(--b3-theme-background) !important;
+    }
+    & .sy__backlink .b3-list-item {
+        background-color: var(--b3-list-hover) !important;
+    }
+    & .filter-panel__sub_title {
+        margin: 0 !important;
+        line-height: 28px !important;
+    }
+    & .backlink-panel-filter {
+        & .tag {
+            background-color: transparent !important;
+            border-radius: 6px !important;
+            border: 1px solid var(--b3-theme-surface-lighter) !important;
+            &:hover {
+                background-color: var(--QYL-tab-item) !important;
+            }
+            &.selected {
+                color: var(--b3-theme-on-primary) !important;
+                background-color: var(--b3-theme-primary) !important;
+                border: 1px solid var(--b3-theme-primary) !important;
+                &:hover {
+                    background-color: var(--b3-theme-primary) !important;
+                }
+            }
+        }
+        & .defblock-list {
+            padding: 6px 0 !important;
+        }
+        & > div:last-child {
+            & .input-box {
+                padding: 10px !important;
+                align-items: center !important;
+                background: var(--b3-theme-background) !important;
+                border-radius: var(--b3-border-radius) !important;
+                border: 1px solid var(--b3-theme-surface-lighter) !important;
+                box-shadow: none !important;
+                &::before {
+                    display: none !important;
+                }
+                & .b3-text-field {
+                    padding: 4px 8px !important;
+                    width: 100% !important;
+                    margin-bottom: 10px !important;
+                    font-size: 12px !important;
+                }
+                & .buttons {
+                    width: 100% !important;
+                    align-items: center !important;
+                    & button {
+                        padding: 1px 8px !important;
+                        font-size: 12px !important;
+                        flex: 1 !important;
+                    }
+                }
+            }
+            & > p {
+                display: flex !important;
+                align-items: center !important;
+                & button {
+                    padding: 1px 8px !important;
+                    font-size: 12px !important;
+                }
+                & .tag {
+                    border-radius: 12px !important;
+                    background-color: transparent !important;
+                    border: 1px solid var(--b3-theme-surface-lighter) !important;
+                    color: var(--b3-theme-on-surface) !important;
+                    font-weight: bold !important;
+                    padding: 2px 4px 2px 12px !important;
+                    align-self: center !important;
+                    &:hover {
+                        background-color: var(--b3-theme-primary) !important;
+                        color: var(--b3-theme-on-primary) !important;
+                        border-color: var(--b3-theme-primary) !important;
+                        & .block__icon {
+                            color: var(--b3-theme-on-primary) !important;
+                            &:hover {
+                                color: var(--b3-theme-error) !important;
+                                background-color: transparent !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
