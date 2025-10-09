@@ -37,7 +37,7 @@ html:not(.QYLColorBlock) {
     }
 }
 /* 反链过滤面板插件 */
-.backlink-panel__area {
+.backlink-panel__area:not(.layout__center .backlink-panel__area) {
     & .backlink-panel__header {
         background-color: var(--b3-theme-surface) !important;
     }
