@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 全局样式设置增加：标题层级-图案（骰子）<br>• 全局样式设置增加：大纲标题层级标识-隐藏/数字<br>• 全局样式设置增加：引述块样式-左边框（透明背景）<br>• 重做列表转看板样式<br>• 修复手机端多彩大纲不生效的问题<br>• 修复手机端大纲缩进线错位的问题<br>• 优化显示备注功能的交互效果<br>• 修复显示备注在底部时备注重复渲染的问题<br>• 修改部分国际化语言</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• 适配反链过滤面板插件<br>• 全局样式设置增加：标题层级-图案（骰子）<br>• 全局样式设置增加：大纲标题层级标识-隐藏/数字<br>• 全局样式设置增加：引述块样式-左边框（透明背景）<br>• 重做列表转看板样式<br>• 修复手机端多彩大纲不生效的问题<br>• 修复手机端大纲缩进线错位的问题<br>• 优化显示备注功能的交互效果<br>• 修复显示备注在底部时备注重复渲染的问题<br>• 修改部分国际化语言</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>
