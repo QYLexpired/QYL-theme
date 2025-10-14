@@ -198,8 +198,8 @@ export class QYLMenuItem {
         div.style.padding = "2px 10px";
         const textarea = document.createElement("textarea");
         textarea.className = "b3-text-field QYLcssinput";
-        textarea.style.height = "150px";
-        textarea.style.width = "550px";
+        textarea.style.height = "100px";
+        textarea.style.width = "200px";
         textarea.style.color = "var(--b3-theme-on-surface)";
         textarea.setAttribute("spellcheck", "false");
         textarea.setAttribute("data-QYL-attr-id", selectid);
@@ -243,16 +243,6 @@ export class QYLMenuItem {
         textarea._QYLCSSSelfRemoveObserver = selfRemoveObserver;
         div.appendChild(textarea);
         return div;
-    }
-    createListViewItem(selectid) {
-        const items = [
-            this.createMenuItem(this.i18n.listviewmindmap, "#iconGlobalGraph", "list-view", "脑图", false, selectid),
-            this.createMenuItem(this.i18n.listviewkanban, "#iconMenu", "list-view", "看板", false, selectid),
-            this.createMenuItem(this.i18n.listviewtable, "#iconTable", "list-view", "表格", false, selectid),
-            this.createMenuItem(this.i18n.listviewtimeline, "#iconClock", "list-view", "时间轴", false, selectid)
-        ];
-        const submenu = this.createSubmenu("QYLattrlistviewsub", items);
-        return this.createMenuItemWithSubmenu(this.i18n.listview, "#iconList", submenu);
     }
     createBlockFullWidthItem(selectid) {
         const items = [

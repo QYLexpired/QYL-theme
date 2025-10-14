@@ -2,7 +2,7 @@ import i18n from '../../i18n/i18n.js';
 import { QYLAttrAPI } from './QYLAttrAPI.js';
 import { QYLMenuItem } from './QYLAttrMenuItem.js';
 import { QYLAttrInitialUpdateAll } from './QYLAttrMenuItem.js';
-import { initCustomCSS } from './QYLCSSAttr.js';
+import { initCustomCSS } from './QYLAttrCSS.js';
 class QYLAttr {
     constructor() {
         this.i18n = i18n;
@@ -144,7 +144,6 @@ class QYLAttr {
     async createListSubmenu(selectid) {
         const items = [
             this.factory.createCSSItem(selectid),
-            this.factory.createListViewItem(selectid),
             this.factory.createBlockFullWidthItem(selectid)
         ];
         return this.factory.createSubmenu("QYLNodeListsub", items);
