@@ -89,6 +89,31 @@
     padding-inline-start: 274px !important
 }
 /* 侧栏 */
+.layout__dockl:not(.layout--float), .layout__dockr:not(.layout--float) {
+    transition: width var(--b3-width-transition), box-shadow 0s var(--b3-width-transition-duration);
+    will-change: width;
+    & > .fn__flex {
+        transition: width var(--b3-width-transition), display var(--b3-width-transition);
+        transition-behavior: allow-discrete;
+        & > .fn__none {
+            width: 0;
+        }
+    }
+    &:not([style*="width: 0px"]) {
+        transition: width var(--b3-width-transition);
+    }
+}
+.layout__dockb:not(.layout--float) {
+    transition: height var(--b3-width-transition);
+    will-change: height;
+    & > .fn__flex {
+        transition: height var(--b3-width-transition), display var(--b3-width-transition);
+        transition-behavior: allow-discrete;
+        & > .fn__none {
+            height: 0;
+        }
+    }
+}
 .dock#dockLeft {
     border: none;
 }

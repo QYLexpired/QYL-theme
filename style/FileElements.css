@@ -239,8 +239,8 @@
     background-image: linear-gradient(to right bottom, 
     var(--b3-theme-primary),
     var(--b3-theme-primary),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
     -webkit-mask-image: url('../img/uncheck.svg');
     -webkit-mask-size: 18px;
     -webkit-mask-repeat: no-repeat;
@@ -266,8 +266,8 @@
         background-image: linear-gradient(to right bottom, 
         var(--b3-theme-primary),
         var(--b3-theme-primary),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
         -webkit-mask-image: url('../img/uncheck.svg');
         -webkit-mask-size: 18px;
         -webkit-mask-repeat: no-repeat;
@@ -293,8 +293,8 @@
     background-image: linear-gradient(to right bottom, 
     var(--b3-theme-primary),
     var(--b3-theme-primary),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
     -webkit-mask-image: url('../img/checked.svg');
     -webkit-mask-size: 18px;
     -webkit-mask-repeat: no-repeat;
@@ -319,8 +319,8 @@
         background-image: linear-gradient(to right bottom, 
         var(--b3-theme-primary),
         var(--b3-theme-primary),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 60deg)));
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
         -webkit-mask-image: url('../img/checked.svg');
         -webkit-mask-size: 18px;
         -webkit-mask-repeat: no-repeat;

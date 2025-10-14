@@ -1,14 +1,31 @@
 /* 图片查看器 */
 .viewer-backdrop {
-    background-color: rgba(255, 0, 0, 0);
-    backdrop-filter: blur(1px) brightness(0.75);
+    background-color: transparent;
+    backdrop-filter: blur(50px);
 }
 .viewer-navbar {
-    background-color: var(--b3-theme-primary-lighter);
+    background-color: transparent;
+    padding: 6px;
 }
-.viewer-list>.viewer-active, .viewer-list>.viewer-active:focus, .viewer-list>.viewer-active:hover, .viewer-list>li:hover {
-    outline: 2px solid var(--b3-theme-primary);
-    filter: brightness(1.5);
+.viewer-list>li {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--b3-border-radius);
+    position: relative;
+    opacity: 1 !important;
+}
+.viewer-list>.viewer-active {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 52px;
+        height: 52px;
+        z-index: 1;
+        pointer-events: none;
+        border-radius: var(--b3-border-radius);
+        box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary);
+    }
 }
 .viewer-list {
     transition: 0.2s cubic-bezier(0.8, 0, 0.9, 1);
@@ -20,6 +37,7 @@
     background-color: var(--b3-theme-primary);
     border-radius: 16px;
     padding: 4px 6px;
+    margin: 0;
     &>li {
         background-color: transparent;
         & svg {
@@ -33,9 +51,11 @@
         }
     }
 }
+.viewer-toolbar>ul>li:focus {
+    box-shadow: inset 0 0 0 1.5px var(--b3-theme-on-primary);
+}
 .viewer-title {
-    background-color: var(--b3-theme-primary);
-    color: var(--b3-theme-on-primary);
-    border-radius: 16px;
-    padding: 2px 8px;
+    color: var(--b3-theme-on-surface);
+    opacity: 1;
+    margin: 6px;
 }

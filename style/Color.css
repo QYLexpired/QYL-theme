@@ -12,7 +12,7 @@
     --b3-theme-surface-light: rgba(229, 233, 241, 0.8);
     --b3-theme-surface-lighter: #d3d9e5;
     /* 文字颜色 */
-    --b3-theme-on-primary: #f6f6f6;
+    --b3-theme-on-primary: rgba(255,255,255,.9);
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
     --b3-theme-on-background: #353c48;
@@ -64,6 +64,8 @@
     --b3-protyle-inline-link-color: #3571ff;
     --b3-protyle-inline-blockref-color: #ac41f5;
     --b3-protyle-inline-fileref-color: #20b97f;
+    /* 线条 */
+    --b3-border-color: var(--b3-theme-surface-lighter);
 }
 @supports (color: oklch(0 0 0)) {
     [data-theme-mode="light"] {
@@ -91,7 +93,7 @@
         --b3-theme-surface-light: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
         --b3-theme-surface-lighter: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.68);
         /* 文字颜色 */
-        --b3-theme-on-primary: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+        --b3-theme-on-primary: rgba(255,255,255,.9);
         --b3-theme-on-secondary: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-error: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-background: oklch(calc(0.15 + var(--b3-theme-primary-brightness) * 0.04) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -160,7 +162,7 @@
     --b3-theme-surface-light: rgba(41, 42, 45, .86);
     --b3-theme-surface-lighter: rgba(230, 230, 230, 0.15);
     /* 文字颜色 */
-    --b3-theme-on-primary: #fff;
+    --b3-theme-on-primary: rgba(255,255,255,.9);
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
     --b3-theme-on-background: #dadada;
@@ -212,6 +214,8 @@
     --b3-protyle-inline-link-color: #4cbbfa;
     --b3-protyle-inline-blockref-color: #bb91ff;
     --b3-protyle-inline-fileref-color: #74dda8;
+    /* 线条 */
+    --b3-border-color: var(--b3-theme-surface-lighter);
 }
 @supports (color: oklch(0 0 0)) {
     [data-theme-mode="dark"] {
@@ -238,7 +242,7 @@
         --b3-theme-surface: oklch(calc(0.2 + var(--b3-theme-primary-brightness) * 0.03) calc(0.075 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-surface-light: oklch(calc(0.18 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
         /* 文字颜色 */
-        --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+        --b3-theme-on-primary: rgba(255,255,255,.9);
         --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
         --b3-theme-on-background: oklch(calc(0.88 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -299,7 +303,7 @@
             --b3-theme-surface-light: oklch(calc(0.22 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
             --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
-            --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+            --b3-theme-on-primary: rgba(255,255,255,.9);
             --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-background: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -357,7 +361,7 @@
             --b3-theme-surface-light: oklch(calc(0.22 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
             --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
-            --b3-theme-on-primary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+            --b3-theme-on-primary: rgba(255,255,255,.9);
             --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
             --b3-theme-on-background: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -617,7 +621,7 @@
     --b3-theme-surface-light: rgba(229, 233, 241, 0.8);
     --b3-theme-surface-lighter: #d3d9e5;
     /* 文字颜色 */
-    --b3-theme-on-primary: #f6f6f6;
+    --b3-theme-on-primary: rgba(255,255,255,.9);
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
     --b3-theme-on-background: #353c48;
