@@ -130,6 +130,20 @@ export function initAnimation() {
               opacity: 1;
             }
         }
+        /* 弹出窗口 */
+        .block__popover.block__popover--open {
+            animation: QYLBlockPopover 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        @keyframes QYLBlockPopover {
+            0% {
+              transform: translateY(-15%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
+              opacity: 1;
+            }
+        }
         /* 退出聚焦 */
         .protyle-breadcrumb button[data-type="exit-focus"] {
             animation: QYLExitFocus 0.5s ease-out;
@@ -243,9 +257,9 @@ export function initAnimation() {
             background-size: 200% 100%;
             background-position: 110% 0;
             background-repeat: no-repeat;
-            transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
                 border-bottom: 0.5px solid;
@@ -256,9 +270,9 @@ export function initAnimation() {
             background-size: 200% 100%;
             background-position: 110% 0;
             background-repeat: no-repeat;
-            transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
                 border-bottom: 0.5px solid;
@@ -269,9 +283,9 @@ export function initAnimation() {
             background-size: 200% 100%;
             background-position: 110% 0;
             background-repeat: no-repeat;
-            transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
                 border-bottom: 0.5px solid;
@@ -282,9 +296,9 @@ export function initAnimation() {
             background-size: 200% 100%;
             background-position: 110% 0;
             background-repeat: no-repeat;
-            transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
                 border-bottom: 0.5px solid;
@@ -295,14 +309,14 @@ export function initAnimation() {
             background-size: 200% 100%;
             background-position: 100% 0;
             background-repeat: no-repeat;
-            transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+            transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
             &:hover {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1);
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1);
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
             }
             &.QYLinlinememoActive {
-                transition: 0.3s cubic-bezier(0.8, 0, 0.9, 1) !important;
+                transition: 0.6s cubic-bezier(0.8, 0, 0.9, 1) !important;
                 color: var(--b3-theme-on-primary);
                 background-position: 0 0;
             }
