@@ -23,14 +23,31 @@ export function initColorBlock() {
             box-shadow: 0 40px 0 0 var(--b3-theme-surface) inset;
         }
         .dock#dockLeft:not(:has(.dock__item--active)) {
+            position: relative;
             background-color: var(--b3-theme-background);
-            border-right: 0.5px solid var(--b3-theme-surface-lighter);
-            clip-path: inset(45px 0 0 0);
+            transition: background-color 0.1s 0.2s;
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 38px;
+                height: calc(100% - 38px);
+                width: 0.5px;
+                background-color: var(--b3-theme-surface-lighter);
+            }
         }
         .dock#dockRight {
-            border-left: 0.5px solid var(--b3-theme-surface-lighter);
-            clip-path: inset(45px 0 0 0);
+            position: relative;
             background-color: var(--b3-theme-background);
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 38px;
+                height: calc(100% - 38px);
+                width: 0.5px;
+                background-color: var(--b3-theme-surface-lighter);
+            }
         }
         .dock#dockBottom {
             border-top: 0.5px solid var(--b3-theme-surface-lighter);
@@ -112,7 +129,7 @@ export function initColorBlock() {
             }
         }
         #layouts .layout__resize.layout__resize--lr:has( + .layout__dockr) {
-            clip-path: inset(40px 0 0 0) !important;
+            clip-path: inset(38px 0 0 0) !important;
         }
         .layout--float.layout__dockl {
             top: 38px;
@@ -154,13 +171,6 @@ export function initColorBlock() {
         }
         #layouts .layout__center :is(.fn__flex-1, .fn__flex, .fn__flex-column) [data-type="wnd"] > .layout-tab-container {
             border: none !important;
-        }
-        /* 取消顶栏融合的分割线切割 */
-        #layouts .layout__resize.layout__resize--lr {
-            clip-path: none !important;
-            &::after {
-                transform: none !important;
-            }
         }
         /* 状态栏下移 */
         @media (min-width: 630px) {

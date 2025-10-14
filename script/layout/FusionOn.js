@@ -123,11 +123,9 @@ export function initFusionOn() {
                 padding-top: 38px;
                 min-height: 50%;
             }
-            #layouts .layout__resize.layout__resize--lr {
-                clip-path: inset(38px 0 0 0 round var(--b3-border-radius));
-            }
-            #layouts .layout__dockb .layout__resize.layout__resize--lr {
-                clip-path: none;
+            html:not(.QYLColorBlock) #layouts .layout__resize.layout__resize--lr:not(.layout__dockb .layout__resize.layout__resize--lr) {
+                top: 42px;
+                height: calc(100% - 42px)
             }
             .QYLFusionTop > .fn__flex:first-child {
                 transition: 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
