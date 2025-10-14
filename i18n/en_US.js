@@ -114,8 +114,6 @@ export default {
     "FocusEditingShowAll": "Blur effect disabled",
     "FocusEditingDefault": "Blur effect enabled",
     "FocusBlockHighlightStyle": "Highlight style switched",
-    "QYLImgMaskTooSmall": "Mask size must be at least 15px in both width and height.",
-    "ImgMask": "Image Mask",
     "SbHandle": "Super Block Width Handle",
     "saveandclose": "Save & Close",
     "saveandrefresh": "Save & Refresh",

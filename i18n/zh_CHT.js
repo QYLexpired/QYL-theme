@@ -114,8 +114,6 @@ export default {
     "FocusEditingShowAll": "已取消模糊效果",
     "FocusEditingDefault": "已開啟模糊效果",
     "FocusBlockHighlightStyle": "已切換高亮樣式",
-    "QYLImgMaskTooSmall": "遮罩長寬不能低於15px",
-    "ImgMask": "圖片遮罩",
     "SbHandle": "超級塊寬度柄",
     "saveandclose": "保存並關閉",
     "saveandrefresh": "保存並刷新",
