@@ -9,7 +9,7 @@
     --b3-theme-surface: #ffefd7;
     --b3-theme-surface-light: rgba(255, 239, 215, 0.8);
     --b3-theme-surface-lighter: rgba(211, 194, 179, 0.68);
-    --b3-theme-on-primary: #f5f7fa;
+    --b3-theme-on-primary: rgba(255,255,255,.9);
     --b3-theme-on-secondary: var(--b3-theme-on-primary); 
     --b3-theme-on-error: var(--b3-theme-on-primary); 
     --b3-theme-on-background: #422d18;

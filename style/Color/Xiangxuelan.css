@@ -13,7 +13,7 @@
     --b3-theme-surface-light: rgba(217, 227, 201, 0.8);
     --b3-theme-surface-lighter: rgba(162, 172, 142, 0.68);
     /* 文字颜色 */
-    --b3-theme-on-primary: #f3f3f3;
+    --b3-theme-on-primary: rgba(255,255,255,.9);
     --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
     --b3-theme-on-background: #3a3f32;
