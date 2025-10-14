@@ -1,5 +1,8 @@
 html {
-    & .protyle-wysiwyg img {
+    & .protyle-wysiwyg [data-node-id] img {
         border-radius: 50%;
+    }
+    & .viewer-canvas>img {
+        border-radius: var(--b3-border-radius);
     }
 }

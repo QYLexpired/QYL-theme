@@ -2,4 +2,7 @@ html {
     & .protyle-wysiwyg img {
         border-radius: 12px;
     }
+    & .viewer-canvas>img {
+        border-radius: var(--b3-border-radius);
+    }
 }
