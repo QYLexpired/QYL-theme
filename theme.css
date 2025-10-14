@@ -42,6 +42,5 @@
 @import url('./style/Pickr.min.css');
 @import url('./style/SbHandle.css');
 @import url('./style/BlockFold.css');
-/* 自定义属性 */
+/* 全宽显示 */
 @import url('./style/CustomAttr/blockfullwidth.css');
-@import url('./style/CustomAttr/list-view.css');
