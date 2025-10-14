@@ -19,16 +19,9 @@ class ListBullet {
         const range = selection?.getRangeAt(0);
         const startNode = range?.startContainer;
         let currentNode = startNode;
-        let foundCustomListView = false;
-        this.allListItemNode.forEach((node) => {
-        });
         this.allListItemNode = [];
         while (currentNode) {
             if (currentNode.nodeType === 1) {
-                if (currentNode.hasAttribute && currentNode.hasAttribute('custom-list-view')) {
-                    foundCustomListView = true;
-                    break;
-                }
                 if (currentNode.dataset && currentNode.dataset.type === 'NodeListItem') {
                     this.allListItemNode.push(currentNode);
                 }
@@ -37,9 +30,6 @@ class ListBullet {
                 }
             }
             currentNode = currentNode.parentElement;
-        }
-        if (foundCustomListView) {
-            this.allListItemNode = [];
         }
         const prevSet = new Set(this.prevListItemNode);
         const currSet = new Set(this.allListItemNode);
