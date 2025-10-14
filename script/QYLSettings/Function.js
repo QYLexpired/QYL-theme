@@ -14,7 +14,6 @@ let listBulletOnModule = null;
 let fixedToolModule = null;
 let focusEditingOnModule = null;
 let sideMemoModule = null;
-let imgMaskModule = null;
 let sbHandleModule = null;
 async function loadMarktoBlankModule() {
     if (!marktoBlankModule) {
@@ -96,15 +95,6 @@ async function loadSideMemoModule() {
         }
     }
     return sideMemoModule;
-}
-async function loadImgMaskModule() {
-    if (!imgMaskModule) {
-        try {
-            imgMaskModule = await import('../function/ImgMask.js');
-        } catch (error) {
-        }
-    }
-    return imgMaskModule;
 }
 async function loadSbHandleModule() {
     if (!sbHandleModule) {
@@ -238,19 +228,6 @@ async function disableSideMemo() {
     const body = document.body;
     body.classList.remove('QYLmemoB', 'QYLmemoR', 'QYLmemoL');
 }
-async function enableImgMask() {
-    const module = await loadImgMaskModule();
-    if (module && module.initImgMask) {
-        module.initImgMask();
-    }
-}
-async function disableImgMask() {
-    const module = await loadImgMaskModule();
-    if (module && module.removeImgMask) {
-        module.removeImgMask();
-    }
-    imgMaskModule = null;
-}
 async function enableSbHandle() {
     const module = await loadSbHandleModule();
     if (module && module.init) {
@@ -304,10 +281,6 @@ function getFunctionOptions() {
             label: i18n.SideMemo || '显示备注'
         },
         {
-            id: 'ImgMask',
-            label: i18n.ImgMask || '启用图片遮罩'
-        },
-        {
             id: 'SbHandle',
             label: i18n.SbHandle || '超级块宽度柄'
         }
@@ -348,10 +321,6 @@ function getFunctionOptions() {
         {
             id: 'SideMemo',
             label: i18n.SideMemo || '显示备注'
-        },
-        {
-            id: 'ImgMask',
-            label: i18n.ImgMask || '启用图片遮罩'
         },
         {
             id: 'SbHandle',
@@ -451,12 +420,6 @@ async function createFunctionContent(config = null) {
                     await enableFocusEditingOn();
                 } else {
                     await disableFocusEditingOn();
-                }
-            } else if (option.id === 'ImgMask') {
-                if (newState) {
-                    await enableImgMask();
-                } else {
-                    await disableImgMask();
                 }
             } else if (option.id === 'SbHandle') {
                 if (newState) {
@@ -725,10 +688,6 @@ async function initializeFunctionStates(config = null) {
         } else if (option.id === 'FocusEditing') {
             if (currentState) {
                 await enableFocusEditingOn();
-            }
-        } else if (option.id === 'ImgMask') {
-            if (currentState) {
-                await enableImgMask();
             }
         } else if (option.id === 'SbHandle') {
             if (currentState) {

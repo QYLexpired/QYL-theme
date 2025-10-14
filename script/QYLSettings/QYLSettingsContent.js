@@ -10,7 +10,7 @@ function shouldHideTab(tabId, config) {
     const optionGroups = {
         layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab', 'CardLayout'],
         style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'FlatStyle', 'InkMode', 'ColorfulTabs'],
-        function: ['MarktoBlank', 'EditorWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'ImgMask', 'SbHandle'],
+        function: ['MarktoBlank', 'EditorWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'SbHandle'],
         element: ['CustomFontStyle']
     };
     const options = optionGroups[tabId];
