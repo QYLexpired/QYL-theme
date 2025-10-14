@@ -5,7 +5,8 @@ import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
 const lightColorMainGroup = [
-    'QYLLightClassic',
+    'QYLLightClassicBlue',
+    'QYLLightClassicRed',
     'QYLSunset',
     'QYLForest',
     'QYLOcean',
@@ -33,7 +34,8 @@ const lightColorMainGroup = [
     'QYLAfterglow'
 ];
 const darkColorMainGroup = [
-    'QYLDarkClassic',
+    'QYLDarkClassicBlue',
+    'QYLDarkClassicRed',
     'QYLBurgundy',
     'QYLXuanqing',
     'QYLMocui',
@@ -94,8 +96,10 @@ let steamModule = null;
 let latteModule = null;
 let winterModule = null;
 let xingqiongModule = null;
-let lightClassicModule = null;
-let darkClassicModule = null;
+let lightClassicBlueModule = null;
+let lightClassicRedModule = null;
+let darkClassicBlueModule = null;
+let darkClassicRedModule = null;
 let colorSwitchTimeModule = null;
 let colorSwitchImgModule = null;
 let darkRevertModule = null;
@@ -489,23 +493,41 @@ async function loadXingqiongModule() {
     }
     return xingqiongModule;
 }
-async function loadLightClassicModule() {
-    if (!lightClassicModule) {
+async function loadLightClassicBlueModule() {
+    if (!lightClassicBlueModule) {
         try {
-            lightClassicModule = await import('../color/LightClassic.js');
+            lightClassicBlueModule = await import('../color/LightClassicBlue.js');
         } catch (error) {
         }
     }
-    return lightClassicModule;
+    return lightClassicBlueModule;
 }
-async function loadDarkClassicModule() {
-    if (!darkClassicModule) {
+async function loadLightClassicRedModule() {
+    if (!lightClassicRedModule) {
         try {
-            darkClassicModule = await import('../color/DarkClassic.js');
+            lightClassicRedModule = await import('../color/LightClassicRed.js');
         } catch (error) {
         }
     }
-    return darkClassicModule;
+    return lightClassicRedModule;
+}
+async function loadDarkClassicBlueModule() {
+    if (!darkClassicBlueModule) {
+        try {
+            darkClassicBlueModule = await import('../color/DarkClassicBlue.js');
+        } catch (error) {
+        }
+    }
+    return darkClassicBlueModule;
+}
+async function loadDarkClassicRedModule() {
+    if (!darkClassicRedModule) {
+        try {
+            darkClassicRedModule = await import('../color/DarkClassicRed.js');
+        } catch (error) {
+        }
+    }
+    return darkClassicRedModule;
 }
 async function loadColorSwitchTimeModule() {
     if (!colorSwitchTimeModule) {
@@ -547,16 +569,28 @@ async function disableColorSwitchImg() {
         module.stopColorSwitchImg();
     }
 }
-async function enableLightClassic() {
-    const module = await loadLightClassicModule();
-    if (module && module.initLightClassic) {
-        module.initLightClassic();
+async function enableLightClassicBlue() {
+    const module = await loadLightClassicBlueModule();
+    if (module && module.initLightClassicBlue) {
+        module.initLightClassicBlue();
     }
 }
-async function disableLightClassic() {
-    const module = await loadLightClassicModule();
-    if (module && module.removeLightClassic) {
-        module.removeLightClassic();
+async function disableLightClassicBlue() {
+    const module = await loadLightClassicBlueModule();
+    if (module && module.removeLightClassicBlue) {
+        module.removeLightClassicBlue();
+    }
+}
+async function enableLightClassicRed() {
+    const module = await loadLightClassicRedModule();
+    if (module && module.initLightClassicRed) {
+        module.initLightClassicRed();
+    }
+}
+async function disableLightClassicRed() {
+    const module = await loadLightClassicRedModule();
+    if (module && module.removeLightClassicRed) {
+        module.removeLightClassicRed();
     }
 }
 async function enableSunset() {
@@ -955,16 +989,28 @@ async function disableXingqiong() {
         module.removeXingqiong();
     }
 }
-async function enableDarkClassic() {
-    const module = await loadDarkClassicModule();
-    if (module && module.initDarkClassic) {
-        module.initDarkClassic();
+async function enableDarkClassicBlue() {
+    const module = await loadDarkClassicBlueModule();
+    if (module && module.initDarkClassicBlue) {
+        module.initDarkClassicBlue();
     }
 }
-async function disableDarkClassic() {
-    const module = await loadDarkClassicModule();
-    if (module && module.removeDarkClassic) {
-        module.removeDarkClassic();
+async function disableDarkClassicBlue() {
+    const module = await loadDarkClassicBlueModule();
+    if (module && module.removeDarkClassicBlue) {
+        module.removeDarkClassicBlue();
+    }
+}
+async function enableDarkClassicRed() {
+    const module = await loadDarkClassicRedModule();
+    if (module && module.initDarkClassicRed) {
+        module.initDarkClassicRed();
+    }
+}
+async function disableDarkClassicRed() {
+    const module = await loadDarkClassicRedModule();
+    if (module && module.removeDarkClassicRed) {
+        module.removeDarkClassicRed();
     }
 }
 async function enableDarkRevert() {
@@ -1209,19 +1255,19 @@ async function handleColorButtonClick(buttonId, enableFunction, disableFunction)
             }
             if (!hasActiveColor) {
                 if (currentMode === 'light') {
-                    await enableLightClassic();
-                    const lightClassicBtn = document.getElementById('QYLLightClassic');
+                    await enableLightClassicBlue();
+                    const lightClassicBtn = document.getElementById('QYLLightClassicBlue');
                     if (lightClassicBtn) {
                         lightClassicBtn.classList.add('active');
                     }
-                    await setButtonState('QYLLightClassic', true);
+                    await setButtonState('QYLLightClassicBlue', true);
                 } else {
-                    await enableDarkClassic();
-                    const darkClassicBtn = document.getElementById('QYLDarkClassic');
+                    await enableDarkClassicBlue();
+                    const darkClassicBtn = document.getElementById('QYLDarkClassicBlue');
                     if (darkClassicBtn) {
                         darkClassicBtn.classList.add('active');
                     }
-                    await setButtonState('QYLDarkClassic', true);
+                    await setButtonState('QYLDarkClassicBlue', true);
                 }
             }
         } catch (error) {
@@ -1241,8 +1287,10 @@ async function handleDisableById(id) {
         await disableColorSwitchTime();
     } else if (id === 'ColorSwitchImgLight' || id === 'ColorSwitchImgDark') {
         await disableColorSwitchImg();
-    } else if (id === 'QYLLightClassic') {
-        await disableLightClassic();
+    } else if (id === 'QYLLightClassicBlue') {
+        await disableLightClassicBlue();
+    } else if (id === 'QYLLightClassicRed') {
+        await disableLightClassicRed();
     } else if (id === 'QYLSunset') {
         await disableSunset();
     } else if (id === 'QYLForest') {
@@ -1313,8 +1361,10 @@ async function handleDisableById(id) {
         await disableWinter();
     } else if (id === 'QYLXingqiong') {
         await disableXingqiong();
-    } else if (id === 'QYLDarkClassic') {
-        await disableDarkClassic();
+    } else if (id === 'QYLDarkClassicBlue') {
+        await disableDarkClassicBlue();
+    } else if (id === 'QYLDarkClassicRed') {
+        await disableDarkClassicRed();
     } else if (id === 'QYLDarkRevert') {
         await disableDarkRevert();
     } else if (id === 'QYLWildness') {
@@ -1349,8 +1399,12 @@ function getColorOptions() {
             label: i18n.ColorSwitchImg
         },
         {
-            id: 'QYLLightClassic',
-            label: i18n.QYLLightClassic
+            id: 'QYLLightClassicBlue',
+            label: i18n.QYLLightClassicBlue
+        },
+        {
+            id: 'QYLLightClassicRed',
+            label: i18n.QYLLightClassicRed
         },
         {
             id: 'QYLSunset',
@@ -1471,8 +1525,12 @@ function getColorOptions() {
             label: i18n.ColorSwitchImg
         },
         {
-            id: 'QYLDarkClassic',
-            label: i18n.QYLDarkClassic
+            id: 'QYLDarkClassicBlue',
+            label: i18n.QYLDarkClassicBlue
+        },
+        {
+            id: 'QYLDarkClassicRed',
+            label: i18n.QYLDarkClassicRed
         },
         {
             id: 'QYLBurgundy',
@@ -1588,9 +1646,13 @@ async function createColorContent(config = null) {
                 disableFunction = disableColorSwitchImg;
             } else {
                 switch (option.id) {
-                    case 'QYLLightClassic':
-                        enableFunction = enableLightClassic;
-                        disableFunction = disableLightClassic;
+                    case 'QYLLightClassicBlue':
+                        enableFunction = enableLightClassicBlue;
+                        disableFunction = disableLightClassicBlue;
+                        break;
+                    case 'QYLLightClassicRed':
+                        enableFunction = enableLightClassicRed;
+                        disableFunction = disableLightClassicRed;
                         break;
                     case 'QYLSunset':
                         enableFunction = enableSunset;
@@ -1724,9 +1786,13 @@ async function createColorContent(config = null) {
                         enableFunction = enableXingqiong;
                         disableFunction = disableXingqiong;
                         break;
-                    case 'QYLDarkClassic':
-                        enableFunction = enableDarkClassic;
-                        disableFunction = disableDarkClassic;
+                    case 'QYLDarkClassicBlue':
+                        enableFunction = enableDarkClassicBlue;
+                        disableFunction = disableDarkClassicBlue;
+                        break;
+                    case 'QYLDarkClassicRed':
+                        enableFunction = enableDarkClassicRed;
+                        disableFunction = disableDarkClassicRed;
                         break;
                     case 'QYLDarkRevert':
                         enableFunction = enableDarkRevert;
@@ -1830,8 +1896,10 @@ async function initializeColorStates(config = null) {
         }
     }
     if (firstActiveColor) {
-        if (firstActiveColor === 'QYLLightClassic') {
-            await enableLightClassic();
+        if (firstActiveColor === 'QYLLightClassicBlue') {
+            await enableLightClassicBlue();
+        } else if (firstActiveColor === 'QYLLightClassicRed') {
+            await enableLightClassicRed();
         } else if (firstActiveColor === 'QYLSunset') {
             await enableSunset();
         } else if (firstActiveColor === 'QYLForest') {
@@ -1898,8 +1966,10 @@ async function initializeColorStates(config = null) {
             await enableWinter();
         } else if (firstActiveColor === 'QYLXingqiong') {
             await enableXingqiong();
-        } else if (firstActiveColor === 'QYLDarkClassic') {
-            await enableDarkClassic();
+        } else if (firstActiveColor === 'QYLDarkClassicBlue') {
+            await enableDarkClassicBlue();
+        } else if (firstActiveColor === 'QYLDarkClassicRed') {
+            await enableDarkClassicRed();
         } else if (firstActiveColor === 'QYLWildness') {
             await enableWildness();
         } else if (firstActiveColor === 'QYLMarsh') {
@@ -1921,19 +1991,19 @@ async function initializeColorStates(config = null) {
         }
     } else {
         if (currentMode === 'light') {
-            await enableLightClassic();
-            const lightClassicBtn = document.getElementById('QYLLightClassic');
+            await enableLightClassicBlue();
+            const lightClassicBtn = document.getElementById('QYLLightClassicBlue');
             if (lightClassicBtn) {
                 lightClassicBtn.classList.add('active');
             }
-            await setButtonState('QYLLightClassic', true);
+            await setButtonState('QYLLightClassicBlue', true);
         } else {
-            await enableDarkClassic();
-            const darkClassicBtn = document.getElementById('QYLDarkClassic');
+            await enableDarkClassicBlue();
+            const darkClassicBtn = document.getElementById('QYLDarkClassicBlue');
             if (darkClassicBtn) {
                 darkClassicBtn.classList.add('active');
             }
-            await setButtonState('QYLDarkClassic', true);
+            await setButtonState('QYLDarkClassicBlue', true);
         }
     }
 }
