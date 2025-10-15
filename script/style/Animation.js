@@ -242,14 +242,54 @@ export function initAnimation() {
               }
             }
         }
-        html :is(.b3-button,.b3-chip--pink,#barWorkspace) {
+        /* 按钮闪光 */
+        :is(.b3-button, #barWorkspace):not(.b3-tooltips) {
             --QYL-button-transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
         }
-        html :is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
-            display: block !important;
+        .b3-button:not(.b3-tooltips) {
+            &::before {
+                --shine-width: max(50%, 80px);
+                content: "";
+                background: var(--QYL-shine-color);
+                height: 100%;
+                width: var(--shine-width);
+                transform: skewX(-45deg);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: calc(-1.5 * var(--shine-width));
+            }
+            &:hover, &:focus  {
+                transition: var(--QYL-button-transition, var(--b3-transition));
+                &::before {
+                    left: calc(100% + 0.5 * var(--shine-width));
+                    transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
+                }
+            }
         }
-        #barWorkspace::before {
-            display: block !important;
+        #barWorkspace {
+            &::before {
+                --shine-width: max(50%, 80px);
+                content: "";
+                background: var(--QYL-shine-color);
+                height: 100%;
+                width: var(--shine-width);
+                transform: skewX(-45deg);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: calc(-1.5 * var(--shine-width));
+            }
+            &:hover, &:focus  {
+                transition: var(--QYL-button-transition, var(--b3-transition));
+                &::before {
+                    left: calc(100% + 0.5 * var(--shine-width));
+                    transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
+                }
+                & .toolbar__text {
+                    transition: var(--QYL-button-transition, var(--b3-transition));
+                }
+            }
         }
         /* 超链接动效 */
         .protyle-wysiwyg [data-node-id] span[data-type~=a] {
