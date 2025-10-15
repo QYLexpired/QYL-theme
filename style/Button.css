@@ -1,6 +1,3 @@
-:is(.b3-button,.b3-chip--pink,#barWorkspace)::before {
-    display: none !important;
-}
 :root{ 
     --QYL-shine-color: linear-gradient(-45deg, rgba(255,255,255,0.2),rgba(255,255,255,1), rgba(255,255,255,0.2));
 }
@@ -12,56 +9,17 @@
     position: relative;
     overflow: hidden;
     transition: var(--b3-transition);
-    &::before {
-        --shine-width: max(50%, 80px);
-        content: "";
-        background: var(--QYL-shine-color);
-        height: 100%;
-        width: var(--shine-width);
-        transform: skewX(-45deg);
-        display: block;
-        position: absolute;
-        top: 0;
-        left: calc(-1.5 * var(--shine-width));
-    }
     &:hover, &:focus  {
-        transition: var(--QYL-button-transition, var(--b3-transition));
         border: 1px solid var(--b3-theme-primary);
         background-color: var(--b3-theme-primary);
         color: var(--b3-theme-on-primary);
         box-shadow: var(--b3-button-shadow) !important;
-        &::before {
-            left: calc(100% + 0.5 * var(--shine-width));
-            transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
-        }
     }
 }
 #barWorkspace {
     position: relative;
     overflow: hidden;
     transition: var(--b3-transition);
-    &::before {
-        --shine-width: max(50%, 80px);
-        content: "";
-        background: var(--QYL-shine-color);
-        height: 100%;
-        width: var(--shine-width);
-        transform: skewX(-45deg);
-        display: block;
-        position: absolute;
-        top: 0;
-        left: calc(-1.5 * var(--shine-width));
-    }
-    &:hover, &:focus  {
-        transition: var(--QYL-button-transition, var(--b3-transition));
-        &::before {
-            left: calc(100% + 0.5 * var(--shine-width));
-            transition: 0.5s cubic-bezier(0.1, 0.0, 0.8, 0.1);
-        }
-        & .toolbar__text {
-            transition: var(--QYL-button-transition, var(--b3-transition));
-        }
-    }
 }
 .b3-button--outline {
     box-shadow: none;
@@ -142,9 +100,6 @@
     box-shadow: none;
     }
 }
-.config-account__center .b3-button[id="refresh"]::before {
-    opacity: 0;
-}
 #removeAll.b3-button {
     border-color: var(--b3-theme-error);
     background-color: var(--b3-theme-error);
@@ -170,11 +125,6 @@ div[data-key="dialog-opencard"] .card__action .b3-button[data-type="-1"] {
     background-color: var(--b3-theme-primary);
     color: var(--b3-theme-on-primary);
 }
-div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [data-type="-2"], [data-type="-1"], [data-type="1"], [data-type="2"], [data-type="3"], [data-type="4"]) {
-    &::before {
-    display: none !important;
-    }
-}
 .protyle-background__action .b3-button.b3-button--cancel {
     border-radius: 12px;
     border-color: var(--b3-theme-surface-lighter);
@@ -192,16 +142,5 @@ div[data-key="dialog-opencard"] .card__action .b3-button:is([data-type="-3"], [d
     }
     & > button {
         border-radius: 2.5cqw;
-    }
-}
-/* 兼容番茄工具箱 */
-.b3-button[tomatocardskipbtn="1"].b3-button--cancel:not(#findResultsCount, #findMsg)::before {
-    display: none !important;
-}
-[tomatocarddelbtn="1"] .b3-button.b3-button--cancel:not(#findResultsCount, #findMsg) {
-    line-height: 30px;
-    padding: 8px 0;
-    &::before {
-    display: none !important;
     }
 }
