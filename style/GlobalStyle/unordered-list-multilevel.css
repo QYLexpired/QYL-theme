@@ -23,7 +23,7 @@ html {
         &:is(.en_item_bullet_actived, [fold="1"]) {
             & > .protyle-action::before {
                 background: var(--b3-theme-primary);
-                background: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+                background: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
             }
         }
         & .li[data-subtype="u"] {

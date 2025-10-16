@@ -1,8 +1,9 @@
 /* 圆角表格 */
 html {
-    & .protyle-wysiwyg [data-node-id] table {
+    & .protyle-wysiwyg [data-node-id].table table {
         border-radius: 8px;
-        border: 1px solid var(--b3-theme-surface-lighter);
+        box-shadow: 0 0 0 1px var(--b3-theme-surface-lighter) inset;
+        overflow: hidden;
         & thead th {
             border-top: none;
             &:first-child {

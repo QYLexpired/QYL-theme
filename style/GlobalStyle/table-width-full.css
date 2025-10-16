@@ -1,0 +1,7 @@
+/* 表格全宽 */
+html {
+    & .protyle-wysiwyg [data-node-id].table table {
+        display: table;
+        width: 100%;
+    }
+}
