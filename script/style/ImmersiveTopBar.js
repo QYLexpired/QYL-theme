@@ -6,12 +6,12 @@ export function initImmersiveTopBar() {
         :root {
             --QYL-Immersive-TopBar: var(--b3-theme-primary);
             &.QYLCustomColor {
-                --QYL-Immersive-TopBar: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+                --QYL-Immersive-TopBar: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * max(0.15, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
             }
             &[data-theme-mode="dark"] {
                 --QYL-Immersive-TopBar: var(--b3-theme-primary);
                 &.QYLCustomColor {
-                    --QYL-Immersive-TopBar: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.01) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+                    --QYL-Immersive-TopBar: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.01) calc(0.15 * max(0.15, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
                 }
             }
         }
