@@ -1,5 +1,6 @@
 import { getConfig, saveConfig } from './Storage.js';
 import ThemeMode from './ThemeMode.js';
+import './ColorJs.js';
 export class ColorPick {
     constructor() {
         this.container = null;
@@ -9,8 +10,11 @@ export class ColorPick {
         this.saturationInput = null;
         this.brightnessSlider = null;
         this.brightnessInput = null;
+        this.colorInput = null;
+        this.colorInputDisplay = null;
         this.configCache = null;
         this.pendingSave = null;
+        this.isUpdatingFromColorInput = false; 
     }
     async getCachedConfig() {
         if (!this.configCache) {
@@ -29,6 +33,25 @@ export class ColorPick {
             } catch (error) {
             }
         }, 500);
+    }
+    oklchToHex(lightness, chroma, hue) {
+        try {
+            if (typeof Color === 'undefined') {
+                return '#ff0000'; 
+            }
+            const oklchColor = new Color(`oklch(${lightness} ${chroma} ${hue}deg)`);
+            const hexColor = oklchColor.to('srgb').toString({ format: 'hex' });
+            return hexColor;
+        } catch (error) {
+            return '#ff0000'; 
+        }
+    }
+    getDefaultColor() {
+        const lightness = 0.5;
+        const chroma = 0.5;
+        const hue = getComputedStyle(document.documentElement).getPropertyValue('--QYL-custom-primary-main') || '0deg';
+        const hueValue = parseFloat(hue.replace('deg', ''));
+        return this.oklchToHex(lightness, chroma, hueValue);
     }
     createCustomColorPicker(callback, initialHue = 0, initialSaturation = 0.5, initialBrightness = 0) {
         this.container = document.createElement('div');
@@ -62,17 +85,23 @@ export class ColorPick {
         this.brightnessInput.className = 'QYLBrightnessInput';
         this.hueInput.addEventListener('input', async (e) => {
             const value = parseInt(e.target.value);
-            try {
-                const config = await this.getCachedConfig();
-                const currentMode = ThemeMode.getThemeMode();
-                const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
-                config[`CustomMainColor${modeSuffix}`] = value;
-                await this.saveConfigDebounced();
-            } catch (error) {
+            if (!this.isUpdatingFromColorInput) {
+                try {
+                    const config = await this.getCachedConfig();
+                    const currentMode = ThemeMode.getThemeMode();
+                    const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
+                    config[`CustomMainColor${modeSuffix}`] = value;
+                    delete config[`CustomMainColorPick${modeSuffix}`];
+                    await this.saveConfigDebounced();
+                } catch (error) {
+                }
+                document.documentElement.style.setProperty('--QYL-custom-primary-main', value.toString() + 'deg');
+                document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
             }
-            document.documentElement.style.setProperty('--QYL-custom-primary-main', value.toString() + 'deg');
             const currentSaturation = this.getColor()?.saturation ?? 0.5;
             const currentBrightness = this.getColor()?.brightness ?? 0;
+            const hexColor = this.oklchToHex(0.5, 0.5, value);
+            this.colorInput.value = hexColor;
             if (callback) {
                 callback({ hue: value, saturation: currentSaturation, brightness: currentBrightness, type: 'hue' });
             }
@@ -111,9 +140,61 @@ export class ColorPick {
                 callback({ hue: currentHue, saturation: currentSaturation, brightness: value, type: 'brightness' });
             }
         });
+        this.colorInput = document.createElement('input');
+        this.colorInput.type = 'color';
+        this.colorInput.className = 'QYLColorInput';
+        this.colorInput.value = this.getDefaultColor();
+        this.colorInputDisplay = document.createElement('div');
+        this.colorInputDisplay.className = 'QYLColorInputDisplay';
+        this.colorInputDisplay.addEventListener('click', () => {
+            this.colorInput.click();
+        });
+        this.colorInput.addEventListener('input', async (e) => {
+            const colorValue = e.target.value;
+            try {
+                const config = await this.getCachedConfig();
+                const currentMode = ThemeMode.getThemeMode();
+                const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
+                config[`CustomMainColorPick${modeSuffix}`] = colorValue;
+                await this.saveConfigDebounced();
+            } catch (error) {
+            }
+            document.documentElement.style.setProperty('--QYL-custom-primary-pick', colorValue);
+            try {
+                const color = new Color(colorValue);
+                const oklchColor = color.to('oklch');
+                const hue = oklchColor.h || 0; 
+                this.isUpdatingFromColorInput = true;
+                this.hueInput.value = Math.round(hue);
+                this.updateHueSliderDisplay(hue);
+                this.isUpdatingFromColorInput = false;
+            } catch (error) {
+                this.isUpdatingFromColorInput = false;
+            }
+            if (callback) {
+                callback({ colorPick: colorValue, type: 'colorPick' });
+            }
+        });
+        this.colorInput.addEventListener('contextmenu', async (e) => {
+            e.preventDefault();
+            try {
+                const config = await this.getCachedConfig();
+                const currentMode = ThemeMode.getThemeMode();
+                const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
+                delete config[`CustomMainColorPick${modeSuffix}`];
+                await this.saveConfigDebounced();
+                document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
+                if (callback) {
+                    callback({ colorPick: null, type: 'colorPickRemoved' });
+                }
+            } catch (error) {
+            }
+        });
         this.hueSlider.appendChild(this.hueInput);
         this.saturationSlider.appendChild(this.saturationInput);
         this.brightnessSlider.appendChild(this.brightnessInput);
+        this.container.insertBefore(this.colorInput, this.container.firstChild);
+        this.container.insertBefore(this.colorInputDisplay, this.container.children[1]);
         this.container.appendChild(this.hueSlider);
         this.container.appendChild(this.saturationSlider);
         this.container.appendChild(this.brightnessSlider);
@@ -124,6 +205,11 @@ export class ColorPick {
         const saturation = this.saturationInput ? parseFloat(this.saturationInput.value) : 0.5;
         const brightness = this.brightnessInput ? parseFloat(this.brightnessInput.value) : 0;
         return { hue, saturation, brightness };
+    }
+    updateHueSliderDisplay(hue) {
+        if (!this.hueInput) return;
+        const event = new Event('input', { bubbles: true });
+        this.hueInput.dispatchEvent(event);
     }
     destroy() {
         if (this.pendingSave) {
@@ -139,6 +225,8 @@ export class ColorPick {
             this.saturationInput = null;
             this.brightnessSlider = null;
             this.brightnessInput = null;
+            this.colorInput = null;
+            this.colorInputDisplay = null;
         }
         this.configCache = null;
     }
