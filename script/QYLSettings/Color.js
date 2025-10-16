@@ -2019,6 +2019,16 @@ async function loadColorFromConfig() {
         } catch (error) {
         }
     }
+    try {
+        const config = await getStorageConfig();
+        const currentMode = ThemeMode.getThemeMode();
+        const modeSuffix = currentMode === 'dark' ? 'Dark' : 'Light';
+        const colorPickValue = config[`CustomMainColorPick${modeSuffix}`];
+        if (colorPickValue) {
+            document.documentElement.style.setProperty('--QYL-custom-primary-pick', colorPickValue);
+        }
+    } catch (error) {
+    }
 }
 async function loadDarkRevertModule() {
     if (!darkRevertModule) {
