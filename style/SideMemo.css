@@ -4,7 +4,7 @@
     &.QYLinlinememoActive {
         background-color: var(--b3-theme-primary) !important;
         color: var(--b3-theme-on-primary) !important;
-        --b3-theme-primary: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+        --b3-theme-primary: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
     }
     &:hover {
         background-color: var(--b3-theme-primary) !important;
@@ -18,7 +18,7 @@
     overflow-x: hidden;
 }
 .protyle-wysiwyg [data-node-id][memo].QYLBlockmemoActive {
-    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
+    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
 }
 /* 底部 */
 .QYLmemoB .QYL-inline-memo-box {
@@ -46,13 +46,13 @@
         border-radius: 6px;
         z-index: 1;
         &.QYLmemoActive {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main)) / 0.2) !important;
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main)) / 0.2) !important;
         }
         &:hover {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
             & > div:first-child {
                 &:before {
-                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
                 }
             }
         }
@@ -80,7 +80,7 @@
                 transition: var(--b3-transition);
             }
             &:hover {
-                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
             }
         }
         & > div:nth-child(2) {
@@ -90,18 +90,18 @@
         }
         &.QYL-block-memo {
             &.QYLmemoActive {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
             &:hover {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
@@ -109,10 +109,10 @@
                 -webkit-line-clamp: 1;
                 line-clamp: 1;
                 &:before {
-                    background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
+                    background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
                 }
                 &:hover {
-                    color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                    color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                 }
             }
         }
@@ -166,13 +166,13 @@
             }
         }   
         &.QYLmemoActive {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main)) / 0.2) !important;
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main)) / 0.2) !important;
         }
         &:hover {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
             & > div:first-child {
                 &:before {
-                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
                 }
             }
         }
@@ -200,7 +200,7 @@
                 transition: var(--b3-transition);
             }
             &:hover {
-                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
             }
         }
         & > div:nth-child(2) {
@@ -210,18 +210,18 @@
         }
         &.QYL-block-memo {
             &.QYLmemoActive {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
             &:hover {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
@@ -229,10 +229,10 @@
                 -webkit-line-clamp: 1;
                 line-clamp: 1;
                 &:before {
-                    background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
+                    background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
                 }
                 &:hover {
-                    color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                    color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                 }
             }
         }
@@ -286,13 +286,13 @@
             }
         }   
         &.QYLmemoActive {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main)) / 0.2) !important;
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main)) / 0.2) !important;
         }
         &:hover {
-            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
+            background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg) / 0.2);
             & > div:first-child {
                 &:before {
-                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
                 }
             }
         }
@@ -320,7 +320,7 @@
                 transition: var(--b3-transition);
             }
             &:hover {
-                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 90deg));
+                color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 90deg));
             }
         }
         & > div:nth-child(2) {
@@ -330,18 +330,18 @@
         }
         &.QYL-block-memo {
             &.QYLmemoActive {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2) !important;
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
             &:hover {
-                background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
+                background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg) / 0.2);
                 & > div:first-child {
                     &:before {
-                        background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                        background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                     }
                 }
             }
@@ -349,10 +349,10 @@
                 -webkit-line-clamp: 1;
                 line-clamp: 1;
                 &:before {
-                    background-color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
+                    background-color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg));
                 }
                 &:hover {
-                    color: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 270deg));
+                    color: oklch(0.65 calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 270deg));
                 }
             }
         }

@@ -61,6 +61,10 @@
 .b3-typography table thead th, .b3-typography table thead td, .protyle-wysiwyg table thead th, .protyle-wysiwyg table thead td {
     font-weight: unset;
 }
+.protyle-wysiwyg [data-node-id].table[custom-pinthead=true] thead {
+    box-shadow: unset;
+    background-color: unset;
+}
 /* 行级代码 */
 :is(.fn__code, .b3-typography code, .b3-typography span[data-type~=code], .protyle-wysiwyg code, .protyle-wysiwyg span[data-type~=code]) {
     border-radius: 6px;
@@ -239,8 +243,8 @@
     background-image: linear-gradient(to right bottom, 
     var(--b3-theme-primary),
     var(--b3-theme-primary),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 5deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 30deg)));
     -webkit-mask-image: url('../img/uncheck.svg');
     -webkit-mask-size: 18px;
     -webkit-mask-repeat: no-repeat;
@@ -266,8 +270,8 @@
         background-image: linear-gradient(to right bottom, 
         var(--b3-theme-primary),
         var(--b3-theme-primary),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 5deg)),
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 30deg)));
         -webkit-mask-image: url('../img/uncheck.svg');
         -webkit-mask-size: 18px;
         -webkit-mask-repeat: no-repeat;
@@ -293,8 +297,8 @@
     background-image: linear-gradient(to right bottom, 
     var(--b3-theme-primary),
     var(--b3-theme-primary),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
-    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 5deg)),
+    oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 30deg)));
     -webkit-mask-image: url('../img/checked.svg');
     -webkit-mask-size: 18px;
     -webkit-mask-repeat: no-repeat;
@@ -319,8 +323,8 @@
         background-image: linear-gradient(to right bottom, 
         var(--b3-theme-primary),
         var(--b3-theme-primary),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 5deg)),
-        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 30deg)));
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 5deg)),
+        oklch(calc(0.68 + var(--b3-theme-primary-brightness) * 0.02) calc(0.30 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 30deg)));
         -webkit-mask-image: url('../img/checked.svg');
         -webkit-mask-size: 18px;
         -webkit-mask-repeat: no-repeat;
@@ -343,10 +347,10 @@
 }
 .protyle-wysiwyg [data-node-id].li[fold="1"]>.protyle-action {
     color: var(--b3-theme-primary);
-    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
     & svg {
         color: var(--b3-theme-primary);
-        color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+        color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
     }
     &::after {
         background-color: var(--QYL-tab-item-focus);
@@ -355,7 +359,7 @@
 }
 .protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover {
     color: var(--b3-theme-primary);
-    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+    color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.02) calc(0.25 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
 }
 .protyle .protyle-wysiwyg .li[data-subtype=o]>.protyle-action:hover::after, .protyle .protyle-wysiwyg .li[data-subtype=u]>.protyle-action:hover::after, .protyle .protyle-wysiwyg[data-readonly=false] .li[data-subtype=t]>.protyle-action:hover::after {
     background-color: var(--QYL-tab-item-focus);

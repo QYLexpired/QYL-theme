@@ -14,7 +14,7 @@
     --b3-pdf-background7: #9864a5;
 }
 .textLayer .highlight.selected {
-    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg) / 0.45);
+    background-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) calc(var(--b3-theme-primary-main) + 180deg) / 0.45);
 }
 #sidebarContainer {
     background-color: var(--b3-theme-background);

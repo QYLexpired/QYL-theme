@@ -13,15 +13,15 @@
     --b3-theme-surface-lighter: #d3d9e5;
     /* 文字颜色 */
     --b3-theme-on-primary: rgba(255,255,255,.9);
-    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-background: #353c48;
     --b3-theme-on-surface: #636771;
     --b3-theme-on-surface-light: #838897;
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #ffffff;
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
-    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    --b3-toolbar-hover: var(--b3-list-hover);
     /* 滚动条 */
     --b3-scroll-color: rgba(189, 197, 212, 0.4);
     /* 悬停 */
@@ -37,7 +37,7 @@
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
     /* 高亮 */
-    --b3-highlight-color: white;
+    --b3-highlight-color: var(--b3-theme-on-primary);
     --b3-highlight-background: rgb(255, 0, 238);
     --b3-highlight-current-background: rgb(179, 0, 255);
     /* switch */
@@ -81,10 +81,10 @@
             --b3-theme-primary: oklch(clamp(0.6, var(--QYL-Img-L, 0.5), 0.75) clamp(0.12, var(--QYL-Img-C, 0.5), 0.5) var(--QYL-Img-H, 220deg));
         }
         /* 主色 */
-        --b3-theme-primary: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.1, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
-        --b3-theme-primary-light: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.1, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.55);
-        --b3-theme-primary-lighter: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.1, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
-        --b3-theme-primary-lightest: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.35 * max(0.1, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.15);
+        --b3-theme-primary: var(--QYL-custom-primary-pick, oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.025) calc(0.35 * max(0.32, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)));
+        --b3-theme-primary-light: oklch(calc(0.73 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.55);
+        --b3-theme-primary-lighter: oklch(calc(0.73 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+        --b3-theme-primary-lightest: oklch(calc(0.73 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.15);
         /* 编辑器背景色 */
         --b3-theme-background: oklch(calc(0.99 + var(--b3-theme-primary-brightness) * 0.02) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-background-light: oklch(calc(0.95 + var(--b3-theme-primary-brightness) * 0.02) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -94,20 +94,20 @@
         --b3-theme-surface-lighter: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.68);
         /* 文字颜色 */
         --b3-theme-on-primary: rgba(255,255,255,.9);
-        --b3-theme-on-secondary: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
-        --b3-theme-on-error: oklch(calc(0.98 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+        --b3-theme-on-error: var(--b3-theme-on-primary);
+        --b3-theme-on-secondary: var(--b3-theme-on-primary);
         --b3-theme-on-background: oklch(calc(0.15 + var(--b3-theme-primary-brightness) * 0.04) calc(0.25 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-on-surface: oklch(calc(0.28 + var(--b3-theme-primary-brightness) * 0.04) calc(0.22 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-on-surface-light: oklch(calc(0.28 + var(--b3-theme-primary-brightness) * 0.04) calc(0.22 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.64);
         /* 顶部工具栏 */
         --b3-toolbar-blur-background: oklch(calc(0.97 + var(--b3-theme-primary-brightness) * 0.02) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-        --b3-toolbar-color: oklch(calc(0.37 + var(--b3-theme-primary-brightness) * 0.02) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-        --b3-toolbar-hover: var(--QYL-tab-item-focus);
+        --b3-toolbar-color: var(--b3-theme-on-surface-light);
+        --b3-toolbar-hover: var(--b3-list-hover);
         /* 滚动条 */
         --b3-scroll-color: oklch(calc(0.72 + var(--b3-theme-primary-brightness) * 0.01) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
         /* 悬停 */
-        --b3-list-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.2);
-        --b3-list-icon-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.2);
+        --b3-list-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.2);
+        --b3-list-icon-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.2);
         /* 菜单 */
         --b3-menu-background: var(--b3-theme-background);
         /* 提示 */
@@ -118,7 +118,7 @@
         /* 遮罩 */
         --b3-mask-background: oklch(calc(0.2 - var(--b3-theme-primary-brightness) * 0.02) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
         /* 高亮 */
-        --b3-highlight-color: white;
+        --b3-highlight-color: var(--b3-theme-on-primary);
         --b3-highlight-background: oklch(0.65 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
         --b3-highlight-current-background: oklch(0.6 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
         /* switch */
@@ -126,8 +126,8 @@
         /* 行级代码背景色 */
         --b3-protyle-code-background: oklch(calc(0.94 + var(--b3-theme-primary-brightness) * 0.02) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         /* 页签 */
-        --QYL-tab-item: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.02) calc(0.08 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25);
-        --QYL-tab-item-focus: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+        --QYL-tab-item: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.02) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
+        --QYL-tab-item-focus: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.02) calc(0.18 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
         /* 状态栏 */
         --QYL-status-background: oklch(calc(0.99 + var(--b3-theme-primary-brightness) * 0.02) calc(0.02 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         /* 毛玻璃 */
@@ -142,9 +142,9 @@
         /* 标记 */
         --b3-protyle-inline-mark-background: oklch(0.85 0.2 140deg);
         /* 超链接 */
-        --b3-protyle-inline-link-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.45 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.08) + 237deg));
-        --b3-protyle-inline-blockref-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.01) calc(0.45 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.05) + 268deg));
-        --b3-protyle-inline-fileref-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.01) calc(0.55 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.08) + 160deg));
+        --b3-protyle-inline-link-color: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.01) calc(0.45 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.08) + 237deg));
+        --b3-protyle-inline-blockref-color: oklch(calc(0.6 + var(--b3-theme-primary-brightness) * 0.01) calc(0.45 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.05) + 268deg));
+        --b3-protyle-inline-fileref-color: oklch(calc(0.5 + var(--b3-theme-primary-brightness) * 0.01) calc(0.55 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.08) + 160deg));
     }
 }
 /* 暗黑模式 */
@@ -163,15 +163,15 @@
     --b3-theme-surface-lighter: rgba(230, 230, 230, 0.15);
     /* 文字颜色 */
     --b3-theme-on-primary: rgba(255,255,255,.9);
-    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-background: #dadada;
     --b3-theme-on-surface: #9aa0a6;
     --b3-theme-on-surface-light: #bababa;
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #494949;
-    --b3-toolbar-color: var(--b3-theme-on-surface);
-    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    --b3-toolbar-color: var(--b3-theme-on-surface-light);
+    --b3-toolbar-hover: var(--b3-list-hover);
     /* 滚动条 */
     --b3-scroll-color: rgba(230, 230, 230, .2);
     /* 悬停 */
@@ -187,7 +187,7 @@
     /* 遮罩 */
     --b3-mask-background: rgba(10, 10, 10, .4);
     /* 高亮 */
-    --b3-highlight-color: white;
+    --b3-highlight-color: var(--b3-theme-on-primary);
     --b3-highlight-background: rgb(255, 0, 238);
     --b3-highlight-current-background: rgb(179, 0, 255);
     /* switch */
@@ -231,10 +231,10 @@
             --b3-theme-primary: oklch(clamp(0.5, var(--QYL-Img-L, 0.5), 0.6) clamp(0.12, var(--QYL-Img-C, 0.5), 0.45) var(--QYL-Img-H, 220deg));
         }
         /* 主色 */
-        --b3-theme-primary: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.02) calc(0.2 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main));
-        --b3-theme-primary-light: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.2 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
-        --b3-theme-primary-lighter: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.2 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
-        --b3-theme-primary-lightest: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.02) calc(0.2 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.15);
+        --b3-theme-primary: var(--QYL-custom-primary-pick, oklch(calc(0.58 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)));
+        --b3-theme-primary-light: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
+        --b3-theme-primary-lighter: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+        --b3-theme-primary-lightest: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.15);
         /* 编辑器背景色 */
         --b3-theme-background: oklch(calc(0.24 + var(--b3-theme-primary-brightness) * 0.02) calc(0.061 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-background-light: oklch(calc(0.32 + var(--b3-theme-primary-brightness) * 0.02) calc(0.061 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -243,20 +243,20 @@
         --b3-theme-surface-light: oklch(calc(0.18 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.86);
         /* 文字颜色 */
         --b3-theme-on-primary: rgba(255,255,255,.9);
-        --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
-        --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+        --b3-theme-on-error: var(--b3-theme-on-primary);
+        --b3-theme-on-secondary: var(--b3-theme-on-primary);
         --b3-theme-on-background: oklch(calc(0.88 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-on-surface: oklch(calc(0.82 + var(--b3-theme-primary-brightness) * 0.015) calc(0.045 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         --b3-theme-on-surface-light: oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.015) calc(0.045 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.64);
         /* 顶部工具栏 */
         --b3-toolbar-blur-background: oklch(calc(0.25 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-        --b3-toolbar-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-        --b3-toolbar-hover: var(--QYL-tab-item-focus);
+        --b3-toolbar-color: var(--b3-theme-on-surface-light);
+        --b3-toolbar-hover: var(--b3-list-hover);
         /* 滚动条 */
         --b3-scroll-color: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
         /* 悬停 */
-        --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
-        --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
+        --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
+        --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
         /* 菜单 */
         --b3-menu-background: var(--b3-theme-background);
         /* 提示 */
@@ -267,7 +267,7 @@
         /* 遮罩 */
         --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
         /* 高亮 */
-        --b3-highlight-color: oklch(0.98 0 var(--b3-theme-primary-main));
+        --b3-highlight-color: var(--b3-theme-on-primary);
         --b3-highlight-background: oklch(0.55 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
         --b3-highlight-current-background: oklch(0.52 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
         /* switch */
@@ -275,8 +275,8 @@
         /* 行级代码背景色 */
         --b3-protyle-code-background: oklch(calc(0.38 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         /* 页签 */
-        --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25);
-        --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+        --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
+        --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
         /* 状态栏 */
         --QYL-status-background: oklch(calc(0.26 + var(--b3-theme-primary-brightness) * 0.02) calc(0.061 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
         /* 毛玻璃 */
@@ -291,9 +291,9 @@
         /* 标记 */
         --b3-protyle-inline-mark-background: oklch(0.5 0.1 140deg);
         /* 超链接 */
-        --b3-protyle-inline-link-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.01) calc(0.28 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.08) + 237deg));
-        --b3-protyle-inline-blockref-color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.01) calc(0.55 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.05) + 268deg));
-        --b3-protyle-inline-fileref-color: oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * var(--b3-theme-primary-saturate)) calc(calc(var(--b3-theme-primary-main) * 0.08) + 160deg));
+        --b3-protyle-inline-link-color: oklch(calc(0.75 + var(--b3-theme-primary-brightness) * 0.01) calc(0.28 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.08) + 237deg));
+        --b3-protyle-inline-blockref-color: oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.01) calc(0.55 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.05) + 268deg));
+        --b3-protyle-inline-fileref-color: oklch(calc(0.78 + var(--b3-theme-primary-brightness) * 0.01) calc(0.25 * max(0.35, var(--b3-theme-primary-saturate))) calc(calc(var(--b3-theme-primary-main) * 0.08) + 160deg));
         &.QYLDarkRevert.QYLCustomColor {
             /* 编辑器背景色 */
             --b3-theme-background: oklch(calc(0.192 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
@@ -304,20 +304,20 @@
             --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
             --b3-theme-on-primary: rgba(255,255,255,.9);
-            --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
-            --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+            --b3-theme-on-error: var(--b3-theme-on-primary);
+            --b3-theme-on-secondary: var(--b3-theme-on-primary);
             --b3-theme-on-background: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-on-surface: oklch(calc(0.79 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-on-surface-light: oklch(calc(0.77 + var(--b3-theme-primary-brightness) * 0.015) calc(0.045 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.64);
             /* 顶部工具栏 */
             --b3-toolbar-blur-background: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.035 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-            --b3-toolbar-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-            --b3-toolbar-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --b3-toolbar-color: var(--b3-theme-on-surface-light);
+            --b3-toolbar-hover: var(--b3-list-hover);
             /* 滚动条 */
             --b3-scroll-color: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 悬停 */
-            --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
-            --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
+            --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
+            --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
             /* 菜单 */
             --b3-menu-background: var(--b3-theme-surface);
             /* 提示 */
@@ -328,7 +328,7 @@
             /* 遮罩 */
             --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 高亮 */
-            --b3-highlight-color: oklch(0.98 0 var(--b3-theme-primary-main));
+            --b3-highlight-color: var(--b3-theme-on-primary);
             --b3-highlight-background: oklch(0.55 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
             --b3-highlight-current-background: oklch(0.52 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
             /* switch */
@@ -336,8 +336,8 @@
             /* 行级代码背景色 */
             --b3-protyle-code-background: oklch(calc(0.38 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             /* 页签 */
-            --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25);
-            --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+            --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
+            --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 状态栏 */
             --QYL-status-background: oklch(calc(0.197 + var(--b3-theme-primary-brightness) * 0.03) calc(0.065 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             /* 毛玻璃 */
@@ -362,20 +362,20 @@
             --b3-theme-surface-lighter: oklch(calc(0.9 + var(--b3-theme-primary-brightness) * 0.03) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.15);
             /* 文字颜色 */
             --b3-theme-on-primary: rgba(255,255,255,.9);
-            --b3-theme-on-secondary: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
-            --b3-theme-on-error: oklch(calc(0.92 + var(--b3-theme-primary-brightness) * 0.01) 0 var(--b3-theme-primary-main));
+            --b3-theme-on-error: var(--b3-theme-on-primary);
+            --b3-theme-on-secondary: var(--b3-theme-on-primary);
             --b3-theme-on-background: oklch(calc(0.85 + var(--b3-theme-primary-brightness) * 0.015) calc(0.03 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-on-surface: oklch(calc(0.79 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             --b3-theme-on-surface-light: oklch(calc(0.77 + var(--b3-theme-primary-brightness) * 0.015) calc(0.045 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.64);
             /* 顶部工具栏 */
             --b3-toolbar-blur-background: oklch(calc(0.35 + var(--b3-theme-primary-brightness) * 0.02) calc(0.035 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-            --b3-toolbar-color: oklch(calc(0.8 + var(--b3-theme-primary-brightness) * 0.015) calc(0.08 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
-            --b3-toolbar-hover: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
+            --b3-toolbar-color: var(--b3-theme-on-surface-light);
+            --b3-toolbar-hover: var(--b3-list-hover);
             /* 滚动条 */
             --b3-scroll-color: oklch(calc(0.55 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 悬停 */
-            --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
-            --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
+            --b3-list-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
+            --b3-list-icon-hover: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.12 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.5);
             /* 菜单 */
             --b3-menu-background: var(--b3-theme-surface);
             /* 提示 */
@@ -386,7 +386,7 @@
             /* 遮罩 */
             --b3-mask-background: oklch(calc(0.02 + var(--b3-theme-primary-brightness) * 0.015) calc(0.15 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 高亮 */
-            --b3-highlight-color: oklch(0.98 0 var(--b3-theme-primary-main));
+            --b3-highlight-color: var(--b3-theme-on-primary);
             --b3-highlight-background: oklch(0.55 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 180deg));
             --b3-highlight-current-background: oklch(0.52 calc(0.35 * var(--b3-theme-primary-saturate)) calc(var(--b3-theme-primary-main) + 210deg));
             /* switch */
@@ -394,8 +394,8 @@
             /* 行级代码背景色 */
             --b3-protyle-code-background: oklch(calc(0.38 + var(--b3-theme-primary-brightness) * 0.015) calc(0.05 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             /* 页签 */
-            --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.25);
-            --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * max(0.2, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.35);
+            --QYL-tab-item: oklch(calc(0.45 + var(--b3-theme-primary-brightness) * 0.015) calc(0.09 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.25);
+            --QYL-tab-item-focus: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.015) calc(0.14 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main) / 0.35);
             /* 状态栏 */
             --QYL-status-background: oklch(calc(0.235 + var(--b3-theme-primary-brightness) * 0.015) calc(0.06 * var(--b3-theme-primary-saturate)) var(--b3-theme-primary-main));
             /* 毛玻璃 */
@@ -622,15 +622,15 @@
     --b3-theme-surface-lighter: #d3d9e5;
     /* 文字颜色 */
     --b3-theme-on-primary: rgba(255,255,255,.9);
-    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-background: #353c48;
     --b3-theme-on-surface: #636771;
     --b3-theme-on-surface-light: #838897;
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #ffffff;
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
-    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    --b3-toolbar-hover: var(--b3-list-hover);
     /* 滚动条 */
     --b3-scroll-color: rgba(189, 197, 212, 0.4);
     /* 悬停 */
@@ -646,7 +646,7 @@
     /* 遮罩 */
     --b3-mask-background: rgba(220, 220, 220, 0.4);
     /* 高亮 */
-    --b3-highlight-color: white;
+    --b3-highlight-color: var(--b3-theme-on-primary);
     --b3-highlight-background: rgb(255, 0, 238);
     --b3-highlight-current-background: rgb(179, 0, 255);
     /* switch */
