@@ -10,14 +10,14 @@
     --b3-theme-surface-light: rgba(255, 239, 215, 0.8);
     --b3-theme-surface-lighter: rgba(211, 194, 179, 0.68);
     --b3-theme-on-primary: rgba(255,255,255,.9);
-    --b3-theme-on-secondary: var(--b3-theme-on-primary); 
     --b3-theme-on-error: var(--b3-theme-on-primary); 
+    --b3-theme-on-secondary: var(--b3-theme-on-primary); 
     --b3-theme-on-background: #422d18;
     --b3-theme-on-surface: #674d33;
     --b3-theme-on-surface-light: #79624b;
     --b3-toolbar-blur-background: #fff2e8;
     --b3-toolbar-color: var(--b3-theme-on-surface-light); 
-    --b3-toolbar-hover: var(--QYL-tab-item-focus); 
+    --b3-toolbar-hover: var(--b3-list-hover); 
     --b3-scroll-color: rgb(232, 203, 180);
     --b3-list-hover: rgba(255, 166, 111, 0.4); 
     --b3-list-icon-hover: rgba(255, 166, 111, 0.4); 

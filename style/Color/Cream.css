@@ -14,15 +14,15 @@
     --b3-theme-surface-lighter: rgba(189, 184, 153, 0.68);
     /* 文字颜色 */
     --b3-theme-on-primary: rgba(255,255,255,.9);
-    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-error: var(--b3-theme-on-primary);
+    --b3-theme-on-secondary: var(--b3-theme-on-primary);
     --b3-theme-on-background: #242322;
     --b3-theme-on-surface: #52514d;
     --b3-theme-on-surface-light: #6c6b66;
     /* 顶部工具栏 */
     --b3-toolbar-blur-background: #f7f6f0;
     --b3-toolbar-color: var(--b3-theme-on-surface-light);
-    --b3-toolbar-hover: var(--QYL-tab-item-focus);
+    --b3-toolbar-hover: var(--b3-list-hover);
     /* 滚动条 */
     --b3-scroll-color: rgba(207, 203, 192, 0.5);
     /* 悬停 */
