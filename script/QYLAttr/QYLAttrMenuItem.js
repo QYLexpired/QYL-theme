@@ -49,11 +49,9 @@ export const QYLAttrHighlightManager = {
                     try {
                         item.updateFn(results[item.attrName]);
                     } catch (error) {
-                        console.error('Error updating highlight:', error);
                     }
                 });
             } catch (error) {
-                console.error('Error refreshing highlights:', error);
             }
             this.refreshTimeouts.delete(selectid);
         }, 100);
@@ -77,11 +75,9 @@ export const QYLAttrHighlightManager = {
                 try {
                     item.updateFn(results[item.attrName]);
                 } catch (error) {
-                    console.error('Error updating highlight:', error);
                 }
             });
         } catch (error) {
-            console.error('Error refreshing highlights:', error);
         }
     }
 };
@@ -181,7 +177,6 @@ export class QYLMenuItem {
                 }
                 await QYLAttrHighlightManager.refreshBySelectIdImmediate(id);
             } catch (error) {
-                console.error('Error setting attribute:', error);
             }
         };
         return button;
@@ -230,7 +225,6 @@ export class QYLMenuItem {
                 await this.api.setCustomAttribute(selectid, 'custom-css', value);
                 await QYLAttrHighlightManager.refreshBySelectIdImmediate(selectid);
             } catch (error) {
-                console.error('Error setting CSS attribute:', error);
             }
         });
         const selfRemoveObserver = new MutationObserver(() => {
