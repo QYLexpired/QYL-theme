@@ -120,6 +120,10 @@ export async function initGlobalStyle(config = null) {
                 styleId: 'snippet-outline-style',
                 values: ['hidden','number']
             },
+            'QYLTableWidth': {
+                styleId: 'snippet-table-width',
+                values: ['full', 'equal']
+            },
         };
         Object.entries(styleMapping).forEach(([configKey, mapping]) => {
             const configValue = globalStyleConfig[configKey];
@@ -172,6 +176,8 @@ export function removeGlobalStyle() {
         'snippet-menu-hover-color-theme'
         , 'snippet-outline-style-hidden'
         , 'snippet-outline-style-number'
+        , 'snippet-table-width-full'
+        , 'snippet-table-width-equal'
     ];
     styleIds.forEach(styleId => {
         const styleElement = document.getElementById(styleId);
@@ -486,6 +492,15 @@ export async function createGlobalStyleDialog() {
                     options: [
                         { value: 'default', label: i18n.Default },
                         { value: 'hierarchical', label: i18n.Hierarchical }
+                    ]
+                },
+                {
+                    id: 'QYLTableWidth',
+                    label: i18n.TableWidth,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'full', label: i18n.FullWidth },
+                        { value: 'equal', label: i18n.FullWidthEqual }
                     ]
                 },
             ]
