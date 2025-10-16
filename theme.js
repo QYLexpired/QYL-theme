@@ -12,6 +12,7 @@ import('./index.js');
         html.style.removeProperty('--QYL-custom-primary-main');
         html.style.removeProperty('--QYL-custom-primary-saturate');
         html.style.removeProperty('--QYL-custom-primary-brightness');
+        html.style.removeProperty('--QYL-custom-primary-pick');
         html.classList.remove('QYLCustomColor');
         html.classList.remove('QYLDarkRevert');
         document.getElementById('QYLButton')?.classList.remove('QYLbuttonActive');

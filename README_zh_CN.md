@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日志</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">破坏性更新：移除图片遮罩功能（已拆分至插件：图片遮罩）</span><br>• 为侧栏收缩增加过渡效果<br>• 明亮模式增加预设配色：经典红<br>• 暗黑模式增加预设配色：经典红<br>• <span style="color: var(--b3-theme-error)">破坏性更新：移除列表视图转化功能（已拆分至插件：列表视图）</span><br>• 优化图片查看界面</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新：优化自定义主题色，可直接输入颜色值进行设置（点击色相滑块右方的主题色块进行设置）</span><br>• 全局样式设置增加：表格宽度-全宽/全宽（均分每列）<br>• <span style="color: var(--b3-theme-error)">破坏性更新：移除图片遮罩功能（已拆分至插件：图片遮罩）</span><br>• 为侧栏收缩增加过渡效果<br>• 明亮模式增加预设配色：经典红<br>• 暗黑模式增加预设配色：经典红<br>• <span style="color: var(--b3-theme-error)">破坏性更新：移除列表视图转化功能（已拆分至插件：列表视图）</span><br>• 优化图片查看界面</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>

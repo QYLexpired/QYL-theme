@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新日誌</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">本次更新</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">破壞性更新：移除圖片遮罩功能</span><br>• 為側欄收縮增加過渡效果<br>• 明亮模式增加預設配色：經典紅<br>• 暗黑模式增加預設配色：經典紅<br>• <span style="color: var(--b3-theme-error)">破壞性更新：移除列表視圖轉化功能</span><br>• 優化圖片查看介面</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">重大更新：優化自訂主題色，可直接輸入顏色值進行設定（點擊色相滑塊右方的主題色塊進行設定）</span><br>• 全域樣式設定增加：表格寬度-全寬/全寬（均分每列）<br>• <span style="color: var(--b3-theme-error)">破壞性更新：移除圖片遮罩功能（已拆分至外掛程式：圖片遮罩）</span><br>• 為側欄收縮增加過渡效果<br>• 明亮模式增加預設配色：經典紅<br>• 暗黑模式增加預設配色：經典紅<br>• <span style="color: var(--b3-theme-error)">破壞性更新：移除列表視圖轉化功能（已拆分至外掛程式：列表視圖）</span><br>• 優化圖片查看介面</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">最近更新</summary>

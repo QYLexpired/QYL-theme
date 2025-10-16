@@ -4,7 +4,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">Update Log</p>
 <details style="padding-left: 1em; width: fit-content" open>
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Current Update</summary>
-<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-error)">Breaking Update: Removed image mask functionality</span><br>• Added transition effects for sidebar collapse<br>• Light mode added preset color scheme: Classic Red<br>• Dark mode added preset color scheme: Classic Red<br>• <span style="color: var(--b3-theme-error)">Breaking Update: Removed list view conversion functionality</span><br>• Optimized image viewer interface</p>
+<p style="opacity: 0.7; font-size: 13px; padding-left: 1em">• <span style="color: var(--b3-theme-primary)">Major Update: Optimized custom theme colors, now supports direct color value input (click the theme color block to the right of the hue slider to set)</span><br>• Global style settings added: Table width - Full width/Full width (equal distribution per column)<br>• <span style="color: var(--b3-theme-error)">Breaking Update: Removed image mask functionality (split into plugin: Image Mask)</span><br>• Added transition effects for sidebar collapse<br>• Light mode added preset color scheme: Classic Red<br>• Dark mode added preset color scheme: Classic Red<br>• <span style="color: var(--b3-theme-error)">Breaking Update: Removed list view conversion functionality (split into plugin: List View)</span><br>• Optimized image viewer interface</p>
 </details>
 <details style="padding-left: 1em">
 <summary style="opacity: 0.7; font-weight: bold; font-size: 14px; cursor: pointer">Recent Updates</summary>
