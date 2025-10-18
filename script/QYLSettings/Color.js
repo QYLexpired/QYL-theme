@@ -191,7 +191,9 @@ async function destroyColorPicker() {
             document.documentElement.style.removeProperty('--QYL-custom-primary-main');
             document.documentElement.style.removeProperty('--QYL-custom-primary-saturate');
             document.documentElement.style.removeProperty('--QYL-custom-primary-brightness');
+            document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
             document.documentElement.classList.remove('QYLCustomColor');
+            document.documentElement.classList.remove('QYLCustomColorPick');
         } catch (error) {
         }
     }
@@ -2026,6 +2028,7 @@ async function loadColorFromConfig() {
         const colorPickValue = config[`CustomMainColorPick${modeSuffix}`];
         if (colorPickValue) {
             document.documentElement.style.setProperty('--QYL-custom-primary-pick', colorPickValue);
+            document.documentElement.classList.add('QYLCustomColorPick');
         }
     } catch (error) {
     }
