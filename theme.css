@@ -41,5 +41,6 @@
 @import url('./style/Pickr.min.css');
 @import url('./style/SbHandle.css');
 @import url('./style/BlockFold.css');
+@import url('./style/CustomColorPick.css');
 /* 全宽显示 */
 @import url('./style/CustomAttr/blockfullwidth.css');

@@ -14,6 +14,7 @@ import('./index.js');
         html.style.removeProperty('--QYL-custom-primary-brightness');
         html.style.removeProperty('--QYL-custom-primary-pick');
         html.classList.remove('QYLCustomColor');
+        html.classList.remove('QYLCustomColorPick');
         html.classList.remove('QYLDarkRevert');
         document.getElementById('QYLButton')?.classList.remove('QYLbuttonActive');
         import('./script/QYLSettings/QYLSettingsWindow.js').then(module => {
