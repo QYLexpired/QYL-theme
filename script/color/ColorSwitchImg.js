@@ -355,28 +355,13 @@ class ColorSwitchImg {
         this.applyColorToDOM(container, cachedColor);
     }
     applyColorToDOM(container, color) {
-        const oklchColor = this.rgbToOklch(color.rgb);
-        if (oklchColor) {
-            const oklchMatch = oklchColor.match(/oklch\(([^)]+)\)/);
-            if (oklchMatch) {
-                const values = oklchMatch[1].trim().split(/\s+/);
-                if (values.length >= 3) {
-                    const l = values[0];
-                    const c = values[1];
-                    const h = values[2];
-                    document.documentElement.style.setProperty('--QYL-Img-L', l);
-                    document.documentElement.style.setProperty('--QYL-Img-C', c);
-                    document.documentElement.style.setProperty('--QYL-Img-H', h + 'deg');
-                }
-            }
-        }
+        document.documentElement.style.setProperty('--QYL-custom-primary-pick', color.hex);
         const event = new CustomEvent('videoThemeColorUpdated', {
             detail: {
                 container: container,
                 color: color,
                 hex: color.hex,
                 rgb: color.rgb,
-                oklch: oklchColor,
                 isDark: color.isDark
             }
         });
@@ -400,9 +385,7 @@ class ColorSwitchImg {
             this.fastAverageColor.destroy();
             this.fastAverageColor = null;
         }
-        document.documentElement.style.removeProperty('--QYL-Img-L');
-        document.documentElement.style.removeProperty('--QYL-Img-C');
-        document.documentElement.style.removeProperty('--QYL-Img-H');
+        document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
         this.lastNonBlackColor = null;
         document.documentElement.classList.remove('QYLColorSwitchImg');
     }
