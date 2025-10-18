@@ -1,3 +1,5 @@
+/* ref: https://github.com/mustakshif/Asri */
+/* 参考了Asri主题 */
 @supports (color: oklch(0 0 0)) {
     [data-theme-mode="light"]:is(.QYLCustomColorPick, .QYLColorSwitchImg) {
         /* 兼容 */
