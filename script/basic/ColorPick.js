@@ -47,11 +47,27 @@ export class ColorPick {
         }
     }
     getDefaultColor() {
-        const lightness = 0.5;
-        const chroma = 0.5;
-        const hue = getComputedStyle(document.documentElement).getPropertyValue('--QYL-custom-primary-main') || '0deg';
-        const hueValue = parseFloat(hue.replace('deg', ''));
-        return this.oklchToHex(lightness, chroma, hueValue);
+        const customPick = getComputedStyle(document.documentElement).getPropertyValue('--QYL-custom-primary-pick');
+        if (customPick && customPick.trim() !== '') {
+            return customPick.trim();
+        }
+        const isDark = ThemeMode.isDarkMode();
+        let oklchExpression;
+        if (isDark) {
+            oklchExpression = 'oklch(calc(0.58 + var(--QYL-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--QYL-custom-primary-saturate))) var(--QYL-theme-primary-main))';
+        } else {
+            oklchExpression = 'oklch(calc(0.7 + var(--QYL-theme-primary-brightness) * 0.025) calc(0.35 * max(0.32, var(--QYL-custom-primary-saturate))) var(--QYL-theme-primary-main))';
+        }
+        try {
+            if (typeof Color === 'undefined') {
+                return '#ff0000'; 
+            }
+            const oklchColor = new Color(oklchExpression);
+            const hexColor = oklchColor.to('srgb').toString({ format: 'hex' });
+            return hexColor;
+        } catch (error) {
+            return '#ff0000'; 
+        }
     }
     createCustomColorPicker(callback, initialHue = 0, initialSaturation = 0.5, initialBrightness = 0) {
         this.container = document.createElement('div');
@@ -97,6 +113,7 @@ export class ColorPick {
                 }
                 document.documentElement.style.setProperty('--QYL-custom-primary-main', value.toString() + 'deg');
                 document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
+                document.documentElement.classList.remove('QYLCustomColorPick');
             }
             const currentSaturation = this.getColor()?.saturation ?? 0.5;
             const currentBrightness = this.getColor()?.brightness ?? 0;
@@ -160,9 +177,25 @@ export class ColorPick {
             } catch (error) {
             }
             document.documentElement.style.setProperty('--QYL-custom-primary-pick', colorValue);
+            document.documentElement.classList.add('QYLCustomColorPick');
             try {
                 const color = new Color(colorValue);
                 const oklchColor = color.to('oklch');
+                const lightness = oklchColor.l || 0;
+                const currentMode = ThemeMode.getThemeMode();
+                let threshold, reverseValue;
+                if (currentMode === 'dark') {
+                    threshold = 0.79;
+                    reverseValue = '0.2';
+                } else {
+                    threshold = 0.74;
+                    reverseValue = '0.3';
+                }
+                if (lightness > threshold) {
+                    document.documentElement.style.setProperty('--QYL-color-reverse', reverseValue);
+                } else {
+                    document.documentElement.style.removeProperty('--QYL-color-reverse');
+                }
                 const hue = oklchColor.h || 0; 
                 this.isUpdatingFromColorInput = true;
                 this.hueInput.value = Math.round(hue);
@@ -184,6 +217,8 @@ export class ColorPick {
                 delete config[`CustomMainColorPick${modeSuffix}`];
                 await this.saveConfigDebounced();
                 document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
+                document.documentElement.style.removeProperty('--QYL-color-reverse');
+                document.documentElement.classList.remove('QYLCustomColorPick');
                 if (callback) {
                     callback({ colorPick: null, type: 'colorPickRemoved' });
                 }

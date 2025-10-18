@@ -513,7 +513,6 @@ var FastAverageColor = /** @class */ (function () {
     };
     return FastAverageColor;
 }());
-// 在浏览器环境中全局导出
 if (typeof window !== 'undefined') {
     window.FastAverageColor = FastAverageColor;
 }
