@@ -126,7 +126,7 @@ export class QYLMenuItem {
         button.innerHTML = `
             <svg class="b3-menu__icon"><use xlink:href="${icon}"></use></svg>
             <span class="b3-menu__label">${label}</span>
-            <svg class="b3-menu__icon b3-menu__icon--arrow" style="height: 10px;width: 10px;line-height: 10px;"><use xlink:href="#iconRight"></use></svg>
+            <svg class="b3-menu__icon b3-menu__icon--small"><use xlink:href="#iconRight"></use></svg>
         `;
         button.appendChild(submenu);
         return button;
