@@ -45,6 +45,7 @@ export function startColorSwitch() {
     }
     lastUpdate = null;
     retryCount = 0;
+    document.documentElement.classList.add('QYLColorSwitchTime');
     waitForCustomPrimaryVarAndStart();
 }
 export function stopColorSwitch() {
@@ -52,4 +53,5 @@ export function stopColorSwitch() {
         cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
     }
+    document.documentElement.classList.remove('QYLColorSwitchTime');
 }

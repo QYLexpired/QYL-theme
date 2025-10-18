@@ -1,5 +1,6 @@
 import '../basic/FastAverageColor.js';
 import '../basic/ColorJs.js';
+import ThemeMode from '../basic/ThemeMode.js';
 class ColorSwitchImg {
     constructor() {
         this.startTime = Date.now();
@@ -354,8 +355,35 @@ class ColorSwitchImg {
     applyCachedColorToContainer(container, cachedColor) {
         this.applyColorToDOM(container, cachedColor);
     }
+    updateColorReverse(color) {
+        try {
+            if (typeof Color === 'undefined') {
+                return;
+            }
+            const colorObj = new Color(color.hex);
+            const oklchColor = colorObj.to('oklch');
+            const lightness = oklchColor.l || 0;
+            const currentMode = ThemeMode.getThemeMode();
+            let threshold, reverseValue;
+            if (currentMode === 'dark') {
+                threshold = 0.79;
+                reverseValue = '0.2';
+            } else {
+                threshold = 0.74;
+                reverseValue = '0.3';
+            }
+            if (lightness > threshold) {
+                document.documentElement.style.setProperty('--QYL-color-reverse', reverseValue);
+            } else {
+                document.documentElement.style.removeProperty('--QYL-color-reverse');
+            }
+        } catch (error) {
+            document.documentElement.style.removeProperty('--QYL-color-reverse');
+        }
+    }
     applyColorToDOM(container, color) {
         document.documentElement.style.setProperty('--QYL-custom-primary-pick', color.hex);
+        this.updateColorReverse(color);
         const event = new CustomEvent('videoThemeColorUpdated', {
             detail: {
                 container: container,
