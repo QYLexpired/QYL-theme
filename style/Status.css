@@ -33,7 +33,7 @@
         }
         & .toolbar__item {
           &:hover {
-            background-color: var(--QYL-tab-item-focus) !important;
+            background-color: var(--b3-list-hover) !important;
           }
         }
         &.QYLStatusHidden {

@@ -443,4 +443,19 @@
     margin-top: 15px;
     border-radius: 50%;
     background: var(--b3-theme-primary);
+    &:is(.QYLCustomColorPick .QYLColorInputDisplay) {
+        background: var(--QYL-custom-primary-pick);
+    }
+}
+.QYLCustomColorPick .QYLBrightnessSlider {
+    filter: saturate(0);
+    pointer-events: none;
+}
+.QYLCustomColorPick #QYLDarkRevert {
+    opacity: 0.5;
+    pointer-events: none;
+    color: var(--b3-theme-on-surface-light) !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
 }

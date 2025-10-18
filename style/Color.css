@@ -68,18 +68,11 @@
     --b3-border-color: var(--b3-theme-surface-lighter);
 }
 @supports (color: oklch(0 0 0)) {
-    [data-theme-mode="light"] {
+    [data-theme-mode="light"].QYLCustomColor:not(.QYLCustomColorPick) {
         /* 主色色相 */
         --b3-theme-primary-main: var(--QYL-custom-primary-main, 220deg);
         --b3-theme-primary-saturate: var(--QYL-custom-primary-saturate, 0.5);
         --b3-theme-primary-brightness: var(--QYL-custom-primary-brightness, 0);/* -3 到 2*/
-        &.QYLColorSwitchImg {
-            --b3-theme-primary-main: var(--QYL-Img-H, 220deg);
-            --b3-theme-primary-saturate: calc(-0.2 + var(--QYL-Img-C, 0.2) + var(--QYL-custom-primary-saturate));
-            --b3-theme-primary-brightness: calc(1.2 + var(--QYL-Img-L, 0) + var(--QYL-custom-primary-brightness));
-            /* 主色 */
-            --b3-theme-primary: oklch(clamp(0.6, var(--QYL-Img-L, 0.5), 0.75) clamp(0.12, var(--QYL-Img-C, 0.5), 0.5) var(--QYL-Img-H, 220deg));
-        }
         /* 主色 */
         --b3-theme-primary: var(--QYL-custom-primary-pick, oklch(calc(0.7 + var(--b3-theme-primary-brightness) * 0.025) calc(0.35 * max(0.32, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)));
         --b3-theme-primary-light: oklch(calc(0.73 + var(--b3-theme-primary-brightness) * 0.02) calc(0.35 * max(0.35, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.55);
@@ -218,18 +211,11 @@
     --b3-border-color: var(--b3-theme-surface-lighter);
 }
 @supports (color: oklch(0 0 0)) {
-    [data-theme-mode="dark"] {
+    [data-theme-mode="dark"].QYLCustomColor:not(.QYLCustomColorPick) {
         /* 主色色相 */
         --b3-theme-primary-main: var(--QYL-custom-primary-main, 220deg);
         --b3-theme-primary-saturate: var(--QYL-custom-primary-saturate, 0.5);
         --b3-theme-primary-brightness: var(--QYL-custom-primary-brightness, 0);/* -3 到 2*/
-        &.QYLColorSwitchImg {
-            --b3-theme-primary-main: var(--QYL-Img-H, 220deg);
-            --b3-theme-primary-saturate: calc(var(--QYL-Img-C, 0.2) + var(--QYL-custom-primary-saturate) - 0.45);
-            --b3-theme-primary-brightness: calc(var(--QYL-Img-L, 0) + var(--QYL-custom-primary-brightness) - 0.55);
-            /* 主色 */
-            --b3-theme-primary: oklch(clamp(0.5, var(--QYL-Img-L, 0.5), 0.6) clamp(0.12, var(--QYL-Img-C, 0.5), 0.45) var(--QYL-Img-H, 220deg));
-        }
         /* 主色 */
         --b3-theme-primary: var(--QYL-custom-primary-pick, oklch(calc(0.58 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main)));
         --b3-theme-primary-light: oklch(calc(0.65 + var(--b3-theme-primary-brightness) * 0.022) calc(0.23 * max(0.45, var(--b3-theme-primary-saturate))) var(--b3-theme-primary-main) / 0.5);
@@ -419,7 +405,7 @@
     /* DOCK */
     --QYL-dock-active: var(--b3-list-hover);
     /* switch */
-    --b3-switch-border: var(--b3-theme-on-primary)  ;
+    --b3-switch-border: var(--b3-theme-on-primary);
     --b3-switch-hover: transparent;
     --b3-switch-checked: var(--b3-theme-on-primary);
     --b3-switch-checked-background: var(--b3-theme-primary);
