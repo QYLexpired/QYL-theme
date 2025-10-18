@@ -1,13 +1,13 @@
 /* ref: https://github.com/mustakshif/Asri */
 /* 参考了Asri主题 */
 @supports (color: oklch(0 0 0)) {
-    [data-theme-mode="light"]:is(.QYLCustomColorPick, .QYLColorSwitchImg) {
+    html[data-theme-mode="light"].QYLCustomColor:is(.QYLCustomColorPick, .QYLColorSwitchImg):not(.QYLColorSwitchTime) {
         /* 兼容 */
         --b3-theme-primary-main: var(--QYL-custom-primary-main, 220deg);
         --b3-theme-primary-saturate: var(--QYL-custom-primary-saturate, 0.5);
         --b3-theme-primary-brightness: var(--QYL-custom-primary-brightness, 0);/* -3 到 2*/
         /* BASE */
-        --QYL-color-base: var(--QYL-custom-primary-pick);
+        --QYL-color-base: var(--QYL-custom-primary-pick, #4c77d2);
         --QYL-color-saturate: calc(3.333 * var(--QYL-custom-primary-saturate, 1));
         /* 主色 */
         --b3-theme-primary: oklch(from var(--QYL-color-base) 0.7 c h);
@@ -133,13 +133,13 @@
     }
 }
 @supports (color: oklch(0 0 0)) {
-    [data-theme-mode="dark"]:is(.QYLCustomColorPick, .QYLColorSwitchImg) {
+    html[data-theme-mode="dark"].QYLCustomColor:is(.QYLCustomColorPick, .QYLColorSwitchImg):not(.QYLColorSwitchTime) {
         /* 兼容 */
         --b3-theme-primary-main: var(--QYL-custom-primary-main, 220deg);
         --b3-theme-primary-saturate: var(--QYL-custom-primary-saturate, 0.5);
         --b3-theme-primary-brightness: var(--QYL-custom-primary-brightness, 0);/* -3 到 2*/
         /* BASE */
-        --QYL-color-base: var(--QYL-custom-primary-pick);
+        --QYL-color-base: var(--QYL-custom-primary-pick, #4c77d2);
         --QYL-color-saturate: calc(3.333 * var(--QYL-custom-primary-saturate, 1));
         /* 主色 */
         --b3-theme-primary: oklch(from var(--QYL-color-base) 0.67 c h);
