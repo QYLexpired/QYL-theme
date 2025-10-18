@@ -1,0 +1,7 @@
+html {
+    & .protyle-wysiwyg [data-node-id].table table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+}
