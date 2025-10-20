@@ -590,3 +590,25 @@
         color: var(--b3-theme-primary);
     }
 }
+/* 数据库属性 */
+.custom-attr .b3-text-field--text {
+    box-shadow: 0 0 0 1px var(--QYL-tab-item-focus) inset;
+    background-color: var(--QYL-tab-item);
+    &:hover, :focus {
+        box-shadow: 0 0 0 2px rgb(from var(--b3-theme-primary) r g b / 60%) inset;
+        background-color: var(--QYL-tab-item);
+    }
+}
+.custom-attr__avvalue:not(.custom-attr__avvalue--readonly):hover, .custom-attr__avvalue--active {
+    background-color: var(--b3-list-hover);
+}
+.custom-attr .b3-button[data-type=addColumn] {
+    border-radius: 12px;
+    color: var(--b3-theme-on-surface-light);
+    border-color: var(--b3-theme-surface-lighter);
+    &:hover {
+        border-color: var(--b3-theme-primary);
+        background-color: var(--b3-theme-primary);
+        color: var(--b3-theme-on-primary);
+    }
+}
