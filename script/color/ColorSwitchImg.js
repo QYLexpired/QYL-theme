@@ -12,6 +12,11 @@ class ColorSwitchImg {
         this.currentContainer = null; 
         this.containerColorCache = new Map();
         this.colorParseCache = new Map(); 
+        // 渐变相关状态
+        this.transitionDuration = 900; // ms，颜色过渡时长
+        this.transitionEasing = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; // easeInOutCubic
+        this._rafId = null;
+        this._currentHex = null; // 最近一次应用到 :root 的颜色
     }
     async waitForFastAverageColor() {
         let attempts = 0;
@@ -382,18 +387,93 @@ class ColorSwitchImg {
         }
     }
     applyColorToDOM(container, color) {
-        document.documentElement.style.setProperty('--QYL-custom-primary-pick', color.hex);
-        this.updateColorReverse(color);
-        const event = new CustomEvent('videoThemeColorUpdated', {
-            detail: {
-                container: container,
-                color: color,
-                hex: color.hex,
-                rgb: color.rgb,
-                isDark: color.isDark
+        // 读取当前已应用的颜色（作为过渡起点）
+        const root = document.documentElement;
+        const computed = getComputedStyle(root).getPropertyValue('--QYL-custom-primary-pick').trim();
+        const startHex = this._normalizeColorHex(computed) || this._currentHex || color.hex;
+        const endHex = color.hex;
+
+        // 若目标与当前一致，直接确保变量设置并返回
+        if (this._colorsEqual(startHex, endHex)) {
+            root.style.setProperty('--QYL-custom-primary-pick', endHex);
+            this.updateColorReverse(color);
+            const event = new CustomEvent('videoThemeColorUpdated', {
+                detail: {
+                    container: container,
+                    color: color,
+                    hex: endHex,
+                    rgb: color.rgb,
+                    isDark: color.isDark
+                }
+            });
+            container.dispatchEvent(event);
+            return;
+        }
+
+        // 取消进行中的过渡
+        if (this._rafId) {
+            cancelAnimationFrame(this._rafId);
+            this._rafId = null;
+        }
+
+        // 过渡动画：在 OKLCH 空间插值，获得更自然的颜色变化
+        const startColor = new Color(startHex);
+        const endColor = new Color(endHex);
+        const start = performance.now();
+
+        const tick = (now) => {
+            let t = (now - start) / this.transitionDuration;
+            if (t < 0) t = 0;
+            if (t > 1) t = 1;
+            const e = this.transitionEasing(t);
+            const mixed = Color.mix(startColor, endColor, e, { space: 'oklch' });
+            const mixedHex = mixed.toString({ format: 'hex' });
+            root.style.setProperty('--QYL-custom-primary-pick', mixedHex);
+            // 根据当前中间色动态更新反色阈值
+            try {
+                this.updateColorReverse({ hex: mixedHex });
+            } catch (err) {}
+            this._currentHex = mixedHex;
+            if (t < 1) {
+                this._rafId = requestAnimationFrame(tick);
+            } else {
+                this._rafId = null;
+                // 结束时确保精确设置为目标色
+                root.style.setProperty('--QYL-custom-primary-pick', endHex);
+                this._currentHex = endHex;
+                this.updateColorReverse(color);
+                const event = new CustomEvent('videoThemeColorUpdated', {
+                    detail: {
+                        container: container,
+                        color: color,
+                        hex: endHex,
+                        rgb: color.rgb,
+                        isDark: color.isDark
+                    }
+                });
+                container.dispatchEvent(event);
             }
-        });
-        container.dispatchEvent(event);
+        };
+        this._rafId = requestAnimationFrame(tick);
+    }
+
+    _normalizeColorHex(val) {
+        if (!val) return null;
+        const v = val.trim();
+        // 可能是 rgb()/oklch()/等，尽量转换为 hex
+        try {
+            const c = new Color(v);
+            return c.toString({ format: 'hex' });
+        } catch (e) {
+            // 简单匹配 #rrggbb
+            const m = v.match(/#([0-9a-fA-F]{6})/);
+            return m ? `#${m[1]}` : null;
+        }
+    }
+
+    _colorsEqual(a, b) {
+        if (!a || !b) return false;
+        return a.toLowerCase() === b.toLowerCase();
     }
     destroy() {
         this.isActive = false;
@@ -401,6 +481,10 @@ class ColorSwitchImg {
         this.currentContainer = null; 
         this.containerColorCache.clear();
         this.colorParseCache.clear(); 
+        if (this._rafId) {
+            cancelAnimationFrame(this._rafId);
+            this._rafId = null;
+        }
         if (this.observer) {
             this.observer.disconnect();
             this.observer = null;
@@ -414,6 +498,7 @@ class ColorSwitchImg {
             this.fastAverageColor = null;
         }
         document.documentElement.style.removeProperty('--QYL-custom-primary-pick');
+        this._currentHex = null;
         this.lastNonBlackColor = null;
         document.documentElement.classList.remove('QYLColorSwitchImg');
     }
