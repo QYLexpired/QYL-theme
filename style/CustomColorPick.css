@@ -101,7 +101,7 @@ SOFTWARE.
             --b3-switch-checked-background: var(--b3-theme-primary-b);
         }
         .b3-button:not(.b3-button--cancel, .b3-button--remove, [data-type="feedback"], #removeAll) {
-            --b3-theme-primary: var(--b3-theme-primary-a);
+            --b3-theme-primary: var(--b3-theme-primary-c);
             --b3-theme-on-primary: var(--b3-theme-on-primary-fix);
             &:hover, &:focus {
                 --b3-theme-primary: var(--b3-theme-primary-a);
@@ -174,9 +174,9 @@ SOFTWARE.
         --b3-theme-primary-lighter: oklch(from var(--b3-theme-primary) l c h / 0.38);
         --b3-theme-primary-lightest: oklch(from var(--b3-theme-primary) l c h / 0.2);
         /* 主色扩展 */
-        --b3-theme-primary-a: oklch(from var(--QYL-color-base) max(0.68, l) c h);
-        --b3-theme-primary-b: oklch(from var(--QYL-color-base) max(0.62, l) c h);
-        --b3-theme-primary-c: oklch(from var(--QYL-color-base) max(0.58, l) c h);
+        --b3-theme-primary-a: oklch(from var(--QYL-color-base) max(0.45, l) c h);
+        --b3-theme-primary-b: oklch(from var(--QYL-color-base) max(0.48, l) c h);
+        --b3-theme-primary-c: oklch(from var(--QYL-color-base) max(0.52, l) c h);
         --b3-theme-on-primary-fix: oklch( from var(--QYL-color-base) var(--QYL-color-reverse, 0.99) calc(c * var(--QYL-color-reverse, 0.01) / var(--QYL-color-reverse, 1)) h);
         /* 编辑器背景色 */
         --b3-theme-background: oklch(from var(--QYL-color-base) 0.2 calc(0.01 * var(--QYL-color-saturate)) h );
@@ -237,7 +237,7 @@ SOFTWARE.
             --b3-switch-checked-background: var(--b3-theme-primary-b);
         }
         .b3-button:not(.b3-button--cancel, .b3-button--remove, [data-type="feedback"], #removeAll) {
-            --b3-theme-primary: var(--b3-theme-primary-a);
+            --b3-theme-primary: var(--b3-theme-primary-c);
             --b3-theme-on-primary: var(--b3-theme-on-primary-fix);
             &:hover, &:focus {
                 --b3-theme-primary: var(--b3-theme-primary-a);
