@@ -16,6 +16,11 @@
         color: var(--b3-theme-on-surface) !important;
     }
 }
+@media (max-width: 750px) {
+    [data-key="dialog-setting"] .config__panel>.b3-tab-bar {
+        width: auto;
+    }
+}
 .config__panel>.b3-tab-bar .config__tab-hr {
     opacity: 0;
 }   
