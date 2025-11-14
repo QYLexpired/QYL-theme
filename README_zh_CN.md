@@ -3,6 +3,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">主题已经删除大量自定义属性样式，如需兼容之前设置的样式，请添加<a href="https://icnmjy02sv9g.feishu.cn/wiki/Ru1XwWtmtiyvf2k7IbiclwcUnph?from=from_copylink">这里</a>的CSS代码片段</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新</p>
 <p style="opacity: 0.7; font-size: 14px; padding-left: 1em">
+• 修复窄屏时设置面板的样式错误<br>
 • 优化侧栏输入框背景色<br>
 • <a href="https://github.com/QYLexpired/QYL-theme/pull/227">主题色随题头图变化时增加颜色过渡效果</a><br>
 • 修复列表子弹线的样式错误<br>
