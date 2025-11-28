@@ -612,3 +612,13 @@
         color: var(--b3-theme-on-primary);
     }
 }
+/* 看板 */
+.av__gallery-actions {
+    top: 8px;
+}
+.av__gallery-fields [data-type="block-more"] {
+    right: 48px;
+}
+.av__gallery-item:hover:not(.av__gallery-item--select)::before {
+    background-color: var(--b3-theme-background);
+}
