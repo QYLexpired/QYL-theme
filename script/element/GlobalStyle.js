@@ -29,99 +29,99 @@ export async function initGlobalStyle(config = null) {
         }
         const styleMapping = {
             'QYLTextColor': {
-                styleId: 'snippet-text-color',
+                styleId: 'snippetCSS-text-color',
                 values: ['official', 'sevencolor']
             },
             'QYLDatabaseColor': {
-                styleId: 'snippet-database-option-color',
+                styleId: 'snippetCSS-database-option-color',
                 values: ['official', 'sevencolor']
             },
             'QYLHeadingColor': {
-                styleId: 'snippet-heading-color',
+                styleId: 'snippetCSS-heading-color',
                 values: ['colorful', 'colorful-dynamic']
             },
             'QYLHeadingEnhance': {
-                styleId: 'snippet-heading-enhance',
+                styleId: 'snippetCSS-heading-enhance',
                 values: ['underline', 'leftborder']
             },
             'QYLHeadingLevel': {
-                styleId: 'snippet-heading-level',
+                styleId: 'snippetCSS-heading-level',
                 values: ['number', 'dice']
             },
             'QYLImageShape': {
-                styleId: 'snippet-image-shape',
+                styleId: 'snippetCSS-image-shape',
                 values: ['rounded', 'circle']
             },
             'QYLLinkStyle': {
-                styleId: 'snippet-link-style',
+                styleId: 'snippetCSS-link-style',
                 values: ['icon']
             },
             'QYLSuperBlockGeneral': {
-                styleId: 'snippet-superblock-general',
+                styleId: 'snippetCSS-superblock-general',
                 values: ['border']
             },
             'QYLSuperBlockHorizontal': {
-                styleId: 'snippet-superblock-horizontal',
+                styleId: 'snippetCSS-superblock-horizontal',
                 values: ['divider']
             },
             'QYLTagColor': {
-                styleId: 'snippet-tag-color',
+                styleId: 'snippetCSS-tag-color',
                 values: ['colorful']
             },
             'QYLTagStyle': {
-                styleId: 'snippet-tag-style',
+                styleId: 'snippetCSS-tag-style',
                 values: ['solid']
             },
             'QYLInlineCodeColor': {
-                styleId: 'snippet-inline-code-color',
+                styleId: 'snippetCSS-inline-code-color',
                 values: ['colorful']
             },
             'QYLQuoteStyle': {
-                styleId: 'snippet-quote-style',
+                styleId: 'snippetCSS-quote-style',
                 values: ['leftborder', 'transparent-border']
             },
             'QYLUnorderedList': {
-                styleId: 'snippet-unordered-list',
+                styleId: 'snippetCSS-unordered-list',
                 values: ['multilevel']
             },
             'QYLOrderedList': {
-                styleId: 'snippet-ordered-list',
+                styleId: 'snippetCSS-ordered-list',
                 values: ['multilevel']
             },
             'QYLCodeBlockStyle': {
-                styleId: 'snippet-codeblock-style',
+                styleId: 'snippetCSS-codeblock-style',
                 values: ['mac']
             },
             'QYLTableShape': {
-                styleId: 'snippet-table-shape',
+                styleId: 'snippetCSS-table-shape',
                 values: ['rounded']
             },
             'QYLTableStyle': {
-                styleId: 'snippet-table-style',
+                styleId: 'snippetCSS-table-style',
                 values: ['hierarchical']
             },
             'QYLHeaderImageStyle': {
-                styleId: 'snippet-header-image-style',
+                styleId: 'snippetCSS-header-image-style',
                 values: ['mask']
             },
             'QYLHeaderImageEffect': {
-                styleId: 'snippet-header-image-effect',
+                styleId: 'snippetCSS-header-image-effect',
                 values: ['parallax']
             },
             'QYLSidebarColor': {
-                styleId: 'snippet-sidebar-color',
+                styleId: 'snippetCSS-sidebar-color',
                 values: ['dock-consistent']
             },
             'QYLMenuHoverColor': {
-                styleId: 'snippet-menu-hover-color',
+                styleId: 'snippetCSS-menu-hover-color',
                 values: ['theme']
             },
             'QYLOutlineStyle': {
-                styleId: 'snippet-outline-style',
+                styleId: 'snippetCSS-outline-style',
                 values: ['hidden','number']
             },
             'QYLTableWidth': {
-                styleId: 'snippet-table-width',
+                styleId: 'snippetCSS-table-width',
                 values: ['full', 'equal']
             },
         };
@@ -133,7 +133,7 @@ export async function initGlobalStyle(config = null) {
                 if (!styleElement) {
                     styleElement = document.createElement('style');
                     styleElement.id = styleId;
-                    styleElement.textContent = `@import url("/appearance/themes/QYL-theme/style/GlobalStyle/${mapping.styleId.replace('snippet-', '')}-${configValue}.css");`;
+                    styleElement.textContent = `@import url("/appearance/themes/QYL-theme/style/GlobalStyle/${mapping.styleId.replace('snippetCSS-', '')}-${configValue}.css");`;
                     document.head.appendChild(styleElement);
                 }
             } else {
@@ -152,32 +152,32 @@ export async function initGlobalStyle(config = null) {
 }
 export function removeGlobalStyle() {
     const styleIds = [
-        'snippet-text-color-official', 'snippet-text-color-sevencolor',
-        'snippet-database-option-color-official', 'snippet-database-option-color-sevencolor',
-        'snippet-heading-color-colorful', 'snippet-heading-color-colorful-dynamic',
-        'snippet-heading-enhance-underline', 'snippet-heading-enhance-leftborder',
-        'snippet-heading-level-number', 'snippet-heading-level-dice',
-        'snippet-image-shape-rounded', 'snippet-image-shape-circle',
-        'snippet-link-style-icon',
-        'snippet-superblock-general-border',
-        'snippet-superblock-horizontal-divider',
-        'snippet-tag-color-colorful',
-        'snippet-tag-style-solid',
-        'snippet-inline-code-color-colorful',
-        'snippet-quote-style-leftborder', 'snippet-quote-style-transparent-border',
-        'snippet-unordered-list-multilevel',
-        'snippet-ordered-list-multilevel',
-        'snippet-codeblock-style-mac',
-        'snippet-table-shape-rounded',
-        'snippet-table-style-hierarchical',
-        'snippet-header-image-style-mask',
-        'snippet-header-image-effect-parallax',
-        'snippet-sidebar-color-dock-consistent',
-        'snippet-menu-hover-color-theme'
-        , 'snippet-outline-style-hidden'
-        , 'snippet-outline-style-number'
-        , 'snippet-table-width-full'
-        , 'snippet-table-width-equal'
+        'snippetCSS-text-color-official', 'snippetCSS-text-color-sevencolor',
+        'snippetCSS-database-option-color-official', 'snippetCSS-database-option-color-sevencolor',
+        'snippetCSS-heading-color-colorful', 'snippetCSS-heading-color-colorful-dynamic',
+        'snippetCSS-heading-enhance-underline', 'snippetCSS-heading-enhance-leftborder',
+        'snippetCSS-heading-level-number', 'snippetCSS-heading-level-dice',
+        'snippetCSS-image-shape-rounded', 'snippetCSS-image-shape-circle',
+        'snippetCSS-link-style-icon',
+        'snippetCSS-superblock-general-border',
+        'snippetCSS-superblock-horizontal-divider',
+        'snippetCSS-tag-color-colorful',
+        'snippetCSS-tag-style-solid',
+        'snippetCSS-inline-code-color-colorful',
+        'snippetCSS-quote-style-leftborder', 'snippetCSS-quote-style-transparent-border',
+        'snippetCSS-unordered-list-multilevel',
+        'snippetCSS-ordered-list-multilevel',
+        'snippetCSS-codeblock-style-mac',
+        'snippetCSS-table-shape-rounded',
+        'snippetCSS-table-style-hierarchical',
+        'snippetCSS-header-image-style-mask',
+        'snippetCSS-header-image-effect-parallax',
+        'snippetCSS-sidebar-color-dock-consistent',
+        'snippetCSS-menu-hover-color-theme'
+        , 'snippetCSS-outline-style-hidden'
+        , 'snippetCSS-outline-style-number'
+        , 'snippetCSS-table-width-full'
+        , 'snippetCSS-table-width-equal'
     ];
     styleIds.forEach(styleId => {
         const styleElement = document.getElementById(styleId);

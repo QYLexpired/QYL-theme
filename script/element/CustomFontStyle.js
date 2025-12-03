@@ -22,7 +22,7 @@ export function removeCustomFontStyle() {
         return;
     }
     isInitialized = false;
-    const existingStyle = document.getElementById('snippet-QYL-CustomFontStyle');
+    const existingStyle = document.getElementById('snippetCSS-QYL-CustomFontStyle');
     if (existingStyle) {
         existingStyle.remove();
     }
@@ -625,12 +625,12 @@ async function updateCustomFontStyleCSS(config) {
                 cssVariables += `[data-theme-mode="dark"] [style*="background-color"][style*="var(--b3-font-background${i})"]:not(.b3-chip):not([data-name="av-col-option"] .color__square) { ${cssFontBackground} !important; }`;
             }
         }
-        const existingStyle = document.getElementById('snippet-QYL-CustomFontStyle');
+        const existingStyle = document.getElementById('snippetCSS-QYL-CustomFontStyle');
         if (existingStyle) {
             existingStyle.remove();
         }
         const styleElement = document.createElement('style');
-        styleElement.id = 'snippet-QYL-CustomFontStyle';
+        styleElement.id = 'snippetCSS-QYL-CustomFontStyle';
         styleElement.textContent = cssVariables;
         document.head.appendChild(styleElement);
     } catch (error) {
