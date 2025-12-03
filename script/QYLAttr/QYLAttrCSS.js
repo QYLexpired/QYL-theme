@@ -29,11 +29,11 @@ function QYLcssApplyCustomCSS() {
             }
         }
     });
-    const existingStyle = document.getElementById('snippet-QYL-custom-css');
+    const existingStyle = document.getElementById('snippetCSS-QYL-custom-css');
     if (existingStyle) existingStyle.remove();
     if (cssRules.length > 0) {
         const style = document.createElement('style');
-        style.id = 'snippet-QYL-custom-css';
+        style.id = 'snippetCSS-QYL-custom-css';
         style.textContent = cssRules.join('\n');
         document.head.appendChild(style);
     }
