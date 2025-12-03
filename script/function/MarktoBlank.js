@@ -1,6 +1,6 @@
 export function initMarktoBlank() {
     const style = document.createElement('style');
-    style.id = 'snippet-QYL-MarktoBlank';
+    style.id = 'snippetCSS-QYL-MarktoBlank';
     style.textContent = `
         .protyle-wysiwyg span[data-type~=mark] {
             color: transparent !important;
@@ -30,7 +30,7 @@ export function initMarktoBlank() {
     document.head.appendChild(style);
 }
 export function removeMarktoBlank() {
-    const style = document.getElementById('snippet-QYL-MarktoBlank');
+    const style = document.getElementById('snippetCSS-QYL-MarktoBlank');
     if (style) {
         style.remove();
     }
