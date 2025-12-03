@@ -1,5 +1,11 @@
 import('./index.js');
 (() => {
+  const { BrowserWindow, process } = require('@electron/remote');
+  if (process.platform === 'darwin') {
+    BrowserWindow.getFocusedWindow()?.setWindowButtonPosition({ x: 10, y: 12 });
+  }
+})();
+(() => {
   function updateDestroyTheme() {
     const html = document.documentElement;
     if (
