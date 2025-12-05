@@ -1,6 +1,6 @@
 import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
-import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
+import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate, batchUpdateConfig } from '../basic/Storage.js';
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
 import excluSetting from './ExcluSetting.js';
 import bindSetting from './BindSettings.js';
@@ -77,7 +77,7 @@ async function loadCardLayoutModule() {
 async function enableVerticalTab() {
     const module = await loadVerticalTabModule();
     if (module && module.initVerticalTab) {
-        module.initVerticalTab();
+        await module.initVerticalTab();
     }
 }
 async function disableVerticalTab() {
@@ -254,8 +254,10 @@ async function createLayoutContent(config = null) {
         if (!selectState) {
             optionElement.classList.add('hidden');
         }
+        const hasRightClick = ['VerticalTab'].includes(option.id);
+        const rightClickClass = hasRightClick ? 'QYLButtonRightClick' : '';
         optionElement.innerHTML = `
-            <button type="button" id="${option.id}" class="QYL-layout-button ${currentState ? 'active' : ''}">
+            <button type="button" id="${option.id}" class="QYL-layout-button ${currentState ? 'active' : ''} ${rightClickClass}">
                 ${option.label}
             </button>
         `;
@@ -402,6 +404,138 @@ async function createLayoutContent(config = null) {
             }
             await flushBatchUpdate();
         });
+        if (option.id === 'VerticalTab') {
+            const handleRightClick = async (e) => {
+                e.preventDefault();
+                const currentConfig = await getStorageConfig();
+                const currentState = currentConfig[option.id] || false;
+                if (!currentState) {
+                    return;
+                }
+                try {
+                    const module = await loadVerticalTabModule();
+                    if (!module) return;
+                    const isAllWindows = module.isAllWindowsUsingVerticalTab && module.isAllWindowsUsingVerticalTab();
+                    if (isAllWindows) {
+                        if (module.restoreTopLeftWindowOnly) {
+                            module.restoreTopLeftWindowOnly();
+                            await batchUpdateConfig({ VerticalTabAllWindows: false });
+                            try {
+                                await fetch('/api/notification/pushMsg', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        msg: i18n.VerticalTabTopLeftOnly || '已切换为仅左上角窗口使用垂直页签',
+                                        timeout: 3000
+                                    })
+                                });
+                            } catch (error) {
+                            }
+                        }
+                    } else {
+                        if (module.addQYLWndTopLeftToAllWindows) {
+                            module.addQYLWndTopLeftToAllWindows();
+                            await batchUpdateConfig({ VerticalTabAllWindows: true });
+                            try {
+                                await fetch('/api/notification/pushMsg', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        msg: i18n.VerticalTabAllWindows || '已切换为所有窗口使用垂直页签',
+                                        timeout: 3000
+                                    })
+                                });
+                            } catch (error) {
+                            }
+                        }
+                    }
+                } catch (error) {
+                }
+            };
+            let longPressTimer = null;
+            const longPressDelay = 500;
+            let hasMoved = false;
+            const handleTouchStart = (event) => {
+                hasMoved = false;
+                longPressTimer = setTimeout(async () => {
+                    if (!hasMoved) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        const currentConfig = await getStorageConfig();
+                        const currentState = currentConfig[option.id] || false;
+                        if (!currentState) {
+                            return;
+                        }
+                        try {
+                            const module = await loadVerticalTabModule();
+                            if (!module) return;
+                            const isAllWindows = module.isAllWindowsUsingVerticalTab && module.isAllWindowsUsingVerticalTab();
+                            if (isAllWindows) {
+                                if (module.restoreTopLeftWindowOnly) {
+                                    module.restoreTopLeftWindowOnly();
+                                    await batchUpdateConfig({ VerticalTabAllWindows: false });
+                                    try {
+                                        await fetch('/api/notification/pushMsg', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({
+                                                msg: i18n.VerticalTabTopLeftOnly || '已切换为仅左上角窗口使用垂直页签',
+                                                timeout: 3000
+                                            })
+                                        });
+                                    } catch (error) {
+                                    }
+                                }
+                            } else {
+                                if (module.addQYLWndTopLeftToAllWindows) {
+                                    module.addQYLWndTopLeftToAllWindows();
+                                    await batchUpdateConfig({ VerticalTabAllWindows: true });
+                                    try {
+                                        await fetch('/api/notification/pushMsg', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({
+                                                msg: i18n.VerticalTabAllWindows || '已切换为所有窗口使用垂直页签',
+                                                timeout: 3000
+                                            })
+                                        });
+                                    } catch (error) {
+                                    }
+                                }
+                            }
+                        } catch (error) {
+                        }
+                    }
+                }, longPressDelay);
+            };
+            const handleTouchEnd = (event) => {
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+                hasMoved = false;
+            };
+            const handleTouchMove = (event) => {
+                hasMoved = true;
+                if (longPressTimer) {
+                    clearTimeout(longPressTimer);
+                    longPressTimer = null;
+                }
+            };
+            button.addEventListener('contextmenu', handleRightClick);
+            button.addEventListener('touchstart', handleTouchStart, { passive: false });
+            button.addEventListener('touchend', handleTouchEnd);
+            button.addEventListener('touchmove', handleTouchMove);
+            button.addEventListener('touchcancel', handleTouchEnd);
+        }
         container.appendChild(optionElement);
     }
     return container;
