@@ -2,6 +2,7 @@
     & .b3-card {
         box-shadow: var(--b3-point-shadow);
         background-color: rgba(255, 0, 0, 0);
+        border-radius: 16px;
         &.b3-card--current {
             background-color: transparent;
             & .b3-card__info {
@@ -13,7 +14,7 @@
         }
         &:hover {
             background-color: var(--QYL-tab-item-focus);
-            transform: scale(1.03);
+            transform: scale(1.02);
             & .b3-card__img {
                 filter: saturate(1.8);
             }

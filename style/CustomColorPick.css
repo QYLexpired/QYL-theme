@@ -106,6 +106,9 @@ SOFTWARE.
             &:hover, &:focus {
                 --b3-theme-primary: var(--b3-theme-primary-a);
             }
+            &:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]):not(.b3-button--outline) {
+                --b3-theme-primary: var(--b3-theme-primary-a);
+            }
         }
         .b3-button--outline {
             --b3-theme-primary: var(--b3-theme-primary-c);
@@ -240,6 +243,9 @@ SOFTWARE.
             --b3-theme-primary: var(--b3-theme-primary-c);
             --b3-theme-on-primary: var(--b3-theme-on-primary-fix);
             &:hover, &:focus {
+                --b3-theme-primary: var(--b3-theme-primary-a);
+            }
+            &:is([data-type="myPlugin"], [data-type="myTheme"], [data-type="myIcon"], [data-type="myTemplate"], [data-type="myWidget"]):not(.b3-button--outline) {
                 --b3-theme-primary: var(--b3-theme-primary-a);
             }
         }
