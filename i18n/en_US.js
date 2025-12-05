@@ -43,6 +43,8 @@ export default {
     "BorderFileTree": "Border File Tree",
     "GridSearchList": "Grid Search List",
     "VerticalTab": "Vertical Tab",
+    "VerticalTabAllWindows": "Switched to vertical tab for all windows",
+    "VerticalTabTopLeftOnly": "Switched to vertical tab for top-left window only",
     "FusionOn": "Top Bar Fusion",
     "HideTopBar": "Hide Top Bar",
     "ColorBlock": "Color Block Layout",

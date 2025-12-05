@@ -43,6 +43,8 @@ export default {
     "BorderFileTree": "边框文档树",
     "GridSearchList": "网格化搜索列表",
     "VerticalTab": "垂直页签",
+    "VerticalTabAllWindows": "已切换为所有窗口使用垂直页签",
+    "VerticalTabTopLeftOnly": "已切换为仅左上角窗口使用垂直页签",
     "FusionOn": "顶栏融合",
     "HideTopBar": "隐藏顶栏",
     "ColorBlock": "撞色布局",

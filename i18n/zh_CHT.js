@@ -43,6 +43,8 @@ export default {
     "BorderFileTree": "邊框文件樹",
     "GridSearchList": "網格化搜尋列表",
     "VerticalTab": "垂直分頁",
+    "VerticalTabAllWindows": "已切換為所有視窗使用垂直分頁",
+    "VerticalTabTopLeftOnly": "已切換為僅左上角視窗使用垂直分頁",
     "FusionOn": "頂欄融合",
     "HideTopBar": "隱藏頂欄",
     "ColorBlock": "撞色佈局",
