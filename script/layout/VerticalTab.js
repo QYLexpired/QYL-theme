@@ -1,7 +1,9 @@
 import { initWndTopLeft, cleanupWndTopLeft, setVerticalTabResizeCallback } from '../basic/WndTopLeft.js';
 let isEnabled = false;
 let styleElement = null;
-function createResizeElement() {
+let allWindowsObserver = null;
+let allWindowsMode = false;
+function createResizeElement(windowElement) {
     const resizeElement = document.createElement('div');
     resizeElement.className = 'layout__resize--lr layout__resize';
     let isDragging = false;
@@ -10,7 +12,7 @@ function createResizeElement() {
     const handleMouseDown = (e) => {
         isDragging = true;
         startX = e.clientX;
-        startWidth = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--QYL-vertical-width')) || 125;
+        startWidth = parseInt(getComputedStyle(windowElement).getPropertyValue('--QYL-vertical-width')) || 125;
         document.body.style.cursor = 'col-resize';
         e.preventDefault();
     };
@@ -20,7 +22,7 @@ function createResizeElement() {
         const newWidth = Math.max(85, Math.min(800, startWidth + deltaX));
         if (!resizeElement._rafId) {
             resizeElement._rafId = requestAnimationFrame(() => {
-                document.documentElement.style.setProperty('--QYL-vertical-width', newWidth + 'px');
+                windowElement.style.setProperty('--QYL-vertical-width', newWidth + 'px');
                 resizeElement._rafId = null;
             });
         }
@@ -36,7 +38,7 @@ function createResizeElement() {
         }
     };
     const handleDblClick = (e) => {
-        document.documentElement.style.setProperty('--QYL-vertical-width', '125px');
+        windowElement.style.setProperty('--QYL-vertical-width', '125px');
         e.preventDefault();
     };
     resizeElement.addEventListener('mousedown', handleMouseDown);
@@ -49,6 +51,7 @@ function createResizeElement() {
         mouseup: handleMouseUp,
         dblclick: handleDblClick
     };
+    resizeElement._windowElement = windowElement;
     return resizeElement;
 }
 function cleanupResizeElement(resizeElement) {
@@ -67,35 +70,66 @@ function cleanupResizeElement(resizeElement) {
         resizeElement.parentNode.removeChild(resizeElement);
     }
 }
+function initializeWindowWidth(windowElement) {
+    const currentWidth = getComputedStyle(windowElement).getPropertyValue('--QYL-vertical-width');
+    if (!currentWidth || currentWidth === '') {
+        windowElement.style.setProperty('--QYL-vertical-width', '125px');
+    }
+}
 function addResizeToAllWndTopLeft() {
     const wndTopLeftElements = document.querySelectorAll('.QYLWndTopLeft');
     wndTopLeftElements.forEach(element => {
+        initializeWindowWidth(element);
         const firstFlex = element.querySelector('.fn__flex:first-child');
         if (firstFlex && !firstFlex.nextElementSibling?.classList.contains('layout__resize--lr')) {
-            const resizeElement = createResizeElement();
+            const resizeElement = createResizeElement(element);
             firstFlex.after(resizeElement);
         }
     });
 }
 export function addResizeToWndTopLeft(element) {
     if (!isEnabled) return;
+    initializeWindowWidth(element);
     const firstFlex = element.querySelector('.fn__flex:first-child');
     if (firstFlex && !firstFlex.nextElementSibling?.classList.contains('layout__resize--lr')) {
-        const resizeElement = createResizeElement();
+        const resizeElement = createResizeElement(element);
         firstFlex.after(resizeElement);
     }
 }
-export function initVerticalTab() {
+function startAllWindowsObserver() {
+    if (allWindowsObserver) return;
+    const layoutCenter = document.querySelector('.layout__center');
+    if (!layoutCenter) {
+        setTimeout(startAllWindowsObserver, 200);
+        return;
+    }
+    allWindowsObserver = new MutationObserver(() => {
+        if (allWindowsMode && isEnabled) {
+            setTimeout(() => {
+                addQYLWndTopLeftToAllWindows();
+            }, 50);
+        }
+    });
+    allWindowsObserver.observe(layoutCenter, {
+        childList: true,
+        subtree: true
+    });
+}
+function stopAllWindowsObserver() {
+    if (allWindowsObserver) {
+        allWindowsObserver.disconnect();
+        allWindowsObserver = null;
+    }
+}
+export async function initVerticalTab() {
     if (isEnabled) return;
     if (document.body.classList.contains('QYLmobile')) return;
     document.documentElement.classList.add('QYLVerticalTab');
     styleElement = document.createElement('style');
     styleElement.id = 'QYL-VerticalTab';
     styleElement.textContent = `
-        :root {
-            --QYL-vertical-width: 125px;
-        }
         .layout__center:not(#layouts) .QYLWndTopLeft {
+            --QYL-vertical-width: 125px;
             --QYL-wnd-border-none: none;
             --QYL-wnd-container-border-flat: 1px solid var(--b3-theme-surface-lighter);
             --QYL-wnd-container-border-ink: 1.5px solid var(--b3-theme-primary);
@@ -190,9 +224,23 @@ export function initVerticalTab() {
     setVerticalTabResizeCallback(addResizeToWndTopLeft);
     addResizeToAllWndTopLeft();
     isEnabled = true;
+    try {
+        const { getStorageConfig } = await import('../basic/GetStorage.js');
+        const config = await getStorageConfig();
+        allWindowsMode = config.VerticalTabAllWindows || false;
+        if (allWindowsMode) {
+            setTimeout(() => {
+                addQYLWndTopLeftToAllWindows();
+                startAllWindowsObserver();
+            }, 100);
+        }
+    } catch (error) {
+        allWindowsMode = false;
+    }
 }
 export function removeVerticalTab() {
     if (!isEnabled) return;
+    stopAllWindowsObserver();
     document.documentElement.classList.remove('QYLVerticalTab');
     const resizeElements = document.querySelectorAll('.layout__resize--lr.layout__resize');
     resizeElements.forEach(cleanupResizeElement);
@@ -207,10 +255,75 @@ export function removeVerticalTab() {
         element.classList.remove('QYLWndTopLeft');
     });
     isEnabled = false;
+    allWindowsMode = false;
     if (window.gc) {
         window.gc();
     }
 }
 export function isVerticalTabEnabled() {
     return isEnabled;
+}
+export function addQYLWndTopLeftToAllWindows() {
+    if (!isEnabled) return;
+    const layoutCenter = document.querySelector('.layout__center');
+    if (!layoutCenter) return;
+    const windows = layoutCenter.querySelectorAll('[data-type="wnd"]');
+    windows.forEach(window => {
+        if (!window.classList.contains('QYLWndTopLeft')) {
+            window.classList.add('QYLWndTopLeft');
+            initializeWindowWidth(window);
+            addResizeToWndTopLeft(window);
+        }
+    });
+    allWindowsMode = true;
+    if (!allWindowsObserver) {
+        startAllWindowsObserver();
+    }
+}
+export function isAllWindowsUsingVerticalTab() {
+    if (!isEnabled) return false;
+    const layoutCenter = document.querySelector('.layout__center');
+    if (!layoutCenter) return false;
+    const windows = layoutCenter.querySelectorAll('[data-type="wnd"]');
+    if (windows.length === 0) return false;
+    let allHaveClass = true;
+    for (let i = 0; i < windows.length; i++) {
+        if (!windows[i].classList.contains('QYLWndTopLeft')) {
+            allHaveClass = false;
+            break;
+        }
+    }
+    return allHaveClass;
+}
+export function restoreTopLeftWindowOnly() {
+    if (!isEnabled) return;
+    stopAllWindowsObserver();
+    allWindowsMode = false;
+    const layoutCenter = document.querySelector('.layout__center');
+    if (!layoutCenter) return;
+    const windows = layoutCenter.querySelectorAll('[data-type="wnd"]');
+    if (windows.length === 0) return;
+    windows.forEach(window => {
+        window.classList.remove('QYLWndTopLeft');
+    });
+    let topLeftWindow = null;
+    let minTop = Infinity;
+    let minLeft = Infinity;
+    const layoutRect = layoutCenter.getBoundingClientRect();
+    for (let i = 0; i < windows.length; i++) {
+        const window = windows[i];
+        const rect = window.getBoundingClientRect();
+        const relativeTop = rect.top - layoutRect.top;
+        const relativeLeft = rect.left - layoutRect.left;
+        if (relativeTop < minTop || (relativeTop === minTop && relativeLeft < minLeft)) {
+            minTop = relativeTop;
+            minLeft = relativeLeft;
+            topLeftWindow = window;
+        }
+    }
+    if (topLeftWindow) {
+        topLeftWindow.classList.add('QYLWndTopLeft');
+        initializeWindowWidth(topLeftWindow);
+        addResizeToWndTopLeft(topLeftWindow);
+    }
 }
