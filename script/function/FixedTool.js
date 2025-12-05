@@ -148,9 +148,6 @@ export function initFixedTool() {
         :is(#layouts .layout__center, #layouts.layout__center) .protyle-content {
             margin-top: unset !important;
         }
-        :is(#layouts .layout__center, #layouts.layout__center) .protyle-content:has( > .protyle-wysiwyg[contenteditable="false"]) ~ .protyle-toolbar { 
-            display: none !important;
-        }
     `;
     document.head.appendChild(styleElement);
     toolDirectionInstance = new ToolDirection();
