@@ -2,6 +2,7 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">在<a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">这里</a>查看详细的主题使用说明</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新</p>
 <p style="opacity: 0.7; font-size: 14px; padding-left: 1em">
+• 重做主题设置菜单样式<br>
 • 优化垂直页签-可通过右键点击垂直页签按钮来切换状态：全部窗口使用垂直页签/仅左上角窗口使用垂直页签<br>
 • 修复思源新版本下导出PDF时全局样式无效的问题<br>
 • 优化mac系统下思源的红绿灯位置
