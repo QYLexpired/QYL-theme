@@ -386,6 +386,29 @@ export function initFlatStyle() {
             background: transparent !important;
             color: var(--b3-theme-primary-fix, var(--b3-theme-primary)) !important;
         }
+        :is(#QYL-content-layout, #QYL-content-style, #QYL-content-function, #QYL-content-element, #QYL-content-color) {
+            & > :is(.QYL-layout-container, .QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
+                & > :is(.QYL-layout-option, .QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
+                    & > button {
+                        &:hover {
+                            background-color: var(--b3-theme-primary);
+                            color: var(--b3-theme-on-primary);
+                            &::before {
+                                background-color: var(--b3-theme-on-primary) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #QYLSettingsContent > div:first-child {
+            & > div {
+                &:hover {
+                    background-color: var(--b3-theme-primary);
+                    color: var(--b3-theme-on-primary)  
+                }
+            }
+        }
 `;
     document.head.appendChild(style);
 }
