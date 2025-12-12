@@ -61,6 +61,7 @@
     }
 }
 #barWorkspace {
+    margin-left: 6px;
     background-color: var(--QYL-tab-item-focus);
     border-radius: 8px;
     transition: var(--b3-transition);
