@@ -1,0 +1,26 @@
+.protyle-wysiwyg .callout {
+    border-radius: var(--b3-border-radius);
+    border: 1.5px solid;
+    padding: 4px 4px 4px calc(.25em + 6px);
+    &[data-subtype="NOTE"] {
+        border-color: oklch(from var(--b3-callout-note) l c h / 0.2);
+        background-color: oklch(from var(--b3-callout-note) l c h / 0.1);
+    }
+    &[data-subtype="TIP"] {
+        border-color: oklch(from var(--b3-callout-tip) l c h / 0.2);
+        background-color: oklch(from var(--b3-callout-tip) l c h / 0.1);
+    }
+    &[data-subtype="IMPORTANT"] {
+        border-color: oklch(from var(--b3-callout-important) l c h / 0.2);
+        background-color: oklch(from var(--b3-callout-important) l c h / 0.1);
+    }
+    &[data-subtype="WARNING"] {
+        border-color: oklch(from var(--b3-callout-warning) l c h / 0.2);
+        background-color: oklch(from var(--b3-callout-warning) l c h / 0.1);
+    }
+    &[data-subtype="CAUTION"] {
+        border-color: oklch(from var(--b3-callout-caution) l c h / 0.2);
+        background-color: oklch(from var(--b3-callout-caution) l c h / 0.1);
+    }
+}
+

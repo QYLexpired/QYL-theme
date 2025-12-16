@@ -17,7 +17,12 @@ html{
                 display: flex;
                 align-items: center;
                 margin: -0.5em 0 0 -0.4em;
-                text-indent: 0.1em;
+                white-space: nowrap;
+                text-align: end;
+                min-width: -moz-fit-content;
+                min-width: fit-content;
+                left: unset;
+                inset-inline-end: calc(50% - .5em)
             }
         }
         &:is(.en_item_bullet_actived, [fold="1"]) {
