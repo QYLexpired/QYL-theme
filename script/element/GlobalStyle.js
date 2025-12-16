@@ -32,6 +32,10 @@ export async function initGlobalStyle(config = null) {
                 styleId: 'snippetCSS-text-color',
                 values: ['official', 'sevencolor']
             },
+            'QYLCalloutStyle': {
+                styleId: 'snippetCSS-callout-style',
+                values: ['background', 'border', 'noborder', 'tcolorbox']
+            },
             'QYLDatabaseColor': {
                 styleId: 'snippetCSS-database-option-color',
                 values: ['official', 'sevencolor']
@@ -178,6 +182,10 @@ export function removeGlobalStyle() {
         , 'snippetCSS-outline-style-number'
         , 'snippetCSS-table-width-full'
         , 'snippetCSS-table-width-equal'
+        , 'snippetCSS-callout-style-background'
+        , 'snippetCSS-callout-style-border'
+        , 'snippetCSS-callout-style-noborder'
+        , 'snippetCSS-callout-style-tcolorbox'
     ];
     styleIds.forEach(styleId => {
         const styleElement = document.getElementById(styleId);
@@ -437,6 +445,22 @@ export async function createGlobalStyleDialog() {
                         { value: 'default', label: i18n.Default },
                         { value: 'leftborder', label: i18n.LeftBorder },
                         { value: 'transparent-border', label: i18n.TransparentBorder }
+                    ]
+                }
+            ]
+        },
+        {
+            title: i18n.Callout,
+            items: [
+                {
+                    id: 'QYLCalloutStyle',
+                    label: i18n.CalloutStyle,
+                    options: [
+                        { value: 'default', label: i18n.Default },
+                        { value: 'background', label: i18n.BackgroundColor },
+                        { value: 'border', label: i18n.Border },
+                        { value: 'noborder', label: i18n.NoBorder },
+                        { value: 'tcolorbox', label: i18n.Tcolorbox }
                     ]
                 }
             ]
