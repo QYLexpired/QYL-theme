@@ -163,6 +163,8 @@ export default {
     "InlineCodeColor": "Inline Code Color",
     "Quote": "Quote",
     "QuoteStyle": "Quote Style",
+    "Callout": "Callout",
+    "CalloutStyle": "Callout Style",
     "List": "List",
     "UnorderedList": "Unordered List Numbers",
     "OrderedList": "Ordered List Numbers",
@@ -210,4 +212,6 @@ export default {
     "InsertChildBlock": "Insert child block here",
     "Outline": "Outline",
     "Hidden": "Hidden",
+    "NoBorder": "No Border",
+    "Tcolorbox": "tcolorbox",
 };
