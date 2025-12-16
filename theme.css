@@ -42,5 +42,6 @@
 @import url('./style/SbHandle.css');
 @import url('./style/BlockFold.css');
 @import url('./style/CustomColorPick.css');
+@import url('./style/Callout.css');
 /* 全宽显示 */
 @import url('./style/CustomAttr/blockfullwidth.css');
