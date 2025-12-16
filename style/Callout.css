@@ -1,0 +1,37 @@
+:root {
+    --b3-callout-note: oklch(from var(--b3-theme-primary)  max(l, 0.57) 0.15 245);
+    --b3-callout-tip: oklch(from var(--b3-theme-primary)  max(l, 0.57) 0.15 150);
+    --b3-callout-important: oklch(from var(--b3-theme-primary)  max(l, 0.57) 0.15 300);
+    --b3-callout-warning: oklch(from var(--b3-theme-primary)  max(l, 0.57) 0.15 65);
+    --b3-callout-caution: oklch(from var(--b3-theme-primary)  max(l, 0.57) 0.15 25);
+    &[data-theme-mode="dark"] {
+        --b3-callout-note: oklch(from var(--b3-theme-primary)  min(l, 0.52) 0.15 245);
+        --b3-callout-tip: oklch(from var(--b3-theme-primary)  min(l, 0.52) 0.15 150);
+        --b3-callout-important: oklch(from var(--b3-theme-primary)  min(l, 0.52) 0.15 300);
+        --b3-callout-warning: oklch(from var(--b3-theme-primary)  min(l, 0.52) 0.15 65);
+        --b3-callout-caution: oklch(from var(--b3-theme-primary)  min(l, 0.52) 0.15 25);
+    }
+}
+.protyle-wysiwyg .callout {
+    &::before {
+        display: none;
+    }
+    padding: 0 4px 0 calc(.25em + 6px);
+    border-left: 5px solid;
+    border-radius: 0;
+    &[data-subtype="NOTE"] {
+        border-color: var(--b3-callout-note);
+    }
+    &[data-subtype="TIP"] {
+        border-color: var(--b3-callout-tip);
+    }
+    &[data-subtype="IMPORTANT"] {
+        border-color: var(--b3-callout-important);
+    }
+    &[data-subtype="WARNING"] {
+        border-color: var(--b3-callout-warning);
+    }
+    &[data-subtype="CAUTION"] {
+        border-color: var(--b3-callout-caution);
+    }
+}
