@@ -77,7 +77,4 @@
             color: var(--b3-theme-on-primary);
         }
     }
-    &:is(.QYLmac #barWorkspace) {
-        margin-left: 6px;
-    }
 }

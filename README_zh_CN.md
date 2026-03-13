@@ -2,7 +2,8 @@
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">在<a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">这里</a>查看详细的主题使用说明</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新</p>
 <p style="opacity: 0.7; font-size: 14px; padding-left: 1em">
-• 修复ratio组件样式错误
+• 修复ratio组件样式错误<br>
+• 优化斜杠菜单样式
 </p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">致谢</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 15px">制作QYL主题时参考了大量集市主题和其他内容创作者，在此表示感谢，包括但不限于（排名不分先后）</p>

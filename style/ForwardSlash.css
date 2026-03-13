@@ -3,27 +3,19 @@
     .protyle-hint.hint--menu{   
         max-height: min(80vh, 550px);
         max-width: unset;
-        padding: 8px;
+        padding: 6px;
         & > div{
-            min-width: 800px;
+            min-width: 880px;
             column-rule: 1px outset var(--b3-theme-surface-lighter);
             column-width: 180px;
             & > .b3-menu__separator { display: none; }
-            & > .b3-list-item { margin: 0; }
-        }
-    }
-}
-@media screen and (min-width: 1400px) {
-    .protyle-hint.hint--menu{   
-        max-height: min(80vh, 550px);
-        max-width: unset;
-        padding: 8px;
-        & > div{
-            min-width: 980px;
-            column-rule: 1px outset var(--b3-theme-surface-lighter);
-            column-width: 200px;
-            & > .b3-menu__separator { display: none; }
-            & > .b3-list-item { margin: 0; }
+            & > .b3-list-item { 
+                margin: 1px 0;  
+                width: 100% !important;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
         }
     }
 }
