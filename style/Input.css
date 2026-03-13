@@ -25,16 +25,17 @@
 }
 input[type="radio"] {
     appearance: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    align-self: center;
     &::after {
         content: "";
         position: absolute;
         border-radius: 50%;
         width: 16px;
         height: 16px;
+        inset: 0;
         border: 2px solid var(--b3-theme-surface-lighter);
         box-sizing: border-box;
         transition: 0.15s all linear;

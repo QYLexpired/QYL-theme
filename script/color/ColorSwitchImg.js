@@ -392,7 +392,6 @@ class ColorSwitchImg {
         const computed = getComputedStyle(root).getPropertyValue('--QYL-custom-primary-pick').trim();
         const startHex = this._normalizeColorHex(computed) || this._currentHex || color.hex;
         const endHex = color.hex;
-
         // 若目标与当前一致，直接确保变量设置并返回
         if (this._colorsEqual(startHex, endHex)) {
             root.style.setProperty('--QYL-custom-primary-pick', endHex);
@@ -409,18 +408,15 @@ class ColorSwitchImg {
             container.dispatchEvent(event);
             return;
         }
-
         // 取消进行中的过渡
         if (this._rafId) {
             cancelAnimationFrame(this._rafId);
             this._rafId = null;
         }
-
         // 过渡动画：在 OKLCH 空间插值，获得更自然的颜色变化
         const startColor = new Color(startHex);
         const endColor = new Color(endHex);
         const start = performance.now();
-
         const tick = (now) => {
             let t = (now - start) / this.transitionDuration;
             if (t < 0) t = 0;
@@ -456,7 +452,6 @@ class ColorSwitchImg {
         };
         this._rafId = requestAnimationFrame(tick);
     }
-
     _normalizeColorHex(val) {
         if (!val) return null;
         const v = val.trim();
@@ -470,7 +465,6 @@ class ColorSwitchImg {
             return m ? `#${m[1]}` : null;
         }
     }
-
     _colorsEqual(a, b) {
         if (!a || !b) return false;
         return a.toLowerCase() === b.toLowerCase();
