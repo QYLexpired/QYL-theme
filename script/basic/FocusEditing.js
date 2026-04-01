@@ -92,14 +92,22 @@ function observeCursorPosition() {
     };
     const handleMouseDown = () => {
         isMousePressed = true;
-        isLongPress = false; 
-        if (currentFocusBlock) {
-            currentFocusBlock.classList.remove('QYLFocusBlock');
-            currentFocusBlock = null;
-        }
+        isLongPress = false;
         mousePressTimer = setTimeout(() => {
-            isLongPress = true; 
+            isLongPress = true;
         }, LONG_PRESS_DURATION);
+    };
+    const handleClick = (e) => {
+        if (!isEnabled || isMousePressed || isLongPress) return;
+        const cursorElement = getCursorElement();
+        if (!cursorElement) return;
+        if (currentFocusBlock && currentFocusBlock === findNearestNodeIdElement(cursorElement)) {
+            return;
+        }
+        updateFocusBlockHighlight(cursorElement);
+        setTimeout(() => {
+            scrollToElementCenter(cursorElement);
+        }, 50);
     };
     const handleMouseUp = () => {
         isMousePressed = false;
@@ -110,9 +118,7 @@ function observeCursorPosition() {
         if (isLongPress) {
             setTimeout(() => {
                 isLongPress = false;
-            }, 200); 
-        } else {
-            setTimeout(checkCursorPosition, 10);
+            }, 200);
         }
     };
     const handleMouseLeave = () => {
@@ -126,7 +132,7 @@ function observeCursorPosition() {
     document.addEventListener('selectionchange', checkCursorPosition);
     document.addEventListener('keydown', checkCursorPosition);
     document.addEventListener('keyup', checkCursorPosition);
-    document.addEventListener('click', checkCursorPosition);
+    document.addEventListener('click', handleClick);
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mouseleave', handleMouseLeave);
@@ -135,7 +141,7 @@ function observeCursorPosition() {
             document.removeEventListener('selectionchange', checkCursorPosition);
             document.removeEventListener('keydown', checkCursorPosition);
             document.removeEventListener('keyup', checkCursorPosition);
-            document.removeEventListener('click', checkCursorPosition);
+            document.removeEventListener('click', handleClick);
             document.removeEventListener('mousedown', handleMouseDown);
             document.removeEventListener('mouseup', handleMouseUp);
             document.removeEventListener('mouseleave', handleMouseLeave);

@@ -61,14 +61,14 @@
     }
 }
 #barWorkspace {
-    background-color: var(--QYL-tab-item-focus);
+    background-color: transparent;
     border-radius: 8px;
     transition: var(--b3-transition);
     & .toolbar__svg {
         display: none;
     }
     & .toolbar__text {
-        font-weight: bold;
+        font-size: 14px;
         color: var(--b3-theme-on-surface);
     }
     &:hover {

@@ -128,7 +128,7 @@ export function initFusionOn() {
                 height: calc(100% - 42px)
             }
             .QYLFusionTop > .fn__flex:first-child {
-                transition: 0.45s cubic-bezier(0.33, 1.42, 0.69, 0.99);
+                transition: 0.25s cubic-bezier(0.33, 1.42, 0.69, 0.99);
             }
         `;
         document.head.appendChild(styleElement);

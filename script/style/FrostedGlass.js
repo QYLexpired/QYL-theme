@@ -50,6 +50,7 @@ export function initFrostedGlass() {
         }
         .b3-dialog__container {
             background-color: var(--QYL-Aero-background);
+            transition-property: transform;
             & .config__tab-wrap {
                 background-color: var(--QYL-Aero-background-wrap);
             }

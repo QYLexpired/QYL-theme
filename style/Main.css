@@ -8,8 +8,9 @@
 #layouts {
     border: none;
     background-color: var(--b3-theme-surface);
-    padding: 6px 0 6px 0;
+    padding: var(--QYL-wnd-gap) 0 var(--QYL-wnd-gap) 0;
     min-height: 50%;
+    --QYL-wnd-gap: 6px;
 }
 #layouts.layout__center {/* 新窗口打开时应取消内边距 */
     padding: 0;
@@ -19,8 +20,10 @@
     & > .layout-tab-container {
         background-color: var(--b3-theme-background);
         & :is(.block__logo, .block__logoicon, .block__icon) {
-            color: var(--b3-theme-on-surface);
-            font-weight: bold;
+            color: var(--b3-theme-on-surface-light);
+            font-size: 14px;
+            width: 14px;
+            height: 14px;
         }
         & .block__icons {
             border-bottom: none;
@@ -41,12 +44,13 @@
 }
 .layout__resize.layout__resize--lr {
     margin: 0;
+    width: var(--QYL-wnd-gap);
     &:hover::after {
         transition: none;
     }
     &::after {
         visibility: hidden;
-        width: 6px;
+        width: var(--QYL-wnd-gap);
         height: 100%;
         border-radius: var(--b3-border-radius);
         transition: none;
@@ -55,14 +59,15 @@
         visibility: visible;
     }
 }
-.layout__resize {
+.layout__resize:not(.layout__resize--lr) {
     margin: 0;
+    height: var(--QYL-wnd-gap);
     &:hover::after {
         transition: none;
     }
     &::after {
         visibility: hidden;
-        height: 6px;
+        height: var(--QYL-wnd-gap);
         width: 100%;
         border-radius: var(--b3-border-radius);
         transform: translateY(-3px);

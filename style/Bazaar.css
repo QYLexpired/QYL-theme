@@ -13,7 +13,7 @@
             }
         }
         &:hover {
-            background-color: var(--QYL-tab-item-focus);
+            background-color: oklch(from var(--b3-theme-primary) l c h / 0.15);
             transform: scale(1.02);
             & .b3-card__img {
                 filter: saturate(1.8);

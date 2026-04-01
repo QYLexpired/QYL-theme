@@ -65,13 +65,3 @@
     box-shadow: 0 0 0 1px rgba(139, 163, 149, 0.3);
     background-color: rgba(225, 246, 234, 0.3) !important;
 }
-.config-bazaar__panel {
-    & .b3-card {
-        &:hover {
-            background-color: rgba(87, 236, 149, 0.5);
-        }
-        &.b3-card--current {
-            background-color: rgba(87, 236, 149, 0.5);
-        }
-    }
-}
