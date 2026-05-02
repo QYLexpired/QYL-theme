@@ -1,4 +1,5 @@
-<p style="opacity: 0.7; font-weight: bold; font-size: 16px">如果喜欢这个主题，欢迎在<a href="https://github.com/QYLexpired/QYL-theme">GitHub</a>点个⭐小星星</p>
+# 公告
+#### 思源v3.7.0版本起，由于默认主题改动过大，导致难以适配，QYL主题自此停止更新
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px">在<a href="https://icnmjy02sv9g.feishu.cn/wiki/IdZdwz9QRiFOB6khOmIcIdy0n9c?from=from_copylink">这里</a>查看详细的主题使用说明</p>
 <p style="opacity: 0.7; font-weight: bold; font-size: 16px; color: var(--b3-theme-primary)">更新</p>
 <p style="opacity: 0.7; font-size: 14px; padding-left: 1em">
