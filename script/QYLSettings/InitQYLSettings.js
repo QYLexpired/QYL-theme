@@ -1,5 +1,4 @@
 import { initializeFunctionStates } from './Function.js';
-import { initializeLayoutStates } from './Layout.js';
 import { initializeStyleStates } from './Style.js';
 import { initializeElementStates } from './Element.js';
 import { initializeColorStates } from './Color.js';
@@ -42,7 +41,6 @@ async function initQYLSettings() {
         const config = await configManager.getConfig();
         await Promise.all([
             initializeFunctionStates(config),
-            initializeLayoutStates(config),
             initializeStyleStates(config),
             initializeElementStates(config),
             initializeColorStates(config),

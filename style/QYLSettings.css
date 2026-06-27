@@ -34,12 +34,12 @@
         }
     }
 }
-html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-child {
+html:not(:is([lang="zh-CN"], [lang="zh-TW"])) #QYLSettingsContent > div:first-child {
     min-width: 320px;
 }
-:is(#QYL-content-layout, #QYL-content-style, #QYL-content-function, #QYL-content-element, #QYL-content-color) {
-    & > :is(.QYL-layout-container, .QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
-        & > :is(.QYL-layout-option, .QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
+:is(#QYL-content-style, #QYL-content-function, #QYL-content-element, #QYL-content-color) {
+    & > :is(.QYL-style-container, .QYL-function-container, .QYL-element-container, .QYL-color-container) {
+        & > :is(.QYL-style-option, .QYL-function-option, .QYL-element-option, .QYL-color-option) {
             margin: 1px;
             &.hidden {
                 display: none;
@@ -143,7 +143,7 @@ html:not(:is([lang="zh_CN"], [lang="zh_CHT"])) #QYLSettingsContent > div:first-c
     pointer-events: none;
     filter: saturate(0);
 }
-.QYLmobile :is(#VerticalTab, #FusionOn, #HideTopBar, #ColorBlock, #FullHeightLayout, #HideTab, #CardLayout, #FlatStyle, #InkMode, #GridSearchList, #EditorWidth, #FixedTool, #ColorfulTabs, #SbHandle, #ImmersiveTopBar, #ColorSwitchImgLight, #ColorSwitchImgDark) {
+.QYLmobile :is(#GridSearchList, #EditorWidth, #FixedTool, #ColorfulTabs, #ColorSwitchImgLight, #ColorSwitchImgDark) {
     opacity: 0.38;
     pointer-events: none;
 }

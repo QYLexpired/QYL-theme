@@ -1,9 +1,6 @@
 .toolbar {
     border: none;
     transition: var(--b3-transition);
-    & > * {
-        transform: translateY(3px);
-    }
 }
 #windowControls {
     margin-right: 1.5px;

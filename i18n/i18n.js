@@ -1,10 +1,10 @@
-import zh_CN from './zh_CN.js';
-import en_US from './en_US.js';
-import zh_CHT from './zh_CHT.js';
+import zhCN from './zh-CN.js';
+import en from './en.js';
+import zhTW from './zh-TW.js';
 const I18N = {
-    zh_CN,
-    en_US,
-    zh_CHT
+    'zh-CN': zhCN,
+    'en': en,
+    'zh-TW': zhTW
 };
-const i18n = I18N[window.siyuan.config.lang] || I18N.en_US;
+const i18n = I18N[window.siyuan.config.lang] || I18N.en;
 export default i18n; 

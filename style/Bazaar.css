@@ -3,6 +3,7 @@
         box-shadow: var(--b3-point-shadow);
         background-color: rgba(255, 0, 0, 0);
         border-radius: 16px;
+        transition: 0.3s;
         &.b3-card--current {
             background-color: transparent;
             & .b3-card__info {

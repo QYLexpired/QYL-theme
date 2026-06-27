@@ -28,12 +28,3 @@
         }
     }
 }
-.QYLColorBlock .layout__dockl :is(.backlinkList, .backlinkMList) {
-    & > .b3-list--background {
-        & .b3-list-item {   
-            & + .protyle {
-                background-color: var(--b3-theme-surface);
-            }
-        }
-    }
-}

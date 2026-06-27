@@ -5,9 +5,6 @@ export function initFrostedGlass() {
         :root {
             --QYL-Aero-filter: blur(40px) saturate(2.8);
             --QYL-Aero-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;
-            &.QYLFlatStyle {
-                --QYL-Aero-shadow: none;
-            }
             &[data-theme-mode="light"] {
                 --QYL-Aero-filter: blur(30px) saturate(3.2);
                 --QYL-Aero-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset,0 2px 1px -1px rgba(255, 255, 255, 0.2) inset;

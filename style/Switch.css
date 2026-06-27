@@ -4,12 +4,17 @@
     border-radius: 18px;
     border: none;
     box-shadow: var(--b3-switch-shadow);
+    background-color: unset;
+    --b3-switch-checked-hover: var(--b3-switch-checked);
+    --b3-switch-checked: white;
+    --b3-switch-checked-background: var(--b3-theme-primary);
     &::after {
         left: 0;
         top: 50%;
         transform: translate(2px, -50%);
         width: 18px;
         height: 18px;
+        background-color: var(--b3-switch-checked);
         transition: transform 0.15s ease-in-out, width 0.1s ease-in-out, left 0.1s ease-in-out;
         box-shadow: var(--b3-switch-after-shadow);
     }

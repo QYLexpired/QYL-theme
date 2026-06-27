@@ -2,17 +2,13 @@ import ThemeMode from '../basic/ThemeMode.js';
 import i18n from '../../i18n/i18n.js';
 import { smartToggleButtonState, getButtonState, setButtonState, flushBatchUpdate } from '../basic/Storage.js';
 import { getStorageItem, getStorageConfig } from '../basic/GetStorage.js';
-import excluSetting from './ExcluSetting.js';
 let fileTreeIndentModule = null;
 let frostedGlassModule = null;
 let animationModule = null;
 let colorfulFileTreeModule = null;
 let borderFileTreeModule = null;
 let gridSearchListModule = null;
-let flatStyleModule = null;
-let inkModeModule = null;
 let colorfulTabsModule = null;
-let immersiveTopBarModule = null;
 async function loadFileTreeIndentModule() {
     if (!fileTreeIndentModule) {
         try {
@@ -67,24 +63,6 @@ async function loadGridSearchListModule() {
     }
     return gridSearchListModule;
 }
-async function loadFlatStyleModule() {
-    if (!flatStyleModule) {
-        try {
-            flatStyleModule = await import('../style/FlatStyle.js');
-        } catch (error) {
-        }
-    }
-    return flatStyleModule;
-}
-async function loadInkModeModule() {
-    if (!inkModeModule) {
-        try {
-            inkModeModule = await import('../style/InkMode.js');
-        } catch (error) {
-        }
-    }
-    return inkModeModule;
-}
 async function loadColorfulTabsModule() {
     if (!colorfulTabsModule) {
         try {
@@ -93,15 +71,6 @@ async function loadColorfulTabsModule() {
         }
     }
     return colorfulTabsModule;
-}
-async function loadImmersiveTopBarModule() {
-    if (!immersiveTopBarModule) {
-        try {
-            immersiveTopBarModule = await import('../style/ImmersiveTopBar.js');
-        } catch (error) {
-        }
-    }
-    return immersiveTopBarModule;
 }
 async function enableFileTreeIndent() {
     const module = await loadFileTreeIndentModule();
@@ -175,30 +144,6 @@ async function disableGridSearchList() {
         module.removeGridSearchList();
     }
 }
-async function enableFlatStyle() {
-    const module = await loadFlatStyleModule();
-    if (module && module.initFlatStyle) {
-        module.initFlatStyle();
-    }
-}
-async function disableFlatStyle() {
-    const module = await loadFlatStyleModule();
-    if (module && module.removeFlatStyle) {
-        module.removeFlatStyle();
-    }
-}
-async function enableInkMode() {
-    const module = await loadInkModeModule();
-    if (module && module.initInkMode) {
-        module.initInkMode();
-    }
-}
-async function disableInkMode() {
-    const module = await loadInkModeModule();
-    if (module && module.removeInkMode) {
-        module.removeInkMode();
-    }
-}
 async function enableColorfulTabs() {
     const module = await loadColorfulTabsModule();
     if (module && module.initColorfultabs) {
@@ -211,18 +156,6 @@ async function disableColorfulTabs() {
         module.removeColorfultabs();
     }
 }
-async function enableImmersiveTopBar() {
-    const module = await loadImmersiveTopBarModule();
-    if (module && module.initImmersiveTopBar) {
-        module.initImmersiveTopBar();
-    }
-}
-async function disableImmersiveTopBar() {
-    const module = await loadImmersiveTopBarModule();
-    if (module && module.removeImmersiveTopBar) {
-        module.removeImmersiveTopBar();
-    }
-}
 function getStyleOptions() {
     return [
         { id: 'FileTreeIndent', label: i18n.FileTreeIndent || '文档树缩进线' },
@@ -231,10 +164,7 @@ function getStyleOptions() {
         { id: 'ColorfulFileTree', label: i18n.ColorfulFileTree || '多彩文档树' },
         { id: 'BorderFileTree', label: i18n.BorderFileTree || '边框化文档树' },
         { id: 'GridSearchList', label: i18n.GridSearchList || '网格化搜索列表' },
-        { id: 'FlatStyle', label: i18n.FlatStyle || '扁平化风格' },
-        { id: 'InkMode', label: i18n.InkMode || '墨水屏模式' },
         { id: 'ColorfulTabs', label: i18n.ColorfulTabs || '多彩页签' },
-        { id: 'ImmersiveTopBar', label: i18n.ImmersiveTopBar || '沉浸式顶栏' },
     ];
 }
 async function createStyleContent(config = null) {
@@ -263,23 +193,10 @@ async function createStyleContent(config = null) {
             const newState = await smartToggleButtonState(option.id);
             button.classList.toggle('active', newState);
             if (newState) {
-                if (['FlatStyle', 'InkMode'].includes(option.id)) {
-                    await excluSetting.handleExclusionBatch('styleExclusion', option.id, null, async (disabledId) => {
-                        if (disabledId === 'FlatStyle') {
-                            await disableFlatStyle();
-                        } else if (disabledId === 'InkMode') {
-                            await disableInkMode();
-                        }
-                    });
-                }
                 if (option.id === 'FileTreeIndent') {
                     await enableFileTreeIndent();
-                } else if (option.id === 'FlatStyle') {
-                    await enableFlatStyle();
                 } else if (option.id === 'FrostedGlass') {
                     await enableFrostedGlass();
-                } else if (option.id === 'InkMode') {
-                    await enableInkMode();
                 } else if (option.id === 'Animation') {
                     await enableAnimation();
                 } else if (option.id === 'ColorfulFileTree') {
@@ -290,18 +207,12 @@ async function createStyleContent(config = null) {
                     await enableGridSearchList();
                 } else if (option.id === 'ColorfulTabs') {
                     await enableColorfulTabs();
-                } else if (option.id === 'ImmersiveTopBar') {
-                    await enableImmersiveTopBar();
                 }
             } else {
                 if (option.id === 'FileTreeIndent') {
                     await disableFileTreeIndent();
-                } else if (option.id === 'FlatStyle') {
-                    await disableFlatStyle();
                 } else if (option.id === 'FrostedGlass') {
                     await disableFrostedGlass();
-                } else if (option.id === 'InkMode') {
-                    await disableInkMode();
                 } else if (option.id === 'Animation') {
                     await disableAnimation();
                 } else if (option.id === 'ColorfulFileTree') {
@@ -312,8 +223,6 @@ async function createStyleContent(config = null) {
                     await disableGridSearchList();
                 } else if (option.id === 'ColorfulTabs') {
                     await disableColorfulTabs();
-                } else if (option.id === 'ImmersiveTopBar') {
-                    await disableImmersiveTopBar();
                 }
             }
             await flushBatchUpdate();
@@ -341,14 +250,8 @@ async function initializeStyleStates(config = null) {
             await enableBorderFileTree();
         } else if (option.id === 'GridSearchList' && currentState) {
             await enableGridSearchList();
-        } else if (option.id === 'FlatStyle' && currentState) {
-            await enableFlatStyle();
-        } else if (option.id === 'InkMode' && currentState) {
-            await enableInkMode();
         } else if (option.id === 'ColorfulTabs' && currentState) {
             await enableColorfulTabs();
-        } else if (option.id === 'ImmersiveTopBar' && currentState) {
-            await enableImmersiveTopBar();
         }
     }
 }
@@ -357,4 +260,3 @@ export {
     createStyleContent,
     initializeStyleStates
 };
-excluSetting.registerGroup('styleExclusion', ['FlatStyle', 'InkMode']);

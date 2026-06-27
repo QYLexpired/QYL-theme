@@ -56,7 +56,3 @@
     /* 行级代码 */
     --QYL-inline-code: var(--b3-theme-primary);
 }
-/* 细节调整 */
-.QYLColorBlock[data-theme-mode="light"] {
-    --b3-theme-surface: #dde3fb;
-}

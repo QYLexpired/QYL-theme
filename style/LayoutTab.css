@@ -1,17 +1,6 @@
-.layout-tab-bar {
-    background-color: transparent;
-    border-bottom: none;
-}
-.layout-tab-container {
-    background-color: var(--b3-theme-background);
-}
-[data-type="wnd"] .layout-tab-bar {
-    background-color: var(--b3-theme-background);
-}
 .layout-tab-bar .item {
     min-height: 20px;
     height: 28px;
-    margin: 3px;
     transition: var(--b3-transition);
     &:not(.item--readonly, .item.item--focus) {
         border-radius: var(--b3-border-radius);
@@ -36,6 +25,7 @@
     &.item--focus {
         border-radius: var(--b3-border-radius);
         background-color: var(--QYL-tab-item-focus);
+        box-shadow: unset;
         &::after {
             display: none;
         }
@@ -55,6 +45,9 @@
             }
         }
     }
+}
+.layout-tab-bar {
+    border: unset;
 }
 .layout-tab-bar .item + .item {
     margin-left: 0px;
@@ -136,25 +129,6 @@
         &.item--focus {
             background-color: var(--QYL-tab-item-focus);
             box-shadow: var(--b3-point-shadow);
-        }
-    }
-}
-.QYLFlatStyle .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
-    & .item {
-        outline: none;
-        &.item--focus {
-            outline: 1px solid var(--b3-theme-surface-lighter);
-            background-color: transparent !important;
-            box-shadow: none !important;
-        }
-    }
-}
-.QYLInkMode .layout-tab-bar:not(.layout__center [data-type="wnd"] > .fn__flex:first-child > .layout-tab-bar) {
-    & .item {
-        box-shadow: none;
-        &.item--focus {
-            background-color: transparent !important;
-            box-shadow: inset 0 0 0 1.5px var(--b3-theme-primary) !important;
         }
     }
 }

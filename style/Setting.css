@@ -25,36 +25,36 @@
     opacity: 0;
 }   
 /* 多语言设置侧栏宽度调整 */
-[lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="en"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="en_US"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="en"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="ar_SA"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="ar"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="de_DE"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="de"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="es_ES"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="es"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 250px;
 }
-[lang="fr_FR"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="fr"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="he_IL"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="he"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="it_IT"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="it"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 250px;
 }
-[lang="ja_JP"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="ja"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 200px;
 }
-[lang="pl_PL"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="pl"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 250px;
 }
-[lang="ru_RU"] [data-key="dialog-setting"] .b3-tab-bar {
+[lang="ru"] [data-key="dialog-setting"] .b3-tab-bar {
     width: 250px;
 }

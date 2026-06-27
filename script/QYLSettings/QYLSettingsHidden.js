@@ -129,15 +129,6 @@ export const createQYLSettingsHiddenWindow = async () => {
         section.appendChild(optionsGrid);
         return section;
     };
-    const layoutOptions = [
-        { id: 'VerticalTab', label: i18n.VerticalTab },
-        { id: 'FusionOn', label: i18n.FusionOn },
-        { id: 'HideTopBar', label: i18n.HideTopBar },
-        { id: 'ColorBlock', label: i18n.ColorBlock },
-        { id: 'FullHeightLayout', label: i18n.FullHeightLayout },
-        { id: 'HideTab', label: i18n.HideTab },
-        { id: 'CardLayout', label: i18n.CardLayout }
-    ];
     const functionOptions = [
         { id: 'MarktoBlank', label: i18n.MarktoBlank },
         { id: 'EditorWidth', label: i18n.EditorWidth },
@@ -147,8 +138,7 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'ListBullet', label: i18n.ListBullet },
         { id: 'FixedTool', label: i18n.FixedTool },
         { id: 'FocusEditing', label: i18n.FocusEditing },
-        { id: 'SideMemo', label: i18n.SideMemo },
-        { id: 'SbHandle', label: i18n.SbHandle }
+        { id: 'SideMemo', label: i18n.SideMemo }
     ];
     const elementOptions = [
         { id: 'CustomFontStyle', label: i18n.CustomFontStyle },
@@ -161,16 +151,11 @@ export const createQYLSettingsHiddenWindow = async () => {
         { id: 'ColorfulFileTree', label: i18n.ColorfulFileTree },
         { id: 'BorderFileTree', label: i18n.BorderFileTree },
         { id: 'GridSearchList', label: i18n.GridSearchList },
-        { id: 'FlatStyle', label: i18n.FlatStyle },
-        { id: 'InkMode', label: i18n.InkMode },
-        { id: 'ColorfulTabs', label: i18n.ColorfulTabs },
-        { id: 'ImmersiveTopBar', label: i18n.ImmersiveTopBar }
+        { id: 'ColorfulTabs', label: i18n.ColorfulTabs }
     ];
-    const layoutSection = await createOptionSection(i18n.Layout, layoutOptions);
     const styleSection = await createOptionSection(i18n.Style, styleOptions);
     const functionSection = await createOptionSection(i18n.Function, functionOptions);
     const elementSection = await createOptionSection(i18n.Element, elementOptions);
-    content.appendChild(layoutSection);
     content.appendChild(styleSection);
     content.appendChild(functionSection);
     content.appendChild(elementSection);

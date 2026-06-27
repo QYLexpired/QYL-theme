@@ -5,9 +5,6 @@
     #toolbar ~ #status {
         bottom: 12px;
     }
-    .QYLColorBlock #toolbar ~ #status {
-        bottom: 6px;
-    }
     .body--window #status {
         right: 6px;
     }

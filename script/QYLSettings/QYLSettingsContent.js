@@ -1,16 +1,14 @@
 import i18n from '../../i18n/i18n.js';
 import { createFunctionContent } from './Function.js';
 import { createStyleContent } from './Style.js';
-import { createLayoutContent } from './Layout.js';
 import { createElementContent } from './Element.js';
 import { createColorContent } from './Color.js';
 import { configManager } from './InitQYLSettings.js';
 function shouldHideTab(tabId, config) {
     if (tabId === 'color') return false;
     const optionGroups = {
-        layout: ['VerticalTab', 'FusionOn', 'HideTopBar', 'ColorBlock', 'FullHeightLayout', 'HideTab', 'CardLayout'],
-        style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'FlatStyle', 'InkMode', 'ColorfulTabs'],
-        function: ['MarktoBlank', 'EditorWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo', 'SbHandle'],
+        style: ['FileTreeIndent', 'FrostedGlass', 'Animation', 'ColorfulFileTree', 'BorderFileTree', 'GridSearchList', 'ColorfulTabs'],
+        function: ['MarktoBlank', 'EditorWidth', 'FocusBlockHighlight', 'HoverBlockHighlight', 'SuperBlockHighlight', 'ListBullet', 'FixedTool', 'FocusEditing', 'SideMemo'],
         element: ['CustomFontStyle']
     };
     const options = optionGroups[tabId];
@@ -26,7 +24,6 @@ export async function createQYLSettingsContent() {
     settingsContent.className = 'b3-menu__items';
     const tabContainer = document.createElement('div');
     const tabs = [
-        { id: 'layout', name: i18n.Layout, active: false },
         { id: 'style', name: i18n.Style, active: false },
         { id: 'function', name: i18n.Function, active: false },
         { id: 'element', name: i18n.Element, active: false },
@@ -55,10 +52,7 @@ export async function createQYLSettingsContent() {
         const contentElement = document.createElement('div');
         contentElement.id = `QYL-content-${tab.id}`;
         contentElement.style.display = tab.active ? 'block' : 'none';
-        if (tab.id === 'layout') {
-            const layoutContent = await createLayoutContent(config);
-            contentElement.appendChild(layoutContent);
-        } else if (tab.id === 'function') {
+        if (tab.id === 'function') {
             const functionContent = await createFunctionContent(config);
             contentElement.appendChild(functionContent);
         } else if (tab.id === 'style') {
