@@ -1,16 +1,5 @@
 import('./index.js');
 (() => {
-  if (typeof window !== 'undefined' && window.process && window.require) {
-    try {
-      const { BrowserWindow, process } = require('@electron/remote');
-      if (process.platform === 'darwin') {
-        BrowserWindow.getFocusedWindow()?.setWindowButtonPosition({ x: 10, y: 12 });
-      }
-    } catch (e) {
-    }
-  }
-})();
-(() => {
   function updateDestroyTheme() {
     const html = document.documentElement;
     if (

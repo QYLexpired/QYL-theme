@@ -11,7 +11,7 @@
 #### 致谢
 **制作QYL主题时参考了大量集市主题和其他内容创作者，在此表示感谢，包括但不限于（排名不分先后）**
 - [Savor主题](https://github.com/royc01/notion-theme)
-- [Asri主题](https://github.com/mustakshif/Asri)：多彩文档树
+- [Asri主题](https://github.com/mustakshif/Asri)
 - [pink-room主题](https://github.com/StarDustSheep/pink-room)
 - [浅吟主题](https://github.com/TCOTC/Whisper)
 - [wilsons](https://ld246.com/member/wilsons)

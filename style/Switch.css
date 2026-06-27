@@ -4,7 +4,6 @@
     border-radius: 18px;
     border: none;
     box-shadow: var(--b3-switch-shadow);
-    background-color: unset;
     --b3-switch-checked-hover: var(--b3-switch-checked);
     --b3-switch-checked: white;
     --b3-switch-checked-background: var(--b3-theme-primary);

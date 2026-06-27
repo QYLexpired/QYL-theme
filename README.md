@@ -11,7 +11,7 @@ Detailed usage instructions can be found [here](https://icnmjy02sv9g.feishu.cn/w
 #### Acknowledgments
 **In developing the QYL theme, I referred to a large number of marketplace themes and other content creators. I would like to express my gratitude here, including but not limited to (in no particular order)**
 - [Savor Theme](https://github.com/royc01/notion-theme)
-- [Asri Theme](https://github.com/mustakshif/Asri): Colorful document tree
+- [Asri Theme](https://github.com/mustakshif/Asri)
 - [pink-room Theme](https://github.com/StarDustSheep/pink-room)
 - [Whisper Theme](https://github.com/TCOTC/Whisper)
 - [wilsons](https://ld246.com/member/wilsons)
